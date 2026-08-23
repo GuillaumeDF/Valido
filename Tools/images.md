@@ -11,10 +11,13 @@ colonne « licence » dit lesquelles passent telles quelles.
 
 ## Schémas dessinés
 
-Aucune source externe : générés par `Tools/render-scenes.swift` (CoreGraphics), quatre
+Aucune source externe : générés par `./Tools/render-scenes.sh` (CoreGraphics), quatre
 PNG par imageset — clair et sombre, en @2x et @3x. Pour les modifier, on édite la scène
-dans le script et on relance `swift Tools/render-scenes.swift` ; les fichiers ne
-s'éditent jamais à la main.
+dans le script et on relance `./Tools/render-scenes.sh` ; les fichiers ne
+s'éditent jamais à la main. Le script est découpé en plusieurs fichiers sous
+`Tools/Scenes/` : les panneaux vivent dans `Tools/Scenes/Panneaux.swift` et sont
+réutilisés tels quels par les scènes de carrefour qui les contiennent — un panneau se
+dessine une fois, pas une fois par scène.
 
 | asset | scène | licence |
 |---|---|---|
@@ -48,7 +51,7 @@ apparaître dans l'app, pas seulement ici.
 
 ## Ajouter une image
 
-1. Schéma : ajouter la scène dans `Tools/render-scenes.swift`, relancer le script.
+1. Schéma : ajouter la scène dans `Tools/Scenes/`, relancer `./Tools/render-scenes.sh`.
    Photo : télécharger la source, recadrer en 4:3, sortir @2x/@3x dans un
    `<asset>.imageset` avec son `Contents.json`.
 2. Ajouter la ligne ici — asset, source, auteur, licence, date de relevé.
