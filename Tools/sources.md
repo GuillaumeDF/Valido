@@ -129,23 +129,28 @@ depuis l'énoncé. Trié par topic pour se relire domaine par domaine.
 | `7d456e77187812e3a27ca828062d7938` | datée | ordre des gestes de réanimation (alerter, masser, défibriller) et perte de chances de survie par minute (environ 10 %) |  |  |
 | `b9e656cbd3507444669c24c85777cb54` | datée | absence de condition de formation pour l'usage d'un défibrillateur automatisé externe |  |  |
 | `09f18973aee39386ee42782f04d03ec2` | stable | obligation de céder le passage lors d'un tourne-à-gauche hors intersection réglée |  |  |
-| `2a9e02b9719028e72fde6fdd6372a1ff` | datée | points retirés pour refus de priorité à un piéton engagé sur un passage protégé (6 points) |  |  |
+| `02f7d6a65856887348bfe8653bb90c6e` | stable | usage du clignotant droit avant de quitter l'anneau d'un giratoire : R412-10 impose d'avertir de son intention, le moment relève de la pratique enseignée |  |  |
+| `2a9e02b9719028e72fde6fdd6372a1ff` | datée | refus de priorité au piéton qui s'engage ou manifeste clairement l'intention de traverser : 6 points, R415-11 en vigueur depuis le 19/09/2018 ; barème corroboré par service-public F31551, vérifié le 27/02/2026 | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037411323 | 2026-08-24 |
+| `2daf8939fc85f5b288010cf545bb681d` | stable | R415-10 ne vaut qu'au carrefour à sens giratoire : sans la signalisation qui le désigne, un rond-point reste soumis à la priorité à droite de R415-5 |  |  |
+| `3e5d97761594126d37652be2e0e976dc` | stable | règle qui reprend à un carrefour dont les feux sont hors service : la priorité à droite de R415-5, faute d'agent, de panneau ou de marquage |  |  |
 | `37fe1af42b8d812fade7d79d309e4c48` | stable | priorité aux véhicules déjà engagés dans un carrefour à sens giratoire |  |  |
 | `37fe1af42b8d815f8684e4cc91d6950f` | stable | priorité du feu tricolore sur un panneau de priorité contradictoire |  |  |
 | `37fe1af42b8d8161be32fe2fe9808fff` | stable | obligation de céder le passage sans arrêt obligatoire au panneau cédez-le-passage |  |  |
 | `37fe1af42b8d817da9fff3054d6ffa3a` | stable | hiérarchie de priorité entre agent, feu, panneau et marquage (l'agent au sommet) |  |  |
-| `37fe1af42b8d818293f3f8d862a5a505` | datée | obligation de céder le passage à un véhicule prioritaire en intervention, en toutes circonstances (article R415-12) |  |  |
+| `37fe1af42b8d818293f3f8d862a5a505` | datée | céder le passage « en toutes circonstances » aux véhicules d'intérêt général prioritaires annonçant leur approche, 4 points, R415-12 en vigueur depuis le 01/06/2001 (la nuance radar de l'explication reste non revérifiée, voir le rapport de la tâche 6) | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006842252 | 2026-08-24 |
 | `37fe1af42b8d8184beb9c6687c92ffb5` | stable | signification du panneau losange jaune barré (fin de route à caractère prioritaire) |  |  |
 | `37fe1af42b8d818fb7c9efba6c63d91d` | stable | priorité à droite par défaut en l'absence de toute signalisation |  |  |
-| `37fe1af42b8d81bd9426eabc80ab4a05` | datée | points retirés pour non-respect de l'arrêt au panneau STOP (4 points) |  |  |
+| `37fe1af42b8d81bd9426eabc80ab4a05` | datée | arrêt au STOP « à la limite de la chaussée abordée » et 4 points, R415-6 en vigueur depuis le 01/06/2001 ; barème corroboré par service-public F31551, vérifié le 27/02/2026 | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006842245 | 2026-08-24 |
 | `37fe1af42b8d81d6aef7ff0b8d193d7f` | stable | signification du panneau losange jaune (route à caractère prioritaire) |  |  |
-| `37fe1af42b8d81fa9debeaf114b7bf77` | stable | priorité systématique du tramway à une intersection |  |  |
+| `37fe1af42b8d81fa9debeaf114b7bf77` | stable | priorité de passage du matériel roulant sur voie ferrée établie sur la route (R422-3 I), un tramway restant tenu par la signalisation à prescriptions absolues |  |  |
 | `43dc08f7c9ebc00497a4022e24319683` | stable | obligation d'arrêt complet à la ligne au panneau STOP, avant de céder le passage |  |  |
+| `6e1a51d34b4b79e4366d6566795e5151` | stable | croisement difficile sur forte déclivité : le véhicule descendant s'arrête le premier (R414-3 I) et recule entre véhicules de même catégorie (R414-3 III) |  |  |
 | `700316a2fd86db7d682be208673c92d5` | stable | fonction du sas cycliste (placer les cyclistes devant les voitures à l'arrêt) |  |  |
 | `8e9464777a61dba3859e3ecc08f7327d` | stable | priorité conférée par le panneau losange jaune sur la route transversale |  |  |
-| `b433eefe7ea3ce149e6d6dd09e958a00` | datée | autorisation des cyclistes à franchir un feu rouge via le panonceau M12 (arrêté du 12 janvier 2012) |  |  |
+| `b433eefe7ea3ce149e6d6dd09e958a00` | datée | panonceau M12 créé par l'arrêté du 12 janvier 2012 (JO du 27/01/2012) : triangle pointe en bas, fond blanc bordé de rouge, pictogramme jaune, toujours associé à un feu tricolore ; franchissement « en toute prudence et en respectant la priorité de passage accordée aux autres usagers » | https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025202146 | 2026-08-24 |
 | `dd4c58febe771b6f297f1ca46c2ec75b` | stable | priorité à l'anneau d'un giratoire, qui arrive toujours par la gauche |  |  |
-| `defefbae1ae651a95dd247e38524ee36` | datée | points retirés pour un refus de priorité en intersection (4 points) |  |  |
+| `ef4cfd171e0e9911a2619b3b06336216` | stable | priorité du tramway quel que soit le côté d'où il arrive, et sans condition de signal sonore (R422-3 I) |  |  |
+| `defefbae1ae651a95dd247e38524ee36` | datée | refus de priorité entre véhicules à une intersection : 4 points, R415-5 en vigueur depuis le 01/06/2001 ; barème corroboré par service-public F31551, vérifié le 27/02/2026 | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006842244 | 2026-08-24 |
 | `e0f68dd1324f9a5ffaab945a3d59e197` | stable | obligation de céder le passage en sortant d'un parking vers la chaussée |  |  |
 | `e93ca4d156de5854eafce9393be39274` | stable | règle de priorité à droite appliquée à une insertion en T ou en croix |  |  |
 | `f255331d3f234810a4807594b43b397f` | stable | priorité à droite par défaut en l'absence de signalisation |  |  |

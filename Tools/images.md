@@ -27,6 +27,10 @@ dessine une fois, pas une fois par scène.
 | `carrefour-cedez-le-passage` | AB3a et ligne discontinue à traits larges | maison, aucune source tierce |
 | `carrefour-en-t` | carrefour en T sans signalisation, insertion à droite | maison, aucune source tierce |
 | `rond-point-insertion` | giratoire, véhicule déjà sur l'anneau par la gauche | maison, aucune source tierce |
+| `carrefour-feu-en-panne` | même croisement, deux feux tricolores éteints | maison, aucune source tierce |
+| `carrefour-tramway` | voie ferrée en travers, tramway venant de la gauche | maison, aucune source tierce |
+| `croisement-en-pente` | **vue de profil** : deux véhicules face à face sur une forte pente | maison, aucune source tierce |
+| `giratoire-sortie-clignotant` | anneau, trajectoire de sortie une branche plus loin | maison, aucune source tierce |
 | `panneau-b14-limitation` | B14 seul, disque à large liseré rouge portant 70 | maison, aucune source tierce |
 | `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
 | `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
@@ -36,6 +40,18 @@ Les formes de panneaux sont redessinées d'après la spécification officielle
 (Instruction interministérielle sur la signalisation routière) : la géométrie d'un
 panneau réglementaire est une norme publique, pas l'œuvre d'un éditeur. Aucun visuel
 d'éditeur d'ETG n'a été repris, ni comme source ni comme modèle.
+
+Deux dessins n'ont **aucune planche officielle relevée**, et c'est à noter pour une passe
+de re-sourçage : l'A16 « descente dangereuse » avec son panonceau de déclivité, et le
+caisson de feu tricolore. Le triangle de danger vient de la même géométrie que les autres
+panneaux du fichier ; le pictogramme de descente et les trois lentilles sont dessinés
+d'après la forme courante, de mémoire de la route et non d'un document. Là encore, aucun
+visuel d'éditeur n'a servi de modèle.
+
+`croisement-en-pente` est la seule scène **de profil** et non vue de dessus. Ce n'est pas
+un écart de style : une pente ne se voit pas en vue aérienne, et c'est le sens de la
+déclivité qui décide de la réponse. La règle de cadrage tient quand même — les deux
+véhicules sont au centre vertical, dans la bande qui survit au rétrécissement du bandeau.
 
 Le B14, le B33 et le B30 ont été redessinés d'après la planche de la page 4 du [guide
 technique « la zone 30 »](https://www.securite-routiere.gouv.fr/sites/default/files/2019-02/guide_techn_fiche4_technique_zone30_cle29ec98.pdf)

@@ -89,6 +89,85 @@ func voiture(_ ctx: CGContext, x: Double, y: Double, cap: Cap, couleur: CGColor,
     ctx.fill(pb)
 }
 
+/// Un tramway vu de dessus : caisse deux fois plus longue qu'une voiture, deux
+/// articulations en travers, pare-brise à l'avant. C'est la longueur et les rails
+/// dessous — jamais la teinte — qui le désignent comme tramway.
+func tramway(_ ctx: CGContext, x: Double, y: Double, cap: Cap, couleur: CGColor,
+             _ p: Palette) {
+    let long = 88.0, larg = 26.0
+    let horizontal = (cap == .est || cap == .ouest)
+    let rect = CGRect(x: x - (horizontal ? long : larg) / 2,
+                      y: y - (horizontal ? larg : long) / 2,
+                      width: horizontal ? long : larg,
+                      height: horizontal ? larg : long)
+    ctx.setFillColor(couleur)
+    ctx.addPath(CGPath(roundedRect: rect, cornerWidth: 7, cornerHeight: 7, transform: nil))
+    ctx.fillPath()
+    // Les articulations : c'est ce qui fait lire une rame plutôt qu'un camion.
+    ctx.setFillColor(CGColor(gray: 0, alpha: 0.22))
+    for t in [1.0 / 3, 2.0 / 3] {
+        if horizontal {
+            ctx.fill(CGRect(x: rect.minX + rect.width * t - 1.5, y: rect.minY,
+                            width: 3, height: rect.height))
+        } else {
+            ctx.fill(CGRect(x: rect.minX, y: rect.minY + rect.height * t - 1.5,
+                            width: rect.width, height: 3))
+        }
+    }
+    ctx.setFillColor(CGColor(gray: 1, alpha: 0.55))
+    let e = 6.0
+    switch cap {
+    case .nord: ctx.fill(CGRect(x: rect.minX + e, y: rect.minY + 5, width: rect.width - 2 * e, height: 8))
+    case .sud:  ctx.fill(CGRect(x: rect.minX + e, y: rect.maxY - 13, width: rect.width - 2 * e, height: 8))
+    case .est:  ctx.fill(CGRect(x: rect.maxX - 13, y: rect.minY + e, width: 8, height: rect.height - 2 * e))
+    case .ouest: ctx.fill(CGRect(x: rect.minX + 5, y: rect.minY + e, width: 8, height: rect.height - 2 * e))
+    }
+}
+
+/// Une voiture vue **de côté**, posée sur une chaussée inclinée de `pente` radians.
+/// Vue de dessus, une pente ne se voit pas : c'est toute la raison d'être de cette
+/// primitive, et la seule scène de profil du dossier s'en sert. Le pavillon est décalé
+/// vers l'avant, comme le pare-brise sur la vue de dessus, pour que le sens de marche se
+/// lise sans flèche.
+func voitureDeProfil(_ ctx: CGContext, x: Double, y: Double, pente: Double,
+                     versLaDroite: Bool, couleur: CGColor, liseree: Bool = false,
+                     _ p: Palette) {
+    ctx.saveGState()
+    ctx.translateBy(x: x, y: y)
+    ctx.rotate(by: pente)
+    // Miroir plutôt qu'une seconde géométrie : la caisse est symétrique, seul le pavillon
+    // et le pare-brise portent le sens de marche.
+    if !versLaDroite { ctx.scaleBy(x: -1, y: 1) }
+    let caisse = CGPath(roundedRect: CGRect(x: -24, y: -8, width: 48, height: 16),
+                        cornerWidth: 5, cornerHeight: 5, transform: nil)
+    let pavillon = CGPath(roundedRect: CGRect(x: -13, y: -17, width: 25, height: 11),
+                          cornerWidth: 4, cornerHeight: 4, transform: nil)
+    ctx.setFillColor(couleur)
+    ctx.addPath(caisse)
+    ctx.addPath(pavillon)
+    ctx.fillPath()
+    if liseree {
+        ctx.setStrokeColor(p.marquage)
+        ctx.setLineWidth(2.5)
+        ctx.addPath(caisse)
+        ctx.addPath(pavillon)
+        ctx.strokePath()
+    }
+    ctx.setFillColor(CGColor(gray: 1, alpha: 0.55))
+    ctx.fill(CGRect(x: 3, y: -15, width: 7, height: 7))
+    // Roues : un noir presque plein, cerné d'un filet clair pour rester visible sur la
+    // chaussée du mode sombre.
+    for rx in [-14.0, 14.0] {
+        let roue = CGRect(x: rx - 6, y: 2, width: 12, height: 12)
+        ctx.setFillColor(CGColor(gray: 0.10, alpha: 1))
+        ctx.fillEllipse(in: roue)
+        ctx.setStrokeColor(CGColor(gray: 1, alpha: 0.35))
+        ctx.setLineWidth(1)
+        ctx.strokeEllipse(in: roue)
+    }
+    ctx.restoreGState()
+}
+
 /// Flèche d'intention : ce que le véhicule s'apprête à faire. Sans elle, « qui passe en
 /// premier » reste indécidable dès qu'un des deux tourne.
 func fleche(_ ctx: CGContext, _ points: [CGPoint], couleur: CGColor) {
@@ -134,6 +213,17 @@ func texte(_ ctx: CGContext, _ chaine: String, centre: CGPoint, taille: Double, 
                                y: -bounds.height / 2 - bounds.minY)
     CTLineDraw(line, ctx)
     ctx.restoreGState()
+}
+
+/// Voie ferrée posée dans l'axe de la chaussée horizontale : deux rails continus qui
+/// traversent le carrefour de part en part. Ils **remplacent** l'axe médian en
+/// pointillés — une rue à plateforme de tramway n'a pas les deux — et c'est leur
+/// continuité, opposée au pointillé d'un marquage, qui les fait lire comme des rails.
+func railsHorizontaux(_ ctx: CGContext, _ p: Palette) {
+    ctx.setFillColor(p.marquage)
+    for dy in [-9.0, 9.0] {
+        ctx.fill(CGRect(x: 0, y: cy + dy - 1.5, width: W, height: 3))
+    }
 }
 
 /// Ligne d'arrêt du STOP : un trait continu large, en travers de la voie d'approche.

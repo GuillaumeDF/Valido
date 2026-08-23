@@ -7068,7 +7068,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le barème place cette infraction au niveau le plus élevé possible pour une contravention, celui de l'alcoolémie. C'est le seul refus de priorité sanctionné à ce niveau : le piéton engagé n'a aucune protection matérielle.",
+    "explanation": "Le barème la place au niveau le plus élevé possible pour une contravention, celui de l'alcoolémie. Depuis 2018, l'obligation vaut aussi pour le piéton qui manifeste clairement l'intention de traverser, sans être encore engagé.",
     "id": "2a9e02b9719028e72fde6fdd6372a1ff",
     "options": [
       {
@@ -7115,7 +7115,7 @@
         "text": "3 points, comme les distances de sécurité"
       }
     ],
-    "prompt": "Un refus de priorité en intersection fait perdre :",
+    "prompt": "Un refus de priorité entre deux véhicules fait perdre :",
     "subject": "code",
     "topic": "Priorités & intersections"
   },
@@ -8728,5 +8728,156 @@
     "prompt": "Sur autoroute, à l'approche d'un chantier, la vitesse à tenir est :",
     "subject": "code",
     "topic": "Vitesse"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "Un feu éteint ne prescrit plus rien : la hiérarchie redescend d'un cran. S'il ne reste ni agent, ni panneau, ni marquage, c'est la règle de l'article R415-5 qui revient, celle du croisement nu.",
+    "id": "3e5d97761594126d37652be2e0e976dc",
+    "illustration": {
+      "alt": "Croisement à quatre branches ; les deux têtes de signal tricolore sont sombres, aucun panneau n'est planté, et un véhicule arrive de votre droite.",
+      "asset": "carrefour-feu-en-panne"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "L'arrêt absolu, comme devant un panneau STOP"
+      },
+      {
+        "id": "B",
+        "text": "La priorité au premier véhicule qui s'y est engagé"
+      },
+      {
+        "id": "C",
+        "text": "L'obligation de céder à la plus large des deux"
+      },
+      {
+        "id": "D",
+        "text": "La priorité à droite, faute d'autre signalisation"
+      }
+    ],
+    "prompt": "Ces feux sont hors service. La règle qui reprend est :",
+    "subject": "code",
+    "topic": "Priorités & intersections"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Le code donne la priorité au matériel qui roule sur des rails, sans condition de provenance ni de signal sonore : un tramway ne peut ni s'écarter ni s'arrêter court. Seule une signalisation absolue l'arrête.",
+    "id": "ef4cfd171e0e9911a2619b3b06336216",
+    "illustration": {
+      "alt": "Croisement à quatre branches traversé par une voie ferrée ; un tramway s'avance depuis votre gauche et vous montez tout droit.",
+      "asset": "carrefour-tramway"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Vous : il arrive sur votre gauche"
+      },
+      {
+        "id": "B",
+        "text": "Le tramway, mais seulement s'il actionne sa cloche"
+      },
+      {
+        "id": "C",
+        "text": "Vous : les rails ne créent aucune priorité"
+      },
+      {
+        "id": "D",
+        "text": "Le tramway : sa priorité ne dépend pas du côté"
+      }
+    ],
+    "prompt": "À ce carrefour, qui passe en premier ?",
+    "subject": "code",
+    "topic": "Priorités & intersections"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "L'article R414-3 fait s'arrêter le premier celui qui descend, en montagne comme sur toute forte déclivité : relancer un véhicule dans la pente est bien plus délicat. Et c'est encore à lui de reculer s'il le faut.",
+    "id": "6e1a51d34b4b79e4366d6566795e5151",
+    "illustration": {
+      "alt": "Route étroite à forte pente, vue de côté ; vous descendez à la rencontre d'un véhicule qui monte, et la chaussée ne permet pas de passer de front.",
+      "asset": "croisement-en-pente"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "Le véhicule qui monte : la pente joue contre lui"
+      },
+      {
+        "id": "B",
+        "text": "Celui qui a une place d'évitement derrière lui"
+      },
+      {
+        "id": "C",
+        "text": "Vous : le véhicule qui descend s'arrête d'abord"
+      },
+      {
+        "id": "D",
+        "text": "Le plus lourd, qu'un redémarrage en pente pénalise"
+      }
+    ],
+    "prompt": "Le croisement s'annonce difficile. Qui doit céder ?",
+    "subject": "code",
+    "topic": "Priorités & intersections"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Le clignotant renseigne celui qui attend à la branche où vous allez ressortir. Mis trop tôt, il fait démarrer celui qui attend à la branche précédente, persuadé que vous lui laissez la place.",
+    "id": "02f7d6a65856887348bfe8653bb90c6e",
+    "illustration": {
+      "alt": "Giratoire à quatre branches ; vous circulez déjà sur l'anneau et votre trajectoire le quitte par la branche du haut, où un véhicule attend pour entrer.",
+      "asset": "giratoire-sortie-clignotant"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "dès votre entrée sur l'anneau, et y rester allumé"
+      },
+      {
+        "id": "B",
+        "text": "quand vos roues quittent l'anneau, pas avant"
+      },
+      {
+        "id": "C",
+        "text": "après la sortie qui précède celle que vous prenez"
+      },
+      {
+        "id": "D",
+        "text": "seulement si un véhicule attend à cette sortie"
+      }
+    ],
+    "prompt": "Sur l'anneau, votre clignotant droit doit s'allumer :",
+    "subject": "code",
+    "topic": "Priorités & intersections"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Un rond-point n'est un carrefour à sens giratoire que si la signalisation le dit : le triangle à trois flèches et un cédez-le-passage à chaque entrée. Sans eux, l'article R415-10 ne s'applique pas et la priorité à droite reprend, au bénéfice de qui entre.",
+    "id": "2daf8939fc85f5b288010cf545bb681d",
+    "options": [
+      {
+        "id": "A",
+        "text": "à l'anneau, comme dans tout carrefour giratoire"
+      },
+      {
+        "id": "B",
+        "text": "au conducteur qui a mis son clignotant le premier"
+      },
+      {
+        "id": "C",
+        "text": "à celui qui a le premier atteint la chaussée annulaire"
+      },
+      {
+        "id": "D",
+        "text": "à droite, donc aux véhicules qui s'y engagent"
+      }
+    ],
+    "prompt": "À un rond-point qu'aucun panneau n'annonce, la priorité est :",
+    "subject": "code",
+    "topic": "Priorités & intersections"
   }
 ]

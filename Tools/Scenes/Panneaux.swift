@@ -166,3 +166,66 @@ func panneauZone30(_ ctx: CGContext, at pt: CGPoint, demiCote: Double, _ p: Pale
     panneauLimitation(ctx, 30, at: CGPoint(x: pt.x, y: pt.y + demiCote * 0.28),
                       rayon: demiCote * 0.60, p)
 }
+
+// MARK: - Feux et panneaux de danger
+
+/// Boîtier d'un feu tricolore, planté au bord de la chaussée : trois lentilles alignées
+/// dans un caisson vertical, sur son mât. Renvoie le centre des trois lentilles, **du
+/// haut vers le bas**, pour qu'un appelant puisse en allumer une : c'est alors la position
+/// dans le caisson qui porte l'information, pas la seule couleur.
+///
+/// Aucune scène n'allume encore de lampe, et la palette n'a d'ailleurs pas de vert. La
+/// tâche qui aura besoin d'un feu allumé ajoutera l'un et l'autre ; le caisson, lui, est
+/// dessiné une fois pour toutes.
+func boitierDeFeu(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) -> [CGPoint] {
+    let l = 13.0, h = 34.0
+    let caisson = CGRect(x: pt.x - l / 2, y: pt.y - h / 2, width: l, height: h)
+    ctx.setFillColor(p.chaussee)
+    ctx.addPath(CGPath(roundedRect: caisson, cornerWidth: 3, cornerHeight: 3, transform: nil))
+    ctx.fillPath()
+    // Le mât, sans quoi le caisson flotte au-dessus du sol.
+    ctx.fill(CGRect(x: pt.x - 1.5, y: caisson.maxY, width: 3, height: 8))
+    return (0..<3).map { CGPoint(x: pt.x, y: caisson.minY + 6.5 + Double($0) * 10.5) }
+}
+
+/// Feu hors service : les trois lentilles au même gris éteint. Ce qui se lit est
+/// l'**absence** de lampe allumée, et non une couleur particulière — un daltonien voit la
+/// même chose que tout le monde.
+func feuHorsService(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
+    for centre in boitierDeFeu(ctx, at: pt, p) {
+        let lentille = CGRect(x: centre.x - 4, y: centre.y - 4, width: 8, height: 8)
+        ctx.setFillColor(CGColor(gray: 1, alpha: 0.28))
+        ctx.fillEllipse(in: lentille)
+        ctx.setStrokeColor(CGColor(gray: 1, alpha: 0.5))
+        ctx.setLineWidth(1)
+        ctx.strokeEllipse(in: lentille)
+    }
+}
+
+/// A16, descente dangereuse, avec son panonceau de déclivité. Il est là pour une raison
+/// de droit et non de décor : l'article R414-3 ne fait s'arrêter le véhicule descendant
+/// que « sur les routes de montagne et sur les routes à forte déclivité », et c'est
+/// l'image qui doit dire qu'on y est.
+func panneauDescenteDangereuse(_ ctx: CGContext, _ pourcentage: Int, at pt: CGPoint,
+                               rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .triangle, at: pt, rayon: rayon, fond: p.panneauFond,
+            bord: p.panneauRouge, epaisseurBord: rayon * 0.17)
+    // Le pictogramme réglementaire : une chaussée qui plonge vers la droite.
+    ctx.setStrokeColor(encre(p))
+    ctx.setLineWidth(rayon * 0.17)
+    ctx.setLineCap(.butt)
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: pt.x - rayon * 0.45, y: pt.y - rayon * 0.10))
+    ctx.addLine(to: CGPoint(x: pt.x + rayon * 0.45, y: pt.y + rayon * 0.36))
+    ctx.strokePath()
+    // Panonceau de déclivité : un rectangle blanc sous le triangle, comme sur la route.
+    let l = rayon * 1.55, h = rayon * 0.64
+    let plaque = CGRect(x: pt.x - l / 2, y: pt.y + rayon * 0.95, width: l, height: h)
+    ctx.setFillColor(p.panneauFond)
+    ctx.fill(plaque)
+    ctx.setStrokeColor(encre(p))
+    ctx.setLineWidth(1)
+    ctx.stroke(plaque)
+    texte(ctx, "\(pourcentage) %", centre: CGPoint(x: plaque.midX, y: plaque.midY),
+          taille: h * 0.60, couleur: encre(p))
+}
