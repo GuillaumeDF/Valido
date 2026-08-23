@@ -1,0 +1,167 @@
+# Registre de fraîcheur des questions `code`
+
+Une ligne par question `code`, **sans exception**. `Tools/audit.py` refuse une question
+`code` absente de ce tableau : c'est la seule manière d'empêcher qu'une question neuve
+entre sans que personne ait dit contre quoi elle a été vérifiée.
+
+`nature` est **déclarée, pas déduite**. Aucun script ne peut décider si « le clignotant
+s'utilise à chaque changement de voie » porte une valeur datable.
+
+- `stable` — une règle sans chiffre, sans seuil, sans sanction. Colonnes `source` et
+  `relevé le` vides.
+- `datée` — tout seuil, barème, montant, durée ou qualification pénale. URL d'un domaine
+  de la liste blanche **et** date de relevé obligatoires.
+
+La liste blanche : `legifrance.gouv.fr`, `securite-routiere.gouv.fr`,
+`service-public.gouv.fr`, `ecologie.gouv.fr`, `sante.gouv.fr`, `unece.org`,
+`eur-lex.europa.eu`, `cprguidelines.eu`, `croix-rouge.fr`, `inrs.fr`. Rien d'autre : les
+éditeurs d'ETG et les sites d'auto-école se recopient et périment sans le dire, ce qui est
+exactement le défaut que ce registre corrige.
+
+`audit.py` signale un relevé de plus de douze mois. Ce n'est pas une erreur, c'est une
+échéance : le droit routier bouge, et la passe d'août 2026 a trouvé un chiffre périmé
+depuis trois jours.
+
+Les 136 lignes ci-dessous classent la question ; elles ne la vérifient pas encore. Les
+colonnes `source` et `relevé le` sont volontairement vides — c'est aux tâches 5 à 17 de les
+remplir en lisant la source, jamais en la devinant depuis l'énoncé. Trié par topic pour se
+relire domaine par domaine.
+
+| id | nature | affirmation vérifiée | source | relevé le |
+|---|---|---|---|---|
+| `37fe1af42b8d810ea54ddbcc64f356fa` | datée | qualification pénale de la conduite après usage de stupéfiants (délit sans seuil de tolérance) |  |  |
+| `37fe1af42b8d8118b6d3f82929eabdca` | datée | seuil légal d'alcoolémie pour un permis classique (0,5 g/L de sang) |  |  |
+| `37fe1af42b8d811eae7dfa1a08ee0f64` | datée | vitesse d'élimination de l'alcool dans le sang (0,1 à 0,15 g/L par heure) |  |  |
+| `37fe1af42b8d81218099fdc3bcfd24c9` | datée | hausse d'alcoolémie provoquée par un verre standard (environ 0,20 g/L) |  |  |
+| `37fe1af42b8d817e8e2feffa6987ba00` | datée | qualification et peines pour une alcoolémie délictuelle à partir de 0,8 g/L (4 500 €, 2 ans, 6 points) |  |  |
+| `37fe1af42b8d817e9b93c2546ad30ec9` | datée | points retirés pour une alcoolémie contraventionnelle entre 0,5 et 0,8 g/L (6 points) |  |  |
+| `37fe1af42b8d81b38194dba0c15484b4` | datée | peine maximale encourue pour conduite sous stupéfiants (9 000 € et 3 ans de prison) |  |  |
+| `37fe1af42b8d81b3b1a2f0bc28c23b22` | datée | seuil d'alcoolémie à partir duquel le champ visuel et les réflexes sont affectés (dès 0,3 g/L) |  |  |
+| `37fe1af42b8d81cf8791f73464a2f801` | datée | seuil légal d'alcoolémie en permis probatoire (0,2 g/L) |  |  |
+| `37fe1af42b8d81f2a662e1b1284f99b9` | stable | seul le temps élimine l'alcool dans le sang, aucun geste ne l'accélère |  |  |
+| `526ffb51f8bc0ed95490405ddc0dfc0f` | datée | seuil probatoire d'alcoolémie (0,2 g/L) et qualification contraventionnelle sous 0,8 g/L |  |  |
+| `749552ac121e0cd77beff969300b8ef9` | datée | qualification pénale du refus de dépistage d'alcoolémie (délit, 6 points) |  |  |
+| `e13df5a7d4151bdeca7a9f914c90cf4e` | datée | peines encourues pour cumul alcool et stupéfiants (5 ans de prison, 15 000 €) |  |  |
+| `ef26cca38b9d1abc6fb0b13d76247f35` | stable | fonctionnement de l'éthylotest antidémarrage comme alternative judiciaire à la suspension |  |  |
+| `0a4e98c4605ec20320f13dec75f7bb9c` | stable | portée d'un marquage jaune continu (interdiction d'arrêt et de stationnement) |  |  |
+| `37fe1af42b8d811198bdecd01768828c` | datée | amende et points pour un stationnement dangereux (135 €, 3 points) |  |  |
+| `37fe1af42b8d811b96fdf80a7a546c1e` | stable | côté de stationnement autorisé sur une chaussée à double sens en agglomération |  |  |
+| `37fe1af42b8d812cad07c40f6c51598c` | stable | critères distinguant l'arrêt du stationnement (durée et présence du conducteur) |  |  |
+| `37fe1af42b8d8134ad4be3c7e29328f1` | datée | amende pour un stationnement très gênant sur un passage piéton (135 €) |  |  |
+| `37fe1af42b8d8148bc29ede5a0015edd` | stable | emplacement recommandé pour s'arrêter hors agglomération (l'accotement) |  |  |
+| `37fe1af42b8d8166847cf95009550b0a` | datée | obligation du disque en zone bleue et durée gratuite habituelle (souvent 1 h 30) |  |  |
+| `37fe1af42b8d8181a057c984708f0042` | datée | amende pour un stationnement gênant simple (35 €), distincte du très gênant (135 €) |  |  |
+| `37fe1af42b8d81d793bcc927205f9d79` | datée | classement et amende du stationnement sur une voie réservée aux bus (très gênant, 135 €) |  |  |
+| `37fe1af42b8d81e2b806fb6055602586` | stable | précautions à prendre avant de quitter une place de stationnement |  |  |
+| `37fe1af42b8d81e9b314fcb5ac447202` | datée | durée au-delà de laquelle un stationnement est jugé abusif (7 jours) |  |  |
+| `37fe1af42b8d8104b119f947eb9e296d` | datée | distance parcourue pendant le temps de réaction à 50 km/h (environ 14 m) |  |  |
+| `37fe1af42b8d811f9954e63cf1aa9ffa` | datée | coefficient utilisé pour estimer la distance de réaction (chiffre des dizaines × 3) |  |  |
+| `37fe1af42b8d812c9bb4e393d72d6df0` | datée | effet du doublement de la vitesse sur la distance de freinage (multipliée par 4) |  |  |
+| `37fe1af42b8d812db558cb9e19e11709` | datée | intervalle de sécurité minimal recommandé avec le véhicule précédent (2 secondes) |  |  |
+| `37fe1af42b8d815a8de7c20835afd6ac` | datée | distance correspondant à un intervalle de sécurité de 2 secondes à 130 km/h (environ 72 m) |  |  |
+| `37fe1af42b8d817eb292c10d8effbad4` | stable | composition de la distance d'arrêt (distance de réaction + distance de freinage) |  |  |
+| `37fe1af42b8d81e48a72e74c9a2454a2` | datée | effet de la pluie sur la distance de freinage (à peu près doublée) |  |  |
+| `37fe1af42b8d81e7a041ff53b8ef69c2` | datée | amende et points pour non-respect des distances de sécurité (135 €, 3 points) |  |  |
+| `37fe1af42b8d81e98af3c07ec3728454` | datée | temps de réaction moyen retenu pour un conducteur (environ 1 seconde) |  |  |
+| `37fe1af42b8d81ef84ffe4578802422a` | datée | amende et points pour usage du téléphone en main allongeant le temps de réaction (135 €, 3 points) |  |  |
+| `37fe1af42b8d81038eabdcd0f319857c` | stable | situations imposant l'usage du clignotant (changement de direction ou de voie) |  |  |
+| `37fe1af42b8d8118ab59f3f1a651bb26` | stable | signification d'un feu jaune clignotant (passage prudent selon les règles de priorité) |  |  |
+| `37fe1af42b8d81659d11e27049af398e` | datée | points retirés pour franchissement d'un feu rouge fixe (4 points) |  |  |
+| `37fe1af42b8d8189a735d41a796aafb6` | stable | condition de passage à un feu vert (intersection dégagée) |  |  |
+| `37fe1af42b8d8193887bfe48eab17d43` | stable | conditions d'obligation des feux de croisement (nuit et visibilité réduite) |  |  |
+| `37fe1af42b8d81adbe05ccc6da87aef7` | stable | usage des feux de détresse (signaler un danger ou un ralentissement brutal) |  |  |
+| `37fe1af42b8d81b1b37feb613e893fbf` | datée | conditions d'utilisation des feux arrière antibrouillard (brouillard/neige, article R416-7) |  |  |
+| `37fe1af42b8d81c8af99ca09e3710b01` | stable | passage en feux de croisement au croisement d'un véhicule de nuit |  |  |
+| `37fe1af42b8d81df975dea92682dad6c` | stable | signification d'un feu rouge clignotant (arrêt absolu) |  |  |
+| `37fe1af42b8d81fc9bbbee0a1767bba6` | stable | conduite à tenir au feu orange fixe (arrêt, sauf danger à freiner) |  |  |
+| `37fe1af42b8d81139920e49f3f7b6b59` | datée | signification du témoin d'usure d'un pneu (limite légale de profondeur, 1,6 mm) |  |  |
+| `37fe1af42b8d81209e09c493195df716` | stable | signification d'un témoin rouge au tableau de bord (anomalie grave, arrêt nécessaire) |  |  |
+| `37fe1af42b8d8123abc0da9b2b7a51e0` | stable | fonction de la vignette Crit'Air (classement des véhicules selon leurs émissions) |  |  |
+| `37fe1af42b8d814289adf64bd5b05d0e` | stable | équipements de sécurité obligatoires à bord d'une voiture (gilet, triangle) |  |  |
+| `37fe1af42b8d814ba731d0f9dafb6945` | stable | technique recommandée en longue descente pour éviter la surchauffe des freins (frein moteur) |  |  |
+| `37fe1af42b8d8158a15ac34f4b0e4be9` | stable | niveaux à surveiller régulièrement sur un véhicule (huile, refroidissement, frein, lave-glace) |  |  |
+| `37fe1af42b8d81b99c05ef1ffdacc30e` | stable | signification d'un témoin orange au tableau de bord (anomalie à surveiller) |  |  |
+| `37fe1af42b8d81c89e88db8c08ca8514` | stable | principes de l'éco-conduite (anticipation, régime moteur modéré) |  |  |
+| `37fe1af42b8d81deaec0cb8830fa0b25` | datée | profondeur minimale légale des sculptures d'un pneu (1,6 mm) |  |  |
+| `37fe1af42b8d81f4b915cd58b951d9e4` | datée | moment de contrôle de la pression des pneus et correction à chaud (+0,3 bar) |  |  |
+| `11d37be22fd315668cb2930373e95c80` | stable | signification du panneau rond blanc barré (fin de toutes les interdictions précédentes) |  |  |
+| `1a0a5812ff8659ba24b3b4c750e469e5` | stable | interdiction imposée par la partie continue d'une ligne mixte (dépassement et franchissement) |  |  |
+| `37fe1af42b8d81059d80e8954b36ed7f` | stable | signification d'un panneau rond à liseré rouge (interdiction, applicable ici) |  |  |
+| `37fe1af42b8d8141b1d0e3ca0b855119` | datée | points retirés pour chevauchement (1 point) et franchissement (3 points) d'une ligne continue |  |  |
+| `37fe1af42b8d81699c2ffbefd648d9a3` | stable | signification d'un panneau rond à fond bleu (obligation) |  |  |
+| `37fe1af42b8d81709c93fcc98510a42d` | stable | signification des flèches de rabattement peintes au sol (ligne continue proche) |  |  |
+| `37fe1af42b8d8174a3c3e94967027ed1` | stable | signification d'un panneau rond bleu à flèche verticale (obligation d'aller tout droit) |  |  |
+| `37fe1af42b8d817881dee3d999a911c3` | stable | nature informative, non prescriptive, des panneaux carrés à fond bleu |  |  |
+| `37fe1af42b8d81b3a4b7d484aef5aef8` | stable | règle de lecture d'une ligne mixte (suivre celle de son côté) |  |  |
+| `37fe1af42b8d81b5aa9fc685af3ba92f` | stable | signification d'un panneau triangulaire à liseré rouge (danger à venir) |  |  |
+| `37fe1af42b8d81d68a70da4a7305f6c1` | stable | signification des zébras peints au sol (zone interdite à la circulation) |  |  |
+| `37fe1af42b8d81f8a2f3f8bd2afc9d2d` | stable | portée d'une ligne discontinue axiale (franchissement autorisé) |  |  |
+| `3cb86b6e4c489d919a495408021f062a` | datée | points retirés pour chevauchement d'une ligne continue sans la franchir (1 point) |  |  |
+| `443e4299ccb3ff71669f8df6669b8bf4` | stable | forme octogonale exclusive au panneau STOP |  |  |
+| `5a4e6a38ad3e1153f807ec5e0e6ba40e` | stable | ce que délimite une ligne discontinue en bord de chaussée (bande d'arrêt d'urgence ou accotement) |  |  |
+| `9eb8506813f0c8b729b66157ec95a63f` | stable | priorité à l'anneau dans un carrefour à sens giratoire annoncé par panneau |  |  |
+| `dce501d416e5db1cc6344725007fbad6` | stable | obligation de céder le passage sans arrêt au panneau cédez-le-passage |  |  |
+| `2b6972fab03433e709d73ccc5a949ac9` | datée | délai de récupération automatique du capital de points (2 ans, ou 3 ans avec délit) |  |  |
+| `2d45cedf9b3d349027d751f7aa672d6a` | datée | qualification et peine pour conduite sans permis jamais obtenu (délit, 1 an, 15 000 €) |  |  |
+| `37fe1af42b8d8132a22dde248e277c2b` | datée | points retirés pour usage du téléphone tenu en main au volant (3 points) |  |  |
+| `37fe1af42b8d8158b3dbf9883bf83560` | datée | points récupérés par un stage de sensibilisation (4 points au maximum, une fois par an) |  |  |
+| `37fe1af42b8d8174b45bd538ca3a9483` | datée | capital de points initial en permis probatoire (6 points) |  |  |
+| `37fe1af42b8d81b6a955d17c158afb3c` | datée | durée pour atteindre 12 points en conduite accompagnée (2 ans, +3 points/an) |  |  |
+| `37fe1af42b8d81b7acdacd2079297f09` | datée | amende et points pour défaut de port de la ceinture (135 €, 3 points) |  |  |
+| `37fe1af42b8d81c593b3e0a4cb5bb76d` | datée | durée de la période probatoire (3 ans, ou 2 ans en conduite accompagnée) |  |  |
+| `37fe1af42b8d81d09328df58d56a4dc6` | datée | durée d'obligation du disque « A » (toute la période probatoire, pas seulement la première année) |  |  |
+| `37fe1af42b8d81d29ceac642002e46d1` | datée | délai de récupération d'un point unique perdu (6 mois) |  |  |
+| `37fe1af42b8d81ecb163c6b59334b160` | datée | conséquence de l'invalidation du permis à 0 point (repasser interdit pendant 6 mois) |  |  |
+| `37fe1af42b8d81ed800ecde73e28760a` | datée | capital maximal de points d'un permis classique (12 points) |  |  |
+| `3e99bcc374a5538e9af609b3038f08ad` | datée | peine de base pour homicide routier (7 ans, 100 000 €) et seuil d'aggravation |  |  |
+| `666bb472f111a4f4634a0e30abdf180a` | datée | plafond de retrait de points pour des infractions simultanées (8 points) |  |  |
+| `37fe1af42b8d810ca665ffa0e4b32ab7` | datée | numéro d'appel d'urgence européen unique (112) et sa disponibilité sans SIM ni réseau |  |  |
+| `37fe1af42b8d8122b00cdea4e4368822` | datée | numéro d'appel des sapeurs-pompiers (18), distinct du SAMU (15) et de la police (17) |  |  |
+| `37fe1af42b8d81418280fb4ce8ce85d2` | stable | geste correct face à une hémorragie abondante (compression continue de la plaie) |  |  |
+| `37fe1af42b8d8175a7fccbffc2d6bcfa` | stable | condition pour déplacer une victime d'accident (danger immédiat uniquement) |  |  |
+| `37fe1af42b8d817b9035c1079ede5c00` | datée | distance de mise en place du triangle de présignalisation (environ 30 m, article R416-19) |  |  |
+| `37fe1af42b8d817bb145f7084044c24e` | stable | informations à transmettre lors d'un appel aux secours (lieu, nombre de victimes, état) |  |  |
+| `37fe1af42b8d81a092bee8d2faab6224` | stable | consigne relative au casque d'un motard accidenté (ne pas le retirer avant les secours) |  |  |
+| `37fe1af42b8d81b592ede04857b093b4` | stable | position à adopter pour une victime inconsciente qui respire (position latérale de sécurité) |  |  |
+| `37fe1af42b8d81f1b1cdfef31d2461b8` | stable | ordre des étapes face à un accident (protéger, alerter, secourir) |  |  |
+| `37fe1af42b8d81f7a214d5130ad370f4` | stable | gestes de protection d'une zone d'accident (balisage, feux de détresse, gilet) |  |  |
+| `5fe77bbd3af80ab119da8b5a2686b39c` | stable | conduite à tenir seul face à une victime consciente coincée (alerter et rester, ne pas dégager) |  |  |
+| `7d456e77187812e3a27ca828062d7938` | datée | ordre des gestes de réanimation (alerter, masser, défibriller) et perte de chances de survie par minute (environ 10 %) |  |  |
+| `b9e656cbd3507444669c24c85777cb54` | datée | absence de condition de formation pour l'usage d'un défibrillateur automatisé externe |  |  |
+| `09f18973aee39386ee42782f04d03ec2` | stable | obligation de céder le passage lors d'un tourne-à-gauche hors intersection réglée |  |  |
+| `2a9e02b9719028e72fde6fdd6372a1ff` | datée | points retirés pour refus de priorité à un piéton engagé sur un passage protégé (6 points) |  |  |
+| `37fe1af42b8d812fade7d79d309e4c48` | stable | priorité aux véhicules déjà engagés dans un carrefour à sens giratoire |  |  |
+| `37fe1af42b8d815f8684e4cc91d6950f` | stable | priorité du feu tricolore sur un panneau de priorité contradictoire |  |  |
+| `37fe1af42b8d8161be32fe2fe9808fff` | stable | obligation de céder le passage sans arrêt obligatoire au panneau cédez-le-passage |  |  |
+| `37fe1af42b8d817da9fff3054d6ffa3a` | stable | hiérarchie de priorité entre agent, feu, panneau et marquage (l'agent au sommet) |  |  |
+| `37fe1af42b8d818293f3f8d862a5a505` | datée | obligation de céder le passage à un véhicule prioritaire en intervention, en toutes circonstances (article R415-12) |  |  |
+| `37fe1af42b8d8184beb9c6687c92ffb5` | stable | signification du panneau losange jaune barré (fin de route à caractère prioritaire) |  |  |
+| `37fe1af42b8d818fb7c9efba6c63d91d` | stable | priorité à droite par défaut en l'absence de toute signalisation |  |  |
+| `37fe1af42b8d81bd9426eabc80ab4a05` | datée | points retirés pour non-respect de l'arrêt au panneau STOP (4 points) |  |  |
+| `37fe1af42b8d81d6aef7ff0b8d193d7f` | stable | signification du panneau losange jaune (route à caractère prioritaire) |  |  |
+| `37fe1af42b8d81fa9debeaf114b7bf77` | stable | priorité systématique du tramway à une intersection |  |  |
+| `43dc08f7c9ebc00497a4022e24319683` | stable | obligation d'arrêt complet à la ligne au panneau STOP, avant de céder le passage |  |  |
+| `700316a2fd86db7d682be208673c92d5` | stable | fonction du sas cycliste (placer les cyclistes devant les voitures à l'arrêt) |  |  |
+| `8e9464777a61dba3859e3ecc08f7327d` | stable | priorité conférée par le panneau losange jaune sur la route transversale |  |  |
+| `b433eefe7ea3ce149e6d6dd09e958a00` | datée | autorisation des cyclistes à franchir un feu rouge via le panonceau M12 (arrêté du 12 janvier 2012) |  |  |
+| `dd4c58febe771b6f297f1ca46c2ec75b` | stable | priorité à l'anneau d'un giratoire, qui arrive toujours par la gauche |  |  |
+| `defefbae1ae651a95dd247e38524ee36` | datée | points retirés pour un refus de priorité en intersection (4 points) |  |  |
+| `e0f68dd1324f9a5ffaab945a3d59e197` | stable | obligation de céder le passage en sortant d'un parking vers la chaussée |  |  |
+| `e93ca4d156de5854eafce9393be39274` | stable | règle de priorité à droite appliquée à une insertion en T ou en croix |  |  |
+| `f255331d3f234810a4807594b43b397f` | stable | priorité à droite par défaut en l'absence de signalisation |  |  |
+| `04182c9bbdeb305e21532f9c6913a2a2` | datée | points retirés pour un excès de vitesse de 40 à moins de 50 km/h (4 points, suspension possible) |  |  |
+| `14eb253e5dc55f5633de9263f541bf91` | datée | suppression du retrait de point pour un excès inférieur à 5 km/h (décret du 6 décembre 2023) et montant de l'amende |  |  |
+| `337bfcb4d034b62de5fe0d77ca0cb0a0` | datée | qualification délictuelle du grand excès de vitesse (≥50 km/h) depuis le décret du 22 décembre 2025 |  |  |
+| `37fe1af42b8d812c957fc3415785f6d6` | datée | vitesse maximale en zone de rencontre (20 km/h) |  |  |
+| `37fe1af42b8d81589410cd055e66efc2` | datée | vitesse maximale par défaut en agglomération (50 km/h) |  |  |
+| `37fe1af42b8d815ba42acef16b3119a8` | datée | vitesse minimale imposée sur la voie la plus à gauche d'autoroute (80 km/h, article R413-19) |  |  |
+| `37fe1af42b8d816b8bf5d51c4f78466c` | datée | points retirés pour un excès de vitesse de 30 km/h (3 points) |  |  |
+| `37fe1af42b8d817994d5f81863c7e6ae` | datée | vitesse limite hors agglomération sur route à double sens sans séparateur central (80 km/h) |  |  |
+| `37fe1af42b8d817a9111e3d52f9e5142` | datée | points retirés pour un grand excès de vitesse ≥50 km/h (6 points) depuis le 29 décembre 2025 |  |  |
+| `37fe1af42b8d818da27dc338f75795fe` | datée | réduction de vitesse sous la pluie sur route à chaussées séparées limitée à 110 (100 km/h) |  |  |
+| `37fe1af42b8d819e9620e4637f95e464` | datée | vitesse maximale autorisée sur autoroute en période probatoire (110 km/h) |  |  |
+| `37fe1af42b8d81d0bf26d67c5f0ff047` | datée | vitesse maximale sur autoroute par temps de pluie (110 km/h) |  |  |
+| `37fe1af42b8d81f9ae87db1419280902` | datée | vitesse limite par brouillard avec visibilité inférieure à 50 m (50 km/h, tous réseaux) |  |  |
+| `87c63a1be4e005f6c846d7798756696f` | datée | plafond de vitesse probatoire sur route à chaussées séparées limitée à 110 (100 km/h, article R413-5) |  |  |
+| `cac0f9db162887802d4fb15ba97d768f` | datée | différence de vitesse et de priorité piétonne entre zone 30 (30 km/h) et zone de rencontre (20 km/h) |  |  |
+| `fed604fe7c4b8b3b96adc066a7902138` | datée | vitesse limite hors agglomération sur route à chaussées séparées par terre-plein central (110 km/h, 100 sous la pluie) |  |  |

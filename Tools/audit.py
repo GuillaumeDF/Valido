@@ -6,7 +6,7 @@ Usage : python3 Tools/audit.py [chemin/vers/questions.json]
 Tout ce qui sort ici n'est que formel : la justesse du contenu (code de la route
 en vigueur, exactitude Swift) ne se vérifie pas d'ici — voir l'étape 8.
 """
-import json, os, re, sys, unicodedata, collections
+import json, os, re, sys, unicodedata, collections, datetime
 
 PATH = sys.argv[1] if len(sys.argv) > 1 else 'Valido/Resources/questions.json'
 QS = json.load(open(PATH))
@@ -62,6 +62,22 @@ try:
                                      open(COUVERTURE_MD).read(), re.M))
 except OSError:
     TOPICS_DECLARES = set()
+
+SOURCES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources.md')
+# Domaines dont une affirmation datable peut se réclamer. La liste est fermée : un éditeur
+# d'ETG recopie et périme sans le dire, et c'est précisément le défaut que ce registre
+# corrige. Élargie en août 2026 aux institutions européennes et académiques, faute de
+# source gouvernementale chiffrée sur les gestes de secours et la géométrie des panneaux.
+DOMAINES = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
+            'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
+            'cprguidelines.eu', 'croix-rouge.fr', 'inrs.fr')
+LIGNE_SOURCE = re.compile(
+    r'^\|\s*`([0-9a-f]{32})`\s*\|\s*(stable|datée)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
+try:
+    REGISTRE = {m[0]: (m[1], m[2].strip(), m[3].strip(), m[4].strip())
+                for m in LIGNE_SOURCE.findall(open(SOURCES_MD).read())}
+except OSError:
+    REGISTRE = {}
 
 findings = collections.defaultdict(list)
 def flag(kind, q, detail):
@@ -167,6 +183,36 @@ for q in QS:
         flag('expl/paraphrase-lexicale', q, f"expl={expl[:60]}")
     if len(expl) < 40: flag('expl/trop-courte', q, expl)
 
+# --- registre de fraîcheur ---
+# Le seul contrôle d'`audit.py` qui ne porte pas sur la forme : il ne dit pas qu'une
+# valeur est juste, il dit que quelqu'un a écrit contre quoi et quand il l'a vérifiée.
+# C'est ce qui rend la passe rejouable dans six mois plutôt qu'à refaire.
+AUJOURDHUI = datetime.date.today()
+for q in QS:
+    if q['subject'] != 'code':
+        continue
+    ligne = REGISTRE.get(q['id'])
+    if ligne is None:
+        flag('source/absente', q, 'aucune ligne dans sources.md')
+        continue
+    nature, affirmation, source, releve = ligne
+    if not affirmation or 'à renseigner' in affirmation:
+        flag('source/affirmation-vide', q, affirmation or '(vide)')
+    if nature == 'datée':
+        if not any(d in source for d in DOMAINES):
+            flag('source/hors-liste-blanche', q, source or '(vide)')
+        try:
+            jour = datetime.date.fromisoformat(releve)
+        except ValueError:
+            flag('source/date-illisible', q, releve or '(vide)')
+        else:
+            if (AUJOURDHUI - jour).days > 365:
+                flag('source/releve-perime', q, f'{releve} — plus de douze mois')
+    elif source or releve:
+        flag('source/stable-avec-source', q, f'«{source}» «{releve}»')
+
+orphelines = sorted(set(REGISTRE) - {q['id'] for q in QS if q['subject'] == 'code'})
+
 order = ['schema/', 'couverture/', 'source/', 'lettre/', 'forme/', 'longueur/', 'fuite/', 'expl/', 'image/']
 print(f"== {len(QS)} questions ==\n")
 for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.startswith(p))), k)):
@@ -180,3 +226,8 @@ for label, arr in [('code', lens_good), ('swift', lens_bad)]:
     longest = sum(1 for g, m in arr if g > m)
     print(f"{label}: bonne réponse plus longue que la moyenne des distracteurs dans {longest}/{len(arr)} cas; "
           f"écart moyen {sum(g-m for g,m in arr)/len(arr):+.1f} car.")
+
+if orphelines:
+    print(f"\n### source/ligne-orpheline  ({len(orphelines)})")
+    for qid in orphelines:
+        print(f"  {qid[:8]} — ligne dans sources.md sans question `code` correspondante")
