@@ -434,7 +434,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "20 km/h. Dans la zone de rencontre, les piétons sont prioritaires et peuvent circuler sur la chaussée.",
+    "explanation": "20 km/h, parce que le piéton y est prioritaire sur tous les véhicules sauf les transports guidés et peut marcher sur toute la largeur de la chaussée : la vitesse doit permettre de s'arrêter pour lui, pas de le contourner.",
     "id": "37fe1af42b8d812c957fc3415785f6d6",
     "options": [
       {
@@ -868,6 +868,10 @@
     "difficulty": "costaud",
     "explanation": "L'article R413-19 impose ce minimum sur la voie la plus à gauche quand le trafic est fluide et la visibilité suffisante : une voiture lente y crée un obstacle et pousse les autres à se rabattre par la droite.",
     "id": "37fe1af42b8d815ba42acef16b3119a8",
+    "illustration": {
+      "alt": "Chaussée d'autoroute à trois voies dans un seul sens, glissière centrale à gauche ; vous roulez le long de cette glissière, trafic fluide.",
+      "asset": "autoroute-voie-de-gauche"
+    },
     "options": [
       {
         "id": "A",
@@ -886,7 +890,7 @@
         "text": "60 km/h"
       }
     ],
-    "prompt": "Sur autoroute, par beau temps, quelle est la vitesse minimale imposée sur la voie la plus à gauche ?",
+    "prompt": "Par beau temps sur autoroute, cette voie interdit de descendre sous :",
     "subject": "code",
     "topic": "Vitesse"
   },
@@ -2081,7 +2085,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "110 km/h. Sous la pluie, l'autoroute passe de 130 à 110 km/h.",
+    "explanation": "Sous la pluie, l'autoroute perd 20 km/h ; la route à chaussées séparées en perd 10, et les 80 km/h ne bougent pas. Une visibilité sous 50 mètres, elle, ramène tous les réseaux à 50 km/h d'un coup.",
     "id": "37fe1af42b8d81d0bf26d67c5f0ff047",
     "options": [
       {
@@ -8550,5 +8554,179 @@
     "prompt": "Ce marquage interdit :",
     "subject": "code",
     "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Le liseré rouge épais est la marque des panneaux d'interdiction : le nombre qu'il entoure est un plafond, pas une consigne. Et il ne vaut que sur l'axe où le panneau est planté, pas sur les rues qui le croisent.",
+    "id": "07ef459de55adcb501694169428ffd72",
+    "illustration": {
+      "alt": "Disque à fond blanc bordé d'un large liseré rouge, portant le nombre 70 en sombre au centre.",
+      "asset": "panneau-b14-limitation"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "une vitesse conseillée de 70 km/h sur cet axe"
+      },
+      {
+        "id": "B",
+        "text": "la fin d'une limitation à 70 km/h sur cet axe"
+      },
+      {
+        "id": "C",
+        "text": "une vitesse maximale de 70 km/h sur cet axe"
+      },
+      {
+        "id": "D",
+        "text": "une vitesse minimale de 70 km/h sur cet axe"
+      }
+    ],
+    "prompt": "Ce panneau impose :",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Un « fin de » perd le liseré rouge et gagne l'oblique. Ce qui reprend n'est pas la vitesse qu'on veut, mais la limite générale du type de route. Lever toutes les interdictions d'un coup demande un panneau sans chiffre.",
+    "id": "3adc294978b6ac1f640c45e121a0e4f5",
+    "illustration": {
+      "alt": "Disque à fond blanc cerclé d'un filet sombre, portant 70 barré d'une large oblique qui monte vers la droite.",
+      "asset": "panneau-b33-fin-limitation"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "la fin de toutes les interdictions précédentes"
+      },
+      {
+        "id": "B",
+        "text": "la fin de la limitation à 70 km/h sur cet axe"
+      },
+      {
+        "id": "C",
+        "text": "une limitation de la vitesse à 70 km/h sur cet axe"
+      },
+      {
+        "id": "D",
+        "text": "une vitesse conseillée de 70 km/h sur cet axe"
+      }
+    ],
+    "prompt": "Ce panneau annonce :",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le carré rend la prescription zonale : elle vaut dans tout le périmètre jusqu'au panneau qui la modifie, même après plusieurs changements de direction. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
+    "id": "ed0e45e08fb4f47007934da587b5757c",
+    "illustration": {
+      "alt": "Panneau carré à fond blanc bordé de rouge : le mot ZONE en haut, et sous lui un disque à liseré rouge portant 30.",
+      "asset": "panneau-b30-zone-30"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "une zone où seul l'axe suivi est à 30 km/h"
+      },
+      {
+        "id": "B",
+        "text": "une aire piétonne où le piéton reste prioritaire"
+      },
+      {
+        "id": "C",
+        "text": "une zone de rencontre limitée à 20 km/h"
+      },
+      {
+        "id": "D",
+        "text": "une zone où les rues sécantes sont à 30 km/h"
+      }
+    ],
+    "prompt": "Ce panneau vous fait entrer dans :",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Les valeurs du permis probatoire sont des plafonds, pas un abattement : elles s'appliquent quand la route autorise davantage, jamais pour relever ce qui est déjà affiché. C'est toujours la plus basse des deux valeurs qui vaut.",
+    "id": "61eed52d453ac9d8ab59af70dae8eb3e",
+    "options": [
+      {
+        "id": "A",
+        "text": "70 km/h, la limite affichée s'imposant à tous"
+      },
+      {
+        "id": "B",
+        "text": "60 km/h, un cran sous la limite affichée partout"
+      },
+      {
+        "id": "C",
+        "text": "80 km/h, plafond des conducteurs novices"
+      },
+      {
+        "id": "D",
+        "text": "50 km/h, comme en agglomération"
+      }
+    ],
+    "prompt": "En période probatoire, sur une route limitée à 70 km/h, vous ne dépassez pas :",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90. Le terre-plein central, lui, ouvre les 110 ; sous la pluie, ces deux valeurs retombent respectivement à 80 et à 100.",
+    "id": "f7370daabea929065f6b2586ca3eea91",
+    "options": [
+      {
+        "id": "A",
+        "text": "70 km/h"
+      },
+      {
+        "id": "B",
+        "text": "90 km/h"
+      },
+      {
+        "id": "C",
+        "text": "80 km/h"
+      },
+      {
+        "id": "D",
+        "text": "110 km/h"
+      }
+    ],
+    "prompt": "Hors agglomération, sur une chaussée à deux voies dans votre sens sans terre-plein central, la limite est :",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "La Sécurité routière demande de respecter scrupuleusement les panneaux du chantier et de ne pas attendre le dernier moment pour ralentir : des voies disparaissent, la bande d'arrêt d'urgence peut en tenir lieu, et des personnes travaillent à quelques mètres des roues.",
+    "id": "25390f0f30dbb6402091dc226d63db35",
+    "options": [
+      {
+        "id": "A",
+        "text": "la limite permanente de la section, tant qu'aucun engin ne roule"
+      },
+      {
+        "id": "B",
+        "text": "130 km/h jusqu'au premier cône de balisage"
+      },
+      {
+        "id": "C",
+        "text": "110 km/h, comme sous la pluie"
+      },
+      {
+        "id": "D",
+        "text": "celle qu'affiche la signalisation temporaire"
+      }
+    ],
+    "prompt": "À l'approche d'une zone de travaux signalée, la vitesse à tenir est :",
+    "subject": "code",
+    "topic": "Vitesse"
   }
 ]

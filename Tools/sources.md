@@ -22,10 +22,10 @@ exactement le défaut que ce registre corrige.
 échéance : le droit routier bouge, et la passe d'août 2026 a trouvé un chiffre périmé
 depuis trois jours.
 
-Les 136 lignes ci-dessous classent la question ; elles ne la vérifient pas encore. Les
-colonnes `source` et `relevé le` sont volontairement vides — c'est aux tâches 5 à 17 de les
-remplir en lisant la source, jamais en la devinant depuis l'énoncé. Trié par topic pour se
-relire domaine par domaine.
+Le tableau se remplit **domaine par domaine** : une ligne dont les colonnes `source` et
+`relevé le` sont vides classe la question sans l'avoir vérifiée, et `audit.py` la signale
+tant qu'elle est `datée`. Le relevé se fait en lisant la source, jamais en la devinant
+depuis l'énoncé. Trié par topic pour se relire domaine par domaine.
 
 | id | nature | affirmation vérifiée | source | relevé le |
 |---|---|---|---|---|
@@ -149,19 +149,25 @@ relire domaine par domaine.
 | `e0f68dd1324f9a5ffaab945a3d59e197` | stable | obligation de céder le passage en sortant d'un parking vers la chaussée |  |  |
 | `e93ca4d156de5854eafce9393be39274` | stable | règle de priorité à droite appliquée à une insertion en T ou en croix |  |  |
 | `f255331d3f234810a4807594b43b397f` | stable | priorité à droite par défaut en l'absence de signalisation |  |  |
-| `04182c9bbdeb305e21532f9c6913a2a2` | datée | points retirés pour un excès de vitesse de 40 à moins de 50 km/h (4 points, suspension possible) |  |  |
-| `14eb253e5dc55f5633de9263f541bf91` | datée | suppression du retrait de point pour un excès inférieur à 5 km/h (décret du 6 décembre 2023) et montant de l'amende |  |  |
-| `337bfcb4d034b62de5fe0d77ca0cb0a0` | datée | qualification délictuelle du grand excès de vitesse (≥50 km/h) depuis le décret du 22 décembre 2025 |  |  |
-| `37fe1af42b8d812c957fc3415785f6d6` | datée | vitesse maximale en zone de rencontre (20 km/h) |  |  |
-| `37fe1af42b8d81589410cd055e66efc2` | datée | vitesse maximale par défaut en agglomération (50 km/h) |  |  |
-| `37fe1af42b8d815ba42acef16b3119a8` | datée | vitesse minimale imposée sur la voie la plus à gauche d'autoroute (80 km/h, article R413-19) |  |  |
-| `37fe1af42b8d816b8bf5d51c4f78466c` | datée | points retirés pour un excès de vitesse de 30 km/h (3 points) |  |  |
-| `37fe1af42b8d817994d5f81863c7e6ae` | datée | vitesse limite hors agglomération sur route à double sens sans séparateur central (80 km/h) |  |  |
-| `37fe1af42b8d817a9111e3d52f9e5142` | datée | points retirés pour un grand excès de vitesse ≥50 km/h (6 points) depuis le 29 décembre 2025 |  |  |
-| `37fe1af42b8d818da27dc338f75795fe` | datée | réduction de vitesse sous la pluie sur route à chaussées séparées limitée à 110 (100 km/h) |  |  |
-| `37fe1af42b8d819e9620e4637f95e464` | datée | vitesse maximale autorisée sur autoroute en période probatoire (110 km/h) |  |  |
-| `37fe1af42b8d81d0bf26d67c5f0ff047` | datée | vitesse maximale sur autoroute par temps de pluie (110 km/h) |  |  |
-| `37fe1af42b8d81f9ae87db1419280902` | datée | vitesse limite par brouillard avec visibilité inférieure à 50 m (50 km/h, tous réseaux) |  |  |
-| `87c63a1be4e005f6c846d7798756696f` | datée | plafond de vitesse probatoire sur route à chaussées séparées limitée à 110 (100 km/h, article R413-5) |  |  |
-| `cac0f9db162887802d4fb15ba97d768f` | datée | différence de vitesse et de priorité piétonne entre zone 30 (30 km/h) et zone de rencontre (20 km/h) |  |  |
-| `fed604fe7c4b8b3b96adc066a7902138` | datée | vitesse limite hors agglomération sur route à chaussées séparées par terre-plein central (110 km/h, 100 sous la pluie) |  |  |
+| `04182c9bbdeb305e21532f9c6913a2a2` | datée | points retirés pour un excès de vitesse de 40 à moins de 50 km/h (4 points, suspension possible) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `07ef459de55adcb501694169428ffd72` | stable | sens du disque à liseré rouge (B14) : une vitesse maximale, valable sur le seul axe où il est planté |  |  |
+| `14eb253e5dc55f5633de9263f541bf91` | datée | excès inférieur à 5 km/h : aucun point retiré, amende de 68 € ou 135 € (date du décret non revérifiée) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `25390f0f30dbb6402091dc226d63db35` | stable | la vitesse à l'approche d'un chantier est celle qu'affiche la signalisation temporaire |  |  |
+| `337bfcb4d034b62de5fe0d77ca0cb0a0` | datée | qualification délictuelle du grand excès de vitesse (≥50 km/h) depuis le décret du 22 décembre 2025 | https://www.service-public.gouv.fr/particuliers/actualites/A18723 | 2026-08-23 |
+| `37fe1af42b8d812c957fc3415785f6d6` | datée | vitesse maximale en zone de rencontre (20 km/h) et priorité du piéton sauf transports guidés | https://www.securite-routiere.gouv.fr/reglementation-liee-la-route/le-code-de-la-rue | 2026-08-23 |
+| `37fe1af42b8d81589410cd055e66efc2` | datée | vitesse maximale par défaut en agglomération (50 km/h) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `37fe1af42b8d815ba42acef16b3119a8` | datée | vitesse minimale imposée sur la voie la plus à gauche d'autoroute (80 km/h, circulation fluide) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `37fe1af42b8d816b8bf5d51c4f78466c` | datée | points retirés pour un excès de vitesse de 30 km/h (3 points) | https://www.service-public.gouv.fr/particuliers/vosdroits/F31551 | 2026-08-23 |
+| `37fe1af42b8d817994d5f81863c7e6ae` | datée | vitesse limite hors agglomération sur route à double sens sans séparateur central (80 km/h, 90 sur décision locale) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `37fe1af42b8d817a9111e3d52f9e5142` | datée | grand excès ≥50 km/h : 6 points et peines du délit depuis le 29 décembre 2025 (300 € forfaitaire, 3 mois, 3 750 €) | https://www.service-public.gouv.fr/particuliers/actualites/A18723 | 2026-08-23 |
+| `37fe1af42b8d818da27dc338f75795fe` | datée | réduction de vitesse sous la pluie sur route à chaussées séparées limitée à 110 (100 km/h) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `37fe1af42b8d819e9620e4637f95e464` | datée | vitesse maximale autorisée sur autoroute en période probatoire (110 km/h) | https://www.securite-routiere.gouv.fr/reglementation-liee-aux-risques/reglementation-de-la-vitesse-au-volant | 2026-08-23 |
+| `37fe1af42b8d81d0bf26d67c5f0ff047` | datée | vitesse maximale sur autoroute par temps de pluie (110 km/h) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `37fe1af42b8d81f9ae87db1419280902` | datée | vitesse limite par visibilité inférieure à 50 m (50 km/h, tous réseaux) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `3adc294978b6ac1f640c45e121a0e4f5` | stable | sens du disque barré d'une oblique (B33) : fin de la limitation, retour à la limite générale de la route |  |  |
+| `61eed52d453ac9d8ab59af70dae8eb3e` | datée | les plafonds du permis probatoire ne relèvent jamais une limite affichée plus basse (110 / 100 / 80) | https://www.securite-routiere.gouv.fr/reglementation-liee-aux-risques/reglementation-de-la-vitesse-au-volant | 2026-08-23 |
+| `87c63a1be4e005f6c846d7798756696f` | datée | plafond de vitesse probatoire sur route à chaussées séparées limitée à 110 (100 km/h) | https://www.securite-routiere.gouv.fr/reglementation-liee-aux-risques/reglementation-de-la-vitesse-au-volant | 2026-08-23 |
+| `cac0f9db162887802d4fb15ba97d768f` | datée | vitesses et priorité piétonne comparées : zone 30 (30 km/h), zone de rencontre (20 km/h), aire piétonne (allure du pas) | https://www.securite-routiere.gouv.fr/reglementation-liee-la-route/le-code-de-la-rue | 2026-08-23 |
+| `ed0e45e08fb4f47007934da587b5757c` | datée | portée zonale du B30 et vitesse de la zone 30 (30 km/h, rues sécantes comprises) | https://www.securite-routiere.gouv.fr/sites/default/files/2019-02/guide_techn_fiche4_technique_zone30_cle29ec98.pdf | 2026-08-23 |
+| `f7370daabea929065f6b2586ca3eea91` | datée | vitesse limite hors agglomération sur une section à deux voies dans le même sens sans terre-plein (90 km/h) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |
+| `fed604fe7c4b8b3b96adc066a7902138` | datée | vitesse limite hors agglomération sur route à chaussées séparées par terre-plein central (110 km/h, 100 sous la pluie) | https://www.service-public.gouv.fr/particuliers/vosdroits/F19460 | 2026-08-23 |

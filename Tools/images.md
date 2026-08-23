@@ -27,11 +27,22 @@ dessine une fois, pas une fois par scène.
 | `carrefour-cedez-le-passage` | AB3a et ligne discontinue à traits larges | maison, aucune source tierce |
 | `carrefour-en-t` | carrefour en T sans signalisation, insertion à droite | maison, aucune source tierce |
 | `rond-point-insertion` | giratoire, véhicule déjà sur l'anneau par la gauche | maison, aucune source tierce |
+| `panneau-b14-limitation` | B14 seul, disque à large liseré rouge portant 70 | maison, aucune source tierce |
+| `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
+| `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
+| `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière | maison, aucune source tierce |
 
 Les formes de panneaux sont redessinées d'après la spécification officielle
 (Instruction interministérielle sur la signalisation routière) : la géométrie d'un
 panneau réglementaire est une norme publique, pas l'œuvre d'un éditeur. Aucun visuel
 d'éditeur d'ETG n'a été repris, ni comme source ni comme modèle.
+
+Le B14, le B33 et le B30 ont été redessinés d'après la planche de la page 4 du [guide
+technique « la zone 30 »](https://www.securite-routiere.gouv.fr/sites/default/files/2019-02/guide_techn_fiche4_technique_zone30_cle29ec98.pdf)
+publié par la Sécurité routière (relevé le 2026-08-23) : c'est la seule planche officielle
+lisible sans Legifrance, que Cloudflare rend inaccessible en téléchargement. Une seule
+licence prise sur la géométrie : les chiffres tiennent 1,0 rayon au lieu de 0,84,
+Helvetica-Bold étant bien plus large que la fonte réglementaire.
 
 ## Photographies
 
