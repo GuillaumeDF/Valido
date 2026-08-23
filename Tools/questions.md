@@ -10,7 +10,7 @@ clés triées, UTF-8.
 json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
 ```
 
-État courant : **302 questions** — 128 `code`, 174 `swift`.
+État courant : **310 questions** — 136 `code`, 174 `swift`. Huit portent une image (voir le [§7](#7-les-questions-illustrées)).
 
 ## Les champs
 
@@ -31,10 +31,15 @@ json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
 - `explanation` — non vide, au moins 40 caractères.
 - `sourceURL` — présent sur les 150 questions `swift` d'origine. Sur une question
   nouvelle : **clé absente**, pas `null`.
+- `illustration` — `{ asset, alt }` quand l'image porte l'énoncé, clé absente sinon.
+  Détail au [§7](#7-les-questions-illustrées).
 
 ---
 
 ## 1. Écrire une question
+
+Si la question porte une image, lire aussi le [§7](#7-les-questions-illustrées) : le
+budget de hauteur y impose un énoncé et des options plus courts qu'ailleurs.
 
 ### `prompt` : un énoncé, pas un titre
 
@@ -224,9 +229,12 @@ Le script couvre :
 - **fuite de mot d'énoncé** au seuil de 4 caractères ;
 - **référence de lettre** dans les options *et* l'explication ;
 - **explication qui paraphrase** : signalée quand tous ses mots pleins sont déjà dans la
-  bonne option.
+  bonne option ;
+- sur une question illustrée : `illustration` réduite à `asset` et `alt`, imageset
+  **présent sur le disque**, asset **recensé dans `images.md`**, `alt` d'au moins 40
+  caractères, et **énoncé qui redit la scène**.
 
-Deux sorties demandent un **tri à la main**, elles produisent des faux positifs :
+Trois sorties demandent un **tri à la main**, elles produisent des faux positifs :
 
 - `lettre/reference` — les majuscules accentuées sont exclues par le motif, mais une
   lettre **ancrée par l'énoncé** reste signalée et est légitime : « Le « D » de SOLID »,
@@ -234,6 +242,9 @@ Deux sorties demandent un **tri à la main**, elles produisent des faux positifs
 - `forme/markdown` — `` `/** */` `` dans la question DocC est dans un code span.
   `QuestionCardView.styled()` parse en `.inlineOnlyPreservingWhitespace`, donc les
   astérisques s'affichent littéralement.
+- `image/enonce-redit-la-scene` — trois mots pleins communs entre `prompt` et `alt`. Un
+  « carrefour » des deux côtés est parfois inévitable ; un énoncé qui décrit la scène,
+  jamais.
 
 Le reste doit être à zéro. `longueur/plus-longue` (bonne réponse plus longue de 1 à 10
 caractères) est informatif : le seuil dur est `longueur/plus-10`.
@@ -257,13 +268,17 @@ même nom de device et l'un d'eux reste coincé. Changer de device dans `-destin
 
 `QuestionBank` valide au chargement et rejette le fichier avec un `ContentError`
 **nommant l'identifiant fautif** : banque non vide, identifiants uniques, ≥ 2 options,
-`correctID` présent parmi les options, explication non vide. C'est la boucle de retour à
+`correctID` présent parmi les options, explication non vide, et `illustration` dont
+l'`asset` et l'`alt` ne sont ni vides ni blancs. C'est la boucle de retour à
 utiliser.
 
 `ValidoTests/BundledContentTests.swift` couvre en plus : volume total ≥ 295, les deux
 matières présentes (≥ 125 `code`, ≥ 170 `swift`), aucune explication et aucune **option**
-ne commençant par une lettre de réponse, options/bonne réponse cohérentes, et
-**l'équilibre de longueur**. Les seuils sont volontairement sous les 302 livrées : un
+ne commençant par une lettre de réponse, options/bonne réponse cohérentes,
+**l'équilibre de longueur**, et — pour les questions illustrées — que chaque asset
+référencé **se résout dans le bundle compilé** et que son `alt` fait au moins 40
+caractères. Le contrôle d'`audit.py` regarde le disque, celui-là regarde le produit
+livré : une image posée dans le catalogue mais non compilée passerait le premier. Les seuils sont volontairement sous les 302 livrées : un
 effondrement du volume doit casser, une variation de quelques questions non.
 
 Un échec du test des lettres de réponse, ou de celui de l'équilibre de longueur, se
@@ -316,3 +331,64 @@ fichier :
 Les 52 questions ajoutées en août 2026 se reconnaissent à un `id` en SHA-256 de l'énoncé
 préfixé `valido-v2:`, et à l'absence de `sourceURL`. **Notion n'est plus la source** : ni
 mise à jour, ni ré-import. Le JSON fait foi.
+
+---
+
+## 7. Les questions illustrées
+
+Une question illustrée n'est pas une question décorée : **l'image porte l'énoncé**. « Qui
+passe en premier ? » n'a aucun sens sans le carrefour. Si la question se tient sans
+l'image, l'image n'a rien à faire là.
+
+```json
+"illustration": {
+  "asset": "carrefour-priorite-droite",
+  "alt": "Croisement à quatre branches, sans panneau ni marquage au sol ; vous montez tout droit et un véhicule arrive de votre droite pour traverser."
+}
+```
+
+- `asset` — nom d'un imageset de `Valido/Assets.xcassets/Scenes/`. Rien d'autre :
+  l'image est locale, l'app n'ouvre aucune connexion.
+- `alt` — **l'énoncé, pour qui n'accède pas à l'image.** Ce n'est pas du confort : sans
+  lui la question est injouable au lecteur d'écran, parce que l'énoncé y est
+  littéralement absent. Même seuil que `explanation` : 40 caractères au moins.
+- Sur une question sans image : **clé absente**, pas `null` — comme `sourceURL`.
+
+D'où viennent les images, et sous quelles conditions : [`images.md`](images.md). Les
+schémas se régénèrent avec `swift Tools/render-scenes.swift`, jamais à la main.
+
+### L'énoncé ne redit pas la scène
+
+Un énoncé qui décrit l'image la rend décorative. « Cette ligne jaune continue le long de
+la bordure du trottoir interdit : » se répond sans regarder — l'énoncé a déjà tout dit. Le
+bon énoncé est « Ce marquage interdit : », et c'est l'image qui dit lequel.
+`audit.py` signale trois mots pleins communs entre `prompt` et `alt` ; la sortie demande
+un tri à la main, « carrefour » des deux côtés étant parfois inévitable.
+
+### Le budget de hauteur, qui est la vraie contrainte
+
+Le bandeau réclame jusqu'à 38 % de la carte avant réponse, 18 % après. Il **cède** quand
+le texte n'a plus la place — aucun texte de la carte n'est compressible, donc l'image est
+le seul élément qui puisse reculer. Conséquence pratique : sur une carte chargée le
+bandeau tombe sous les 18 %, et il ne reste qu'une bande de la scène.
+
+Pour que l'image garde une taille utile, une question illustrée se tient court :
+
+- énoncé sur **deux lignes** au plus (≈ 60 caractères) ;
+- options de **50 caractères** au plus, comme le reste de la banque ;
+- explication autour de **200 caractères** — c'est elle qui mange le plus après le verdict.
+
+Mesuré sur les huit premières : à 220 caractères d'explication et un énoncé de trois
+lignes, le bandeau descend à 8 %.
+
+### La couleur ne porte jamais l'information
+
+Les schémas donnent au véhicule du candidat un liseré blanc, pas seulement une teinte, et
+les options désignent les véhicules **par leur provenance** (« venant de votre droite »),
+jamais par leur couleur. Un daltonien doit pouvoir répondre.
+
+### Le cadrage
+
+Les scènes sont dessinées en 4:3, la géométrie décisive au centre vertical : c'est la
+bande qui survit au recadrage en `.fill` quand le bandeau rétrécit. Une photo se recadre
+en 4:3 selon la même règle, à la main — le choix de ce qui doit survivre est un jugement.

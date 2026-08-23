@@ -21,6 +21,13 @@ nonisolated struct QuestionBank: Sendable {
             guard !question.explanation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 throw ContentError.emptyExplanation(question.id)
             }
+            if let illustration = question.illustration {
+                let asset = illustration.asset.trimmingCharacters(in: .whitespacesAndNewlines)
+                let alt = illustration.alt.trimmingCharacters(in: .whitespacesAndNewlines)
+                guard !asset.isEmpty, !alt.isEmpty else {
+                    throw ContentError.invalidIllustration(question.id)
+                }
+            }
             index[question.id] = question
         }
 

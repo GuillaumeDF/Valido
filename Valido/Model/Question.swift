@@ -21,6 +21,22 @@ nonisolated struct Option: Identifiable, Codable, Sendable, Hashable {
     }
 }
 
+/// L'image d'une question ETG **porte l'énoncé** : sans elle, « qui passe en premier ? »
+/// n'a pas de sens. D'où `alt`, qui n'est pas du confort — c'est l'énoncé lui-même pour
+/// qui n'accède pas à l'image. Une illustration sans `alt` rend la question injouable au
+/// lecteur d'écran, donc la banque la rejette.
+nonisolated struct Illustration: Codable, Sendable, Hashable {
+    /// Nom d'un imageset du catalogue d'assets. Toujours local : aucune image ne se
+    /// télécharge, l'app n'ouvre pas de connexion.
+    let asset: String
+    let alt: String
+
+    init(asset: String, alt: String) {
+        self.asset = asset
+        self.alt = alt
+    }
+}
+
 nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
     let id: String   // ID de page Notion
     let subject: Subject
@@ -31,6 +47,7 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
     let correctID: Option.ID
     let explanation: String
     let sourceURL: URL?
+    let illustration: Illustration?
 
     init(
         id: String,
@@ -41,7 +58,8 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
         options: [Option],
         correctID: Option.ID,
         explanation: String,
-        sourceURL: URL? = nil
+        sourceURL: URL? = nil,
+        illustration: Illustration? = nil
     ) {
         self.id = id
         self.subject = subject
@@ -52,6 +70,7 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
         self.correctID = correctID
         self.explanation = explanation
         self.sourceURL = sourceURL
+        self.illustration = illustration
     }
 
     func isCorrect(_ optionID: Option.ID) -> Bool {

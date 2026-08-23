@@ -4,5 +4,6 @@ nonisolated enum ContentError: Error, Equatable, Sendable {
     case tooFewOptions(String)
     case correctIDNotInOptions(String)
     case emptyExplanation(String)
+    case invalidIllustration(String)
     case resourceMissing
 }

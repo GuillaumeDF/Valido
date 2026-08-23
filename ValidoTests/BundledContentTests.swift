@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import UIKit
 @testable import Valido
 
 /// Seuils volontairement sous le volume livré : quelques rejets à l'import sont
@@ -62,4 +63,27 @@ import Testing
         question.options.contains { $0.text.firstMatch(of: motif) != nil }
     }
     #expect(fautives.map(\.id) == [])
+}
+
+/// Une `illustration` qui ne se résout pas rend la question injouable : l'énoncé
+/// est dans l'image. Le nom d'asset est une chaîne dans le JSON, donc rien
+/// n'empêche une faute de frappe — sauf ce test.
+@Test func chaqueIllustrationRéférencéeExisteDansLeBundle() throws {
+    let bank = try QuestionBank.bundled()
+    let manquantes = bank.questions.compactMap { question -> String? in
+        guard let asset = question.illustration?.asset else { return nil }
+        return UIImage(named: asset) == nil ? "\(question.id) → \(asset)" : nil
+    }
+    #expect(manquantes == [])
+}
+
+/// Même exigence que sur `explanation` : un `alt` de trois mots ne remplace pas
+/// une scène. Seuil aligné sur celui de l'explication.
+@Test func chaqueAltDécritVraimentLaScène() throws {
+    let bank = try QuestionBank.bundled()
+    let tropCourts = bank.questions.compactMap { question -> String? in
+        guard let alt = question.illustration?.alt else { return nil }
+        return alt.count < 40 ? question.id : nil
+    }
+    #expect(tropCourts == [])
 }

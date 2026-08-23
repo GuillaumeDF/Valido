@@ -6,7 +6,7 @@ Usage : python3 Tools/audit.py [chemin/vers/questions.json]
 Tout ce qui sort ici n'est que formel : la justesse du contenu (code de la route
 en vigueur, exactitude Swift) ne se vérifie pas d'ici — voir l'étape 8.
 """
-import json, re, sys, unicodedata, collections
+import json, os, re, sys, unicodedata, collections
 
 PATH = sys.argv[1] if len(sys.argv) > 1 else 'Valido/Resources/questions.json'
 QS = json.load(open(PATH))
@@ -43,6 +43,16 @@ def firstword(t):
     m = re.match(r"[`«\"]?([\wéèêàçûôîùâ']+)", t.strip())
     return norm(m.group(1)) if m else ''
 
+SCENES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(PATH))),
+                      'Assets.xcassets', 'Scenes')
+IMAGES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images.md')
+# Le relevé de provenance : une ligne de tableau par asset. Sans lui une image est
+# orpheline — impossible de la remplacer ou de re-sourcer si la licence change.
+try:
+    RECENSES = set(re.findall(r'^\|\s*`([a-z0-9-]+)`', open(IMAGES_MD).read(), re.M))
+except OSError:
+    RECENSES = set()
+
 findings = collections.defaultdict(list)
 def flag(kind, q, detail):
     findings[kind].append((q['subject'], q['topic'], q['id'], q['prompt'][:70], detail))
@@ -59,8 +69,31 @@ for q in QS:
     if len({o['text'] for o in q['options']}) != 4: flag('schema/doublon-option', q, '')
     if q['correctID'] not in ids: flag('schema/correctID', q, q['correctID'])
     if not expl.strip(): flag('schema/expl-vide', q, '')
-    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL'}:
+    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration'}:
         flag('schema/cle-hors-schema', q, sorted(set(q)))
+
+    # --- illustration ---
+    illu = q.get('illustration')
+    if illu is not None:
+        if set(illu) != {'asset', 'alt'}:
+            flag('schema/illustration-cles', q, sorted(set(illu)))
+        asset, alt = illu.get('asset', ''), illu.get('alt', '')
+        if not asset.strip(): flag('schema/illustration-asset-vide', q, '')
+        # L'imageset doit exister sur le disque. Le test `BundledContentTests` vérifie en
+        # plus qu'il se résout dans le bundle compilé ; ici on attrape la faute de frappe
+        # avant même le build.
+        elif not os.path.isdir(os.path.join(SCENES, asset + '.imageset')):
+            flag('image/imageset-absent', q, f'{asset}.imageset')
+        elif asset not in RECENSES:
+            flag('image/provenance-absente', q, f'{asset} manque dans {IMAGES_MD}')
+        # `alt` porte l'énoncé pour qui n'accède pas à l'image : trois mots ne suffisent
+        # pas. Seuil aligné sur celui de l'explication.
+        if len(alt.strip()) < 40: flag('image/alt-trop-court', q, alt)
+        # Si l'énoncé redit ce que l'image montre, l'image est décorative — exactement ce
+        # que les questions illustrées ne doivent pas être. Sortie à trier à la main :
+        # « carrefour » dans les deux est parfois inévitable.
+        commun = words(q['prompt']) & words(alt)
+        if len(commun) >= 3: flag('image/enonce-redit-la-scene', q, sorted(commun))
 
     # --- résidus markdown / méta-options ---
     for label, txt in [('explanation', expl), ('prompt', q['prompt'])] + [(f"opt{o['id']}", o['text']) for o in q['options']]:
@@ -120,7 +153,7 @@ for q in QS:
         flag('expl/paraphrase-lexicale', q, f"expl={expl[:60]}")
     if len(expl) < 40: flag('expl/trop-courte', q, expl)
 
-order = ['schema/','lettre/','forme/','longueur/','fuite/','expl/']
+order = ['schema/','lettre/','forme/','longueur/','fuite/','expl/','image/']
 print(f"== {len(QS)} questions ==\n")
 for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.startswith(p))), k)):
     v = findings[k]
