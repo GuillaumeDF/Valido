@@ -1637,7 +1637,7 @@ EOF
 
 **Files:**
 - Modify: `ValidoTests/BundledContentTests.swift:10,17,18` (seuils), fin de fichier (un test)
-- Modify: `Tools/questions.md` (§3, §5, §6, §7), `Tools/images.md`, `CLAUDE.md`
+- Modify: `Tools/questions.md` (§3, §4, §5, §6, §7), `Tools/images.md`, `CLAUDE.md`, `README.md`
 - Create: `Tools/audit-2026-08-passe-2.md`
 
 **Interfaces:**
@@ -1696,6 +1696,20 @@ Attendu : `✔ Test run with N test(s)` avec N ≥ 64, aucun échec.
 - **§5** — élargir la liste blanche aux cinq domaines ajoutés, en disant **pourquoi** : aucun domaine gouvernemental ne chiffre les gestes de secours ni la géométrie normalisée des panneaux. Renvoyer vers `sources.md` comme registre par question, et vers `couverture.md`.
 - **§6** — corriger la description de la recette d'`id`, qui laisse croire que `valido-v2:` est dans l'identifiant : l'`id` est `sha256("valido-v2:" + prompt)[:32]`, le préfixe est dans l'entrée du hachage. Mettre le compte de questions v2 à jour.
 - **§7** — dire que le budget de hauteur est désormais imposé par `audit.py` **et** par un test, avec les trois seuils. Ajouter une sous-section sur les panneaux : forme et pictogramme portent l'information, jamais la couleur seule, et un panneau se dessine une fois dans `Tools/Scenes/Panneaux.swift` pour servir aussi les scènes qui le contiennent.
+
+- [ ] **Step 5 bis: Purger les références à la commande de rendu supprimée**
+
+La tâche 4 a remplacé `swift Tools/render-scenes.swift` par `./Tools/render-scenes.sh`, mais
+trois mentions survivent hors de son périmètre — `README.md` lignes 116 et 138, et
+`Tools/questions.md` ligne 358. Une commande documentée qui n'existe plus est un piège pour
+le prochain lecteur.
+
+```bash
+grep -rn 'render-scenes\.swift' --include='*.md' . | grep -v '^\./\.superpowers\|^\./docs/superpowers'
+```
+
+Attendu après correction : aucune sortie. `docs/superpowers/` est de l'historique et ne se
+met pas à jour — c'est la seule exception.
 
 - [ ] **Step 6: Mettre `Tools/images.md` à jour**
 
