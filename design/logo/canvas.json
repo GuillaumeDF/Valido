@@ -1,0 +1,22 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Icône" },
+    { "id": "page-2", "name": "Explorations" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html",        "page": "page-1", "x": 0,    "y": 0,    "w": 900,  "h": 760 },
+    { "file": "VarianteB3.dc.html",  "page": "page-2", "x": 0,    "y": 0,    "w": 560,  "h": 700 },
+    { "file": "VarianteB1.dc.html",  "page": "page-2", "x": 640,  "y": 0,    "w": 560,  "h": 700 },
+    { "file": "VarianteB2.dc.html",  "page": "page-2", "x": 1280, "y": 0,    "w": 560,  "h": 700 },
+    { "file": "DirectionA.dc.html",  "page": "page-2", "x": 1920, "y": 0,    "w": 560,  "h": 700 },
+    { "file": "DirectionC.dc.html",  "page": "page-2", "x": 2560, "y": 0,    "w": 560,  "h": 700 },
+    { "file": "DirectionD.dc.html",  "page": "page-2", "x": 3200, "y": 0,    "w": 560,  "h": 700 },
+    { "file": "Tailles.dc.html",     "page": "page-2", "x": 640,  "y": 900,  "w": 1180, "h": 440 },
+    { "file": "Departage.dc.html",   "page": "page-2", "x": 640,  "y": 1440, "w": 1180, "h": 820 }
+  ],
+  "annotations": [
+    { "id": "livree", "page": "page-1", "x": -320, "y": 0, "w": 260, "text": "Posée dans le projet et vérifiée : build vert, trois apparences dans Assets.car.\n\nLa teintée d'iOS est littéralement l'épreuve du noir et blanc — celle qui a fait gagner ce dessin contre l'aplat vert." },
+    { "id": "chemin", "page": "page-2", "x": -320, "y": 0, "w": 260, "text": "Le chemin parcouru, gardé pour mémoire.\n\nB3 était la synthèse : la coche de A enfermée dans la carte de B, ce qui la sort du territoire des apps de tâches.\n\nLes deux planches du bas sont les épreuves qui ont tranché." }
+  ],
+  "launch": { "view": "focused", "file": "Main.dc.html" }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap">
+  <style>
+    body { margin: 0; font-family: Nunito, "Avenir Next", system-ui, sans-serif; }
+    a { color: #34C759; } a:hover { color: #248A3D; }
+  </style>
+</helmet>
+
+<div style="width: 560px; height: 700px; box-sizing: border-box; padding: 40px; background: #F2F2F7; display: flex; flex-direction: column; gap: 28px;">
+
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8E8E93;">Direction D</div>
+    <div style="font-size: 30px; font-weight: 900; color: #1C1C1E; letter-spacing: -0.01em;">Le V qui coche</div>
+  </div>
+
+  <div style="display: flex; align-items: flex-end; gap: 28px;">
+    <div style="width: 200px; height: 200px; border-radius: 45px; background: #FFFFFF; position: relative; overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.10);">
+      <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+        <path d="M24 24 L50 78 L66 45" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M66 45 L82 14" fill="none" stroke="#34C759" stroke-width="14" stroke-linecap="round"></path>
+      </svg>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="width: 96px; height: 96px; border-radius: 22px; background: #FFFFFF; position: relative; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.10);">
+        <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <path d="M24 24 L50 78 L66 45" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M66 45 L82 14" fill="none" stroke="#34C759" stroke-width="14" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <div style="display: flex; align-items: flex-end; gap: 12px;">
+        <div style="width: 60px; height: 60px; border-radius: 14px; background: #FFFFFF; position: relative; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.10);">
+          <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+            <path d="M24 24 L50 78 L66 45" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M66 45 L82 14" fill="none" stroke="#34C759" stroke-width="14" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div style="width: 29px; height: 29px; border-radius: 7px; background: #FFFFFF; position: relative; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12);">
+          <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+            <path d="M24 24 L50 78 L66 45" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M66 45 L82 14" fill="none" stroke="#34C759" stroke-width="14" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div style="font-size: 11px; color: #8E8E93; font-weight: 700; padding-bottom: 4px;">60 · 29 pt</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: #1C1C1E; border-radius: 28px;">
+    <div style="width: 44px; height: 44px; border-radius: 11px; background: #FFFFFF; position: relative; overflow: hidden; flex-shrink: 0;">
+      <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+        <path d="M24 24 L50 78 L66 45" fill="none" stroke="#1C1C1E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M66 45 L82 14" fill="none" stroke="#34C759" stroke-width="14" stroke-linecap="round"></path>
+      </svg>
+    </div>
+    <div style="font-size: 34px; font-weight: 900; color: #FFFFFF; letter-spacing: -0.02em;">Valido</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
+    <div style="font-size: 15px; line-height: 1.45; color: #1C1C1E;">Le V du nom, tracé de sorte qu'il coche : bras droit plus haut que le gauche. Le vert n'arrive que sur la pointe montante — la seule partie qui « valide ». Fond blanc comme tes cartes, ce qui la démarque des trois autres sur un écran d'accueil.</div>
+    <div style="font-size: 13px; line-height: 1.45; color: #8E8E93;"><strong style="color:#FF3B30;">Le défaut :</strong> c'est la plus sage des quatre, et le V-coche est un chemin très emprunté. À 29 pt la pointe verte ne fait plus que deux pixels : le bicolore disparaît et il ne reste qu'un V sombre.</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

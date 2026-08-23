@@ -60,3 +60,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+## Ajouts projet
+.DS_Store
+DerivedData/
+*.xcresult
+
+## Snapshots de session de l'outillage (16 Mo de copies de questions.json)
+.superpowers/
