@@ -8571,7 +8571,7 @@
       },
       {
         "id": "B",
-        "text": "la fin d'une limitation à 70 km/h sur cet axe"
+        "text": "la levée de la limitation à 70 km/h sur cet axe"
       },
       {
         "id": "C",
@@ -8725,7 +8725,7 @@
         "text": "celle qu'affiche la signalisation temporaire"
       }
     ],
-    "prompt": "À l'approche d'une zone de travaux signalée, la vitesse à tenir est :",
+    "prompt": "Sur autoroute, à l'approche d'un chantier, la vitesse à tenir est :",
     "subject": "code",
     "topic": "Vitesse"
   }
