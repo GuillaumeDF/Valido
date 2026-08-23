@@ -1071,7 +1071,9 @@ Topic : `Feux`, 10 questions. Domaine presque entièrement `stable`, et fortemen
 
 - [ ] **Step 3: Procédure C, étapes C3 et C4** — la plupart des lignes seront `stable`.
 
-- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +2 à +4) : feu orange clignotant, feu rouge clignotant (passage à niveau), flèche verte concomitante d'un feu rouge, feu de détresse et ses cas d'usage, panne de feux de croisement de nuit.
+- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +4 à +6) : feu orange clignotant, feu rouge clignotant (passage à niveau), flèche verte concomitante d'un feu rouge, feu de détresse et ses cas d'usage, panne de feux de croisement de nuit.
+
+  **Ce topic reçoit en plus la visibilité et l'éclairage**, que la tâche 17 n'a plus le droit de porter : la carte de couverture rattache `Feux` à deux thématiques — « Signalisation » et « Visibilité et éclairage » — et signale la moitié éclairage comme mince une fois isolée. À écrire aussi : feux de croisement obligatoires de jour et dans quels cas, usage des feux de route et quand les abaisser, feux de brouillard avant et arrière et leur interdiction hors brouillard, éclairage d'un véhicule à l'arrêt sur la chaussée, conduite de nuit face à un véhicule mal éclairé. Viser +3 de plus sur cette moitié.
 
 - [ ] **Step 5: Procédure C, étape C6.** Illustrations visées :
   - `feu-orange-clignotant` — le carrefour avec un feu en orange clignotant.
@@ -1149,7 +1151,9 @@ Topic : `Distances & freinage`, 10 questions. Domaine de calculs et d'ordres de 
 
 - [ ] **Step 3: Procédure C, étapes C3 et C4.**
 
-- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +2 à +4) : distance de sécurité exprimée en secondes plutôt qu'en mètres, distance de sécurité imposée aux poids lourds, freinage d'urgence et ABS, aquaplanage.
+- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +4 à +6) : distance de sécurité exprimée en secondes plutôt qu'en mètres, distance de sécurité imposée aux poids lourds, freinage d'urgence et ABS, aquaplanage.
+
+  **Ce topic reçoit en plus l'autoroute et les intempéries**, que la tâche 17 ne porte plus. À écrire aussi : insertion depuis la bretelle et voie d'entrecroisement (qui s'adapte à qui), bande d'arrêt d'urgence — usages autorisés et sanction, distance de sécurité sur autoroute et son repère au sol, conduite par vent latéral à la sortie d'un ouvrage, conduite par neige ou verglas et allongement de la distance d'arrêt. Viser +3 de plus.
 
 - [ ] **Step 5: Procédure C, étape C6.** Illustration visée : `distance-securite-tunnel` — deux véhicules en tunnel, l'intervalle marqué. Le pendant de `distance-securite-autoroute` de la tâche 5.
 
@@ -1177,7 +1181,9 @@ page it came from.
 - Consomme : le registre.
 - Produit : rien pour les tâches suivantes.
 
-Topic : `Mécanique & environnement`, 10 questions. Contient le second point ouvert d'août.
+Topic : `Mécanique & environnement`, 10 questions. Contient le second point ouvert d'août,
+et **absorbe les équipements de sécurité et le chargement** après la réaffectation décidée
+au vu de la carte de couverture.
 
 - [ ] **Step 1: Procédure C, étape C1.**
 
@@ -1189,11 +1195,24 @@ Le reste à vérifier : périodicité du contrôle technique et de sa contre-vis
 
 - [ ] **Step 3: Procédure C, étapes C3 et C4.**
 
-- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +2 à +4) : éco-conduite et surconsommation (rapport engagé, climatisation, galerie de toit), voyants du tableau de bord et gravité (rouge contre orange), pression des pneumatiques et son effet sur la distance de freinage, recyclage des huiles et batteries.
+- [ ] **Step 4: Procédure C, étape C5.** Sujets manquants (viser +6 à +9) : éco-conduite et surconsommation (rapport engagé, climatisation, galerie de toit), voyants du tableau de bord et gravité (rouge contre orange), pression des pneumatiques et son effet sur la distance de freinage, recyclage des huiles et batteries.
 
-- [ ] **Step 5: Procédure C, étapes C7 et C8.**
+  **Ce topic reçoit en plus les équipements de sécurité et le chargement**, que le plan avait d'abord logés dans une tâche 16 qui n'existe plus sous cette forme : aucune des onze thématiques officielles ne les nomme, et la carte de couverture donne `Mécanique & environnement` comme `à compléter`. À écrire aussi :
+  - **ceinture** — obligation, exemptions, sanction ; **airbag** et siège enfant dos à la route en place avant ;
+  - **sièges enfants** — jusqu'à quel âge ou quelle taille, quelle homologation ;
+  - **gilet de haute visibilité et triangle** — ce qui est obligatoire à bord. Attention : la passe d'août a retiré « visible à 100 m » d'une question faute de source. Ne réintroduire un chiffre que s'il se relève sur la liste blanche ;
+  - **charge utile, PTAC, PTRA** — définitions et où les lire sur la carte grise ;
+  - **dépassement du chargement** — à l'arrière, à l'avant, signalisation exigée ;
+  - **attelage et remorque** — permis requis selon le PTAC, vitesse applicable.
 
-- [ ] **Step 6: Procédure C, étape C9.** Message :
+- [ ] **Step 5: Procédure C, étape C6.** Illustrations visées, dans `scenesCirculation` — elles viennent avec les sujets repris de l'ancienne tâche 16 :
+  - `chargement-depassement-arriere` — véhicule vu de côté, chargement dépassant, la signalisation en question.
+  - `triangle-presignalisation-place` — véhicule en panne et position du triangle sur la chaussée.
+  - `siege-enfant-place-avant` — vue de côté, siège dos à la route en place avant.
+
+- [ ] **Step 6: Procédure C, étapes C7 et C8.**
+
+- [ ] **Step 7: Procédure C, étape C9.** Message :
 
 ```
 Mechanics and environment: settle the ZFE question against the statute
@@ -1245,18 +1264,18 @@ driving-school sites — and the gap closes.
 
 ---
 
-### Task 15: Les autres usagers de la route
+### Task 15: Usagers & partage de la route
 
 **Files:**
 - Modify: `Valido/Resources/questions.json`, `Tools/sources.md`, `Tools/couverture.md`, `Tools/images.md`, `Tools/Scenes/ScenesCirculation.swift`, imagesets
 
 **Interfaces:**
-- Consomme : le nom de topic **arrêté par la tâche 1** dans `couverture.md` pour la thématique correspondante — ne pas en inventer un autre, `audit.py` le refuserait.
+- Consomme : le topic **`Usagers & partage de la route`**, arrêté par la tâche 1 dans `couverture.md` pour la thématique « Usagers, partage de l'espace public ». Écrire ce nom au caractère près — `audit.py` refuse tout autre.
 - Produit : le premier topic neuf de la banque, et de nouvelles entrées dans `scenesCirculation`.
 
-Thématique du référentiel **absente de la banque**. Piétons, cyclistes, deux-roues motorisés, poids lourds, engins de déplacement personnel, transports en commun, angles morts. C'est le plus gros trou de couverture, et le plus illustrable — un angle mort ne se décrit pas, il se montre.
+Thématique « Usagers, partage de l'espace public », **absente de la banque**. Piétons, cyclistes, deux-roues motorisés, poids lourds, engins de déplacement personnel, transports en commun, angles morts. C'est le plus gros trou de couverture, et le plus illustrable — un angle mort ne se décrit pas, il se montre.
 
-- [ ] **Step 1: Relever le verdict `absent` de `couverture.md`** et reprendre le nom de topic qui y est arrêté.
+- [ ] **Step 1: Créer le topic `Usagers & partage de la route`** — le nom exact est arrêté dans la section « Topics à créer » de `couverture.md`.
 
 - [ ] **Step 2: Procédure C, étape C2.** À sourcer avant d'écrire :
   - **Cyclistes** — panonceau M12 ([arrêté du 12 janvier 2012](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025202146)), sas vélo, distance latérale de dépassement en et hors agglomération ([securite-routiere.gouv.fr, règles pour les cyclistes](https://www.securite-routiere.gouv.fr/reglementation-liee-aux-modes-de-deplacements/velo/regles-de-circulation-pour-les-cyclistes)).
@@ -1293,95 +1312,118 @@ overtaking distances and inter-file rules read off the official pages.
 
 ---
 
-### Task 16: Équipements de sécurité et chargement
+### Task 16: Croisement & dépassement
 
 **Files:**
 - Modify: `Valido/Resources/questions.json`, `Tools/sources.md`, `Tools/couverture.md`, `Tools/images.md`, `Tools/Scenes/ScenesCirculation.swift`, imagesets
 
 **Interfaces:**
-- Consomme : le nom de topic arrêté par la tâche 1.
+- Consomme : le topic **`Croisement & dépassement`**, arrêté par la tâche 1 dans `couverture.md`. Écrire ce nom au caractère près.
 - Produit : le second topic neuf, et de nouvelles entrées dans `scenesCirculation`.
 
-Thématique **absente**. Les équipements de sécurité (ceinture, airbag, appuie-tête, sièges enfants, gilet et triangle) et le chargement (charge utile, dépassement, arrimage, attelage) : deux pans du référentiel dont la banque ne dit rien.
+Thématique **absente de la banque**, et que le plan initial n'avait pas anticipée : c'est la
+tâche 1 qui l'a fait apparaître. Le dépassement est la manœuvre la plus illustrable de tout
+l'examen — une ligne discontinue, un véhicule engagé, un tiers en face, et la question se
+pose d'elle-même. Elle ne se pose pas en texte.
 
-- [ ] **Step 1: Relever le nom de topic dans `couverture.md`.**
+Cette tâche **ne traite pas** les équipements de sécurité et le chargement, que le plan
+avait d'abord logés ici : aucune des onze thématiques officielles ne les nomme, et ils sont
+passés à la tâche 13 (`Mécanique & environnement`).
 
-- [ ] **Step 2: Procédure C, étape C2.** À sourcer :
-  - **Ceinture** — obligation, exemptions, sanction ; **airbag** et siège enfant dos à la route en place avant.
-  - **Sièges enfants** — jusqu'à quel âge ou quelle taille, quelle homologation.
-  - **Gilet de haute visibilité et triangle de présignalisation** — ce qui est obligatoire à bord. Attention : la passe d'août a retiré « visible à 100 m » d'une question faute de source. Ne réintroduire un chiffre que s'il se relève sur la liste blanche.
-  - **Charge utile, PTAC, PTRA** — définitions et où les lire sur la carte grise.
-  - **Dépassement du chargement** — à l'arrière, à l'avant, signalisation exigée.
-  - **Attelage et remorque** — permis requis selon le PTAC, vitesse applicable.
-  - **Équipement hivernal** — recoupe la tâche 13 ; se coordonner pour ne pas doublonner (`audit.py` refuse deux options identiques, pas deux questions proches : c'est à l'œil).
+- [ ] **Step 1: Créer le topic `Croisement & dépassement`** — nom exact depuis la section « Topics à créer » de `couverture.md`.
 
-- [ ] **Step 3: Écrire les questions.** Viser 12 à 16.
+- [ ] **Step 2: Procédure C, étape C2.** À sourcer avant d'écrire :
+  - **Où le dépassement est interdit** — sommet de côte, virage sans visibilité, passage à niveau, intersection, passage piéton ; et ce que dit le marquage par rapport au panneau.
+  - **Dépassement par la droite** — les cas où il est licite (véhicule signalant qu'il tourne à gauche, circulation en files).
+  - **Ligne continue et ligne mixte** — franchissement 3 points contre chevauchement 1 ; la partie continue et de quel côté elle s'applique. Recoupe la tâche 7 : ne pas doublonner une question déjà écrite là, la proximité ne se voit pas d'`audit.py`.
+  - **Distance latérale de dépassement d'un cycliste** — 1 m en agglomération, 1,50 m hors ; recoupe la tâche 15, se coordonner.
+  - **Croisement sur chaussée étroite et en pente** — qui cède ; recoupe la tâche 6, qui traite le même cas sous l'angle de la priorité. Une question par angle au maximum.
+  - **Dépassement d'un poids lourd, d'un convoi, d'un véhicule agricole** — durée d'exposition et rabattement.
+  - **Dépassement interdit aux véhicules de plus de 3,5 t** par temps de pluie sur autoroute.
 
-- [ ] **Step 4: Procédure C, étape C4.**
+- [ ] **Step 3: Écrire les questions.** Viser 12 à 16, réparties ~40 % `facile`, 40 % `moyen`, 20 % `costaud`. Chaque question passe les sept règles de distracteur et les neuf pièges de forme du §1 et §2 de `Tools/questions.md`.
 
-- [ ] **Step 5: Procédure C, étape C6.** Illustrations visées :
-  - `chargement-depassement-arriere` — véhicule vu de côté, chargement dépassant, la signalisation en question.
-  - `triangle-presignalisation-place` — véhicule en panne et position du triangle sur la chaussée.
-  - `siege-enfant-place-avant` — vue de côté, siège dos à la route en place avant.
+- [ ] **Step 4: Procédure C, étape C4** — une ligne de registre par question neuve.
 
-- [ ] **Step 6: Mettre `couverture.md` à jour.**
+- [ ] **Step 5: Procédure C, étape C6.** Illustrations visées, dans `scenesCirculation` :
+  - `depassement-ligne-discontinue` — la manœuvre en cours, un tiers venant en face. Question : « Vous pouvez achever ce dépassement : ».
+  - `depassement-sommet-de-cote` — la même route, la visibilité coupée par le relief. Même géométrie que la précédente, réponse inverse : c'est la paire qui apprend quelque chose.
+  - `depassement-cycliste-distance` — la distance latérale ; **une seule scène pour les tâches 15 et 16**, celle qui la dessine la première la déclare dans `images.md` et l'autre la réutilise.
+  - `croisement-chaussee-etroite` — deux véhicules face à face, un obstacle d'un côté.
+  - `rabattement-apres-depassement` — le véhicule dépassant, la distance de rabattement en question.
+
+- [ ] **Step 6: Mettre `couverture.md` à jour** — volume réel, verdict `couvert`.
 
 - [ ] **Step 7: Procédure C, étapes C7 et C8.**
 
 - [ ] **Step 8: Procédure C, étape C9.** Message :
 
 ```
-Add the missing syllabus theme: safety equipment and loads
+Add the missing syllabus theme: crossing and overtaking
 
-Two blank areas of the syllabus: what must be aboard and how a vehicle
-may be loaded. The August pass had removed an unsourced "visible at
-100 m" from a warning-triangle question; no figure returns here without
-a whitelisted page behind it.
+The plan had not foreseen this theme; the syllabus map surfaced it. It is
+the most illustratable manoeuvre in the exam — a broken line, a committed
+car, oncoming traffic — and the least posable in text. The overtaking pair
+carries the point: same road, visibility cut by the crest, opposite answer.
 ```
 
----
-
-### Task 17: La route et les conditions de circulation
+### Task 17: Tunnels & passages à niveau
 
 **Files:**
 - Modify: `Valido/Resources/questions.json`, `Tools/sources.md`, `Tools/couverture.md`, `Tools/images.md`, `Tools/Scenes/ScenesCirculation.swift`, imagesets
 
 **Interfaces:**
-- Consomme : le nom de topic arrêté par la tâche 1.
+- Consomme : le topic **`Tunnels & passages à niveau`**, arrêté par la tâche 1 dans `couverture.md`. Écrire ce nom au caractère près.
 - Produit : le troisième topic neuf ; les dernières entrées de `scenesCirculation`.
 
-Thématique **absente**. Autoroute (insertion, sortie, bande d'arrêt d'urgence), tunnels, passages à niveau, intempéries et visibilité réduite, travaux et chantiers, montagne.
+Thématique **absente de la banque**. Deux lieux où une erreur ne se corrige pas : un tunnel
+dont on ne peut pas sortir, un passage à niveau qu'on ne peut pas quitter. C'est pour ça
+qu'ils ont leur thématique à l'examen.
 
-- [ ] **Step 1: Relever le nom de topic dans `couverture.md`.**
+Cette tâche est **plus resserrée que ce que le plan prévoyait d'abord** : autoroute et
+intempéries sont passées à la tâche 12 (`Distances & freinage`), visibilité et éclairage à
+la tâche 10 (`Feux`). Aucune des onze thématiques officielles ne porte « conditions de
+circulation », et inventer un topic hors référentiel contredirait la tâche 1.
 
-- [ ] **Step 2: Procédure C, étape C2.** À sourcer : conduite en tunnel (allumage des feux, intervalle, conduite à tenir en cas d'arrêt ou d'incendie), passage à niveau (conduite à tenir, immobilisation sur la voie), bande d'arrêt d'urgence (usages autorisés et sanction), insertion et voie d'entrecroisement, conduite par brouillard / pluie / neige / vent latéral, chantier mobile et signalisation temporaire.
+- [ ] **Step 1: Créer le topic `Tunnels & passages à niveau`** — nom exact depuis la section « Topics à créer » de `couverture.md`.
 
-- [ ] **Step 3: Écrire les questions.** Viser 12 à 16.
+- [ ] **Step 2: Procédure C, étape C2.** À sourcer :
+  - **Tunnel** — allumage obligatoire des feux, intervalle de sécurité en marche et à l'arrêt, interdiction du demi-tour et de la marche arrière, conduite à tenir en cas d'immobilisation, conduite à tenir en cas d'incendie (rester ou sortir, où sont les issues), fréquence radio et panneaux de rappel.
+  - **Passage à niveau** — signalisation d'approche (les balises à trois, deux et un trait), conduite à tenir quand les barrières s'abaissent, interdiction absolue de s'engager sans pouvoir dégager, conduite à tenir en cas d'immobilisation sur la voie, numéro à appeler et sa présence sur le panneau.
+  - **Sanctions** propres à ces deux lieux, si une source de la liste blanche les chiffre.
+
+- [ ] **Step 3: Écrire les questions.** Viser 12 à 16, mêmes règles de répartition et de forme.
 
 - [ ] **Step 4: Procédure C, étape C4.**
 
 - [ ] **Step 5: Procédure C, étape C6.** Illustrations visées :
-  - `autoroute-insertion-voie` — bretelle et voie d'entrecroisement, qui s'adapte à qui.
-  - `passage-a-niveau-feu` — passage à niveau avec sa signalisation.
   - `tunnel-arret-urgence` — tunnel, niche de sécurité, véhicule arrêté.
-  - `chantier-signalisation-temporaire` — rétrécissement signalé, panneaux jaunes.
-  - `visibilite-reduite-brouillard` — la même route, la visibilité coupée, question sur la vitesse et les feux.
+  - `tunnel-intervalle` — deux véhicules en marche dans le tunnel, l'intervalle en question.
+  - `passage-a-niveau-balises` — l'approche et ses balises, question sur ce qu'elles annoncent. Un cas où l'information est **purement visuelle** : le nombre de traits ne se dit pas dans un énoncé sans donner la réponse.
+  - `passage-a-niveau-immobilise` — véhicule arrêté entre les barrières, question sur la conduite à tenir.
 
-- [ ] **Step 6: Mettre `couverture.md` à jour** et vérifier qu'**aucune thématique ne reste au verdict `absent`**. S'il en reste une, c'est une tâche 18 à ajouter au plan, pas une ligne à effacer.
+- [ ] **Step 6: Mettre `couverture.md` à jour**, puis vérifier qu'**aucune thématique ne reste au verdict `absent`** :
+
+```bash
+grep -c 'absent' Tools/couverture.md
+```
+
+Attendu : `0` dans la colonne verdict du tableau (la section « Topics à créer » peut encore mentionner le mot en prose). S'il reste une thématique `absent`, c'est une tâche 18 à ajouter au plan, pas une ligne à effacer.
 
 - [ ] **Step 7: Procédure C, étapes C7 et C8.**
 
 - [ ] **Step 8: Procédure C, étape C9.** Message :
 
 ```
-Add the missing syllabus theme: road and driving conditions
+Add the missing syllabus theme: tunnels and level crossings
 
-Motorways, tunnels, level crossings, roadworks and weather — the settings
-a driver meets and the bank never posed. With this the coverage map has
-no theme left at verdict "absent".
+Two places where a mistake cannot be undone: a tunnel you cannot leave, a
+crossing you cannot clear. The approach markers are the case for an image
+that text cannot make — counting the bars is the answer, so an prompt that
+describes them has already given it away.
+
+With this, no syllabus theme is left at verdict "absent".
 ```
-
----
 
 ## Phase 2 — Le contenu `swift`
 
@@ -1717,4 +1759,12 @@ La branche est prête. Ne pas fusionner sans demande explicite. Résumer : volum
 
 **Cohérence des noms.** `Scene`, `Palette`, `Forme`, `panneau(_:forme:at:rayon:fond:bord:epaisseurBord:)`, `scenesCarrefour`, `scenesPanneaux`, `scenesCirculation`, `TOPICS_DECLARES`, `REGISTRE`, `DOMAINES`, `LIGNE_SOURCE`, `orphelines`, `leBudgetDeHauteurDesQuestionsIllustréesEstTenu()`, `laBanqueGardeSonVolumeIllustré()` : chacun est défini dans une tâche et repris sous le même nom dans les suivantes. `main.swift` agrège les trois tables de scènes, et la ligne `let scenes` est étendue explicitement en tâches 5 et 7.
 
-**Un inconnu reste ouvert, et c'est voulu.** Le libellé exact des thématiques ETG, et donc le nom des trois topics neufs, sont fixés par la tâche 1. Les tâches 15 à 17 disent « le nom arrêté par la tâche 1 » plutôt que d'inventer un nom : `audit.py` refuserait un topic non déclaré, ce qui rend l'oubli impossible.
+**L'inconnu a été levé, et il a coûté une réaffectation.** La tâche 1 a établi onze
+thématiques officielles, dont trois sans aucune question : `Croisement & dépassement`,
+`Tunnels & passages à niveau`, `Usagers & partage de la route`. Le plan initial avait deviné
+deux de ces trois de travers — il attendait « équipements & chargement » et « route &
+conditions », et n'avait pas vu venir le dépassement, qui est pourtant la manœuvre la plus
+illustrable de l'examen. Les tâches 15 à 17 ont été récrites sur les vrais libellés, et les
+sujets orphelins répartis : équipements et chargement à la tâche 13, autoroute et intempéries
+à la tâche 12, visibilité et éclairage à la tâche 10. Aucun sujet prévu n'a été perdu ; c'est
+leur adresse qui a changé.
