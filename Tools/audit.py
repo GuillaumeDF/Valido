@@ -53,6 +53,16 @@ try:
 except OSError:
     RECENSES = set()
 
+COUVERTURE_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'couverture.md')
+# La carte de couverture : une ligne par couple (thématique ETG, topic). Un `topic` `code`
+# absent de cette colonne est soit une faute de frappe, soit un pan de contenu hors
+# référentiel — dans les deux cas on veut le savoir avant les tests.
+try:
+    TOPICS_DECLARES = set(re.findall(r'^\|[^|]*\|\s*`([^`]+)`\s*\|',
+                                     open(COUVERTURE_MD).read(), re.M))
+except OSError:
+    TOPICS_DECLARES = set()
+
 findings = collections.defaultdict(list)
 def flag(kind, q, detail):
     findings[kind].append((q['subject'], q['topic'], q['id'], q['prompt'][:70], detail))
@@ -71,6 +81,10 @@ for q in QS:
     if not expl.strip(): flag('schema/expl-vide', q, '')
     if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration'}:
         flag('schema/cle-hors-schema', q, sorted(set(q)))
+
+    # --- couverture ---
+    if q['subject'] == 'code' and TOPICS_DECLARES and q['topic'] not in TOPICS_DECLARES:
+        flag('couverture/topic-non-rattache', q, q['topic'])
 
     # --- illustration ---
     illu = q.get('illustration')
@@ -153,7 +167,7 @@ for q in QS:
         flag('expl/paraphrase-lexicale', q, f"expl={expl[:60]}")
     if len(expl) < 40: flag('expl/trop-courte', q, expl)
 
-order = ['schema/','lettre/','forme/','longueur/','fuite/','expl/','image/']
+order = ['schema/', 'couverture/', 'source/', 'lettre/', 'forme/', 'longueur/', 'fuite/', 'expl/', 'image/']
 print(f"== {len(QS)} questions ==\n")
 for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.startswith(p))), k)):
     v = findings[k]
