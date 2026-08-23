@@ -87,3 +87,28 @@ import UIKit
     }
     #expect(tropCourts == [])
 }
+
+/// Le bandeau de `QuestionCardView` réclame jusqu'à 38 % de la carte avant réponse et
+/// 18 % après, et il **cède** quand le texte n'a plus la place — aucun texte de la carte
+/// n'est compressible, donc l'image est le seul élément qui puisse reculer. Mesuré sur
+/// les huit premières illustrées : à 220 caractères d'explication et un énoncé de trois
+/// lignes, le bandeau descend à 8 % et il ne reste qu'une bande de la scène.
+///
+/// Les chiffres viennent du §7 de `Tools/questions.md`, où ils n'étaient que de la prose.
+/// À quarante questions illustrées, la prose ne tient plus.
+@Test func leBudgetDeHauteurDesQuestionsIllustréesEstTenu() throws {
+    let bank = try QuestionBank.bundled()
+    var fautives: [String] = []
+    for question in bank.questions where question.illustration != nil {
+        if question.prompt.count > 70 {
+            fautives.append("\(question.id) énoncé \(question.prompt.count)")
+        }
+        for option in question.options where option.text.count > 50 {
+            fautives.append("\(question.id) option \(option.text.count)")
+        }
+        if question.explanation.count > 220 {
+            fautives.append("\(question.id) explication \(question.explanation.count)")
+        }
+    }
+    #expect(fautives == [])
+}

@@ -8399,7 +8399,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le triangle pointe en bas et la ligne discontinue à traits larges disent la même chose : la priorité est due, l'arrêt ne l'est pas. Un STOP se reconnaît à son octogone et à sa ligne continue, et lui impose l'immobilisation.",
+    "explanation": "Le triangle pointe en bas et la ligne discontinue à traits larges disent la même chose : la priorité est due, l'arrêt ne l'est pas. Un STOP, lui, impose l'arrêt.",
     "id": "dce501d416e5db1cc6344725007fbad6",
     "illustration": {
       "alt": "Croisement à quatre branches ; un triangle rouge pointe en bas et une ligne discontinue à traits larges barrent votre voie d'approche.",
@@ -8447,7 +8447,7 @@
       },
       {
         "id": "C",
-        "text": "Vous, mais seulement s'il vous fait signe de passer"
+        "text": "Vous, mais s'il vous fait signe de passer"
       },
       {
         "id": "D",
@@ -8461,7 +8461,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le triangle à l'entrée impose de céder le passage à l'anneau, où l'on circule dans le sens antihoraire : ce qui vous coupe la route arrive donc toujours par la gauche. Sans ce panneau on aurait un rond-point, et la priorité à droite jouerait au profit de ceux qui entrent.",
+    "explanation": "Le triangle à l'entrée impose de céder le passage à l'anneau, où l'on circule dans le sens antihoraire : ce qui vous coupe la route arrive donc toujours par la gauche.",
     "id": "dd4c58febe771b6f297f1ca46c2ec75b",
     "illustration": {
       "alt": "Giratoire à quatre branches ; un triangle rouge pointe en bas marque votre entrée par le bas, et un véhicule circule déjà sur l'anneau, arrivant de votre gauche.",
@@ -8470,7 +8470,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Le véhicule, mais seulement s'il met son clignotant"
+        "text": "Le véhicule, mais seulement s'il met le clignotant"
       },
       {
         "id": "B",
@@ -8492,7 +8492,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Les trois flèches disposées en anneau annoncent un carrefour à sens giratoire : un cédez-le-passage attend à l'entrée, et ceux qui tournent déjà passent avant. Le rond-point à l'ancienne, lui, laisse jouer la règle de droite, donc au profit de ceux qui entrent.",
+    "explanation": "Les trois flèches en anneau annoncent un carrefour à sens giratoire : un cédez-le-passage attend à l'entrée, et ceux qui tournent déjà passent avant. Un rond-point laisserait jouer la priorité à droite.",
     "id": "9eb8506813f0c8b729b66157ec95a63f",
     "illustration": {
       "alt": "Vue depuis le poste de conduite, sur une route de campagne à deux voies ; un panneau triangulaire à bord rouge portant trois flèches disposées en anneau est planté sur l'accotement de droite.",

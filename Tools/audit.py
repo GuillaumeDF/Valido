@@ -119,6 +119,17 @@ for q in QS:
         # `alt` porte l'énoncé pour qui n'accède pas à l'image : trois mots ne suffisent
         # pas. Seuil aligné sur celui de l'explication.
         if len(alt.strip()) < 40: flag('image/alt-trop-court', q, alt)
+        # Budget de hauteur du §7, désormais imposé : le bandeau cède quand le texte
+        # n'a plus la place, et l'image est le seul élément compressible de la carte.
+        # Le test `leBudgetDeHauteurDesQuestionsIllustréesEstTenu` verrouille les mêmes
+        # seuils sur le livré ; celui-ci les attrape avant le build.
+        if len(q['prompt']) > 70:
+            flag('image/enonce-trop-long', q, f"{len(q['prompt'])} car. (max 70)")
+        for o in q['options']:
+            if len(o['text']) > 50:
+                flag('image/option-trop-longue', q, f"{o['id']} : {len(o['text'])} car. (max 50)")
+        if len(expl) > 220:
+            flag('image/expl-trop-longue', q, f'{len(expl)} car. (max 220)')
         # Si l'énoncé redit ce que l'image montre, l'image est décorative — exactement ce
         # que les questions illustrées ne doivent pas être. Sortie à trier à la main :
         # « carrefour » dans les deux est parfois inévitable.
