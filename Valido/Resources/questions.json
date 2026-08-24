@@ -272,7 +272,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'élimination est lente et linéaire : le foie ne traite qu'un verre par heure environ, et rien ne l'accélère. Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin.",
+    "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard, et rien d'extérieur n'accélère ce rythme. Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin.",
     "id": "37fe1af42b8d811eae7dfa1a08ee0f64",
     "options": [
       {
@@ -353,24 +353,24 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Un « verre standard » servi dans un bar contient à peu près la même quantité d'alcool pur, quelle que soit la boisson : c'est ce qui rend le calcul simple, et le seuil de 0,5 g/L atteignable en deux ou trois verres.",
+    "explanation": "Un verre servi dans un bar, quelle que soit la boisson, tient dans les mêmes dix grammes d'alcool pur : 25 cl à 5 degrés, 10 cl à 12 degrés. L'organisme met environ une heure et demie à en venir à bout, ce qui met le seuil légal à portée de deux verres.",
     "id": "37fe1af42b8d81218099fdc3bcfd24c9",
     "options": [
       {
         "id": "A",
-        "text": "1 g/L"
+        "text": "1 à 1,5 g/L"
       },
       {
         "id": "B",
-        "text": "0,20 g/L"
+        "text": "0,20 à 0,25 g/L"
       },
       {
         "id": "C",
-        "text": "0,80 g/L"
+        "text": "0,80 à 1 g/L"
       },
       {
         "id": "D",
-        "text": "0,05 g/L"
+        "text": "0,05 à 0,10 g/L"
       }
     ],
     "prompt": "Un verre d'alcool standard servi dans un bar fait monter le taux d'environ :",
@@ -1341,7 +1341,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "un délit. Jusqu'à 4 500 €, 2 ans de prison, -6 points et suspension/annulation du permis.",
+    "explanation": "Le franchissement de ce seuil fait changer l'infraction de nature : on quitte l'amende forfaitaire pour un juge, avec trois ans d'emprisonnement et 9 000 € encourus, contre deux ans et 4 500 € dans le barème qu'on lit encore partout. Le retrait de points, lui, reste de six.",
     "id": "37fe1af42b8d817e8e2feffa6987ba00",
     "options": [
       {
@@ -1719,7 +1719,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "L'article L235-1, relevé par la loi du 18 août 2026, punit la conduite après usage de stupéfiants de 3 ans d'emprisonnement et 9 000 € d'amende — davantage que l'alcool à 0,8 g/L, resté à 2 ans et 4 500 €. Le cumul des deux porte les peines à 5 ans et 15 000 €.",
+    "explanation": "L'article L235-1, dans sa version en vigueur depuis le 20 août 2026, punit de trois ans d'emprisonnement et 9 000 € d'amende la conduite après usage de stupéfiants, sans exiger le moindre seuil de dose : la seule trace suffit. L'alcoolémie délictuelle est punie au même niveau ; ce qui aggrave encore la peine, c'est le cumul des deux.",
     "id": "37fe1af42b8d81b38194dba0c15484b4",
     "options": [
       {
@@ -1777,7 +1777,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'alcool rétrécit le champ visuel, allonge le temps de réaction et fausse l'appréciation des distances, dès 0,3 g/L.",
+    "explanation": "Les conséquences sur la conduite s'observent dès le premier verre ; à partir du seuil légal de 0,5 g/L elles sont tenues pour établies : champ visuel rétréci, relief et distances mal appréciés, sensibilité accrue à l'éblouissement. Aucune ne se compense par la volonté de rester vigilant.",
     "id": "37fe1af42b8d81b3b1a2f0bc28c23b22",
     "options": [
       {
@@ -7397,7 +7397,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le refus est une infraction autonome, et le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler. Le retrait est le même que pour une alcoolémie délictuelle, 6 points.",
+    "explanation": "Le refus est une infraction autonome, et le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler. La loi du 18 août 2026 a comblé le dernier écart, si bien que le refus et le délit qu'il masque encourent désormais la même peine et le même retrait de six points.",
     "id": "749552ac121e0cd77beff969300b8ef9",
     "options": [
       {
@@ -7414,7 +7414,7 @@
       },
       {
         "id": "D",
-        "text": "Un délit, sanctionné comme la conduite en état d'ivresse"
+        "text": "Un délit, puni comme la conduite au-delà de 0,8 g/L"
       }
     ],
     "prompt": "Refuser de se soumettre au dépistage d'alcoolémie est :",
@@ -7424,7 +7424,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "L'article L235-1 traite le cumul comme une circonstance aggravante : les peines passent de 3 ans et 9 000 € à 5 ans et 15 000 €. Les deux produits combinent leurs effets sur la vigilance au lieu de s'annuler.",
+    "explanation": "L'article L235-1 traite le cumul comme une aggravation autonome : les peines passent de trois ans et 9 000 € à cinq ans et 15 000 €, et la confiscation du véhicule devient obligatoire, la juridiction devant motiver spécialement pour y renoncer. Les deux produits combinent leurs effets sur la vigilance au lieu de s'annuler.",
     "id": "e13df5a7d4151bdeca7a9f914c90cf4e",
     "options": [
       {
@@ -7451,7 +7451,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le juge peut l'imposer à la place d'une suspension : le condamné continue de conduire pour travailler, mais la récidive devient matériellement impossible. Le dispositif bloque le démarreur ; il n'arrête pas un moteur déjà lancé.",
+    "explanation": "Le dispositif bloque le démarreur ; il n'arrête pas un moteur déjà lancé. La juridiction peut interdire de conduire un véhicule qui n'en est pas équipé — jusqu'à cinq ans pour le délit, trois ans pour la contravention — de sorte que le condamné garde le volant pour travailler ; passer outre est un délit distinct.",
     "id": "ef26cca38b9d1abc6fb0b13d76247f35",
     "options": [
       {
@@ -9213,5 +9213,113 @@
     "prompt": "Ce panneau, pour un cycliste :",
     "subject": "code",
     "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Au-delà de 0,8 g/L l'infraction est un délit, et son plafond a été relevé : c'est l'ancien barème, resté dans presque tous les manuels, qui donne deux ans et 4 500 €. La peine de cinq ans, elle, est réservée au cumul avec des stupéfiants.",
+    "id": "5720fa6a7cd62743982f88a4f3fa5dd2",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 ans de prison et 4 500 € d'amende"
+      },
+      {
+        "id": "B",
+        "text": "750 € d'amende, sans peine de prison"
+      },
+      {
+        "id": "C",
+        "text": "3 ans de prison et 9 000 € d'amende"
+      },
+      {
+        "id": "D",
+        "text": "5 ans de prison et 15 000 € d'amende"
+      }
+    ],
+    "prompt": "Conduire avec 0,9 g/L d'alcool dans le sang expose au maximum à :",
+    "subject": "code",
+    "topic": "Alcool & stupéfiants"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Le code abaisse le seuil à 0,2 g/L — 0,10 mg/L d'air expiré — pour les conducteurs dont il attend une vigilance renforcée : transport en commun, permis encore sous délai probatoire ou apprentissage, conducteur astreint à un éthylotest antidémarrage. Sous 0,8 g/L cela reste une contravention, avec six points en moins.",
+    "id": "a2aef876d84d666217ef6d2db811ac63",
+    "options": [
+      {
+        "id": "A",
+        "text": "il est en infraction, son seuil étant de 0,2 g/L"
+      },
+      {
+        "id": "B",
+        "text": "il est en règle, le seuil de 0,5 g/L s'appliquant"
+      },
+      {
+        "id": "C",
+        "text": "il est en règle, aucun seuil particulier ne le visant"
+      },
+      {
+        "id": "D",
+        "text": "il commet un délit, jugé au tribunal correctionnel"
+      }
+    ],
+    "prompt": "Un conducteur d'autocar est contrôlé à 0,3 g/L de sang :",
+    "subject": "code",
+    "topic": "Alcool & stupéfiants"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "Le code distingue deux régimes : dès qu'un accident a fait un blessé, les forces de l'ordre doivent soumettre le conducteur aux épreuves, sans avoir à justifier d'un soupçon ; pour tout autre accident, elles le peuvent sans y être tenues. C'est pourquoi un accrochage sans blessé ne donne pas systématiquement lieu à un contrôle.",
+    "id": "22603ebb1d645f3273bc07e98ab0eb23",
+    "options": [
+      {
+        "id": "A",
+        "text": "laissé à l'appréciation des forces de l'ordre"
+      },
+      {
+        "id": "B",
+        "text": "réservé aux accidents mortels ou graves"
+      },
+      {
+        "id": "C",
+        "text": "obligatoire même sans indice d'alcoolisation"
+      },
+      {
+        "id": "D",
+        "text": "subordonné à un signe d'ivresse du conducteur"
+      }
+    ],
+    "prompt": "Après un accident ayant causé un dommage corporel, le dépistage d'alcoolémie est :",
+    "subject": "code",
+    "topic": "Alcool & stupéfiants"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "La responsabilité civile est obligatoire : elle joue pour les tiers quoi qu'ait fait l'assuré, et c'est ce qui rend l'idée d'une assurance « annulée » fausse. Ce que l'assureur écarte, ce sont les garanties qui protégeaient le conducteur lui-même ; il peut en outre majorer la prime de 150 % et résilier le contrat avec un mois de préavis.",
+    "id": "bda97dae02fa9e085f5f6ba0827a4f7b",
+    "options": [
+      {
+        "id": "A",
+        "text": "couvre les victimes, jamais les dommages du conducteur"
+      },
+      {
+        "id": "B",
+        "text": "refuse toute indemnisation, y compris aux victimes"
+      },
+      {
+        "id": "C",
+        "text": "indemnise tout le monde, puis majore la prime de 5 %"
+      },
+      {
+        "id": "D",
+        "text": "indemnise tout, la faute du conducteur étant sans effet"
+      }
+    ],
+    "prompt": "Après un accident causé sous l'emprise de l'alcool, l'assureur :",
+    "subject": "code",
+    "topic": "Alcool & stupéfiants"
   }
 ]
