@@ -52,6 +52,9 @@ dessine une fois, pas une fois par scène.
 | `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà ; le candidat démarre dans la voie qui se termine, pas déjà dans celle désignée | maison, aucune source tierce |
 | `marquage-zebra` | zone non circulable en chevrons au milieu de la chaussée, encadrée de deux continues | maison, aucune source tierce |
 | `marquage-damier-detresse` | damier rouge et blanc d'une voie de détresse, à droite de la chaussée | maison, aucune source tierce |
+| `feu-jaune-clignotant` | signal tricolore seul, la lampe du **milieu** allumée et cerclée de traits de clignotement | maison, aucune source tierce |
+| `feu-fleche-clignotante` | tricolore à lampe du **haut** allumée, et un signal d'anticipation à flèche droite clignotante sur le même support | maison, aucune source tierce |
+| `passage-niveau-feu-rouge-clignotant` | voie ferrée en travers de la chaussée, signal d'arrêt R24 à lentille **unique** allumée et clignotante | maison, aucune source tierce |
 
 ### D'où vient la géométrie des panneaux
 
@@ -69,6 +72,7 @@ donc dans aucune colonne `source` de [`sources.md`](sources.md).
 | 3e | art. 42-2 AB3a, AB4, AB25 ; art. 42-3 AB6 et AB7. **Cette partie ne comporte aucun article de couleurs** : le listel blanc des panneaux AB à bande rouge suit celui des triangles de danger, par analogie | [iisr_3epartie_vc_201901](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_3epartie_vc_201901_cle09e7a7.pdf) |
 | 4e | art. 45 forme circulaire ; art. 47 couleurs, au mot : interdiction « fond blanc, couronne et barre d'interdiction rouges » **sans listel**, B1 « fond rouge […] barre horizontale blanche », B6a et B6d « à fond bleu », obligation « fond bleu, listel et symbole blancs », fin d'interdiction « fond blanc, symbole, inscription, listel et barre noirs » ; art. 50-1, 52, 55, 55-3, 65 et 68-1 pour la portée de chaque panneau | [iisr_4epartie_vc_20220613](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_4epartie_vc_20220613_cle22c5b5.pdf) |
 | 5e | art. 69-1 « les panneaux de type C sont généralement de forme carrée » ; art. 70 C1a, art. 71-1 C13a, art. 75-3 C113, art. 75-4 C207 | [IISR_5ePARTIE_vc20121231](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_5ePARTIE_vc20121231_cle5ce2b1.pdf) |
+| 6e | art. 109-3 A signal tricolore R11 « composé de trois feux circulaires vert, jaune, rouge », les R13 les donnant « dans cet ordre de bas en haut », et R11j « le vert peut être remplacé par du jaune clignotant » ; art. 109-3 B signal d'arrêt R24 « composé d'un feu circulaire rouge clignotant », employé « devant un obstacle ou un danger particulier (passage à niveau […] pont mobile, avalanche…) » ; art. 109-4 « les feux circulaires principaux pour véhicules ont un diamètre soit de 200 mm, soit de 300 mm », R24 « diamètre minimum de 160 mm » ; art. 110, C en jaune clignotant général « tous les signaux tricolores sont au jaune clignotant sur le feu du milieu » ; art. 110-5 le signal d'anticipation est « soit accolé à la même hauteur que le feu vert du signal R11v associé, soit situé juste en dessous » ; fig. 6 « Ce symbole signifie qu'il s'agit d'un feu clignotant » | [IISR_6ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_6ePARTIE_VC_20160215_cle217f7b.pdf) |
 | 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
 | 8e | art. 120 B principe de cohérence — le panneau permanent contredit « doit être masqué provisoirement » ; art. 122 A fond jaune des types AK, KC, KD et KM, et B marquage temporaire jaune | [IISR_8ePARTIE_VC20130621](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_8ePARTIE_VC20130621_cle5d9b18.pdf) |
 
@@ -85,9 +89,36 @@ pictogramme de `Tools/Scenes/Panneaux.swift` est donc une simplification du symb
 dessinée pour rester lisible à ~90 points de haut : le point d'exclamation de l'A14, la
 courbe de l'A1a, le piéton de l'A13b, les deux voitures du B3, les obliques des B6, la
 flèche du B21b, la barre de l'AB7, le P du C1a, la bicyclette du C113, et le pictogramme
-de descente de l'A16. Le caisson de feu tricolore n'a lui non plus aucune planche relevée.
+de descente de l'A16.
 **Aucun visuel d'éditeur d'ETG n'a servi de modèle**, ni comme source ni comme référence :
 ce qui est public, c'est la norme, pas le fichier image d'un site.
+
+**La dette du caisson de feu est en partie levée (2026-08-24).** Ce fichier portait, depuis
+la tâche 7, l'aveu que « le caisson de feu tricolore n'a lui non plus aucune planche
+relevée ». La 6e partie de l'IISR et l'article 7 de l'arrêté du 24 novembre 1967 ont été
+lus depuis, et ils donnent trois choses que le dessin ne devine plus :
+
+- les lentilles sont **circulaires**, et il y en a **trois** sur un signal tricolore, **une
+  seule** sur un signal d'arrêt R24 comme sur un signal d'anticipation R16 — c'est ce
+  nombre, et non une teinte, qui sépare les trois scènes de feux les unes des autres ;
+- leur **ordre** est rouge en haut, jaune au milieu, vert en bas (les signaux R13 les
+  donnent « vert, jaune, rouge, dans cet ordre de bas en haut ») : `feuTricolore` déduit
+  donc la teinte de chaque lentille de sa position, et ne la reçoit jamais de l'appelant ;
+- **quelle** lentille clignote selon le cas — au milieu « lorsque l'ensemble de
+  l'installation est en panne, en cours de mise en activité ou volontairement géré avec ce
+  seul message », en bas et à la place du vert quand le jaune clignotant est permanent
+  (art. 7). `feu-jaune-clignotant` allume celle du milieu, qui est le cas qu'un candidat
+  rencontre.
+
+Ce qui **reste** dessiné, faute de norme : le **contour** du caisson autour des lentilles
+— la 6e partie ne cote que le diamètre des lentilles, pas l'enveloppe, et les proportions
+existantes (13 × 34 pour des lentilles de 8) se sont trouvées à quelques pour cent d'un
+caisson plausible, donc elles n'ont pas bougé et aucun PNG déjà rendu n'a changé ; le halo
+et les traits rayonnants qui figurent l'allumage et le clignotement, la figure 6 de la 6e
+partie attestant seulement qu'un symbole de clignotement existe sans que sa forme soit
+extractible du texte ; et la flèche du signal d'anticipation. La croix de Saint-André et
+les barrières d'un passage à niveau n'ont **pas** été dessinées : leur planche n'a pas été
+relevée, et la voie ferrée suffit à dire le passage à niveau.
 
 Trois licences prises sur la géométrie, toutes pour la lisibilité :
 

@@ -45,19 +45,26 @@ se relit avec `python3 Tools/audit.py`.
 | Règles de circulation | `Vitesse` | 16 | couvert |
 | Règles de circulation | `Permis & sanctions` | 14 | couvert |
 | Signalisation | `Panneaux & marquage` | 17 | couvert |
-| Signalisation | `Feux` | 10 | couvert |
+| Signalisation | `Feux` | 19 | couvert |
 | Tunnels et passages à niveau | | 0 | absent |
-| Visibilité et éclairage | `Feux` | 10 | à compléter |
+| Visibilité et éclairage | `Feux` | 19 | couvert |
 | Usagers, partage de l'espace public | | 0 | absent |
 | Prise de conscience des risques | `Alcool & stupéfiants` | 14 | couvert |
 | Prise de conscience des risques | `Distances & freinage` | 10 | couvert |
 | Premiers secours | `Premiers secours` | 13 | couvert |
 
 `Feux` apparaît deux fois : le topic mélange, sans le distinguer dans `questions.json`, les
-feux de signalisation (rouge/orange/vert, clignotants — cinq questions) et l'éclairage du
-véhicule (feux de croisement, antibrouillard, phares — cinq questions). Le volume affiché
-(10) est celui du topic entier sur chaque ligne ; il ne s'additionne pas d'une ligne à
-l'autre, d'où le `à compléter` côté éclairage : sa moitié dédiée est mince une fois isolée.
+feux de signalisation (rouge/orange/vert, clignotants) et l'éclairage du véhicule (feux de
+croisement, antibrouillard, phares). Le volume affiché (19) est celui du topic entier sur
+chaque ligne ; il ne s'additionne pas d'une ligne à l'autre.
+
+La tâche 10 a levé le `à compléter` de la moitié éclairage : le topic est passé de 10 à 19
+questions, dont **six** neuves du seul côté éclairage — feux de détresse en file
+ininterrompue, feux de croisement derrière un véhicule suivi de près, feux avant de
+brouillard, éclairage d'un véhicule à l'arrêt hors zone éclairée, véhicule mal éclairé
+croisé de nuit, panne des feux de croisement. Le partage est désormais de **huit**
+questions côté signalisation et **onze** côté éclairage. Il reste implicite dans le
+fichier : aucun champ ne le porte, et cette carte est le seul endroit où il est écrit.
 
 Le rattachement de `Vitesse` et `Permis & sanctions` à « Règles de circulation », et
 d'`Alcool & stupéfiants` et `Distances & freinage` à « Prise de conscience des risques »,

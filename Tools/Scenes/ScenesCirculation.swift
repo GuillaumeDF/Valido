@@ -2,8 +2,9 @@ import CoreGraphics
 
 // MARK: - Les scènes de circulation et de vitesse
 //
-// Trois panneaux de vitesse et une chaussée d'autoroute. Deux règles de cadrage
-// commandent tout ce fichier :
+// Deux familles : les panneaux de vitesse et la chaussée d'autoroute (tâche 5), puis les
+// signaux lumineux (tâche 10, plus bas). Deux règles de cadrage commandent tout ce
+// fichier :
 //
 // - **Le panneau est le sujet**, pas un détail dans une scène. Il est donc dessiné grand
 //   et centré, alors que les panneaux des scènes de carrefour tiennent en rayon 15-17.
@@ -88,4 +89,78 @@ let scenesCirculation: [(String, Scene)] = [
         voiture(ctx, x: voieAutoroute(1), y: cy - 58, cap: .nord, couleur: p.autre, p)
         voiture(ctx, x: voieAutoroute(2), y: cy + 62, cap: .nord, couleur: p.tiers, p)
     }),
+
+    // MARK: - Les signaux lumineux (tâche 10)
+    //
+    // Ces trois scènes ont une contrainte que les panneaux n'ont pas : **la réponse ne
+    // doit jamais reposer sur une teinte.** Un feu rouge et un feu vert, pour un
+    // daltonien, sont deux ronds identiques. Trois choses portent donc l'information à la
+    // place de la couleur, et elles sont toutes de forme et non de teinte :
+    //
+    // - la **position** de la lampe allumée dans le caisson — haut rouge, milieu jaune,
+    //   bas vert, ordre fixé par l'art. 7 de l'arrêté du 24 novembre 1967 ;
+    // - le **halo** autour de la lentille, qui dit qu'elle brûle, là où les autres restent
+    //   au gris éteint ;
+    // - les **traits rayonnants**, qui disent qu'elle clignote — la convention de l'IISR
+    //   sur ses propres planches.
+    //
+    // L'`alt` de chaque question nomme la position, jamais la teinte. Et le nombre de
+    // lentilles est lui-même une information : le signal d'arrêt R24 du passage à niveau
+    // n'en a **qu'une**, un tricolore en a trois.
+
+    // 5. Le jaune clignotant, seul et grand — même traitement que les panneaux ci-dessus,
+    //    parce que la question porte sur la signification du signal et non sur une
+    //    situation. La lampe allumée est celle du **milieu** : l'art. 7 réserve cette
+    //    position au cas où « l'ensemble de l'installation est en panne, en cours de mise
+    //    en activité ou volontairement géré avec ce seul message », qui est le cas que
+    //    rencontre un candidat. Le jaune clignotant *permanent*, lui, est en bas, à la
+    //    place du vert (signal R11j) — l'IISR recommande d'ailleurs de l'éviter.
+    ("feu-jaune-clignotant", { ctx, p in
+        fond(ctx, p)
+        feuTricolore(ctx, at: CGPoint(x: cx, y: cy), largeur: 38,
+                     [.eteinte, .clignotante, .eteinte], p)
+    }),
+
+    // 6. Rouge fixe + flèche jaune clignotante : le signal d'anticipation R16. La
+    //    combinaison entière est le sujet, d'où deux caissons côte à côte et rien
+    //    d'autre. Le tricolore n'a que sa lampe du **haut** allumée, et sans traits —
+    //    le rouge d'un tricolore ne clignote pas ; c'est la flèche, et elle seule, qui
+    //    clignote. La flèche est accolée à la hauteur de la lampe du bas, comme
+    //    l'impose l'art. 110-5 de la 6e partie de l'IISR.
+    ("feu-fleche-clignotante", { ctx, p in
+        fond(ctx, p)
+        feuTricolore(ctx, at: CGPoint(x: 168, y: cy), largeur: 34,
+                     [.allumee, .eteinte, .eteinte], p)
+        brasDeSupport(ctx, de: 185, a: 213, y: cy + 27.6, epaisseur: 6, p)
+        signalDAnticipation(ctx, at: CGPoint(x: 222, y: cy + 27.6), largeur: 30,
+                            versLaDroite: true, p)
+    }),
+
+    // 7. Passage à niveau au signal d'arrêt R24. Ici la scène compte, contrairement aux
+    //    deux précédentes : la réponse (« l'arrêt absolu, train visible ou non ») demande
+    //    de reconnaître **et** le signal **et** la voie ferrée. Les deux sont donc au
+    //    centre vertical, dans la bande qui survit au recadrage ; la voiture du candidat,
+    //    qui n'est que du décor, est en bas et disparaît au verdict.
+    ("passage-niveau-feu-rouge-clignotant", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeInterrompuSurLaVoieFerree(ctx, p)
+        railsHorizontaux(ctx, p)
+        signalDArret(ctx, at: CGPoint(x: cx + voie + 30, y: cy + 32), rayon: 15, p)
+        voiture(ctx, x: voieVous, y: 248, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
 ]
+
+/// L'axe médian de la chaussée, interrompu juste au-dessus et au-dessous des rails.
+/// `axeVertical` ménage un trou de la largeur d'un carrefour entier (± une demi-chaussée) :
+/// sur un passage à niveau, ce trou-là se lirait comme une intersection.
+private func axeInterrompuSurLaVoieFerree(_ ctx: CGContext, _ p: Palette) {
+    ctx.setFillColor(p.marquage)
+    var y = 4.0
+    while y < H {
+        if !(y + 14 > cy - 17 && y < cy + 17) {
+            ctx.fill(CGRect(x: cx - 1.5, y: y, width: 3, height: 14))
+        }
+        y += 24
+    }
+}

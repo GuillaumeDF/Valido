@@ -270,32 +270,177 @@ func panneauZone30(_ ctx: CGContext, at pt: CGPoint, demiCote: Double, _ p: Pale
 /// haut vers le bas**, pour qu'un appelant puisse en allumer une : c'est alors la position
 /// dans le caisson qui porte l'information, pas la seule couleur.
 ///
-/// Aucune scène n'allume encore de lampe, et la palette n'a d'ailleurs pas de vert. La
-/// tâche qui aura besoin d'un feu allumé ajoutera l'un et l'autre ; le caisson, lui, est
-/// dessiné une fois pour toutes.
-func boitierDeFeu(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) -> [CGPoint] {
-    let l = 13.0, h = 34.0
+/// `largeur` échelonne tout le caisson, mât et lentilles compris. La valeur par défaut de
+/// 13 est celle du feu-décor de `carrefour-feu-en-panne`, où le feu n'est qu'un détail de
+/// la scène ; les scènes où le feu **est** le sujet demandent trois fois cette taille pour
+/// que la lentille allumée se distingue à l'écran. Le rapport des proportions est figé, si
+/// bien qu'un appel sans `largeur` rend le pixel pour pixel ce qu'il rendait avant.
+///
+/// Ce que la norme fixe, et qui est donc relevé plutôt que dessiné à l'œil : les lentilles
+/// sont **circulaires** et leur ordre est rouge en haut, jaune au milieu, vert en bas
+/// (arrêté du 24 novembre 1967, art. 7, et IISR 6e partie, art. 109-3). Le contour du
+/// caisson autour d'elles, lui, n'est normalisé nulle part — cf. `Tools/images.md`.
+func boitierDeFeu(_ ctx: CGContext, at pt: CGPoint, largeur l: Double = 13,
+                  _ p: Palette) -> [CGPoint] {
+    let u = l / 13   // tout le caisson est coté en unités de sa largeur d'origine
+    let h = 34 * u
     let caisson = CGRect(x: pt.x - l / 2, y: pt.y - h / 2, width: l, height: h)
     ctx.setFillColor(p.chaussee)
-    ctx.addPath(CGPath(roundedRect: caisson, cornerWidth: 3, cornerHeight: 3, transform: nil))
+    ctx.addPath(CGPath(roundedRect: caisson, cornerWidth: 3 * u, cornerHeight: 3 * u,
+                       transform: nil))
     ctx.fillPath()
     // Le mât, sans quoi le caisson flotte au-dessus du sol.
-    ctx.fill(CGRect(x: pt.x - 1.5, y: caisson.maxY, width: 3, height: 8))
-    return (0..<3).map { CGPoint(x: pt.x, y: caisson.minY + 6.5 + Double($0) * 10.5) }
+    ctx.fill(CGRect(x: pt.x - 1.5 * u, y: caisson.maxY, width: 3 * u, height: 8 * u))
+    return (0..<3).map { CGPoint(x: pt.x, y: caisson.minY + (6.5 + Double($0) * 10.5) * u) }
+}
+
+/// Rayon d'une lentille dans un caisson de `largeur` donnée.
+func rayonDeLentille(_ largeur: Double) -> Double { largeur * 4 / 13 }
+
+/// État d'une lentille. Trois états et non deux : le **clignotement** est une information
+/// à part entière — c'est lui qui sépare le jaune clignotant du jaune fixe et le signal
+/// d'arrêt R24 du feu rouge d'un tricolore — et il se dessine, il ne s'anime pas.
+enum Lentille { case eteinte, allumee, clignotante }
+
+/// Une lentille dans son caisson. Trois couches de signal, dont **deux sans couleur** :
+///
+/// - éteinte : un gris translucide cerné d'un filet clair, comme les trois lentilles du
+///   feu en panne ;
+/// - allumée : la teinte pleine, entourée d'un halo de la même teinte — le halo dit
+///   « cette lampe brûle » sans rien devoir à la teinte elle-même ;
+/// - clignotante : la même chose, plus des traits rayonnants — la convention de l'IISR
+///   pour figurer un feu clignotant sur ses propres planches (6e partie, fig. 6 : « Ce
+///   symbole signifie qu'il s'agit d'un feu clignotant »).
+///
+/// D'où le contrat de daltonisme : la **position** dans le caisson donne la couleur, le
+/// **halo** donne l'allumage, les **traits** donnent le clignotement. Aucune des trois
+/// informations ne repose sur une teinte.
+///
+/// `departRayons` est la distance au centre où les traits commencent, à la charge de
+/// l'appelant : une lentille prise dans un caisson à trois lampes doit les faire partir
+/// **au-delà** du caisson, sinon ils mordent sur les lentilles voisines et s'y lisent
+/// comme un second allumage.
+private func lentille(_ ctx: CGContext, at c: CGPoint, rayon r: Double, etat: Lentille,
+                      couleur: CGColor, departRayons: Double? = nil) {
+    let cadre = CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2)
+    guard etat != .eteinte else {
+        ctx.setFillColor(CGColor(gray: 1, alpha: 0.28))
+        ctx.fillEllipse(in: cadre)
+        ctx.setStrokeColor(CGColor(gray: 1, alpha: 0.5))
+        ctx.setLineWidth(max(r / 4, 1))
+        ctx.strokeEllipse(in: cadre)
+        return
+    }
+    ctx.setFillColor(couleur.copy(alpha: 0.30) ?? couleur)
+    ctx.fillEllipse(in: cadre.insetBy(dx: -r * 0.55, dy: -r * 0.55))
+    ctx.setFillColor(couleur)
+    ctx.fillEllipse(in: cadre)
+    // Un reflet décentré vers le haut : une lampe allumée n'est pas un disque plat.
+    ctx.setFillColor(CGColor(gray: 1, alpha: 0.32))
+    ctx.fillEllipse(in: CGRect(x: c.x - r * 0.34, y: c.y - r * 0.52,
+                               width: r * 0.68, height: r * 0.5))
+    guard etat == .clignotante else { return }
+    let d0 = departRayons ?? r * 1.7
+    ctx.setStrokeColor(couleur)
+    ctx.setLineWidth(max(r * 0.24, 1.2))
+    ctx.setLineCap(.round)
+    // Six traits, tous dans le secteur **horizontal** : c'est la seule place libre autour
+    // d'une lentille de caisson, et le même geste sert partout pour que « clignotant » se
+    // lise pareil d'une scène à l'autre.
+    for a in [-0.5, 0.0, 0.5, .pi - 0.5, .pi, .pi + 0.5] {
+        ctx.beginPath()
+        ctx.move(to: CGPoint(x: c.x + cos(a) * d0, y: c.y + sin(a) * d0))
+        ctx.addLine(to: CGPoint(x: c.x + cos(a) * (d0 + r * 0.85),
+                                y: c.y + sin(a) * (d0 + r * 0.85)))
+        ctx.strokePath()
+    }
+}
+
+/// Signal tricolore R11, vu de face : le caisson et ses trois lentilles, dont l'état est
+/// donné **du haut vers le bas**. La teinte de chacune découle de sa position — rouge,
+/// jaune, vert (arrêté du 24 novembre 1967, art. 7) — et jamais de l'appelant : c'est ce
+/// qui garantit qu'aucune scène ne puisse allumer un vert en haut du caisson.
+func feuTricolore(_ ctx: CGContext, at pt: CGPoint, largeur l: Double = 13,
+                  _ etats: [Lentille], _ p: Palette) {
+    let teintes = [p.panneauRouge, p.panneauJaune, p.feuVert]
+    for (i, centre) in boitierDeFeu(ctx, at: pt, largeur: l, p).enumerated() {
+        lentille(ctx, at: centre, rayon: rayonDeLentille(l),
+                 etat: i < etats.count ? etats[i] : .eteinte, couleur: teintes[i],
+                 departRayons: l * 0.62)
+    }
 }
 
 /// Feu hors service : les trois lentilles au même gris éteint. Ce qui se lit est
 /// l'**absence** de lampe allumée, et non une couleur particulière — un daltonien voit la
 /// même chose que tout le monde.
 func feuHorsService(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
-    for centre in boitierDeFeu(ctx, at: pt, p) {
-        let lentille = CGRect(x: centre.x - 4, y: centre.y - 4, width: 8, height: 8)
-        ctx.setFillColor(CGColor(gray: 1, alpha: 0.28))
-        ctx.fillEllipse(in: lentille)
-        ctx.setStrokeColor(CGColor(gray: 1, alpha: 0.5))
-        ctx.setLineWidth(1)
-        ctx.strokeEllipse(in: lentille)
-    }
+    feuTricolore(ctx, at: pt, [.eteinte, .eteinte, .eteinte], p)
+}
+
+/// Signal d'anticipation directionnel R16 : **une seule** lentille jaune clignotante,
+/// munie d'une flèche, dans un caisson carré accolé au tricolore. Sa signification est
+/// citée mot pour mot par l'art. 7 de l'arrêté du 24 novembre 1967 : « le feu jaune
+/// clignotant signifie aux usagers concernés qu'ils peuvent franchir la ligne d'arrêt du
+/// signal tricolore circulaire R11 associé, bien que celui-ci soit au rouge, mais en toute
+/// prudence et en respectant la priorité de passage accordée aux autres usagers. »
+///
+/// Il se place « à la même hauteur que le feu vert du signal R11v associé, soit juste en
+/// dessous » (IISR 6e partie, art. 110-5) : c'est pour cela que la scène l'accole en bas
+/// du caisson et non en haut. `versLaDroite` retourne la flèche, rien d'autre.
+func signalDAnticipation(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
+                         versLaDroite: Bool, _ p: Palette) {
+    let u = l / 13
+    let caisson = CGRect(x: pt.x - l / 2, y: pt.y - l / 2, width: l, height: l)
+    ctx.setFillColor(p.chaussee)
+    ctx.addPath(CGPath(roundedRect: caisson, cornerWidth: 3 * u, cornerHeight: 3 * u,
+                       transform: nil))
+    ctx.fillPath()
+    let r = rayonDeLentille(l)
+    lentille(ctx, at: pt, rayon: r, etat: .clignotante, couleur: p.panneauJaune,
+             departRayons: l * 0.62)
+    // La flèche est peinte en sombre sur la lentille : c'est un pictogramme, comme sur un
+    // panneau, et non une seconde lampe. Elle est tracée en dur plutôt qu'avec `fleche`,
+    // dont la pointe est calibrée pour une flèche d'intention au sol : à l'échelle d'une
+    // lentille, la pointe y mangeait la hampe et le tout se lisait comme une tache.
+    ctx.saveGState()
+    ctx.translateBy(x: pt.x, y: pt.y)
+    if !versLaDroite { ctx.scaleBy(x: -1, y: 1) }
+    ctx.setFillColor(encre(p))
+    let hampe = r * 0.30, pointe = r * 0.62
+    ctx.fill(CGRect(x: -r * 0.72, y: -hampe / 2, width: r * 0.72, height: hampe))
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: r * 0.74, y: 0))
+    ctx.addLine(to: CGPoint(x: r * 0.74 - pointe, y: -pointe * 0.72))
+    ctx.addLine(to: CGPoint(x: r * 0.74 - pointe, y: pointe * 0.72))
+    ctx.closePath()
+    ctx.fillPath()
+    ctx.restoreGState()
+}
+
+/// Le bras qui rattache un signal d'anticipation au support du tricolore. Sans lui, deux
+/// caissons voisins se lisent comme deux installations distinctes, alors que l'art. 110-5
+/// de la 6e partie de l'IISR les veut sur le **même** support.
+func brasDeSupport(_ ctx: CGContext, de x0: Double, a x1: Double, y: Double,
+                   epaisseur: Double, _ p: Palette) {
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: min(x0, x1), y: y - epaisseur / 2,
+                    width: abs(x1 - x0), height: epaisseur))
+}
+
+/// Signal d'arrêt R24 : « un feu circulaire rouge clignotant » (IISR 6e partie,
+/// art. 109-3, B), et lui seul — pas de caisson à trois lentilles. C'est la différence
+/// qu'un candidat doit voir : au passage à niveau, au pont mobile ou devant une sortie de
+/// pompiers, le signal n'a **qu'une** lampe, et elle clignote.
+///
+/// La norme ne fixe ici que le diamètre minimal (160 mm, art. 109-4) ; le caisson rond
+/// autour de la lentille est un choix de dessin.
+func signalDArret(_ ctx: CGContext, at pt: CGPoint, rayon r: Double, _ p: Palette) {
+    ctx.setFillColor(p.chaussee)
+    ctx.fillEllipse(in: CGRect(x: pt.x - r * 1.32, y: pt.y - r * 1.32,
+                               width: r * 2.64, height: r * 2.64))
+    // Le mât : le signal est planté au bord de la chaussée, pas suspendu.
+    ctx.fill(CGRect(x: pt.x - r * 0.16, y: pt.y + r * 1.2, width: r * 0.32, height: r * 2.6))
+    lentille(ctx, at: pt, rayon: r, etat: .clignotante, couleur: p.panneauRouge)
 }
 
 /// A16, descente dangereuse, avec son panonceau de déclivité. Il est là pour une raison

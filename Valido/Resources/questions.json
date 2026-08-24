@@ -191,27 +191,31 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le carrefour n'est plus géré par les feux : on applique les règles de priorité (souvent priorité à droite).",
+    "explanation": "Le jaune clignotant attire l'attention sur un danger et autorise le passage avec prudence, sans toucher aux règles de priorité : celle qu'un panneau prescrit, ou la priorité à droite à défaut, continue de s'appliquer.",
     "id": "37fe1af42b8d8118ab59f3f1a651bb26",
+    "illustration": {
+      "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, cerclée de traits de clignotement ; celles du haut et du bas restent éteintes.",
+      "asset": "feu-jaune-clignotant"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Un passage prioritaire, sans céder"
+        "text": "Un passage prioritaire, quelle que soit la branche"
       },
       {
         "id": "B",
-        "text": "Un feu réservé aux transports en commun"
+        "text": "Un feu réservé aux véhicules de transport public"
       },
       {
         "id": "C",
-        "text": "Un arrêt absolu à la ligne"
+        "text": "Un arrêt absolu avant la ligne d'effet"
       },
       {
         "id": "D",
         "text": "Un passage prudent, en respectant la priorité"
       }
     ],
-    "prompt": "Un feu jaune clignotant signifie :",
+    "prompt": "Ce feu signifie :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -2269,29 +2273,33 @@
     "topic": "Mécanique & environnement"
   },
   {
-    "correctID": "D",
+    "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Arrêt absolu : on le rencontre aux passages à niveau et sorties de véhicules de secours.",
+    "explanation": "Un feu rouge clignotant est un signal d'arrêt : il interdit momentanément le passage devant un obstacle — passage à niveau, pont mobile, sortie de pompiers. L'arrêt est absolu, comme devant un feu rouge fixe.",
     "id": "37fe1af42b8d81df975dea92682dad6c",
+    "illustration": {
+      "alt": "Une route coupée par une voie ferrée à deux rails ; au bord de la route, avant les rails, un feu circulaire unique est allumé et cerclé de traits de clignotement.",
+      "asset": "passage-niveau-feu-rouge-clignotant"
+    },
     "options": [
       {
         "id": "A",
-        "text": "De passer rapidement pour dégager la voie"
+        "text": "De passer sans tarder pour dégager la voie"
       },
       {
         "id": "B",
-        "text": "D'appliquer la priorité à droite, sans s'arrêter"
+        "text": "D'appliquer la priorité à droite, sans arrêt"
       },
       {
         "id": "C",
-        "text": "De ralentir en gardant sa trajectoire"
+        "text": "De marquer l'arrêt absolu, train visible ou non"
       },
       {
         "id": "D",
-        "text": "De marquer un arrêt absolu, quelle que soit la voie"
+        "text": "De ralentir en gardant votre trajectoire"
       }
     ],
-    "prompt": "Un feu rouge clignotant impose :",
+    "prompt": "Ce signal vous impose :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -2703,7 +2711,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "L'orange impose l'arrêt ; on ne passe que si freiner brutalement serait plus dangereux.",
+    "explanation": "L'article R412-31 impose de marquer l'arrêt devant le jaune fixe ; la seule exception est le conducteur qui, à l'allumage du feu, ne peut plus s'arrêter dans des conditions de sécurité suffisantes.",
     "id": "37fe1af42b8d81fc9bbbee0a1767bba6",
     "options": [
       {
@@ -9456,5 +9464,252 @@
     "prompt": "Un conducteur titulaire d'un permis délivré à l'étranger qui perd tous ses points :",
     "subject": "code",
     "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place. Un panneau de priorité garde une valeur permanente, que les feux fonctionnent ou non, et c'est lui qui tranche avant la priorité à droite.",
+    "id": "0ac1e53ac8978390a5725830ebcff433",
+    "options": [
+      {
+        "id": "A",
+        "text": "garde toute sa valeur et règle la priorité"
+      },
+      {
+        "id": "B",
+        "text": "cède devant le feu, qui prime sur les panneaux"
+      },
+      {
+        "id": "C",
+        "text": "ne vaut que si le feu tricolore est éteint"
+      },
+      {
+        "id": "D",
+        "text": "impose en plus un arrêt avant la ligne d'effet"
+      }
+    ],
+    "prompt": "À une intersection tenue par un feu jaune clignotant, un cédez-le-passage :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Le jaune clignotant d'un signal d'anticipation autorise à franchir la ligne d'arrêt du feu rouge associé, mais dans la seule direction montrée, avec prudence et en respectant la priorité des autres usagers.",
+    "id": "1782eca179c97b4c0294cb40b4938c5c",
+    "illustration": {
+      "alt": "Deux caissons sur le même support : celui de gauche a trois lampes dont seule celle du haut est allumée ; celui de droite n'en a qu'une, allumée, cerclée de traits de clignotement, et marquée d'une flèche vers la droite.",
+      "asset": "feu-fleche-clignotante"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "tourner à droite, les piétons devant attendre"
+      },
+      {
+        "id": "B",
+        "text": "tourner à droite en cédant le passage à tous"
+      },
+      {
+        "id": "C",
+        "text": "passer tout droit, le rouge ne vous visant plus"
+      },
+      {
+        "id": "D",
+        "text": "vous arrêter, puis repartir comme à un stop"
+      }
+    ],
+    "prompt": "Ces feux vous autorisent à :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "L'article R416-18 oblige à prévenir aux feux de détresse quand on roule momentanément à allure fortement réduite. En file ininterrompue, l'obligation ne pèse que sur le dernier : c'est lui que les suivants risquent de surprendre.",
+    "id": "fc0333a5ae17dd22f31bbbe63d0e8824",
+    "options": [
+      {
+        "id": "A",
+        "text": "au conducteur de tête, qui voit le ralentissement"
+      },
+      {
+        "id": "B",
+        "text": "au conducteur qui change de voie dans la file"
+      },
+      {
+        "id": "C",
+        "text": "au conducteur du dernier véhicule de la file"
+      },
+      {
+        "id": "D",
+        "text": "à tout conducteur de la file, sans exception"
+      }
+    ],
+    "prompt": "Dans une file de véhicules à allure fortement réduite, les feux de détresse s'imposent :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "L'article R412-30 donne deux repères : la ligne d'arrêt quand elle est matérialisée, et à défaut une ligne située avant le passage pour piétons s'il précède le feu — sinon l'aplomb du feu lui-même.",
+    "id": "acaf8b468f86cd92d2b61f93637ff9dd",
+    "options": [
+      {
+        "id": "A",
+        "text": "à l'aplomb du feu, sans tenir compte du passage piéton"
+      },
+      {
+        "id": "B",
+        "text": "cinq mètres avant le feu, comme devant un stop non marqué"
+      },
+      {
+        "id": "C",
+        "text": "à la limite du carrefour, une fois le passage piéton franchi"
+      },
+      {
+        "id": "D",
+        "text": "avant le passage piéton quand il précède le feu"
+      }
+    ],
+    "prompt": "Devant un feu rouge sans ligne d'arrêt peinte au sol, l'arrêt se fait :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "L'éblouissement ne vient pas que d'en face : le rétroviseur du véhicule suivi renvoie le faisceau. L'article R416-6 impose donc les feux de croisement dès qu'on suit à faible distance, le seul répit étant le dépassement lui-même.",
+    "id": "362d572a8e9eb2d2940513b207d2e448",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vous passez en feux de croisement sans attendre"
+      },
+      {
+        "id": "B",
+        "text": "Vous gardez les feux de route, il ne vous voit pas"
+      },
+      {
+        "id": "C",
+        "text": "Vous alternez route et croisement pour être remarqué"
+      },
+      {
+        "id": "D",
+        "text": "Vous n'allumez que les feux de position, plus discrets"
+      }
+    ],
+    "prompt": "De nuit, vous roulez en feux de route derrière un véhicule à faible distance :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "L'article R416-7 ajoute la forte pluie aux deux cas du brouillard et de la chute de neige, mais pour les feux avant seulement : les feux arrière de brouillard, eux, restent réservés au brouillard et à la neige.",
+    "id": "6012289234e0766392ac505dbfdbd3ae",
+    "options": [
+      {
+        "id": "A",
+        "text": "dès la tombée de la nuit, hors agglomération"
+      },
+      {
+        "id": "B",
+        "text": "par brouillard, chute de neige ou forte pluie"
+      },
+      {
+        "id": "C",
+        "text": "par brouillard ou chute de neige seulement"
+      },
+      {
+        "id": "D",
+        "text": "sur toute route non éclairée, à toute heure"
+      }
+    ],
+    "prompt": "Les feux avant de brouillard peuvent remplacer les feux de croisement :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "L'article R416-12 demande, à l'arrêt comme en stationnement, les feux de position à l'avant et les feux rouges avec l'éclairage de plaque à l'arrière. En agglomération, une chaussée assez éclairée dispense de tout signalement.",
+    "id": "d5505e2b6bdcdeb78eecbec2a2a2a724",
+    "options": [
+      {
+        "id": "A",
+        "text": "les feux de croisement, à l'avant comme à l'arrière"
+      },
+      {
+        "id": "B",
+        "text": "les feux de détresse seuls, le temps de l'arrêt"
+      },
+      {
+        "id": "C",
+        "text": "les feux de position devant, les feux rouges derrière"
+      },
+      {
+        "id": "D",
+        "text": "les feux arrière de brouillard, plus intenses que les rouges"
+      }
+    ],
+    "prompt": "De nuit, à l'arrêt sur une chaussée sans éclairage public, vous montrez :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Un seul feu peut être une moto comme une voiture dont un feu a grillé : sa largeur réelle est inconnue, et son axe aussi. On réduit l'allure et on garde le regard sur la rive droite, hors du faisceau.",
+    "id": "a3b1d0cf8c4fde31d009c3924754bfba",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vous vous décalez vers l'axe pour mieux l'identifier"
+      },
+      {
+        "id": "B",
+        "text": "Vous éteignez vos feux un instant pour l'alerter"
+      },
+      {
+        "id": "C",
+        "text": "Vous gardez votre allure : un seul feu éblouit peu"
+      },
+      {
+        "id": "D",
+        "text": "Vous ralentissez et fixez le bord droit de la chaussée"
+      }
+    ],
+    "prompt": "De nuit, un véhicule arrive en face avec un seul feu allumé :",
+    "subject": "code",
+    "topic": "Feux"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "Rouler sans éclairage ni signalisation en un lieu non éclairé coûte, comme un feu rouge franchi, quatre points et une contravention de quatrième classe (R416-11). Les feux de détresse ne remplacent pas les codes : ils n'éclairent rien.",
+    "id": "1f62ee2f0d02611c04ed79a57b73412a",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vous quittez la chaussée et signalez le véhicule"
+      },
+      {
+        "id": "B",
+        "text": "Vous continuez aux feux de position jusqu'au garage"
+      },
+      {
+        "id": "C",
+        "text": "Vous roulez aux feux de détresse, qui vous rendent visible"
+      },
+      {
+        "id": "D",
+        "text": "Vous suivez un autre véhicule de près pour voir la route"
+      }
+    ],
+    "prompt": "De nuit, hors agglomération, vos deux feux de croisement s'éteignent :",
+    "subject": "code",
+    "topic": "Feux"
   }
 ]
