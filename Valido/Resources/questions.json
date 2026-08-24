@@ -1437,7 +1437,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'article R415-12 impose de céder le passage en toutes circonstances. En pratique on se rabat ou on s'arrête ; la Sécurité routière précise qu'un feu franchi pour dégager la voie est bien relevé par le radar mais ne donne pas lieu à contravention. Le réflexe reste de ne pas s'engager dans une manœuvre dangereuse.",
+    "explanation": "L'article R415-12 impose de céder le passage en toutes circonstances. La Sécurité routière confirme qu'un feu franchi pour dégager la voie est relevé par le radar sans contravention automatique, sauf contrôle humain si le véhicule prioritaire n'est pas lui-même flashé.",
     "id": "37fe1af42b8d818293f3f8d862a5a505",
     "options": [
       {
@@ -2652,27 +2652,27 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Un tramway ne peut ni s'écarter ni s'arrêter court : c'est pour cela qu'il passe avant, sauf signalisation contraire. La règle vaut aussi hors intersection, à la traversée de ses voies.",
+    "explanation": "Le texte protège la traversée de la voie ferrée elle-même, intersection ou non : un tramway ne peut ni s'écarter ni s'arrêter court, sauf signalisation contraire.",
     "id": "37fe1af42b8d81fa9debeaf114b7bf77",
     "options": [
       {
         "id": "A",
-        "text": "Le premier engagé dans l'intersection passe"
+        "text": "Le premier arrivé sur la voie ferrée passe"
       },
       {
         "id": "B",
-        "text": "J'ai la priorité, le tramway étant guidé"
+        "text": "Vous êtes prioritaire, un véhicule guidé restant prévisible"
       },
       {
         "id": "C",
-        "text": "Le tramway passe avant les autres véhicules"
+        "text": "Il garde la priorité ; la règle ne s'arrête pas aux carrefours"
       },
       {
         "id": "D",
-        "text": "J'applique la priorité à droite comme ailleurs"
+        "text": "Aucune règle ne s'impose hors d'un carrefour réglementé"
       }
     ],
-    "prompt": "Face à un tramway à une intersection, en règle générale :",
+    "prompt": "Vous croisez une voie de tramway, hors intersection :",
     "subject": "code",
     "topic": "Priorités & intersections"
   },
@@ -8749,11 +8749,11 @@
       },
       {
         "id": "C",
-        "text": "L'obligation de céder à la plus large des deux"
+        "text": "Le passage laissé à la chaussée la plus large"
       },
       {
         "id": "D",
-        "text": "La priorité à droite, faute d'autre signalisation"
+        "text": "La priorité à droite, désormais seule en vigueur"
       }
     ],
     "prompt": "Ces feux sont hors service. La règle qui reprend est :",
@@ -8794,7 +8794,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "L'article R414-3 fait s'arrêter le premier celui qui descend, en montagne comme sur toute forte déclivité : relancer un véhicule dans la pente est bien plus délicat. Et c'est encore à lui de reculer s'il le faut.",
+    "explanation": "R414-3 fait s'arrêter en premier le véhicule qui descend, en montagne ou sur forte déclivité. Reculer reste à lui, sauf si c'est nettement plus facile pour celui qui monte, près d'une place d'évitement.",
     "id": "6e1a51d34b4b79e4366d6566795e5151",
     "illustration": {
       "alt": "Route étroite à forte pente, vue de côté ; vous descendez à la rencontre d'un véhicule qui monte, et la chaussée ne permet pas de passer de front.",
@@ -8807,7 +8807,7 @@
       },
       {
         "id": "B",
-        "text": "Celui qui a une place d'évitement derrière lui"
+        "text": "Celui qui arrive le premier au point de rencontre"
       },
       {
         "id": "C",
@@ -8815,7 +8815,7 @@
       },
       {
         "id": "D",
-        "text": "Le plus lourd, qu'un redémarrage en pente pénalise"
+        "text": "Celui dont le moteur peine le plus en côte"
       }
     ],
     "prompt": "Le croisement s'annonce difficile. Qui doit céder ?",
@@ -8827,10 +8827,6 @@
     "difficulty": "facile",
     "explanation": "Le clignotant renseigne celui qui attend à la branche où vous allez ressortir. Mis trop tôt, il fait démarrer celui qui attend à la branche précédente, persuadé que vous lui laissez la place.",
     "id": "02f7d6a65856887348bfe8653bb90c6e",
-    "illustration": {
-      "alt": "Giratoire à quatre branches ; vous circulez déjà sur l'anneau et votre trajectoire le quitte par la branche du haut, où un véhicule attend pour entrer.",
-      "asset": "giratoire-sortie-clignotant"
-    },
     "options": [
       {
         "id": "A",

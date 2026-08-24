@@ -217,9 +217,24 @@ func texte(_ ctx: CGContext, _ chaine: String, centre: CGPoint, taille: Double, 
 
 /// Voie ferrée posée dans l'axe de la chaussée horizontale : deux rails continus qui
 /// traversent le carrefour de part en part. Ils **remplacent** l'axe médian en
-/// pointillés — une rue à plateforme de tramway n'a pas les deux — et c'est leur
-/// continuité, opposée au pointillé d'un marquage, qui les fait lire comme des rails.
+/// pointillés — une rue à plateforme de tramway n'a pas les deux.
+///
+/// Les traverses sont dessinées **avant** les rails, et non en décor : sans elles, deux
+/// traits blancs continus et rapprochés se lisent comme une ligne continue double
+/// (interdiction de dépasser), pas comme une voie ferrée. Elles sont peintes sous les
+/// rails pour que leurs extrémités disparaissent sous le trait blanc, au lieu de dépasser
+/// au-dessus ou en dessous.
 func railsHorizontaux(_ ctx: CGContext, _ p: Palette) {
+    // Un noir translucide, pas `p.chaussee` : la chaussée est déjà de cette teinte, donc
+    // une traverse de la même couleur que la route sous elle serait invisible. Le noir à
+    // faible alpha reste lisible sur le gris clair du mode clair comme sur le gris sombre
+    // du mode sombre, sans ajouter de teinte au `Palette`.
+    ctx.setFillColor(CGColor(gray: 0, alpha: 0.35))
+    var x = 8.0
+    while x < W {
+        ctx.fill(CGRect(x: x - 1.5, y: cy - 9, width: 3, height: 18))
+        x += 18
+    }
     ctx.setFillColor(p.marquage)
     for dy in [-9.0, 9.0] {
         ctx.fill(CGRect(x: 0, y: cy + dy - 1.5, width: W, height: 3))
