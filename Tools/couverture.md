@@ -47,7 +47,7 @@ se relit avec `python3 Tools/audit.py`.
 | Signalisation | `Panneaux & marquage` | 17 | couvert |
 | Signalisation | `Feux` | 19 | couvert |
 | Tunnels et passages à niveau | | 0 | absent |
-| Visibilité et éclairage | `Feux` | 19 | couvert |
+| Visibilité et éclairage | `Feux` | 19 | à compléter |
 | Usagers, partage de l'espace public | | 0 | absent |
 | Prise de conscience des risques | `Alcool & stupéfiants` | 14 | couvert |
 | Prise de conscience des risques | `Distances & freinage` | 10 | couvert |
@@ -58,13 +58,18 @@ feux de signalisation (rouge/orange/vert, clignotants) et l'éclairage du véhic
 croisement, antibrouillard, phares). Le volume affiché (19) est celui du topic entier sur
 chaque ligne ; il ne s'additionne pas d'une ligne à l'autre.
 
-La tâche 10 a levé le `à compléter` de la moitié éclairage : le topic est passé de 10 à 19
-questions, dont **six** neuves du seul côté éclairage — feux de détresse en file
-ininterrompue, feux de croisement derrière un véhicule suivi de près, feux avant de
-brouillard, éclairage d'un véhicule à l'arrêt hors zone éclairée, véhicule mal éclairé
-croisé de nuit, panne des feux de croisement. Le partage est désormais de **huit**
-questions côté signalisation et **onze** côté éclairage. Il reste implicite dans le
-fichier : aucun champ ne le porte, et cette carte est le seul endroit où il est écrit.
+La tâche 10 a fait passer le topic de 10 à 19 questions, dont **six** neuves du seul côté
+éclairage — feux de détresse en file ininterrompue, feux de croisement derrière un véhicule
+suivi de près, feux avant de brouillard, éclairage d'un véhicule à l'arrêt hors zone
+éclairée, véhicule mal éclairé croisé de nuit, panne des feux de croisement. Le partage est
+désormais de **huit** questions côté signalisation et **onze** côté éclairage. Il reste
+implicite dans le fichier : aucun champ ne le porte, et cette carte est le seul endroit où
+il est écrit.
+
+Le verdict de la ligne « Visibilité et éclairage » reste `à compléter` malgré ce volume :
+juger si onze questions suffisent à couvrir la thématique une fois isolée revient à la
+tâche 21, qui referme la passe et voit l'ensemble des dix-sept tâches de contenu — pas à
+celle qui vient d'y ajouter des questions.
 
 Le rattachement de `Vitesse` et `Permis & sanctions` à « Règles de circulation », et
 d'`Alcool & stupéfiants` et `Distances & freinage` à « Prise de conscience des risques »,

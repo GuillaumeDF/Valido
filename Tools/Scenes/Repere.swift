@@ -30,6 +30,12 @@ struct Palette {
 // **position** dans le caisson — haut rouge, milieu jaune, bas vert (arrêté du 24 novembre
 // 1967, art. 7). Aucune scène n'allume encore la lentille du bas, mais `feuTricolore` la
 // gère : la teinte vit ici, avec les autres, plutôt qu'en dur dans une primitive.
+//
+// La valeur claire a été éclaircie le même jour (constat de la tâche 10, §13 de
+// `methode.md`) : rgb(24, 154, 82) mesurait une luminance de 121, à un cheveu des 119
+// d'une lentille éteinte — un vert allumé aurait été indiscernable en niveaux de gris.
+// `rgb(52, 199, 89)` est le systemGreen clair d'Apple ; la valeur sombre, déjà
+// rgb(48, 209, 88) — son systemGreen sombre —, n'avait pas ce défaut et n'a pas bougé.
 
 func rgb(_ r: Double, _ g: Double, _ b: Double, _ a: Double = 1) -> CGColor {
     CGColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
@@ -39,7 +45,7 @@ let clair = Palette(
     sol: rgb(232, 230, 225), chaussee: rgb(74, 74, 79), marquage: rgb(255, 255, 255),
     vous: rgb(10, 132, 255), autre: rgb(240, 160, 32), tiers: rgb(224, 65, 62),
     ilot: rgb(201, 216, 192), panneauRouge: rgb(200, 30, 40), panneauJaune: rgb(250, 190, 20),
-    panneauFond: rgb(255, 255, 255), feuVert: rgb(24, 154, 82))
+    panneauFond: rgb(255, 255, 255), feuVert: rgb(52, 199, 89))
 
 let sombre = Palette(
     sol: rgb(28, 28, 30), chaussee: rgb(58, 58, 60), marquage: rgb(229, 229, 234),

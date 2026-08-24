@@ -191,7 +191,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le jaune clignotant attire l'attention sur un danger et autorise le passage avec prudence, sans toucher aux règles de priorité : celle qu'un panneau prescrit, ou la priorité à droite à défaut, continue de s'appliquer.",
+    "explanation": "Le jaune clignotant signale un danger et autorise un passage prudent, sans toucher à la priorité : un panneau, cédez-le-passage compris, garde sa valeur ; la priorité à droite ne reprend la main qu'à défaut de panneau.",
     "id": "37fe1af42b8d8118ab59f3f1a651bb26",
     "illustration": {
       "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, cerclée de traits de clignotement ; celles du haut et du bas restent éteintes.",
@@ -901,7 +901,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le feu est réglé pour la situation du moment, le panneau pour la configuration permanente : c'est le plus récent des deux qui l'emporte. D'où la hiérarchie agent, puis feu, puis panneau, puis marquage, puis priorité à droite.",
+    "explanation": "Le feu est réglé pour la situation du moment, le panneau pour la configuration permanente : c'est le plus récent des deux qui l'emporte. D'où la hiérarchie agent, puis feu, puis panneau, puis marquage, puis priorité à droite — sauf le jaune clignotant, qui n'attribue lui-même aucune priorité et laisse justement les panneaux trancher.",
     "id": "37fe1af42b8d815f8684e4cc91d6950f",
     "options": [
       {
@@ -2731,7 +2731,7 @@
         "text": "Vous arrêter, sauf si l'arrêt est dangereux"
       }
     ],
-    "prompt": "Au feu orange fixe, vous devez :",
+    "prompt": "Au feu jaune (orange) fixe, vous devez :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9670,7 +9670,7 @@
       },
       {
         "id": "B",
-        "text": "Vous éteignez vos feux un instant pour l'alerter"
+        "text": "Vous faites un appel de phares pour l'alerter"
       },
       {
         "id": "C",

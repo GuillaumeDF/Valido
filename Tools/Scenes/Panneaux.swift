@@ -302,19 +302,35 @@ func rayonDeLentille(_ largeur: Double) -> Double { largeur * 4 / 13 }
 /// d'arrêt R24 du feu rouge d'un tricolore — et il se dessine, il ne s'anime pas.
 enum Lentille { case eteinte, allumee, clignotante }
 
-/// Une lentille dans son caisson. Trois couches de signal, dont **deux sans couleur** :
+/// Une lentille dans son caisson. Trois couches de signal, **aucune ne reposant sur la
+/// luminance de la lentille elle-même** :
 ///
-/// - éteinte : un gris translucide cerné d'un filet clair, comme les trois lentilles du
-///   feu en panne ;
-/// - allumée : la teinte pleine, entourée d'un halo de la même teinte — le halo dit
-///   « cette lampe brûle » sans rien devoir à la teinte elle-même ;
+/// - le **filet clair** cerne la lentille dans les **trois** états : ce n'est donc jamais
+///   lui qui distingue allumée d'éteinte, seulement ce qui reste **lisible en dessous**.
+///   Correction du 2026-08-24 (constat de la tâche 10, §13 de `methode.md`) : il n'ornait
+///   avant que l'état éteint, ce qui rendait la lentille éteinte plus claire en niveaux de
+///   gris qu'une lentille rouge allumée — polarité inversée, mesurée à 119 contre 96 sur
+///   `feu-fleche-clignotante` en mode clair ;
+/// - allumée : la teinte pleine, entourée d'un halo de la même teinte et d'un reflet
+///   décentré qu'une lentille éteinte n'a ni l'un ni l'autre — le halo dit « cette lampe
+///   brûle » sans rien devoir à la teinte elle-même, et sa présence est binaire, pas une
+///   question de degré de clarté ;
 /// - clignotante : la même chose, plus des traits rayonnants — la convention de l'IISR
 ///   pour figurer un feu clignotant sur ses propres planches (6e partie, fig. 6 : « Ce
 ///   symbole signifie qu'il s'agit d'un feu clignotant »).
 ///
 /// D'où le contrat de daltonisme : la **position** dans le caisson donne la couleur, le
-/// **halo** donne l'allumage, les **traits** donnent le clignotement. Aucune des trois
-/// informations ne repose sur une teinte.
+/// **halo** (et le reflet qui l'accompagne) donnent l'allumage, les **traits** donnent le
+/// clignotement. Aucune des trois informations ne repose sur une teinte, et depuis la
+/// correction, aucune ne repose non plus sur la luminance relative de la lentille — le
+/// filet ne permet plus de la déduire, il est le même partout.
+///
+/// Le halo n'a délibérément **pas** été agrandi pour déborder du caisson (l'autre
+/// correctif possible) : dans `boitierDeFeu`, le rayon qui ferait déborder le halo hors du
+/// caisson (`largeur / 2`) est **exactement** celui qui ferait toucher la lentille
+/// voisine — les deux se déduisent de `10.5u - r = l/2`. Agrandir le halo aurait donc fait
+/// mordre le halo d'une lampe allumée sur la lentille voisine, exactement le défaut déjà
+/// évité pour les traits rayonnants ci-dessous.
 ///
 /// `departRayons` est la distance au centre où les traits commencent, à la charge de
 /// l'appelant : une lentille prise dans un caisson à trois lampes doit les faire partir
@@ -323,18 +339,22 @@ enum Lentille { case eteinte, allumee, clignotante }
 private func lentille(_ ctx: CGContext, at c: CGPoint, rayon r: Double, etat: Lentille,
                       couleur: CGColor, departRayons: Double? = nil) {
     let cadre = CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2)
-    guard etat != .eteinte else {
-        ctx.setFillColor(CGColor(gray: 1, alpha: 0.28))
-        ctx.fillEllipse(in: cadre)
+    func filet() {
         ctx.setStrokeColor(CGColor(gray: 1, alpha: 0.5))
         ctx.setLineWidth(max(r / 4, 1))
         ctx.strokeEllipse(in: cadre)
+    }
+    guard etat != .eteinte else {
+        ctx.setFillColor(CGColor(gray: 1, alpha: 0.28))
+        ctx.fillEllipse(in: cadre)
+        filet()
         return
     }
     ctx.setFillColor(couleur.copy(alpha: 0.30) ?? couleur)
     ctx.fillEllipse(in: cadre.insetBy(dx: -r * 0.55, dy: -r * 0.55))
     ctx.setFillColor(couleur)
     ctx.fillEllipse(in: cadre)
+    filet()
     // Un reflet décentré vers le haut : une lampe allumée n'est pas un disque plat.
     ctx.setFillColor(CGColor(gray: 1, alpha: 0.32))
     ctx.fillEllipse(in: CGRect(x: c.x - r * 0.34, y: c.y - r * 0.52,
