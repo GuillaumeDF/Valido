@@ -12,67 +12,165 @@ enum Forme {
     case losange           // carré posé sur la pointe : AB6, fin de priorité
 }
 
-/// Un panneau se dessine en deux temps — le fond, puis un bord d'épaisseur donnée —
-/// parce que c'est le bord qui distingue une interdiction (liseré rouge épais) d'une
-/// indication (fond plein). Le pictogramme est dessiné par l'appelant, par-dessus.
+/// Un panneau se dessine en trois anneaux emboîtés — un listel, une bande, puis le fond —
+/// parce que c'est ce qui distingue les familles à l'œil : un triangle de danger est
+/// « fond blanc, bande rouge **bordée elle-même par un listel blanc** » (2e partie,
+/// art. 23), un panneau d'obligation est « fond bleu, listel et symbole blancs »
+/// (4e partie, art. 47), une interdiction n'a qu'une couronne rouge sans listel (même
+/// article). Le pictogramme est dessiné par l'appelant, par-dessus.
 ///
-/// `rayon` est le rayon du cercle circonscrit : à 15-17, un panneau reste lisible dans
-/// la bande centrale qui survit au rétrécissement du bandeau à 18 %.
+/// `rayon` est le rayon du cercle **circonscrit**, et la géométrie de chaque forme en
+/// découle exactement : triangle équilatéral à côté inférieur horizontal (2e partie,
+/// art. 21), carré inscrit, octogone régulier. Rien n'est plus réglé à l'œil.
+///
+/// Les angles des polygones sont arrondis : « Les angles des balises et panneaux
+/// polygonaux sont remplacés par des arrondis afin d'éviter les accidents du fait de
+/// heurt par un piéton » (1re partie, art. 5-1). L'arrondi est proportionnel au rayon —
+/// la norme le fixe en millimètres, mais nos panneaux se dessinent à cinq tailles
+/// différentes selon la scène.
 func panneau(_ ctx: CGContext, forme: Forme, at pt: CGPoint, rayon: Double,
-             fond: CGColor, bord: CGColor? = nil, epaisseurBord: Double = 0) {
+             fond: CGColor, bord: CGColor? = nil, epaisseurBord: Double = 0,
+             listel: CGColor? = nil, epaisseurListel: Double = 0) {
+    /// L'arrondi des angles au rayon extérieur. Les chemins intérieurs reçoivent un
+    /// arrondi réduit d'autant qu'ils sont rentrés : c'est ainsi qu'un contour parallèle
+    /// se comporte, et sans ça la bande rouge paraît plus arrondie que le listel.
+    let arrondi = rayon * 0.09
+
     func chemin(_ r: Double) -> CGPath {
         let path = CGMutablePath()
-        switch forme {
-        case .disque:
+        if forme == .disque {
             path.addEllipse(in: CGRect(x: pt.x - r, y: pt.y - r, width: r * 2, height: r * 2))
-        case .triangle:
-            path.move(to: CGPoint(x: pt.x, y: pt.y - r * 0.95))
-            path.addLine(to: CGPoint(x: pt.x + r, y: pt.y + r * 0.72))
-            path.addLine(to: CGPoint(x: pt.x - r, y: pt.y + r * 0.72))
-        case .triangleInverse:
-            path.move(to: CGPoint(x: pt.x - r, y: pt.y - r * 0.72))
-            path.addLine(to: CGPoint(x: pt.x + r, y: pt.y - r * 0.72))
-            path.addLine(to: CGPoint(x: pt.x, y: pt.y + r * 0.95))
-        case .octogone:
-            for i in 0..<8 {
-                let a = Double(i) * .pi / 4 + .pi / 8
-                let q = CGPoint(x: pt.x + cos(a) * r, y: pt.y + sin(a) * r)
-                i == 0 ? path.move(to: q) : path.addLine(to: q)
-            }
-        case .carre:
-            let c = r * 0.78
-            path.addRect(CGRect(x: pt.x - c, y: pt.y - c, width: c * 2, height: c * 2))
-        case .losange:
-            path.move(to: CGPoint(x: pt.x, y: pt.y - r))
-            path.addLine(to: CGPoint(x: pt.x + r, y: pt.y))
-            path.addLine(to: CGPoint(x: pt.x, y: pt.y + r))
-            path.addLine(to: CGPoint(x: pt.x - r, y: pt.y))
+            return path
         }
-        path.closeSubpath()
-        return path
+        return cheminPolygone(sommets(forme, at: pt, rayon: r),
+                              arrondi: max(arrondi - (rayon - r), 0))
+    }
+
+    var r = rayon
+    if let listel, epaisseurListel > 0 {
+        ctx.setFillColor(listel)
+        ctx.addPath(chemin(r))
+        ctx.fillPath()
+        r -= epaisseurListel
     }
     if let bord, epaisseurBord > 0 {
         ctx.setFillColor(bord)
-        ctx.addPath(chemin(rayon))
+        ctx.addPath(chemin(r))
         ctx.fillPath()
-        ctx.setFillColor(fond)
-        ctx.addPath(chemin(rayon - epaisseurBord))
-        ctx.fillPath()
-    } else {
-        ctx.setFillColor(fond)
-        ctx.addPath(chemin(rayon))
-        ctx.fillPath()
+        r -= epaisseurBord
+    }
+    ctx.setFillColor(fond)
+    ctx.addPath(chemin(r))
+    ctx.fillPath()
+}
+
+/// Les sommets d'une forme réglementaire, dans son cercle circonscrit de rayon `r`.
+/// Le triangle est **équilatéral** : sommet à la verticale du centre, côté inférieur
+/// horizontal (2e partie, art. 21). Les deux autres sommets sont donc à ±120°, soit
+/// `±r·√3/2` en abscisse et `+r/2` en ordonnée — et non le `±r` / `+0,72 r` réglé à l'œil
+/// que ce fichier portait jusqu'au 2026-08-24.
+private func sommets(_ forme: Forme, at pt: CGPoint, rayon r: Double) -> [CGPoint] {
+    let demiCote = r * sqrt(3.0) / 2   // 0,866 r : la moitié du côté d'un équilatéral
+    switch forme {
+    case .disque:
+        return []
+    case .triangle:
+        return [CGPoint(x: pt.x, y: pt.y - r),
+                CGPoint(x: pt.x + demiCote, y: pt.y + r / 2),
+                CGPoint(x: pt.x - demiCote, y: pt.y + r / 2)]
+    case .triangleInverse:
+        return [CGPoint(x: pt.x - demiCote, y: pt.y - r / 2),
+                CGPoint(x: pt.x + demiCote, y: pt.y - r / 2),
+                CGPoint(x: pt.x, y: pt.y + r)]
+    case .octogone:
+        return (0..<8).map { i -> CGPoint in
+            let a = Double(i) * .pi / 4 + .pi / 8
+            return CGPoint(x: pt.x + cos(a) * r, y: pt.y + sin(a) * r)
+        }
+    case .carre:
+        // Carré **inscrit** : demi-côté r/√2. L'ancien 0,78 r débordait du cercle
+        // circonscrit, ce qui rendait la comparaison de tailles entre formes fausse.
+        let c = r / sqrt(2.0)
+        return [CGPoint(x: pt.x - c, y: pt.y - c), CGPoint(x: pt.x + c, y: pt.y - c),
+                CGPoint(x: pt.x + c, y: pt.y + c), CGPoint(x: pt.x - c, y: pt.y + c)]
+    case .losange:
+        return [CGPoint(x: pt.x, y: pt.y - r), CGPoint(x: pt.x + r, y: pt.y),
+                CGPoint(x: pt.x, y: pt.y + r), CGPoint(x: pt.x - r, y: pt.y)]
     }
 }
 
-func panneauStop(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
-    panneau(ctx, forme: .octogone, at: pt, rayon: 15, fond: p.panneauRouge)
-    texte(ctx, "STOP", centre: pt, taille: 8, couleur: p.panneauFond)
+/// Un polygone fermé dont chaque sommet est remplacé par un arc de rayon `arrondi`.
+/// Le tracé démarre au **milieu** du premier côté : `addArc(tangent1End:tangent2End:)`
+/// a besoin d'un point courant, et partir d'un milieu de côté garantit qu'aucun sommet
+/// n'est sauté.
+private func cheminPolygone(_ sommets: [CGPoint], arrondi: Double) -> CGPath {
+    let path = CGMutablePath()
+    guard sommets.count >= 3 else { return path }
+    guard arrondi > 0.4 else {
+        path.addLines(between: sommets)
+        path.closeSubpath()
+        return path
+    }
+    let n = sommets.count
+    path.move(to: CGPoint(x: (sommets[0].x + sommets[1].x) / 2,
+                          y: (sommets[0].y + sommets[1].y) / 2))
+    for i in 1...n {
+        path.addArc(tangent1End: sommets[i % n], tangent2End: sommets[(i + 1) % n],
+                    radius: arrondi)
+    }
+    path.closeSubpath()
+    return path
 }
 
-func panneauCedez(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
-    panneau(ctx, forme: .triangleInverse, at: pt, rayon: 17,
-            fond: p.panneauFond, bord: p.panneauRouge, epaisseurBord: 17 * 0.38)
+/// À gamme égale, la norme ne donne pas la même taille à toutes les formes : en gamme
+/// normale, un triangle mesure 1 000 mm de côté, un disque 850 mm de diamètre, un
+/// octogone 800 mm entre côtés opposés et un carré 700 mm de côté (1re partie, art. 5-3).
+/// Ce facteur convertit une **gamme** — exprimée dans l'unité « côté nominal du
+/// triangle » — en rayon du cercle circonscrit de la forme demandée. Deux panneaux
+/// dessinés à la même gamme ont donc, d'une scène à l'autre, la taille relative qu'ils
+/// ont sur la route : le triangle est le plus grand, le carré le plus petit.
+func rayonPourGamme(_ forme: Forme, _ gamme: Double) -> Double {
+    switch forme {
+    case .triangle, .triangleInverse: return gamme / sqrt(3.0)          // côté 1000
+    case .disque:                     return gamme * 0.425             // diamètre 850
+    case .octogone:                   return gamme * 0.400 / cos(.pi / 8)  // 800 entre plats
+    case .carre, .losange:            return gamme * 0.700 * sqrt(2.0) / 2 // côté 700
+    }
+}
+
+/// Panonceau de type M : une plaque rectangulaire à fond blanc, **sans listel**
+/// (1re partie, art. 9-1, C), placée sous le panneau qu'elle complète. Elle ne prescrit
+/// rien par elle-même — « le panonceau est utilisé chaque fois qu'il est nécessaire de
+/// donner une ou des informations supplémentaires à celles du signal » (art. 9-1, B).
+func panonceau(_ ctx: CGContext, _ inscription: String, at plaque: CGRect, _ p: Palette) {
+    ctx.setFillColor(p.panneauFond)
+    ctx.fill(plaque)
+    ctx.setStrokeColor(p.chaussee)
+    ctx.setLineWidth(1)
+    ctx.stroke(plaque)
+    texte(ctx, inscription, centre: CGPoint(x: plaque.midX, y: plaque.midY),
+          taille: plaque.height * 0.55, couleur: p.chaussee)
+}
+
+/// AB4, STOP : l'octogone, forme réservée à ce seul panneau dans toute la signalisation
+/// française (1re partie, art. 5-1 : « panneaux relatifs aux intersections et notifiant
+/// les régimes de priorité : triangulaire (pointe vers le bas), carrée (panneaux placés
+/// sur pointe) et **octogonale** »). C'est cette exclusivité qui le rend reconnaissable
+/// de dos, sous la neige ou en contre-jour.
+func panneauStop(_ ctx: CGContext, at pt: CGPoint, rayon: Double = 15, _ p: Palette) {
+    panneau(ctx, forme: .octogone, at: pt, rayon: rayon, fond: p.panneauRouge,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.055, 1.0))
+    texte(ctx, "STOP", centre: pt, taille: rayon * 0.53, couleur: p.panneauFond)
+}
+
+/// AB3a, cédez le passage : le triangle **pointe en bas**, l'autre forme triangulaire de
+/// la signalisation (1re partie, art. 5-1). La 3e partie ne porte pas d'article de
+/// couleurs ; le listel blanc suit celui des triangles de danger (2e partie, art. 23),
+/// dont l'AB3a partage la bande rouge.
+func panneauCedez(_ ctx: CGContext, at pt: CGPoint, rayon: Double = 19, _ p: Palette) {
+    panneau(ctx, forme: .triangleInverse, at: pt, rayon: rayon, fond: p.panneauFond,
+            bord: p.panneauRouge, epaisseurBord: rayon * 0.31,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.05, 0.9))
 }
 
 /// AB6, caractère prioritaire d'une route : un carré posé sur la pointe, fond blanc,
@@ -119,14 +217,15 @@ func panneauLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, rayon: D
     chiffres(ctx, "\(valeur)", at: pt, taille: rayon * 1.0, halo: false, p)
 }
 
-/// B33, fin de limitation de vitesse : le **même** disque, liseré réduit à un filet et
-/// barré d'une oblique montante. Le pendant exact du B14 — même géométrie, réponse
-/// inverse — et c'est la paire que le candidat confond réellement.
-func panneauFinDeLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, rayon: Double,
-                            _ p: Palette) {
-    // Le filet est tracé **à l'intérieur** du disque blanc, pas à sa place : posé au bord,
-    // il disparaissait sur le fond sombre du mode nuit, et le panneau perdait le cerne qui
-    // le distingue d'une pastille blanche.
+/// Le disque des « fin de » : fond blanc, filet et barre noirs (4e partie, art. 47 :
+/// « Les panneaux de fin d'interdiction sont à fond blanc, symbole, inscription, listel
+/// et barre noirs »). Partagé par le B31 (fin de toutes les interdictions) et le B33 (fin
+/// de limitation de vitesse), qui ne diffèrent que par le nombre porté au centre.
+///
+/// Le filet est tracé **à l'intérieur** du disque blanc, pas à sa place : posé au bord, il
+/// disparaissait sur le fond sombre du mode nuit, et le panneau perdait le cerne qui le
+/// distingue d'une pastille blanche.
+private func disqueDeFin(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
     let filet = max(rayon * 0.05, 1.5)
     panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.panneauFond)
     ctx.setStrokeColor(encre(p))
@@ -134,22 +233,17 @@ func panneauFinDeLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, ray
     let cerne = rayon - filet / 2
     ctx.strokeEllipse(in: CGRect(x: pt.x - cerne, y: pt.y - cerne,
                                  width: cerne * 2, height: cerne * 2))
-    // L'oblique est tracée dans le disque, donc écrêtée par lui : sans ce `clip` elle
-    // dépasserait du panneau, ce qui n'existe sur aucun panneau réglementaire.
-    ctx.saveGState()
-    let interieur = rayon * 0.95
-    ctx.addEllipse(in: CGRect(x: pt.x - interieur, y: pt.y - interieur,
-                              width: interieur * 2, height: interieur * 2))
-    ctx.clip()
-    ctx.setStrokeColor(encre(p))
-    ctx.setLineWidth(rayon * 0.24)
-    ctx.setLineCap(.butt)
-    ctx.beginPath()
-    // Repère en y vers le bas : « montante vers la droite » part du plus grand y.
-    ctx.move(to: CGPoint(x: pt.x - rayon, y: pt.y + rayon))
-    ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y - rayon))
-    ctx.strokePath()
-    ctx.restoreGState()
+    obliqueDeBarre(ctx, at: pt, rayon: rayon * 0.95, montante: true, couleur: encre(p),
+                   epaisseur: rayon * 0.24)
+}
+
+/// B33, fin de limitation de vitesse (4e partie, art. 68-2) : le **même** disque que le
+/// B14, liseré réduit à un filet et barré d'une oblique montante. Le pendant exact du
+/// B14 — même géométrie, réponse inverse — et c'est la paire que le candidat confond
+/// réellement.
+func panneauFinDeLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, rayon: Double,
+                            _ p: Palette) {
+    disqueDeFin(ctx, at: pt, rayon: rayon, p)
     chiffres(ctx, "\(valeur)", at: pt, taille: rayon * 1.0, halo: true, p)
 }
 
@@ -158,7 +252,9 @@ func panneauFinDeLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, ray
 /// lui qui dit que la prescription est **zonale** : elle vaut pour tout le périmètre, rues
 /// sécantes comprises, là où un disque seul ne vaut que sur l'axe où il est planté.
 func panneauZone30(_ ctx: CGContext, at pt: CGPoint, demiCote: Double, _ p: Palette) {
-    let rayonCarre = demiCote / 0.78
+    // Le carré est inscrit dans son cercle circonscrit (demi-côté r/√2) depuis la
+    // correction du 2026-08-24 : on remonte donc du demi-côté voulu au rayon par √2.
+    let rayonCarre = demiCote * sqrt(2.0)
     panneau(ctx, forme: .carre, at: pt, rayon: rayonCarre, fond: p.panneauFond,
             bord: p.panneauRouge, epaisseurBord: rayonCarre * 0.055)
     texte(ctx, "ZONE", centre: CGPoint(x: pt.x, y: pt.y - demiCote * 0.60),
@@ -206,26 +302,352 @@ func feuHorsService(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
 /// de droit et non de décor : l'article R414-3 ne fait s'arrêter le véhicule descendant
 /// que « sur les routes de montagne et sur les routes à forte déclivité », et c'est
 /// l'image qui doit dire qu'on y est.
+///
+/// Le listel blanc autour de la bande rouge est arrivé le 2026-08-24, avec la lecture de
+/// l'article 23 de la 2e partie ; le pictogramme de chaussée qui plonge, lui, n'a toujours
+/// pas de planche relevée (cf. `Tools/images.md`).
 func panneauDescenteDangereuse(_ ctx: CGContext, _ pourcentage: Int, at pt: CGPoint,
                                rayon: Double, _ p: Palette) {
-    panneau(ctx, forme: .triangle, at: pt, rayon: rayon, fond: p.panneauFond,
-            bord: p.panneauRouge, epaisseurBord: rayon * 0.17)
+    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
     // Le pictogramme réglementaire : une chaussée qui plonge vers la droite.
     ctx.setStrokeColor(encre(p))
     ctx.setLineWidth(rayon * 0.17)
     ctx.setLineCap(.butt)
     ctx.beginPath()
-    ctx.move(to: CGPoint(x: pt.x - rayon * 0.45, y: pt.y - rayon * 0.10))
-    ctx.addLine(to: CGPoint(x: pt.x + rayon * 0.45, y: pt.y + rayon * 0.36))
+    ctx.move(to: CGPoint(x: pt.x - rayon * 0.42, y: pt.y - rayon * 0.02))
+    ctx.addLine(to: CGPoint(x: pt.x + rayon * 0.42, y: pt.y + rayon * 0.32))
     ctx.strokePath()
-    // Panonceau de déclivité : un rectangle blanc sous le triangle, comme sur la route.
+    // Panonceau de déclivité : sous le triangle, comme sur la route. Le côté inférieur du
+    // triangle équilatéral est à +0,5 rayon (et non +0,72 comme avant la correction de
+    // géométrie), d'où la plaque à +0,62 : le même jeu de 0,12 rayon sous l'arête.
     let l = rayon * 1.55, h = rayon * 0.64
-    let plaque = CGRect(x: pt.x - l / 2, y: pt.y + rayon * 0.95, width: l, height: h)
-    ctx.setFillColor(p.panneauFond)
-    ctx.fill(plaque)
+    panonceau(ctx, "\(pourcentage) %",
+              at: CGRect(x: pt.x - l / 2, y: pt.y + rayon * 0.62, width: l, height: h), p)
+}
+
+// MARK: - Les panneaux de la tâche 7
+//
+// Une fonction par panneau, du fond au pictogramme. Trois familles, trois habillages, et
+// c'est l'habillage qui porte le sens — pas la teinte :
+//
+// - **danger (type A)** : triangle pointe en haut, fond blanc, bande rouge bordée d'un
+//   listel blanc (2e partie, art. 23) ;
+// - **prescription (type B)** : disque. Interdiction = fond blanc et couronne rouge, sans
+//   listel ; obligation = fond bleu, listel et symbole blancs ; fin d'interdiction = fond
+//   blanc, listel, symbole et barre noirs (4e partie, art. 47) ;
+// - **indication (type C)** : carré (5e partie, art. 69-1).
+//
+// Ce que la norme **ne** donne pas en texte : le dessin des pictogrammes, qui vit dans les
+// planches jointes aux arrêtés et non dans les articles. Chaque pictogramme ci-dessous est
+// donc une simplification du symbole connu, dessinée pour être lisible à ~90 points de
+// haut ; aucun visuel d'éditeur d'ETG n'a servi de modèle. Le détail est dans
+// `Tools/images.md`.
+
+/// L'habillage commun des panneaux de danger : triangle, fond blanc, bande rouge, listel
+/// blanc. Extrait parce que cinq panneaux le partagent et que l'article 23 ne l'écrit
+/// qu'une fois.
+func panneauDeDanger(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .triangle, at: pt, rayon: rayon, fond: p.panneauFond,
+            bord: p.panneauRouge, epaisseurBord: rayon * 0.13,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.045, 0.9))
+}
+
+/// A14, autres dangers (2e partie, art. 41) : le panneau qu'on emploie « lorsqu'il
+/// n'existe pas de symbole spécifique » pour le danger à signaler. Son point d'exclamation
+/// ne dit donc rien de plus que « danger » — c'est le panonceau M9 qui le nomme, et
+/// l'article 41 demande de l'ajouter « autant que possible ».
+func panneauAutresDangers(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
+    // Le point d'exclamation, dessiné et non composé : la barre et le point ont besoin
+    // d'un rapport de taille stable d'une échelle de rendu à l'autre, ce qu'une fonte ne
+    // garantit pas. Le triangle équilatéral est plus étroit en haut qu'en bas : le
+    // symbole est donc décalé vers le bas, là où il y a de la place.
+    let e = rayon * 0.14
+    ctx.setFillColor(encre(p))
+    ctx.fill(CGRect(x: pt.x - e / 2, y: pt.y - rayon * 0.22, width: e, height: rayon * 0.44))
+    ctx.fillEllipse(in: CGRect(x: pt.x - e / 2, y: pt.y + rayon * 0.32, width: e, height: e))
+}
+
+/// A1a, virage à droite (2e partie, art. 27, B : « une courbe unique est signalée par un
+/// panneau A1a ou A1b, suivant qu'elle est à droite ou à gauche »).
+func panneauVirage(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
+    // Une chaussée qui part vers le haut puis s'infléchit à droite : trois segments
+    // suffisent, et le coude doit rester visible à petite taille.
     ctx.setStrokeColor(encre(p))
-    ctx.setLineWidth(1)
-    ctx.stroke(plaque)
-    texte(ctx, "\(pourcentage) %", centre: CGPoint(x: plaque.midX, y: plaque.midY),
-          taille: h * 0.60, couleur: encre(p))
+    ctx.setLineWidth(rayon * 0.17)
+    ctx.setLineCap(.butt)
+    ctx.setLineJoin(.round)
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: pt.x - rayon * 0.14, y: pt.y + rayon * 0.38))
+    ctx.addLine(to: CGPoint(x: pt.x - rayon * 0.14, y: pt.y + rayon * 0.04))
+    ctx.addQuadCurve(to: CGPoint(x: pt.x + rayon * 0.30, y: pt.y - rayon * 0.24),
+                     control: CGPoint(x: pt.x - rayon * 0.14, y: pt.y - rayon * 0.20))
+    ctx.strokePath()
+}
+
+/// A13b, passage pour piétons (2e partie, art. 40) : **signalisation avancée** du passage,
+/// jamais sa position — celle-ci est tenue par le marquage au sol (art. 118 de la 7e
+/// partie). C'est tout l'intérêt de la question qu'il illustre : un triangle annonce, il
+/// ne prescrit pas.
+///
+/// Le pictogramme tient au-dessus de +0,41 rayon et non de +0,5 : le côté inférieur du
+/// triangle est à +0,5 rayon, mais la bande rouge et le listel en mangent encore 0,09.
+func panneauPassagePietons(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
+    // Les bandes du passage, en perspective écrasée — la plus large en bas, la plus proche.
+    // Ce sont elles qui distinguent ce pictogramme de celui d'un simple piéton (A13a,
+    // endroit fréquenté par les enfants).
+    ctx.setFillColor(encre(p))
+    for (demi, y) in [(0.30, 0.36), (0.235, 0.275), (0.17, 0.19)] {
+        ctx.fill(CGRect(x: pt.x - rayon * demi, y: pt.y + rayon * (y - 0.028),
+                        width: rayon * demi * 2, height: rayon * 0.056))
+    }
+    silhouettePieton(ctx, at: CGPoint(x: pt.x, y: pt.y - rayon * 0.10),
+                     hauteur: rayon * 0.56, encre(p))
+}
+
+/// Une silhouette de piéton : tête, tronc, deux jambes écartées, un bras. Réduite à cinq
+/// traits — à 90 points de haut, un dessin fidèle devient une tache.
+private func silhouettePieton(_ ctx: CGContext, at pt: CGPoint, hauteur h: Double,
+                              _ encre: CGColor) {
+    let t = h * 0.13
+    ctx.setStrokeColor(encre)
+    ctx.setFillColor(encre)
+    ctx.setLineWidth(t)
+    ctx.setLineCap(.round)
+    // Tête
+    ctx.fillEllipse(in: CGRect(x: pt.x - t, y: pt.y - h * 0.50, width: t * 2, height: t * 2))
+    // Tronc
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: pt.x, y: pt.y - h * 0.24))
+    ctx.addLine(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
+    ctx.strokePath()
+    // Jambes, l'une en avant : c'est ce qui fait lire une marche plutôt qu'une station
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
+    ctx.addLine(to: CGPoint(x: pt.x - h * 0.16, y: pt.y + h * 0.40))
+    ctx.move(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
+    ctx.addLine(to: CGPoint(x: pt.x + h * 0.18, y: pt.y + h * 0.38))
+    // Bras
+    ctx.move(to: CGPoint(x: pt.x, y: pt.y - h * 0.18))
+    ctx.addLine(to: CGPoint(x: pt.x + h * 0.20, y: pt.y - h * 0.02))
+    ctx.strokePath()
+}
+
+/// B1, sens interdit (4e partie, art. 50-1) : le seul panneau d'interdiction **à fond
+/// rouge**, avec « une barre horizontale blanche » (art. 47). Il « indique au début des
+/// chaussées en sens unique que les véhicules peuvent seulement y circuler en sens
+/// inverse » — la chaussée n'est donc pas fermée, elle se prend par l'autre bout.
+func panneauSensInterdit(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.panneauRouge,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.06, 1.0))
+    // « Les couronnes des panneaux d'interdiction et le panneau B1 ne doivent porter
+    // aucune inscription » (art. 47) : la barre est seule, et c'est elle — pas le rouge —
+    // qui distingue le B1 de tout autre disque.
+    ctx.setFillColor(p.panneauFond)
+    ctx.fill(CGRect(x: pt.x - rayon * 0.62, y: pt.y - rayon * 0.13,
+                    width: rayon * 1.24, height: rayon * 0.26))
+}
+
+/// L'habillage commun des interdictions : disque à fond blanc et **couronne rouge**, sans
+/// listel (4e partie, art. 47). C'est le pendant de `panneauDeDanger`.
+func panneauDInterdiction(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                          fond: CGColor? = nil, _ p: Palette) {
+    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: fond ?? p.panneauFond,
+            bord: p.panneauRouge, epaisseurBord: rayon * 0.16)
+}
+
+/// B3, interdiction de dépasser (4e partie, art. 52). L'interdiction porte sur « tous les
+/// véhicules à moteur autres que les véhicules à deux roues sans side-car » : c'est cette
+/// exception que le pictogramme à deux voitures ne dit pas, et que la question fait
+/// travailler.
+func panneauInterdictionDepasser(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                                 _ p: Palette) {
+    panneauDInterdiction(ctx, at: pt, rayon: rayon, p)
+    // Deux voitures vues de dos, côte à côte, celle de gauche en avant : c'est le
+    // dépassement en cours. L'une est rouge, l'autre à l'encre (art. 47 : les panneaux B3
+    // « comportent dans le symbole une partie rouge »), mais rien ne repose sur cette
+    // teinte — les deux silhouettes se distinguent par leur position et leur décalage.
+    silhouetteVoiture(ctx, at: CGPoint(x: pt.x - rayon * 0.31, y: pt.y - rayon * 0.11),
+                      largeur: rayon * 0.60, couleur: p.panneauRouge, p)
+    silhouetteVoiture(ctx, at: CGPoint(x: pt.x + rayon * 0.31, y: pt.y + rayon * 0.09),
+                      largeur: rayon * 0.60, couleur: encre(p), p)
+}
+
+/// Une voiture vue **de dos**, comme sur les pictogrammes réglementaires : une caisse plus
+/// large que haute, un pavillon plus étroit posé dessus, une lunette claire, deux roues qui
+/// dépassent en bas. Cinq rectangles — et c'est le rapport largeur/hauteur qui décide de
+/// tout : un premier jet en caisse plus haute que large se lisait comme un sac à main.
+private func silhouetteVoiture(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
+                               couleur: CGColor, _ p: Palette) {
+    let h = l * 0.86
+    // Les roues d'abord, pour qu'elles passent sous la caisse.
+    ctx.setFillColor(couleur)
+    for dx in [-0.40, 0.40] {
+        ctx.fill(CGRect(x: pt.x + l * dx - l * 0.09, y: pt.y + h * 0.24,
+                        width: l * 0.18, height: h * 0.20))
+    }
+    let caisse = CGRect(x: pt.x - l / 2, y: pt.y - h * 0.06, width: l, height: h * 0.36)
+    let pavillon = CGRect(x: pt.x - l * 0.29, y: pt.y - h * 0.44,
+                          width: l * 0.58, height: h * 0.40)
+    ctx.addPath(CGPath(roundedRect: caisse, cornerWidth: l * 0.08, cornerHeight: l * 0.08,
+                       transform: nil))
+    ctx.addPath(CGPath(roundedRect: pavillon, cornerWidth: l * 0.07, cornerHeight: l * 0.07,
+                       transform: nil))
+    ctx.fillPath()
+    // La lunette arrière : sans elle, le pavillon se lit comme une seconde caisse.
+    ctx.setFillColor(p.panneauFond)
+    ctx.fill(CGRect(x: pavillon.minX + l * 0.08, y: pavillon.minY + h * 0.08,
+                    width: pavillon.width - l * 0.16, height: h * 0.18))
+}
+
+/// B6a1, stationnement interdit (4e partie, art. 55) : disque **à fond bleu** (art. 47),
+/// couronne rouge et **une** oblique. Sa portée est ce que la question travaille : les
+/// interdictions de stationnement « ne s'appliquent que du côté de la route sur lequel
+/// les panneaux sont placés » et « s'appliquent au-delà du signal dans le sens de la
+/// marche jusqu'à la prochaine intersection » (art. 55, A, 2).
+func panneauStationnementInterdit(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                                  _ p: Palette) {
+    panneauDInterdiction(ctx, at: pt, rayon: rayon, fond: p.vous, p)
+    obliqueDeBarre(ctx, at: pt, rayon: rayon, montante: false, couleur: p.panneauRouge)
+}
+
+/// B6d, arrêt et stationnement interdits (4e partie, art. 55-3) : le **même** disque bleu
+/// avec **deux** obliques croisées. Une oblique de plus, et « la réglementation de
+/// l'interdiction de l'arrêt inclut celle du stationnement » (art. 55-3, A, 1). C'est le
+/// nombre de barres — pas la couleur — qui sépare les deux panneaux.
+func panneauArretEtStationnementInterdits(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                                          _ p: Palette) {
+    panneauDInterdiction(ctx, at: pt, rayon: rayon, fond: p.vous, p)
+    obliqueDeBarre(ctx, at: pt, rayon: rayon, montante: false, couleur: p.panneauRouge)
+    obliqueDeBarre(ctx, at: pt, rayon: rayon, montante: true, couleur: p.panneauRouge)
+}
+
+/// Une barre oblique tracée **dans** le disque, donc écrêtée par lui : posée sans `clip`
+/// elle dépasserait du panneau, ce qui n'existe sur aucun panneau réglementaire.
+private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                            montante: Bool, couleur: CGColor,
+                            epaisseur: Double? = nil) {
+    ctx.saveGState()
+    ctx.addEllipse(in: CGRect(x: pt.x - rayon, y: pt.y - rayon,
+                              width: rayon * 2, height: rayon * 2))
+    ctx.clip()
+    ctx.setStrokeColor(couleur)
+    ctx.setLineWidth(epaisseur ?? rayon * 0.22)
+    ctx.setLineCap(.butt)
+    ctx.beginPath()
+    // Repère en y vers le bas : « montante vers la droite » part du plus grand y.
+    ctx.move(to: CGPoint(x: pt.x - rayon, y: pt.y + (montante ? rayon : -rayon)))
+    ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y + (montante ? -rayon : rayon)))
+    ctx.strokePath()
+    ctx.restoreGState()
+}
+
+/// B21b, direction obligatoire à la prochaine intersection : tout droit (4e partie,
+/// art. 65, A). Les panneaux d'obligation sont « à fond bleu, listel et symbole blancs »
+/// (art. 47), et celui-ci est un panneau **avancé** : l'obligation joue au carrefour
+/// suivant, pas à la hauteur du panneau. Le B21-1, lui, est un panneau de position et
+/// impose de tourner à droite *avant* le panneau.
+func panneauDirectionObligatoire(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                                 _ p: Palette) {
+    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.vous,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.06, 1.0))
+    fleche(ctx, [CGPoint(x: pt.x, y: pt.y + rayon * 0.52),
+                 CGPoint(x: pt.x, y: pt.y - rayon * 0.46)], couleur: p.panneauFond)
+}
+
+/// B31, fin de toutes les interdictions précédemment signalées (4e partie, art. 68-1) :
+/// le disque des « fin de », sans aucun nombre. C'est le seul disque sans une once de
+/// rouge, et c'est aussi ce qui le distingue du losange barré AB7, qui ne touche qu'à la
+/// priorité. Il ne lève pas ce qui découle d'un texte général — être en agglomération,
+/// par exemple (art. 68-1).
+func panneauFinDInterdictions(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
+                              _ p: Palette) {
+    disqueDeFin(ctx, at: pt, rayon: rayon, p)
+}
+
+/// AB7, fin du caractère prioritaire d'une route (3e partie, art. 42-3, B) : le carré posé
+/// sur la pointe de l'AB6, barré. Le panneau « sans panonceau de distance annonce la perte
+/// de priorité au prochain carrefour ». La 3e partie ne porte pas d'article de couleurs :
+/// le losange jaune vient de l'AB6 déjà dessiné dans ce fichier, la barre du symbole
+/// n'a pas de planche relevée (cf. `Tools/images.md`).
+func panneauFinPriorite(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .losange, at: pt, rayon: rayon, fond: p.panneauFond)
+    panneau(ctx, forme: .losange, at: pt, rayon: rayon * 0.59, fond: p.panneauJaune)
+    // La barre est écrêtée par le losange extérieur, pas par un disque : elle doit longer
+    // la forme du panneau.
+    ctx.saveGState()
+    ctx.addPath(cheminLosange(at: pt, rayon: rayon * 0.93))
+    ctx.clip()
+    ctx.setStrokeColor(encre(p))
+    ctx.setLineWidth(rayon * 0.15)
+    ctx.setLineCap(.butt)
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: pt.x - rayon, y: pt.y + rayon))
+    ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y - rayon))
+    ctx.strokePath()
+    ctx.restoreGState()
+}
+
+private func cheminLosange(at pt: CGPoint, rayon r: Double) -> CGPath {
+    let path = CGMutablePath()
+    path.addLines(between: [CGPoint(x: pt.x, y: pt.y - r), CGPoint(x: pt.x + r, y: pt.y),
+                            CGPoint(x: pt.x, y: pt.y + r), CGPoint(x: pt.x - r, y: pt.y)])
+    path.closeSubpath()
+    return path
+}
+
+/// C1a, lieu aménagé pour le stationnement (5e partie, art. 70). « Les panneaux de type C
+/// sont généralement de forme carrée » (art. 69-1), et cette forme est tout le sujet de la
+/// question qu'il illustre : un **carré** renseigne, un **disque** prescrit (4e partie,
+/// art. 45). Un daltonien lit la différence sans voir une seule couleur.
+func panneauParking(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .carre, at: pt, rayon: rayon, fond: p.vous,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.055, 1.0))
+    texte(ctx, "P", centre: pt, taille: rayon * 1.05, couleur: p.panneauFond)
+}
+
+/// C113, voie conseillée et réservée aux cyclistes (5e partie, art. 75-3). Panneau
+/// d'**indication** : il réserve la voie sans obliger le cycliste à la prendre. La piste
+/// ou bande *obligatoire* relève de la prescription et se signale par un panneau rond
+/// (art. 66 de la 4e partie) — c'est la paire que la question fait travailler.
+func panneauVoieVelo(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
+    panneau(ctx, forme: .carre, at: pt, rayon: rayon, fond: p.vous,
+            listel: p.panneauFond, epaisseurListel: max(rayon * 0.055, 1.0))
+    silhouetteVelo(ctx, at: pt, largeur: rayon * 1.10, p.panneauFond)
+}
+
+/// Une bicyclette vue de profil : deux roues, un cadre en triangle, un guidon, une selle.
+/// Le pictogramme réglementaire est plus fin ; à 90 points de haut, ces six traits sont ce
+/// qui reste lisible.
+private func silhouetteVelo(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
+                            _ encre: CGColor) {
+    let r = l * 0.20, e = l * 0.055
+    ctx.setStrokeColor(encre)
+    ctx.setLineWidth(e)
+    ctx.setLineCap(.round)
+    ctx.setLineJoin(.round)
+    let arriere = CGPoint(x: pt.x - l * 0.28, y: pt.y + l * 0.16)
+    let avant = CGPoint(x: pt.x + l * 0.28, y: pt.y + l * 0.16)
+    for c in [arriere, avant] {
+        ctx.strokeEllipse(in: CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2))
+    }
+    // Cadre : du moyeu arrière à la selle, à la boîte de pédalier, au moyeu avant.
+    let selle = CGPoint(x: pt.x - l * 0.08, y: pt.y - l * 0.16)
+    let pedalier = CGPoint(x: pt.x, y: pt.y + l * 0.16)
+    let guidon = CGPoint(x: pt.x + l * 0.20, y: pt.y - l * 0.20)
+    ctx.beginPath()
+    ctx.move(to: arriere)
+    ctx.addLine(to: selle)
+    ctx.addLine(to: pedalier)
+    ctx.addLine(to: arriere)
+    ctx.move(to: selle)
+    ctx.addLine(to: guidon)
+    ctx.move(to: guidon)
+    ctx.addLine(to: avant)
+    // Le guidon en travers, sans quoi la fourche se lit comme un simple trait.
+    ctx.move(to: CGPoint(x: guidon.x - l * 0.09, y: guidon.y - l * 0.02))
+    ctx.addLine(to: CGPoint(x: guidon.x + l * 0.06, y: guidon.y - l * 0.02))
+    ctx.strokePath()
 }

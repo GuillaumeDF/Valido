@@ -84,23 +84,33 @@ depuis l'énoncé. Trié par topic pour se relire domaine par domaine.
 | `37fe1af42b8d81c89e88db8c08ca8514` | stable | principes de l'éco-conduite (anticipation, régime moteur modéré) |  |  |
 | `37fe1af42b8d81deaec0cb8830fa0b25` | datée | profondeur minimale légale des sculptures d'un pneu (1,6 mm) |  |  |
 | `37fe1af42b8d81f4b915cd58b951d9e4` | datée | moment de contrôle de la pression des pneus et correction à chaud (+0,3 bar) |  |  |
-| `11d37be22fd315668cb2930373e95c80` | stable | signification du panneau rond blanc barré (fin de toutes les interdictions précédentes) |  |  |
+| `11d37be22fd315668cb2930373e95c80` | stable | portée du B31 : il lève les interdictions signalées, non celles qui découlent d'un texte général comme l'agglomération (IISR 4e partie, art. 68-1) |  |  |
 | `1a0a5812ff8659ba24b3b4c750e469e5` | stable | interdiction imposée par la partie continue d'une ligne mixte (dépassement et franchissement) |  |  |
 | `37fe1af42b8d81059d80e8954b36ed7f` | stable | signification d'un panneau rond à liseré rouge (interdiction, applicable ici) |  |  |
-| `37fe1af42b8d8141b1d0e3ca0b855119` | datée | points retirés pour chevauchement (1 point) et franchissement (3 points) d'une ligne continue |  |  |
+| `37fe1af42b8d8141b1d0e3ca0b855119` | datée | interdiction du franchissement **et** du chevauchement d'une ligne continue, seule exception étant le chevauchement pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé ; 3 points et 1 point (R412-19, version en vigueur depuis le 16 janvier 2022) | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039278107/ | 2026-08-24 |
 | `37fe1af42b8d81699c2ffbefd648d9a3` | stable | signification d'un panneau rond à fond bleu (obligation) |  |  |
-| `37fe1af42b8d81709c93fcc98510a42d` | stable | signification des flèches de rabattement peintes au sol (ligne continue proche) |  |  |
-| `37fe1af42b8d8174a3c3e94967027ed1` | stable | signification d'un panneau rond bleu à flèche verticale (obligation d'aller tout droit) |  |  |
-| `37fe1af42b8d817881dee3d999a911c3` | stable | nature informative, non prescriptive, des panneaux carrés à fond bleu |  |  |
-| `37fe1af42b8d81b3a4b7d484aef5aef8` | stable | règle de lecture d'une ligne mixte (suivre celle de son côté) |  |  |
-| `37fe1af42b8d81b5aa9fc685af3ba92f` | stable | signification d'un panneau triangulaire à liseré rouge (danger à venir) |  |  |
-| `37fe1af42b8d81d68a70da4a7305f6c1` | stable | signification des zébras peints au sol (zone interdite à la circulation) |  |  |
+| `37fe1af42b8d81709c93fcc98510a42d` | stable | obligation portée par les flèches de rabattement : emprunter la voie située du côté qu'elles indiquent (IISR 7e partie, art. 115-3, B) |  |  |
+| `37fe1af42b8d8174a3c3e94967027ed1` | stable | portée du B21b : obligation d'aller tout droit **à la prochaine intersection**, le B21-1 étant celui qui impose de tourner avant lui (IISR 4e partie, art. 65, A et B) |  |  |
+| `37fe1af42b8d817881dee3d999a911c3` | stable | nature informative des panneaux carrés (type C) contre nature prescriptive des panneaux ronds (type B) — IISR 5e partie, art. 69-1 et 4e partie, art. 45 |  |  |
+| `37fe1af42b8d81b3a4b7d484aef5aef8` | stable | règle de lecture d'une ligne mixte : franchissable seulement si la discontinue est la plus proche du véhicule au début du dépassement (IISR 7e partie, art. 113, A) |  |  |
+| `37fe1af42b8d81b5aa9fc685af3ba92f` | stable | signification d'un panneau triangulaire à liseré rouge (danger à venir), implanté 100 à 200 m en amont hors agglomération (IISR 2e partie, art. 21 et 25) |  |  |
+| `37fe1af42b8d81d68a70da4a7305f6c1` | stable | portée des hachures : elles couvrent les surfaces normalement inutilisées d'une zone non circulable, inclinaison 2 pour 1 (IISR 7e partie, art. 117, A) |  |  |
 | `37fe1af42b8d81f8a2f3f8bd2afc9d2d` | stable | portée d'une ligne discontinue axiale (franchissement autorisé) |  |  |
-| `3cb86b6e4c489d919a495408021f062a` | datée | points retirés pour chevauchement d'une ligne continue sans la franchir (1 point) |  |  |
-| `443e4299ccb3ff71669f8df6669b8bf4` | stable | forme octogonale exclusive au panneau STOP |  |  |
+| `3cb86b6e4c489d919a495408021f062a` | datée | points retirés pour chevauchement (1 point) et franchissement (3 points) d'une ligne continue axiale ou séparative (R412-19, version en vigueur depuis le 16 janvier 2022) | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039278107/ | 2026-08-24 |
+| `443e4299ccb3ff71669f8df6669b8bf4` | stable | forme octogonale exclusive au panneau STOP (IISR 1re partie, art. 5-1) et arrêt inconditionnel qu'il impose (IISR 3e partie, art. 42-2, E) |  |  |
 | `5a4e6a38ad3e1153f807ec5e0e6ba40e` | stable | ce que délimite une ligne discontinue en bord de chaussée (bande d'arrêt d'urgence ou accotement) |  |  |
 | `9eb8506813f0c8b729b66157ec95a63f` | stable | priorité à l'anneau dans un carrefour à sens giratoire annoncé par panneau |  |  |
 | `dce501d416e5db1cc6344725007fbad6` | stable | obligation de céder le passage sans arrêt au panneau cédez-le-passage |  |  |
+| `1509ad94aea7c6f82355f3362b10a8e1` | stable | portée du B6d : « la réglementation de l'interdiction de l'arrêt inclut celle du stationnement » (IISR 4e partie, art. 55-3, A, 1) |  |  |
+| `1658abbc16db4667fec7211f8c9b0f93` | stable | portée du B6a1 : l'interdiction ne vaut que du côté où le panneau est posé, et jusqu'à la prochaine intersection (IISR 4e partie, art. 55, A, 2) |  |  |
+| `570e5e1ef861e032773f43b44bc817a9` | stable | damier rouge et blanc réservé au marquage des voies de détresse, « destinées à arrêter un véhicule en perdition » (IISR 7e partie, art. 113-1, A, 3 et art. 118-10) |  |  |
+| `7d44f7dd303fce58716234cba54480b1` | stable | portée de l'AB7 : sans panonceau de distance, il annonce la perte de priorité au prochain carrefour (IISR 3e partie, art. 42-3, B) |  |  |
+| `89bea09b482974f37e7dd7d35aba23f5` | stable | l'A13b n'existe qu'en signalisation avancée du passage piéton, la position étant tenue par le marquage au sol (IISR 2e partie, art. 40 ; 7e partie, art. 118) |  |  |
+| `8a1026edb35c31c37ab6df7b29851ef2` | stable | portée du B1 : « indique au début des chaussées en sens unique que les véhicules peuvent seulement y circuler en sens inverse » (IISR 4e partie, art. 50-1) |  |  |
+| `9e65525bbce6a6491d37bbf6f180c04c` | stable | portée du B3 : interdiction de dépasser « tous les véhicules à moteur autres que les véhicules à deux roues sans side-car » (IISR 4e partie, art. 52) |  |  |
+| `ede6968609d285b22494f57032c53e2f` | stable | le C113 signale une voie « conseillée et réservée » aux cyclistes ; la piste ou bande *obligatoire* relève de la prescription (IISR 5e partie, art. 75-3) |  |  |
+| `ee11b58d97d21d637c3ec38c7181fa87` | stable | rôle du panonceau : « donner une ou des informations supplémentaires à celles du signal », et l'A14 « doit autant que possible être complété par un panonceau M9 précisant la nature du danger » (IISR 1re partie, art. 9-1, B ; 2e partie, art. 41) |  |  |
+| `f12ee5bea85947a13d387f574e817337` | stable | principe de cohérence de la signalisation temporaire : les panneaux permanents contredits « doivent alors être masqués provisoirement », le marquage permanent « effacé ou masqué » (IISR 8e partie, art. 120, B ; art. 122, B) |  |  |
 | `2b6972fab03433e709d73ccc5a949ac9` | datée | délai de récupération automatique du capital de points (2 ans, ou 3 ans avec délit) |  |  |
 | `2d45cedf9b3d349027d751f7aa672d6a` | datée | qualification et peine pour conduite sans permis jamais obtenu (délit, 1 an, 15 000 €) |  |  |
 | `37fe1af42b8d8132a22dde248e277c2b` | datée | points retirés pour usage du téléphone tenu en main au volant (3 points) |  |  |

@@ -197,10 +197,14 @@ let scenesCarrefour: [(String, Scene)] = [
         ctx.move(to: CGPoint(x: 0, y: altitudeRoute(0) + 15))
         ctx.addLine(to: CGPoint(x: W, y: altitudeRoute(W) + 15))
         ctx.strokePath()
-        // À x=110, le panonceau descend à y≈79-124 : encore avant vous sur la pente, mais
-        // dans la bande centrale qui survit au recadrage du bandeau à 18 % — la version
-        // précédente (y≈38-90) en sortait par le haut.
-        panneauDescenteDangereuse(ctx, 12, at: CGPoint(x: 110, y: 95), rayon: 17, p)
+        // À x=110, l'ensemble panneau + panonceau tient entre y≈81 et y≈119 : encore avant
+        // vous sur la pente, mais dans la bande centrale qui survit au recadrage du
+        // bandeau à 18 % — la version d'origine (y≈38-90) en sortait par le haut. Le
+        // centre est descendu de 95 à 98 et le rayon monté de 17 à 19 le 2026-08-24 : le
+        // triangle est devenu équilatéral, donc plus haut au-dessus de son centre (1 rayon
+        // contre 0,95) mais aussi plus étroit (côté 1,73 rayon contre 2,0). À 19, il
+        // retrouve exactement l'encombrement qu'il avait, dans une géométrie juste.
+        panneauDescenteDangereuse(ctx, 12, at: CGPoint(x: 110, y: 98), rayon: 19, p)
         // Vous descendez — liseré blanc — et un véhicule monte à votre rencontre.
         voitureDeProfil(ctx, x: 160, y: altitudeRoute(160) - 4, pente: anglePente,
                         versLaDroite: true, couleur: p.vous, liseree: true, p)

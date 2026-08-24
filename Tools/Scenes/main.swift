@@ -4,7 +4,7 @@ import Foundation
 
 typealias Scene = (CGContext, Palette) -> Void
 
-let scenes: [(String, Scene)] = scenesCarrefour + scenesCirculation
+let scenes: [(String, Scene)] = scenesCarrefour + scenesCirculation + scenesPanneaux
 
 // MARK: - Sortie
 

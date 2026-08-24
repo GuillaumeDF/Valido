@@ -170,10 +170,14 @@ func voitureDeProfil(_ ctx: CGContext, x: Double, y: Double, pente: Double,
 
 /// Flèche d'intention : ce que le véhicule s'apprête à faire. Sans elle, « qui passe en
 /// premier » reste indécidable dès qu'un des deux tourne.
-func fleche(_ ctx: CGContext, _ points: [CGPoint], couleur: CGColor) {
+/// `epaisseur` sert aux **marques** au sol, bien plus larges qu'une flèche d'intention :
+/// une flèche de rabattement peinte sur la chaussée se lit de loin, la flèche qui dit
+/// l'intention d'un véhicule doit au contraire rester discrète.
+func fleche(_ ctx: CGContext, _ points: [CGPoint], couleur: CGColor,
+            epaisseur: Double = 3.5) {
     guard points.count >= 2 else { return }
     ctx.setStrokeColor(couleur)
-    ctx.setLineWidth(3.5)
+    ctx.setLineWidth(epaisseur)
     ctx.setLineCap(.round)
     ctx.setLineJoin(.round)
     ctx.beginPath()
@@ -185,7 +189,9 @@ func fleche(_ ctx: CGContext, _ points: [CGPoint], couleur: CGColor) {
     let dx = b.x - a.x, dy = b.y - a.y
     let n = max(hypot(dx, dy), 0.001)
     let ux = dx / n, uy = dy / n
-    let t = 8.0
+    // La pointe garde son rapport à l'épaisseur : 8 unités pour le trait de 3,5 par
+    // défaut, donc les scènes déjà rendues ne bougent pas d'un pixel.
+    let t = epaisseur / 3.5 * 8
     ctx.setFillColor(couleur)
     ctx.beginPath()
     ctx.move(to: b)

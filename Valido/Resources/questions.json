@@ -650,12 +650,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le chevauchement compte à part : rouler à cheval sur la ligne coûte 1 point, la franchir en coûte 3. La seule tolérance est le contournement d'un obstacle infranchissable.",
+    "explanation": "L'article R412-19 interdit les deux gestes et ne réserve qu'une exception : chevaucher la ligne pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé. Franchir coûte 3 points, chevaucher 1.",
     "id": "37fe1af42b8d8141b1d0e3ca0b855119",
     "options": [
       {
         "id": "A",
-        "text": "Ne doit jamais être franchie ni chevauchée"
+        "text": "Interdit le franchissement comme le chevauchement"
       },
       {
         "id": "B",
@@ -1059,54 +1059,62 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Elles servent de préavis : au bout des flèches commence une ligne continue, donc une interdiction de dépasser. Attendre pour se rabattre obligerait à franchir la ligne ou à freiner brutalement au milieu d'un dépassement.",
+    "explanation": "Les flèches de rabattement annoncent un marquage qui oblige à emprunter la voie située du côté qu'elles indiquent : ici la ligne continue qui commence à leur extrémité, et qu'il serait interdit de franchir.",
     "id": "37fe1af42b8d81709c93fcc98510a42d",
+    "illustration": {
+      "alt": "Trois flèches blanches peintes dans l'axe, à cheval sur une ligne discontinue, s'infléchissant vers la droite ; au-delà, la ligne devient continue.",
+      "asset": "marquage-fleches-rabattement"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Un passage piéton masqué par le relief"
+        "text": "de ralentir jusqu'à la fin des flèches"
       },
       {
         "id": "B",
-        "text": "Une aire de repos accessible à droite"
+        "text": "de garder votre voie jusqu'au carrefour"
       },
       {
         "id": "C",
-        "text": "Un rétrécissement de chaussée, une voie en moins"
+        "text": "de doubler avant la fin du marquage"
       },
       {
         "id": "D",
-        "text": "Une ligne continue proche, à ne pas franchir"
+        "text": "de rejoindre la voie qu'il désigne"
       }
     ],
-    "prompt": "Des flèches de rabattement peintes au sol annoncent :",
+    "prompt": "Ce marquage vous impose :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le fond bleu et la forme ronde en font une obligation, et la flèche en donne le contenu : à cette intersection, seul le tout-droit est permis. Un rond à liseré rouge aurait au contraire interdit une direction.",
+    "explanation": "Le disque prescrit, le fond bleu en fait une obligation. C'est un panneau avancé : l'obligation joue au carrefour suivant, pas à sa hauteur. Le B21-1, à flèche horizontale, impose au contraire de tourner avant lui.",
     "id": "37fe1af42b8d8174a3c3e94967027ed1",
+    "illustration": {
+      "alt": "Disque à fond bleu bordé d'un listel blanc, portant une flèche blanche dirigée vers le haut.",
+      "asset": "panneau-b21b-tout-droit"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Obligation de poursuivre tout droit"
+        "text": "de continuer tout droit au carrefour suivant"
       },
       {
         "id": "B",
-        "text": "Direction conseillée vers le centre"
+        "text": "de rester sur la voie de droite jusqu'au bout"
       },
       {
         "id": "C",
-        "text": "Voie réservée aux véhicules lents"
+        "text": "de tourner à droite avant le panneau"
       },
       {
         "id": "D",
-        "text": "Sens interdit à tout véhicule"
+        "text": "de suivre la direction conseillée par la voie"
       }
     ],
-    "prompt": "Un panneau rond à fond bleu avec une flèche blanche vers le haut signifie :",
+    "prompt": "Ce panneau vous impose :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1167,27 +1175,31 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Les panneaux carrés à fond bleu n'imposent rien : ils renseignent — parking, voie sans issue, station-service, aire de repos. Ce sont les panneaux ronds qui prescrivent.",
+    "explanation": "Les panneaux d'indication sont carrés, les panneaux de prescription ronds : la forme suffit à savoir si un panneau renseigne ou prescrit, sans avoir à distinguer une seule couleur.",
     "id": "37fe1af42b8d817881dee3d999a911c3",
+    "illustration": {
+      "alt": "Panneau carré à fond bleu, bordé d'un listel blanc, portant la lettre P en blanc au centre.",
+      "asset": "panneau-c1a-parking"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Un danger annoncé quelques dizaines de mètres avant"
+        "text": "une obligation valable jusqu'au carrefour"
       },
       {
         "id": "B",
-        "text": "Une obligation valable jusqu'au prochain carrefour"
+        "text": "une interdiction, effective à sa hauteur"
       },
       {
         "id": "C",
-        "text": "Une interdiction qui prend effet à sa hauteur"
+        "text": "un danger annoncé quelques mètres avant"
       },
       {
         "id": "D",
-        "text": "Une indication ou une information utile"
+        "text": "un renseignement, et rien de contraignant"
       }
     ],
-    "prompt": "Un panneau carré à fond bleu donne :",
+    "prompt": "Ce panneau donne :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1734,27 +1746,31 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Si la discontinue est de votre côté, vous pouvez dépasser ; si c'est la continue, c'est interdit.",
+    "explanation": "La ligne mixte règle les deux sens avec un seul marquage : chacun lit celle qui est de son côté. La discontinue étant la vôtre, vous pouvez dépasser ; le conducteur d'en face longe la continue et ne peut pas.",
     "id": "37fe1af42b8d81b3a4b7d484aef5aef8",
+    "illustration": {
+      "alt": "Chaussée à double sens ; au centre, une ligne continue doublée d'une ligne discontinue, cette dernière se trouvant du côté de votre voie.",
+      "asset": "marquage-ligne-mixte"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Suivez la ligne située de votre côté"
+        "text": "permis, la discontinue étant de votre côté"
       },
       {
         "id": "B",
-        "text": "Pouvez ignorer le marquage"
+        "text": "interdit, la continue valant pour les deux sens"
       },
       {
         "id": "C",
-        "text": "Suivez toujours la discontinue"
+        "text": "permis seulement si aucun véhicule n'arrive"
       },
       {
         "id": "D",
-        "text": "Suivez toujours la ligne continue"
+        "text": "interdit, sauf pour doubler un cycle au pas"
       }
     ],
-    "prompt": "Lorsqu'une ligne mixte (continue + discontinue) est tracée, vous :",
+    "prompt": "Sur ce marquage, le dépassement vous est :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1815,27 +1831,31 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "La forme porte le sens : le triangle prévient d'un risque situé plus loin, le rond prescrit ici et maintenant. C'est ce qui distingue un panneau de danger d'une interdiction ou d'une obligation.",
+    "explanation": "La forme porte le sens : le triangle prévient d'un risque situé plus loin, le disque prescrit ici et maintenant. Hors agglomération, un panneau de danger est planté 100 à 200 m avant le point signalé.",
     "id": "37fe1af42b8d81b5aa9fc685af3ba92f",
+    "illustration": {
+      "alt": "Triangle à fond blanc bordé de rouge, portant une chaussée qui s'infléchit vers la droite.",
+      "asset": "panneau-a1a-virage"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Un ordre à exécuter dès le panneau franchi"
+        "text": "une interdiction, applicable dès sa hauteur"
       },
       {
         "id": "B",
-        "text": "Une indication de service ou d'équipement"
+        "text": "un ordre à exécuter dès le panneau franchi"
       },
       {
         "id": "C",
-        "text": "Une interdiction, applicable dès le panneau"
+        "text": "une indication de service, sans aucune contrainte"
       },
       {
         "id": "D",
-        "text": "Un danger à venir, quelques dizaines de mètres après"
+        "text": "un danger, quelques dizaines de mètres après"
       }
     ],
-    "prompt": "Un panneau de forme triangulaire à bord rouge annonce :",
+    "prompt": "Ce panneau annonce :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -2139,27 +2159,31 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "On ne roule ni ne stationne sur les zébras ; ils séparent ou protègent des flux.",
+    "explanation": "Les hachures couvrent les surfaces normalement inutilisées : on n'y roule pas et on n'y stationne pas. Leur inclinaison, deux pour un, tend à ramener le conducteur vers l'axe de sa propre voie.",
     "id": "37fe1af42b8d81d68a70da4a7305f6c1",
+    "illustration": {
+      "alt": "Chaussée à double sens ; au milieu, une bande couverte de traits blancs obliques, encadrée de deux lignes continues.",
+      "asset": "marquage-zebra"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Autorisent le stationnement de courte durée"
+        "text": "réserve une voie aux transports en commun"
       },
       {
         "id": "B",
-        "text": "Indiquent un passage piéton hors agglomération"
+        "text": "autorise un stationnement de courte durée"
       },
       {
         "id": "C",
-        "text": "Marquent une voie réservée aux bus"
+        "text": "annonce un passage piéton hors agglomération"
       },
       {
         "id": "D",
-        "text": "Délimitent une zone interdite à la circulation"
+        "text": "délimite une zone interdite à la circulation"
       }
     ],
-    "prompt": "Les zébras (hachures) peints au sol :",
+    "prompt": "Ce marquage au sol :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7230,7 +7254,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème distingue les deux gestes : chevaucher la ligne coûte 1 point, la franchir en coûte 3. La différence tient au risque réel — rester à cheval réduit la marge sans placer le véhicule sur la voie opposée.",
+    "explanation": "L'article R412-19 distingue les deux gestes : chevaucher la ligne coûte 1 point, la franchir en coûte 3. Il autorise même le chevauchement pour dépasser un cycle ou une trottinette motorisée.",
     "id": "3cb86b6e4c489d919a495408021f062a",
     "options": [
       {
@@ -7257,27 +7281,31 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "L'octogone est réservé au STOP, précisément pour qu'il reste identifiable quand la neige, la boue ou le contre-jour effacent son inscription — et même vu de l'arrière. Aucun autre panneau n'a cette forme.",
+    "explanation": "L'octogone est réservé à ce seul panneau dans toute la signalisation française, pour qu'il reste identifiable de dos, sous la neige ou en contre-jour. L'arrêt y est inconditionnel : il ne dépend d'aucun véhicule.",
     "id": "443e4299ccb3ff71669f8df6669b8bf4",
+    "illustration": {
+      "alt": "Panneau octogonal à fond rouge portant l'inscription STOP en lettres blanches, cerné d'un mince listel blanc.",
+      "asset": "panneau-ab4-stop"
+    },
     "options": [
       {
         "id": "A",
-        "text": "Le cédez-le-passage, en amont du carrefour"
+        "text": "un ralentissement, sans arrêt obligé"
       },
       {
         "id": "B",
-        "text": "Le panneau de fin d'interdiction"
+        "text": "un arrêt seulement si un véhicule approche"
       },
       {
         "id": "C",
-        "text": "Le panneau d'entrée d'agglomération"
+        "text": "un droit de passage sur la route abordée"
       },
       {
         "id": "D",
-        "text": "Le STOP, reconnaissable même de dos"
+        "text": "un arrêt, même si la route est vide"
       }
     ],
-    "prompt": "Le panneau de forme octogonale, unique dans la signalisation française, est :",
+    "prompt": "Ce panneau impose :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7311,27 +7339,31 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le fond blanc barré annule : ce panneau lève d'un coup les interdictions et prescriptions de vitesse annoncées avant lui, sans qu'il faille un panneau de fin pour chacune. Ne pas le confondre avec le losange jaune barré, qui ne touche qu'à la priorité.",
+    "explanation": "Le disque blanc barré annule d'un coup les interdictions et les prescriptions de vitesse annoncées avant lui. Il ne touche pas à ce qui découle d'un texte général, comme la limitation propre à l'agglomération.",
     "id": "11d37be22fd315668cb2930373e95c80",
+    "illustration": {
+      "alt": "Disque à fond blanc cerné d'un filet noir et barré d'une oblique noire montant vers la droite, sans aucun chiffre.",
+      "asset": "panneau-b31-fin-interdictions"
+    },
     "options": [
       {
         "id": "A",
-        "text": "L'interdiction de dépasser à partir d'ici"
+        "text": "l'interdiction de dépasser, elle seule"
       },
       {
         "id": "B",
-        "text": "La fin de toutes les interdictions précédentes"
+        "text": "toutes les interdictions signalées avant lui"
       },
       {
         "id": "C",
-        "text": "L'entrée dans une zone à circulation restreinte"
+        "text": "la limitation de vitesse propre aux agglomérations"
       },
       {
         "id": "D",
-        "text": "La fin d'une route à caractère prioritaire"
+        "text": "le caractère prioritaire de cette route"
       }
     ],
-    "prompt": "Un panneau rond à fond blanc, barré d'une oblique noire, signifie :",
+    "prompt": "Ce panneau lève :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8875,5 +8907,311 @@
     "prompt": "À un rond-point qu'aucun panneau n'annonce, la priorité est :",
     "subject": "code",
     "topic": "Priorités & intersections"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Un panonceau ne prescrit rien : il précise. Le point d'exclamation ne sert qu'aux dangers sans symbole propre, et l'instruction demande de le compléter par un panonceau qui nomme le danger.",
+    "id": "ee11b58d97d21d637c3ec38c7181fa87",
+    "illustration": {
+      "alt": "Triangle à fond blanc bordé de rouge portant un point d'exclamation, complété par une plaque rectangulaire blanche où se lit CARRIÈRE.",
+      "asset": "panneau-a14-panonceau"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "nomme le danger que le triangle laisse ouvert"
+      },
+      {
+        "id": "B",
+        "text": "reprend la prescription du panneau qui la surmonte"
+      },
+      {
+        "id": "C",
+        "text": "donne la distance qui reste à parcourir"
+      },
+      {
+        "id": "D",
+        "text": "impose une vitesse le temps du danger"
+      }
+    ],
+    "prompt": "La plaque sous ce panneau :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Le passage lui-même est tenu par le marquage au sol, pas par ce panneau : l'instruction ne l'implante qu'en signalisation avancée, jamais en position. Le triangle prévient, le disque prescrit.",
+    "id": "89bea09b482974f37e7dd7d35aba23f5",
+    "illustration": {
+      "alt": "Triangle à fond blanc bordé de rouge portant la silhouette d'un piéton qui marche sur des bandes de passage.",
+      "asset": "panneau-a13b-passage-pietons"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "la priorité aux piétons dès ce point"
+      },
+      {
+        "id": "B",
+        "text": "rien, il annonce un danger plus loin"
+      },
+      {
+        "id": "C",
+        "text": "l'arrêt à sa hauteur, comme un STOP"
+      },
+      {
+        "id": "D",
+        "text": "une limitation de vitesse à 30 km/h"
+      }
+    ],
+    "prompt": "Ce panneau prescrit :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le principe de cohérence de la signalisation temporaire interdit de laisser coexister deux prescriptions contraires : les panneaux permanents concernés sont masqués provisoirement, et le marquage permanent effacé ou masqué.",
+    "id": "f12ee5bea85947a13d387f574e817337",
+    "options": [
+      {
+        "id": "A",
+        "text": "le panneau permanent continue seul à s'appliquer"
+      },
+      {
+        "id": "B",
+        "text": "le conducteur retient la prescription la plus prudente"
+      },
+      {
+        "id": "C",
+        "text": "le panneau permanent doit être masqué le temps du chantier"
+      },
+      {
+        "id": "D",
+        "text": "les deux prescriptions s'additionnent pendant tout le chantier"
+      }
+    ],
+    "prompt": "Quand un panneau de chantier contredit un panneau permanent :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le damier rouge et blanc est réservé au marquage des voies de détresse, destinées à arrêter un véhicule qui a perdu ses freins. C'est le seul marquage routier où le rouge soit employé.",
+    "id": "570e5e1ef861e032773f43b44bc817a9",
+    "illustration": {
+      "alt": "Chaussée à deux voies ; à droite, une aire pavée d'un damier de carreaux rouges et blancs deux fois plus longs que larges.",
+      "asset": "marquage-damier-detresse"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "une aire de repos, accessible sur la droite"
+      },
+      {
+        "id": "B",
+        "text": "une plateforme réservée aux véhicules lents"
+      },
+      {
+        "id": "C",
+        "text": "une zone de péage à l'entrée de l'autoroute"
+      },
+      {
+        "id": "D",
+        "text": "une voie de détresse, si vos freins lâchent"
+      }
+    ],
+    "prompt": "Ce damier annonce :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Les interdictions de stationnement ne valent que du côté de la route où le panneau est posé, et jusqu'à la prochaine intersection. Une oblique interdit le stationnement ; deux interdiraient aussi l'arrêt.",
+    "id": "1658abbc16db4667fec7211f8c9b0f93",
+    "illustration": {
+      "alt": "Disque à fond bleu à couronne rouge, barré d'une seule oblique rouge qui descend vers la droite.",
+      "asset": "panneau-b6a1-stationnement-interdit"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "le stationnement, du côté où il est planté"
+      },
+      {
+        "id": "B",
+        "text": "l'arrêt autant que le stationnement"
+      },
+      {
+        "id": "C",
+        "text": "le stationnement des deux côtés de la route"
+      },
+      {
+        "id": "D",
+        "text": "l'arrêt seul, le stationnement restant permis"
+      }
+    ],
+    "prompt": "Ce panneau interdit :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Interdire l'arrêt inclut le stationnement : la prescription la plus large emporte l'autre. Deux obliques croisées au lieu d'une, et le panneau passe du seul stationnement à l'arrêt.",
+    "id": "1509ad94aea7c6f82355f3362b10a8e1",
+    "illustration": {
+      "alt": "Disque à fond bleu à couronne rouge, barré de deux obliques rouges qui se croisent en son centre.",
+      "asset": "panneau-b6d-arret-interdit"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "vous arrêter du côté opposé de la route"
+      },
+      {
+        "id": "B",
+        "text": "vous arrêter, donc encore moins stationner"
+      },
+      {
+        "id": "C",
+        "text": "stationner, alors que vous pouvez vous arrêter"
+      },
+      {
+        "id": "D",
+        "text": "stationner plus de sept jours d'affilée"
+      }
+    ],
+    "prompt": "Sous ce panneau, vous ne pouvez pas :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Ce panneau n'interdit pas la chaussée, il en interdit ce sens : elle est à sens unique et s'emprunte par l'autre extrémité. C'est le seul panneau d'interdiction dont la couronne ne porte aucun symbole.",
+    "id": "8a1026edb35c31c37ab6df7b29851ef2",
+    "illustration": {
+      "alt": "Disque à fond rouge bordé d'un listel blanc, portant une large barre blanche horizontale et rien d'autre.",
+      "asset": "panneau-b1-sens-interdit"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "chaussée réservée aux seuls véhicules de service"
+      },
+      {
+        "id": "B",
+        "text": "chaussée en travaux, accès aux riverains"
+      },
+      {
+        "id": "C",
+        "text": "chaussée à sens unique, prise par l'autre bout"
+      },
+      {
+        "id": "D",
+        "text": "chaussée fermée à toute circulation"
+      }
+    ],
+    "prompt": "Ce panneau signifie :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "L'interdiction porte sur tous les véhicules à moteur autres que ceux à deux roues sans side-car : une moto, un scooter ou un cyclomoteur restent doublables, un tracteur ou un camion non.",
+    "id": "9e65525bbce6a6491d37bbf6f180c04c",
+    "illustration": {
+      "alt": "Disque à fond blanc à couronne rouge, portant deux voitures vues de dos côte à côte, celle de gauche en avant.",
+      "asset": "panneau-b3-interdiction-depasser"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "un engin de chantier, à faible allure"
+      },
+      {
+        "id": "B",
+        "text": "un véhicule agricole, quelle que soit sa vitesse"
+      },
+      {
+        "id": "C",
+        "text": "un autocar, sur une voie de dépassement"
+      },
+      {
+        "id": "D",
+        "text": "un deux-roues sans side-car, moto comprise"
+      }
+    ],
+    "prompt": "Malgré ce panneau, vous pouvez encore doubler :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Le losange jaune barré ne touche qu'à la priorité : sans panonceau de distance, il annonce que la route perd son caractère prioritaire au prochain carrefour. Le disque blanc barré, lui, lève des interdictions.",
+    "id": "7d44f7dd303fce58716234cba54480b1",
+    "illustration": {
+      "alt": "Carré blanc posé sur la pointe, portant un losange jaune barré d'une large oblique noire.",
+      "asset": "panneau-ab7-fin-priorite"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "du caractère prioritaire de votre route"
+      },
+      {
+        "id": "B",
+        "text": "de toutes les interdictions signalées avant"
+      },
+      {
+        "id": "C",
+        "text": "d'une limitation de vitesse ponctuelle"
+      },
+      {
+        "id": "D",
+        "text": "d'une section à statut autoroutier"
+      }
+    ],
+    "prompt": "Ce panneau annonce la fin :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Le carré fait de ce panneau une indication : la voie est conseillée et réservée aux cyclistes. La piste ou bande rendue obligatoire relève de la prescription et se signale, elle, par un panneau rond.",
+    "id": "ede6968609d285b22494f57032c53e2f",
+    "illustration": {
+      "alt": "Panneau carré à fond bleu à listel blanc, portant la silhouette blanche d'une bicyclette vue de profil.",
+      "asset": "panneau-c113-voie-velo"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "annonce un croisement avec une piste cyclable"
+      },
+      {
+        "id": "B",
+        "text": "réserve la voie sans l'obliger à la prendre"
+      },
+      {
+        "id": "C",
+        "text": "impose de rouler sur cette voie, et sur elle seule"
+      },
+      {
+        "id": "D",
+        "text": "autorise le partage de la voie avec les piétons"
+      }
+    ],
+    "prompt": "Ce panneau, pour un cycliste :",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
   }
 ]
