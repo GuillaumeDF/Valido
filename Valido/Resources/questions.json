@@ -7397,7 +7397,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le refus est une infraction autonome, et le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler. La loi du 18 août 2026 a comblé le dernier écart, si bien que le refus et le délit qu'il masque encourent désormais la même peine et le même retrait de six points.",
+    "explanation": "Le refus est une infraction autonome, et le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler. Depuis la loi du 18 août 2026, refus et délit d'alcoolémie encourent la même peine principale — trois ans et 9 000 € — et le même retrait de six points ; seules les peines complémentaires restent différentes, la suspension du permis plafonnée à trois ans pour le refus contre cinq ans pour le délit.",
     "id": "749552ac121e0cd77beff969300b8ef9",
     "options": [
       {
@@ -7451,7 +7451,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le dispositif bloque le démarreur ; il n'arrête pas un moteur déjà lancé. La juridiction peut interdire de conduire un véhicule qui n'en est pas équipé — jusqu'à cinq ans pour le délit, trois ans pour la contravention — de sorte que le condamné garde le volant pour travailler ; passer outre est un délit distinct.",
+    "explanation": "Le dispositif bloque le démarreur ; il n'arrête pas un moteur déjà lancé. La juridiction peut l'imposer jusqu'à cinq ans pour le délit, trois ans pour la contravention ; prononcée en même temps qu'une suspension ou une annulation du permis, cette interdiction ne s'applique qu'à l'issue de cette peine — le condamné ne conduit donc pas pendant la suspension, il retrouve ensuite un permis limité à l'éthylotest antidémarrage. Passer outre est un délit distinct.",
     "id": "ef26cca38b9d1abc6fb0b13d76247f35",
     "options": [
       {
@@ -9242,29 +9242,29 @@
     "topic": "Alcool & stupéfiants"
   },
   {
-    "correctID": "A",
-    "difficulty": "facile",
-    "explanation": "Le code abaisse le seuil à 0,2 g/L — 0,10 mg/L d'air expiré — pour les conducteurs dont il attend une vigilance renforcée : transport en commun, permis encore sous délai probatoire ou apprentissage, conducteur astreint à un éthylotest antidémarrage. Sous 0,8 g/L cela reste une contravention, avec six points en moins.",
-    "id": "a2aef876d84d666217ef6d2db811ac63",
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; celui du cumul alcool et stupéfiants, à cinq ans et 15 000 €, sanctionne une infraction plus lourde.",
+    "id": "92f3fe40dd9c28ff0010261e74ae6ebe",
     "options": [
       {
         "id": "A",
-        "text": "il est en infraction, son seuil étant de 0,2 g/L"
+        "text": "Une amende de 4 500 €, avec deux ans de prison"
       },
       {
         "id": "B",
-        "text": "il est en règle, le seuil de 0,5 g/L s'appliquant"
+        "text": "Une amende de 9 000 €, avec trois ans de prison"
       },
       {
         "id": "C",
-        "text": "il est en règle, aucun seuil particulier ne le visant"
+        "text": "Une amende de 15 000 €, avec cinq ans de prison"
       },
       {
         "id": "D",
-        "text": "il commet un délit, jugé au tribunal correctionnel"
+        "text": "Une amende de 750 €, sans peine de prison"
       }
     ],
-    "prompt": "Un conducteur d'autocar est contrôlé à 0,3 g/L de sang :",
+    "prompt": "Refuser de se soumettre à un dépistage de stupéfiants expose à une peine pouvant aller jusqu'à :",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -9298,24 +9298,24 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "La responsabilité civile est obligatoire : elle joue pour les tiers quoi qu'ait fait l'assuré, et c'est ce qui rend l'idée d'une assurance « annulée » fausse. Ce que l'assureur écarte, ce sont les garanties qui protégeaient le conducteur lui-même ; il peut en outre majorer la prime de 150 % et résilier le contrat avec un mois de préavis.",
+    "explanation": "La responsabilité civile est obligatoire : elle joue pour les tiers quoi qu'ait fait l'assuré, et c'est ce qui rend l'idée d'une assurance « annulée » fausse. Ce que l'assureur écarte, ce sont les garanties qui protégeaient le conducteur lui-même. Il peut en outre majorer la prime de 150 % pour cette seule infraction — 400 % ne s'applique qu'en cas d'infractions multiples — et résilier le contrat, mais seulement avec un mois de préavis.",
     "id": "bda97dae02fa9e085f5f6ba0827a4f7b",
     "options": [
       {
         "id": "A",
-        "text": "couvre les victimes, jamais les dommages du conducteur"
+        "text": "couvre les victimes, exclut le conducteur, et majore sa prime de 150 %"
       },
       {
         "id": "B",
-        "text": "refuse toute indemnisation, y compris aux victimes"
+        "text": "couvre les victimes, exclut le conducteur, sans majoration de prime"
       },
       {
         "id": "C",
-        "text": "indemnise tout le monde, puis majore la prime de 5 %"
+        "text": "couvre les victimes, exclut le conducteur, avec une majoration de 400 %"
       },
       {
         "id": "D",
-        "text": "indemnise tout, la faute du conducteur étant sans effet"
+        "text": "couvre les victimes, exclut le conducteur, et résilie sans préavis"
       }
     ],
     "prompt": "Après un accident causé sous l'emprise de l'alcool, l'assureur :",
