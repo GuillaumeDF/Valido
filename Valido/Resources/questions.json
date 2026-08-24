@@ -7586,7 +7586,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Il n'y a pas de points à retirer sur un permis qui n'existe pas : le code passe donc directement au délit. En pratique la plupart des dossiers s'éteignent par une amende forfaitaire de 800 € que le même article prévoit ; la prison, l'interdiction de conduire jusqu'à cinq ans, le stage de sensibilisation et la confiscation du véhicule restent à la main du tribunal.",
+    "explanation": "Il n'y a pas de points à retirer sur un permis qui n'existe pas : le code passe donc directement au délit de l'article L221-2. En pratique la plupart des dossiers s'éteignent par une amende forfaitaire de 800 € que ce même article prévoit ; la prison, l'interdiction de conduire jusqu'à cinq ans, le stage de sensibilisation et la confiscation du véhicule restent à la main du tribunal.",
     "id": "2d45cedf9b3d349027d751f7aa672d6a",
     "options": [
       {
@@ -9325,7 +9325,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "La rétention est une mesure d'urgence, pas une sanction : elle ne vaut que le temps laissé au préfet pour se prononcer. Ce délai monte à cent vingt heures quand des vérifications d'alcoolémie ou de stupéfiants ont été faites, et faute de décision dans les temps le titre est rendu à son titulaire, sans que cela éteigne les poursuites.",
+    "explanation": "La rétention est une mesure d'urgence, pas une sanction : elle ne vaut que le temps laissé au préfet pour se prononcer. L'article L224-2 fixe ce délai à soixante-douze heures, porté à cent vingt heures quand des vérifications d'alcoolémie ou de stupéfiants ont été faites ; faute de décision dans les temps, le titre est rendu à son titulaire, sans que cela éteigne les poursuites.",
     "id": "aa44507977673661e72b2c2ba6a6d885",
     "options": [
       {
@@ -9342,7 +9342,7 @@
       },
       {
         "id": "D",
-        "text": "15 jours"
+        "text": "96 heures"
       }
     ],
     "prompt": "Le préfet dispose, pour transformer une rétention du permis en suspension, d'un délai de :",
@@ -9352,7 +9352,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le préfet agit vite et pour un temps borné : c'est le tribunal, saisi ensuite, qui peut aller jusqu'à cinq ans. L'allongement joue aussi pour l'alcool, les stupéfiants et le refus de dépistage, et toutes ces durées doublent quand le conducteur est un professionnel chargé du transport de personnes.",
+    "explanation": "Le préfet agit vite et pour un temps borné : l'article L224-2 lui laisse au plus six mois, et c'est le tribunal, saisi ensuite, qui peut aller jusqu'à cinq ans. L'allongement à un an joue aussi pour l'alcool, les stupéfiants et le refus de dépistage, et toutes ces durées doublent quand le conducteur est un professionnel chargé du transport de personnes.",
     "id": "f405372595dbaf85bf875adaf5ac20a4",
     "options": [
       {
@@ -9379,12 +9379,12 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. La moitié du capital part de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
+    "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. L'article L224-16 fait de cette reprise un délit distinct : la moitié du capital part de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
     "id": "0be9d147f1eba292ca2556f4dd19e51a",
     "options": [
       {
         "id": "A",
-        "text": "1 500 € d'amende et le retrait de 4 points"
+        "text": "1 an de prison et 15 000 € d'amende"
       },
       {
         "id": "B",
@@ -9406,7 +9406,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Ce qui est réprimé n'est pas une faute de conduite isolée mais un comportement : la répétition intentionnelle des manœuvres. La loi du 18 août 2026 a doublé la peine de base, qui était d'un an et 15 000 €, et ouvert l'extinction des poursuites par une amende forfaitaire de 800 €. Commis en réunion, les faits montent à trois ans et 45 000 €.",
+    "explanation": "Ce qui est réprimé n'est pas une faute de conduite isolée mais un comportement : l'article L236-1 vise la répétition intentionnelle de manœuvres dangereuses. La loi du 18 août 2026 a doublé la peine de base, qui était d'un an et 15 000 €, et ouvert l'extinction des poursuites par une amende forfaitaire de 800 €. Commis en réunion, les faits montent à trois ans et 45 000 €.",
     "id": "302262003495b5750d28f00caeae3b6b",
     "options": [
       {
@@ -9433,7 +9433,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le permis à points suit le conducteur, pas le document : un capital est affecté à tout titulaire d'un titre étranger qui roule ici, et il se vide comme un autre. La France ne peut pas annuler un document qu'elle n'a pas délivré, alors elle ferme son territoire ; au terme de l'année, un nouveau capital est affecté.",
+    "explanation": "Le permis à points suit le conducteur, pas le document : l'article L223-10 affecte un capital à tout titulaire d'un titre étranger qui roule ici, et il se vide comme un autre. La France ne peut pas annuler un document qu'elle n'a pas délivré, alors elle ferme son territoire ; au terme de l'année, un nouveau capital est affecté.",
     "id": "bc949f3e3918b2e407b638892b47b540",
     "options": [
       {
