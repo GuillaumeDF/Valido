@@ -233,17 +233,27 @@ let scenesPanneaux: [(String, Scene)] = [
         ligneT3(ctx, x: cx, de: 100, a: H, largeur: 5, p)
         ligneContinue(ctx, x: cx, de: 0, a: 96, largeur: 5, p)
         for y in [202.0, 155.0, 108.0] { flecheDeRabattement(ctx, x: cx, y: y, p) }
-        // Vous, en bas de la scène : votre position ne décide de rien, seules les flèches
-        // le font. C'est pourquoi elle peut sortir de la bande centrale.
-        voiture(ctx, x: voieVousMarquage, y: 262, cap: .nord, couleur: p.vous,
+        // Vous, dans la voie qui se termine — à gauche, puisque les flèches s'infléchissent
+        // vers la droite — et non déjà dans celle qu'elles désignent : sinon « rejoindre la
+        // voie qu'il désigne » ne vous imposerait rien, la manœuvre serait déjà faite. La
+        // position sort de la bande centrale ; ce sont les flèches qui portent la réponse,
+        // la voiture ne fait que rendre la manœuvre nécessaire plutôt qu'accomplie.
+        let voieQuiSeTermine = cx - 63.0
+        voiture(ctx, x: voieQuiSeTermine, y: 262, cap: .nord, couleur: p.vous,
                 liseree: true, p)
     }),
 
     // 16. Zébras : une zone non circulable au milieu de la chaussée, délimitée par deux
     //     continues de 3u et couverte de hachures blanches « inclinées à 2 parallèlement
-    //     à la rive pour 1 perpendiculairement » (7e partie, art. 117, A). L'inclinaison
-    //     n'est pas décorative : elle « tend à ramener l'usager vers l'axe de la voie
-    //     qu'il emprunte », donc elle penche vers la droite pour qui monte.
+    //     à la rive pour 1 perpendiculairement » (7e partie, art. 117-2 A — numérotée
+    //     « 117 A » dans une édition antérieure de l'IISR, même texte). Cette zone sépare
+    //     deux sens opposés : la voiture d'en face descend, la vôtre monte. L'article est
+    //     explicite sur ce cas précis — « Aux points de convergence ou de divergence, les
+    //     hachures se présentent donc sous forme de chevrons convenablement orientés
+    //     (pointe toujours dirigée vers le conducteur) » — donc **pas** une pente unique :
+    //     une pente unique ramènerait un des deux sens vers l'axe de l'AUTRE voie. Chaque
+    //     chevron est symétrique par rapport à l'axe de la zone (la bissectrice de
+    //     l'article), une moitié par sens, chacune à la pente 2 pour 1 de la norme.
     ("marquage-zebra", { ctx, p in
         chausseeDeMarquage(ctx, p)
         let gauche = cx - 26.0, droite = cx + 26.0
@@ -258,8 +268,12 @@ let scenesPanneaux: [(String, Scene)] = [
         while y < H + 120 {
             ctx.beginPath()
             ctx.move(to: CGPoint(x: gauche, y: y))
-            // 52 unités en travers pour 104 dans l'axe : la pente 2 pour 1 de la norme.
-            ctx.addLine(to: CGPoint(x: droite, y: y - 104))
+            // Chaque bras : 26 unités en travers pour 52 dans l'axe — la même pente
+            // 2 pour 1 que l'ancienne ligne unique, appliquée séparément à chaque moitié
+            // pour que les deux sens reçoivent chacun l'inclinaison qui les ramène vers
+            // leur propre axe, au lieu d'une seule pente valable pour un seul des deux.
+            ctx.addLine(to: CGPoint(x: cx, y: y - 52))
+            ctx.addLine(to: CGPoint(x: droite, y: y))
             ctx.strokePath()
             y += 26
         }

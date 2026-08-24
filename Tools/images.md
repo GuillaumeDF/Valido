@@ -49,8 +49,8 @@ dessine une fois, pas une fois par scène.
 | `panneau-c1a-parking` | C1a seul, carré bleu à listel blanc portant un P | maison, aucune source tierce |
 | `panneau-c113-voie-velo` | C113 seul, carré bleu portant une bicyclette de profil | maison, aucune source tierce |
 | `marquage-ligne-mixte` | ligne continue doublée d'une discontinue, la discontinue du côté du candidat | maison, aucune source tierce |
-| `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà | maison, aucune source tierce |
-| `marquage-zebra` | zone non circulable hachurée au milieu de la chaussée, encadrée de deux continues | maison, aucune source tierce |
+| `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà ; le candidat démarre dans la voie qui se termine, pas déjà dans celle désignée | maison, aucune source tierce |
+| `marquage-zebra` | zone non circulable en chevrons au milieu de la chaussée, encadrée de deux continues | maison, aucune source tierce |
 | `marquage-damier-detresse` | damier rouge et blanc d'une voie de détresse, à droite de la chaussée | maison, aucune source tierce |
 
 ### D'où vient la géométrie des panneaux
@@ -69,7 +69,7 @@ donc dans aucune colonne `source` de [`sources.md`](sources.md).
 | 3e | art. 42-2 AB3a, AB4, AB25 ; art. 42-3 AB6 et AB7. **Cette partie ne comporte aucun article de couleurs** : le listel blanc des panneaux AB à bande rouge suit celui des triangles de danger, par analogie | [iisr_3epartie_vc_201901](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_3epartie_vc_201901_cle09e7a7.pdf) |
 | 4e | art. 45 forme circulaire ; art. 47 couleurs, au mot : interdiction « fond blanc, couronne et barre d'interdiction rouges » **sans listel**, B1 « fond rouge […] barre horizontale blanche », B6a et B6d « à fond bleu », obligation « fond bleu, listel et symbole blancs », fin d'interdiction « fond blanc, symbole, inscription, listel et barre noirs » ; art. 50-1, 52, 55, 55-3, 65 et 68-1 pour la portée de chaque panneau | [iisr_4epartie_vc_20220613](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_4epartie_vc_20220613_cle22c5b5.pdf) |
 | 5e | art. 69-1 « les panneaux de type C sont généralement de forme carrée » ; art. 70 C1a, art. 71-1 C13a, art. 75-3 C113, art. 75-4 C207 | [IISR_5ePARTIE_vc20121231](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_5ePARTIE_vc20121231_cle5ce2b1.pdf) |
-| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117 A hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
+| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
 | 8e | art. 120 B principe de cohérence — le panneau permanent contredit « doit être masqué provisoirement » ; art. 122 A fond jaune des types AK, KC, KD et KM, et B marquage temporaire jaune | [IISR_8ePARTIE_VC20130621](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_8ePARTIE_VC20130621_cle5d9b18.pdf) |
 
 Ces PDF ne se lisent pas avec l'outil `Read` : `WebFetch` les enregistre sur disque et
@@ -98,6 +98,25 @@ Trois licences prises sur la géométrie, toutes pour la lisibilité :
 - dans `marquage-ligne-mixte`, l'écart entre la continue et la discontinue va bien au-delà
   des 2u de la norme — à cette échelle, 2u fusionnent en un seul trait et la question
   devient injouable.
+
+**Corrigé en ronde 1 de revue : `marquage-zebra` dessinait une seule pente uniforme sur
+une zone qui sépare deux sens opposés.** L'art. 117-2 A de la 7e partie (relevé mot pour
+mot, voir tableau ci-dessus) dit que l'inclinaison des hachures « tend à ramener l'usager
+vers l'axe de la voie de circulation qu'il emprunte » et qu'« aux points de convergence
+ou de divergence, les hachures se présentent donc sous forme de chevrons ». Une zone qui
+sépare deux sens opposés — les deux voitures de la scène vont en sens contraire — relève
+du même article, et une pente unique donnait forcément à l'un des deux sens l'inclinaison
+inverse de celle prescrite ; l'explication de la question, qui invoque justement ce
+principe, contredisait donc l'image qu'elle est censée expliquer. La scène dessine
+maintenant des chevrons symétriques par rapport à l'axe de la zone, une pente 2 pour 1
+par moitié comme le veut l'article. La planche officielle (« C.3 — Schémas de marquage
+par hachures », art. 117-2 et 114-2, page 63 du PDF de la 7e partie) confirme le motif :
+elle montre des chevrons en pointe, jamais une pente unique, dans les zones qui séparent
+deux directions.
+
+`giratoire-sortie-clignotant` reste **orphelin** : dessiné et correct, il n'est référencé
+par aucune question depuis qu'une revue antérieure a retiré son illustration décorative.
+Conservé tel quel pour qu'une tâche future le retrouve et lui trouve une question.
 
 Un défaut connu, hors périmètre de la passe sur les panneaux : le **B30** de
 `panneau-b30-zone-30` est dessiné carré, alors que l'art. 45 de la 4e partie place le B14

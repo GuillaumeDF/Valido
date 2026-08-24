@@ -8973,27 +8973,27 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le principe de cohérence de la signalisation temporaire interdit de laisser coexister deux prescriptions contraires : les panneaux permanents concernés sont masqués provisoirement, et le marquage permanent effacé ou masqué.",
+    "explanation": "Le principe de cohérence impose de masquer provisoirement le panneau permanent en cause : seule reste en vigueur la signalisation temporaire du chantier, et c'est elle que le conducteur suit.",
     "id": "f12ee5bea85947a13d387f574e817337",
     "options": [
       {
         "id": "A",
-        "text": "le panneau permanent continue seul à s'appliquer"
+        "text": "applique la prescription du panneau permanent"
       },
       {
         "id": "B",
-        "text": "le conducteur retient la prescription la plus prudente"
+        "text": "retient la prescription la plus prudente des deux"
       },
       {
         "id": "C",
-        "text": "le panneau permanent doit être masqué le temps du chantier"
+        "text": "applique la signalisation temporaire"
       },
       {
         "id": "D",
-        "text": "les deux prescriptions s'additionnent pendant tout le chantier"
+        "text": "respecte les deux prescriptions cumulées"
       }
     ],
-    "prompt": "Quand un panneau de chantier contredit un panneau permanent :",
+    "prompt": "Quand un panneau de chantier contredit un panneau permanent, le conducteur :",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
