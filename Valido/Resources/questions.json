@@ -1970,7 +1970,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "L'apprentissage anticipé ayant déjà exposé le candidat à des milliers de kilomètres encadrés, le législateur raccourcit d'un an la surveillance : deux ans au lieu de trois.",
+    "explanation": "L'apprentissage anticipé ayant déjà exposé le candidat à des milliers de kilomètres encadrés, le législateur raccourcit d'un an la surveillance : deux ans au lieu de trois. Une formation complémentaire suivie après l'examen retire encore une année — six mois seulement quand la conduite accompagnée a déjà joué.",
     "id": "37fe1af42b8d81c593b3e0a4cb5bb76d",
     "options": [
       {
@@ -2078,7 +2078,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses abaissées, et cela pendant toute la période probatoire.",
+    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses abaissées, 110 km/h au lieu de 130 sur autoroute. L'élève conducteur y est soumis comme le titulaire probatoire, et l'oublier est une contravention de deuxième classe.",
     "id": "37fe1af42b8d81d09328df58d56a4dc6",
     "options": [
       {
@@ -2433,7 +2433,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Permis invalidé (lettre 48SI) ; interdiction de le repasser pendant 6 mois.",
+    "explanation": "Le permis perd sa validité de plein droit et son titulaire reçoit l'injonction de le remettre au préfet : le délai de six mois avant d'en obtenir un nouveau court de cette remise, pas de la notification. Il passe à un an si le capital retombe à zéro dans les cinq ans, et un examen médical et psychotechnique, aux frais de l'intéressé, s'ajoute dans tous les cas.",
     "id": "37fe1af42b8d81ecb163c6b59334b160",
     "options": [
       {
@@ -7505,7 +7505,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "La loi du 9 juillet 2025 a détaché ces faits de l'homicide involontaire pour nommer ce qu'ils sont. La peine de base est de 7 ans et 100 000 €, portée à 10 ans et 150 000 € dès que deux circonstances aggravantes sont réunies — alcool, stupéfiants, excès de 30 km/h ou plus, téléphone, délit de fuite.",
+    "explanation": "La loi du 9 juillet 2025 n'a pas créé une peine, elle a créé une qualification : le conducteur qui tue sans que l'une des dix circonstances de l'article 221-18 soit réunie reste jugé pour homicide involontaire, cinq ans et 75 000 €. La première circonstance — alcool, stupéfiants, excès de 30 km/h ou plus, téléphone tenu en main, délit de fuite, défaut de permis — fait basculer les faits dans l'homicide routier ; à partir de deux, la peine double presque, dix ans et 150 000 €.",
     "id": "3e99bcc374a5538e9af609b3038f08ad",
     "options": [
       {
@@ -7525,7 +7525,7 @@
         "text": "7 ans de prison et 100 000 € d'amende"
       }
     ],
-    "prompt": "L'homicide routier, créé en 2025, est puni hors circonstance aggravante de :",
+    "prompt": "L'homicide routier, retenu dès une seule circonstance comme l'alcool, est puni de :",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -7586,7 +7586,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Il n'y a pas de points à retirer sur un permis qui n'existe pas : le code passe donc directement au délit, avec interdiction de conduire jusqu'à cinq ans, stage obligatoire et confiscation possible du véhicule.",
+    "explanation": "Il n'y a pas de points à retirer sur un permis qui n'existe pas : le code passe donc directement au délit. En pratique la plupart des dossiers s'éteignent par une amende forfaitaire de 800 € que le même article prévoit ; la prison, l'interdiction de conduire jusqu'à cinq ans, le stage de sensibilisation et la confiscation du véhicule restent à la main du tribunal.",
     "id": "2d45cedf9b3d349027d751f7aa672d6a",
     "options": [
       {
@@ -9321,5 +9321,140 @@
     "prompt": "Après un accident causé sous l'emprise de l'alcool, l'assureur :",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "La rétention est une mesure d'urgence, pas une sanction : elle ne vaut que le temps laissé au préfet pour se prononcer. Ce délai monte à cent vingt heures quand des vérifications d'alcoolémie ou de stupéfiants ont été faites, et faute de décision dans les temps le titre est rendu à son titulaire, sans que cela éteigne les poursuites.",
+    "id": "aa44507977673661e72b2c2ba6a6d885",
+    "options": [
+      {
+        "id": "A",
+        "text": "24 heures"
+      },
+      {
+        "id": "B",
+        "text": "48 heures"
+      },
+      {
+        "id": "C",
+        "text": "72 heures"
+      },
+      {
+        "id": "D",
+        "text": "15 jours"
+      }
+    ],
+    "prompt": "Le préfet dispose, pour transformer une rétention du permis en suspension, d'un délai de :",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Le préfet agit vite et pour un temps borné : c'est le tribunal, saisi ensuite, qui peut aller jusqu'à cinq ans. L'allongement joue aussi pour l'alcool, les stupéfiants et le refus de dépistage, et toutes ces durées doublent quand le conducteur est un professionnel chargé du transport de personnes.",
+    "id": "f405372595dbaf85bf875adaf5ac20a4",
+    "options": [
+      {
+        "id": "A",
+        "text": "3 mois, ou 6 mois en cas d'accident corporel"
+      },
+      {
+        "id": "B",
+        "text": "6 mois, ou 1 an en cas d'accident corporel"
+      },
+      {
+        "id": "C",
+        "text": "1 an, ou 3 ans en cas d'accident corporel"
+      },
+      {
+        "id": "D",
+        "text": "2 ans, ou 5 ans en cas d'accident corporel"
+      }
+    ],
+    "prompt": "La suspension du permis prononcée par le préfet ne peut en principe excéder :",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. La moitié du capital part de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
+    "id": "0be9d147f1eba292ca2556f4dd19e51a",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 500 € d'amende et le retrait de 4 points"
+      },
+      {
+        "id": "B",
+        "text": "135 € d'amende et le retrait de 3 points"
+      },
+      {
+        "id": "C",
+        "text": "6 mois de prison et 3 750 € d'amende"
+      },
+      {
+        "id": "D",
+        "text": "2 ans de prison et 4 500 € d'amende"
+      }
+    ],
+    "prompt": "Conduire après la notification d'une suspension du permis est puni de :",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Ce qui est réprimé n'est pas une faute de conduite isolée mais un comportement : la répétition intentionnelle des manœuvres. La loi du 18 août 2026 a doublé la peine de base, qui était d'un an et 15 000 €, et ouvert l'extinction des poursuites par une amende forfaitaire de 800 €. Commis en réunion, les faits montent à trois ans et 45 000 €.",
+    "id": "302262003495b5750d28f00caeae3b6b",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 ans de prison et 30 000 € d'amende"
+      },
+      {
+        "id": "B",
+        "text": "1 an de prison et 15 000 € d'amende"
+      },
+      {
+        "id": "C",
+        "text": "3 ans de prison et 45 000 € d'amende"
+      },
+      {
+        "id": "D",
+        "text": "5 ans de prison et 75 000 € d'amende"
+      }
+    ],
+    "prompt": "Un rodéo motorisé commis seul, sans autre infraction, est puni de :",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le permis à points suit le conducteur, pas le document : un capital est affecté à tout titulaire d'un titre étranger qui roule ici, et il se vide comme un autre. La France ne peut pas annuler un document qu'elle n'a pas délivré, alors elle ferme son territoire ; au terme de l'année, un nouveau capital est affecté.",
+    "id": "bc949f3e3918b2e407b638892b47b540",
+    "options": [
+      {
+        "id": "A",
+        "text": "Échappe au permis à points faute de titre français"
+      },
+      {
+        "id": "B",
+        "text": "Voit son permis annulé par le préfet du lieu de contrôle"
+      },
+      {
+        "id": "C",
+        "text": "Doit repasser un permis français après six mois"
+      },
+      {
+        "id": "D",
+        "text": "Se voit interdire de circuler en France pendant un an"
+      }
+    ],
+    "prompt": "Un conducteur titulaire d'un permis délivré à l'étranger qui perd tous ses points :",
+    "subject": "code",
+    "topic": "Permis & sanctions"
   }
 ]
