@@ -265,7 +265,7 @@ let scenesCirculation: [(String, Scene)] = [
 
     // 8 et 9. La paire de lignes jaunes. Continue, elle interdit l'arrêt — donc aussi le
     //    stationnement ; discontinue, elle n'interdit que le stationnement (7e partie,
-    //    art. 118-2, B, et tableau de l'art. 113-1, E). Les deux scènes sont **identiques
+    //    art. 118-2, B, et tableau de l'art. 113-2 E). Les deux scènes sont **identiques
     //    au trait près** : la banque ne portait que la continue, et sous forme de
     //    photographie, ce qui laissait le candidat trancher sur « photo contre schéma »
     //    plutôt que sur le marquage. Les deux sont donc dessinées, du même point de vue et

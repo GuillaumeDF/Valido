@@ -9746,7 +9746,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le nom vient de l'inclinaison des places : obliques en épi, perpendiculaires en bataille, alignées le long de la chaussée en créneau. Sortir d'un épi impose une marche arrière en biais, visibilité réduite.",
+    "explanation": "L'art. 118-2.A.a) de la 7e partie de l'IISR nomme l'oblique « en épi » et fixe son marquage, continu ou T'2 de 2u. Une seule manœuvre à l'entrée, la sortie se fait en marche arrière, visibilité réduite.",
     "id": "639297cf3f0f433daf035978fa8ddfe5",
     "illustration": {
       "alt": "Vue de dessus d'une rue : des places bordées de traits blancs obliques longent le trottoir, et trois voitures y sont rangées en biais.",
@@ -9777,7 +9777,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Le code impose la périodicité : du 1er au 15 côté des numéros impairs, du 16 au dernier jour côté pair, le changement s'opérant le soir du dernier jour entre 20 h 30 et 21 heures.",
+    "explanation": "Le code impose la périodicité : du 1er au 15 côté impair, du 16 au dernier jour du mois côté pair. Le changement de côté s'opère le dernier jour de chacune de ces deux périodes, entre 20 h 30 et 21 heures.",
     "id": "5139c357024d2a17c499b104d7a01d81",
     "options": [
       {
@@ -9786,15 +9786,15 @@
       },
       {
         "id": "B",
-        "text": "hebdomadaire, avec un changement le lundi matin"
+        "text": "hebdomadaire, avec un changement de côté le lundi matin"
       },
       {
         "id": "C",
-        "text": "quotidien, avec un changement à minuit"
+        "text": "quotidien, avec un changement de côté à minuit"
       },
       {
         "id": "D",
-        "text": "mensuel, avec un changement le 1er du mois"
+        "text": "mensuel, avec un changement de côté le 1er du mois"
       }
     ],
     "prompt": "Le stationnement unilatéral alterné institué par un maire est :",
@@ -9848,7 +9848,7 @@
       },
       {
         "id": "D",
-        "text": "le conducteur, sauf si le véhicule est à l'arrêt"
+        "text": "toute personne présente, y compris un simple passant"
       }
     ],
     "prompt": "L'interdiction d'ouvrir une portière dangereusement vise :",
@@ -9878,7 +9878,7 @@
         "text": "cinq mètres, sauf emplacement matérialisé"
       }
     ],
-    "prompt": "En amont d'un passage piéton, l'arrêt et le stationnement sont interdits sur :",
+    "prompt": "Aux abords d'un passage piéton, l'arrêt et le stationnement sont interdits sur :",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   }
