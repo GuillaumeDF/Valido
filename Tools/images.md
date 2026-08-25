@@ -55,6 +55,9 @@ dessine une fois, pas une fois par scène.
 | `feu-jaune-clignotant` | signal tricolore seul, la lampe du **milieu** allumée et cerclée de traits de clignotement | maison, aucune source tierce |
 | `feu-fleche-clignotante` | tricolore à lampe du **haut** allumée, et un signal d'anticipation à flèche droite clignotante sur le même support | maison, aucune source tierce |
 | `passage-niveau-feu-rouge-clignotant` | voie ferrée en travers de la chaussée, signal d'arrêt R24 à lentille **unique** allumée et clignotante | maison, aucune source tierce |
+| `stationnement-ligne-jaune-continue` | rue vue de dessus, trait jaune **continu** posé sur la face supérieure de la bordure du trottoir | maison, aucune source tierce |
+| `stationnement-ligne-jaune-discontinue` | la **même** rue, le même trait en tirets T'2 (0,5 m de plein pour 0,5 m de vide) | maison, aucune source tierce |
+| `stationnement-en-epi` | places obliques à 60° de la bordure, séparateurs continus et front en T'2, trois voitures rangées | maison, aucune source tierce |
 
 ### D'où vient la géométrie des panneaux
 
@@ -73,7 +76,7 @@ donc dans aucune colonne `source` de [`sources.md`](sources.md).
 | 4e | art. 45 forme circulaire ; art. 47 couleurs, au mot : interdiction « fond blanc, couronne et barre d'interdiction rouges » **sans listel**, B1 « fond rouge […] barre horizontale blanche », B6a et B6d « à fond bleu », obligation « fond bleu, listel et symbole blancs », fin d'interdiction « fond blanc, symbole, inscription, listel et barre noirs » ; art. 50-1, 52, 55, 55-3, 65 et 68-1 pour la portée de chaque panneau | [iisr_4epartie_vc_20220613](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_4epartie_vc_20220613_cle22c5b5.pdf) |
 | 5e | art. 69-1 « les panneaux de type C sont généralement de forme carrée » ; art. 70 C1a, art. 71-1 C13a, art. 75-3 C113, art. 75-4 C207 | [IISR_5ePARTIE_vc20121231](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_5ePARTIE_vc20121231_cle5ce2b1.pdf) |
 | 6e | art. 109-3 A signal tricolore R11 « composé de trois feux circulaires vert, jaune, rouge », les R13 les donnant « dans cet ordre de bas en haut », et R11j « le vert peut être remplacé par du jaune clignotant » ; art. 109-3 B signal d'arrêt R24 « composé d'un feu circulaire rouge clignotant », employé « devant un obstacle ou un danger particulier (passage à niveau […] pont mobile, avalanche…) » ; art. 109-4 « les feux circulaires principaux pour véhicules ont un diamètre soit de 200 mm, soit de 300 mm », R24 « diamètre minimum de 160 mm » ; art. 110, C en jaune clignotant général « tous les signaux tricolores sont au jaune clignotant sur le feu du milieu » ; art. 110-5 le signal d'anticipation est « soit accolé à la même hauteur que le feu vert du signal R11v associé, soit situé juste en dessous » ; fig. 6 « Ce symbole signifie qu'il s'agit d'un feu clignotant » | [IISR_6ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_6ePARTIE_VC_20160215_cle217f7b.pdf) |
-| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
+| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m ; **art. 113-1 A** « Le blanc est la couleur utilisée pour les marquages sur chaussées […] 1. - Le jaune pour − les marques interdisant l'arrêt ou le stationnement » ; **art. 113-1 B** « Pour les lignes transversales, la modulation (T'2) comporte alternativement 0,5 m de trait et 0,5 m de vide » ; **art. 113-1 C** u = 5 cm sur les routes ordinaires ; **tableau de l'art. 113-1 E** interdiction de stationner = T'2 de 2u, interdiction de s'arrêter = continue de 2u, arrêt d'autobus = continue en zigzag de 2u ; **art. 118-2 A a)** stationnement « en épi ou perpendiculaire », limites en lignes blanches continues de 2u ou T'2 de 2u ; **art. 118-2 B** le marquage jaune « est réalisé sur la face supérieure de la bordure du trottoir ou en rive de chaussée […] discontinue de type T'2 pour le stationnement gênant ou très gênant ; continue pour l'arrêt gênant ou très gênant » | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
 | 8e | art. 120 B principe de cohérence — le panneau permanent contredit « doit être masqué provisoirement » ; art. 122 A fond jaune des types AK, KC, KD et KM, et B marquage temporaire jaune | [IISR_8ePARTIE_VC20130621](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_8ePARTIE_VC20130621_cle5d9b18.pdf) |
 
 Ces PDF ne se lisent pas avec l'outil `Read` : `WebFetch` les enregistre sur disque et
@@ -120,6 +123,73 @@ extractible du texte ; et la flèche du signal d'anticipation. La croix de Saint
 les barrières d'un passage à niveau n'ont **pas** été dessinées : leur planche n'a pas été
 relevée, et la voie ferrée suffit à dire le passage à niveau.
 
+### La paire de lignes jaunes : pourquoi la photo a cédé la place à un dessin
+
+La banque ne portait que la **continue**, et sous forme de photographie Wikimedia
+(`ligne-jaune-continue`, toujours recensée plus bas). Lui ajouter sa **discontinue** posait
+un choix que rien dans le dossier ne tranchait, et il a été tranché ici : **les deux sont
+dessinées**, et la photo passe orpheline.
+
+Le motif n'est pas esthétique. Les deux questions forment une paire dont la réponse est
+opposée — continue interdit l'arrêt, discontinue seulement le stationnement — et la teinte
+comme la bordure sont identiques des deux côtés. Si l'une était une photo et l'autre un
+schéma, le **registre visuel** serait corrélé à la réponse : un candidat qui rencontre les
+deux cartes dans un même flux apprendrait « photo, donc arrêt interdit », sans jamais
+regarder le trait. Le raccourci serait plus rapide que la règle, donc c'est lui qu'on
+apprendrait. Les deux scènes sont désormais **identiques au trait près** : même cadrage,
+même bordure, même voiture à la même place. Vérifié par différence pixel à pixel des deux
+PNG @3x : 9 504 pixels diffèrent, tous dans la bande x ∈ [251,3 ; 258,3] du trait, aucun
+ailleurs.
+
+L'autre voie possible — trouver sur Commons une photo de ligne jaune **discontinue** le long
+d'une bordure, et garder les deux en photo — n'a pas été prise : ces images sont rares, leur
+conformité au marquage français ne se vérifie pas sur une vignette, et une paire de photos
+prises à deux endroits différents introduirait justement les écarts (cadrage, revêtement,
+éclairage) qu'on cherche à éliminer.
+
+**Le trait est posé sur la face supérieure de la bordure**, et c'est le point le plus
+important de ces deux scènes. L'art. 118-2, B autorise deux emplacements — sur la bordure ou
+en rive de chaussée. Le second aurait, pour qui ne distingue pas les couleurs, exactement
+l'allure d'une bande de rive blanche. Le premier est reconnaissable **sans aucune teinte** :
+aucun marquage blanc n'est jamais peint sur une bordure de trottoir, donc un trait posé là ne
+peut être qu'un jaune d'interdiction. C'est pour ça que le `Palette` a gagné une couleur
+`bordure` : sans surface de bordure, pas de trait « sur la bordure ».
+
+Relevé de luminance (Rec. 709 sur les valeurs sRGB du PNG @3x livré, `Y = 0,2126 R +
+0,7152 G + 0,0722 B`) :
+
+| zone | clair | sombre |
+|---|---|---|
+| trait jaune, au niveau d'un plein | 198,1 | 209,5 |
+| bordure nue, au niveau d'un vide | 139,1 | 115,3 |
+| axe médian blanc | 255,0 | 234,3 |
+| chaussée | 93,1 | 75,1 |
+| trottoir | 235,1 | 37,2 |
+
+La polarité va dans le bon sens : ce qui porte l'interdiction — le plein du trait — est
+**plus clair** que son absence, de 59 points en clair et de 94 en sombre. Une réserve
+mesurée et assumée : en mode **sombre**, le trait jaune (209,5) et le marquage blanc (234,3)
+ne sont qu'à 25 points l'un de l'autre, alors qu'ils sont à 57 en clair. En sombre, la
+luminance seule ne permet donc pas de conclure « ce trait n'est pas blanc » — c'est la
+position sur la bordure qui le dit, et elle est de forme.
+
+### Le stationnement en épi
+
+L'angle des places n'est écrit dans aucun article : l'art. 118-2, A, a) ne donne que le type
+et la largeur des lignes. Il se **relève sur la planche** jointe à l'article (page 44 du PDF
+de la 7e partie, image extraite avec `pypdf[image]`), qui montre deux figures côte à côte —
+perpendiculaire à gauche, en épi à droite. En suivant un même séparateur de la figure de
+droite, il passe de x = 806 px à y = 100 à x = 724 px à y = 240, soit `atan(140/82)` =
+**59,6°** avec la bordure. La scène dessine 60°. La planche donne aussi le partage des deux
+marquages, que l'article laisse ouvert : séparateurs **continus**, front des places en **T'2
+discontinue**.
+
+Trois voitures occupent des places contiguës et la moitié droite reste vide. Ce partage
+n'est pas décoratif : des obliques nues partant d'une bordure se prendraient pour les
+hachures d'une zone non circulable (comparer avec `marquage-zebra`), et des places toutes
+occupées cacheraient l'inclinaison qui porte la réponse. Aucune teinte n'intervient — le
+séparateur mesure 255,0 en clair contre 93,1 pour la chaussée (234,3 contre 75,1 en sombre).
+
 Trois licences prises sur la géométrie, toutes pour la lisibilité :
 
 - les chiffres des B14 et B33 tiennent 1,0 rayon au lieu de 0,84, Helvetica-Bold étant
@@ -129,6 +199,15 @@ Trois licences prises sur la géométrie, toutes pour la lisibilité :
 - dans `marquage-ligne-mixte`, l'écart entre la continue et la discontinue va bien au-delà
   des 2u de la norme — à cette échelle, 2u fusionnent en un seul trait et la question
   devient injouable.
+- dans les scènes de stationnement, la **face supérieure de la bordure** est dessinée à 22
+  unités là où une vraie bordure en ferait 5 à l'échelle de la scène (32 unités par mètre,
+  une voie de 96 valant 3 m) : à 5, un trait de 2u ne laisserait rien voir de la bordure sous
+  lui, et c'est ce « sous lui » qui porte tout le sens. Le trait lui-même passe de 3,2 à 7
+  unités pour la même raison. En revanche la **modulation T'2 n'est pas retouchée** : 0,5 m
+  de plein pour 0,5 m de vide font 16 unités chacun à cette échelle, ce qui se lit très
+  bien, et c'est ce rapport de 1 pour 1 qui distingue une T'2 d'une T1 ou d'une T3 ;
+- les séparateurs de `stationnement-en-epi` font 4 unités contre 2u (2,4 unités à l'échelle
+  de cette scène, qui est celle des véhicules : 12 unités par mètre).
 
 **Corrigé en ronde 1 de revue : `marquage-zebra` dessinait une seule pente uniforme sur
 une zone qui sépare deux sens opposés.** L'art. 117-2 A de la 7e partie (relevé mot pour
@@ -144,6 +223,12 @@ par moitié comme le veut l'article. La planche officielle (« C.3 — Schémas 
 par hachures », art. 117-2 et 114-2, page 63 du PDF de la 7e partie) confirme le motif :
 elle montre des chevrons en pointe, jamais une pente unique, dans les zones qui séparent
 deux directions.
+
+`ligne-jaune-continue` (la photo, plus bas) est **orpheline** depuis le 2026-08-25 : la
+question qu'elle illustrait pointe maintenant `stationnement-ligne-jaune-continue`, pour la
+raison de symétrie exposée plus haut. Elle est conservée, ligne de provenance comprise —
+c'est une image correcte, correctement sourcée, et le jour où le dossier voudra une paire de
+photographies plutôt qu'une paire de schémas, c'est la moitié du travail déjà faite.
 
 `giratoire-sortie-clignotant` reste **orphelin** : dessiné et correct, il n'est référencé
 par aucune question depuis qu'une revue antérieure a retiré son illustration décorative.

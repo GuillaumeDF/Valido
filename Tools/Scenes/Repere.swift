@@ -22,7 +22,7 @@ let cx = W / 2, cy = H / 2
 
 struct Palette {
     let sol, chaussee, marquage, vous, autre, tiers, ilot, panneauRouge, panneauJaune,
-        panneauFond, feuVert: CGColor
+        panneauFond, feuVert, bordure: CGColor
 }
 
 // `feuVert` est arrivé avec les scènes de feux (2026-08-24) : `boitierDeFeu` réclamait un
@@ -36,6 +36,16 @@ struct Palette {
 // d'une lentille éteinte — un vert allumé aurait été indiscernable en niveaux de gris.
 // `rgb(52, 199, 89)` est le systemGreen clair d'Apple ; la valeur sombre, déjà
 // rgb(48, 209, 88) — son systemGreen sombre —, n'avait pas ce défaut et n'a pas bougé.
+//
+// `bordure` est arrivée avec les scènes de stationnement (2026-08-25) : la 7e partie de
+// l'IISR (art. 118-2, B) place le marquage jaune d'interdiction « sur la face supérieure de
+// la bordure du trottoir ou en rive de chaussée ». Dessiner ce trait **sur la bordure** est
+// ce qui le rend reconnaissable sans distinguer une seule couleur — aucun marquage blanc
+// n'est jamais peint sur une bordure —, mais il fallait pour cela que la bordure existe
+// comme surface. `ilot` ne pouvait pas servir : en mode sombre elle mesure 54 en niveaux de
+// gris contre 58 pour la chaussée, donc un ressaut invisible. Les deux valeurs retenues
+// sont mesurées à 120 (clair) et 96 (sombre), à plus de 40 points de la chaussée comme du
+// sol, et à plus de 70 points du jaune du marquage.
 
 func rgb(_ r: Double, _ g: Double, _ b: Double, _ a: Double = 1) -> CGColor {
     CGColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
@@ -45,10 +55,10 @@ let clair = Palette(
     sol: rgb(232, 230, 225), chaussee: rgb(74, 74, 79), marquage: rgb(255, 255, 255),
     vous: rgb(10, 132, 255), autre: rgb(240, 160, 32), tiers: rgb(224, 65, 62),
     ilot: rgb(201, 216, 192), panneauRouge: rgb(200, 30, 40), panneauJaune: rgb(250, 190, 20),
-    panneauFond: rgb(255, 255, 255), feuVert: rgb(52, 199, 89))
+    panneauFond: rgb(255, 255, 255), feuVert: rgb(52, 199, 89), bordure: rgb(122, 120, 116))
 
 let sombre = Palette(
     sol: rgb(28, 28, 30), chaussee: rgb(58, 58, 60), marquage: rgb(229, 229, 234),
     vous: rgb(10, 132, 255), autre: rgb(255, 179, 64), tiers: rgb(255, 105, 97),
     ilot: rgb(44, 58, 44), panneauRouge: rgb(220, 60, 70), panneauJaune: rgb(255, 204, 40),
-    panneauFond: rgb(242, 242, 247), feuVert: rgb(48, 209, 88))
+    panneauFond: rgb(242, 242, 247), feuVert: rgb(48, 209, 88), bordure: rgb(96, 96, 100))

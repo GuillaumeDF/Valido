@@ -982,7 +982,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le disque indique l'heure d'arrivée ; la durée gratuite est limitée (souvent 1 h 30).",
+    "explanation": "Le disque porte l'heure d'arrivée et son modèle est fixé au niveau national ; la durée gratuite, elle, dépend de l'arrêté municipal qui institue la zone — une heure et demie n'est qu'un usage répandu.",
     "id": "37fe1af42b8d8166847cf95009550b0a",
     "options": [
       {
@@ -2221,7 +2221,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. C'est pour cela que le code classe l'infraction parmi les stationnements très gênants, à 135 €, sans dérogation horaire.",
+    "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. Le code range donc l'infraction parmi les stationnements très gênants, à 135 € ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
     "id": "37fe1af42b8d81d793bcc927205f9d79",
     "options": [
       {
@@ -2414,7 +2414,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit : il peut être enlevé et mis en fourrière.",
+    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai, et la fourrière devient possible.",
     "id": "37fe1af42b8d81e9b314fcb5ac447202",
     "options": [
       {
@@ -8567,11 +8567,11 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Jaune et continue, elle supprime l'arrêt lui-même, donc même le temps de laisser descendre un passager. Sa version discontinue ne vise que le stationnement, et le zigzag réserve l'emplacement à un arrêt de bus.",
+    "explanation": "Continue, elle supprime l'arrêt lui-même : même le temps de laisser descendre un passager. Interrompue en tirets, elle ne viserait plus que le stationnement ; le zigzag, lui, réserve l'emplacement à un arrêt de bus.",
     "id": "0a4e98c4605ec20320f13dec75f7bb9c",
     "illustration": {
-      "alt": "Vue rapprochée d'une chaussée urbaine : une ligne jaune continue est peinte au sol le long de la bordure du trottoir, sans interruption.",
-      "asset": "ligne-jaune-continue"
+      "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir court un trait jaune, continu et sans la moindre interruption.",
+      "asset": "stationnement-ligne-jaune-continue"
     },
     "options": [
       {
@@ -9711,5 +9711,175 @@
     "prompt": "De nuit, hors agglomération, vos deux feux de croisement s'éteignent :",
     "subject": "code",
     "topic": "Feux"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Interrompue, elle ne touche pas à l'arrêt : on peut s'immobiliser le temps de faire monter ou descendre quelqu'un, sans quitter les commandes. Continue, le même trait supprimerait aussi cet arrêt.",
+    "id": "a2673bae092f3eaf438b40910de6fbd4",
+    "illustration": {
+      "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir, un trait jaune tracé en tirets réguliers, coupé d'intervalles nets.",
+      "asset": "stationnement-ligne-jaune-discontinue"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "le stationnement, l'arrêt restant permis"
+      },
+      {
+        "id": "B",
+        "text": "l'arrêt, et donc aussi le stationnement"
+      },
+      {
+        "id": "C",
+        "text": "le stationnement, aux seules heures de livraison"
+      },
+      {
+        "id": "D",
+        "text": "l'arrêt des véhicules encombrants, eux seuls"
+      }
+    ],
+    "prompt": "Le long de ce trottoir, le marquage interdit :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Le nom vient de l'inclinaison des places : obliques en épi, perpendiculaires en bataille, alignées le long de la chaussée en créneau. Sortir d'un épi impose une marche arrière en biais, visibilité réduite.",
+    "id": "639297cf3f0f433daf035978fa8ddfe5",
+    "illustration": {
+      "alt": "Vue de dessus d'une rue : des places bordées de traits blancs obliques longent le trottoir, et trois voitures y sont rangées en biais.",
+      "asset": "stationnement-en-epi"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "en bataille, perpendiculairement au trottoir"
+      },
+      {
+        "id": "B",
+        "text": "en épi, obliquement par rapport au trottoir"
+      },
+      {
+        "id": "C",
+        "text": "en créneau, parallèlement au trottoir"
+      },
+      {
+        "id": "D",
+        "text": "en double file, le long des voitures rangées"
+      }
+    ],
+    "prompt": "Ces emplacements imposent un stationnement :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "Le code impose la périodicité : du 1er au 15 côté des numéros impairs, du 16 au dernier jour côté pair, le changement s'opérant le soir du dernier jour entre 20 h 30 et 21 heures.",
+    "id": "5139c357024d2a17c499b104d7a01d81",
+    "options": [
+      {
+        "id": "A",
+        "text": "semi-mensuel, avec un changement de côté le 15"
+      },
+      {
+        "id": "B",
+        "text": "hebdomadaire, avec un changement le lundi matin"
+      },
+      {
+        "id": "C",
+        "text": "quotidien, avec un changement à minuit"
+      },
+      {
+        "id": "D",
+        "text": "mensuel, avec un changement le 1er du mois"
+      }
+    ],
+    "prompt": "Le stationnement unilatéral alterné institué par un maire est :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Une lance branchée sur une bouche masquée par un pare-chocs coûte des minutes aux pompiers : quatrième classe. La borne de recharge, elle, n'est que gênante, deuxième classe — rapprocher les deux emplacements est le piège.",
+    "id": "c5d4d52f1aaa89b811c8b17847338968",
+    "options": [
+      {
+        "id": "A",
+        "text": "de 35 €, comme devant une borne de recharge"
+      },
+      {
+        "id": "B",
+        "text": "de 135 €, comme sur un passage piéton"
+      },
+      {
+        "id": "C",
+        "text": "de 135 €, plus trois points comme un stationnement dangereux"
+      },
+      {
+        "id": "D",
+        "text": "de 68 €, la classe intermédiaire du barème"
+      }
+    ],
+    "prompt": "Devant une bouche d'incendie, l'amende de stationnement est :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le texte vise « tout occupant » : le passager arrière qui ouvre sans regarder commet lui-même la contravention, de première classe, 11 €. Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes.",
+    "id": "ab50f861852232a60c2b4f29fed21b97",
+    "options": [
+      {
+        "id": "A",
+        "text": "le seul conducteur, responsable de son véhicule"
+      },
+      {
+        "id": "B",
+        "text": "les seuls passagers, le conducteur restant aux commandes"
+      },
+      {
+        "id": "C",
+        "text": "tout occupant du véhicule, conducteur compris"
+      },
+      {
+        "id": "D",
+        "text": "le conducteur, sauf si le véhicule est à l'arrêt"
+      }
+    ],
+    "prompt": "L'interdiction d'ouvrir une portière dangereusement vise :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Cinq mètres de vide, c'est ce qu'il faut pour qu'un enfant engagé sur le passage soit vu à temps. La règle ne joue qu'en amont, dans le sens de la circulation, et cède devant un emplacement tracé à cet effet.",
+    "id": "e6d0b1101f0ac46d63199b5485d17c61",
+    "options": [
+      {
+        "id": "A",
+        "text": "dix mètres, sauf emplacement matérialisé"
+      },
+      {
+        "id": "B",
+        "text": "deux mètres, sauf emplacement matérialisé"
+      },
+      {
+        "id": "C",
+        "text": "le passage lui-même, et rien en amont"
+      },
+      {
+        "id": "D",
+        "text": "cinq mètres, sauf emplacement matérialisé"
+      }
+    ],
+    "prompt": "En amont d'un passage piéton, l'arrêt et le stationnement sont interdits sur :",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
   }
 ]

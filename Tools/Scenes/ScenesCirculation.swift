@@ -54,6 +54,118 @@ private func chausseeAutoroute(_ ctx: CGContext, _ p: Palette) {
     }
 }
 
+// MARK: - La rue bordée d'un trottoir (tâche 11)
+//
+// Trois scènes de stationnement partagent cette géométrie. Elle diffère de la chaussée des
+// scènes de marquage sur un point qui décide de tout : **la bordure du trottoir y est une
+// surface**, et non le simple bord de la chaussée.
+//
+// C'est l'art. 118-2, B de la 7e partie de l'IISR qui l'impose. Le marquage jaune
+// d'interdiction « est réalisé sur la face supérieure de la bordure du trottoir ou en rive
+// de chaussée ». Des deux emplacements permis, on prend le premier, et pas par goût : c'est
+// le seul qui rende le trait reconnaissable **sans distinguer une couleur**. Aucun marquage
+// blanc n'est jamais peint sur une bordure — un trait posé là ne peut être qu'un jaune
+// d'interdiction d'arrêt ou de stationnement. Un trait posé en rive de chaussée, lui, aurait
+// exactement l'allure d'une bande de rive blanche pour qui ne voit pas la teinte.
+
+/// Bord droit de la chaussée et axe médian de la rue vue en long (paire de lignes jaunes).
+/// La chaussée court jusqu'au bord **gauche** du cadre : la voie d'en face sort de l'image,
+/// et la seule surface claire est alors le trottoir. Un premier jet laissait du sol des deux
+/// côtés, et le trottoir ne se distinguait plus de la marge.
+private let rueDroite = 244.0, rueAxe = 148.0
+/// Largeur de la face supérieure de la bordure. Une vraie bordure en fait 15 à 20 cm ; à
+/// l'échelle de la scène (une voie de 96 unités vaut 3 m, donc 32 unités par mètre) cela
+/// ferait 5 unités, sur lesquelles un trait de 2u ne laisserait rien voir de la bordure
+/// elle-même. Elle est donc élargie à 22 — c'est la licence qui rend lisible le fait que le
+/// trait est **posé sur la bordure**, et ce fait est tout ce qui le désigne comme jaune à
+/// qui ne voit pas les couleurs.
+private let bordureLargeur = 22.0
+/// Largeur du trait jaune : 2u de la norme valent 10 cm, soit 3,2 unités. Porté à 7, de sorte
+/// qu'il reste 7,5 unités de bordure nue de chaque côté.
+private let traitJauneLargeur = 7.0
+private let traitJauneX = rueDroite + bordureLargeur / 2 - traitJauneLargeur / 2
+/// Modulation T'2 : « alternativement 0,5 m de trait et 0,5 m de vide » (art. 113-1, B).
+/// Celle-ci n'est **pas** exagérée — à 32 unités par mètre, 0,5 m fait 16 unités, ce qui se
+/// lit très bien. C'est ce rapport 1 pour 1 qui distingue une T'2 d'une T1 ou d'une T3, donc
+/// c'est lui qu'il faut respecter au trait près.
+private let t2Trait = 16.0
+
+/// La rue : chaussée à double sens, bordure de trottoir à droite, trottoir au-delà (c'est le
+/// sol, comme dans toutes les scènes). Le trait jaune est posé ensuite par la scène.
+private func rueLeLongDUnTrottoir(_ ctx: CGContext, _ p: Palette) {
+    fond(ctx, p)
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: 0, y: 0, width: rueDroite, height: H))
+    ctx.setFillColor(p.bordure)
+    ctx.fill(CGRect(x: rueDroite, y: 0, width: bordureLargeur, height: H))
+    // L'axe médian, en blanc : il fait lire l'image comme une rue, et il donne au trait de
+    // la bordure un point de comparaison — le blanc du marquage mesure 255 en niveaux de
+    // gris, le jaune 190. Le trait de la bordure n'est donc pas blanc, et ça se mesure.
+    ctx.setFillColor(p.marquage)
+    var y = 6.0
+    while y < H {
+        ctx.fill(CGRect(x: rueAxe - 1.5, y: y, width: 3, height: 16))
+        y += 30
+    }
+}
+
+/// Le trait jaune sur la face supérieure de la bordure. `interrompu` est **toute** la
+/// différence entre les deux scènes de la paire : même rue, même bordure, même voiture, même
+/// teinte. Le discriminant est l'interruption, jamais la couleur.
+private func traitJauneSurLaBordure(_ ctx: CGContext, interrompu: Bool, _ p: Palette) {
+    ctx.setFillColor(p.panneauJaune)
+    if !interrompu {
+        ctx.fill(CGRect(x: traitJauneX, y: 0, width: traitJauneLargeur, height: H))
+        return
+    }
+    var y = 0.0
+    while y < H {
+        ctx.fill(CGRect(x: traitJauneX, y: y, width: traitJauneLargeur,
+                        height: min(t2Trait, H - y)))
+        y += t2Trait * 2
+    }
+}
+
+// MARK: - Le stationnement en épi (tâche 11)
+//
+// Géométrie relevée sur la planche jointe à l'art. 118-2, A, a) de la 7e partie (page 44 du
+// PDF, image extraite avec `pypdf[image]`) : deux figures côte à côte, perpendiculaire à
+// gauche, **en épi** à droite. En suivant un même séparateur de la figure de droite, il
+// passe de x = 806 px à y = 100 à x = 724 px à y = 240 : dx = 82 pour dy = 140, soit un
+// angle de 59,6° avec la bordure. D'où les 60° ci-dessous — l'angle n'est écrit dans aucun
+// article, il se mesure sur la planche.
+//
+// La planche donne aussi la nature des deux marquages, et ils ne sont pas du même type :
+// les **séparateurs** entre places sont continus, le **front** des places est une T'2
+// discontinue. L'article autorise l'un ou l'autre pour les limites (« continues de largeur
+// 2u ou discontinue de type T'2 de largeur 2u ou simplement amorcées ») ; la planche tranche
+// pour ce partage-là, et c'est elle qu'on suit.
+
+private let epiTrottoirBas = 96.0, epiBordureBas = 106.0
+private let epiFrontDesPlaces = 158.0, epiAxe = 200.0
+private let epiChausseeBas = 242.0, epiBordureOpposeeBas = 252.0
+/// Décalage d'un séparateur entre son pied (au front des places) et sa tête (à la bordure) :
+/// une profondeur de place divisée par la tangente de 60°.
+private let epiDecalage = (epiFrontDesPlaces - epiBordureBas) / tan(60.0 * .pi / 180)
+/// Entraxe des séparateurs le long de la bordure. Une place de 2,30 m prise à 60° occupe
+/// 2,30 / sin(60°) = 2,66 m de bordure ; à 12 unités par mètre — l'échelle des véhicules du
+/// dossier, dont la caisse de 40 unités vaut 3,3 m — cela fait 32 unités.
+private let epiEntraxe = 32.0
+
+/// Une voiture garée dans l'axe d'une place en épi : la primitive `voiture` ne connaît que
+/// les quatre points cardinaux, donc on incline le repère plutôt que d'ajouter une seconde
+/// géométrie de caisse. Le nez pointe vers la bordure, comme une place en épi se prend en
+/// marche avant.
+private func voitureEnEpi(_ ctx: CGContext, x: Double, y: Double, couleur: CGColor,
+                          _ p: Palette) {
+    ctx.saveGState()
+    ctx.translateBy(x: x, y: y)
+    // Repère en y vers le bas : un angle positif fait tourner le nez vers la droite.
+    ctx.rotate(by: (90.0 - 60.0) * .pi / 180)
+    voiture(ctx, x: 0, y: 0, cap: .nord, couleur: couleur, p)
+    ctx.restoreGState()
+}
+
 let scenesCirculation: [(String, Scene)] = [
 
     // 1. B14 : le disque à large liseré rouge. « Ce panneau impose : » n'a aucun sens sans
@@ -148,6 +260,88 @@ let scenesCirculation: [(String, Scene)] = [
         railsHorizontaux(ctx, p)
         signalDArret(ctx, at: CGPoint(x: cx + voie + 30, y: cy + 32), rayon: 15, p)
         voiture(ctx, x: voieVous, y: 248, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+    // MARK: - Arrêt et stationnement (tâche 11)
+
+    // 8 et 9. La paire de lignes jaunes. Continue, elle interdit l'arrêt — donc aussi le
+    //    stationnement ; discontinue, elle n'interdit que le stationnement (7e partie,
+    //    art. 118-2, B, et tableau de l'art. 113-1, E). Les deux scènes sont **identiques
+    //    au trait près** : la banque ne portait que la continue, et sous forme de
+    //    photographie, ce qui laissait le candidat trancher sur « photo contre schéma »
+    //    plutôt que sur le marquage. Les deux sont donc dessinées, du même point de vue et
+    //    avec la même voiture, et seule l'interruption les sépare.
+    ("stationnement-ligne-jaune-continue", { ctx, p in
+        rueLeLongDUnTrottoir(ctx, p)
+        traitJauneSurLaBordure(ctx, interrompu: false, p)
+        voiture(ctx, x: 196, y: 250, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    ("stationnement-ligne-jaune-discontinue", { ctx, p in
+        rueLeLongDUnTrottoir(ctx, p)
+        traitJauneSurLaBordure(ctx, interrompu: true, p)
+        voiture(ctx, x: 196, y: 250, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 10. Le stationnement en épi. Ici l'image ne dit pas une règle mais une **géométrie**,
+    //     et une géométrie ne se voit que de dessus : c'est l'inclinaison des séparateurs
+    //     qui distingue l'épi de la perpendiculaire (« en bataille ») et du longitudinal
+    //     (« en créneau »). Rien de la réponse ne repose sur une teinte — les séparateurs
+    //     sont blancs, la bordure grise, et les deux voitures garées ne servent qu'à faire
+    //     lire des places plutôt que des hachures.
+    ("stationnement-en-epi", { ctx, p in
+        fond(ctx, p)
+        ctx.setFillColor(p.chaussee)
+        ctx.fill(CGRect(x: 0, y: epiBordureBas, width: W, height: epiChausseeBas - epiBordureBas))
+        ctx.setFillColor(p.bordure)
+        ctx.fill(CGRect(x: 0, y: epiTrottoirBas, width: W, height: epiBordureBas - epiTrottoirBas))
+        ctx.fill(CGRect(x: 0, y: epiChausseeBas, width: W,
+                        height: epiBordureOpposeeBas - epiChausseeBas))
+        // Les séparateurs de places : continus, obliques à 60° de la bordure, du front des
+        // places jusqu'à la bordure.
+        ctx.setStrokeColor(p.marquage)
+        ctx.setLineWidth(4)
+        ctx.setLineCap(.butt)
+        var pied = -40.0
+        while pied < W + epiDecalage {
+            ctx.beginPath()
+            ctx.move(to: CGPoint(x: pied, y: epiFrontDesPlaces))
+            ctx.addLine(to: CGPoint(x: pied + epiDecalage, y: epiBordureBas))
+            ctx.strokePath()
+            pied += epiEntraxe
+        }
+        // Le front des places, en T'2 : 0,5 m de trait pour 0,5 m de vide, à 12 unités par
+        // mètre comme le reste de cette scène.
+        ctx.setFillColor(p.marquage)
+        var x = 0.0
+        while x < W {
+            ctx.fill(CGRect(x: x, y: epiFrontDesPlaces - 2, width: min(6, W - x), height: 4))
+            x += 12
+        }
+        // L'axe médian de la rue.
+        var xAxe = 4.0
+        while xAxe < W {
+            ctx.fill(CGRect(x: xAxe, y: epiAxe - 1.5, width: 16, height: 3))
+            xAxe += 30
+        }
+        // Deux places occupées, deux vides : sans voiture, des obliques partant d'une
+        // bordure se liraient comme des hachures.
+        // Milieu de l'axe d'une place : pied du séparateur + un demi-entraxe + un demi-
+        // décalage. Une caisse de 40 unités dans une place de 60 laisse 10 unités devant et
+        // derrière, donc aucun débord sur la bordure ni sur le front.
+        //
+        // Trois places contiguës occupées et la moitié droite vide : c'est ce partage qui
+        // fait la lecture. Des obliques nues partant d'une bordure se prendraient pour des
+        // hachures de zone non circulable ; des places toutes occupées cacheraient
+        // l'inclinaison qui porte la réponse. Les voitures disent « du stationnement », les
+        // places vides disent « en épi ».
+        for (i, pied) in [24.0, 56.0, 88.0].enumerated() {
+            voitureEnEpi(ctx, x: pied + epiEntraxe / 2 + epiDecalage / 2, y: 132,
+                         couleur: i == 1 ? p.tiers : p.autre, p)
+        }
+        // Vous circulez dans la voie qui longe les places : c'est ce qui donne le sens de la
+        // marche, et donc pourquoi le nez des voitures garées pointe de ce côté-là.
+        voiture(ctx, x: 320, y: epiFrontDesPlaces + 21, cap: .est, couleur: p.vous,
+                liseree: true, p)
     }),
 ]
 
