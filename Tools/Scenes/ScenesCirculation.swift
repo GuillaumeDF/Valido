@@ -22,7 +22,7 @@ import CoreGraphics
 private let rayonPanneau = 52.0
 
 /// Chaussée d'autoroute vue de dessus : trois voies dans un seul sens, terre-plein et
-/// glissière à gauche, bande de rive continue à droite. La position de la glissière est
+/// glissière à gauche, bande de rive discontinue à droite. La position de la glissière est
 /// la seule chose qui désigne « la voie la plus à gauche » — et c'est une position, pas
 /// une couleur : un daltonien la lit comme tout le monde.
 private let bordGauche = 96.0, largeurVoie = 78.0

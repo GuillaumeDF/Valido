@@ -2500,11 +2500,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Allongent la distance de freinage, pas la réaction"
+        "text": "Allongent le freinage, pas la réaction"
       },
       {
         "id": "B",
-        "text": "Agissent sur la vigilance, sans toucher aux distances"
+        "text": "Baissent la vigilance, distances inchangées"
       },
       {
         "id": "C",
@@ -9921,11 +9921,11 @@
       },
       {
         "id": "B",
-        "text": "les deux secondes de tout véhicule, sans plus"
+        "text": "les deux secondes, rien de plus"
       },
       {
         "id": "C",
-        "text": "une longueur de semi-remorque entre eux"
+        "text": "une longueur de semi-remorque"
       },
       {
         "id": "D",
@@ -9948,7 +9948,7 @@
       },
       {
         "id": "B",
-        "text": "pomper la pédale pour éviter que les roues bloquent"
+        "text": "pomper la pédale pour éviter le blocage des roues"
       },
       {
         "id": "C",
@@ -10010,7 +10010,7 @@
       },
       {
         "id": "D",
-        "text": "gardez la priorité jusqu'au bout de la voie d'accès"
+        "text": "cédez le passage, quitte à vous arrêter sur la bretelle"
       }
     ],
     "prompt": "En vous insérant sur l'autoroute depuis une bretelle, vous :",
@@ -10020,7 +10020,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "L'article R421-7 n'autorise l'arrêt « sauf en cas de nécessité absolue », et il le sanctionne d'une contravention de deuxième classe seulement — 35 € au tarif forfaitaire, sans point retiré. La légèreté du barème n'a rien d'une tolérance : le même article oblige à présignaler le véhicule et à faire dégager l'autoroute dès qu'il ne repart pas seul.",
+    "explanation": "L'article R421-7 n'autorise l'arrêt « sauf en cas de nécessité absolue », et il le sanctionne d'une contravention de deuxième classe seulement — 35 € au tarif forfaitaire, sans point retiré. La légèreté du barème n'a rien d'une tolérance : le même article oblige à présignaler le véhicule et à faire dégager l'autoroute dès qu'il ne repart pas seul. Les 135 € et les 3 points existent bel et bien, mais pour l'article R412-8, qui punit la circulation sur la bande d'arrêt d'urgence — pas l'arrêt.",
     "id": "aad60a7453493cc6716b731af7579ebc",
     "options": [
       {
@@ -10052,7 +10052,7 @@
     "options": [
       {
         "id": "A",
-        "text": "permis aux véhicules lents, feux de détresse allumés"
+        "text": "interdit, mais puni de 35 € sans point"
       },
       {
         "id": "B",
@@ -10074,7 +10074,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'article L412-2 fait du tunnel le seul endroit où l'intervalle trop court devient un délit — six mois d'emprisonnement, 3 750 € et la moitié du capital de points. Mais seulement à la récidive dans l'année : la première fois reste la contravention ordinaire. Sur un ouvrage à risques, l'autorité de police peut par ailleurs imposer un intervalle plus grand qu'ailleurs.",
+    "explanation": "L'article L412-2 fait du tunnel le seul endroit où l'intervalle trop court devient un délit — six mois d'emprisonnement, 3 750 € et la moitié du capital de points. Mais seulement si cette seconde infraction survient dans l'année suivant la date à laquelle la première condamnation est devenue définitive : la première fois reste la contravention ordinaire. Sur un ouvrage à risques, l'autorité de police peut par ailleurs imposer un intervalle plus grand qu'ailleurs.",
     "id": "0e85e6a79127a2bae73abcc119e278bd",
     "options": [
       {
@@ -10094,14 +10094,14 @@
         "text": "un délit, mais jugé sans aucun retrait de points"
       }
     ],
-    "prompt": "Dans un tunnel, l'intervalle non respecté deux fois en un an devient :",
+    "prompt": "En tunnel, une seconde infraction à l'intervalle de sécurité, commise dans l'année suivant une condamnation devenue définitive, constitue :",
     "subject": "code",
     "topic": "Distances & freinage"
   },
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Un tunnel, un viaduc, un talus : tant que l'abri dure, le vent ne se sent pas, et il arrive d'un coup à la sortie. C'est le seul endroit où la rafale surprend, donc le seul où elle déporte — d'où l'intérêt d'arriver déjà lent, les deux mains sur le volant. Les deux-roues et les véhicules à grande surface latérale y sont les plus exposés.",
+    "explanation": "Un tunnel, un viaduc, un talus : tant que l'abri dure, le vent ne se sent pas, et il arrive d'un coup à la sortie. C'est là que la rafale surprend, et qu'elle déporte le plus — d'où l'intérêt d'arriver déjà lent, les deux mains sur le volant. Les deux-roues et les véhicules à grande surface latérale y sont les plus exposés.",
     "id": "22e6420e179103f65f7935f717521189",
     "options": [
       {
@@ -10137,7 +10137,7 @@
       },
       {
         "id": "B",
-        "text": "gardez le même intervalle, les pneus hiver suffisant"
+        "text": "gardez l'intervalle, pneus hiver suffisant"
       },
       {
         "id": "C",
@@ -10155,7 +10155,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Les traits qui bordent la bande d'arrêt d'urgence font 39 mètres, séparés par 13 mètres de vide : en garder deux devant soi laisse près de 90 mètres, plus que les deux secondes exigées à 130 km/h. « Un trait, danger ; deux traits, sécurité » est un repère d'enseignement de la Sécurité routière, pas une règle du code — la règle, elle, se compte en secondes.",
+    "explanation": "Les traits qui bordent la bande d'arrêt d'urgence font 39 mètres en section courante, séparés par 13 mètres de vide : en garder deux devant soi laisse près de 90 mètres, plus que les deux secondes exigées à 130 km/h. Sur une bretelle, la modulation change et les distances sont bien plus courtes. « Un trait, danger ; deux traits, sécurité » est un repère d'enseignement de la Sécurité routière, pas une règle du code — la règle, elle, se compte en secondes.",
     "id": "2362d0ebc53cb6de0732afe1747e9b58",
     "options": [
       {
