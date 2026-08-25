@@ -58,6 +58,8 @@ dessine une fois, pas une fois par scène.
 | `stationnement-ligne-jaune-continue` | rue vue de dessus, trait jaune **continu** posé sur la face supérieure de la bordure du trottoir | maison, aucune source tierce |
 | `stationnement-ligne-jaune-discontinue` | la **même** rue, le même trait en tirets T'2 (0,5 m de plein pour 0,5 m de vide) | maison, aucune source tierce |
 | `stationnement-en-epi` | places obliques à 60° de la bordure, séparateurs continus et front en T'2, trois voitures rangées | maison, aucune source tierce |
+| `chargement-depassement-arriere` | **vue de profil** : voiture roulant vers la droite, pièces de grande longueur sanglées sur le pavillon et débordant derrière elle | maison, aucune source tierce |
+| `siege-enfant-place-avant` | **vue d'intérieur, gros plan** : pare-brise et tableau de bord à droite, siège avant du véhicule, coque de bébé posée dessus dos à la route | maison, aucune source tierce |
 
 ### D'où vient la géométrie des panneaux
 
@@ -291,6 +293,88 @@ technique « la zone 30 »](https://www.securite-routiere.gouv.fr/sites/default/
 publié par la Sécurité routière (relevé le 2026-08-23), faute de mieux : Cloudflare rendait
 alors le téléchargement des parties de l'IISR inaccessible. L'IISR relevée depuis (voir
 plus haut) les confirme, et corrige la forme du B30.
+
+### Deux vues de profil, et pourquoi le siège enfant a changé de cadrage trois fois (2026-08-25)
+
+Ces deux scènes-là ne pouvaient pas être vues de dessus. Ce que leurs questions font
+travailler est un rapport **avant/arrière** — de quel bout un chargement déborde, à quelle
+place et dans quel sens une coque est installée — et une vue aérienne ne dit ni « sur le
+toit » ni « à la place avant ». Elles rejoignent donc `croisement-en-pente`, seule vue de
+profil du dossier jusqu'ici.
+
+**L'échelle est doublée** par rapport aux vues de dessus : une caisse de 96 unités pour 4 m,
+soit 24 unités par mètre là où les carrefours comptent 12. La raison est dans la réponse : les
+3 m que R312-21 accorde à l'arrière auraient fait 36 unités à l'échelle des carrefours, à
+peine plus qu'une roue, donc indiscernables d'un débord d'un mètre. Le débord dessiné vaut 60
+unités, soit **2,5 m** — dans la limite légale, et c'est ce qui compte : une scène qui
+montrerait un chargement hors la loi rendrait fausse la bonne réponse de sa propre question.
+Le chargement ne dépasse pas non plus l'aplomb avant, que R312-22 interdit absolument.
+
+`siege-enfant-place-avant` a été dessiné **trois fois**, et les deux premières versions sont
+la démonstration d'une contrainte qu'il vaut mieux mesurer que deviner. Une coupe de berline
+entière tient dans le cadre, mais pas dans la **bande d'environ 110 unités** que le
+rétrécissement du bandeau laisse autour du centre vertical : l'habitacle y descend à 62 puis
+68 unités de hauteur intérieure, pour deux dossiers et une coque. Le sens de la coque tenait
+alors dans un panneau de 18 unités de large, au milieu de trois silhouettes sombres empilées.
+La troisième version renonce à la voiture et cadre l'intérieur : la coque fait 32 unités de
+large et 70 de haut, et ce qui dit « place avant » est le **pare-brise incliné et le tableau
+de bord sous lui** — aucune banquette ne s'adosse à un pare-brise.
+
+**Il n'y a pas d'enfant dessiné dans la coque**, et c'est un retrait délibéré. L'énoncé dit
+déjà « Ce siège enfant » : l'image n'a pas à prouver de quoi il s'agit, elle doit dire la
+place et le sens. Un enfant a été dessiné puis retiré pour deux motifs mesurés — aucune
+couleur du `Palette` ne le sépare franchement à la fois de la coque et du fond dans les deux
+modes, et sa silhouette masquait justement l'asymétrie de la coque, qui est ce qui porte la
+réponse. Cette asymétrie est le seul porteur : dossier haut et appuie-tête élargi du côté du
+pare-brise, rebord de pied bas à l'autre bout. On s'adosse au côté haut, donc le dos de
+l'occupant est tourné vers le pare-brise et son regard vers l'arrière. Le siège du véhicule,
+dessiné vide juste derrière, est le témoin sans lequel une coque seule n'est retournée par
+rapport à rien.
+
+Relevé de luminance (§13 de `methode.md`) — Rec. 709 sur les valeurs sRGB des PNG **@3x**
+livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, un pixel par zone, coordonnées données en
+**unités de scène** (le pixel lu est `3 ×` celles-ci) :
+
+| zone | x, y | clair | sombre |
+|---|---|---|---|
+| `chargement` — fond (`sol`) | 40, 40 | 235,1 | 37,2 |
+| `chargement` — bloc de planches, partie en débord | 170, 136 | 198,1 | 209,5 |
+| `chargement` — bloc de planches, au-dessus du pavillon | 250, 133 | 198,1 | 209,5 |
+| `chargement` — refend et contour du bloc | 200, 137 | 51,0 | 51,0 |
+| `chargement` — caisse du véhicule | 250, 178 | 128,6 | 128,6 |
+| `chargement` — liseré blanc de la caisse | 250, 191,5 | 255,0 | 234,3 |
+| `chargement` — chaussée | 200, 215 | 93,1 | 75,1 |
+| `siège` — fond (`sol`) | 40, 40 | 235,1 | 37,2 |
+| `siège` — pare-brise | 375, 110 | 255,0 | 245,3 |
+| `siège` — tableau de bord, siège du véhicule, plancher | 365, 178 | 139,1 | 115,3 |
+| `siège` — coque, dossier haut côté avant | 266, 140 | 180,0 | 196,6 |
+| `siège` — coque, rebord de pied côté arrière | 154, 136 | 180,0 | 196,6 |
+| `siège` — creux de la coque (fond visible) | 200, 134 | 235,1 | 37,2 |
+
+Ce que ce relevé établit, et ce qu'il ne prétend pas établir. **Aucune des deux réponses ne
+repose sur un état allumé/éteint ni sur une teinte** : elles reposent sur une position (de
+quel côté le débord) et sur une silhouette (quel bout de la coque est haut). Il n'y a donc pas
+de polarité à vérifier comme sur `feu-fleche-clignotante`. Ce que la mesure doit garantir,
+c'est que **chaque silhouette se détache de ce qu'elle touche**, et c'est le cas :
+
+- le bloc de planches se sépare de la caisse de 69,5 points en clair et 80,9 en sombre — la
+  raison pour laquelle il est peint en `panneauJaune` et non en `bordure`, qui n'aurait laissé
+  que 10,5 points ;
+- il ne se sépare du fond que de **37,0 points en clair**, et c'est la mesure la plus faible
+  de la scène : c'est son contour sombre, à 51,0 dans les deux modes, qui borne réellement le
+  débord — 147 points de contraste contre le bloc lui-même ;
+- la coque se sépare du fond de 55,1 points en clair et 159,4 en sombre, et du siège du
+  véhicule de 40,9 et 81,3. Le creux de la coque montre le fond, donc le « U » se lit par la
+  luminance seule ;
+- le pare-brise ne se sépare du fond que de **19,9 points en clair**, sa mesure la plus
+  faible ; il est donc, lui aussi, borné par un contour sombre de 2,5 unités.
+
+Deux réserves assumées. La caisse du candidat mesure **128,6 dans les deux modes** (le bleu
+`vous` est identique en clair et en sombre) : en mode sombre elle est donc plus claire que la
+chaussée (75,1), en clair plus sombre — inversion sans conséquence ici, aucune réponse ne s'y
+joue, mais elle vaut d'être notée pour les scènes futures. Et le liseré blanc de la caisse
+(255,0 / 234,3) est à la même valeur que la bande de rive : c'est la position, pas la
+luminance, qui les distingue.
 
 ## Photographies
 

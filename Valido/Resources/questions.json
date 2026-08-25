@@ -347,7 +347,7 @@
       },
       {
         "id": "D",
-        "text": "Un fonctionnement normal du système concerné"
+        "text": "Un arrêt à prévoir sous cent kilomètres"
       }
     ],
     "prompt": "Un témoin rouge allumé au tableau de bord signifie :",
@@ -411,7 +411,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Elle conditionne l'accès aux zones à faibles émissions (ZFE), surtout en pic de pollution.",
+    "explanation": "Le classement de R318-2 tient à la motorisation, à la norme d'émission applicable et à la date de première immatriculation. C'est lui que lisent les restrictions d'une zone à faibles émissions, dont le périmètre relève d'un arrêté local.",
     "id": "37fe1af42b8d8123abc0da9b2b7a51e0",
     "options": [
       {
@@ -740,15 +740,15 @@
     "options": [
       {
         "id": "A",
-        "text": "Se mettre au point mort pour économiser du carburant"
+        "text": "Passer au point mort pour moins consommer"
       },
       {
         "id": "B",
-        "text": "Couper le contact et laisser rouler en roue libre"
+        "text": "Couper le contact et rouler en roue libre"
       },
       {
         "id": "C",
-        "text": "Freiner en continu, légèrement, pour rester lent"
+        "text": "Freiner en continu, légèrement, sans lâcher"
       },
       {
         "id": "D",
@@ -789,24 +789,24 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Trois de ces niveaux touchent directement à la sécurité — refroidissement, freins, visibilité — et aucun témoin n'alerte avant que le manque ne soit déjà installé. D'où le contrôle visuel régulier.",
+    "explanation": "Trois de ces niveaux touchent directement à la sécurité — refroidissement, freins, visibilité — et aucun témoin n'alerte avant que le manque ne soit déjà installé. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
     "id": "37fe1af42b8d8158a15ac34f4b0e4be9",
     "options": [
       {
         "id": "A",
-        "text": "Le carburant, seul niveau réellement critique"
+        "text": "Le carburant, seul niveau vraiment critique"
       },
       {
         "id": "B",
-        "text": "Huile, liquide de refroidissement, liquide de frein, lave-glace"
+        "text": "Huile, liquide de refroidissement, freins, lave-glace"
       },
       {
         "id": "C",
-        "text": "L'huile moteur seule, les autres circuits étant scellés"
+        "text": "L'huile moteur seule, le reste étant scellé"
       },
       {
         "id": "D",
-        "text": "Rien : les témoins du tableau de bord suffisent à alerter"
+        "text": "Huile, pression des pneus, plaquettes, courroie"
       }
     ],
     "prompt": "Parmi les niveaux à surveiller régulièrement sur sa voiture :",
@@ -2006,7 +2006,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Accélérer franchement pour atteindre vite son rapport"
+        "text": "Accélérer fort pour atteindre vite son rapport"
       },
       {
         "id": "B",
@@ -2014,11 +2014,11 @@
       },
       {
         "id": "C",
-        "text": "Rouler vitres ouvertes plutôt qu'avec la climatisation"
+        "text": "Rouler vitres ouvertes plutôt qu'en climatisant"
       },
       {
         "id": "D",
-        "text": "Garder un rapport bas pour disposer de reprise"
+        "text": "Garder un rapport bas pour avoir de la reprise"
       }
     ],
     "prompt": "L'éco-conduite consiste notamment à :",
@@ -10178,5 +10178,283 @@
     "prompt": "Sur autoroute, l'intervalle de sécurité se repère au sol à :",
     "subject": "code",
     "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Quatre ans, puis tous les deux ans : c'est le rythme fixé par R323-22 pour les véhicules légers. Un résultat défavorable pour défaillance majeure ouvre deux mois pour la contre-visite, et la validité repart du contrôle initial, pas de la contre-visite.",
+    "id": "cc10180c491d12311f76fc1d4d98ff45",
+    "options": [
+      {
+        "id": "A",
+        "text": "dans les six mois avant ses cinq ans"
+      },
+      {
+        "id": "B",
+        "text": "dans les six mois avant ses quatre ans"
+      },
+      {
+        "id": "C",
+        "text": "dans les douze mois avant ses trois ans"
+      },
+      {
+        "id": "D",
+        "text": "au plus tard six mois après l'achat"
+      }
+    ],
+    "prompt": "Le premier contrôle technique d'une voiture neuve a lieu :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "D314-8 laisse le choix : des dispositifs antidérapants dans le coffre pour deux roues motrices, ou des pneus marqués du symbole alpin sur deux roues de chaque essieu. Quelles communes sont concernées, en revanche, dépend d'un arrêté préfectoral.",
+    "id": "4477774964dae6e5d1bac49b5a37f3a8",
+    "options": [
+      {
+        "id": "A",
+        "text": "des chaînes montées en permanence sont exigées"
+      },
+      {
+        "id": "B",
+        "text": "seuls des pneus hiver sur les quatre roues valent"
+      },
+      {
+        "id": "C",
+        "text": "des pneus hiver ou des chaînes à bord suffisent"
+      },
+      {
+        "id": "D",
+        "text": "un seul pneu hiver par essieu moteur suffit"
+      }
+    ],
+    "prompt": "En période hivernale, dans une commune soumise à l'obligation :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "R412-1 dresse une liste fermée : morphologie inadaptée, certificat médical, intervention d'urgence, taxi en service, et en agglomération les services publics et les livraisons de porte à porte. La grossesse n'y est pas — il y faut un certificat.",
+    "id": "8e64074daad0e4a72e0fea2da9bac8eb",
+    "options": [
+      {
+        "id": "A",
+        "text": "pour un passager assis à l'arrière en ville"
+      },
+      {
+        "id": "B",
+        "text": "pour une femme enceinte qui le déclare"
+      },
+      {
+        "id": "C",
+        "text": "pour un trajet de moins de deux kilomètres"
+      },
+      {
+        "id": "D",
+        "text": "pour le conducteur d'un taxi en service"
+      }
+    ],
+    "prompt": "Le port de la ceinture n'est pas obligatoire :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Dix ans, dit le deuxième alinéa de R412-2, avec un dispositif adapté à la morphologie et au poids. Un seuil en centimètres circule beaucoup ; le code français retient un âge, et dispense l'enfant que la ceinture tient déjà bien.",
+    "id": "089e9b57f57bbb155f81da3ec492082f",
+    "options": [
+      {
+        "id": "A",
+        "text": "de moins de dix ans"
+      },
+      {
+        "id": "B",
+        "text": "de moins de sept ans"
+      },
+      {
+        "id": "C",
+        "text": "de moins de quatre ans"
+      },
+      {
+        "id": "D",
+        "text": "de moins de 1,35 mètre"
+      }
+    ],
+    "prompt": "Un système homologué de retenue est exigé pour tout enfant :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Dos à la route, la tête se trouve juste devant le coussin gonflable : R412-3 n'admet cette place à l'avant que si l'airbag est désactivé. À l'arrière, la question ne se pose pas.",
+    "id": "426ddfe174af345666aae0b5ea29f5d3",
+    "illustration": {
+      "alt": "Gros plan sur la place avant d'une voiture, l'avant à droite ; une coque de bébé y est posée face à l'arrière du véhicule, dos au pare-brise.",
+      "asset": "siege-enfant-place-avant"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "est admis dès que l'enfant a trois ans"
+      },
+      {
+        "id": "B",
+        "text": "est admis à condition de couper l'airbag"
+      },
+      {
+        "id": "C",
+        "text": "est interdit à l'avant, sans exception"
+      },
+      {
+        "id": "D",
+        "text": "est admis : l'airbag protégera l'enfant aussi"
+      }
+    ],
+    "prompt": "Ce siège enfant :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le gilet sert au moment où l'on ouvre la portière sur une voie où l'on va être à pied : R416-19 le veut donc à portée de main, pas dans le coffre, qui s'ouvre après et souvent du mauvais côté.",
+    "id": "6c9b9395e9090cd97a7fc4062b7162fc",
+    "options": [
+      {
+        "id": "A",
+        "text": "dans le coffre avec le triangle"
+      },
+      {
+        "id": "B",
+        "text": "dans la boîte à gants du passager"
+      },
+      {
+        "id": "C",
+        "text": "à portée de main dans l'habitacle"
+      },
+      {
+        "id": "D",
+        "text": "n'importe où car seul le port compte"
+      }
+    ],
+    "prompt": "En circulation, le gilet de haute visibilité doit se trouver :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "À l'arrière, R312-21 tolère 3 m au-delà du véhicule ; à l'avant, R312-22 n'en tolère rien du tout. Au-delà d'un mètre de débord arrière, un feu rouge doit le signaler la nuit.",
+    "id": "2c0a147d9ba6e61b52c7639089b6f118",
+    "illustration": {
+      "alt": "Voiture vue de côté, roulant vers la droite ; de longues planches sanglées sur le toit débordent loin derrière elle.",
+      "asset": "chargement-depassement-arriere"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "est admis sans limite s'il est bien amarré"
+      },
+      {
+        "id": "B",
+        "text": "est interdit : rien ne dépasse de ce côté"
+      },
+      {
+        "id": "C",
+        "text": "est admis jusqu'à 3 m au-delà du véhicule"
+      },
+      {
+        "id": "D",
+        "text": "est admis jusqu'à 1 m, pas au-delà"
+      }
+    ],
+    "prompt": "Ce chargement :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "R221-4 garde dans cette catégorie l'attelage dont les deux PTAC additionnés restent sous 4 250 kg ; au-delà, il faut le permis BE. Entre 3 500 et 4 250 kg avec une remorque de plus de 750 kg, une formation s'y ajoute.",
+    "id": "173c63baae24d7e7db9e2961bebd033f",
+    "options": [
+      {
+        "id": "A",
+        "text": "3 500 kg de PTAC cumulés"
+      },
+      {
+        "id": "B",
+        "text": "5 000 kg de PTAC cumulés"
+      },
+      {
+        "id": "C",
+        "text": "4 750 kg de PTAC cumulés"
+      },
+      {
+        "id": "D",
+        "text": "4 250 kg de PTAC cumulés"
+      }
+    ],
+    "prompt": "Voiture plus remorque : la catégorie B couvre l'ensemble jusqu'à :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : une galerie chargée casse l'écoulement au-dessus du pavillon, et la traînée croît avec le carré de la vitesse. Vide, elle coûte encore, mais moins.",
+    "id": "526d6b502e05eefba3f2066af4c2ab8d",
+    "options": [
+      {
+        "id": "A",
+        "text": "ne pèse que par la masse qu'elle ajoute"
+      },
+      {
+        "id": "B",
+        "text": "augmente la consommation par la traînée d'air"
+      },
+      {
+        "id": "C",
+        "text": "ne coûte du carburant qu'en ville à l'arrêt"
+      },
+      {
+        "id": "D",
+        "text": "reste sans effet sous cinquante kilos de charge"
+      }
+    ],
+    "prompt": "Une galerie de toit chargée, sur autoroute :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "Huile noire et batterie au plomb sont des déchets dangereux, et L541-2 du code de l'environnement laisse leur gestion à qui les détient : on les remet à quelqu'un d'autorisé à les prendre en charge, jamais à la benne du quartier.",
+    "id": "204454d0e329d40811d4317fabf2ddfa",
+    "options": [
+      {
+        "id": "A",
+        "text": "partent aux ordures ménagères bien fermées"
+      },
+      {
+        "id": "B",
+        "text": "se brûlent dans un poêle prévu pour l'huile"
+      },
+      {
+        "id": "C",
+        "text": "se gardent tant qu'un repreneur ne paie pas"
+      },
+      {
+        "id": "D",
+        "text": "se déposent en déchèterie ou au garage"
+      }
+    ],
+    "prompt": "Une huile de vidange et une batterie usagée :",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
   }
 ]

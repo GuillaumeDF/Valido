@@ -195,6 +195,55 @@ private func voitureEnEpi(_ ctx: CGContext, x: Double, y: Double, couleur: CGCol
     ctx.restoreGState()
 }
 
+// MARK: - Deux scènes de profil : le chargement et le siège enfant (tâche 13)
+//
+// Vues **de côté**, comme `croisement-en-pente`. Ce n'est pas un écart de style : les deux
+// questions font travailler un rapport **avant/arrière** — de quel bout le chargement
+// déborde, à quelle place et dans quel sens le siège est installé — et une vue de dessus
+// ne dit ni « sur le toit » ni « à la place avant ».
+//
+// L'échelle est **doublée** par rapport aux vues de dessus : une caisse de 96 unités pour
+// 4 m, soit 24 unités par mètre, là où les scènes de carrefour comptent 12 unités par
+// mètre. La raison est dans la réponse : les 3 m de débord de R312-21 auraient fait 36
+// unités à l'échelle des carrefours, à peine plus qu'une roue, donc indiscernables d'un
+// débord d'un mètre. Le débord dessiné vaut 60 unités, soit 2,5 m — dans la limite légale,
+// ce qui compte : une scène qui montrerait un chargement hors la loi rendrait fausse la
+// bonne réponse.
+//
+// `solProfil` remonte à 202 au lieu du bas du cadre, pour la même raison que partout
+// ailleurs : le bandeau tombe à 18 % au verdict et ne laisse qu'une bande d'environ 110
+// unités autour du centre vertical. Tout ce qui porte la réponse — le chargement, la coque,
+// les deux sièges — tient entre y = 116 et y = 202.
+
+/// Surface de la chaussée des deux scènes de profil.
+private let solProfil = 202.0
+
+private func chausseeDeProfil(_ ctx: CGContext, _ p: Palette) {
+    fond(ctx, p)
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: 0, y: solProfil, width: W, height: H - solProfil))
+    // Bande de rive : c'est elle qui fait lire une chaussée plutôt qu'un socle gris.
+    ctx.setFillColor(p.marquage)
+    ctx.fill(CGRect(x: 0, y: solProfil + 26, width: W, height: 3))
+}
+
+/// La voiture de profil de `Primitives.swift`, dessinée au double de sa taille.
+/// `voitureDeProfil` a des cotes fixes ; on incline le repère plutôt que d'ajouter une
+/// seconde géométrie de caisse, comme `voitureEnEpi` le fait pour la vue de dessus.
+private func voitureDeProfilDouble(_ ctx: CGContext, x: Double, y: Double,
+                                   couleur: CGColor, _ p: Palette) {
+    ctx.saveGState()
+    ctx.translateBy(x: x, y: y)
+    ctx.scaleBy(x: 2, y: 2)
+    voitureDeProfil(ctx, x: 0, y: 0, pente: 0, versLaDroite: true, couleur: couleur,
+                    liseree: true, p)
+    ctx.restoreGState()
+}
+
+/// Un noir presque plein, comme les roues de `voitureDeProfil` : il sert aux contours du
+/// chargement et aux sièges, et se lit sur le clair comme sur le sombre.
+private let traitSombre = CGColor(gray: 0.15, alpha: 1)
+
 let scenesCirculation: [(String, Scene)] = [
 
     // 1. B14 : le disque à large liseré rouge. « Ce panneau impose : » n'a aucun sens sans
@@ -371,6 +420,107 @@ let scenesCirculation: [(String, Scene)] = [
         // marche, et donc pourquoi le nez des voitures garées pointe de ce côté-là.
         voiture(ctx, x: 320, y: epiFrontDesPlaces + 21, cap: .est, couleur: p.vous,
                 liseree: true, p)
+    }),
+    // 15. Chargement débordant, vu de profil. L'énoncé est réduit à « Ce chargement : » et
+    //     ne dit surtout pas de quel côté il déborde : c'est toute la question. R312-22
+    //     n'accorde **rien** à l'avant, R312-21 accorde 3 m à l'arrière, donc sans l'image
+    //     « interdit » et « 3 m » sont aussi défendables l'un que l'autre. Le pare-brise de
+    //     la caisse et la flèche d'intention donnent le sens de la marche ; le débord est
+    //     du côté opposé, et il ne dépasse jamais l'aplomb avant — sinon la scène
+    //     contredirait la bonne réponse.
+    ("chargement-depassement-arriere", { ctx, p in
+        chausseeDeProfil(ctx, p)
+        let cxVoiture = 250.0, cyVoiture = solProfil - 28
+        voitureDeProfilDouble(ctx, x: cxVoiture, y: cyVoiture, couleur: p.vous, p)
+        // Les planches : un bloc à contour sombre, posé sur le pavillon et empiétant sur lui
+        // de six unités — sans ce recouvrement le chargement paraît flotter. La teinte est
+        // choisie **par la mesure**, pas par goût (§13 de `methode.md`, relevés en fin de
+        // ligne dans `images.md`) : la caisse du candidat pèse 128,6 en niveaux de gris et le
+        // fond 235,1 en clair, donc `panneauFond` (255,0, à 19,9 points du fond) l'aurait
+        // fait disparaître sur le fond et `bordure` (139,1, à 10,5 de la caisse) l'aurait
+        // fondu dans la caisse. `panneauJaune` mesure 198,1 en clair et 209,5 en sombre :
+        // à 37,0 et 172,3 points du fond, à 69,5 et 80,9 de la caisse.
+        let charge = CGRect(x: 142, y: 128, width: 138, height: 18)
+        ctx.setFillColor(p.panneauJaune)
+        ctx.fill(charge)
+        ctx.setStrokeColor(traitSombre)
+        ctx.setLineWidth(2)
+        ctx.stroke(charge)
+        // Un refend, pas deux : à deux, le bloc se lisait comme une barrière plutôt que
+        // comme des pièces de grande longueur empilées.
+        ctx.setFillColor(traitSombre)
+        ctx.fill(CGRect(x: charge.minX + 2, y: 136.5, width: charge.width - 4, height: 1.5))
+        // Les sangles, au-dessus du pavillon seulement : c'est là que le chargement est
+        // amarré, et l'`alt` le dit.
+        for x in [228.0, 262.0] {
+            ctx.fill(CGRect(x: x, y: 126, width: 3, height: 22))
+        }
+        fleche(ctx, [CGPoint(x: 322, y: 168), CGPoint(x: 382, y: 168)], couleur: p.vous)
+    }),
+
+    // 16. Siège enfant à la place avant, dos à la route, en coupe. Deux choses ne peuvent
+    //     venir que de l'image, et l'énoncé « Ce siège enfant : » n'en donne aucune : la
+    //     **place** (avant, pas arrière) et le **sens** (dos à la route). Sans elles,
+    //     l'exception du 1° de R412-3 ne s'applique à rien. La banquette arrière est
+    //     dessinée vide et dans le bon sens : c'est la comparaison des deux dossiers —
+    //     l'un derrière son occupant, l'autre devant — qui fait lire le retournement.
+    ("siege-enfant-place-avant", { ctx, p in
+        // Gros plan sur la place avant, sans la voiture autour. Deux tentatives de berline
+        // entière ont échoué pour une raison mesurable : le bandeau ne laisse qu'une bande
+        // d'environ 110 unités autour du centre vertical, et un habitacle dessiné dedans
+        // donne 68 unités de hauteur intérieure pour deux dossiers et une coque. Le sens de
+        // la coque tenait alors dans un panneau de 18 unités de large — illisible. Ici la
+        // coque fait 32 unités de large et 70 de haut.
+        //
+        // Ce qui remplace la voiture pour dire « place avant » : le pare-brise incliné et le
+        // tableau de bord sous lui. Aucune banquette ne s'adosse à un pare-brise, donc le
+        // siège dessiné est nécessairement un siège avant.
+        //
+        // **Il n'y a pas d'enfant dessiné**, et c'est délibéré : l'énoncé dit déjà « Ce siège
+        // enfant », donc l'image n'a pas à prouver de quoi il s'agit — elle doit dire la
+        // place et le sens. Un enfant dessiné a été essayé puis retiré : il n'existait aucune
+        // couleur du `Palette` qui le sépare franchement à la fois de la coque et du fond
+        // dans les deux modes, et il masquait justement l'asymétrie de la coque qui porte la
+        // réponse.
+        //
+        // Les teintes ne sont pas prises au hasard : `bordure` mesure 139,1 en clair et
+        // 115,3 en sombre, `autre` 180,0 et 196,6, `sol` 235,1 et 37,2, `panneauFond` 255,0
+        // et 245,3. Le premier jet peignait les sièges en gris 0,15 fixe (51,0) : en mode
+        // sombre, à moins de quatorze points du fond, ils disparaissaient.
+        fond(ctx, p)
+        // Le pare-brise : une surface claire inclinée, et au-delà l'extérieur. Une surface,
+        // pas un trait — un simple trait oblique se lirait comme une pente.
+        let pareBrise = CGMutablePath()
+        pareBrise.move(to: CGPoint(x: 300, y: 84))
+        pareBrise.addLine(to: CGPoint(x: 400, y: 84))
+        pareBrise.addLine(to: CGPoint(x: 400, y: 152))
+        pareBrise.addLine(to: CGPoint(x: 336, y: 152))
+        pareBrise.closeSubpath()
+        ctx.setFillColor(p.panneauFond)
+        ctx.addPath(pareBrise)
+        ctx.fillPath()
+        ctx.setStrokeColor(traitSombre)
+        ctx.setLineWidth(2.5)
+        ctx.addPath(pareBrise)
+        ctx.strokePath()
+        // Tableau de bord et plancher : les deux repères d'habitacle.
+        ctx.setFillColor(p.bordure)
+        ctx.fill(CGRect(x: 330, y: 150, width: 70, height: 50))
+        ctx.fill(CGRect(x: 0, y: 200, width: W, height: 18))
+        // Le siège avant du véhicule, dans le sens de la marche : dossier à l'arrière,
+        // assise vers l'avant. Il est le témoin qui rend le retournement de la coque
+        // lisible — sans lui, une coque seule n'est retournée par rapport à rien.
+        ctx.fill(CGRect(x: 72, y: 96, width: 28, height: 94))
+        ctx.fill(CGRect(x: 100, y: 166, width: 190, height: 24))
+        // La coque, dos à la route : dossier haut et appuie-tête élargi du côté du
+        // pare-brise, assise courant vers l'arrière du véhicule, rebord de pied bas à
+        // l'autre bout. On s'adosse au côté haut : le dos de l'occupant est donc tourné vers
+        // le pare-brise, et son regard vers l'arrière. C'est une géométrie, jamais une teinte.
+        ctx.setFillColor(p.autre)
+        ctx.fill(CGRect(x: 250, y: 96, width: 32, height: 70))
+        ctx.fill(CGRect(x: 236, y: 96, width: 46, height: 26))
+        ctx.fill(CGRect(x: 142, y: 142, width: 140, height: 24))
+        ctx.fill(CGRect(x: 142, y: 128, width: 26, height: 18))
     }),
 ]
 
