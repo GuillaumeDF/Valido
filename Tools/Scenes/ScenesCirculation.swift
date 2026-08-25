@@ -39,17 +39,46 @@ private func chausseeAutoroute(_ ctx: CGContext, _ p: Palette) {
     ctx.fill(CGRect(x: 52, y: 0, width: 7, height: H))
     ctx.setFillColor(p.chaussee)
     ctx.fill(CGRect(x: bordGauche - 10, y: 0, width: W - bordGauche + 10, height: H))
-    // Bandes de rive : continues, comme sur la vraie chaussée.
+    // Rive gauche : continue, et c'est la norme — « les lignes de délimitation de
+    // terre-plein central sont continues et de largeur 3u » (IISR, 7e partie, art. 114-4, B).
     ctx.setFillColor(p.marquage)
     ctx.fill(CGRect(x: bordGauche - 6, y: 0, width: 3, height: H))
-    ctx.fill(CGRect(x: bordGauche + largeurVoie * 3 + 3, y: 0, width: 3, height: H))
-    // Lignes de voie discontinues.
+    // Rive droite : **discontinue**, corrigé le 2026-08-25 (tâche 12). Le même art. 114-4, B
+    // dit : « Sur autoroute et route à chaussées séparées et à carrefours dénivelés, la ligne
+    // délimitant une bande d'arrêt d'urgence est discontinue de type T4 […]. En l'absence de
+    // bande d'arrêt d'urgence, la ligne de rive est continue. » La scène montre bien une BAU
+    // (la chaussée court jusqu'au bord du cadre au-delà de la rive), donc la continue était
+    // une faute de sens, pas un détail : une continue interdit de la franchir, alors qu'on
+    // rejoint la BAU en cas de nécessité absolue. La banque le disait déjà — la question
+    // « Une ligne discontinue tracée le long du bord de la chaussée délimite : » répond « la
+    // bande d'arrêt d'urgence ou l'accotement ».
+    //
+    // La modulation T4 vaut « 39 m de trait, 13 m d'intervalle » (art. 113-1, B), soit un
+    // rapport plein/vide de 3. Ce rapport est tout ce qui se transpose : à l'échelle de la
+    // scène une voie de 78 unités vaut 3,5 m, donc 39 m feraient 870 unités pour un cadre
+    // haut de 300. C'est ce facteur ~20 entre les deux axes qui a fait renoncer à illustrer
+    // la distance de sécurité au sol (voir le rapport de la tâche 12) ; ici seul le rapport
+    // 3 pour 1 est dessiné, et il suffit à distinguer la rive d'une T1 de délimitation de
+    // voies, dont les vides dominent.
+    let rive = bordGauche + largeurVoie * 3 + 3
+    var yRive = 0.0
+    while yRive < H {
+        ctx.fill(CGRect(x: rive, y: yRive, width: 3, height: min(45, H - yRive)))
+        yRive += 60
+    }
+    // Lignes de délimitation de voies : « de type T1 » sur autoroute (art. 114-2, C), et la
+    // T1 module « 3 m de trait, 10 m d'intervalle » (art. 113-1, B), soit un rapport
+    // plein/vide de 0,3 — les vides dominent. Le premier jet dessinait 18 de trait pour 14
+    // de vide, un rapport de 1,3 : proche d'une T2, et surtout indiscernable de la rive.
+    // Corrigé en même temps que la rive (2026-08-25) : c'est le contraste des deux
+    // modulations, 3 pour 1 en rive contre 1 pour 3 entre voies, qui fait lire le bord droit
+    // comme un bord et non comme une quatrième voie.
     for i in 1...2 {
         var y = 6.0
         while y < H {
             ctx.fill(CGRect(x: bordGauche + largeurVoie * Double(i) - 1.5, y: y,
                             width: 3, height: 18))
-            y += 32
+            y += 78
         }
     }
 }

@@ -29,12 +29,12 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "~14 m (50 km/h ≈ 14 m/s). Astuce : chiffre des dizaines × 3 → 5×3 = 15 m.",
+    "explanation": "Un peu moins de quatorze mètres : à 50 km/h on avance de 13,9 m par seconde. La Sécurité routière retient une seconde comme moyenne en conditions optimales — un ordre de grandeur d'enseignement, jamais une valeur du code, et qui ne descend jamais à zéro.",
     "id": "37fe1af42b8d8104b119f947eb9e296d",
     "options": [
       {
         "id": "A",
-        "text": "5 m"
+        "text": "7 m"
       },
       {
         "id": "B",
@@ -42,11 +42,11 @@
       },
       {
         "id": "C",
-        "text": "30 m"
+        "text": "25 m"
       },
       {
         "id": "D",
-        "text": "50 m"
+        "text": "42 m"
       }
     ],
     "prompt": "À 50 km/h, la distance parcourue pendant le temps de réaction (1 s) est d'environ :",
@@ -303,7 +303,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "En une seconde, un véhicule parcourt à peu près trois fois le chiffre des dizaines de sa vitesse, en mètres : 50→15 m, 90→27 m, 130→39 m. C'est l'ordre de grandeur du temps de réaction, avant même de toucher la pédale.",
+    "explanation": "En une seconde, un véhicule parcourt à peu près trois fois le chiffre des dizaines de sa vitesse, en mètres : 50 donne quinze mètres, 90 en donne vingt-sept. Le calcul majore un peu la réalité, ce qui va dans le bon sens. C'est un moyen de calcul de tête, pas une règle écrite dans un texte.",
     "id": "37fe1af42b8d811f9954e63cf1aa9ffa",
     "options": [
       {
@@ -465,12 +465,12 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "La distance de freinage croît au carré de la vitesse : doubler la vitesse la quadruple. À 100 km/h, on freine sur quatre fois la distance nécessaire à 50.",
+    "explanation": "La distance de freinage croît comme le carré de la vitesse : doubler la vitesse la quadruple. À 100 km/h on freine sur quatre fois ce qu'il faut à 50, et l'énergie à dissiper est quatre fois plus grande. C'est de la physique, pas une règle du code — mais c'est ce qui rend vingt km/h de plus bien plus coûteux qu'ils n'en ont l'air.",
     "id": "37fe1af42b8d812c9bb4e393d72d6df0",
     "options": [
       {
         "id": "A",
-        "text": "3"
+        "text": "8"
       },
       {
         "id": "B",
@@ -478,11 +478,11 @@
       },
       {
         "id": "C",
-        "text": "1,5"
+        "text": "2"
       },
       {
         "id": "D",
-        "text": "2"
+        "text": "3"
       }
     ],
     "prompt": "Si vous doublez votre vitesse, votre distance de freinage est multipliée par :",
@@ -519,20 +519,20 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Deux secondes, parce que l'intervalle doit couvrir le temps de réaction quelle que soit la vitesse — ce qu'une distance fixe en mètres ne fait pas. À doubler sous la pluie.",
+    "explanation": "Deux secondes, dit le premier alinéa de l'article R412-12, et le compte se fait sur un repère fixe : le poteau que le véhicule de devant vient de passer. Un intervalle en secondes suit la vitesse tout seul ; sur chaussée mouillée, l'adhérence tombe environ de moitié, et l'allonger est prudent même si le texte ne l'exige pas.",
     "id": "37fe1af42b8d812db558cb9e19e11709",
     "options": [
       {
         "id": "A",
-        "text": "3 secondes"
+        "text": "1 seconde"
       },
       {
         "id": "B",
-        "text": "5 secondes"
+        "text": "4 secondes"
       },
       {
         "id": "C",
-        "text": "1 seconde"
+        "text": "3 secondes"
       },
       {
         "id": "D",
@@ -843,20 +843,20 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "~72 m. 130 km/h ≈ 36 m/s, donc 2 s ≈ 72 m.",
+    "explanation": "Soixante-douze mètres : 130 km/h valent 36 m par seconde. Il ne faut pas confondre cet intervalle avec la distance d'arrêt, qui approche 130 mètres à cette vitesse, réaction comprise — presque le double.",
     "id": "37fe1af42b8d815a8de7c20835afd6ac",
     "options": [
       {
         "id": "A",
-        "text": "10 m"
+        "text": "36 m"
       },
       {
         "id": "B",
-        "text": "200 m"
+        "text": "130 m"
       },
       {
         "id": "C",
-        "text": "20 m"
+        "text": "50 m"
       },
       {
         "id": "D",
@@ -1404,7 +1404,7 @@
     "options": [
       {
         "id": "A",
-        "text": "La seule distance parcourue pendant la réaction"
+        "text": "La seule distance parcourue pendant le temps de réaction"
       },
       {
         "id": "B",
@@ -2333,7 +2333,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Sur sol mouillé, la distance de freinage est à peu près doublée : le film d'eau réduit le contact du pneu avec la route. L'ABS empêche le blocage des roues, il ne raccourcit pas la distance.",
+    "explanation": "L'adhérence de la chaussée est en moyenne divisée par deux dès qu'elle est mouillée : à vitesse égale, la distance de freinage double donc à peu près. Cet ordre de grandeur est un modèle d'enseignement, pas un chiffre du code. L'ABS, lui, empêche le blocage des roues sans rien retirer à la distance.",
     "id": "37fe1af42b8d81e48a72e74c9a2454a2",
     "options": [
       {
@@ -2360,16 +2360,16 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème range cette infraction au même niveau que le téléphone ou la ceinture. La suspension du permis reste possible, parce que le non-respect des distances est la première cause de carambolage.",
+    "explanation": "Le V et le VII de l'article R412-12 rangent l'infraction en quatrième classe — 135 € au tarif forfaitaire de l'article R49 du code de procédure pénale — et retirent trois points de plein droit. Le même article ouvre en plus une suspension du permis jusqu'à trois ans, parce que l'intervalle trop court est la mécanique même du carambolage.",
     "id": "37fe1af42b8d81e7a041ff53b8ef69c2",
     "options": [
       {
         "id": "A",
-        "text": "Aucune sanction, faute de mesure fiable"
+        "text": "35 € d'amende, sans retrait de points"
       },
       {
         "id": "B",
-        "text": "Un avertissement sans suite au premier constat"
+        "text": "68 € d'amende et 1 point de moins"
       },
       {
         "id": "C",
@@ -2377,7 +2377,7 @@
       },
       {
         "id": "D",
-        "text": "90 € d'amende, sans retrait de points"
+        "text": "375 € d'amende et 6 points de moins"
       }
     ],
     "prompt": "Ne pas respecter les distances de sécurité est sanctionné par :",
@@ -2387,7 +2387,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Une seconde en conditions normales. C'est ce chiffre qu'on multiplie par la vitesse pour obtenir la distance de réaction — et il double avec la fatigue, l'alcool ou le téléphone.",
+    "explanation": "Une seconde en conditions optimales, dit la Sécurité routière, et jamais zéro : il faut percevoir, traiter, décider. Fatigue, alcool ou téléphone le poussent facilement à deux. C'est une moyenne d'enseignement, pas une valeur inscrite dans un texte — mais c'est elle qu'on multiplie par la vitesse pour obtenir la distance de réaction.",
     "id": "37fe1af42b8d81e98af3c07ec3728454",
     "options": [
       {
@@ -2396,11 +2396,11 @@
       },
       {
         "id": "B",
-        "text": "5 secondes"
+        "text": "0,5 seconde"
       },
       {
         "id": "C",
-        "text": "0,5 seconde"
+        "text": "2 secondes"
       },
       {
         "id": "D",
@@ -2495,20 +2495,20 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Un temps de réaction qui passe de 1 à 2 secondes ajoute une longueur de voiture tous les 15 km/h. Le téléphone tenu en main coûte en plus 135 € et 3 points.",
+    "explanation": "Un temps de réaction qui passe d'une à deux secondes ajoute une longueur de voiture tous les 15 km/h — le freinage, lui, n'a pas bougé d'un mètre. Le téléphone tenu en main y ajoute une sanction : l'article R412-6-1 l'interdit, en quatrième classe, avec trois points de moins.",
     "id": "37fe1af42b8d81ef84ffe4578802422a",
     "options": [
       {
         "id": "A",
-        "text": "Réduisent la distance d'arrêt du véhicule"
+        "text": "Allongent la distance de freinage, pas la réaction"
       },
       {
         "id": "B",
-        "text": "Améliorent les réflexes par stimulation"
+        "text": "Agissent sur la vigilance, sans toucher aux distances"
       },
       {
         "id": "C",
-        "text": "N'affectent pas la sécurité de conduite"
+        "text": "Se compensent par une conduite plus prudente"
       },
       {
         "id": "D",
@@ -9881,5 +9881,302 @@
     "prompt": "Aux abords d'un passage piéton, l'arrêt et le stationnement sont interdits sur :",
     "subject": "code",
     "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Le premier alinéa de l'article R412-12 le dit dans cet ordre : la distance « est d'autant plus grande que la vitesse est plus élevée », et elle « correspond à la distance parcourue par le véhicule pendant un délai d'au moins deux secondes ». Un nombre de mètres, lui, vaudrait autant à 30 qu'à 130 km/h.",
+    "id": "8ddd0cebb28376040af43feb6f52c098",
+    "options": [
+      {
+        "id": "A",
+        "text": "deux secondes suffisent à immobiliser un véhicule"
+      },
+      {
+        "id": "B",
+        "text": "la distance à tenir grandit avec la vitesse"
+      },
+      {
+        "id": "C",
+        "text": "un écart en mètres serait impossible à contrôler"
+      },
+      {
+        "id": "D",
+        "text": "la distance se compte en longueurs de voiture"
+      }
+    ],
+    "prompt": "Le code exprime la distance de sécurité en secondes plutôt qu'en mètres parce que :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le II de l'article R412-12 fixe un plancher en mètres, et non en secondes, pour les véhicules de plus de 3,5 tonnes ou de plus de 7 mètres qui se suivent à la même vitesse hors agglomération : 50 mètres. À 90 km/h, deux secondes valent justement 50 mètres — le plancher ne mord donc qu'en dessous de cette vitesse, quand une file de poids lourds se resserre.",
+    "id": "f376d218b64a41796d6efebc8ad0bb2d",
+    "options": [
+      {
+        "id": "A",
+        "text": "au moins 100 mètres entre eux"
+      },
+      {
+        "id": "B",
+        "text": "les deux secondes de tout véhicule, sans plus"
+      },
+      {
+        "id": "C",
+        "text": "une longueur de semi-remorque entre eux"
+      },
+      {
+        "id": "D",
+        "text": "au moins 50 mètres entre eux"
+      }
+    ],
+    "prompt": "Hors agglomération, deux camions qui se suivent à la même vitesse doivent laisser :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "L'ABS empêche les roues de se bloquer, donc la pédale n'a plus besoin d'être relâchée : les vibrations sous le pied sont le signe que le système travaille. La Sécurité routière rappelle qu'il ne raccourcit pas la distance de freinage — il conserve la direction, ce qui permet de contourner l'obstacle plutôt que de s'arrêter avant lui.",
+    "id": "9f0fe6e809948a327c918ac0b5987cf9",
+    "options": [
+      {
+        "id": "A",
+        "text": "appuyer d'un coup et maintenir la pression"
+      },
+      {
+        "id": "B",
+        "text": "pomper la pédale pour éviter que les roues bloquent"
+      },
+      {
+        "id": "C",
+        "text": "freiner par petites pressions, puis débrayer"
+      },
+      {
+        "id": "D",
+        "text": "relâcher dès que la pédale se met à vibrer"
+      }
+    ],
+    "prompt": "En freinage d'urgence, sur un véhicule à ABS, il faut :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Sur un film d'eau, les pneus ne guident plus rien : ni le frein ni le volant n'atteignent la route, et l'ordre donné pendant ce temps s'applique brutalement à l'instant où le contact revient. Lever le pied laisse la vitesse tomber d'elle-même jusqu'à ce que les sculptures reprennent l'eau.",
+    "id": "4ade42a7e2c69ec43159940235d08c5f",
+    "options": [
+      {
+        "id": "A",
+        "text": "freiner fort pour retrouver l'adhérence"
+      },
+      {
+        "id": "B",
+        "text": "lever le pied sans freiner ni braquer"
+      },
+      {
+        "id": "C",
+        "text": "braquer vers l'accotement pour ralentir"
+      },
+      {
+        "id": "D",
+        "text": "accélérer franchement pour percer le film d'eau"
+      }
+    ],
+    "prompt": "En aquaplanage, la bonne réaction est de :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "L'article R421-3 est explicite : « Tout conducteur qui emprunte une bretelle de raccordement autoroutière doit céder le passage aux véhicules qui circulent sur l'autoroute. » Le passage forcé coûte 135 € et quatre points, un de plus que le non-respect des distances. Reste à utiliser toute la voie d'accélération pour arriver à la vitesse du flot.",
+    "id": "a225e45864e11748d6175d67476529d0",
+    "options": [
+      {
+        "id": "A",
+        "text": "obligez les véhicules de droite à se déporter"
+      },
+      {
+        "id": "B",
+        "text": "êtes prioritaire : c'est l'autoroute qui s'adapte"
+      },
+      {
+        "id": "C",
+        "text": "cédez le passage aux véhicules déjà sur la chaussée"
+      },
+      {
+        "id": "D",
+        "text": "gardez la priorité jusqu'au bout de la voie d'accès"
+      }
+    ],
+    "prompt": "En vous insérant sur l'autoroute depuis une bretelle, vous :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "L'article R421-7 n'autorise l'arrêt « sauf en cas de nécessité absolue », et il le sanctionne d'une contravention de deuxième classe seulement — 35 € au tarif forfaitaire, sans point retiré. La légèreté du barème n'a rien d'une tolérance : le même article oblige à présignaler le véhicule et à faire dégager l'autoroute dès qu'il ne repart pas seul.",
+    "id": "aad60a7453493cc6716b731af7579ebc",
+    "options": [
+      {
+        "id": "A",
+        "text": "une contravention à 35 €, sans perte de point"
+      },
+      {
+        "id": "B",
+        "text": "une infraction à 135 €, et 3 points de moins"
+      },
+      {
+        "id": "C",
+        "text": "toléré si les feux de détresse restent allumés"
+      },
+      {
+        "id": "D",
+        "text": "permis le temps d'un appel téléphonique"
+      }
+    ],
+    "prompt": "S'arrêter sur la bande d'arrêt d'urgence sans nécessité absolue est :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "L'article R412-8 tient en une phrase : « La circulation sur les bandes d'arrêt d'urgence est interdite. » Quatre fois plus cher que de s'y arrêter, et trois points en moins, parce que la bande doit rester libre pour les secours : celui qui la remonte croise en face les véhicules qui viennent aider. La suspension du permis, jusqu'à trois ans, reste possible.",
+    "id": "a4f04a8078a925fbc8c5df10f063e065",
+    "options": [
+      {
+        "id": "A",
+        "text": "permis aux véhicules lents, feux de détresse allumés"
+      },
+      {
+        "id": "B",
+        "text": "toléré à l'allure du pas, bouchon avéré"
+      },
+      {
+        "id": "C",
+        "text": "permis pour rejoindre la sortie déjà annoncée"
+      },
+      {
+        "id": "D",
+        "text": "interdit, et puni de 135 € et 3 points"
+      }
+    ],
+    "prompt": "Emprunter la bande d'arrêt d'urgence pour éviter un bouchon est :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "L'article L412-2 fait du tunnel le seul endroit où l'intervalle trop court devient un délit — six mois d'emprisonnement, 3 750 € et la moitié du capital de points. Mais seulement à la récidive dans l'année : la première fois reste la contravention ordinaire. Sur un ouvrage à risques, l'autorité de police peut par ailleurs imposer un intervalle plus grand qu'ailleurs.",
+    "id": "0e85e6a79127a2bae73abcc119e278bd",
+    "options": [
+      {
+        "id": "A",
+        "text": "une contravention de cinquième classe, 200 € dus"
+      },
+      {
+        "id": "B",
+        "text": "la même contravention, avec suspension obligatoire"
+      },
+      {
+        "id": "C",
+        "text": "un délit, six mois de prison et 3 750 € encourus"
+      },
+      {
+        "id": "D",
+        "text": "un délit, mais jugé sans aucun retrait de points"
+      }
+    ],
+    "prompt": "Dans un tunnel, l'intervalle non respecté deux fois en un an devient :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "Un tunnel, un viaduc, un talus : tant que l'abri dure, le vent ne se sent pas, et il arrive d'un coup à la sortie. C'est le seul endroit où la rafale surprend, donc le seul où elle déporte — d'où l'intérêt d'arriver déjà lent, les deux mains sur le volant. Les deux-roues et les véhicules à grande surface latérale y sont les plus exposés.",
+    "id": "22e6420e179103f65f7935f717521189",
+    "options": [
+      {
+        "id": "A",
+        "text": "accélérez pour franchir vite la zone exposée"
+      },
+      {
+        "id": "B",
+        "text": "roulez au plus près du bord droit de la chaussée"
+      },
+      {
+        "id": "C",
+        "text": "laissez filer la voiture, sans corriger la ligne"
+      },
+      {
+        "id": "D",
+        "text": "ralentissez avant la sortie, volant tenu ferme"
+      }
+    ],
+    "prompt": "Vous sortez d'un tunnel par vent latéral. Vous :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Sur la neige, et plus encore sur le verglas, l'adhérence s'effondre : la distance d'arrêt est multipliée plusieurs fois, et chaque ordre brusque — frein, volant, accélérateur — consomme le peu de prise qui reste. L'intervalle est la seule variable entièrement entre vos mains ; des pneus hiver améliorent la prise, ils ne la rendent pas normale.",
+    "id": "36d598b80e93b695b2994fce6172eb50",
+    "options": [
+      {
+        "id": "A",
+        "text": "espacez fortement, sans geste brusque"
+      },
+      {
+        "id": "B",
+        "text": "gardez le même intervalle, les pneus hiver suffisant"
+      },
+      {
+        "id": "C",
+        "text": "accélérez franchement pour garder de l'élan"
+      },
+      {
+        "id": "D",
+        "text": "freinez à fond dès le premier dérapage"
+      }
+    ],
+    "prompt": "Sur une chaussée enneigée ou verglacée, vous :",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Les traits qui bordent la bande d'arrêt d'urgence font 39 mètres, séparés par 13 mètres de vide : en garder deux devant soi laisse près de 90 mètres, plus que les deux secondes exigées à 130 km/h. « Un trait, danger ; deux traits, sécurité » est un repère d'enseignement de la Sécurité routière, pas une règle du code — la règle, elle, se compte en secondes.",
+    "id": "2362d0ebc53cb6de0732afe1747e9b58",
+    "options": [
+      {
+        "id": "A",
+        "text": "une bande de la ligne de rive"
+      },
+      {
+        "id": "B",
+        "text": "trois bandes de la ligne de rive"
+      },
+      {
+        "id": "C",
+        "text": "un vide entre deux bandes de rive"
+      },
+      {
+        "id": "D",
+        "text": "deux bandes de la ligne de rive"
+      }
+    ],
+    "prompt": "Sur autoroute, l'intervalle de sécurité se repère au sol à :",
+    "subject": "code",
+    "topic": "Distances & freinage"
   }
 ]

@@ -34,7 +34,7 @@ dessine une fois, pas une fois par scène.
 | `panneau-b14-limitation` | B14 seul, disque à large liseré rouge portant 70 | maison, aucune source tierce |
 | `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
 | `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
-| `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière | maison, aucune source tierce |
+| `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière ; rive droite en **T4** (traits longs, vides courts) le long de la bande d'arrêt d'urgence, délimitation de voies en **T1** (vides longs, traits courts) | maison, aucune source tierce |
 | `panneau-a1a-virage` | A1a seul, triangle de danger portant une chaussée qui s'infléchit à droite | maison, aucune source tierce |
 | `panneau-a13b-passage-pietons` | A13b seul, piéton marchant sur les bandes d'un passage | maison, aucune source tierce |
 | `panneau-a14-panonceau` | A14 « autres dangers » et son panonceau M9 portant CARRIÈRE | maison, aucune source tierce |
@@ -76,7 +76,7 @@ donc dans aucune colonne `source` de [`sources.md`](sources.md).
 | 4e | art. 45 forme circulaire ; art. 47 couleurs, au mot : interdiction « fond blanc, couronne et barre d'interdiction rouges » **sans listel**, B1 « fond rouge […] barre horizontale blanche », B6a et B6d « à fond bleu », obligation « fond bleu, listel et symbole blancs », fin d'interdiction « fond blanc, symbole, inscription, listel et barre noirs » ; art. 50-1, 52, 55, 55-3, 65 et 68-1 pour la portée de chaque panneau | [iisr_4epartie_vc_20220613](https://equipementsdelaroute.cerema.fr/IMG/pdf/iisr_4epartie_vc_20220613_cle22c5b5.pdf) |
 | 5e | art. 69-1 « les panneaux de type C sont généralement de forme carrée » ; art. 70 C1a, art. 71-1 C13a, art. 75-3 C113, art. 75-4 C207 | [IISR_5ePARTIE_vc20121231](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_5ePARTIE_vc20121231_cle5ce2b1.pdf) |
 | 6e | art. 109-3 A signal tricolore R11 « composé de trois feux circulaires vert, jaune, rouge », les R13 les donnant « dans cet ordre de bas en haut », et R11j « le vert peut être remplacé par du jaune clignotant » ; art. 109-3 B signal d'arrêt R24 « composé d'un feu circulaire rouge clignotant », employé « devant un obstacle ou un danger particulier (passage à niveau […] pont mobile, avalanche…) » ; art. 109-4 « les feux circulaires principaux pour véhicules ont un diamètre soit de 200 mm, soit de 300 mm », R24 « diamètre minimum de 160 mm » ; art. 110, C en jaune clignotant général « tous les signaux tricolores sont au jaune clignotant sur le feu du milieu » ; art. 110-5 le signal d'anticipation est « soit accolé à la même hauteur que le feu vert du signal R11v associé, soit situé juste en dessous » ; fig. 6 « Ce symbole signifie qu'il s'agit d'un feu clignotant » | [IISR_6ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_6ePARTIE_VC_20160215_cle217f7b.pdf) |
-| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3 ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m ; **art. 113-1 A** « Le blanc est la couleur utilisée pour les marquages sur chaussées […] 1. - Le jaune pour − les marques interdisant l'arrêt ou le stationnement » ; **art. 113-1 B** « Pour les lignes transversales, la modulation (T'2) comporte alternativement 0,5 m de trait et 0,5 m de vide » ; **art. 113-1 C** u = 5 cm sur les routes ordinaires ; **tableau de l'art. 113-2 E** (« Choix des modulations et largeurs des lignes », page 8-9 du PDF) interdiction de stationner = T'2 de 2u, interdiction de s'arrêter = continue de 2u, arrêt d'autobus = continue en zigzag de 2u — relevé mot pour mot : « 2. Ligne confirmant ou indiquant l'interdiction de stationner (jaune, art. 118-2) T'2 2u » et « 3. Ligne confirmant ou indiquant l'interdiction de s'arrêter (jaune, art. 118-2) continue 2u » ; l'art. 113-1 n'a pas de section E, seul le 113-2 en a une ; **art. 118-2 A a)** stationnement « en épi ou perpendiculaire », limites en lignes blanches continues de 2u ou T'2 de 2u ; **art. 118-2 B** le marquage jaune « est réalisé sur la face supérieure de la bordure du trottoir ou en rive de chaussée […] discontinue de type T'2 pour le stationnement gênant ou très gênant ; continue pour l'arrêt gênant ou très gênant » | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
+| 7e | art. 113-1 couleurs des marques et modulations T1/T2/T3, **tableau du B relevé en entier le 2026-08-25** (T1 3 m de trait pour 10 m d'intervalle, T'1 1,5 pour 5, T3 3 pour 1,33, T2 3 pour 3,5, T'3 20 pour 6, **T4 39 pour 13**, t'2 transversale 0,5 pour 0,5) ; art. 114-2 C « Autoroutes. Les lignes de délimitation de voies sont de type T1 de largeur 2u » ; art. 114-4 A, qui nomme la « voie d'insertion, de décélération ou d'entrecroisement » sans rien dire de la priorité qui y joue ; art. 114-4 B « Sur autoroute et route à chaussées séparées et à carrefours dénivelés, la ligne délimitant une bande d'arrêt d'urgence est discontinue de type T4 et de largeur 3u en section courante. […] En l'absence de bande d'arrêt d'urgence, la ligne de rive est continue de largeur 3u » ; ligne mixte = une continue doublée d'une T1 ou T3 espacée de 2u ; art. 115-3 B **trois** flèches de rabattement, à cheval sur la ligne d'annonce sur route à deux voies ; art. 117-2 A (numéroté « 117 A » dans une édition antérieure de l'IISR, même texte) hachures blanches « inclinées à 2 pour 1 », 0,50 m de large, 1,35 m d'espacement, **en chevrons** aux points de convergence, de divergence ou de séparation de sens opposés, « pointe toujours dirigée vers le conducteur » ; art. 118 passages piétons ; art. 118-10 damier de voie de détresse, carreaux de 1,5 × 3 m ; **art. 113-1 A** « Le blanc est la couleur utilisée pour les marquages sur chaussées […] 1. - Le jaune pour − les marques interdisant l'arrêt ou le stationnement » ; **art. 113-1 B** « Pour les lignes transversales, la modulation (T'2) comporte alternativement 0,5 m de trait et 0,5 m de vide » ; **art. 113-1 C** u = 5 cm sur les routes ordinaires ; **tableau de l'art. 113-2 E** (« Choix des modulations et largeurs des lignes », page 8-9 du PDF) interdiction de stationner = T'2 de 2u, interdiction de s'arrêter = continue de 2u, arrêt d'autobus = continue en zigzag de 2u — relevé mot pour mot : « 2. Ligne confirmant ou indiquant l'interdiction de stationner (jaune, art. 118-2) T'2 2u » et « 3. Ligne confirmant ou indiquant l'interdiction de s'arrêter (jaune, art. 118-2) continue 2u » ; l'art. 113-1 n'a pas de section E, seul le 113-2 en a une ; **art. 118-2 A a)** stationnement « en épi ou perpendiculaire », limites en lignes blanches continues de 2u ou T'2 de 2u ; **art. 118-2 B** le marquage jaune « est réalisé sur la face supérieure de la bordure du trottoir ou en rive de chaussée […] discontinue de type T'2 pour le stationnement gênant ou très gênant ; continue pour l'arrêt gênant ou très gênant » | [IISR_7ePARTIE_VC_20160215](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_7ePARTIE_VC_20160215_cle217e65.pdf) |
 | 8e | art. 120 B principe de cohérence — le panneau permanent contredit « doit être masqué provisoirement » ; art. 122 A fond jaune des types AK, KC, KD et KM, et B marquage temporaire jaune | [IISR_8ePARTIE_VC20130621](https://equipementsdelaroute.cerema.fr/IMG/pdf/IISR_8ePARTIE_VC20130621_cle5d9b18.pdf) |
 
 Ces PDF ne se lisent pas avec l'outil `Read` : `WebFetch` les enregistre sur disque et
@@ -122,6 +122,41 @@ partie attestant seulement qu'un symbole de clignotement existe sans que sa form
 extractible du texte ; et la flèche du signal d'anticipation. La croix de Saint-André et
 les barrières d'un passage à niveau n'ont **pas** été dessinées : leur planche n'a pas été
 relevée, et la voie ferrée suffit à dire le passage à niveau.
+
+### La rive de l'autoroute était fausse (2026-08-25)
+
+`chausseeAutoroute` dessinait ses **deux** bandes de rive en continu, avec le commentaire
+« continues, comme sur la vraie chaussée ». C'est vrai à gauche, où l'art. 114-4 B de la 7e
+partie donne des « lignes de délimitation de terre-plein central […] continues et de largeur
+3u ». C'est faux à droite : le même article dit que « la ligne délimitant une bande d'arrêt
+d'urgence est discontinue de type T4 », la continue n'étant réservée qu'à l'« absence de
+bande d'arrêt d'urgence ». Or la scène montre bien une BAU — la chaussée court jusqu'au bord
+du cadre au-delà de la rive.
+
+Ce n'était pas un détail de dessin mais une **faute de sens** : une ligne continue interdit
+d'être franchie, alors qu'on rejoint la BAU en cas de nécessité absolue. La banque le disait
+déjà de son côté — la question « Une ligne discontinue tracée le long du bord de la chaussée
+délimite : » répond « la bande d'arrêt d'urgence ou l'accotement ». Le dessin contredisait
+une de ses propres questions.
+
+Corrigé, avec la délimitation de voies dans le même mouvement. Ce qui se transpose n'est pas
+la longueur mais le **rapport plein/vide** du tableau de l'art. 113-1 B : 3 pour la T4 de
+rive (39 m de trait, 13 m d'intervalle), 0,3 pour la T1 de délimitation de voies (3 m pour
+10 m, art. 114-2 C). Le premier jet dessinait les voies à 18 pour 14, soit 1,3 — presque une
+T2, et surtout indiscernable d'une rive. C'est ce contraste des deux modulations, inversées
+l'une de l'autre, qui fait lire le bord droit comme un bord et non comme une quatrième voie.
+
+Les longueurs, elles, ne se transposent pas : à l'échelle de la scène une voie de 78 unités
+vaut 3,5 m, donc 39 m feraient 870 unités pour un cadre haut de 300. Ce facteur ~20 entre
+l'axe transversal et l'axe longitudinal est la raison pour laquelle la tâche 12 a **renoncé**
+à illustrer la distance de sécurité : un schéma 4:3 ne peut pas montrer 90 m de route et une
+voie de 3,5 m à la même échelle, donc il mentirait sur la seule grandeur que la question
+demanderait d'apprécier.
+
+Mesure de contrôle (§13 de `methode.md`), au centre du trait de rive, en niveaux de gris sur
+le PNG @2x : plein 255 en clair et 234 en sombre, vide 93 et 75 — soit le gris de la chaussée
+exactement, et un écart de 162 et 159 points. La discontinuité se lit donc par la luminance
+seule, sans aucune teinte.
 
 ### La paire de lignes jaunes : pourquoi la photo a cédé la place à un dessin
 
