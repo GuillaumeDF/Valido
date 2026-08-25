@@ -83,7 +83,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le 112 est le numéro d'urgence commun à toute l'Union européenne, joignable depuis n'importe quel téléphone, même sans carte SIM ni réseau de votre opérateur. Les autres numéros à trois chiffres sont français et thématiques : 115 pour l'hébergement d'urgence, 119 pour l'enfance en danger, 197 pour l'alerte attentat.",
+    "explanation": "Le 112 est le numéro d'urgence commun à toute l'Union européenne, utilisable dans tous ses pays, et l'appel d'urgence passe même quand le forfait est épuisé ou l'abonnement résilié. Les autres numéros à trois chiffres sont français et thématiques : 115 pour les personnes sans abri, 119 pour l'enfance victime de violences, 197 pour l'alerte attentat.",
     "id": "37fe1af42b8d810ca665ffa0e4b32ab7",
     "options": [
       {
@@ -636,11 +636,11 @@
       },
       {
         "id": "B",
-        "text": "Surélever la tête et desserrer les vêtements"
+        "text": "Surélever la tête et desserrer le col"
       },
       {
         "id": "C",
-        "text": "Attendre les secours sans toucher à la plaie"
+        "text": "Attendre les secours sans rien toucher"
       },
       {
         "id": "D",
@@ -1157,11 +1157,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Si elle le demande et peut se lever seule"
+        "text": "Si elle le demande et se sent capable de marcher"
       },
       {
         "id": "B",
-        "text": "Systématiquement, pour la mettre à l'abri"
+        "text": "Systématiquement, pour la mettre à l'abri du froid"
       },
       {
         "id": "C",
@@ -1264,7 +1264,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Trente mètres, c'est à peu près la distance de réaction à 100 km/h : de quoi laisser au conducteur qui arrive le temps de comprendre et de ralentir. L'article R416-19 dispense de poser le triangle si l'opération met manifestement votre vie en danger.",
+    "explanation": "Trente mètres, c'est à peu près la distance de réaction à 100 km/h : de quoi laisser au conducteur qui arrive le temps de comprendre et de ralentir. La distance vient de l'arrêté du 30 septembre 2008, qui dispense aussi de poser le triangle quand l'opération met manifestement votre vie en danger.",
     "id": "37fe1af42b8d817b9035c1079ede5c00",
     "options": [
       {
@@ -1296,7 +1296,7 @@
     "options": [
       {
         "id": "A",
-        "text": "L'immatriculation de chacun des véhicules"
+        "text": "L'immatriculation de chacun des véhicules en cause"
       },
       {
         "id": "B",
@@ -10452,5 +10452,140 @@
     "prompt": "Une huile de vidange et une batterie usagée :",
     "subject": "code",
     "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Trop lent, le cœur ne se remplit pas assez pour être vidé utilement ; trop rapide, la poitrine n'a pas le temps de remonter entre deux appuis et le sang ne revient plus. Les recommandations européennes de réanimation retiennent cette plage comme la plus efficace.",
+    "id": "fb24f6323a07a07c776d55163d42e028",
+    "options": [
+      {
+        "id": "A",
+        "text": "60 à 80 compressions par minute"
+      },
+      {
+        "id": "B",
+        "text": "100 à 120 compressions par minute"
+      },
+      {
+        "id": "C",
+        "text": "140 à 160 compressions par minute"
+      },
+      {
+        "id": "D",
+        "text": "40 à 60 compressions par minute"
+      }
+    ],
+    "prompt": "Le massage cardiaque s'effectue à une cadence de :",
+    "subject": "code",
+    "topic": "Premiers secours"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Moins profond, l'appui ne chasse pas assez de sang ; plus profond, il expose aux fractures de côtes et aux lésions du foie. La plage retenue par les recommandations européennes de réanimation est ce compromis, et la poitrine doit remonter complètement entre deux appuis.",
+    "id": "82a9e65c1cf2ff4a1a1a944ab59c59f9",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 à 2 centimètres"
+      },
+      {
+        "id": "B",
+        "text": "5 à 6 centimètres"
+      },
+      {
+        "id": "C",
+        "text": "3 à 4 centimètres"
+      },
+      {
+        "id": "D",
+        "text": "8 à 10 centimètres"
+      }
+    ],
+    "prompt": "Sur un adulte, chaque compression thoracique enfonce le sternum de :",
+    "subject": "code",
+    "topic": "Premiers secours"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Refroidir limite l'extension de la lésion en profondeur, à condition que l'eau soit tempérée : la glace referme les vaisseaux et aggrave ce qu'elle prétend soulager. La Croix-Rouge retient au moins dix minutes, vingt idéalement, en faisant couler l'eau en amont de la zone touchée.",
+    "id": "1ef7d3ed540293c212d9c304ffb297f5",
+    "options": [
+      {
+        "id": "A",
+        "text": "Appliquer un corps gras pour isoler la peau"
+      },
+      {
+        "id": "B",
+        "text": "Arroser à l'eau tempérée dix minutes au moins"
+      },
+      {
+        "id": "C",
+        "text": "Percer les cloques pour évacuer le liquide"
+      },
+      {
+        "id": "D",
+        "text": "Appliquer de la glace jusqu'à l'arrivée des secours"
+      }
+    ],
+    "prompt": "Le premier geste face à une brûlure est de :",
+    "subject": "code",
+    "topic": "Premiers secours"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "Le rapport est un compromis : chaque interruption pour souffler fait chuter la pression dans les artères, et il faut plusieurs appuis pour la rétablir. Celui qui ne veut pas souffler garde tout son temps pour comprimer, ce qui reste bien mieux que de ne rien faire.",
+    "id": "d724a3c3121fafd733552c7d2ba1f5aa",
+    "options": [
+      {
+        "id": "A",
+        "text": "30 compressions et 2 insufflations"
+      },
+      {
+        "id": "B",
+        "text": "15 compressions et 2 insufflations"
+      },
+      {
+        "id": "C",
+        "text": "30 compressions et 5 insufflations"
+      },
+      {
+        "id": "D",
+        "text": "10 compressions et 2 insufflations"
+      }
+    ],
+    "prompt": "Quand le sauveteur pratique aussi le bouche-à-bouche, il alterne :",
+    "subject": "code",
+    "topic": "Premiers secours"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "Sur un matelas ou une banquette, la poitrine s'enfonce avec le support et l'appui perd sa profondeur utile ; une chaussée fait un bien meilleur plan dur. La position latérale de sécurité, elle, ne s'adresse qu'à une victime qui respire encore.",
+    "id": "5e2dbc048917ecebcccbc8d54888acb3",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sur le dos, à plat, sur un support ferme"
+      },
+      {
+        "id": "B",
+        "text": "Sur le côté, en position latérale de sécurité"
+      },
+      {
+        "id": "C",
+        "text": "Sur le dos, les jambes surélevées d'un appui"
+      },
+      {
+        "id": "D",
+        "text": "Sur le dos, la tête calée en arrière"
+      }
+    ],
+    "prompt": "Pour masser une victime en arrêt cardiaque, on l'installe :",
+    "subject": "code",
+    "topic": "Premiers secours"
   }
 ]
