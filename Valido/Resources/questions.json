@@ -686,7 +686,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Un extincteur et une trousse de premiers secours à bord"
+        "text": "Un extincteur et une trousse de premiers secours"
       },
       {
         "id": "B",
@@ -798,7 +798,7 @@
       },
       {
         "id": "B",
-        "text": "Huile, liquide de refroidissement, freins, lave-glace"
+        "text": "Huile, refroidissement, liquide de frein, lave-glace"
       },
       {
         "id": "C",
@@ -10182,7 +10182,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Quatre ans, puis tous les deux ans : c'est le rythme fixé par R323-22 pour les véhicules légers. Un résultat défavorable pour défaillance majeure ouvre deux mois pour la contre-visite, et la validité repart du contrôle initial, pas de la contre-visite.",
+    "explanation": "Quatre ans, puis tous les deux ans : c'est le rythme fixé par R323-22 pour les véhicules légers. Un résultat défavorable pour défaillance majeure ouvre deux mois pour la contre-visite.",
     "id": "cc10180c491d12311f76fc1d4d98ff45",
     "options": [
       {
@@ -10218,7 +10218,7 @@
       },
       {
         "id": "B",
-        "text": "seuls des pneus hiver sur les quatre roues valent"
+        "text": "des pneus hiver seulement sur l'essieu avant suffisent"
       },
       {
         "id": "C",
@@ -10263,7 +10263,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Dix ans, dit le deuxième alinéa de R412-2, avec un dispositif adapté à la morphologie et au poids. Un seuil en centimètres circule beaucoup ; le code français retient un âge, et dispense l'enfant que la ceinture tient déjà bien.",
+    "explanation": "Dix ans, dit R412-2 II, avec un dispositif adapté à la morphologie et au poids. Un seuil en centimètres circule beaucoup ; le code français retient un âge, et dispense l'enfant que la ceinture tient déjà bien.",
     "id": "089e9b57f57bbb155f81da3ec492082f",
     "options": [
       {
@@ -10291,11 +10291,7 @@
     "correctID": "B",
     "difficulty": "moyen",
     "explanation": "Dos à la route, la tête se trouve juste devant le coussin gonflable : R412-3 n'admet cette place à l'avant que si l'airbag est désactivé. À l'arrière, la question ne se pose pas.",
-    "id": "426ddfe174af345666aae0b5ea29f5d3",
-    "illustration": {
-      "alt": "Gros plan sur la place avant d'une voiture, l'avant à droite ; une coque de bébé y est posée face à l'arrière du véhicule, dos au pare-brise.",
-      "asset": "siege-enfant-place-avant"
-    },
+    "id": "eac980f55eb23bfd3b1612f506fb81a3",
     "options": [
       {
         "id": "A",
@@ -10314,7 +10310,7 @@
         "text": "est admis : l'airbag protégera l'enfant aussi"
       }
     ],
-    "prompt": "Ce siège enfant :",
+    "prompt": "Un siège enfant dos à la route, à une place avant :",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10379,7 +10375,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "R221-4 garde dans cette catégorie l'attelage dont les deux PTAC additionnés restent sous 4 250 kg ; au-delà, il faut le permis BE. Entre 3 500 et 4 250 kg avec une remorque de plus de 750 kg, une formation s'y ajoute.",
+    "explanation": "R221-4 garde dans cette catégorie l'attelage dont les deux PTAC additionnés n'excèdent pas 4 250 kg ; au-delà, il faut le permis BE. Entre 3 500 et 4 250 kg avec une remorque de plus de 750 kg, une formation s'y ajoute.",
     "id": "173c63baae24d7e7db9e2961bebd033f",
     "options": [
       {
@@ -10406,12 +10402,12 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : une galerie chargée casse l'écoulement au-dessus du pavillon, et la traînée croît avec le carré de la vitesse. Vide, elle coûte encore, mais moins.",
+    "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : une galerie chargée casse l'écoulement au-dessus du pavillon, et la traînée croît avec le carré de la vitesse — bien plus qu'avec le poids ajouté. Vide, elle coûte encore, mais moins.",
     "id": "526d6b502e05eefba3f2066af4c2ab8d",
     "options": [
       {
         "id": "A",
-        "text": "ne pèse que par la masse qu'elle ajoute"
+        "text": "n'augmente la consommation que par son poids"
       },
       {
         "id": "B",
@@ -10419,11 +10415,11 @@
       },
       {
         "id": "C",
-        "text": "ne coûte du carburant qu'en ville à l'arrêt"
+        "text": "ne coûte du carburant que chargée, jamais à vide"
       },
       {
         "id": "D",
-        "text": "reste sans effet sous cinquante kilos de charge"
+        "text": "n'augmente la consommation qu'en agglomération"
       }
     ],
     "prompt": "Une galerie de toit chargée, sur autoroute :",
@@ -10433,12 +10429,12 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Huile noire et batterie au plomb sont des déchets dangereux, et L541-2 du code de l'environnement laisse leur gestion à qui les détient : on les remet à quelqu'un d'autorisé à les prendre en charge, jamais à la benne du quartier.",
+    "explanation": "Huile noire et batterie au plomb sont des déchets dangereux ; L541-2 du code de l'environnement confie leur gestion à qui les détient, à charge de les remettre à quelqu'un d'autorisé à les prendre en charge. Le tri sélectif ordinaire et un ferrailleur non agréé ne répondent pas à cette autorisation ; la déchèterie ou le garage, si.",
     "id": "204454d0e329d40811d4317fabf2ddfa",
     "options": [
       {
         "id": "A",
-        "text": "partent aux ordures ménagères bien fermées"
+        "text": "se recyclent avec les autres emballages"
       },
       {
         "id": "B",
@@ -10446,7 +10442,7 @@
       },
       {
         "id": "C",
-        "text": "se gardent tant qu'un repreneur ne paie pas"
+        "text": "se remettent à un ferrailleur non agréé"
       },
       {
         "id": "D",
