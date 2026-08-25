@@ -311,10 +311,8 @@ enum Lentille { case eteinte, allumee, clignotante }
 ///   avant que l'état éteint, ce qui rendait la lentille éteinte plus claire en niveaux de
 ///   gris qu'une lentille rouge allumée — polarité inversée, mesurée à 119 contre 96 sur
 ///   `feu-fleche-clignotante` en mode clair ;
-/// - allumée : la teinte pleine, entourée d'un halo de la même teinte et d'un reflet
-///   décentré qu'une lentille éteinte n'a ni l'un ni l'autre — le halo dit « cette lampe
-///   brûle » sans rien devoir à la teinte elle-même, et sa présence est binaire, pas une
-///   question de degré de clarté ;
+/// - allumée : la teinte pleine, entourée d'un **halo elliptique** de la même teinte et
+///   d'un reflet décentré qu'une lentille éteinte n'a ni l'un ni l'autre ;
 /// - clignotante : la même chose, plus des traits rayonnants — la convention de l'IISR
 ///   pour figurer un feu clignotant sur ses propres planches (6e partie, fig. 6 : « Ce
 ///   symbole signifie qu'il s'agit d'un feu clignotant »).
@@ -322,15 +320,39 @@ enum Lentille { case eteinte, allumee, clignotante }
 /// D'où le contrat de daltonisme : la **position** dans le caisson donne la couleur, le
 /// **halo** (et le reflet qui l'accompagne) donnent l'allumage, les **traits** donnent le
 /// clignotement. Aucune des trois informations ne repose sur une teinte, et depuis la
-/// correction, aucune ne repose non plus sur la luminance relative de la lentille — le
-/// filet ne permet plus de la déduire, il est le même partout.
+/// correction du filet (2026-08-24), aucune ne repose non plus sur la luminance relative
+/// de la lentille — le filet ne permet plus de la déduire, il est le même partout.
 ///
-/// Le halo n'a délibérément **pas** été agrandi pour déborder du caisson (l'autre
-/// correctif possible) : dans `boitierDeFeu`, le rayon qui ferait déborder le halo hors du
-/// caisson (`largeur / 2`) est **exactement** celui qui ferait toucher la lentille
-/// voisine — les deux se déduisent de `10.5u - r = l/2`. Agrandir le halo aurait donc fait
-/// mordre le halo d'une lampe allumée sur la lentille voisine, exactement le défaut déjà
-/// évité pour les traits rayonnants ci-dessous.
+/// **Le halo est elliptique, pas circulaire, depuis le 2026-08-25 (ronde 2 de la
+/// tâche 10) — et c'est un correctif de forme, pas de luminance.** Un halo isotrope à
+/// 1,55r reste, à 4,6 % près, inscrit dans le caisson pour toute valeur de `largeur`
+/// (`1,55r` contre une demi-largeur de caisson de `1,625r` — cf. `boitierDeFeu`) : il ne
+/// déborde jamais, donc il ne se voit jamais. Mesuré sur `feu-fleche-clignotante`, ce
+/// halo « invisible » ne produisait que 90,6 contre 93,0 de fond nu sur l'anneau
+/// 1,15–1,5r — 2,4 sur 255, perceptivement nul — alors même que la lentille rouge allumée
+/// mesurait 92,5 (plus **sombre** que ses voisines éteintes, 138,1) quand la lentille
+/// jaune de la flèche voisine, elle, mesurait 176,9 allumée (plus **claire**) : deux
+/// polarités contradictoires dans la même image, aucune fiable en niveaux de gris.
+///
+/// L'agrandir sans le déformer ne réglait rien : le rayon qui ferait déborder un halo
+/// **isotrope** du caisson (`largeur / 2 = 1,625r`) est **exactement** celui qui ferait
+/// toucher le disque de la lentille voisine (les deux se déduisent de `10.5u - r = l/2`).
+/// D'où l'ellipse — `debordH` porte le demi-axe **horizontal** à `2,2r`, largement au-delà
+/// de `1,625r` (le halo déborde donc réellement, dans le fond de la scène, où le
+/// contraste est net) ; `debordV` laisse le demi-axe **vertical** à `1,4r`, sous `1,545r`
+/// (le rayon qui toucherait le **filet** de la lentille voisine) avec 9 % de marge. Les
+/// deux bornes viennent de la même géométrie que ci-dessus et valent pour tout `largeur`.
+///
+/// Ce que ça change, mesuré à l'identique (`.superpowers/sdd/…/tmp/mesure_feux.py`, bande
+/// horizontale ±12°, rayon 1,75–2,05r, hors du caisson à tout angle de la bande) : le
+/// fond juste au-delà du caisson, à hauteur de la lentille rouge allumée, passe de 235,1
+/// (fond nu, identique à une lentille éteinte) à 189,5 en clair (écart 45,6) et de 37,2 à
+/// 60,6 en sombre (écart 23,4, signe inversé — le rouge sombre est plus clair que le fond
+/// sombre). Le signe change d'un mode à l'autre, la **présence du débord** non : c'est elle
+/// qui porte l'information, pas son sens. La bande 1,15–1,5r du constat initial, elle, ne
+/// bouge quasiment pas (90,6 → 90,7) — elle est structurellement **incapable** de voir un
+/// débord, puisqu'elle s'arrête à 1,5r, avant même le bord du caisson (1,625r) : ce n'est
+/// pas cette bande qui mesure le correctif.
 ///
 /// `departRayons` est la distance au centre où les traits commencent, à la charge de
 /// l'appelant : une lentille prise dans un caisson à trois lampes doit les faire partir
@@ -350,8 +372,11 @@ private func lentille(_ ctx: CGContext, at c: CGPoint, rayon r: Double, etat: Le
         filet()
         return
     }
+    // Halo elliptique : demi-axe horizontal `2,2r`, demi-axe vertical `1,4r` — voir le
+    // commentaire de `lentille` ci-dessus pour la mesure et le choix des deux bornes.
+    let debordH = r * 1.2, debordV = r * 0.4
     ctx.setFillColor(couleur.copy(alpha: 0.30) ?? couleur)
-    ctx.fillEllipse(in: cadre.insetBy(dx: -r * 0.55, dy: -r * 0.55))
+    ctx.fillEllipse(in: cadre.insetBy(dx: -debordH, dy: -debordV))
     ctx.setFillColor(couleur)
     ctx.fillEllipse(in: cadre)
     filet()
