@@ -58,8 +58,13 @@ enum Cap { case nord, sud, est, ouest }
 /// Une voiture vue de dessus : caisse arrondie, pare-brise clair, et un liseré blanc
 /// réservé au véhicule du candidat. Aucune information ne repose sur la seule couleur —
 /// les options des questions désignent les véhicules par leur provenance.
+/// `contour` cerne la caisse d'un filet sombre. Ajouté par la tâche 16 pour la voiture
+/// arrêtée de `croisement-chaussee-etroite`, dont la teinte `tiers` ne se sépare de la
+/// chaussée que de 25,5 points en niveaux de gris en mode clair — le même constat, et le
+/// même remède, que sur le bus et le poids lourd de la tâche 15. Le paramètre a une valeur
+/// par défaut : aucune scène déjà rendue ne change d'un pixel.
 func voiture(_ ctx: CGContext, x: Double, y: Double, cap: Cap, couleur: CGColor,
-             liseree: Bool = false, _ p: Palette) {
+             liseree: Bool = false, contour: CGColor? = nil, _ p: Palette) {
     let long = 40.0, larg = 22.0
     let horizontal = (cap == .est || cap == .ouest)
     let rect = CGRect(x: x - (horizontal ? long : larg) / 2,
@@ -70,6 +75,12 @@ func voiture(_ ctx: CGContext, x: Double, y: Double, cap: Cap, couleur: CGColor,
     ctx.setFillColor(couleur)
     ctx.addPath(corps)
     ctx.fillPath()
+    if let contour {
+        ctx.setStrokeColor(contour)
+        ctx.setLineWidth(2)
+        ctx.addPath(corps)
+        ctx.strokePath()
+    }
     if liseree {
         ctx.setStrokeColor(p.marquage)
         ctx.setLineWidth(2.5)

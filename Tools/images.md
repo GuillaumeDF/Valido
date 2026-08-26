@@ -63,6 +63,10 @@ dessine une fois, pas une fois par scène.
 | `depassement-cycliste-distance` | rue à deux trottoirs et deux bordures, piétons dessus ; cycliste le long du bord droit, la voiture du candidat à sa hauteur, **écart dessiné à 1,055 m** | maison, aucune source tierce |
 | `sas-cycliste-feu` | sas cycliste : **deux** lignes d'effet des feux en T'2, figurine de vélo entre elles, bande cyclable d'accès à droite, tricolore à lampe du haut allumée (IISR 7e partie, art. 118-1, C et D) | maison, aucune source tierce |
 | `bus-quittant-arret` | autobus le long d'un **zigzag jaune** de bordure, indicateurs de changement de direction allumés côté chaussée, la voiture du candidat derrière lui (IISR 7e partie, tableau de l'art. 113-2, E) | maison, aucune source tierce |
+| `depassement-ligne-discontinue` | vue de dessus : chaussée à double sens, axe **discontinu de type T1**, la voiture du candidat déjà dans la moitié gauche à la hauteur de celle qu'elle double, trajectoire figurée par une flèche | maison, aucune source tierce |
+| `depassement-sommet-de-cote` | **vue de profil** : la chaussée monte vers un sommet, la portion qui redescend au-delà est **hachurée** (convention « non vu depuis le poste de conduite »), ligne de visée en pointillés depuis l'œil du conducteur | maison, aucune source tierce |
+| `croisement-chaussee-etroite` | vue de dessus : chaussée de 84 unités sans axe médian, voiture arrêtée **feux de détresse allumés** contre le bord droit, véhicule venant en sens inverse, candidat derrière l'obstacle | maison, aucune source tierce |
+| `rabattement-apres-depassement` | vue de dessus : même chaussée que `depassement-ligne-discontinue`, la voiture du candidat **déjà revenue à droite** à un mètre du pare-chocs de celle qu'elle vient de doubler | maison, aucune source tierce |
 
 ### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
 
@@ -196,6 +200,140 @@ entier) et le corps du poids lourd, cabine comprise (y de 90 à 210). Les zones 
 que du décor, aucune option n'y renvoie. Même règle pour les trois autres — les deux lignes du
 sas sont à y = 152 et 200, le clignotant arrière du bus à y = 162, le cycliste et la voiture de
 la scène de dépassement entre y = 97 et 212.
+
+### Les quatre scènes de croisement et dépassement (tâche 16, 2026-08-26)
+
+Trois vues de dessus et **une vue de profil**, et ce partage est le point à comprendre
+avant tout le reste. Le brief demandait une paire — même route, visibilité coupée par le
+relief, réponse inverse — mais un **sommet de côte ne se voit pas d'en haut**, exactement
+comme la pente de `croisement-en-pente`. La paire est donc écrite dans deux registres :
+`depassement-ligne-discontinue` en vue de dessus, `depassement-sommet-de-cote` de profil.
+
+Le risque que ce partage crée est celui que ce fichier nomme à propos des deux lignes
+jaunes : si le registre visuel était corrélé à la réponse, on apprendrait le registre au
+lieu de la règle (« photo, donc arrêt interdit »). Ici il ne l'est pas, et ça se vérifie —
+les deux scènes de profil déjà livrées répondent l'une « vous cédez le passage »
+(`croisement-en-pente`) et l'autre « c'est admis » (`chargement-depassement-arriere`).
+« Profil » ne prédit donc rien. La différence avec le cas des lignes jaunes est qu'il
+s'agissait là de **deux scènes par ailleurs identiques** dont le registre était le seul
+écart stable.
+
+| scène | unités par mètre | pourquoi cette échelle |
+|---|---:|---|
+| `depassement-ligne-discontinue` | 16 | voie de 56 unités pour 3,50 m, voiture de 50 × 27,5 pour 3,13 × 1,72 m : elle laisse un peu moins d'un mètre de part et d'autre dans sa voie, comme sur la route |
+| `rabattement-apres-depassement` | 16 | la même, à dessein : les deux scènes se lisent comme deux instants d'une même manœuvre |
+| `croisement-chaussee-etroite` | 14 | voies de 42 unités, soit **3 m** : la voiture arrêtée en laisse 15 unités jusqu'à l'axe, soit 1,10 m là où il en faudrait 1,80. L'impossibilité de passer est dessinée à l'échelle |
+| `depassement-sommet-de-cote` | — | vue de profil ; la chaussée y est un trait de 30 unités d'épaisseur, la voiture de profil est celle de `croisement-en-pente`, à l'identique |
+
+**L'axe médian est une T1, et ce n'est pas un détail de dessin.** La modulation de l'axe
+des deux scènes de dépassement est 15 unités de trait pour 50 de vide, soit le rapport 0,3
+de la T1 (« 3 m de trait, 10 m d'intervalle », IISR 7e partie, art. 113-1, B). Une
+discontinue à pleins dominants serait une **ligne de dissuasion**, qui n'a pas la même
+portée ; la dessiner ainsi aurait posé sous la question une seconde question que l'énoncé
+ne pose pas. C'est le même raisonnement que la correction de la rive d'autoroute du
+2026-08-25 : ce qui se transpose d'une norme de marquage à une scène, c'est le rapport
+plein/vide, jamais la longueur.
+
+**`croisement-chaussee-etroite` n'a au contraire aucun axe médian**, et c'est délibéré :
+une chaussée étroite n'en porte pas, et son absence garde la question sur la manœuvre au
+lieu de la ramener à la signification d'un trait — cinq questions du topic
+`Panneaux & marquage` traitent déjà ce que la ligne autorise, et `audit.py` ne verrait pas
+le doublon.
+
+**Deux ajouts de primitive, tous deux motivés par une mesure.**
+
+- `voiture` accepte un `contour` sombre optionnel. La voiture arrêtée de
+  `croisement-chaussee-etroite` est en `tiers`, qui ne se sépare de la chaussée que de
+  **25,5 points** en niveaux de gris en mode clair — le constat qui avait déjà valu un
+  contour au bus et au poids lourd de la tâche 15. Le paramètre a une valeur par défaut :
+  aucune scène déjà rendue ne change d'un pixel, vérifié après rendu.
+- `zoneNonVue` accepte un **chemin** quelconque et non plus seulement un rectangle : la
+  portion de chaussée qui plonge derrière le sommet est oblique. Le pas et l'inclinaison
+  des hachures se calculent sur la boîte englobante, si bien qu'un chemin rectangulaire
+  redonne exactement le dessin d'avant — `angle-mort-poids-lourd` est resté identique au
+  fichier près.
+
+Relevé de luminance (§13 de `methode.md`) — Rec. 709 sur les valeurs sRGB des PNG **@3x**
+livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, coordonnées en **unités de scène** (le pixel
+lu est `3 ×` celles-ci). Les zones **hachurées** se donnent en moyenne et maximum sur un
+carré de 20 unités centré sur l'axe de la chaussée.
+
+| zone | x, y | clair | sombre |
+|---|---|---|---|
+| `depassement` — axe T1, au niveau d'un plein | 200, 76 | 255,0 | 234,3 |
+| `depassement` — axe T1, au niveau d'un vide | 200, 110 | 93,1 | 75,1 |
+| `depassement` — chaussée nue | 190, 250 | 93,1 | 75,1 |
+| `depassement` — votre voiture, caisse | 172, 148 | 128,6 | 128,6 |
+| `depassement` — votre voiture, liseré blanc | 158, 148 | 255,0 | 234,3 |
+| `depassement` — voiture doublée | 228, 185 | 180,0 | 196,6 |
+| `depassement` — flèche de trajectoire | 228, 240 | 128,6 | 128,6 |
+| `rabattement` — intervalle entre les deux voitures | 228, 161 | 93,1 | 75,1 |
+| `croisement` — voiture arrêtée, caisse | 232, 140 | 118,6 | 154,1 |
+| `croisement` — voiture arrêtée, contour sombre | 215,5, 140 | 51,0 | 51,0 |
+| `croisement` — feu de détresse, disque et rayons | 214, 126 / 203, 126 | 198,1 | 209,5 |
+| `croisement` — chaussée libre entre l'obstacle et l'axe | 206, 140 | 93,1 | 75,1 |
+| `croisement` — véhicule d'en face | 179, 108 | 180,0 | 196,6 |
+| `cote` — chaussée **cachée**, carré 20×20 : moyenne / max | 300, 167,7 | 129,7 / 255,0 | 111,3 / 235,2 |
+| `cote` — chaussée **vue**, même carré témoin | 200, 148,4 | 105,0 / 255,0 | 89,2 / 234,3 |
+| `cote` — contour de la zone non vue | 236, 128 | 231,1 | 210,2 |
+| `cote` — ligne de visée | 330, 119,3 | 128,6 | 128,6 |
+| `cote` — `sol` de part et d'autre de la visée | 330, 100 | 235,1 | 37,2 |
+| `cote` — versant (`ilot`) | 200, 250 | 219,0 | 69,2 |
+
+Ce que ce relevé établit :
+
+- **Les hachures vont dans le bon sens, et dans les deux modes.** La chaussée cachée est
+  plus **claire** que la chaussée vue de +24,7 en clair et +22,1 en sombre sur la moyenne
+  du carré — la même polarité, et le même ordre de grandeur, que les angles morts de la
+  tâche 15 (+27,7 / +27,5). C'est ce contraste-là qui porte la réponse de la question.
+- **Le contour de la voiture arrêtée était nécessaire, et la mesure le chiffre.** Sa caisse
+  mesure 118,6 en clair contre 93,1 pour la chaussée : 25,5 points, la valeur même qui avait
+  fait ajouter un contour au bus. Le filet à 51,0 la borne à 67,6 points de la caisse et
+  42,1 de la chaussée. En mode sombre la caisse (154,1) se détache seule de la chaussée
+  (75,1), le contour n'y sert qu'à ne pas changer de dessin d'un mode à l'autre.
+- **Les feux de détresse ont la bonne polarité, et surtout la bonne place.** Le disque et
+  ses rayons mesurent 198,1 / 209,5 ; les rayons sont tracés **sur la chaussée** (93,1 /
+  75,1), soit +105,0 et +134,4 — et non sur la caisse, dont ils ne se sépareraient que de
+  18,1 points en clair. C'est la position du disque, à cheval sur l'arête de la caisse, qui
+  fait tenir les deux lectures à la fois.
+
+Et **une réserve mesurée**, sur la ligne de visée de `depassement-sommet-de-cote` : en
+`vous` elle mesure 128,6 dans les deux modes, donc **plus sombre** que le `sol` du mode
+clair (235,1) et **plus claire** que celui du mode sombre (37,2). Sa polarité s'inverse
+d'un mode à l'autre. C'est assumé pour deux raisons : aucune teinte de la palette n'est à
+la fois franche sur 235 et sur 37, et surtout **la réponse ne s'y joue pas** — elle se joue
+sur les hachures, dont la polarité, elle, est la même des deux côtés. La visée n'explique
+que le *pourquoi* de la zone cachée, et elle le fait par sa forme : un pointillé oblique qui
+rase la crête, qui disparaît derrière la voiture qui précède et ressort devant elle.
+
+**Ce que chaque scène apporte que l'énoncé ne peut pas dire (§9 de `methode.md`).**
+
+| scène | l'option qui en dépend | ce que seule l'image donne |
+|---|---|---|
+| `depassement-ligne-discontinue` | « oui, la voie de gauche est libre devant vous » | que la manœuvre est **déjà engagée** — vous êtes dans la moitié gauche, à hauteur du véhicule doublé — et que rien n'occupe la voie devant. Un énoncé qui l'écrirait aurait donné sa réponse |
+| `depassement-sommet-de-cote` | « interdit : vous ne voyez pas la route au-delà » | que la route **se dérobe** au-delà du sommet. C'est le fait que R414-11 érige en condition, et il n'existe qu'en image |
+| `croisement-chaussee-etroite` | « vous arrêter et laisser passer celui d'en face » | **de quel côté** est l'obstacle. Rien d'autre ne décide de la réponse, et l'écrire dans l'énoncé la donnerait |
+| `rabattement-apres-depassement` | « trop tôt : le véhicule dépassé doit ralentir » | la **distance** au véhicule doublé. R414-10 n'en fixe aucune : la manœuvre se juge, et on ne juge que ce qu'on voit |
+
+**Le §10, et c'est `croisement-chaussee-etroite` qui le contraint le plus.** Trois véhicules
+ne tiennent pas dans la bande d'environ 110 unités (y de 95 à 205) qui survit au recadrage
+du bandeau à 18 %. Le partage a été fait selon ce que chacun porte : la voiture arrêtée
+(y de 117 à 163) et le véhicule d'en face (y de 95 à 141) y sont entiers — ce sont eux qui
+décident —, la voiture du candidat n'y entre qu'à moitié (y de 182 à 228), ce qui suffit
+puisqu'elle n'a que deux choses à dire, son liseré et sa voie. Pour les autres : les deux
+voitures de `depassement-ligne-discontinue` tiennent entre y = 123 et 203, celles de
+`rabattement-apres-depassement` entre 103 et 220 (seule la queue du véhicule doublé sort),
+et le sommet de côte est à y = 138, la zone hachurée entre 123 et 229.
+
+**Un écart assumé au brief : aucun véhicule ne vient en face dans
+`depassement-ligne-discontinue`.** Le brief en demandait un. Le dessiner ferait reposer la
+réponse sur une **distance**, or le cadre 4:3 compresse l'axe longitudinal d'un facteur ~20
+par rapport à l'axe transversal — c'est le motif exact pour lequel la tâche 12 a renoncé à
+illustrer la distance de sécurité. Un tiers dessiné « assez loin » rendrait défendable le
+distracteur « renoncez, un véhicule vient », ce que la règle 2 du §1 de `questions.md`
+interdit. Même raison pour l'absence de véhicule derrière le sommet de côte : on ne peut pas
+dessiner un véhicule caché, et le montrer ferait croire que c'est sa présence qui interdit
+le dépassement, alors que R414-11 interdit précisément parce qu'on l'ignore.
 
 ### D'où vient la géométrie des panneaux
 

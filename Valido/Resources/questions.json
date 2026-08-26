@@ -11089,5 +11089,426 @@
     "prompt": "Vous doublez un autocar qui fait descendre des enfants. Vous devez :",
     "subject": "code",
     "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Les croisements s'effectuent à droite : l'article R414-1 demande à chacun de se rapprocher du bord droit autant que la présence des autres usagers le permet. Sur une chaussée étroite, c'est cette marge gagnée des deux côtés qui rend le passage possible.",
+    "id": "f1ae9582d692d2bb7febb6a3c936ff34",
+    "options": [
+      {
+        "id": "A",
+        "text": "serrer sur sa droite autant qu'il le peut"
+      },
+      {
+        "id": "B",
+        "text": "rester au milieu de sa voie sans se déporter"
+      },
+      {
+        "id": "C",
+        "text": "se déporter vers le centre de la chaussée"
+      },
+      {
+        "id": "D",
+        "text": "passer en feux de route pour être bien vu"
+      }
+    ],
+    "prompt": "Lors d'un croisement, chaque conducteur doit :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Le contourner, c'est empiéter sur la moitié gauche de la chaussée, et R414-7 ne l'autorise que si la circulation en sens inverse n'en est pas gênée. L'obstacle est de votre côté : l'attente aussi.",
+    "id": "42078575c362bf24a220380788994e25",
+    "illustration": {
+      "alt": "Rue à deux voies étroites sans marquage central : une voiture est arrêtée feux de détresse allumés le long du bord droit devant vous, et une autre arrive en sens inverse.",
+      "asset": "croisement-chaussee-etroite"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "reculer pour dégager le passage à celui d'en face"
+      },
+      {
+        "id": "B",
+        "text": "vous arrêter et laisser passer celui d'en face"
+      },
+      {
+        "id": "C",
+        "text": "avancer : c'est à celui d'en face de s'arrêter"
+      },
+      {
+        "id": "D",
+        "text": "avancer au ralenti, chacun serrant à droite"
+      }
+    ],
+    "prompt": "Devant cet obstacle, vous devez :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "La voie de gauche est dégagée et la ligne discontinue autorise à l'emprunter : rien n'oblige à interrompre la manœuvre. R414-10 demande seulement de revenir à droite ensuite, sans faire ralentir le véhicule doublé.",
+    "id": "46269e3e9018b1949b8143894e86c4fc",
+    "illustration": {
+      "alt": "Route à double sens, ligne axiale discontinue ; votre voiture roule dans la moitié gauche, à la hauteur de celle qu'elle double, et la chaussée est vide devant elle.",
+      "asset": "depassement-ligne-discontinue"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "non, il faut reprendre votre place derrière lui"
+      },
+      {
+        "id": "B",
+        "text": "non, la ligne au sol impose de renoncer"
+      },
+      {
+        "id": "C",
+        "text": "oui, la voie de gauche est libre devant vous"
+      },
+      {
+        "id": "D",
+        "text": "oui, mais en restant à gauche par prudence"
+      }
+    ],
+    "prompt": "Vous pouvez achever ce dépassement :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "R414-11 interdit tout dépassement sur chaussée à double sens quand la visibilité vers l'avant manque, et cite le sommet de côte comme cas typique. Ce n'est pas ce qui vient en face qui l'interdit, c'est de l'ignorer.",
+    "id": "697b226c6270e1cee1a6e4edb95dec42",
+    "illustration": {
+      "alt": "Vue de profil : la chaussée monte vers un sommet ; la portion qui redescend au-delà est marquée comme non visible depuis votre place, derrière la voiture qui vous précède.",
+      "asset": "depassement-sommet-de-cote"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "interdit seulement si un véhicule vient en face"
+      },
+      {
+        "id": "B",
+        "text": "permis, en accélérant pour écourter la manœuvre"
+      },
+      {
+        "id": "C",
+        "text": "permis, la route étant droite et régulière"
+      },
+      {
+        "id": "D",
+        "text": "interdit : vous ne voyez pas la route au-delà"
+      }
+    ],
+    "prompt": "Sur cette route à double sens, dépasser est :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "R414-12 vise les seules traversées dépourvues de barrière et de demi-barrière : rien n'y matérialise l'arrêt, et le véhicule doublé masque justement la voie. Là où une barrière existe, c'est elle qui commande.",
+    "id": "e5b0f585f1a3654ca790b9e391db8203",
+    "options": [
+      {
+        "id": "A",
+        "text": "lorsqu'elles n'ont ni barrière ni demi-barrière"
+      },
+      {
+        "id": "B",
+        "text": "lorsqu'un train est annoncé par le signal sonore"
+      },
+      {
+        "id": "C",
+        "text": "dans tous les cas, barrières ou non"
+      },
+      {
+        "id": "D",
+        "text": "lorsque la ligne au sol y est continue"
+      }
+    ],
+    "prompt": "Aux traversées de voies ferrées, le dépassement est interdit :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "R414-16 demande de serrer immédiatement sur sa droite sans accélérer. Accélérer allonge la manœuvre et le temps passé sur la voie de gauche : c'est le seul manquement de cet article qui coûte des points, deux en l'occurrence.",
+    "id": "75e142d94ea93f63d0e75fa19a8f8c4f",
+    "options": [
+      {
+        "id": "A",
+        "text": "ralentir fortement et vous porter vers la gauche"
+      },
+      {
+        "id": "B",
+        "text": "serrer à droite sans accélérer votre allure"
+      },
+      {
+        "id": "C",
+        "text": "accélérer pour lui éviter une longue manœuvre"
+      },
+      {
+        "id": "D",
+        "text": "garder votre allure et votre place sur la voie"
+      }
+    ],
+    "prompt": "Un véhicule s'apprête à vous dépasser. Vous devez :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "R414-6 pose que les dépassements s'effectuent à gauche, puis met deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée empruntant la chaussée. Le contourner par la gauche croiserait sa trajectoire.",
+    "id": "ad7c53ef7c57cb946c12b29bc36c004f",
+    "options": [
+      {
+        "id": "A",
+        "text": "sur autoroute, quand la file de gauche est saturée"
+      },
+      {
+        "id": "B",
+        "text": "devant un véhicule dont le conducteur vous fait signe"
+      },
+      {
+        "id": "C",
+        "text": "devant un véhicule qui signale qu'il tourne à gauche"
+      },
+      {
+        "id": "D",
+        "text": "devant un véhicule nettement plus lent que le flux"
+      }
+    ],
+    "prompt": "Dépasser par la droite est obligatoire :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Le 3° du II de R414-4 ajoute cette condition aux deux autres : pouvoir reprendre sa place sans gêner la circulation, et disposer d'une vitesse relative qui rende la manœuvre brève. Deux dépassements emboîtés mettraient trois véhicules de front.",
+    "id": "acfa94cddf8eadadd75d07c9b97a5501",
+    "options": [
+      {
+        "id": "A",
+        "text": "le véhicule devant roule à plus de 50 km/h"
+      },
+      {
+        "id": "B",
+        "text": "la manœuvre doit durer plus de dix secondes"
+      },
+      {
+        "id": "C",
+        "text": "la chaussée compte deux voies au total"
+      },
+      {
+        "id": "D",
+        "text": "vous êtes sur le point d'être dépassé"
+      }
+    ],
+    "prompt": "Vous ne devez pas entamer un dépassement si :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "R414-10 demande de revenir sur sa droite sans provoquer le ralentissement du véhicule dépassé. Se rabattre à un mètre de son pare-chocs l'oblige à lever le pied : la place n'est reprise que quand elle ne coûte rien.",
+    "id": "9aaede46c1c808687f89f4a8fb81f9df",
+    "illustration": {
+      "alt": "Route à double sens, ligne axiale discontinue ; votre voiture vient de se replacer dans la file de droite, à un mètre du pare-chocs de celle qu'elle a doublée.",
+      "asset": "rabattement-apres-depassement"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "trop tôt : le véhicule dépassé doit ralentir"
+      },
+      {
+        "id": "B",
+        "text": "correct : votre place est reprise à droite"
+      },
+      {
+        "id": "C",
+        "text": "correct, le véhicule doublé garde ses distances"
+      },
+      {
+        "id": "D",
+        "text": "trop tard : vous êtes resté à gauche sans motif"
+      }
+    ],
+    "prompt": "Vous venez de dépasser. Ce rabattement est :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "R414-9 met la charge sur le gabarit encombrant : au-delà de deux mètres de large ou sept mètres de long, remorque et chargement compris, son conducteur réduit sa vitesse et, au besoin, s'arrête ou se gare. Les transports en commun en agglomération en sont dispensés.",
+    "id": "07b430ccbde4b33b92be8686899b1ddf",
+    "options": [
+      {
+        "id": "A",
+        "text": "allumer ses feux de détresse et poursuivre sa route"
+      },
+      {
+        "id": "B",
+        "text": "ralentir et au besoin se garer pour laisser passer"
+      },
+      {
+        "id": "C",
+        "text": "conserver son allure, les autres devant patienter"
+      },
+      {
+        "id": "D",
+        "text": "s'arrêter dès qu'un véhicule apparaît derrière lui"
+      }
+    ],
+    "prompt": "Un convoi trop large pour qu'on le dépasse aisément doit :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le second alinéa de R414-11 lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent. Les véhicules à deux roues, eux, y échappent toujours.",
+    "id": "f5a12ba77751310fe9a210a3b787286a",
+    "options": [
+      {
+        "id": "A",
+        "text": "est interdit sans exception à tout véhicule"
+      },
+      {
+        "id": "B",
+        "text": "est interdit aux seuls véhicules à deux roues"
+      },
+      {
+        "id": "C",
+        "text": "reste permis si la priorité est de votre côté"
+      },
+      {
+        "id": "D",
+        "text": "reste permis si vous mettez votre clignotant"
+      }
+    ],
+    "prompt": "À l'approche d'une intersection, le dépassement :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "R414-8 réserve à ceux qui viennent en face la voie la plus à gauche d'une chaussée à double sens de plus de deux voies : s'y engager pour doubler, c'est rouler sur leur voie. La voie centrale est celle du dépassement.",
+    "id": "99824d4de286434d85174502e05ea59d",
+    "options": [
+      {
+        "id": "A",
+        "text": "prenez la voie de gauche, la plus dégagée"
+      },
+      {
+        "id": "B",
+        "text": "prenez l'une ou l'autre selon la circulation"
+      },
+      {
+        "id": "C",
+        "text": "prenez la voie du milieu, puis celle de gauche"
+      },
+      {
+        "id": "D",
+        "text": "prenez la voie du milieu, pas celle de gauche"
+      }
+    ],
+    "prompt": "Sur une chaussée à double sens de trois voies, pour dépasser :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "R414-5 ne prononce pas d'interdiction : il impose de s'être assuré qu'aucun piéton n'est engagé sur le passage. Le danger tient au masque — le véhicule doublé cache le piéton jusqu'au dernier mètre.",
+    "id": "b494d71578b339d0259157dd378a3b9b",
+    "options": [
+      {
+        "id": "A",
+        "text": "possible si aucun piéton n'est déjà engagé"
+      },
+      {
+        "id": "B",
+        "text": "interdit dans tous les cas par le code"
+      },
+      {
+        "id": "C",
+        "text": "interdit aux seuls véhicules de plus de 3,5 t"
+      },
+      {
+        "id": "D",
+        "text": "possible si vous ne franchissez pas la ligne"
+      }
+    ],
+    "prompt": "À l'approche d'un passage pour piétons, dépasser est :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "R414-17 vise la neige et le verglas, jamais la pluie, et il joue sur toute chaussée, pas seulement sur autoroute : dès qu'une voie en est couverte, ni dépassement ni changement de file, au-delà de 3,5 tonnes comme pour un ensemble de plus de 7 mètres.",
+    "id": "93292bac6a7b17452c0e2ad2b30164fa",
+    "options": [
+      {
+        "id": "A",
+        "text": "sur les routes à double sens, en toute saison"
+      },
+      {
+        "id": "B",
+        "text": "quand une voie est enneigée ou verglacée"
+      },
+      {
+        "id": "C",
+        "text": "sur autoroute, dès qu'il pleut sur la chaussée"
+      },
+      {
+        "id": "D",
+        "text": "la nuit, hors des sections éclairées"
+      }
+    ],
+    "prompt": "Le dépassement est interdit aux véhicules de plus de 3,5 t :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "R414-15 ne joue que sur les routes à sens unique ou à plus de deux voies, et seulement quand la densité a figé la circulation en files sur toutes les voies. Hors de ce cas, remonter par la droite reste un dépassement par la droite.",
+    "id": "2fc1ed8a9c9274f0e06be9f12850f5a4",
+    "options": [
+      {
+        "id": "A",
+        "text": "n'est toléré qu'en dessous de 30 km/h"
+      },
+      {
+        "id": "B",
+        "text": "est permis, mais sur autoroute seulement"
+      },
+      {
+        "id": "C",
+        "text": "n'est pas considéré comme un dépassement"
+      },
+      {
+        "id": "D",
+        "text": "est un dépassement par la droite, donc interdit"
+      }
+    ],
+    "prompt": "La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file voisine :",
+    "subject": "code",
+    "topic": "Croisement & dépassement"
   }
 ]

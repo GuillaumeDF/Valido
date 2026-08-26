@@ -291,8 +291,19 @@ private func rueBordeeDeDeuxTrottoirs(_ ctx: CGContext, gauche: Double, droite: 
 /// hachures sont posées **sous** les véhicules, pour qu'un véhicule pris dedans se lise
 /// entouré de rayures plutôt que rayé lui-même.
 private func zoneNonVue(_ ctx: CGContext, _ rect: CGRect, _ p: Palette) {
+    zoneNonVue(ctx, CGPath(rect: rect, transform: nil), p)
+}
+
+/// La même zone, sur un contour quelconque. La tâche 16 en a eu besoin pour la portion de
+/// chaussée qui plonge **au-delà d'un sommet de côte** : elle est oblique, donc pas un
+/// rectangle. Le pas et l'inclinaison des hachures se calculent sur la boîte englobante du
+/// chemin, si bien qu'un chemin rectangulaire redonne exactement le dessin d'avant — les
+/// quatre PNG d'`angle-mort-poids-lourd` ne bougent pas d'un pixel.
+private func zoneNonVue(_ ctx: CGContext, _ chemin: CGPath, _ p: Palette) {
+    let rect = chemin.boundingBox
     ctx.saveGState()
-    ctx.clip(to: rect)
+    ctx.addPath(chemin)
+    ctx.clip()
     ctx.setStrokeColor(p.marquage.copy(alpha: 0.55) ?? p.marquage)
     ctx.setLineWidth(2)
     var d = -rect.height
@@ -306,7 +317,8 @@ private func zoneNonVue(_ ctx: CGContext, _ rect: CGRect, _ p: Palette) {
     ctx.restoreGState()
     ctx.setStrokeColor(p.marquage.copy(alpha: 0.85) ?? p.marquage)
     ctx.setLineWidth(1.5)
-    ctx.stroke(rect)
+    ctx.addPath(chemin)
+    ctx.strokePath()
 }
 
 /// Un poids lourd vu de dessus, nez vers le haut : cabine courte, caisse longue, et un
@@ -519,6 +531,96 @@ private func zigzagJauneSurLaBordure(_ ctx: CGContext, de x0: Double, a x1: Doub
     }
     ctx.strokePath()
 }
+
+// MARK: - Croisement & dépassement (tâche 16)
+//
+// Quatre scènes, trois vues de dessus et une **de profil**. Le partage n'est pas un choix
+// de style : le brief demandait une paire — même route, visibilité coupée par le relief,
+// réponse inverse — et un sommet de côte **ne se voit pas en vue aérienne**, exactement
+// comme la pente de `croisement-en-pente`. Une paire de vues de dessus était donc
+// impossible ; la moitié « côte » est la seule scène de profil du lot.
+//
+// Le risque que ce partage crée est nommé dans `images.md` à propos des deux lignes jaunes
+// (« photo, donc arrêt interdit ») : si le registre visuel était corrélé à la réponse, le
+// candidat apprendrait le registre au lieu de la règle. Il ne l'est pas ici, et c'est
+// vérifiable — les deux scènes de profil déjà livrées répondent l'une « vous cédez »
+// (`croisement-en-pente`) et l'autre « c'est admis » (`chargement-depassement-arriere`),
+// donc « profil » ne prédit rien.
+//
+// Échelle des trois vues de dessus : **16 unités par mètre** pour les deux scènes de
+// dépassement (voie de 56 unités pour 3,50 m, voiture de `Primitives` agrandie 1,25 fois,
+// soit 50 × 27,5 unités pour 3,13 × 1,72 m — une voiture qui laisse un peu moins d'un mètre
+// de part et d'autre dans sa voie, comme sur la route) et **12,2 unités par mètre** pour le
+// croisement, dont les voies de 30 unités valent 2,46 m : c'est cette étroitesse-là qui fait
+// la question, donc elle se dessine à l'échelle plutôt qu'elle ne s'affirme en légende.
+
+/// Chaussée à double sens des deux scènes de dépassement : deux voies, deux bandes de rive
+/// continues. Sans bande d'arrêt d'urgence, « la ligne de rive est continue » (IISR, 7e
+/// partie, art. 114-4, B). L'axe médian n'est **pas** posé ici : `croisement-chaussee-etroite`
+/// n'en a pas, et c'est justement son absence qui empêche la question de glisser vers la
+/// signification du trait.
+private func chausseeADoubleSens(_ ctx: CGContext, gauche: Double, droite: Double,
+                                 _ p: Palette) {
+    fond(ctx, p)
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: gauche, y: 0, width: droite - gauche, height: H))
+    ctx.setFillColor(p.marquage)
+    ctx.fill(CGRect(x: gauche + 1.5, y: 0, width: 3, height: H))
+    ctx.fill(CGRect(x: droite - 4.5, y: 0, width: 3, height: H))
+}
+
+/// Axe médian **discontinu de type T1** : « 3 m de trait, 10 m d'intervalle » (IISR, 7e
+/// partie, art. 113-1, B), soit un rapport plein/vide de 0,3 — les vides dominent.
+///
+/// Ce rapport n'est pas un détail de dessin. Une discontinue à pleins dominants (T3) est
+/// une **ligne de dissuasion**, qui n'a pas la même portée ; dessiner 15 unités de trait
+/// pour 12 de vide, comme le fait `ligneT3` des scènes de marquage, aurait posé sous la
+/// question une seconde question que l'énoncé ne pose pas. 15 pour 50 donne exactement le
+/// 0,3 de la norme, et quatre traits et demi sur les 300 unités du cadre.
+private let axeT1Trait = 15.0, axeT1Pas = 65.0
+private func ligneAxialeT1(_ ctx: CGContext, x: Double, _ p: Palette) {
+    ctx.setFillColor(p.marquage)
+    var y = 8.0
+    while y < H {
+        ctx.fill(CGRect(x: x - 1.5, y: y, width: 3, height: min(axeT1Trait, H - y)))
+        y += axeT1Pas
+    }
+}
+
+/// La voiture vue de dessus de `Primitives.swift`, à une autre échelle. Même procédé que
+/// `voitureEnEpi` et que la voiture de `depassement-cycliste-distance` : on incline le
+/// repère plutôt que d'ajouter une seconde géométrie de caisse.
+private func voitureAgrandie(_ ctx: CGContext, x: Double, y: Double, cap: Cap,
+                             facteur: Double, couleur: CGColor, liseree: Bool = false,
+                             contour: CGColor? = nil, _ p: Palette) {
+    ctx.saveGState()
+    ctx.translateBy(x: x, y: y)
+    ctx.scaleBy(x: facteur, y: facteur)
+    voiture(ctx, x: 0, y: 0, cap: cap, couleur: couleur, liseree: liseree,
+            contour: contour, p)
+    ctx.restoreGState()
+}
+
+/// Géométrie des deux scènes de dépassement : chaussée de 112 unités, deux voies de 56.
+private let depGauche = 144.0, depDroite = 256.0, depAxe = 200.0
+private let depVoieDroite = 228.0, depVoieGauche = 172.0
+private let depEchelle = 1.25
+
+// MARK: Le sommet de côte, vu de profil
+
+/// Profil de la chaussée : elle monte du bord gauche au sommet, puis redescend. Les trois
+/// altitudes gardent le sommet (138) et les deux versants dans la bande d'environ 110
+/// unités qui survit au rétrécissement du bandeau à 18 %.
+private let coteDepart = 206.0, coteSommetX = 236.0, coteSommetY = 138.0, coteFin = 214.0
+private func altitudeCote(_ x: Double) -> Double {
+    x <= coteSommetX
+        ? coteDepart + (x / coteSommetX) * (coteSommetY - coteDepart)
+        : coteSommetY + ((x - coteSommetX) / (W - coteSommetX)) * (coteFin - coteSommetY)
+}
+/// Inclinaison du versant que l'on monte : les véhicules s'y posent avec.
+private let angleMontee = atan2(coteSommetY - coteDepart, coteSommetX)
+/// Demi-épaisseur de la chaussée dessinée de profil.
+private let coteDemiChaussee = 15.0
 
 let scenesCirculation: [(String, Scene)] = [
 
@@ -887,6 +989,169 @@ let scenesCirculation: [(String, Scene)] = [
         clignotantAllume(ctx, at: CGPoint(x: 215, y: 162), rayon: 4.5, versLaGauche: true, p)
         clignotantAllume(ctx, at: CGPoint(x: 215, y: 58), rayon: 4.5, versLaGauche: true, p)
         voiture(ctx, x: 224, y: 215, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 21. Le dépassement engagé, sur une chaussée à double sens dont l'axe est une
+    //     discontinue T1. Ce que seule l'image apporte, et qu'aucun énoncé de deux lignes
+    //     ne pourrait dire sans donner la réponse : que la manœuvre est **déjà commencée**
+    //     (vous êtes dans la moitié gauche, à la hauteur du véhicule doublé) et que la voie
+    //     devant vous est **libre**. La flèche de trajectoire est nécessaire : sans elle,
+    //     deux voitures côte à côte nez au nord se liraient aussi bien comme deux files
+    //     d'un sens unique.
+    //
+    //     Aucun véhicule ne vient en face, et c'est un écart assumé au brief. Un tiers
+    //     dessiné « assez loin » ferait reposer la réponse sur une **distance**, or le
+    //     cadre 4:3 compresse l'axe longitudinal d'un facteur ~20 par rapport à l'axe
+    //     transversal — c'est le motif pour lequel la tâche 12 a renoncé à illustrer la
+    //     distance de sécurité. Le distracteur « renoncez, un véhicule vient » deviendrait
+    //     alors défendable, ce que la règle 2 du §1 de `questions.md` interdit.
+    ("depassement-ligne-discontinue", { ctx, p in
+        chausseeADoubleSens(ctx, gauche: depGauche, droite: depDroite, p)
+        ligneAxialeT1(ctx, x: depAxe, p)
+        // La trajectoire d'abord : les voitures se posent dessus et la flèche paraît sortir
+        // de dessous celle du candidat, comme au giratoire.
+        fleche(ctx, [CGPoint(x: depVoieDroite, y: 252), CGPoint(x: depVoieDroite, y: 222),
+                     CGPoint(x: 202, y: 198), CGPoint(x: depVoieGauche, y: 182)],
+               couleur: p.vous)
+        voitureAgrandie(ctx, x: depVoieDroite, y: 178, cap: .nord, facteur: depEchelle,
+                        couleur: p.autre, p)
+        voitureAgrandie(ctx, x: depVoieGauche, y: 148, cap: .nord, facteur: depEchelle,
+                        couleur: p.vous, liseree: true, p)
+    }),
+
+    // 22. La même manœuvre, sur une route dont le sommet coupe la vue — et **de profil**,
+    //     parce qu'un relief ne se voit pas d'en haut (même raison que `croisement-en-pente`,
+    //     seule autre scène où c'est la troisième dimension qui décide).
+    //
+    //     Ce qui porte la réponse est la portion de chaussée **hachurée** au-delà du
+    //     sommet : la convention établie par `angle-mort-poids-lourd` pour une surface non
+    //     vue depuis un poste de conduite. La ligne de visée en `vous` dit d'où part le
+    //     regard et où il passe — elle est tracée **avant** les véhicules, si bien qu'elle
+    //     disparaît derrière celui qui vous précède et ressort devant lui : c'est
+    //     exactement ce que fait un regard.
+    //
+    //     Elle est en `vous` et non en `marquage` pour une raison mesurée : sur le `sol`
+    //     du mode clair (235 en niveaux de gris) un trait blanc serait invisible, et sur
+    //     celui du mode sombre (37) un trait noir le serait tout autant. Le bleu `vous`
+    //     mesure 115 dans les deux modes, donc à plus de 75 points des deux fonds.
+    //
+    //     Aucun véhicule n'est dessiné derrière le sommet : il faudrait le montrer caché,
+    //     ce qu'un dessin ne sait pas faire, et sa présence rendrait défendable le
+    //     distracteur « interdit seulement si un véhicule vient en face » — alors que
+    //     R414-11 interdit sans considérer ce qui arrive, et pour cause : on l'ignore.
+    ("depassement-sommet-de-cote", { ctx, p in
+        fond(ctx, p)
+        // Le versant sous la chaussée : sans lui, deux segments gris se lisent comme un
+        // chevron peint, pas comme une route taillée dans un relief.
+        let versant = CGMutablePath()
+        versant.move(to: CGPoint(x: 0, y: coteDepart + coteDemiChaussee))
+        versant.addLine(to: CGPoint(x: coteSommetX, y: coteSommetY + coteDemiChaussee))
+        versant.addLine(to: CGPoint(x: W, y: coteFin + coteDemiChaussee))
+        versant.addLine(to: CGPoint(x: W, y: H))
+        versant.addLine(to: CGPoint(x: 0, y: H))
+        versant.closeSubpath()
+        ctx.setFillColor(p.ilot)
+        ctx.addPath(versant)
+        ctx.fillPath()
+        ctx.setLineCap(.butt)
+        ctx.setLineJoin(.miter)
+        ctx.setStrokeColor(p.chaussee)
+        ctx.setLineWidth(coteDemiChaussee * 2)
+        ctx.beginPath()
+        ctx.move(to: CGPoint(x: 0, y: coteDepart))
+        ctx.addLine(to: CGPoint(x: coteSommetX, y: coteSommetY))
+        ctx.addLine(to: CGPoint(x: W, y: coteFin))
+        ctx.strokePath()
+        // Bande de rive le long du bord bas : c'est elle qui fait lire une chaussée.
+        ctx.setStrokeColor(p.marquage)
+        ctx.setLineWidth(2.5)
+        ctx.beginPath()
+        ctx.move(to: CGPoint(x: 0, y: coteDepart + coteDemiChaussee - 4))
+        ctx.addLine(to: CGPoint(x: coteSommetX, y: coteSommetY + coteDemiChaussee - 4))
+        ctx.addLine(to: CGPoint(x: W, y: coteFin + coteDemiChaussee - 4))
+        ctx.strokePath()
+        // La chaussée que vous ne voyez pas : tout ce qui plonge derrière le sommet.
+        let cachee = CGMutablePath()
+        cachee.move(to: CGPoint(x: coteSommetX, y: coteSommetY - coteDemiChaussee))
+        cachee.addLine(to: CGPoint(x: W, y: coteFin - coteDemiChaussee))
+        cachee.addLine(to: CGPoint(x: W, y: coteFin + coteDemiChaussee))
+        cachee.addLine(to: CGPoint(x: coteSommetX, y: coteSommetY + coteDemiChaussee))
+        cachee.closeSubpath()
+        zoneNonVue(ctx, cachee, p)
+        // La ligne de visée : de votre œil au sommet, puis au-delà. La pente est celle de
+        // la corde œil-sommet, donc le trait rase la crête par construction.
+        let vousX = 96.0, autreX = 168.0
+        let oeil = CGPoint(x: vousX, y: altitudeCote(vousX) - 14)
+        let pente = (coteSommetY - oeil.y) / (coteSommetX - oeil.x)
+        ctx.setStrokeColor(p.vous)
+        ctx.setLineWidth(2)
+        ctx.setLineDash(phase: 0, lengths: [7, 7])
+        ctx.beginPath()
+        ctx.move(to: oeil)
+        ctx.addLine(to: CGPoint(x: W, y: coteSommetY + pente * (W - coteSommetX)))
+        ctx.strokePath()
+        ctx.setLineDash(phase: 0, lengths: [])
+        voitureDeProfil(ctx, x: autreX, y: altitudeCote(autreX) - 4, pente: angleMontee,
+                        versLaDroite: true, couleur: p.autre, liseree: false, p)
+        voitureDeProfil(ctx, x: vousX, y: altitudeCote(vousX) - 4, pente: angleMontee,
+                        versLaDroite: true, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 23. Le croisement sur chaussée étroite, un véhicule à l'arrêt du côté du candidat.
+    //     Ce que seule l'image apporte : **de quel côté** est l'obstacle. Un énoncé qui le
+    //     dirait aurait donné la réponse, puisque c'est le seul fait qui la décide.
+    //
+    //     Les voies font 42 unités, soit 3 m à l'échelle des véhicules (14 unités par
+    //     mètre) : la voiture arrêtée, large de 25, laisse 15 unités entre elle et l'axe,
+    //     soit 1,10 m là où il en faudrait 1,80. L'impossibilité de passer est donc
+    //     **dessinée à l'échelle**, elle ne s'affirme pas en légende.
+    //
+    //     Aucun axe médian : une chaussée étroite n'en porte pas, et son absence garde la
+    //     question sur la manœuvre au lieu de la ramener à la signification d'un trait,
+    //     déjà traitée par cinq questions du topic `Panneaux & marquage`.
+    //
+    //     Les **feux de détresse** sur le flanc de la voiture arrêtée ne sont pas du décor :
+    //     vue de dessus, une voiture à l'arrêt et une voiture qui roule ont exactement la
+    //     même silhouette, et sans eux la scène se lirait comme une file de deux véhicules
+    //     — c'est-à-dire comme une question de distance de sécurité. La même primitive sert
+    //     déjà à dire « ce bus va repartir » dans la scène 20.
+    //
+    //     Le compromis de cadrage est ici le plus serré du lot : trois véhicules ne tiennent
+    //     pas dans la bande de 110 unités qui survit au recadrage. L'obstacle et le véhicule
+    //     d'en face y sont entiers — ce sont eux qui portent la réponse —, le candidat à
+    //     moitié, ce qui suffit puisque son liseré et sa voie sont les deux seules choses
+    //     qu'il ait à dire.
+    ("croisement-chaussee-etroite", { ctx, p in
+        chausseeADoubleSens(ctx, gauche: 158, droite: 242, p)
+        voitureAgrandie(ctx, x: 179, y: 118, cap: .sud, facteur: 1.15, couleur: p.autre, p)
+        voitureAgrandie(ctx, x: 228, y: 140, cap: .nord, facteur: 1.15, couleur: p.tiers,
+                        contour: traitSombre, p)
+        clignotantAllume(ctx, at: CGPoint(x: 214, y: 126), rayon: 4, versLaGauche: true, p)
+        clignotantAllume(ctx, at: CGPoint(x: 214, y: 154), rayon: 4, versLaGauche: true, p)
+        voitureAgrandie(ctx, x: 221, y: 205, cap: .nord, facteur: 1.15, couleur: p.vous,
+                        liseree: true, p)
+    }),
+
+    // 24. Le rabattement trop serré. L'image porte une **position**, et rien d'autre ne
+    //     peut la porter : le véhicule dépassé est à un mètre du pare-chocs arrière du
+    //     candidat, qui vient de reprendre la file de droite. La flèche de trajectoire est
+    //     indispensable — sans elle, deux voitures collées dans la même file se liraient
+    //     aussi bien comme un candidat collé au véhicule de devant, c'est-à-dire comme la
+    //     question de distance de sécurité, qui est celle d'un autre topic.
+    //
+    //     Montrer une manœuvre **fautive** est ici légitime, et c'est l'inverse du piège du
+    //     chargement (scène 15) : là-bas l'énoncé demandait ce que la loi admet, donc la
+    //     scène devait montrer un cas licite ; ici l'énoncé demande de juger la manœuvre,
+    //     donc elle doit être jugeable.
+    ("rabattement-apres-depassement", { ctx, p in
+        chausseeADoubleSens(ctx, gauche: depGauche, droite: depDroite, p)
+        ligneAxialeT1(ctx, x: depAxe, p)
+        fleche(ctx, [CGPoint(x: depVoieGauche, y: 232), CGPoint(x: depVoieGauche, y: 200),
+                     CGPoint(x: 202, y: 170), CGPoint(x: 224, y: 158)], couleur: p.vous)
+        voitureAgrandie(ctx, x: depVoieDroite, y: 195, cap: .nord, facteur: depEchelle,
+                        couleur: p.autre, p)
+        voitureAgrandie(ctx, x: depVoieDroite, y: 128, cap: .nord, facteur: depEchelle,
+                        couleur: p.vous, liseree: true, p)
     }),
 ]
 

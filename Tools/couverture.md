@@ -39,7 +39,7 @@ se relit avec `python3 Tools/audit.py`.
 | thématique ETG | topic Valido | volume | verdict |
 |---|---|---:|---|
 | Arrêt et stationnement | `Arrêt & stationnement` | 11 | couvert |
-| Croisement et dépassement | | 0 | absent |
+| Croisement et dépassement | `Croisement & dépassement` | 15 | couvert |
 | Économie et écoconduite | `Mécanique & environnement` | 10 | à compléter |
 | Règles de priorités | `Priorités & intersections` | 21 | couvert |
 | Règles de circulation | `Vitesse` | 16 | couvert |
@@ -82,6 +82,6 @@ les réserves qui vont avec, sont dans le rapport de la tâche 1 — pas ici.
 Trois thématiques n'ont aucun topic `code` chez elles. Ces noms sont **arrêtés ici** : les
 tâches 15 à 17 les reprennent tels quels, sans les réinventer.
 
-- `Croisement & dépassement` — pour « Croisement et dépassement ».
+- `Croisement & dépassement` — pour « Croisement et dépassement ». **Créé par la tâche 16** (2026-08-26), 15 questions.
 - `Tunnels & passages à niveau` — pour « Tunnels et passages à niveau ».
 - `Usagers & partage de la route` — pour « Usagers, partage de l'espace public ». **Créé par la tâche 15** (2026-08-26), 18 questions.
