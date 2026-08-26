@@ -3195,15 +3195,15 @@
       },
       {
         "id": "B",
-        "text": "quand la valeur déballée ne sert qu'à l'intérieur du bloc"
+        "text": "pour cantonner la valeur déballée à l'intérieur de ce bloc"
       },
       {
         "id": "C",
-        "text": "parce qu'il évalue ses conditions paresseusement"
+        "text": "pour évaluer ses conditions de façon paresseuse"
       },
       {
         "id": "D",
-        "text": "quand on veut regrouper plusieurs cas dans un `switch`"
+        "text": "pour regrouper plusieurs cas dans un `switch`"
       }
     ],
     "prompt": "On préfère `guard` à `if let` :",
@@ -4054,7 +4054,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Flags `-warn-long-function-bodies=ms` et `-warn-long-expression-type-checking=ms`. Coupable fréquent : grosses expressions SwiftUI / inférence de type ambiguë → découper.",
+    "explanation": "Les deux flags existent et ne mesurent pas la même chose : `-warn-long-function-bodies=ms` chronomètre le type-checking d'un corps de fonction entier, `-warn-long-expression-type-checking=ms` celui d'une expression isolée. Coupable fréquent : grosses expressions SwiftUI, inférence de type ambiguë → découper.",
     "id": "37fe1af42b8d815588eff378b3507f43",
     "options": [
       {
@@ -4063,7 +4063,7 @@
       },
       {
         "id": "B",
-        "text": "`-enable-batch-mode`"
+        "text": "`-warn-long-expression-type-checking=<ms>`"
       },
       {
         "id": "C",
@@ -4530,7 +4530,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Activer les warnings stricts (voire 'treat warnings as errors'), le mode Swift 6, et brancher SwiftLint/format dès le départ. Plus dur à imposer après coup.",
+    "explanation": "Warnings stricts, « treat warnings as errors » et mode Swift 6 se posent avant la première ligne : chaque semaine écrite sous un régime permissif rend le passage plus cher. La couverture ou le formatage, eux, s'ajoutent n'importe quand sans rien réécrire.",
     "id": "37fe1af42b8d8174a15aef9d1f72f93e",
     "options": [
       {
@@ -4539,7 +4539,7 @@
       },
       {
         "id": "B",
-        "text": "activer le bitcode et la compilation whole-module"
+        "text": "activer la couverture de code sur le schéma de test"
       },
       {
         "id": "C",
@@ -5202,12 +5202,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Entre le test et l'appel, l'état du réseau a pu changer : le contrôle préalable ne supprime pas le cas d'échec, il en ajoute un. `NWPathMonitor` sert à refléter l'état réseau dans l'interface, pas à autoriser un appel.",
+    "explanation": "Entre le test et l'appel, l'état du réseau a pu changer : le contrôle préalable ne supprime pas le cas d'échec, il en ajoute un. `NWPathMonitor` sert à refléter l'état réseau dans l'interface, pas à autoriser un appel ; pour vraiment attendre une connexion, c'est `waitsForConnectivity` sur la configuration de session.",
     "id": "37fe1af42b8d81989defc992271ef3b2",
     "options": [
       {
         "id": "A",
-        "text": "est un anti-pattern : mieux vaut tenter et gérer l'échec"
+        "text": "est un anti-pattern, mieux vaut tenter et gérer l'échec"
       },
       {
         "id": "B",
@@ -5219,7 +5219,7 @@
       },
       {
         "id": "D",
-        "text": "est exigé par la revue App Store depuis iOS 17"
+        "text": "n'a de sens que pour les transferts en arrière-plan"
       }
     ],
     "prompt": "Vérifier la reachability avant une requête réseau :",
@@ -5230,7 +5230,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Typer des messages dont le traitement est garanti sur le MainActor → un canal de communication sûr vers la couche UI sans hop manuel.",
+    "explanation": "Swift 6.2 ouvre `NotificationCenter` aux messages typés : le traitement d'un `MainActorMessage` est garanti sur le MainActor, là où `AsyncMessage` laisse l'isolation libre. Fini le `userInfo` non typé et le saut manuel vers la couche UI.",
     "id": "37fe1af42b8d8199acacc156a5d57bf3",
     "options": [
       {
@@ -5239,7 +5239,7 @@
       },
       {
         "id": "B",
-        "text": "typer des messages traités à coup sûr sur le MainActor"
+        "text": "typer des messages toujours traités sur le fil principal"
       },
       {
         "id": "C",
@@ -5250,7 +5250,7 @@
         "text": "sérialiser les notifications système sur une file dédiée"
       }
     ],
-    "prompt": "L'idée derrière `MainActorMessage` :",
+    "prompt": "Dans `NotificationCenter` (iOS 26), un `MainActorMessage` sert à :",
     "sourceURL": "https://www.notion.so/362e1af42b8d81f3a14ef7941f0d95be",
     "subject": "swift",
     "topic": "Concurrence"
@@ -5482,7 +5482,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Elle donne un offset qui repart de zéro, pas l'`Index` de la collection. Sur un `ArraySlice` ou une collection dont les indices ne commencent pas à zéro, s'en servir pour indexer est un bug. Préférer `zip(array.indices, array)`.",
+    "explanation": "Le tuple vaut `(offset, élément)` : un compteur qui repart de zéro à chaque appel, jamais l'`Index` de la collection. Sur un `ArraySlice` ou une collection dont les indices ne commencent pas à zéro, s'en servir pour indexer est un bug. Préférer `zip(array.indices, array)`.",
     "id": "37fe1af42b8d81ac8dc9d127a7a62f26",
     "options": [
       {
@@ -5502,7 +5502,7 @@
         "text": "un index décroissant, en partant de la fin"
       }
     ],
-    "prompt": "`enumerated()` fournit :",
+    "prompt": "Dans le tuple rendu par `enumerated()`, la première composante est :",
     "sourceURL": "https://www.notion.so/1bee1af42b8d806e8559d8ffdbd9ec33",
     "subject": "swift",
     "topic": "Langage"
@@ -5645,7 +5645,7 @@
     "prompt": "Pour du travail async lié au cycle de vie d'une vue SwiftUI :",
     "sourceURL": "https://www.notion.so/1bce1af42b8d8083bef4e78579f2e62c",
     "subject": "swift",
-    "topic": "Langage"
+    "topic": "SwiftUI"
   },
   {
     "correctID": "A",
@@ -6223,7 +6223,7 @@
       },
       {
         "id": "C",
-        "text": "doit être appelée avant la fin de la fonction"
+        "text": "est allouée sur la pile plutôt que sur le tas"
       },
       {
         "id": "D",
@@ -6630,7 +6630,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Garde l'abonné actif pendant un échec de paiement, le temps qu'il régularise → réduit le churn involontaire.",
+    "explanation": "Le prélèvement a échoué — carte expirée, plafond atteint — mais l'accès reste ouvert pendant qu'Apple retente et relance le client. Sans ce sursis, la coupure est immédiate et l'app perd des abonnés qui n'avaient pas décidé de partir : c'est le churn involontaire.",
     "id": "37fe1af42b8d81f28d16d808edad4964",
     "options": [
       {
@@ -6639,11 +6639,11 @@
       },
       {
         "id": "B",
-        "text": "autorise un remboursement dans les 14 jours suivant l'achat"
+        "text": "autorise un remboursement dans les 14 jours"
       },
       {
         "id": "C",
-        "text": "suspend l'abonnement jusqu'à la régularisation du paiement"
+        "text": "repousse le renouvellement à la demande de l'éditeur"
       },
       {
         "id": "D",
@@ -7729,7 +7729,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le type porteur du suite est instancié pour chaque test : son `init` sert de préparation et son `deinit` de nettoyage, sans `setUp`/`tearDown` de classe. L'ordre n'est jamais garanti — les tests tournent en parallèle par défaut.",
+    "explanation": "Le type porteur de la suite est instancié pour chaque test : son `init` sert de préparation et son `deinit` de nettoyage, sans `setUp`/`tearDown` de classe. L'ordre n'est jamais garanti — les tests tournent en parallèle par défaut. Un trait posé sur la suite, lui, redescend sur chacun des tests qu'elle contient.",
     "id": "ca3d16b4caf97cdc759a0ae1f5e16722",
     "options": [
       {
@@ -7742,7 +7742,7 @@
       },
       {
         "id": "C",
-        "text": "leur appliquer un délai d'expiration commun"
+        "text": "leur imposer une relance automatique après échec"
       },
       {
         "id": "D",
@@ -7965,7 +7965,7 @@
         "text": "les données de reprise d'un `URLSessionDownloadTask`"
       }
     ],
-    "prompt": "Reprendre un téléchargement interrompu sans repartir de zéro passe par :",
+    "prompt": "Un téléchargement interrompu se relance sans tout retélécharger grâce à :",
     "subject": "swift",
     "topic": "Networking"
   },
@@ -8242,12 +8242,12 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Apple cible deux choses : ce que le SDK emporte comme données, et l'usage d'API capables de servir au fingerprinting — dont l'emploi doit être justifié par une raison figurant sur une liste fermée. Un SDK signé et déclaré est une condition de mise en ligne.",
+    "explanation": "Apple publie la liste des SDK tiers concernés, et le manifeste n'y suffit pas : le binaire doit aussi être signé. Quand l'app adopte une nouvelle version du SDK, Xcode vérifie qu'elle porte la signature du même éditeur — ce qui est visé est la chaîne d'approvisionnement, pas seulement la transparence. À la distribution, Xcode agrège les manifestes de tous les SDK embarqués en un rapport unique.",
     "id": "54ba9d200620d67625245fed8e94a9bc",
     "options": [
       {
         "id": "A",
-        "text": "les permissions système demandées par le SDK"
+        "text": "les permissions système qu'il réclame à l'installation"
       },
       {
         "id": "B",
@@ -8255,14 +8255,14 @@
       },
       {
         "id": "C",
-        "text": "les données collectées et les API à raison requise"
+        "text": "une signature que Xcode compare d'une version à l'autre"
       },
       {
         "id": "D",
         "text": "les domaines contactés par le SDK à l'exécution"
       }
     ],
-    "prompt": "Le Privacy Manifest d'un SDK tiers doit déclarer :",
+    "prompt": "En plus de son Privacy Manifest, un SDK de la liste Apple doit fournir :",
     "subject": "swift",
     "topic": "Sécurité"
   },
@@ -8289,7 +8289,7 @@
         "text": "les droits en cours renvoyés par StoreKit"
       }
     ],
-    "prompt": "Pour savoir si un abonnement est actif, on lit :",
+    "prompt": "Dans l'app, pour savoir si un abonnement est actif, on lit :",
     "subject": "swift",
     "topic": "Monétisation"
   },
