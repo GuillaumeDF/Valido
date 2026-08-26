@@ -641,7 +641,7 @@ private let coteDemiChaussee = 15.0
 // sa question (« l'arrêt absolu, train visible ou non ») ; le remettre ici ferait répondre
 // la carte voisine plutôt que celle-ci.
 
-/// Géométrie du tube de tunnel. Deux voies de 42 unités (3,50 m) entre deux piédroits
+/// Géométrie du tube de tunnel. Deux voies de 56 unités (3,50 m) entre deux piédroits
 /// pleins, et un renfoncement creusé dans le piédroit de droite : c'est l'emplacement
 /// d'arrêt d'urgence, dont la signalisation est **obligatoire dans les tunnels** (IISR,
 /// 5e partie, art. 70-5, 1 : panneau C8, complété du panonceau M9e quand l'emplacement

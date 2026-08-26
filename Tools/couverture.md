@@ -46,7 +46,7 @@ se relit avec `python3 Tools/audit.py`.
 | Règles de circulation | `Permis & sanctions` | 14 | couvert |
 | Signalisation | `Panneaux & marquage` | 17 | couvert |
 | Signalisation | `Feux` | 19 | couvert |
-| Tunnels et passages à niveau | `Tunnels & passages à niveau` | 14 | couvert |
+| Tunnels et passages à niveau | `Tunnels & passages à niveau` | 15 | couvert |
 | Visibilité et éclairage | `Feux` | 19 | à compléter |
 | Usagers, partage de l'espace public | `Usagers & partage de la route` | 18 | couvert |
 | Prise de conscience des risques | `Alcool & stupéfiants` | 14 | couvert |
@@ -83,5 +83,5 @@ Trois thématiques n'ont aucun topic `code` chez elles. Ces noms sont **arrêté
 tâches 15 à 17 les reprennent tels quels, sans les réinventer.
 
 - `Croisement & dépassement` — pour « Croisement et dépassement ». **Créé par la tâche 16** (2026-08-26), 15 questions.
-- `Tunnels & passages à niveau` — pour « Tunnels et passages à niveau ». **Créé par la tâche 17** (2026-08-26), 14 questions.
+- `Tunnels & passages à niveau` — pour « Tunnels et passages à niveau ». **Créé par la tâche 17** (2026-08-26), 15 questions.
 - `Usagers & partage de la route` — pour « Usagers, partage de l'espace public ». **Créé par la tâche 15** (2026-08-26), 18 questions.

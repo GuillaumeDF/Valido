@@ -11599,34 +11599,34 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "La fumée tue avant les flammes, et elle remonte l'ouvrage bien plus vite qu'un piéton : rester à bord ou revenir sur ses pas revient à la laisser vous rejoindre. Les consignes officielles demandent de couper le contact, d'évacuer avec tous les passagers et de donner l'alerte par les téléphones de secours de l'ouvrage plutôt que depuis un mobile.",
-    "id": "6407af536212a71d7bf042f1bab2a88c",
+    "explanation": "La fumée tue avant les flammes, et elle remonte l'ouvrage bien plus vite qu'un piéton : rester à bord ou revenir sur ses pas revient à la laisser vous rejoindre. L'ordre compte donc — couper le contact, évacuer avec tous les passagers, gagner une issue de secours, et alerter ensuite par les téléphones de secours de l'ouvrage plutôt que depuis un mobile.",
+    "id": "7148c3a8be7130501aa3da1644986ebb",
     "options": [
       {
         "id": "A",
-        "text": "restez à bord, vitres et aération fermées"
+        "text": "rester à bord, vitres et aération fermées"
       },
       {
         "id": "B",
-        "text": "appelez les secours depuis votre téléphone"
+        "text": "appeler les secours depuis votre téléphone"
       },
       {
         "id": "C",
-        "text": "faites demi-tour pour ressortir par l'entrée"
+        "text": "faire demi-tour pour ressortir par l'entrée"
       },
       {
         "id": "D",
-        "text": "coupez le moteur et gagnez une issue de secours"
+        "text": "couper le moteur et gagner une issue de secours"
       }
     ],
-    "prompt": "Un véhicule prend feu devant vous dans un tunnel. Vous :",
+    "prompt": "Un véhicule prend feu devant vous dans un tunnel. Vous devez d'abord :",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Savoir combien d'ouvrage reste devant soi commande tout le reste : c'est ce chiffre qui décide, en cas d'incendie, entre ressortir par ses propres moyens et gagner à pied une issue de secours. Les très longs tunnels rappellent d'ailleurs la distance restante de loin en loin.",
+    "explanation": "Le panonceau qui accompagne un panneau d'indication en donne la portée ; sous le panneau d'entrée de tunnel, cette portée est la longueur de l'ouvrage. Savoir combien il en reste devant soi décide de tout le reste : en cas d'incendie, entre ressortir par ses propres moyens et gagner à pied une issue de secours.",
     "id": "3a06288bf73bb5254b83a371ae55a854",
     "options": [
       {
@@ -11653,7 +11653,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Un ouvrage éclairé reste bien plus sombre que le plein jour dont on sort, et l'œil met plusieurs secondes à s'y faire. Pendant ces secondes-là, ce qui compte n'est pas de voir mais d'être vu de celui qui suit — et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard.",
+    "explanation": "Le panneau d'entrée de tunnel porte lui-même la prescription : l'allumage des feux de croisement y est obligatoire, sans condition d'heure ni d'éclairage de l'ouvrage. Le motif tient à l'œil, qui met plusieurs secondes à passer du plein jour à la pénombre — pendant ces secondes-là, ce qui compte n'est pas de voir mais d'être vu, et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard.",
     "id": "bda520451eb11447c3921f8a358742f1",
     "options": [
       {
@@ -11711,24 +11711,24 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, et c'est précisément ce qui arrive sur les lignes à voies multiples.",
+    "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, ce qui arrive sur les lignes à plusieurs voies — mais c'est le mouvement de la barrière qui interdit, jamais le nombre de voies ferrées.",
     "id": "763ae1f8c7040ecb170a4ed33f09505a",
     "options": [
       {
         "id": "A",
-        "text": "barrières fermées, l'ouverture rendant la voie libre"
+        "text": "seulement une fois les demi-barrières immobiles"
       },
       {
         "id": "B",
-        "text": "seulement pendant la fermeture des barrières"
+        "text": "seulement pendant leur descente, jamais à la remontée"
       },
       {
         "id": "C",
-        "text": "à toute heure sur les lignes à voies multiples"
+        "text": "à toute heure sur les lignes à plusieurs voies"
       },
       {
         "id": "D",
-        "text": "barrières fermées, et aussi pendant leur ouverture"
+        "text": "barrières fermées, en fermeture ou en ouverture"
       }
     ],
     "prompt": "Le franchissement d'un passage à niveau est interdit :",
@@ -11795,7 +11795,7 @@
     "explanation": "La priorité du convoi est absolue et il ne peut pas s'arrêter court : dégager passe avant tout le reste. Les demi-barrières sont faites pour céder sous un choc, et l'alerte à l'exploitant ne vient qu'ensuite.",
     "id": "d50cd498f6e5261eb5a2fc9dfe45de90",
     "illustration": {
-      "alt": "Votre voiture est sur les rails, un bras rouge et blanc baissé devant elle et un autre derrière, tous deux en travers de la chaussée.",
+      "alt": "Votre voiture est sur les rails, deux bras rouge et blanc baissés devant elle et deux derrière, barrant toute la largeur de la chaussée.",
       "asset": "passage-a-niveau-immobilise"
     },
     "options": [
@@ -11867,7 +11867,7 @@
       },
       {
         "id": "D",
-        "text": "cinq secondes avant l'abaissement des barrières"
+        "text": "cinq secondes avant l'arrivée du train"
       }
     ],
     "prompt": "Les feux rouges clignotants d'un passage à niveau automatique s'allument :",
@@ -11898,6 +11898,33 @@
       }
     ],
     "prompt": "Franchir irrégulièrement un passage à niveau fait perdre :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions, et le panneau de sortie en marque la fin : demi-tour interdit, arrêt et stationnement interdits hors des emplacements d'arrêt d'urgence, feux de croisement obligatoires. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
+    "id": "5c11020dc34bf45d56cf8438dd8ad79e",
+    "options": [
+      {
+        "id": "A",
+        "text": "d'y changer de voie, une fois engagé"
+      },
+      {
+        "id": "B",
+        "text": "d'y dépasser sur ligne discontinue"
+      },
+      {
+        "id": "C",
+        "text": "d'y faire demi-tour, en tout point"
+      },
+      {
+        "id": "D",
+        "text": "d'y circuler avec une remorque attelée"
+      }
+    ],
+    "prompt": "Le panneau qui signale l'entrée d'un tunnel interdit notamment :",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   }
