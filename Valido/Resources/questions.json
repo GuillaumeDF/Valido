@@ -6210,7 +6210,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Non-escaping (défaut) : appelée avant le retour de la fonction. `@escaping` : stockée et appelée plus tard → capture forte de ce qu'elle référence, donc risque de cycle (`[weak self]`).",
+    "explanation": "Non-escaping (défaut) : appelée avant le retour de la fonction, son contexte peut donc rester sur la pile. `@escaping` : stockée et appelée plus tard, ce qui force la capture sur le tas → capture forte de ce qu'elle référence, donc risque de cycle (`[weak self]`).",
     "id": "37fe1af42b8d81d6b084db6076f4f000",
     "options": [
       {
@@ -8242,16 +8242,16 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Apple publie la liste des SDK tiers concernés, et le manifeste n'y suffit pas : le binaire doit aussi être signé. Quand l'app adopte une nouvelle version du SDK, Xcode vérifie qu'elle porte la signature du même éditeur — ce qui est visé est la chaîne d'approvisionnement, pas seulement la transparence. À la distribution, Xcode agrège les manifestes de tous les SDK embarqués en un rapport unique.",
+    "explanation": "Apple publie la liste des SDK concernés. Le manifeste y est exigé dans tous les cas ; la signature, elle, l'est quand le SDK entre comme dépendance binaire. À chaque nouvelle version adoptée, Xcode contrôle qu'elle vient du même éditeur que la précédente — ce qui est visé est la chaîne d'approvisionnement, pas seulement la transparence. À la distribution, Xcode agrège les manifestes de tous les SDK embarqués en un rapport unique.",
     "id": "54ba9d200620d67625245fed8e94a9bc",
     "options": [
       {
         "id": "A",
-        "text": "les permissions système qu'il réclame à l'installation"
+        "text": "une fiche de confidentialité pour l'App Store"
       },
       {
         "id": "B",
-        "text": "la licence et les dépendances transitives du SDK"
+        "text": "un manifeste par dépendance transitive qu'il embarque"
       },
       {
         "id": "C",
@@ -8259,10 +8259,10 @@
       },
       {
         "id": "D",
-        "text": "les domaines contactés par le SDK à l'exécution"
+        "text": "un relevé des domaines qu'il contacte à l'exécution"
       }
     ],
-    "prompt": "En plus de son Privacy Manifest, un SDK de la liste Apple doit fournir :",
+    "prompt": "En plus de son Privacy Manifest, un SDK binaire de la liste Apple doit fournir :",
     "subject": "swift",
     "topic": "Sécurité"
   },
