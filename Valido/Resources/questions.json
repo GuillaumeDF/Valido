@@ -83,7 +83,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le 112 est le numéro d'urgence commun à toute l'Union européenne, utilisable dans tous ses pays, et l'appel d'urgence passe même quand le forfait est épuisé ou l'abonnement résilié. Les autres numéros à trois chiffres sont français et thématiques : 115 pour les personnes sans abri, 119 pour l'enfance victime de violences, 197 pour l'alerte attentat.",
+    "explanation": "Le 112 est le numéro d'urgence commun à toute l'Union européenne, utilisable dans tous ses pays, et l'appel d'urgence passe même quand le forfait est épuisé ou l'abonnement résilié. Les autres numéros à trois chiffres sont français et thématiques : 115 pour les personnes sans abri, 119 pour l'enfance en danger, 197 pour l'alerte attentat.",
     "id": "37fe1af42b8d810ca665ffa0e4b32ab7",
     "options": [
       {
@@ -7621,7 +7621,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Alerter d'abord, parce que c'est l'appel qui déclenche l'arrivée des secours et du défibrillateur. Masser ensuite sans attendre : chaque minute perdue fait chuter les chances de survie d'environ 10 %. Défibriller dès que l'appareil est là.",
+    "explanation": "Alerter d'abord, parce que c'est l'appel qui déclenche l'arrivée des secours et du défibrillateur. Masser ensuite sans attendre, jusqu'à l'arrivée de l'appareil. Défibriller dès que possible : chaque minute de retard avant la défibrillation fait chuter les chances de survie d'environ 10 %.",
     "id": "7d456e77187812e3a27ca828062d7938",
     "options": [
       {
@@ -10473,7 +10473,7 @@
       },
       {
         "id": "D",
-        "text": "40 à 60 compressions par minute"
+        "text": "35 à 55 compressions par minute"
       }
     ],
     "prompt": "Le massage cardiaque s'effectue à une cadence de :",
@@ -10510,7 +10510,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Refroidir limite l'extension de la lésion en profondeur, à condition que l'eau soit tempérée : la glace referme les vaisseaux et aggrave ce qu'elle prétend soulager. La Croix-Rouge retient au moins dix minutes, vingt idéalement, en faisant couler l'eau en amont de la zone touchée.",
+    "explanation": "Refroidir limite l'extension de la lésion en profondeur, à condition que l'eau soit tempérée : la glace referme les vaisseaux et aggrave ce qu'elle prétend soulager. La Croix-Rouge retient au moins dix minutes, vingt idéalement chez l'adulte, mais pas au-delà de dix minutes chez l'enfant, en faisant couler l'eau en amont de la zone touchée.",
     "id": "1ef7d3ed540293c212d9c304ffb297f5",
     "options": [
       {
@@ -10554,7 +10554,7 @@
       },
       {
         "id": "D",
-        "text": "10 compressions et 2 insufflations"
+        "text": "15 compressions et 5 insufflations"
       }
     ],
     "prompt": "Quand le sauveteur pratique aussi le bouche-à-bouche, il alterne :",
@@ -10581,7 +10581,7 @@
       },
       {
         "id": "D",
-        "text": "Sur le dos, la tête calée en arrière"
+        "text": "Sur le ventre, la tête tournée sur le côté"
       }
     ],
     "prompt": "Pour masser une victime en arrêt cardiaque, on l'installe :",

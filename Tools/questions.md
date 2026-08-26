@@ -295,8 +295,12 @@ d'août 2026 a trouvé trois questions aux chiffres périmés — dont une qui l
 du 18 août 2026).
 
 Sources autorisées, et elles seules : **legifrance.gouv.fr**,
-**securite-routiere.gouv.fr**, **service-public.gouv.fr** (plus **ecologie.gouv.fr** et
-**sante.gouv.fr** pour les ZFE et les gestes de secours).
+**securite-routiere.gouv.fr**, **service-public.gouv.fr**, **ecologie.gouv.fr** et
+**sante.gouv.fr** (ZFE, gestes de secours), plus **unece.org**, **eur-lex.europa.eu**,
+**cprguidelines.eu**, **erc.edu**, **croix-rouge.fr** et **inrs.fr** pour les
+recommandations de secourisme et les normes techniques hors droit français — la liste
+exacte et son détail par rang vivent dans [`sources.md`](sources.md) et dans le tuple
+`DOMAINES` d'`audit.py`, à tenir synchronisés.
 
 À revérifier à chaque passe : vitesses, barème de points, seuils d'alcoolémie et peines,
 période probatoire, sanctions et qualifications (contravention / délit), équipements

@@ -70,7 +70,7 @@ SOURCES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources.m
 # source gouvernementale chiffrée sur les gestes de secours et la géométrie des panneaux.
 DOMAINES = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
             'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
-            'cprguidelines.eu', 'croix-rouge.fr', 'inrs.fr')
+            'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
 LIGNE_SOURCE = re.compile(
     r'^\|\s*`([0-9a-f]{32})`\s*\|\s*(stable|datée)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
 try:
