@@ -10778,7 +10778,7 @@
       },
       {
         "id": "D",
-        "text": "sur les routes limitées à 80 km/h au plus"
+        "text": "sur n'importe quelle route hors agglomération"
       }
     ],
     "prompt": "Hors agglomération, un engin de déplacement personnel motorisé circule :",
@@ -10899,7 +10899,7 @@
     "explanation": "Le flanc droit est le plus grand angle mort d'un poids lourd, et c'est de ce côté que la remorque balaie en tournant. Se laisser distancer est le seul geste qui vous en sorte sans doubler par la droite.",
     "id": "c29b2e7d758f0d17e790fa40f6e83313",
     "illustration": {
-      "alt": "Vue de dessus : quatre surfaces hachurées cernent un poids lourd, et votre voiture roule dans la plus large, celle qui borde son flanc droit.",
+      "alt": "Vue de dessus : quatre zones hachurées marquent ce que le chauffeur d'un poids lourd ne voit pas depuis sa cabine, et votre voiture est dans la plus large, qui borde son flanc droit.",
       "asset": "angle-mort-poids-lourd"
     },
     "options": [
@@ -10909,7 +10909,7 @@
       },
       {
         "id": "B",
-        "text": "rester là : le chauffeur vous voit"
+        "text": "freiner et vous arrêter sur place"
       },
       {
         "id": "C",

@@ -60,7 +60,7 @@ dessine une fois, pas une fois par scène.
 | `stationnement-en-epi` | places obliques à 60° de la bordure, séparateurs continus et front en T'2, trois voitures rangées | maison, aucune source tierce |
 | `chargement-depassement-arriere` | **vue de profil** : voiture roulant vers la droite, pièces de grande longueur sanglées sur le pavillon et débordant derrière elle | maison, aucune source tierce |
 | `angle-mort-poids-lourd` | vue de dessus : poids lourd de dix mètres, quatre surfaces **hachurées** marquant les angles morts, la voiture du candidat prise dans celle du flanc droit | maison, aucune source tierce |
-| `depassement-cycliste-distance` | rue à deux trottoirs et deux bordures, piétons dessus ; cycliste le long du bord droit, la voiture du candidat à sa hauteur, **écart dessiné à 1,02 m** | maison, aucune source tierce |
+| `depassement-cycliste-distance` | rue à deux trottoirs et deux bordures, piétons dessus ; cycliste le long du bord droit, la voiture du candidat à sa hauteur, **écart dessiné à 1,055 m** | maison, aucune source tierce |
 | `sas-cycliste-feu` | sas cycliste : **deux** lignes d'effet des feux en T'2, figurine de vélo entre elles, bande cyclable d'accès à droite, tricolore à lampe du haut allumée (IISR 7e partie, art. 118-1, C et D) | maison, aucune source tierce |
 | `bus-quittant-arret` | autobus le long d'un **zigzag jaune** de bordure, indicateurs de changement de direction allumés côté chaussée, la voiture du candidat derrière lui (IISR 7e partie, tableau de l'art. 113-2, E) | maison, aucune source tierce |
 
@@ -159,8 +159,10 @@ déjà livré ; le constat est posé ici pour la tâche 21.
 - La **voiture du candidat a été retirée de `sas-cycliste-feu`.** Au premier jet elle était
   arrêtée en amont de la seconde ligne — c'est-à-dire **exactement à la bonne réponse**. Toute
   position correcte de cette voiture donne la réponse, et toute position incorrecte
-  contredirait l'explication : la scène se tient mieux sans elle. C'est le cycliste qui remonte
-  la bande d'accès qui explique à quoi sert l'espace réservé.
+  contredirait l'explication : la scène se tient mieux sans elle. Un cycliste remontant la
+  bande d'accès y avait été ajouté ensuite pour expliquer à quoi sert l'espace réservé, mais à
+  27 unités il était illisible et n'expliquait plus rien — **retiré en revue round 1** : les
+  deux lignes d'arrêt et la figurine au sol suffisent à porter le sens du sas.
 - Le **cycliste vu de dessus a été redessiné deux fois**, et les deux fois la mesure ne
   suffisait pas à trancher : la première version (guidon et épaules à 0,30 de la longueur) se
   lisait comme un poteau surmonté d'un point, la seconde (tête sombre sur épaules colorées)
@@ -169,6 +171,12 @@ déjà livré ; le constat est posé ici pour la tâche 21.
   sombre. Même remarque pour le piéton, dont la tête sombre du premier jet évidait la
   silhouette sur le trottoir du mode sombre (37,2). La mesure prouve la visibilité, pas
   l'intelligibilité : elle se relit à l'œil, dans les deux modes.
+
+  **Revue round 1 :** ce même défaut « anneau » avait été corrigé sur le cycliste mais laissé
+  sur le piéton — tête à 0,48 de `taille`, sur des épaules à 0,90, soit un rapport de 0,53
+  qui réduisait les épaules à un anneau autour d'un gros disque central. La mesure de
+  contraste passait (+136 en clair, +99 en sombre au centre du piéton) sans que la lecture y
+  soit ; tête ramenée à 0,27 de `taille`, soit environ 0,30 de la largeur d'épaules.
 
 **Ce que chaque scène apporte que l'énoncé ne peut pas dire (§9 de `methode.md`).**
 

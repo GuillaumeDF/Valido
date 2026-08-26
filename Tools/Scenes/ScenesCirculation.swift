@@ -356,9 +356,11 @@ private func poidsLourdVuDeDessus(_ ctx: CGContext, x: Double, y: Double, longue
 ///
 /// Les cotes du premier jet — guidon à 0,30 de la longueur, épaules à 0,26 — ont été
 /// élargies après le premier rendu : à l'écran, l'ensemble se lisait comme un poteau
-/// surmonté d'un point. Guidon et épaules valent maintenant 0,34 de la longueur, soit
-/// **0,58 m** à l'échelle de `depassement-cycliste-distance` : c'est la largeur réelle d'un
+/// surmonté d'un point. Guidon et épaules valent maintenant **0,30** de la longueur, soit
+/// **0,52 m** à l'échelle de `depassement-cycliste-distance` : c'est la largeur réelle d'un
 /// guidon de ville, et c'est elle qui borne l'écart latéral que la scène doit rendre juste.
+/// (Revue round 1 de la tâche 15 : ce commentaire annonçait par erreur 0,34 / 0,58 m — le
+/// code n'a pas bougé, seul le chiffre écrit ici était faux.)
 private func cyclisteVuDeDessus(_ ctx: CGContext, x: Double, y: Double, longueur: Double,
                                 couleur: CGColor, _ p: Palette) {
     let sombre = CGColor(gray: 0.14, alpha: 1)
@@ -391,13 +393,20 @@ private func cyclisteVuDeDessus(_ ctx: CGContext, x: Double, y: Double, longueur
 /// le trottoir du mode sombre (37 en niveaux de gris), une tête sombre posée sur des épaules
 /// claires évidait la silhouette et la réduisait à un anneau. Une tête claire cernée d'un
 /// filet sombre se lit dans les deux modes.
+///
+/// **Revue round 1 de la tâche 15** : la tête valait 0,48 de `taille`, sur des épaules à
+/// 0,90 — un rapport de 0,53, qui réduisait les épaules à un **anneau** autour d'un gros
+/// disque central. C'est exactement le défaut diagnostiqué et corrigé sur le cycliste
+/// ci-dessus (guidon et buste élargis, tête resserrée), laissé en place ici par erreur ; la
+/// mesure de contraste passait (+136 en clair, +99 en sombre au centre), la lecture non.
+/// Tête ramenée à 0,27 de `taille`, soit environ 0,30 de la largeur d'épaules.
 private func pietonVuDeDessus(_ ctx: CGContext, x: Double, y: Double, taille: Double,
                               couleur: CGColor, _ p: Palette) {
     ctx.setFillColor(couleur)
     ctx.fillEllipse(in: CGRect(x: x - taille * 0.45, y: y - taille * 0.35,
                                width: taille * 0.90, height: taille * 0.70))
-    let tete = CGRect(x: x - taille * 0.24, y: y - taille * 0.24,
-                      width: taille * 0.48, height: taille * 0.48)
+    let tete = CGRect(x: x - taille * 0.135, y: y - taille * 0.135,
+                      width: taille * 0.27, height: taille * 0.27)
     ctx.setFillColor(CGColor(gray: 0.93, alpha: 1))
     ctx.fillEllipse(in: tete)
     ctx.setStrokeColor(CGColor(gray: 0.14, alpha: 1))
@@ -785,10 +794,11 @@ let scenesCirculation: [(String, Scene)] = [
     //     deux bordures — qui le dit. Retirer l'image rendrait la question indécidable, ce
     //     qui est exactement le critère.
     //
-    //     L'écart dessiné vaut **32,75 unités, soit 1,02 m** à 32 unités par mètre : le
-    //     dépassement montré est donc licite. Une scène qui montrerait un dépassement trop
-    //     serré rendrait fausse la bonne réponse de sa propre question — même piège que le
-    //     chargement de la scène 15.
+    //     L'écart dessiné vaut **33,75 unités, soit 1,055 m** à 32 unités par mètre — caisse
+    //     du candidat à 238, bord du guidon à 271,75 — et non 32,75 / 1,02 m comme l'écrivait
+    //     ce commentaire avant la revue round 1 : le dépassement montré est donc licite. Une
+    //     scène qui montrerait un dépassement trop serré rendrait fausse la bonne réponse de
+    //     sa propre question — même piège que le chargement de la scène 15.
     ("depassement-cycliste-distance", { ctx, p in
         // Deux voies de 3,5 m (112 unités) et non de 3 m : au premier jet, une voie de 3 m
         // obligeait la voiture à chevaucher l'axe pour laisser son mètre, ce qui ajoutait à
@@ -846,13 +856,15 @@ let scenesCirculation: [(String, Scene)] = [
         ctx.restoreGState()
         feuTricolore(ctx, at: CGPoint(x: 288, y: 138), largeur: 28,
                      [.allumee, .eteinte, .eteinte], p)
-        // Un cycliste remonte la bande d'accès : c'est lui qui explique à quoi sert
-        // l'espace réservé, et il est le seul véhicule de la scène. La voiture du candidat
-        // y a figuré au premier jet, arrêtée en amont de la seconde ligne — elle **montrait
-        // la bonne réponse**. Toute position correcte de cette voiture donne la réponse, et
-        // toute position incorrecte contredirait l'explication : la scène se tient mieux
-        // sans elle.
-        cyclisteVuDeDessus(ctx, x: 256, y: 240, longueur: 27, couleur: p.autre, p)
+        // La voiture du candidat a figuré au premier jet, arrêtée en amont de la seconde
+        // ligne — elle **montrait la bonne réponse**. Toute position correcte de cette
+        // voiture donne la réponse, et toute position incorrecte contredirait l'explication :
+        // la scène se tient mieux sans elle.
+        //
+        // Un cycliste remontant la bande d'accès y a figuré ensuite, pour expliquer à quoi
+        // sert l'espace réservé — le seul véhicule de la scène. Mais à 27 unités il était
+        // illisible et n'expliquait plus rien (revue round 1) : retiré. Les deux lignes
+        // d'arrêt et la figurine au sol suffisent à porter le sens du sas.
     }),
 
     // 20. Le bus qui quitte son arrêt. Trois choses portent la réponse, et toutes trois sont
