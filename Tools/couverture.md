@@ -48,7 +48,7 @@ se relit avec `python3 Tools/audit.py`.
 | Signalisation | `Feux` | 19 | couvert |
 | Tunnels et passages à niveau | | 0 | absent |
 | Visibilité et éclairage | `Feux` | 19 | à compléter |
-| Usagers, partage de l'espace public | | 0 | absent |
+| Usagers, partage de l'espace public | `Usagers & partage de la route` | 18 | couvert |
 | Prise de conscience des risques | `Alcool & stupéfiants` | 14 | couvert |
 | Prise de conscience des risques | `Distances & freinage` | 10 | couvert |
 | Premiers secours | `Premiers secours` | 13 | couvert |
@@ -84,4 +84,4 @@ tâches 15 à 17 les reprennent tels quels, sans les réinventer.
 
 - `Croisement & dépassement` — pour « Croisement et dépassement ».
 - `Tunnels & passages à niveau` — pour « Tunnels et passages à niveau ».
-- `Usagers & partage de la route` — pour « Usagers, partage de l'espace public ».
+- `Usagers & partage de la route` — pour « Usagers, partage de l'espace public ». **Créé par la tâche 15** (2026-08-26), 18 questions.

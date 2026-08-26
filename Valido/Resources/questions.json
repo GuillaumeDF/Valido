@@ -10577,7 +10577,7 @@
       },
       {
         "id": "C",
-        "text": "Sur le dos, les jambes surélevées d'un appui"
+        "text": "Assise, calée contre un mur"
       },
       {
         "id": "D",
@@ -10587,5 +10587,507 @@
     "prompt": "Pour masser une victime en arrêt cardiaque, on l'installe :",
     "subject": "code",
     "topic": "Premiers secours"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "R431-1-3 ne vise que les moins de douze ans, conducteur comme passager, et rend l'adulte qui accompagne responsable du casque de l'enfant. Au-delà de cet âge, le casque reste vivement conseillé sans être imposé.",
+    "id": "bf6922c59ca8a1e934e50b69699af54e",
+    "options": [
+      {
+        "id": "A",
+        "text": "le conducteur et le passager de moins de douze ans"
+      },
+      {
+        "id": "B",
+        "text": "le conducteur et le passager, sans condition d'âge"
+      },
+      {
+        "id": "C",
+        "text": "le seul conducteur, quel que soit son âge"
+      },
+      {
+        "id": "D",
+        "text": "tout cycliste roulant hors agglomération"
+      }
+    ],
+    "prompt": "À vélo, le casque attaché est obligatoire pour :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Le I bis de l'article R412-34 n'ouvre le trottoir qu'aux cyclistes de moins de huit ans, à charge de garder l'allure du pas et de ne gêner personne. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
+    "id": "7c2284d4cc7f32e90ce8926470fd656a",
+    "options": [
+      {
+        "id": "A",
+        "text": "s'il n'y a aucun piéton à cette heure"
+      },
+      {
+        "id": "B",
+        "text": "s'il a moins de huit ans, à l'allure du pas"
+      },
+      {
+        "id": "C",
+        "text": "s'il a moins de douze ans, le casque attaché"
+      },
+      {
+        "id": "D",
+        "text": "s'il est accompagné d'un adulte à pied"
+      }
+    ],
+    "prompt": "Sur un trottoir, un enfant à vélo peut rouler :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Deux lignes, deux usagers : celle qui est en retrait arrête les véhicules motorisés, et l'espace au-delà appartient aux cycles. Le cycliste démarre ainsi dans le champ de vision des conducteurs, plutôt qu'à leur droite.",
+    "id": "39fa27d59e28817c42382c5f4f4e2fc0",
+    "illustration": {
+      "alt": "Feu tricolore dont la lampe du haut est allumée ; en travers de la voie, deux lignes d'arrêt discontinues encadrent un espace marqué d'une figurine de vélo, qu'une bande cyclable rejoint par la droite.",
+      "asset": "sas-cycliste-feu"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "à l'aplomb du feu lui-même"
+      },
+      {
+        "id": "B",
+        "text": "au bord du passage pour piétons"
+      },
+      {
+        "id": "C",
+        "text": "à la ligne la plus en retrait"
+      },
+      {
+        "id": "D",
+        "text": "à la ligne la plus proche du feu"
+      }
+    ],
+    "prompt": "Ce feu passe au rouge. Votre voiture s'arrête :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "En agglomération, l'article R414-4 impose un mètre entre le véhicule et l'usager dépassé ; hors agglomération, un mètre et demi. Serrer davantage est une contravention de quatrième classe et coûte trois points.",
+    "id": "9b774739866a136e7c2a9bd69b2f417d",
+    "illustration": {
+      "alt": "Rue bordée de deux trottoirs où marchent des piétons ; un cycliste longe le bord droit de la chaussée et votre voiture, engagée dans la même voie, arrive à sa hauteur.",
+      "asset": "depassement-cycliste-distance"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "1,50 m de son guidon"
+      },
+      {
+        "id": "B",
+        "text": "2 m de son guidon"
+      },
+      {
+        "id": "C",
+        "text": "0,50 m de son guidon"
+      },
+      {
+        "id": "D",
+        "text": "1 m de son guidon"
+      }
+    ],
+    "prompt": "Vous dépassez ce cycliste en le laissant à au moins :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Le code ne dit pas « trottinette » mais engin de déplacement personnel motorisé, et R412-43-3 en a relevé l'âge d'accès de deux ans à la fin de 2024. Le seuil de douze ans, encore donné par la plupart des manuels, n'est plus le bon.",
+    "id": "d3f45f8d29cf6fb411382286877af9ca",
+    "options": [
+      {
+        "id": "A",
+        "text": "quatorze ans"
+      },
+      {
+        "id": "B",
+        "text": "douze ans"
+      },
+      {
+        "id": "C",
+        "text": "seize ans"
+      },
+      {
+        "id": "D",
+        "text": "dix-huit ans"
+      }
+    ],
+    "prompt": "L'âge minimal pour conduire une trottinette électrique est de :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Le point 6.15 de l'article R311-1 définit l'engin par sa vitesse : plus de 6 km/h, et pas plus de 25. Au-delà, l'appareil sort de la catégorie et n'a plus rien à faire sur la voie publique, débridé ou vendu ainsi.",
+    "id": "fe6c39082afe1716a7cfe42d968635a8",
+    "options": [
+      {
+        "id": "A",
+        "text": "45 km/h"
+      },
+      {
+        "id": "B",
+        "text": "25 km/h"
+      },
+      {
+        "id": "C",
+        "text": "20 km/h"
+      },
+      {
+        "id": "D",
+        "text": "30 km/h"
+      }
+    ],
+    "prompt": "Par construction, un engin de déplacement personnel motorisé ne dépasse pas :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Le II de R412-43-1 ferme la route à ces engins hors agglomération : il ne reste que la piste cyclable et la voie verte. L'autorité de police peut rouvrir certaines routes jusqu'à 80 km/h, et le casque devient alors obligatoire.",
+    "id": "45d84549ac552870982bf1315f9a8151",
+    "options": [
+      {
+        "id": "A",
+        "text": "sur l'accotement, le casque attaché"
+      },
+      {
+        "id": "B",
+        "text": "sur la chaussée, en file unique"
+      },
+      {
+        "id": "C",
+        "text": "sur les pistes cyclables et voies vertes"
+      },
+      {
+        "id": "D",
+        "text": "sur les routes limitées à 80 km/h au plus"
+      }
+    ],
+    "prompt": "Hors agglomération, un engin de déplacement personnel motorisé circule :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "Le 2° du III de R412-43-1 réserve le trottoir aux piétons : seule l'autorité de police peut l'ouvrir à ces engins, et alors à l'allure du pas et sans gêner personne. Ailleurs, y rouler est une contravention.",
+    "id": "0b13aed9a8d54d809ec67944c7033775",
+    "options": [
+      {
+        "id": "A",
+        "text": "interdite partout, sans exception"
+      },
+      {
+        "id": "B",
+        "text": "permise à l'allure du pas partout"
+      },
+      {
+        "id": "C",
+        "text": "permise dès lors qu'aucun piéton n'est gêné"
+      },
+      {
+        "id": "D",
+        "text": "interdite, sauf décision de l'autorité"
+      }
+    ],
+    "prompt": "La circulation d'une trottinette électrique sur le trottoir est :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "R431-1-2 ne distingue ni l'âge ni le lieu : conducteur et passager d'une motocyclette, d'un tricycle ou d'un cyclomoteur portent des gants homologués. L'oubli est une contravention de troisième classe et coûte un point.",
+    "id": "82b915c28f76ff1314ecc8cbc927f9b3",
+    "options": [
+      {
+        "id": "A",
+        "text": "le conducteur et son passager, partout"
+      },
+      {
+        "id": "B",
+        "text": "les deux, hors agglomération seulement"
+      },
+      {
+        "id": "C",
+        "text": "le conducteur seul, où qu'il roule"
+      },
+      {
+        "id": "D",
+        "text": "le passager de moins de dix-huit ans"
+      }
+    ],
+    "prompt": "Sur une moto, les gants certifiés sont obligatoires pour :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Le décret du 9 janvier 2025 a fermé neuf ans d'expérimentation en inscrivant l'article R412-11-3 dans le code, sans limite de durée ni de département. Les deux décrets qui l'expérimentaient, de 2015 et de 2021, sont abrogés.",
+    "id": "5f426e8e0d2326304689478d90b749fc",
+    "options": [
+      {
+        "id": "A",
+        "text": "interdite, quelle que soit la route"
+      },
+      {
+        "id": "B",
+        "text": "une règle du code, depuis janvier 2025"
+      },
+      {
+        "id": "C",
+        "text": "une expérimentation dans onze départements"
+      },
+      {
+        "id": "D",
+        "text": "une tolérance, sans texte qui la porte"
+      }
+    ],
+    "prompt": "La circulation inter-files des deux-roues motorisés est :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "L'article R412-11-3 pose deux plafonds : cinquante à l'heure entre les files, trente dès que l'une d'elles est immobile. Et l'inter-files ne se pratique qu'entre les deux voies les plus à gauche, sur une chaussée où la vitesse autorisée atteint 70 km/h.",
+    "id": "a6fb8c0684dce67923a3207ee19171c9",
+    "options": [
+      {
+        "id": "A",
+        "text": "30 km/h, et 50 km/h si les files avancent"
+      },
+      {
+        "id": "B",
+        "text": "70 km/h, la vitesse permise sur la route"
+      },
+      {
+        "id": "C",
+        "text": "50 km/h, et 30 km/h si une file est arrêtée"
+      },
+      {
+        "id": "D",
+        "text": "50 km/h, quelle que soit l'allure des files"
+      }
+    ],
+    "prompt": "En inter-files, la vitesse ne peut excéder :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Le flanc droit est le plus grand angle mort d'un poids lourd, et c'est de ce côté que la remorque balaie en tournant. Se laisser distancer est le seul geste qui vous en sorte sans doubler par la droite.",
+    "id": "c29b2e7d758f0d17e790fa40f6e83313",
+    "illustration": {
+      "alt": "Vue de dessus : quatre surfaces hachurées cernent un poids lourd, et votre voiture roule dans la plus large, celle qui borde son flanc droit.",
+      "asset": "angle-mort-poids-lourd"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "accélérer pour passer devant la cabine"
+      },
+      {
+        "id": "B",
+        "text": "rester là : le chauffeur vous voit"
+      },
+      {
+        "id": "C",
+        "text": "vous rapprocher encore de la remorque"
+      },
+      {
+        "id": "D",
+        "text": "ralentir pour vous laisser distancer"
+      }
+    ],
+    "prompt": "À cette place le long du camion, le mieux est de :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Depuis le 1er janvier 2021, l'article R313-32-1 impose cette signalisation sur les côtés et à l'arrière de tout véhicule dont le poids total autorisé en charge excède 3,5 tonnes, camions comme autocars. Les engins agricoles et les engins de service hivernal en sont dispensés.",
+    "id": "9eed1fe645eb99123b9a86e348b55f99",
+    "options": [
+      {
+        "id": "A",
+        "text": "tout véhicule de plus de 3,5 tonnes"
+      },
+      {
+        "id": "B",
+        "text": "les poids lourds de plus de 12 tonnes"
+      },
+      {
+        "id": "C",
+        "text": "les seuls autocars de transport d'enfants"
+      },
+      {
+        "id": "D",
+        "text": "toute remorque, quel que soit son poids"
+      }
+    ],
+    "prompt": "Les autocollants qui matérialisent les angles morts sont obligatoires sur :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "L'article R412-36 renverse pour lui la règle des véhicules : à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps. Le trottoir ou l'accotement praticable passent de toute façon avant la chaussée.",
+    "id": "b7b38d7ae1faf0dd593a1a2446b59ee6",
+    "options": [
+      {
+        "id": "A",
+        "text": "à gauche le jour, à droite la nuit"
+      },
+      {
+        "id": "B",
+        "text": "près du bord gauche, dans le sens de sa marche"
+      },
+      {
+        "id": "C",
+        "text": "près du bord droit, dans le sens des véhicules"
+      },
+      {
+        "id": "D",
+        "text": "au milieu de la voie, pour être vu de loin"
+      }
+    ],
+    "prompt": "Hors agglomération, un piéton contraint d'emprunter la chaussée se tient :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "L'article R412-37 fixe ce rayon de cinquante mètres, et impose au piéton de tenir compte de la visibilité ainsi que de la distance et de la vitesse des véhicules. L'obligation tombe en aire piétonne et en zone de rencontre, où elle n'aurait plus d'objet.",
+    "id": "058434ed65eee628aefe05ac54ff92d1",
+    "options": [
+      {
+        "id": "A",
+        "text": "100 mètres"
+      },
+      {
+        "id": "B",
+        "text": "10 mètres"
+      },
+      {
+        "id": "C",
+        "text": "50 mètres"
+      },
+      {
+        "id": "D",
+        "text": "20 mètres"
+      }
+    ],
+    "prompt": "Un piéton doit emprunter le passage protégé s'il en existe à moins de :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le dernier alinéa de R412-36 sort de la règle générale celui qui pousse un cycle, un cyclomoteur ou une motocyclette, ainsi que la personne en fauteuil roulant. Assimilé au piéton par R412-34, il en garde toutes les autres obligations.",
+    "id": "e6f52409aaec9cc7d19ca28837113023",
+    "options": [
+      {
+        "id": "A",
+        "text": "près du bord gauche, comme tout piéton"
+      },
+      {
+        "id": "B",
+        "text": "sur l'accotement, jamais sur la chaussée"
+      },
+      {
+        "id": "C",
+        "text": "où il veut, n'étant plus un conducteur"
+      },
+      {
+        "id": "D",
+        "text": "près du bord droit, comme un véhicule"
+      }
+    ],
+    "prompt": "Hors agglomération, celui qui pousse son vélo à la main marche :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "En agglomération, R412-11 oblige à ralentir et, au besoin, à s'arrêter pour laisser un bus quitter un arrêt signalé comme tel. L'indicateur ne demande rien : il ouvre un droit, et l'ignorer est une contravention.",
+    "id": "f6ef205dcb2d32c5f30ca6ee69a673c8",
+    "illustration": {
+      "alt": "Autobus immobilisé le long d'un zigzag jaune peint sur la bordure du trottoir, ses indicateurs de changement de direction allumés côté chaussée ; votre voiture le suit dans la même file.",
+      "asset": "bus-quittant-arret"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "ralentir et le laisser reprendre la file"
+      },
+      {
+        "id": "B",
+        "text": "ralentir, puis passer s'il n'a pas démarré"
+      },
+      {
+        "id": "C",
+        "text": "garder votre allure : il vous cède le passage"
+      },
+      {
+        "id": "D",
+        "text": "le dépasser avant qu'il ne s'engage"
+      }
+    ],
+    "prompt": "Face à ce bus, vous devez :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Le 3° du III de R413-17 range la montée et la descente des voyageurs d'un véhicule de transport d'enfants parmi les cas où la vitesse doit être réduite, au croisement comme au dépassement. Ce que le code impose ici est l'allure, pas l'immobilité.",
+    "id": "49f761c8ac8bd10ed3bf685b1b112f6c",
+    "options": [
+      {
+        "id": "A",
+        "text": "conserver votre allure, la voie étant libre"
+      },
+      {
+        "id": "B",
+        "text": "réduire votre vitesse en le doublant"
+      },
+      {
+        "id": "C",
+        "text": "marquer l'arrêt jusqu'à leur départ"
+      },
+      {
+        "id": "D",
+        "text": "allumer vos feux de détresse"
+      }
+    ],
+    "prompt": "Vous doublez un autocar qui fait descendre des enfants. Vous devez :",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
   }
 ]

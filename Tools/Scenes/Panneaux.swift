@@ -811,7 +811,13 @@ func panneauVoieVelo(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palet
 /// Une bicyclette vue de profil : deux roues, un cadre en triangle, un guidon, une selle.
 /// Le pictogramme réglementaire est plus fin ; à 90 points de haut, ces six traits sont ce
 /// qui reste lisible.
-private func silhouetteVelo(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
+///
+/// Rendue non privée le 2026-08-26 (tâche 15) : la **figurine peinte au sol** d'une voie
+/// cyclable est le même dessin que celui du panneau C113 — un vélo de profil, vu de dessus
+/// mais dessiné de côté (IISR, 7e partie, art. 118-1, C, « des figurines au sol : la
+/// figurine indiquant l'accès d'une voie conseillée aux cyclistes »). Un pictogramme se
+/// dessine une fois : `sas-cycliste-feu` réutilise celui-ci au lieu d'en redessiner un.
+func silhouetteVelo(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
                             _ encre: CGColor) {
     let r = l * 0.20, e = l * 0.055
     ctx.setStrokeColor(encre)

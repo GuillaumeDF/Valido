@@ -59,6 +59,135 @@ dessine une fois, pas une fois par scène.
 | `stationnement-ligne-jaune-discontinue` | la **même** rue, le même trait en tirets T'2 (0,5 m de plein pour 0,5 m de vide) | maison, aucune source tierce |
 | `stationnement-en-epi` | places obliques à 60° de la bordure, séparateurs continus et front en T'2, trois voitures rangées | maison, aucune source tierce |
 | `chargement-depassement-arriere` | **vue de profil** : voiture roulant vers la droite, pièces de grande longueur sanglées sur le pavillon et débordant derrière elle | maison, aucune source tierce |
+| `angle-mort-poids-lourd` | vue de dessus : poids lourd de dix mètres, quatre surfaces **hachurées** marquant les angles morts, la voiture du candidat prise dans celle du flanc droit | maison, aucune source tierce |
+| `depassement-cycliste-distance` | rue à deux trottoirs et deux bordures, piétons dessus ; cycliste le long du bord droit, la voiture du candidat à sa hauteur, **écart dessiné à 1,02 m** | maison, aucune source tierce |
+| `sas-cycliste-feu` | sas cycliste : **deux** lignes d'effet des feux en T'2, figurine de vélo entre elles, bande cyclable d'accès à droite, tricolore à lampe du haut allumée (IISR 7e partie, art. 118-1, C et D) | maison, aucune source tierce |
+| `bus-quittant-arret` | autobus le long d'un **zigzag jaune** de bordure, indicateurs de changement de direction allumés côté chaussée, la voiture du candidat derrière lui (IISR 7e partie, tableau de l'art. 113-2, E) | maison, aucune source tierce |
+
+### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
+
+Premier lot de scènes qui mettent en présence des usagers de **tailles très différentes** —
+un poids lourd de dix mètres et un cycliste de moins de deux. L'échelle change donc d'une
+scène à l'autre, et c'est elle qui décide de ce qui est lisible :
+
+| scène | unités par mètre | pourquoi cette échelle |
+|---|---:|---|
+| `angle-mort-poids-lourd` | 12 | la seule qui fasse tenir un véhicule de 10 m dans le cadre |
+| `bus-quittant-arret` | 12 | idem, pour un autobus de 10 m |
+| `sas-cycliste-feu` | 16 | à 12, le sas (3 m) serait plus court qu'une voiture ; à 32, il déborderait de la bande centrale |
+| `depassement-cycliste-distance` | 32 | la seule qui rende visible un écart latéral d'un mètre |
+
+**Ce que l'IISR a fourni, et ce qu'elle ne pouvait pas fournir.** L'art. 118-1, D de la 7e
+partie décrit le sas mot pour mot — « à l'avant, par une ligne d'effet des feux (T'2, 15 cm)
+tracée à l'aplomb ou en retrait du feu tricolore ou par un passage pour piétons ; à
+l'arrière, par une seconde ligne d'effet des feux (T'2, 15 cm) tracée de 3 à 5 mètres en
+amont de la première », et « A l'intérieur du sas, le marquage de la figurine […] est mis en
+place dans l'axe de chaque voie de circulation automobile ». Les deux lignes de la scène sont
+donc à 48 unités, soit **3 m**, la borne basse : c'est la seule qui les garde toutes les deux
+dans la bande centrale. Le même art. 118-1, C dit que la figurine au sol est celle du C113 —
+d'où la réutilisation de `silhouetteVelo`, rendue non privée pour l'occasion : un pictogramme
+se dessine une fois. Le zigzag de `bus-quittant-arret` vient du tableau de l'art. 113-2, E
+(« arrêt d'autobus : continue en zigzag de 2u ») et le jaune de l'art. 113-1, A. En revanche
+**aucune source ne cote un angle mort** : les quatre surfaces hachurées suivent le partage de
+la signalisation que R313-32-1 rend obligatoire depuis le 1er janvier 2021 (côtés et arrière
+de tout véhicule de plus de 3,5 t), pas un texte coté. Et le chiffre « 3 à 5 mètres » sert
+ici à **dessiner**, jamais à affirmer : le Cerema n'est pas dans la liste blanche (§8 de
+`methode.md`), donc ni l'énoncé ni l'explication de la question du sas ne le portent, et sa
+ligne de registre est `stable`.
+
+Relevé de luminance (§13 de `methode.md`) — Rec. 709 sur les valeurs sRGB des PNG **@3x**
+livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, coordonnées en **unités de scène** (le pixel lu
+est `3 ×` celles-ci). Les zones **hachurées** ne se mesurent pas à un pixel près : on donne la
+moyenne et le maximum sur un carré de 30 unités de côté.
+
+| zone | x, y | clair | sombre |
+|---|---|---|---|
+| `angle-mort` — zone hachurée, carré 30×30 : moyenne / max | 240, 215 | 120,8 / 181,9 | 102,6 / 163,2 |
+| `angle-mort` — chaussée nue, même carré témoin | 152, 255 | 93,1 / 93,1 | 75,1 / 75,1 |
+| `angle-mort` — caisse du poids lourd | 199, 180 | 180,0 | 196,6 |
+| `angle-mort` — contour sombre du poids lourd | 183,5, 180 | 51,0 | 51,0 |
+| `angle-mort` — voiture du candidat | 245, 168 | 128,6 | 128,6 |
+| `depassement` — bordure du trottoir | 67, 150 | 139,1 | 115,3 |
+| `depassement` — trottoir (`sol`) | 12, 250 | 235,1 | 37,2 |
+| `depassement` — chaussée | 120, 150 | 93,1 | 75,1 |
+| `depassement` — cycliste, buste | 280, 130 | 180,0 | 196,6 |
+| `depassement` — cycliste, tête | 280, 119 | 241,0 | 241,0 |
+| `depassement` — piéton, épaules | 354, 118 | 118,6 | 154,1 |
+| `depassement` — piéton, tête | 344, 118 | 241,0 | 241,0 |
+| `sas` — ligne d'effet, au niveau d'un plein | 204, 152 | 255,0 | 234,3 |
+| `sas` — ligne d'effet, au niveau d'un vide | 212, 152 | 93,1 | 75,1 |
+| `sas` — lentille du haut, **allumée** | 288, 119 | 86,0 | 115,1 |
+| `sas` — lentilles du milieu et du bas, éteintes | 288, 138 / 161 | 138,1 | 125,1 |
+| `bus` — clignotant allumé | 215, 162 | 198,1 | 209,5 |
+| `bus` — caisse du bus | 230, 110 | 118,6 | 154,1 |
+| `bus` — contour sombre du bus | 215, 110 | 51,0 | 51,0 |
+| `bus` — zigzag jaune, sur un segment | 254, 54 | 198,1 | 209,5 |
+| `bus` — bordure nue, hors zigzag | 250, 205 | 139,1 | 115,3 |
+
+Ce que le relevé établit :
+
+- **Les hachures vont dans le bon sens.** Ce qui est marqué est plus **clair** que ce qui ne
+  l'est pas : +27,7 en clair et +27,5 en sombre sur la moyenne du carré, +88,8 et +88,1 sur le
+  trait lui-même. La polarité est la même dans les deux modes.
+- **Le contour sombre du poids lourd n'est pas décoratif.** Sa caisse mesure 180,0 en clair et
+  le maximum d'une hachure 181,9 : **1,9 point d'écart**. Sans contour, la caisse et la zone
+  hachurée qui la longe fusionneraient en niveaux de gris, et la scène perdrait justement la
+  frontière dont dépend sa réponse. Le contour est à 51,0, soit 129 points de la caisse et
+  131 de la hachure. Le même contour a été ajouté au bus, dont la caisse (118,6) ne se sépare
+  de la chaussée (93,1) que de 25,5 points en clair. **Ce contour a été mis en place d'après
+  la mesure, avant le premier rendu**, et non après.
+- **Le clignotant et le zigzag ont la bonne polarité.** L'indicateur allumé est à +79,5 de la
+  caisse du bus en clair et +55,4 en sombre ; le zigzag est à +59,0 et +94,2 de la bordure nue,
+  comme les deux scènes de ligne jaune déjà livrées.
+- **Les deux lignes du sas sont le signal le plus franc du lot** : +161,9 en clair et +159,2 en
+  sombre entre un plein et un vide. C'est celui dont dépend la réponse de la question.
+
+Et **une inversion de polarité constatée, qui ne porte aucune réponse et qui est antérieure à
+ces scènes** : la lentille **allumée** du tricolore mesure 86,0 en clair contre 138,1 pour une
+lentille éteinte, soit −52,1 ; en sombre, 115,1 contre 125,1, soit −10,0. C'est mécanique — le
+rouge de la palette est sombre par nature, et le halo à 30 % ne compense pas. Le défaut est
+donc celui de `feuTricolore`, partagé avec `feu-fleche-clignotante` déjà livrée, et non de
+`sas-cycliste-feu` ; ce qui dit ici « allumée » reste de la **forme** : la position dans le
+caisson (haut = rouge, arrêté du 24 novembre 1967, art. 7), le halo qui déborde et le reflet
+que les lentilles éteintes n'ont pas. Surtout, **la réponse de la question du sas ne s'y joue
+pas** : l'énoncé dit « Ce feu passe au rouge », et ce qu'il faut lire dans l'image, ce sont les
+deux lignes d'arrêt. Corriger la primitive dépasse le cadre de la tâche 15 et changerait un PNG
+déjà livré ; le constat est posé ici pour la tâche 21.
+
+**Deux renoncements de dessin, et pourquoi.**
+
+- La **voiture du candidat a été retirée de `sas-cycliste-feu`.** Au premier jet elle était
+  arrêtée en amont de la seconde ligne — c'est-à-dire **exactement à la bonne réponse**. Toute
+  position correcte de cette voiture donne la réponse, et toute position incorrecte
+  contredirait l'explication : la scène se tient mieux sans elle. C'est le cycliste qui remonte
+  la bande d'accès qui explique à quoi sert l'espace réservé.
+- Le **cycliste vu de dessus a été redessiné deux fois**, et les deux fois la mesure ne
+  suffisait pas à trancher : la première version (guidon et épaules à 0,30 de la longueur) se
+  lisait comme un poteau surmonté d'un point, la seconde (tête sombre sur épaules colorées)
+  comme un anneau — l'écart de luminance était pourtant bon dans les deux cas. Ce qui a réglé
+  la question est un buste **plus long que large** et une tête **claire** cernée d'un filet
+  sombre. Même remarque pour le piéton, dont la tête sombre du premier jet évidait la
+  silhouette sur le trottoir du mode sombre (37,2). La mesure prouve la visibilité, pas
+  l'intelligibilité : elle se relit à l'œil, dans les deux modes.
+
+**Ce que chaque scène apporte que l'énoncé ne peut pas dire (§9 de `methode.md`).**
+
+| scène | l'option qui en dépend | ce que seule l'image donne |
+|---|---|---|
+| `angle-mort-poids-lourd` | « ralentir pour vous laisser distancer » | « à cette place » ne désigne rien sans l'image : c'est elle qui dit que la voiture longe le **flanc droit** du poids lourd, dans la plus large des zones non vues |
+| `depassement-cycliste-distance` | « 1 m de son guidon » | le **lieu**. R414-4 impose 1 m en agglomération et 1,50 m hors ; l'énoncé ne dit pas où l'on est, et ce sont les deux trottoirs, leurs bordures et les piétons qui le disent. Sans l'image, « 1,50 m » serait aussi défendable |
+| `sas-cycliste-feu` | « à la ligne la plus en retrait » | qu'il y a **deux** lignes d'arrêt. Un énoncé qui l'écrirait aurait déjà donné sa réponse |
+| `bus-quittant-arret` | « ralentir et le laisser reprendre la file » | les trois conditions de R412-11 réunies : un arrêt **signalé comme tel** (le zigzag), l'intention de repartir (l'indicateur allumé) et l'**agglomération** (les deux trottoirs et leurs piétons) |
+
+**Le §10, et c'est `angle-mort-poids-lourd` qui le contraint le plus.** Le bandeau tombe à
+18 % de la carte au verdict et recadre en `.fill` : il ne survit qu'une bande d'environ 110
+unités autour du centre vertical, soit y de 95 à 205. Y tiennent : la zone hachurée du flanc
+droit (y de 120 à 240, donc sa moitié haute), la voiture du candidat (y de 145 à 185, en
+entier) et le corps du poids lourd, cabine comprise (y de 90 à 210). Les zones **avant**
+(y de 62 à 90) et **arrière** (y de 210 à 252) sont hors bande, et c'est voulu : elles ne sont
+que du décor, aucune option n'y renvoie. Même règle pour les trois autres — les deux lignes du
+sas sont à y = 152 et 200, le clignotant arrière du bus à y = 162, le cycliste et la voiture de
+la scène de dépassement entre y = 97 et 212.
 
 ### D'où vient la géométrie des panneaux
 
