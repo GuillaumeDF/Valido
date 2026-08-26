@@ -550,9 +550,12 @@ private func zigzagJauneSurLaBordure(_ ctx: CGContext, de x0: Double, a x1: Doub
 // Échelle des trois vues de dessus : **16 unités par mètre** pour les deux scènes de
 // dépassement (voie de 56 unités pour 3,50 m, voiture de `Primitives` agrandie 1,25 fois,
 // soit 50 × 27,5 unités pour 3,13 × 1,72 m — une voiture qui laisse un peu moins d'un mètre
-// de part et d'autre dans sa voie, comme sur la route) et **12,2 unités par mètre** pour le
-// croisement, dont les voies de 30 unités valent 2,46 m : c'est cette étroitesse-là qui fait
-// la question, donc elle se dessine à l'échelle plutôt qu'elle ne s'affirme en légende.
+// de part et d'autre dans sa voie, comme sur la route) et **14 unités par mètre** pour le
+// croisement, dont les voies de 42 unités valent 3 m : c'est cette étroitesse-là qui fait la
+// question, donc elle se dessine à l'échelle plutôt qu'elle ne s'affirme en légende. (Ronde 1
+// de revue : ces deux chiffres étaient restés à 12,2 et 30 unités, valeurs d'un premier jet
+// où la chaussée du croisement faisait 60 unités de large ; le code, le commentaire de la
+// scène 23 et `images.md` disaient tous 42 et 14, seul cet en-tête était en retard.)
 
 /// Chaussée à double sens des deux scènes de dépassement : deux voies, deux bandes de rive
 /// continues. Sans bande d'arrêt d'urgence, « la ligne de rive est continue » (IISR, 7e
@@ -1033,7 +1036,11 @@ let scenesCirculation: [(String, Scene)] = [
     //     Elle est en `vous` et non en `marquage` pour une raison mesurée : sur le `sol`
     //     du mode clair (235 en niveaux de gris) un trait blanc serait invisible, et sur
     //     celui du mode sombre (37) un trait noir le serait tout autant. Le bleu `vous`
-    //     mesure 115 dans les deux modes, donc à plus de 75 points des deux fonds.
+    //     mesure **128,6** dans les deux modes, donc à plus de 90 points des deux fonds.
+    //     (Ronde 1 de revue : ce commentaire annonçait 115, qui est la luminance de la
+    //     valeur nominale rgb(10, 132, 255) de `Repere.swift` et non celle du pixel rendu —
+    //     le contexte est en `DeviceRGB` et convertit. 128,6 est la valeur relevée sur le
+    //     PNG livré, celle que porte `images.md`.)
     //
     //     Aucun véhicule n'est dessiné derrière le sommet : il faudrait le montrer caché,
     //     ce qu'un dessin ne sait pas faire, et sa présence rendrait défendable le

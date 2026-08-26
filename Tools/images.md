@@ -256,17 +256,20 @@ le doublon.
 Relevé de luminance (§13 de `methode.md`) — Rec. 709 sur les valeurs sRGB des PNG **@3x**
 livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, coordonnées en **unités de scène** (le pixel
 lu est `3 ×` celles-ci). Les zones **hachurées** se donnent en moyenne et maximum sur un
-carré de 20 unités centré sur l'axe de la chaussée.
+carré de 20 unités centré sur l'axe de la chaussée. Le préfixe de la première scène est
+`depassement-discontinue` et non `depassement` : celui-ci désigne déjà
+`depassement-cycliste-distance` dans le tableau de la tâche 15 plus haut, et un `grep` sur ce
+fichier ne fait pas la différence entre deux sections (ronde 1 de revue).
 
 | zone | x, y | clair | sombre |
 |---|---|---|---|
-| `depassement` — axe T1, au niveau d'un plein | 200, 76 | 255,0 | 234,3 |
-| `depassement` — axe T1, au niveau d'un vide | 200, 110 | 93,1 | 75,1 |
-| `depassement` — chaussée nue | 190, 250 | 93,1 | 75,1 |
-| `depassement` — votre voiture, caisse | 172, 148 | 128,6 | 128,6 |
-| `depassement` — votre voiture, liseré blanc | 158, 148 | 255,0 | 234,3 |
-| `depassement` — voiture doublée | 228, 185 | 180,0 | 196,6 |
-| `depassement` — flèche de trajectoire | 228, 240 | 128,6 | 128,6 |
+| `depassement-discontinue` — axe T1, au niveau d'un plein | 200, 76 | 255,0 | 234,3 |
+| `depassement-discontinue` — axe T1, au niveau d'un vide | 200, 110 | 93,1 | 75,1 |
+| `depassement-discontinue` — chaussée nue | 190, 250 | 93,1 | 75,1 |
+| `depassement-discontinue` — votre voiture, caisse | 172, 148 | 128,6 | 128,6 |
+| `depassement-discontinue` — votre voiture, liseré blanc | 158, 148 | 255,0 | 234,3 |
+| `depassement-discontinue` — voiture doublée | 228, 185 | 180,0 | 196,6 |
+| `depassement-discontinue` — flèche de trajectoire | 228, 240 | 128,6 | 128,6 |
 | `rabattement` — intervalle entre les deux voitures | 228, 161 | 93,1 | 75,1 |
 | `croisement` — voiture arrêtée, caisse | 232, 140 | 118,6 | 154,1 |
 | `croisement` — voiture arrêtée, contour sombre | 215,5, 140 | 51,0 | 51,0 |

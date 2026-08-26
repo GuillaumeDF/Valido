@@ -11379,7 +11379,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le second alinéa de R414-11 lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent. Les véhicules à deux roues, eux, y échappent toujours.",
+    "explanation": "Le second alinéa de R414-11 lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent. C'est le dépassement d'un deux-roues qui échappe à l'interdiction, pas le dépassement par un deux-roues.",
     "id": "f5a12ba77751310fe9a210a3b787286a",
     "options": [
       {
@@ -11406,7 +11406,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "R414-8 réserve à ceux qui viennent en face la voie la plus à gauche d'une chaussée à double sens de plus de deux voies : s'y engager pour doubler, c'est rouler sur leur voie. La voie centrale est celle du dépassement.",
+    "explanation": "R414-8 interdit à qui dépasse d'emprunter la voie la plus à gauche d'une chaussée à double sens de plus de deux voies, ce qui revient à la laisser à ceux qui viennent en face : s'y engager pour doubler, c'est rouler sur leur voie. La voie centrale est celle du dépassement.",
     "id": "99824d4de286434d85174502e05ea59d",
     "options": [
       {
@@ -11477,7 +11477,7 @@
       },
       {
         "id": "D",
-        "text": "la nuit, hors des sections éclairées"
+        "text": "quand la nuit tombe hors agglomération"
       }
     ],
     "prompt": "Le dépassement est interdit aux véhicules de plus de 3,5 t :",
