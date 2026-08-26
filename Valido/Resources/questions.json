@@ -11510,5 +11510,395 @@
     "prompt": "La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file voisine :",
     "subject": "code",
     "topic": "Croisement & dépassement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Le code range le tunnel avec les ponts, les passages souterrains et le dessous des passages supérieurs : l'arrêt comme le stationnement y gênent la circulation, sauf décision contraire de l'autorité de police. Une chaussée de tunnel n'a ni accotement ni échappatoire, et un véhicule laissé dessus devient l'obstacle.",
+    "id": "5ae4a8d7800141787ada8a389ff74fc1",
+    "options": [
+      {
+        "id": "A",
+        "text": "est gênant, au même titre que sur un pont"
+      },
+      {
+        "id": "B",
+        "text": "est permis, feux de détresse allumés"
+      },
+      {
+        "id": "C",
+        "text": "est permis hors des heures de pointe"
+      },
+      {
+        "id": "D",
+        "text": "est très gênant, comme sur un trottoir"
+      }
+    ],
+    "prompt": "Dans un tunnel, s'arrêter le long de la chaussée :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "L'article R412-12 pose deux secondes partout, puis réserve un cas : sur un ouvrage dont l'exploitation présente des risques particuliers, l'autorité investie du pouvoir de police peut imposer davantage. Aucun chiffre national ne s'attache au tunnel — c'est la signalisation de l'ouvrage qui dit l'intervalle à tenir, et elle se lit à l'entrée.",
+    "id": "a88bdac8ef012091a9b0a43b209c3b1b",
+    "options": [
+      {
+        "id": "A",
+        "text": "passe à cinquante mètres pour tout véhicule"
+      },
+      {
+        "id": "B",
+        "text": "peut être allongé par l'autorité de police"
+      },
+      {
+        "id": "C",
+        "text": "descend à une seconde, la vitesse y étant basse"
+      },
+      {
+        "id": "D",
+        "text": "reste celui de n'importe quelle route"
+      }
+    ],
+    "prompt": "Dans un tunnel, l'intervalle de sécurité entre deux véhicules :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Une chaussée de tunnel n'a ni bande d'arrêt d'urgence ni accotement : le véhicule immobilisé y devient l'obstacle. Le refuge, signalé et souvent doté d'un poste d'appel, est le seul endroit prévu pour s'y ranger.",
+    "id": "1e329fa1bba26cabf575a76ec127dad4",
+    "illustration": {
+      "alt": "Deux voies dans un tunnel, entre deux parois pleines ; à droite, la paroi se creuse d'un renfoncement assez large pour un véhicule, marqué d'un poste d'appel.",
+      "asset": "tunnel-arret-urgence"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "faire demi-tour vers l'entrée du tunnel"
+      },
+      {
+        "id": "B",
+        "text": "quitter le véhicule et marcher vers la sortie"
+      },
+      {
+        "id": "C",
+        "text": "rejoindre l'emplacement d'arrêt d'urgence"
+      },
+      {
+        "id": "D",
+        "text": "vous arrêter sur place, détresse allumée"
+      }
+    ],
+    "prompt": "Votre moteur cale ici. Vous devez d'abord :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "La fumée tue avant les flammes, et elle remonte l'ouvrage bien plus vite qu'un piéton : rester à bord ou revenir sur ses pas revient à la laisser vous rejoindre. Les consignes officielles demandent de couper le contact, d'évacuer avec tous les passagers et de donner l'alerte par les téléphones de secours de l'ouvrage plutôt que depuis un mobile.",
+    "id": "6407af536212a71d7bf042f1bab2a88c",
+    "options": [
+      {
+        "id": "A",
+        "text": "restez à bord, vitres et aération fermées"
+      },
+      {
+        "id": "B",
+        "text": "appelez les secours depuis votre téléphone"
+      },
+      {
+        "id": "C",
+        "text": "faites demi-tour pour ressortir par l'entrée"
+      },
+      {
+        "id": "D",
+        "text": "coupez le moteur et gagnez une issue de secours"
+      }
+    ],
+    "prompt": "Un véhicule prend feu devant vous dans un tunnel. Vous :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Savoir combien d'ouvrage reste devant soi commande tout le reste : c'est ce chiffre qui décide, en cas d'incendie, entre ressortir par ses propres moyens et gagner à pied une issue de secours. Les très longs tunnels rappellent d'ailleurs la distance restante de loin en loin.",
+    "id": "3a06288bf73bb5254b83a371ae55a854",
+    "options": [
+      {
+        "id": "A",
+        "text": "la longueur de l'ouvrage à parcourir"
+      },
+      {
+        "id": "B",
+        "text": "la hauteur libre sous la voûte"
+      },
+      {
+        "id": "C",
+        "text": "la vitesse maximale admise à l'intérieur"
+      },
+      {
+        "id": "D",
+        "text": "le nombre d'issues de secours prévues"
+      }
+    ],
+    "prompt": "À l'entrée d'un tunnel, le panonceau sous le panneau indique :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Un ouvrage éclairé reste bien plus sombre que le plein jour dont on sort, et l'œil met plusieurs secondes à s'y faire. Pendant ces secondes-là, ce qui compte n'est pas de voir mais d'être vu de celui qui suit — et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard.",
+    "id": "bda520451eb11447c3921f8a358742f1",
+    "options": [
+      {
+        "id": "A",
+        "text": "cèdent la place aux veilleuses"
+      },
+      {
+        "id": "B",
+        "text": "s'allument quand même, pour être vu"
+      },
+      {
+        "id": "C",
+        "text": "restent éteints, l'éclairage suffisant"
+      },
+      {
+        "id": "D",
+        "text": "s'allument seulement si le tunnel est long"
+      }
+    ],
+    "prompt": "De jour, à l'entrée d'un tunnel éclairé, vos feux de croisement :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Trois balises jalonnent l'approche : la première, au pied du panneau de danger, porte trois bandes ; les suivantes en portent deux, puis une seule. Moins il reste de bandes, plus la voie ferrée est proche.",
+    "id": "1cc2591b8808d4aa73d5af596388d948",
+    "illustration": {
+      "alt": "Une plaque blanche haute et étroite, plantée sur son support, barrée d'une seule bande rouge oblique qui descend vers la gauche.",
+      "asset": "passage-a-niveau-balises"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "la fin d'une zone de danger déjà signalée"
+      },
+      {
+        "id": "B",
+        "text": "un rétrécissement de la chaussée sur la droite"
+      },
+      {
+        "id": "C",
+        "text": "un passage à niveau, désormais tout proche"
+      },
+      {
+        "id": "D",
+        "text": "un passage à niveau, encore loin devant vous"
+      }
+    ],
+    "prompt": "Cette balise vous annonce :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, et c'est précisément ce qui arrive sur les lignes à voies multiples.",
+    "id": "763ae1f8c7040ecb170a4ed33f09505a",
+    "options": [
+      {
+        "id": "A",
+        "text": "barrières fermées, l'ouverture rendant la voie libre"
+      },
+      {
+        "id": "B",
+        "text": "seulement pendant la fermeture des barrières"
+      },
+      {
+        "id": "C",
+        "text": "à toute heure sur les lignes à voies multiples"
+      },
+      {
+        "id": "D",
+        "text": "barrières fermées, et aussi pendant leur ouverture"
+      }
+    ],
+    "prompt": "Le franchissement d'un passage à niveau est interdit :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Sans barrière, sans demi-barrière et sans signal lumineux, le code ne demande pas l'arrêt mais la certitude : on ne s'engage qu'après s'être assuré qu'aucun convoi n'approche. L'arrêt obligatoire existe, mais il tient à un panneau posé là par arrêté du préfet, jamais à l'absence de barrière.",
+    "id": "d3af170839b4cf693c8bcba1a1e5c45a",
+    "options": [
+      {
+        "id": "A",
+        "text": "traversez après avoir regardé des deux côtés"
+      },
+      {
+        "id": "B",
+        "text": "passez sans ralentir, rien ne l'interdisant"
+      },
+      {
+        "id": "C",
+        "text": "marquez l'arrêt absolu, comme à un STOP"
+      },
+      {
+        "id": "D",
+        "text": "laissez passer le véhicule arrivant à droite"
+      }
+    ],
+    "prompt": "À un passage à niveau sans barrière ni feu, vous :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "Aucun conducteur ne doit s'engager sur un passage à niveau si son véhicule risque d'y rester immobilisé, que ce soit à cause d'une file arrêtée devant lui ou de son propre gabarit. La règle ne demande pas de juger le risque : elle demande d'attendre la place.",
+    "id": "d4b4abfd51499d4ab343bbb613acc7ad",
+    "options": [
+      {
+        "id": "A",
+        "text": "reculez pour libérer l'approche derrière vous"
+      },
+      {
+        "id": "B",
+        "text": "attendez d'avoir la place de dégager la voie"
+      },
+      {
+        "id": "C",
+        "text": "vous engagez, la file finira par avancer"
+      },
+      {
+        "id": "D",
+        "text": "avancez jusqu'aux rails pour ne pas bloquer"
+      }
+    ],
+    "prompt": "La circulation est arrêtée juste au-delà d'un passage à niveau. Vous :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "La priorité du convoi est absolue et il ne peut pas s'arrêter court : dégager passe avant tout le reste. Les demi-barrières sont faites pour céder sous un choc, et l'alerte à l'exploitant ne vient qu'ensuite.",
+    "id": "d50cd498f6e5261eb5a2fc9dfe45de90",
+    "illustration": {
+      "alt": "Votre voiture est sur les rails, un bras rouge et blanc baissé devant elle et un autre derrière, tous deux en travers de la chaussée.",
+      "asset": "passage-a-niveau-immobilise"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "alertez l'exploitant, puis dégagez la voie"
+      },
+      {
+        "id": "B",
+        "text": "attendez la remontée sans forcer le passage"
+      },
+      {
+        "id": "C",
+        "text": "avancez en forçant le bras, conçu pour céder"
+      },
+      {
+        "id": "D",
+        "text": "reculez pour repasser derrière le bras d'entrée"
+      }
+    ],
+    "prompt": "Les demi-barrières viennent de s'abaisser. Vous :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Depuis 2020, chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte donnant ce numéro, de part et d'autre des rails. C'est par là qu'on signale un obstacle sur la voie ou une installation en dérangement : l'exploitant ferroviaire est le seul à pouvoir faire arrêter les convois.",
+    "id": "8a6af9d26330dc0f3bfd95d9bf0d7b81",
+    "options": [
+      {
+        "id": "A",
+        "text": "le numéro de la ligne et le nom de la gare"
+      },
+      {
+        "id": "B",
+        "text": "la vitesse à ne pas dépasser sur la traversée"
+      },
+      {
+        "id": "C",
+        "text": "le numéro d'astreinte du service de la voirie"
+      },
+      {
+        "id": "D",
+        "text": "un numéro à composer pour alerter l'exploitant"
+      }
+    ],
+    "prompt": "Sur un passage à niveau automatique, une pancarte porte :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "L'annonce est calée sur le train et non sur ce que le conducteur aperçoit : quand les feux se mettent à clignoter, le convoi est encore loin, et les demi-barrières ne descendent que quelques secondes plus tard. Passer « avant les barrières » revient donc à passer devant un train déjà lancé.",
+    "id": "c084813ff73eacb15dc526232c288610",
+    "options": [
+      {
+        "id": "A",
+        "text": "vingt secondes au moins avant l'arrivée du train"
+      },
+      {
+        "id": "B",
+        "text": "au moment précis où le train devient visible"
+      },
+      {
+        "id": "C",
+        "text": "une fois les demi-barrières complètement baissées"
+      },
+      {
+        "id": "D",
+        "text": "cinq secondes avant l'abaissement des barrières"
+      }
+    ],
+    "prompt": "Les feux rouges clignotants d'un passage à niveau automatique s'allument :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "costaud",
+    "explanation": "Le code sanctionne l'infraction au passage à niveau comme le refus de priorité ou le feu rouge franchi : quatre points, contravention de la quatrième classe. S'y ajoute ce que peu de contraventions portent — la suspension du permis pour trois ans au plus, et un stage de sensibilisation.",
+    "id": "1fe6ef49aad916e076477274c75c3550",
+    "options": [
+      {
+        "id": "A",
+        "text": "deux points, l'amende faisant le gros de la peine"
+      },
+      {
+        "id": "B",
+        "text": "quatre points, et le permis peut être suspendu"
+      },
+      {
+        "id": "C",
+        "text": "trois points, la suspension étant exclue"
+      },
+      {
+        "id": "D",
+        "text": "six points, comme un refus de priorité au piéton"
+      }
+    ],
+    "prompt": "Franchir irrégulièrement un passage à niveau fait perdre :",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
   }
 ]

@@ -625,6 +625,247 @@ private let angleMontee = atan2(coteSommetY - coteDepart, coteSommetX)
 /// Demi-épaisseur de la chaussée dessinée de profil.
 private let coteDemiChaussee = 15.0
 
+// MARK: - Tunnels & passages à niveau (tâche 17)
+//
+// Trois scènes, et deux registres. Les deux premières sont des **vues de dessus**, à deux
+// échelles différentes : 16 unités par mètre pour le tunnel (celle des deux scènes de
+// dépassement de la tâche 16), 12 pour le passage à niveau (celle des carrefours, imposée
+// par la chaussée et les rails qu'il partage avec `passage-niveau-feu-rouge-clignotant` —
+// deux cartes du même lieu doivent se lire à la même taille). La troisième est un objet vu
+// **de face**, comme les panneaux, et elle ne pouvait pas être autre chose : le seul fait
+// qu'elle porte est le **nombre de bandes** d'une balise, peint sur une plaque verticale,
+// qui n'existe tout simplement pas en vue aérienne.
+//
+// Ce que ces trois scènes ne dessinent pas, et pourquoi : ni signal d'arrêt R24, ni croix
+// de Saint-André. Le R24 est déjà le sujet de `passage-niveau-feu-rouge-clignotant` et de
+// sa question (« l'arrêt absolu, train visible ou non ») ; le remettre ici ferait répondre
+// la carte voisine plutôt que celle-ci.
+
+/// Géométrie du tube de tunnel. Deux voies de 42 unités (3,50 m) entre deux piédroits
+/// pleins, et un renfoncement creusé dans le piédroit de droite : c'est l'emplacement
+/// d'arrêt d'urgence, dont la signalisation est **obligatoire dans les tunnels** (IISR,
+/// 5e partie, art. 70-5, 1 : panneau C8, complété du panonceau M9e quand l'emplacement
+/// comporte un poste d'appel d'urgence).
+///
+/// L'échelle est celle des deux scènes de dépassement de la tâche 16 — **16 unités par
+/// mètre**, voies de 56 unités pour 3,50 m et voiture agrandie 1,25 fois — et non les 12
+/// des carrefours : à 12, une chaussée de tunnel et son refuge tiendraient dans un tiers du
+/// cadre, et le refuge se lirait comme une encoche plutôt que comme une place.
+///
+/// Le renfoncement fait 70 unités de profondeur pour 82 de long, soit 4,4 m sur 5,1 m : une
+/// voiture de 27,5 × 50 y tient entièrement, avec du jeu de part et d'autre. C'est cette
+/// **capacité dessinée à l'échelle** qui fait lire un refuge et non un décrochement de paroi.
+private let tunnelGauche = 96.0, tunnelDroite = 208.0, tunnelAxe = 152.0
+private let tunnelRefugeHaut = 96.0, tunnelRefugeBas = 178.0, tunnelRefugeFond = 278.0
+
+/// Le tube, ses piédroits et ses luminaires. La roche occupe tout le cadre en `bordure`
+/// (139 en niveaux de gris en mode clair contre 93 pour la chaussée, 115 contre 75 en
+/// sombre) : le tube se lit donc comme un couloir **plus sombre** que ce qui l'entoure,
+/// dans les deux modes, et c'est une différence de luminance et non de teinte.
+///
+/// Les luminaires ne sont pas du décor. Vue de dessus, une chaussée entre deux bandes
+/// épaisses pourrait aussi bien être une route entre deux talus ; une file de points
+/// lumineux régulièrement espacés le long des deux piédroits ne se rencontre que dans un
+/// ouvrage couvert. Ils sont posés **sur la paroi** et jamais sur la chaussée, pour
+/// qu'aucun ne se prenne pour un marquage.
+private func tubeDeTunnel(_ ctx: CGContext, _ p: Palette) {
+    ctx.setFillColor(p.bordure)
+    ctx.fill(CGRect(x: 0, y: 0, width: W, height: H))
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: tunnelGauche, y: 0, width: tunnelDroite - tunnelGauche, height: H))
+    ctx.fill(CGRect(x: tunnelDroite, y: tunnelRefugeHaut,
+                    width: tunnelRefugeFond - tunnelDroite,
+                    height: tunnelRefugeBas - tunnelRefugeHaut))
+    // L'arête des piédroits : la chaussée et la roche ne sont séparées que de 46 points
+    // en niveaux de gris, un filet sombre borne le tube dans les deux modes.
+    ctx.setStrokeColor(traitSombre)
+    ctx.setLineWidth(2)
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: tunnelGauche, y: 0))
+    ctx.addLine(to: CGPoint(x: tunnelGauche, y: H))
+    ctx.strokePath()
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: tunnelDroite, y: 0))
+    ctx.addLine(to: CGPoint(x: tunnelDroite, y: tunnelRefugeHaut))
+    ctx.addLine(to: CGPoint(x: tunnelRefugeFond, y: tunnelRefugeHaut))
+    ctx.addLine(to: CGPoint(x: tunnelRefugeFond, y: tunnelRefugeBas))
+    ctx.addLine(to: CGPoint(x: tunnelDroite, y: tunnelRefugeBas))
+    ctx.addLine(to: CGPoint(x: tunnelDroite, y: H))
+    ctx.strokePath()
+    // Les bandes de rive, continues : sans bande d'arrêt d'urgence en section courante,
+    // « la ligne de rive est continue » (IISR, 7e partie, art. 114-4, B) — et un tunnel
+    // n'en a par définition pas, puisque c'est le refuge qui en tient lieu.
+    ctx.setFillColor(p.marquage)
+    ctx.fill(CGRect(x: tunnelGauche + 5, y: 0, width: 3, height: H))
+    ctx.fill(CGRect(x: tunnelDroite - 8, y: 0, width: 3, height: H))
+    // Les luminaires, sur la paroi.
+    var y = 26.0
+    while y < H {
+        ctx.fillEllipse(in: CGRect(x: tunnelGauche - 19, y: y - 4.5, width: 9, height: 9))
+        if y < tunnelRefugeHaut - 8 || y > tunnelRefugeBas + 8 {
+            ctx.fillEllipse(in: CGRect(x: tunnelDroite + 10, y: y - 4.5, width: 9, height: 9))
+        }
+        y += 42
+    }
+}
+
+/// Le poste d'appel d'urgence du refuge : un caisson carré à fond bleu portant un combiné
+/// blanc. L'idéogramme du téléphone est celui que l'IISR (5e partie, art. 70-5, 2 b)
+/// nomme ID5a sur les postes d'appel d'urgence ; sa **planche** n'a pas été relevée, le
+/// combiné est donc dessiné comme les autres pictogrammes du dossier — une simplification
+/// du symbole connu, jamais la copie d'un fichier image (cf. `Tools/images.md`).
+///
+/// Le fond bleu n'est pas là pour la teinte mais pour la luminance : `vous` mesure 128,6
+/// dans les deux modes, à plus de 100 points du blanc du combiné.
+private func posteDAppelDUrgence(_ ctx: CGContext, at pt: CGPoint, cote: Double,
+                                 _ p: Palette) {
+    let r = cote / 2
+    let caisson = CGRect(x: pt.x - r, y: pt.y - r, width: cote, height: cote)
+    ctx.setFillColor(p.vous)
+    ctx.addPath(CGPath(roundedRect: caisson, cornerWidth: cote * 0.14,
+                       cornerHeight: cote * 0.14, transform: nil))
+    ctx.fillPath()
+    ctx.setStrokeColor(p.marquage)
+    ctx.setLineWidth(2)
+    ctx.addPath(CGPath(roundedRect: caisson.insetBy(dx: 2.5, dy: 2.5),
+                       cornerWidth: cote * 0.10, cornerHeight: cote * 0.10, transform: nil))
+    ctx.strokePath()
+    // Le combiné : un **arc** à bouts ronds, et deux écouteurs posés à ses extrémités.
+    // Premier jet : une poignée droite et deux rectangles obliques, dans un caisson de 26
+    // unités — les trois formes fusionnaient et le tout se lisait comme une flèche. C'est
+    // la courbure, et non l'obliquité, qui fait lire un combiné à cette taille ; le caisson
+    // est passé à 30 unités dans le même mouvement.
+    ctx.saveGState()
+    ctx.translateBy(x: pt.x, y: pt.y)
+    ctx.rotate(by: -.pi / 4)
+    let rayonArc = r * 0.42
+    let ouverture = 0.26 * Double.pi
+    ctx.setStrokeColor(p.marquage)
+    ctx.setLineWidth(r * 0.24)
+    ctx.setLineCap(.round)
+    ctx.beginPath()
+    ctx.addArc(center: .zero, radius: rayonArc, startAngle: ouverture,
+               endAngle: Double.pi - ouverture, clockwise: false)
+    ctx.strokePath()
+    ctx.setFillColor(p.marquage)
+    for a in [ouverture, Double.pi - ouverture] {
+        let c = CGPoint(x: cos(a) * rayonArc, y: sin(a) * rayonArc)
+        ctx.fillEllipse(in: CGRect(x: c.x - r * 0.20, y: c.y - r * 0.20,
+                                   width: r * 0.40, height: r * 0.40))
+    }
+    ctx.restoreGState()
+}
+
+/// Une demi-barrière **abaissée**, vue de dessus : une lisse en travers de la chaussée,
+/// articulée sur un fût planté au bord. « Ces barrières sont peintes en blanc et rouge »
+/// (IISR, 2e partie, art. 34), d'où les segments alternés — mais l'information ne repose
+/// pas sur eux : le rouge de la palette mesure 86 en niveaux de gris en mode clair contre
+/// 93 pour la chaussée, sept points d'écart, autant dire rien. C'est le **filet sombre**
+/// qui borne la lisse (51 dans les deux modes) et les segments blancs (255 en clair, 245
+/// en sombre) qui la font lire. Sans ce filet, une demi-barrière abaissée sur la chaussée
+/// se réduirait, en niveaux de gris, à une file de tirets blancs flottants.
+private func demiBarriereAbaissee(_ ctx: CGContext, fut futX: Double, pointe: Double,
+                                  y: Double, _ p: Palette) {
+    let epaisseur = 8.0
+    let x0 = min(futX, pointe), x1 = max(futX, pointe)
+    let lisse = CGRect(x: x0, y: y - epaisseur / 2, width: x1 - x0, height: epaisseur)
+    let pas = 14.0
+    // Les segments partent du fût et non du bord gauche du rectangle : les deux lisses
+    // d'un même passage étant articulées sur des fûts opposés, c'est la seule manière que
+    // l'alternance se lise en miroir de part et d'autre de l'axe plutôt qu'en décalé.
+    let sens = futX < pointe ? 1.0 : -1.0
+    ctx.saveGState()
+    ctx.addPath(CGPath(rect: lisse, transform: nil))
+    ctx.clip()
+    var d = 0.0
+    var rouge = true
+    while d < x1 - x0 {
+        let depart = sens > 0 ? x0 + d : x1 - d - pas
+        ctx.setFillColor(rouge ? p.panneauRouge : p.panneauFond)
+        ctx.fill(CGRect(x: depart, y: lisse.minY, width: pas, height: epaisseur))
+        d += pas
+        rouge = !rouge
+    }
+    ctx.restoreGState()
+    ctx.setStrokeColor(traitSombre)
+    ctx.setLineWidth(1.5)
+    ctx.stroke(lisse)
+    // Le fût : sur l'accotement, jamais sur la chaussée. En `chaussee` et non en
+    // `traitSombre`, qui ne se sépare du `sol` du mode sombre que de quatorze points.
+    ctx.setFillColor(p.chaussee)
+    ctx.fillEllipse(in: CGRect(x: futX - 6, y: y - 6, width: 12, height: 12))
+    ctx.setStrokeColor(p.marquage)
+    ctx.setLineWidth(1.5)
+    ctx.strokeEllipse(in: CGRect(x: futX - 6, y: y - 6, width: 12, height: 12))
+}
+
+/// Les **quatre** demi-barrières d'un passage à niveau automatique, en position basse :
+/// deux lisses qui se rejoignent près de l'axe et barrent, ensemble, toute la largeur de
+/// la chaussée (arrêté du 18 mars 1991, art. 9). Ce nombre n'est pas un détail de dessin.
+/// Avec **deux** demi-barrières seulement — le minimum de l'article —, la moitié gauche
+/// de la chaussée resterait libre au-delà de la voie ferrée, et un véhicule pris sur les
+/// rails n'aurait rien à forcer pour dégager : la question de la scène 26 n'existerait
+/// pas. C'est aussi la configuration à quatre demi-barrières, et elle seule, pour laquelle
+/// le même article impose à l'exploitant d'« informer visuellement les usagers du
+/// caractère cassable de la barrière ».
+private func demiBarrieresAbaissees(_ ctx: CGContext, y: Double, _ p: Palette) {
+    demiBarriereAbaissee(ctx, fut: cx - voie - 8, pointe: cx - 3, y: y, p)
+    demiBarriereAbaissee(ctx, fut: cx + voie + 8, pointe: cx + 3, y: y, p)
+}
+
+/// Une balise J10, vue **de face**. « Des balises J10 comportant des bandes rouges
+/// obliques sur fond blanc. La pente descendante de ces bandes est orientée vers l'axe de
+/// la chaussée » (IISR, 2e partie, art. 34, relevé mot pour mot). La balise étant plantée
+/// à droite de la chaussée, l'axe est à sa gauche : la bande **descend vers la gauche**,
+/// et c'est de là que vient le sens du dessin — il n'a pas été choisi à l'œil.
+///
+/// Les angles sont arrondis : « Les angles des balises et panneaux polygonaux sont
+/// remplacés par des arrondis afin d'éviter les accidents du fait de heurt par un piéton »
+/// (IISR, 1re partie, art. 5-1), qui nomme les balises avant les panneaux.
+///
+/// `bandes` est le seul paramètre qui porte du sens : trois au pied du panneau de danger,
+/// deux aux deux tiers, une seule au dernier tiers de l'approche. La primitive les accepte
+/// toutes, la scène 27 n'en dessine qu'une.
+private func baliseJ10(_ ctx: CGContext, at pt: CGPoint, hauteur: Double, bandes: Int,
+                       _ p: Palette) {
+    let largeur = hauteur * 0.28
+    let plaque = CGRect(x: pt.x - largeur / 2, y: pt.y - hauteur / 2,
+                        width: largeur, height: hauteur)
+    let chemin = CGPath(roundedRect: plaque, cornerWidth: largeur * 0.16,
+                        cornerHeight: largeur * 0.16, transform: nil)
+    ctx.setFillColor(p.panneauFond)
+    ctx.addPath(chemin)
+    ctx.fillPath()
+    // Les bandes, réparties sur la hauteur utile.
+    ctx.saveGState()
+    ctx.addPath(chemin)
+    ctx.clip()
+    ctx.setStrokeColor(p.panneauRouge)
+    ctx.setLineWidth(hauteur * 0.15)
+    ctx.setLineCap(.butt)
+    let utile = hauteur * 0.74
+    for i in 0..<bandes {
+        let t = bandes == 1 ? 0.5 : Double(i) / Double(bandes - 1)
+        let centre = plaque.minY + hauteur * 0.13 + utile * t
+        ctx.beginPath()
+        ctx.move(to: CGPoint(x: plaque.minX - 2, y: centre + largeur * 0.55))
+        ctx.addLine(to: CGPoint(x: plaque.maxX + 2, y: centre - largeur * 0.55))
+        ctx.strokePath()
+    }
+    ctx.restoreGState()
+    // Le fond blanc de la balise (255) et le `sol` du mode clair (235) ne sont qu'à vingt
+    // points l'un de l'autre : sans ce filet, la silhouette disparaîtrait en niveaux de
+    // gris là même où la question demande de compter les bandes.
+    ctx.setStrokeColor(traitSombre)
+    ctx.setLineWidth(2)
+    ctx.addPath(chemin)
+    ctx.strokePath()
+    // Le support, sous la plaque.
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: pt.x - largeur * 0.10, y: plaque.maxY,
+                    width: largeur * 0.20, height: hauteur * 0.22))
+}
+
 let scenesCirculation: [(String, Scene)] = [
 
     // 1. B14 : le disque à large liseré rouge. « Ce panneau impose : » n'a aucun sens sans
@@ -1159,6 +1400,77 @@ let scenesCirculation: [(String, Scene)] = [
                         couleur: p.autre, p)
         voitureAgrandie(ctx, x: depVoieDroite, y: 128, cap: .nord, facteur: depEchelle,
                         couleur: p.vous, liseree: true, p)
+    }),
+
+    // MARK: - Tunnels & passages à niveau (tâche 17)
+
+    // 25. Le refuge d'un tunnel. Ce que seule l'image apporte est un fait, et c'est celui
+    //     dont dépend la réponse : **il y a un emplacement d'arrêt d'urgence à portée**.
+    //     Un énoncé qui l'écrirait aurait déjà répondu — « un refuge est signalé un peu
+    //     plus loin » et « rejoignez le refuge » sont la même phrase. Sans ce fait, le
+    //     distracteur « vous arrêter sur place » serait défendable, puisque s'arrêter sur
+    //     une chaussée de tunnel est ce qu'on fait quand il n'y a rien d'autre.
+    //
+    //     Deux voies de même sens, séparées par une T1 (rapport plein/vide 0,3, IISR 7e
+    //     partie, art. 113-1, B), et aucun véhicule en sens inverse : la question ne porte
+    //     ni sur le dépassement ni sur le croisement, et un axe continu ou un tiers venant
+    //     d'en face poserait sous elle une seconde question.
+    //
+    //     Cadrage : le refuge tient de y = 96 à 178, donc entier dans la bande d'environ
+    //     110 unités qui survit au rétrécissement du bandeau à 18 % (y de 95 à 205). La
+    //     voiture du candidat, à y = 230, n'y entre pas — c'est voulu, elle ne dit que
+    //     « vous êtes ici », et le §10 réserve la bande centrale à ce qui décide.
+    ("tunnel-arret-urgence", { ctx, p in
+        tubeDeTunnel(ctx, p)
+        ligneAxialeT1(ctx, x: tunnelAxe, p)
+        posteDAppelDUrgence(ctx, at: CGPoint(x: tunnelRefugeFond - 21,
+                                             y: (tunnelRefugeHaut + tunnelRefugeBas) / 2),
+                            cote: 30, p)
+        voitureAgrandie(ctx, x: tunnelDroite - 28, y: 230, cap: .nord, facteur: depEchelle,
+                        couleur: p.vous, liseree: true, p)
+    }),
+
+    // 26. Le véhicule pris entre les demi-barrières. Ce que seule l'image apporte : que la
+    //     voiture est **déjà sur les rails**, et non arrêtée en deçà. L'énoncé se borne à
+    //     dire que les barrières viennent de s'abaisser, ce qui est vrai des deux
+    //     situations ; c'est la position qui retourne la réponse — en deçà, on attend ; sur
+    //     la voie, on force la lisse et on dégage.
+    //
+    //     Aucun feu de détresse sur la voiture, et c'est un choix de fond et non de dessin.
+    //     Les allumer dirait « en panne », donc « incapable d'avancer », et la bonne réponse
+    //     — avancer en forçant — deviendrait impossible ; la scène montre un véhicule
+    //     simplement pris, qui roule encore.
+    //
+    //     Cadrage : les deux lisses sont à y = 110 et 190, les rails à y = 141-159, la
+    //     voiture de 130 à 170. Tout ce qui décide tient dans la bande centrale.
+    ("passage-a-niveau-immobilise", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeInterrompuSurLaVoieFerree(ctx, p)
+        railsHorizontaux(ctx, p)
+        demiBarrieresAbaissees(ctx, y: cy - 40, p)
+        demiBarrieresAbaissees(ctx, y: cy + 40, p)
+        voiture(ctx, x: voieVous, y: cy, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 27. La balise J10, et le cas le plus net du §9 de `methode.md` de tout le dossier :
+    //     l'information est **purement visuelle**. La réponse tient au nombre de bandes,
+    //     une seule ici, donc à la dernière balise avant la voie ferrée ; un énoncé qui
+    //     écrirait « cette balise à une bande » aurait donné sa réponse à qui connaît la
+    //     règle, et un énoncé qui ne l'écrirait pas rendrait la question insoluble sans
+    //     l'image. Il n'existe pas de troisième rédaction.
+    //
+    //     Rien d'autre n'est dessiné, et surtout **pas la voie ferrée** : la balise annonce
+    //     un passage à niveau qu'on ne voit pas encore, et le dessiner ferait répondre le
+    //     décor à la place du candidat. C'est aussi pour cela que la balise est vue de face
+    //     et seule, comme les quatorze panneaux du dossier — une vue de dessus ne montre
+    //     pas ce qui est peint sur une plaque verticale.
+    //
+    //     Le nom de l'asset est au pluriel parce qu'il est arrêté par le plan de la passe ;
+    //     la scène, elle, n'en montre qu'une, pour la raison ci-dessus.
+    ("passage-a-niveau-balises", { ctx, p in
+        fond(ctx, p)
+        baliseJ10(ctx, at: CGPoint(x: cx, y: cy), hauteur: 106, bandes: 1, p)
     }),
 ]
 

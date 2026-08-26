@@ -67,6 +67,9 @@ dessine une fois, pas une fois par scène.
 | `depassement-sommet-de-cote` | **vue de profil** : la chaussée monte vers un sommet, la portion qui redescend au-delà est **hachurée** (convention « non vu depuis le poste de conduite »), ligne de visée en pointillés depuis l'œil du conducteur | maison, aucune source tierce |
 | `croisement-chaussee-etroite` | vue de dessus : chaussée de 84 unités sans axe médian, voiture arrêtée **feux de détresse allumés** contre le bord droit, véhicule venant en sens inverse, candidat derrière l'obstacle | maison, aucune source tierce |
 | `rabattement-apres-depassement` | vue de dessus : même chaussée que `depassement-ligne-discontinue`, la voiture du candidat **déjà revenue à droite** à un mètre du pare-chocs de celle qu'elle vient de doubler | maison, aucune source tierce |
+| `tunnel-arret-urgence` | vue de dessus : deux voies entre deux piédroits pleins, **renfoncement** creusé dans le piédroit de droite (emplacement d'arrêt d'urgence) et poste d'appel au fond, la voiture du candidat en aval | maison, aucune source tierce |
+| `passage-a-niveau-immobilise` | vue de dessus : voie ferrée en travers, **quatre demi-barrières** abaissées barrant toute la largeur, la voiture du candidat prise sur les rails entre elles | maison, aucune source tierce |
+| `passage-a-niveau-balises` | balise **J10** vue de face, plaque blanche haute et étroite barrée d'**une seule** bande rouge oblique descendant vers la gauche | maison, aucune source tierce |
 
 ### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
 
@@ -337,6 +340,136 @@ distracteur « renoncez, un véhicule vient », ce que la règle 2 du §1 de `qu
 interdit. Même raison pour l'absence de véhicule derrière le sommet de côte : on ne peut pas
 dessiner un véhicule caché, et le montrer ferait croire que c'est sa présence qui interdit
 le dépassement, alors que R414-11 interdit précisément parce qu'on l'ignore.
+
+### Les trois scènes de tunnel et de passage à niveau (tâche 17, 2026-08-26)
+
+Deux vues de dessus et **un objet vu de face**, et ce partage n'est pas un choix de style :
+le seul fait que porte la troisième scène est le **nombre de bandes** d'une balise, qui est
+peint sur une plaque verticale et n'existe donc pas en vue aérienne. Elle rejoint les
+quatorze panneaux du dossier — fond neutre, l'objet seul, grand et centré.
+
+| scène | unités par mètre | pourquoi cette échelle |
+|---|---:|---|
+| `tunnel-arret-urgence` | 16 | voies de 56 unités pour 3,50 m et voiture agrandie 1,25 fois, l'échelle des deux scènes de dépassement de la tâche 16. À 12, la chaussée et son refuge tiendraient dans un tiers du cadre et le refuge se lirait comme une encoche plutôt que comme une place |
+| `passage-a-niveau-immobilise` | 12 | l'échelle des scènes de carrefour, réutilisée telle quelle : la scène partage sa chaussée, ses rails et son axe interrompu avec `passage-niveau-feu-rouge-clignotant`, et deux cartes du même lieu doivent se lire à la même taille |
+| `passage-a-niveau-balises` | — | vue de face ; la plaque fait 106 unités de haut pour 30 de large, soit exactement l'encombrement vertical d'un panneau circulaire de rayon 52 |
+
+**Ce que l'IISR a fourni.** L'art. 34 de la 2e partie donne les balises J10 mot pour mot :
+« des balises J10 comportant des bandes rouges obliques sur fond blanc. La pente descendante
+de ces bandes est orientée vers l'axe de la chaussée », puis « La première balise confondue
+avec le support du panneau A7 comporte trois bandes rouges ; les deux autres, implantées aux
+deux tiers et au tiers de la distance séparant le panneau A7 du passage à niveau comportent
+respectivement deux et une seule bande rouge. » Le **sens** de la pente vient donc du texte
+et non de l'œil : la balise étant plantée à droite de la chaussée, l'axe est à sa gauche,
+donc la bande descend vers la gauche. Le même article donne aussi les barrières « peintes en
+blanc et rouge ». L'arrondi des angles vient de l'art. 5-1 de la 1re partie, qui nomme les
+**balises** avant les panneaux. Enfin, l'art. 70-5, 1 de la 5e partie rend obligatoire la
+signalisation des emplacements d'arrêt d'urgence dans les tunnels (panneau C8, panonceau M9e
+quand l'emplacement comporte un poste d'appel d'urgence) et l'art. 78-27, 1 celle des issues
+de secours.
+
+Ce que l'IISR n'a **pas** fourni, et qui est donc dessiné : le combiné de téléphone du poste
+d'appel (l'idéogramme ID5a, dont la planche n'a pas été relevée), le renfoncement lui-même,
+les luminaires de paroi, et la géométrie d'une demi-barrière vue de dessus. Aucun visuel
+d'éditeur d'ETG n'a servi de modèle, ici comme ailleurs.
+
+**Ce que ces scènes ne dessinent pas, et pourquoi.** Ni signal d'arrêt R24, ni croix de
+Saint-André, alors qu'un vrai passage à niveau automatique porte les deux. Le R24 est déjà
+le sujet de `passage-niveau-feu-rouge-clignotant` et de la question qu'elle illustre
+(« l'arrêt absolu, train visible ou non ») ; le remettre dans `passage-a-niveau-immobilise`
+ferait répondre la carte voisine à la place de celle-ci. La croix de Saint-André n'a
+toujours pas de planche relevée, et les demi-barrières suffisent à dire le lieu.
+
+**Les quatre demi-barrières ne sont pas un choix de dessin.** L'art. 9 de l'arrêté du
+18 mars 1991 n'impose au minimum qu'une demi-barrière à droite de la chaussée par sens. Avec
+ce minimum, la moitié gauche de la chaussée resterait libre au-delà de la voie ferrée : un
+véhicule pris sur les rails n'aurait rien à forcer pour dégager, et la question de la scène
+n'existerait pas. Le même article réserve d'ailleurs au cas des **quatre** demi-barrières
+l'obligation faite à l'exploitant d'« informer visuellement les usagers du caractère cassable
+de la barrière » — c'est-à-dire exactement le fait dont dépend la bonne réponse.
+
+Relevé de luminance (§13 de `methode.md`) — Rec. 709 sur les valeurs sRGB des PNG **@3x**
+livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, un pixel par zone, coordonnées en **unités de
+scène** (le pixel lu est `3 ×` celles-ci).
+
+| zone | x, y | clair | sombre |
+|---|---|---|---|
+| `tunnel` — roche des piédroits (`bordure`) | 50, 60 | 139,1 | 115,3 |
+| `tunnel` — chaussée du tube | 120, 60 | 93,1 | 75,1 |
+| `tunnel` — **refuge**, chaussée creusée dans la roche | 240, 137 | 93,1 | 75,1 |
+| `tunnel` — arête sombre du refuge | 278, 137 | 51,0 | 51,0 |
+| `tunnel` — poste d'appel, fond | 246, 147 | 128,6 | 128,6 |
+| `tunnel` — poste d'appel, filet et combiné | 244,5, 137 | 255,0 | 234,3 |
+| `tunnel` — bande de rive continue | 102,5, 60 | 255,0 | 234,3 |
+| `tunnel` — axe T1, plein / vide | 152, 145 / 152, 110 | 255,0 / 93,1 | 234,3 / 75,1 |
+| `tunnel` — luminaire de paroi | 81,5, 26 | 255,0 | 234,3 |
+| `tunnel` — voiture du candidat, caisse / liseré | 180, 230 / 166,5, 230 | 128,6 / 255,0 | 128,6 / 234,3 |
+| `immobilise` — lisse, segment **rouge** | 240, 110 | 86,0 | 115,1 |
+| `immobilise` — lisse, segment **blanc** | 229, 110 | 255,0 | 245,3 |
+| `immobilise` — lisse, filet sombre de contour | 229, 106 | 51,0 | 51,0 |
+| `immobilise` — chaussée | 170, 90 | 93,1 | 75,1 |
+| `immobilise` — fût de la demi-barrière | 250, 110 | 93,1 | 75,1 |
+| `immobilise` — rail | 100, 141 | 255,0 | 234,3 |
+| `immobilise` — traverse / intervalle entre deux traverses | 98, 150 / 89, 150 | 153,0 / 235,1 | 24,1 / 37,2 |
+| `immobilise` — voiture du candidat, caisse / liseré | 221, 150 / 210,3, 150 | 128,6 / 255,0 | 128,6 / 234,3 |
+| `balise` — fond de la plaque | 200, 120 | 255,0 | 245,3 |
+| `balise` — **bande rouge oblique** | 200, 150 | 86,0 | 115,1 |
+| `balise` — filet sombre de la plaque | 185,2, 120 | 51,0 | 51,0 |
+| `balise` — `sol` autour de la plaque | 60, 60 | 235,1 | 37,2 |
+
+Ce que ce relevé établit :
+
+- **La bande de la balise est le signal le plus sûr des trois scènes, et c'est celle dont
+  dépend la réponse.** Elle mesure 86,0 sur un fond de 255,0 en clair (−169,0) et 115,1 sur
+  245,3 en sombre (−130,2) : même polarité, écart franc des deux côtés. Compter les bandes ne
+  demande donc de distinguer aucune teinte — c'est une barre sombre en travers d'une plaque
+  claire, et rien d'autre.
+- **Le filet sombre de la plaque n'est pas décoratif.** En mode clair, le fond de la balise
+  (255,0) et le `sol` qui l'entoure (235,1) ne sont qu'à **19,9 points** l'un de l'autre : sans
+  ce filet à 51,0, la silhouette de la balise se dissoudrait dans le fond là même où la
+  question demande de la lire. En mode sombre, où le `sol` tombe à 37,2, il ne sert qu'à ne
+  pas changer de dessin d'un mode à l'autre.
+- **Le rouge d'une demi-barrière est indiscernable de la chaussée en mode clair**, et c'est
+  mesuré, pas supposé : 86,0 contre 93,1, soit **7,1 points**. Ce qui fait lire la lisse est
+  l'alternance de ses segments **blancs** (255,0, soit +161,9 sur la chaussée) et son filet de
+  contour à 51,0 (−42,1). En mode sombre le rouge remonte à 115,1 contre 75,1 et l'écart
+  redevient franc, mais le dessin ne change pas : la lecture repose des deux côtés sur le
+  blanc et le filet, jamais sur le rouge.
+- **La polarité du tunnel est la même dans les deux modes.** Le tube et le refuge, tous deux
+  en `chaussee`, sont plus **sombres** que la roche des piédroits de 46,0 points en clair et
+  de 40,2 en sombre. Le refuge se lit donc comme une avancée du sol du tunnel dans la paroi, et
+  cette lecture ne dépend d'aucune teinte. L'arête à 51,0 la borne des deux côtés.
+- **Une inversion connue, sans conséquence ici** : la caisse du candidat mesure 128,6 dans les
+  deux modes (le bleu `vous` est identique en clair et en sombre), donc plus sombre que le
+  `sol` du mode clair et plus claire que celui du mode sombre. Le constat est déjà porté par la
+  section du chargement ci-dessus ; aucune des trois réponses ne s'y joue.
+
+**Ce que chaque scène apporte que l'énoncé ne peut pas dire (§9 de `methode.md`).**
+
+| scène | l'option qui en dépend | ce que seule l'image donne |
+|---|---|---|
+| `passage-a-niveau-balises` | « un passage à niveau, désormais tout proche » | le **nombre de bandes**, et il n'existe qu'en image. Un énoncé qui écrirait « cette balise à une bande » aurait donné sa réponse à qui connaît la règle ; un énoncé qui ne l'écrirait pas rendrait la question insoluble. Il n'y a pas de troisième rédaction — c'est le cas le plus net du §9 dans tout le dossier |
+| `passage-a-niveau-immobilise` | « avancez en forçant le bras, conçu pour céder » | que la voiture est **déjà sur les rails**. L'énoncé dit seulement que les demi-barrières viennent de s'abaisser, ce qui est vrai des deux situations ; en deçà on attend, sur la voie on dégage. La position retourne la réponse |
+| `tunnel-arret-urgence` | « rejoindre l'emplacement d'arrêt d'urgence » | qu'il **y a un refuge à portée**. Sans ce fait, « vous arrêter sur place » serait défendable — c'est ce qu'on fait quand il n'y a rien d'autre. Et l'écrire dans l'énoncé (« un refuge est signalé un peu plus loin ») aurait donné la réponse |
+
+**Le §10.** La bande d'environ 110 unités qui survit au rétrécissement du bandeau (y de 95 à
+205) contient, dans l'ordre des trois scènes : la plaque entière de la balise (y de 97 à 203,
+son support seul en sort) — et c'est la contrainte qui **fixe sa taille**, puisqu'une plaque
+recadrée laisserait croire à des bandes hors champ, c'est-à-dire détruirait la question ; le
+refuge entier du tunnel (y de 96 à 178), la voiture du candidat restant hors bande à y = 230
+parce qu'elle ne dit que « vous êtes ici » ; les deux lisses (y = 110 et 190), les rails
+(y de 141 à 159) et la voiture prise entre elles (y de 130 à 170).
+
+**Un renoncement, et il porte sur une scène que le plan demandait.** `tunnel-intervalle` —
+deux véhicules en marche dans un tunnel, l'intervalle en question — **n'a pas été dessinée**.
+Le motif n'est pas graphique mais documentaire : aucune source de rang 1 ne chiffre
+l'intervalle propre au tunnel (cf. la ligne `a88bdac8` de [`sources.md`](sources.md)), si bien
+qu'un schéma qui montrerait « le bon intervalle » inventerait la valeur qu'il prétend
+illustrer. La question qui subsiste porte sur le **régime** — l'autorité de police peut
+allonger l'intervalle sur un ouvrage à risques particuliers — et une règle de compétence ne se
+dessine pas. S'y ajoute le motif déjà retenu par la tâche 12 : le cadre 4:3 compresse l'axe
+longitudinal d'un facteur ~20 par rapport à l'axe transversal, donc un schéma ne peut pas
+montrer honnêtement une distance entre deux véhicules.
 
 ### D'où vient la géométrie des panneaux
 
