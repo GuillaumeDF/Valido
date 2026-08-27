@@ -762,7 +762,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "50 km/h, parce que la densité de piétons et de carrefours en agglomération multiplie les occasions de choc : c'est le panneau d'entrée de ville qui l'impose par défaut. Des zones 30 peuvent l'abaisser localement, et il cesse au panneau de sortie d'agglomération.",
+    "explanation": "50 km/h : R413-3 l'impose dès l'agglomération, marquée par le panneau d'entrée de ville, parce que la densité de piétons et de carrefours y multiplie les occasions de choc. Des zones 30 peuvent l'abaisser localement, et il peut même monter à 70 sur des sections protégées.",
     "id": "37fe1af42b8d81589410cd055e66efc2",
     "options": [
       {
@@ -779,7 +779,7 @@
       },
       {
         "id": "D",
-        "text": "45 km/h"
+        "text": "20 km/h"
       }
     ],
     "prompt": "En agglomération, quelle est la vitesse maximale par défaut (sans panneau) ?",
@@ -1036,7 +1036,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème monte par tranches de 10 km/h — aucun point sous 5 km/h, 1 de 5 à 20, 2 de 20 à 30, 3 de 30 à 40, 4 de 40 à 50, 6 au-delà — parce que le risque de collision grave et la distance de freinage croissent avec l'écart. Au-delà de 50 km/h, l'excès devient un délit.",
+    "explanation": "Le barème monte par paliers : aucun point sous 5 km/h, 1 de 5 à 20, 2 de 20 à 30, puis 3 de 30 à 40 — parce que le risque de collision grave et la distance de freinage croissent avec l'écart.",
     "id": "37fe1af42b8d816b8bf5d51c4f78466c",
     "options": [
       {
@@ -1237,7 +1237,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Six points, le maximum du barème : depuis le 29 décembre 2025, dépasser la limite de 50 km/h ou plus relève d'un délit dès la première fois, avec une amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € d'amende encourus.",
+    "explanation": "Six points, le maximum du barème : au-delà de 50 km/h d'écart, la marge de freinage disparaît presque entièrement. Depuis le 29 décembre 2025, ce dépassement relève d'un délit dès la première fois — amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € encourus.",
     "id": "37fe1af42b8d817a9111e3d52f9e5142",
     "options": [
       {
@@ -1628,7 +1628,7 @@
       },
       {
         "id": "C",
-        "text": "120 km/h"
+        "text": "90 km/h"
       },
       {
         "id": "D",
@@ -6910,7 +6910,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, a supprimé la qualification de contravention de cinquième classe pour ces excès : depuis, le grand excès de vitesse est un délit dès la première fois, plus seulement en cas de récidive.",
+    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, a jugé ces excès trop dangereux pour une simple amende : la qualification de contravention de cinquième classe est supprimée, le grand excès de vitesse est un délit dès la première fois, plus seulement en cas de récidive.",
     "id": "337bfcb4d034b62de5fe0d77ca0cb0a0",
     "options": [
       {
@@ -7023,11 +7023,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Le caractère payant ou gratuit du stationnement"
+        "text": "La vitesse seule, la priorité restant identique"
       },
       {
         "id": "B",
-        "text": "L'heure à partir de laquelle la limite s'applique"
+        "text": "La priorité seule, la vitesse restant identique"
       },
       {
         "id": "C",
@@ -7035,7 +7035,7 @@
       },
       {
         "id": "D",
-        "text": "La largeur minimale imposée à la chaussée"
+        "text": "Rien : mêmes règles sous deux noms différents"
       }
     ],
     "prompt": "Entre une zone 30 et une zone de rencontre, la différence porte sur :",
@@ -7045,7 +7045,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le risque de collision grave croît avec l'écart : chaque tranche de 10 km/h ajoute un point (1 de 5 à 20, puis 2, 3 et 4). À partir de 30 km/h de dépassement, le juge peut ajouter une suspension du permis et un stage obligatoire ; à 50 km/h l'infraction devient un délit.",
+    "explanation": "Le risque de collision grave croît avec l'écart : le barème monte par paliers (1 point de 5 à 20 km/h, puis 2, 3 et 4). À partir de 30 km/h de dépassement, le juge peut ajouter une suspension du permis et un stage obligatoire ; à 50 km/h l'infraction devient un délit.",
     "id": "04182c9bbdeb305e21532f9c6913a2a2",
     "options": [
       {
@@ -8570,7 +8570,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le liseré rouge classe ce panneau parmi les interdictions : l'enfreindre est une infraction, pas un choix. Il ne s'étend qu'à l'axe où il est planté — les rues qui le croisent gardent leur propre limite.",
+    "explanation": "Le liseré rouge classe ce panneau parmi les interdictions, pas les conseils : c'est un plafond, pas un minimum. Il ne s'étend qu'à l'axe où il est planté — les rues qui le croisent gardent leur propre limite.",
     "id": "07ef459de55adcb501694169428ffd72",
     "illustration": {
       "alt": "Disque à fond blanc bordé d'un large liseré rouge, portant le nombre 70 en sombre au centre.",
@@ -8594,7 +8594,7 @@
         "text": "une vitesse minimale de 70 km/h sur cet axe"
       }
     ],
-    "prompt": "Ce panneau impose :",
+    "prompt": "Ce panneau signifie :",
     "subject": "code",
     "topic": "Vitesse"
   },
@@ -8632,7 +8632,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le carré rend la prescription zonale, pour ralentir tout un quartier et non une rue : elle vaut jusqu'au panneau qui la termine, même après un virage. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
+    "explanation": "Le carré rend la prescription zonale, pour ralentir tout un quartier : elle vaut dans les rues sécantes jusqu'au panneau qui la termine. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
     "id": "ed0e45e08fb4f47007934da587b5757c",
     "illustration": {
       "alt": "Panneau carré à fond blanc bordé de rouge : le mot ZONE en haut, et sous lui un disque à liseré rouge portant 30.",
