@@ -1172,8 +1172,10 @@ un doute que cette relecture aurait laissé en suspens.
 - `0e85e6a79127a2bae73abcc119e278bd` (tunnel, seconde infraction) — le distracteur A
   affirmait « une contravention de cinquième classe, 200 € dus ». 200 € ne correspond à
   aucun montant réel du barème routier (contraventions forfaitaires : 35 € (2e classe),
-  68 € (3e classe), 135 € (4e classe, tarif normal) ; au-delà, la 5e classe n'a pas de
-  forfait et son plafond judiciaire est de 1 500 €, art. 131-13 5° du code pénal,
+  68 € (3e classe), 135 € (4e classe, tarif normal) ; le 375 € qui sert de distracteur sur
+  `…81e7a0` dans ce même lot est le forfait **majoré** de cette même 4e classe, pas un
+  palier distinct du barème. Au-delà, la 5e classe n'a pas de forfait et son plafond
+  judiciaire est de 1 500 €, art. 131-13 5° du code pénal,
   « 1 500 euros au plus », version en vigueur depuis le 01/04/2005, relevé par `WebFetch`
   le 2026-08-27). Corrigé en « une contravention de cinquième classe, jusqu'à 1 500 € » :
   le distracteur reste faux (ce n'est pas une contravention mais un délit), mais son
@@ -1312,6 +1314,16 @@ réel, voir « Pédagogie »). Aucun autre distracteur du lot n'a paru, à cette
 lecture, éliminable par pure logique, isolé par la forme, ou légitimé par sa propre
 carte.
 
+**Une observation non corrigée, pour une passe suivante.** Le distracteur D de
+`…81e7a0`, « 375 € d'amende et 6 points de moins », associe un montant réel —
+375 € est le forfait majoré de la 4e classe, voir « Pédagogie » — à un nombre
+de points qui ne correspond pas de façon évidente à cette classe (6, quand le
+barème du domaine reste à 3 pour la 4e classe partout ailleurs sur ce lot).
+Repéré au fix round 2, non modifié ici : hors des constats de cette ronde, et
+l'option reste fausse par ailleurs (ce n'est ni le montant ni le nombre de
+points de l'infraction) ; signalé pour la prochaine passe plutôt que corrigé au
+jugé.
+
 **`correctID` — rééquilibré ce round.** Mesuré au début de la tâche (round 0, avant toute
 édition) : A 3, B 5, C 3, D 10, un total biaisé vers D que le rapport de round 0
 qualifiait, à tort, de hors périmètre puisqu'aucune *édition* ne l'avait produit. La
@@ -1432,38 +1444,45 @@ Compte corrigé, par bonne réponse sous le seuil :
 
 ### Mouvements d'`audit.py`
 
-| sortie | round 0 (avant) | round 0 (après) | fix round 1 |
-|---|---|---|---|
-| `lettre/reference` | 1 | 1 | 1 |
-| `forme/markdown` | 1 | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 | 14 |
-| `longueur/plus-longue` | 95 | 96 | 96 |
-| `expl/paraphrase-litterale` | 17 | 17 | 17 |
-| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides |
+| sortie | round 0 (avant) | round 0 (après) | fix round 1 | fix round 2 |
+|---|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 | 1 |
+| `forme/markdown` | 1 | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 | 14 |
+| `longueur/plus-longue` | 95 | 96 | 96 | 96 |
+| `expl/paraphrase-litterale` | 17 | 17 | 17 | 17 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides | vides |
 
-`longueur/plus-longue` reste à 96 aux deux rondes, mais pas pour la même carte dans le
-même état : `…81e7a0` y contribue toujours, à +1 caractère au lieu de +10 — la marge de
-sécurité que le fix round 1 devait ajouter, `longueur/plus-10` restant vide aux deux
-rondes. `--fuites "Distances & freinage"` : 1 recouvrement en round 0 (avant et après
-édition), toujours 1 en fix round 1, mais sur une carte différente à l'intérieur du
-domaine — voir ci-dessous. `--fuites` sur les cinq domaines déjà clos, revérifié après
-le fix round 1 : 0 sur « Permis & sanctions », « Vitesse », « Alcool & stupéfiants » et
-« Mécanique & environnement » ; 1 recouvrement incidental, inchangé et déjà documenté
-par la tâche 5, sur « Usagers & partage de la route ».
+`longueur/plus-longue` reste à 96 à toutes les rondes, mais pas pour la même carte dans
+le même état : `…81e7a0` y contribue toujours, à +1 caractère au lieu de +10 depuis le
+fix round 1 — la marge de sécurité qu'il devait ajouter, `longueur/plus-10` restant vide
+partout. `--fuites "Distances & freinage"` : 1 recouvrement en round 0 (avant et après
+édition), toujours 1 après le fix round 1 mais sur une carte différente à l'intérieur du
+domaine, **0 après le fix round 2**. `--fuites` sur les cinq domaines déjà clos,
+revérifié après le fix round 2 : 0 sur « Permis & sanctions », « Vitesse »,
+« Alcool & stupéfiants » et « Mécanique & environnement » ; 1 recouvrement incidental,
+inchangé et déjà documenté par la tâche 5, sur « Usagers & partage de la route ».
 
-**Le recouvrement fortuit de `--fuites` sur ce domaine — même compte, carte différente.**
-En round 0, `a4f04a8078a925fbc8c5df10f063e065` (circulation sur la BAU) recouvrait la
-bonne réponse d'une carte `Vitesse` (« 4 points, avec suspension possible du permis »,
-pour un dépassement de 40 à 50 km/h) par le seul vocabulaire générique du barème
-(« points », « suspension », « possible », « permis »), sans chiffre commun (trois points
-contre quatre). Ce recouvrement **prédatait cette tâche** : mesuré avant toute édition
-(round 0, avant), il était déjà là. Le fix round 1 l'a fait disparaître par effet de
-bord — en retirant « possible » de l'explication de `a4f04a…` pour régler la fuite vers
-`…81e7a0` (voir « Pédagogie ») — mais en a fait apparaître un **autre**, sur `…81e7a0`
-lui-même : sa nouvelle explication, qui doit dire que la suspension est une peine
-complémentaire « possible » (minor de la revue, voir plus haut), recouvre désormais le
-même vocabulaire de la même carte `Vitesse`. Le total reste 1 recouvrement sur le
-domaine, fortuit dans les deux états : aucun chiffre partagé (trois points ici, quatre
-là), deux règles sans rapport. Le retirer supposerait de ne plus dire que « possible »
-signale un jugement, ce qui est exactement ce que la revue a demandé d'ajouter —
-conformément au point 11 du calibrage, documenté plutôt que sacrifié.
+**Le recouvrement fortuit de `--fuites` sur ce domaine, refermé au fix round 2.** En
+round 0, `a4f04a8078a925fbc8c5df10f063e065` (circulation sur la BAU) recouvrait la bonne
+réponse d'une carte `Vitesse` (« 4 points, avec suspension possible du permis », pour un
+dépassement de 40 à 50 km/h) par le seul vocabulaire générique du barème (« points »,
+« suspension », « possible », « permis »), sans chiffre commun (trois points contre
+quatre) : un recouvrement fortuit qui **prédatait cette tâche**, déjà présent en round 0
+avant toute édition. Le fix round 1 l'a fait disparaître par effet de bord — en retirant
+« possible » de l'explication de `a4f04a…` pour régler la fuite vers `…81e7a0` — mais en
+a créé un **autre**, cette fois-ci **causé par le fix round 1 lui-même** et non hérité :
+la précision ajoutée sur `…81e7a0` (« il faut un juge pour la prononcer — ce que
+« possible » veut dire dans la réponse ») réintroduisait les trois mêmes mots pleins
+(« points », « suspension », « possible ») contre la même carte `Vitesse`, sur une carte
+qui n'avait jamais fui vers elle auparavant.
+
+Mon rapport de fix round 1 qualifiait ce second recouvrement de non corrigeable sans
+annuler le correctif, en invoquant le point 11 du calibrage (protéger une phrase vraie
+d'un outil). C'était une application incorrecte du point 11 : celui-ci protège une
+phrase vraie qu'*abîmer* coûterait du contenu réel, pas une glose finale qui peut être
+retirée sans rien perdre. La substance du minor 1 — la suspension est une peine
+complémentaire, discrétionnaire, qui exige un juge — tient sans le mot « possible » :
+l'explication se referme sur « il faut un juge pour la prononcer. », et le gloss final
+est retiré. Fix round 2 confirme : `--fuites "Distances & freinage"` retombe à
+**0 recouvrement sur 21 cartes**, gratuitement.
