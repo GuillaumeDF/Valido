@@ -10590,7 +10590,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le I bis de l'article R412-34 tolère sur le trottoir les cyclistes de moins de huit ans, trop jeunes pour rouler en sécurité au milieu de la circulation, à charge de garder l'allure du pas et de ne gêner personne. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
+    "explanation": "Le I bis de l'article R412-34 tolère sur le trottoir les cyclistes de moins de huit ans, trop jeunes pour rouler en sécurité au milieu de la circulation, à charge de garder l'allure du pas et de ne gêner personne, sauf décision contraire de l'autorité de police. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
     "id": "7c2284d4cc7f32e90ce8926470fd656a",
     "options": [
       {
@@ -10648,7 +10648,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "En agglomération, l'article R414-4 impose un mètre entre le véhicule et l'usager dépassé ; hors agglomération, un mètre et demi. Serrer davantage est une contravention de quatrième classe et coûte trois points.",
+    "explanation": "R414-4 impose un mètre entre vous et lui en agglomération, un mètre cinquante hors agglomération : la vitesse y est plus grande, l'appel d'air plus fort. Serrer davantage coûte trois points.",
     "id": "9b774739866a136e7c2a9bd69b2f417d",
     "illustration": {
       "alt": "Rue bordée de deux trottoirs où marchent des piétons ; un cycliste longe le bord droit de la chaussée et votre voiture, engagée dans la même voie, arrive à sa hauteur.",
@@ -10679,7 +10679,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le code ne dit pas « trottinette » mais engin de déplacement personnel motorisé, et R412-43-3 en a relevé l'âge d'accès de deux ans à la fin de 2024. Le seuil de douze ans, encore donné par la plupart des manuels, n'est plus le bon.",
+    "explanation": "Le code ne dit pas « trottinette » mais engin de déplacement personnel motorisé, et R412-43-3 a relevé l'âge d'accès à 14 ans à la fin de 2024, deux ans de plus qu'avant. Le seuil de douze ans, encore donné par la plupart des manuels, n'est plus le bon.",
     "id": "d3f45f8d29cf6fb411382286877af9ca",
     "options": [
       {
@@ -10706,7 +10706,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le point 6.15 de l'article R311-1 définit l'engin par sa vitesse : plus de 6 km/h, et pas plus de 25. Au-delà, l'appareil sort de la catégorie et n'a plus rien à faire sur la voie publique, débridé ou vendu ainsi.",
+    "explanation": "Le point 6.15 de l'article R311-1 définit l'engin par sa vitesse : plus de 6 km/h, et pas plus de 25. Au-delà, l'appareil change simplement de catégorie, débridé ou vendu ainsi — ce n'est plus, par définition, un engin de déplacement personnel motorisé.",
     "id": "fe6c39082afe1716a7cfe42d968635a8",
     "options": [
       {
@@ -10753,7 +10753,7 @@
         "text": "sur n'importe quelle route hors agglomération"
       }
     ],
-    "prompt": "Hors agglomération, un engin de déplacement personnel motorisé circule :",
+    "prompt": "Hors agglomération, un engin de déplacement personnel motorisé — trottinette électrique, gyroroue — circule :",
     "subject": "code",
     "topic": "Usagers & partage de la route"
   },
@@ -10787,7 +10787,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "R431-1-2 ne distingue ni l'âge ni le lieu : conducteur et passager d'une motocyclette, d'un tricycle ou d'un cyclomoteur portent des gants homologués. L'oubli est une contravention de troisième classe et coûte un point.",
+    "explanation": "R431-1-2 protège les mains, premier appui au sol en cas de chute, et ne distingue ni l'âge ni le lieu : conducteur et passager d'une motocyclette, d'un tricycle ou d'un cyclomoteur portent des gants homologués. L'oubli est une contravention de troisième classe et coûte un point.",
     "id": "82b915c28f76ff1314ecc8cbc927f9b3",
     "options": [
       {
@@ -10834,14 +10834,14 @@
         "text": "une tolérance, sans texte qui la porte"
       }
     ],
-    "prompt": "La circulation inter-files des deux-roues motorisés est :",
+    "prompt": "La circulation inter-files — rouler entre deux files de véhicules — des deux-roues motorisés est :",
     "subject": "code",
     "topic": "Usagers & partage de la route"
   },
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'article R412-11-3 pose deux plafonds : cinquante à l'heure entre les files, trente dès que l'une d'elles est immobile. Et l'inter-files ne se pratique qu'entre les deux voies les plus à gauche, sur une chaussée où la vitesse autorisée atteint 70 km/h. Passer outre est une contravention de quatrième classe, trois points en moins et jusqu'à trois ans de suspension du permis.",
+    "explanation": "R412-11-3 réserve l'inter-files aux véhicules L3e ou L5e d'un mètre de large au plus, entre les deux voies de gauche d'une autoroute ou d'une route à chaussées séparées par un terre-plein central, à deux voies par chaussée au moins et 70 km/h autorisés. Deux plafonds s'y ajoutent : cinquante à l'heure entre les files, trente si l'une d'elles est à l'arrêt. Passer outre coûte trois points et jusqu'à trois ans de suspension.",
     "id": "a6fb8c0684dce67923a3207ee19171c9",
     "options": [
       {
@@ -10861,7 +10861,7 @@
         "text": "50 km/h, quelle que soit l'allure des files"
       }
     ],
-    "prompt": "En inter-files, la vitesse ne peut excéder :",
+    "prompt": "En inter-files — entre deux files de véhicules —, la vitesse ne peut excéder :",
     "subject": "code",
     "topic": "Usagers & partage de la route"
   },
@@ -10899,7 +10899,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Depuis le 1er janvier 2021, l'article R313-32-1 impose cette signalisation sur les côtés et à l'arrière de tout véhicule dont le poids total autorisé en charge excède 3,5 tonnes, camions comme autocars. Les engins agricoles et les engins de service hivernal en sont dispensés.",
+    "explanation": "Depuis le 1er janvier 2021, R313-32-1 impose cette signalisation pour indiquer aux cyclistes et piétons où ils sortent du champ de vision du chauffeur, sur les côtés et à l'arrière de tout véhicule dont le poids total autorisé en charge excède 3,5 tonnes, camions comme autocars. Les engins agricoles et les engins de service hivernal en sont dispensés.",
     "id": "9eed1fe645eb99123b9a86e348b55f99",
     "options": [
       {
@@ -10926,7 +10926,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'article R412-36 renverse pour lui la règle des véhicules : à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps. Le trottoir ou l'accotement praticable passent de toute façon avant la chaussée.",
+    "explanation": "L'article R412-36 renverse pour lui la règle des véhicules : à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps — sauf si cela compromet sa sécurité, dans un virage sans visibilité par exemple, où il peut alors changer de côté. Le trottoir ou l'accotement praticable passent de toute façon avant la chaussée.",
     "id": "b7b38d7ae1faf0dd593a1a2446b59ee6",
     "options": [
       {
@@ -10980,7 +10980,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le troisième alinéa de R412-36 fait exception à la règle du piéton pour qui pousse un cycle, un cyclomoteur ou une motocyclette : il suit le bord droit, comme un véhicule, parce qu'il n'est plus seul à se déplacer. Pour tout le reste — traverser, céder la priorité — R412-34 l'assimile pleinement au piéton.",
+    "explanation": "Le troisième alinéa de R412-36 fait exception à la règle du piéton pour qui pousse un cycle, un cyclomoteur ou une motocyclette : il suit le bord droit, comme un véhicule, parce qu'il n'est plus seul à se déplacer. Pour tout le reste — traverser, céder le passage — R412-34 l'assimile pleinement au piéton.",
     "id": "e6f52409aaec9cc7d19ca28837113023",
     "options": [
       {
@@ -11038,7 +11038,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le 3° du III de R413-17 range la montée et la descente des voyageurs d'un véhicule de transport d'enfants parmi les cas où la vitesse doit être réduite, au croisement comme au dépassement : un enfant peut surgir devant le car sans le voir venir. Ce que le code impose ici est l'allure, pas l'immobilité.",
+    "explanation": "Le 3° du III de R413-17 range la montée et la descente des voyageurs d'un véhicule de transport d'enfants parmi les cas où la vitesse doit être réduite, au croisement comme au dépassement : un enfant peut surgir devant le car sans vous voir arriver. Ce que le code impose ici est l'allure, pas l'immobilité.",
     "id": "49f761c8ac8bd10ed3bf685b1b112f6c",
     "options": [
       {
