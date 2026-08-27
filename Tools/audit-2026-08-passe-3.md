@@ -852,3 +852,140 @@ Diff vide contre la ligne de base d'avant tâche, aux deux rounds de correction.
 "Usagers & partage de la route"` : 1 recouvrement, incidental, documenté ci-dessus — pas 0, par
 choix. `--fuites` sur les trois domaines déjà clos (« Permis & sanctions », « Vitesse »,
 « Alcool & stupéfiants ») : 0 avant et après ce round.
+
+## Mécanique & environnement
+
+20 cartes, 12 `datée`, 1 illustrée(s).
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `089e9b57f57bbb155f81da3ec492082f` | règle trop large | « Un système homologué de retenue est exigé pour tout enfant [de moins de dix ans] », sans réserve, avec pour seule limite dans l'explication l'enfant déjà adapté à la ceinture (III 1°) | R412-2 III liste **trois** dispenses, pas une : 1° la morphologie adaptée à la ceinture (déjà dans la carte), 2° le certificat médical d'exemption, 3° « tout enfant transporté dans un taxi ou dans un véhicule de transport en commun » — relu en entier par deux `WebFetch` indépendants et concordants (le second citant nommément la cross-référence au 2° du II de R412-1, peu compatible avec une hallucination) | explication complétée : « sauf enfant déjà adapté à la ceinture, en taxi ou en transport en commun » ; ligne de `sources.md` réécrite pour porter les trois points du III, `relevé le` passé à 2026-08-27 |
+
+C'est le cas visé par le point 12 du calibrage : l'énoncé pose un champ d'application (« pour
+tout enfant ») sans le borner, et l'ancienne ligne de registre ne citait que la première des
+trois dispenses de R412-2 III — elle n'était pas tronquée en plein milieu d'une phrase, mais
+tronquée **entre les points** d'une énumération, ce qui est le même défaut sous une autre forme.
+La bonne réponse (le seuil de dix ans, option A) reste inchangée : l'écart ne portait pas sur la
+valeur mais sur ce que l'explication omettait de borner.
+
+**Sept autres articles du domaine ont été relus en entier pour la même raison** (le domaine
+« est plein de champs d'application », dit la consigne) sans y trouver d'écart :
+R312-21/R312-22 (chargement — aucune exception de catégorie de véhicule, seuils confirmés
+mot pour mot par `WebFetch`) ; R416-19 III (triangle/gilet — les deux/trois-roues et les
+véhicules agricoles sont exemptés, mais la carte est déjà bornée « à bord d'une voiture », donc
+hors du champ de l'exemption) ; R318-2 I (Crit'Air — le classement vaut pour les catégories M,
+N, L, mais la carte n'affirme que la *fonction* du certificat, pas son champ d'application, donc
+la restriction de catégorie ne la contredit pas) ; D314-8 (pneus hiver — M2/M3/N2/N3 ont des
+règles distinctes des M1/N1 cités par la carte, mais l'énoncé ne prétend couvrir que le cas
+véhicule léger, implicite dans tout le domaine) ; R323-22 (contrôle technique — bornée aux
+« véhicules légers », la carte se limite déjà à « une voiture neuve », hors du cas des
+professionnels exemptés) ; R412-3 I (siège dos à la route — l'article porte trois cas
+d'exception, la carte n'en teste qu'un, celui du dispositif orienté vers l'arrière, sans
+prétendre à l'exhaustivité) ; R412-1 II (dispense de ceinture — liste confirmée close à six
+points, sans septième point ni dispense de grossesse, `WebFetch` cité mot pour mot).
+
+### Doutes signalés, non corrigés
+
+| id | ce qui est douteux | ce qui a été lu | ce qui manque |
+|---|---|---|---|
+| `173c63baae24d7e7db9e2961bebd033f` | la durée de la formation exigée entre 3 500 et 4 250 kg de PTAC cumulé, que la carte ne chiffre pas (« une formation s'y ajoute ») | l'intitulé de l'arrêté du 17 janvier 2013, qui porte les deux bornes de poids mais pas la durée ; une relecture `WebFetch` de cette passe rapporte un article 2 fixant une durée de sept heures, quatre hors circulation et trois en circulation — non mise entre guillemets ici faute d'une seconde lecture pour la confirmer mot pour mot | une seconde source, ou une lecture directe du PDF de l'arrêté, pour confirmer ce chiffre avant de l'écrire dans la carte — une seule extraction assistée ne vaut pas la citation mot pour mot qu'exige `sources.md` ; le doute déjà signalé par la ligne de registre avant cette tâche est donc maintenu, avec cette piste en plus pour la passe suivante |
+
+### Pédagogie
+
+- explications sous 120 caractères : 3 à l'entrée, 0 à la sortie — `37fe1af42b8d81209e`
+  (témoin rouge, 90→213), `37fe1af42b8d81b99c` (témoin orange, 80→202),
+  `37fe1af42b8d81c89e` (éco-conduite, 96→253).
+- cartes dont le budget de 220 a limité l'explication : aucune. L'unique illustrée
+  (`2c0a147d9ba6e61b52c7639089b6f118`) était déjà à 175/220 avant cette tâche ; la réécriture
+  (ajout d'une raison — « pour rester visible » — au feu de gabarit) l'amène à 190/220 sans
+  qu'aucune coupe n'ait été nécessaire pour lui faire de la place.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 20 énoncés du domaine
+  se lisent déjà sans connaître la réponse (aucun terme non introduit, aucune question qui ne
+  se pose que pour qui sait déjà) ; relus un par un, aucun n'a été touché.
+- carte `37fe1af42b8d81209e` (témoin rouge) et `37fe1af42b8d81b99c` (témoin orange) —
+  au-delà du seuil des 120 caractères, l'explication du témoin rouge donnait aussi, avant
+  cette tâche, le sens du témoin orange (« Orange = anomalie à surveiller »), soit la moitié
+  de la réponse de sa carte voisine avant même qu'on l'atteigne. Corrigé en même temps que la
+  réécriture pédagogique : chaque explication ne parle plus que de son propre témoin.
+- `37fe1af42b8d8158a15ac34f4b0e4be9` (niveaux à surveiller) — c'est la carte « ABS aucun » du
+  tableau du brief. L'explication affirmait « aucun témoin n'alerte avant que le manque ne soit
+  déjà installé » pour huile, refroidissement, frein et lave-glace : c'est faux sur nombre de
+  véhicules récents, qui portent un témoin de niveau bas pour au moins certains de ces quatre
+  points. Remplacé par une affirmation qui reste vraie sur toute la gamme : aucun de ces quatre
+  niveaux n'a de **jauge continue** comme le carburant — au mieux un voyant binaire, jamais une
+  mesure graduée en continu — ce qui est la vraie raison pour laquelle on les vérifie soi-même.
+  Carte `stable` : pas de ligne de `sources.md` à faire bouger, la correction est d'exactitude
+  générale, pas de droit.
+
+**Preuve par carte, pour les 14 cartes non modifiées** — règle / raison / limite telles que la
+carte les dit :
+
+| id | rôle | règle / raison / limite |
+|---|---|---|
+| `173c63baae24d7e7db9e2961bebd033f` | catégorie B + remorque | règle (« les deux PTAC additionnés n'excèdent pas 4 250 kg ») + limite explicite (« au-delà, il faut le permis BE » ; « Entre 3 500 et 4 250 kg avec une remorque de plus de 750 kg, une formation s'y ajoute ») ; pas de raison physique à un seuil de catégorie administrative |
+| `204454d0e329d40811d4317fabf2ddfa` | huile et batterie usagées | règle (déchèterie ou garage) + raison explicite (déchets dangereux, L541-2 confie leur gestion à qui les détient) + limite explicite (tri sélectif ordinaire et ferrailleur non agréé ne répondent pas à l'autorisation) |
+| `37fe1af42b8d81139920e49f3f7b6b59` | témoin d'usure du pneu | règle (barrette moulée à 1,6 mm) + raison (« quand la surface du pneu arrive à son niveau ») + limite (« le pneu est à changer ») |
+| `37fe1af42b8d8123abc0da9b2b7a51e0` | vignette Crit'Air | règle (classement selon motorisation, norme d'émission, date de première immatriculation) + raison implicite (base de lecture des restrictions) + limite explicite, la clé du domaine ZFE : « dont le périmètre relève d'un arrêté local » |
+| `37fe1af42b8d814289adf64bd5b05d0e` | équipements de sécurité obligatoires | règle (triangle + gilet) + raison explicite (« rendre visibles le véhicule immobilisé et son conducteur avant qu'un autre ne les percute ») + limite explicite (extincteur, trousse et éthylotest non exigés) |
+| `37fe1af42b8d814ba731d0f9dafb6945` | frein moteur en descente | règle (rétrograder) + raison explicite (le moteur dissipe l'énergie que les freins auraient absorbée) + limite explicite (au point mort ou contact coupé, perte du frein moteur **et** de l'assistance de direction) |
+| `37fe1af42b8d81deaec0cb8830fa0b25` | profondeur légale des pneus | règle (1,6 mm) + raison explicite (en dessous, l'eau ne s'évacue plus, aquaplaning) + limite implicite (le témoin d'usure signale ce même seuil) |
+| `37fe1af42b8d81f4b915cd58b951d9e4` | pression des pneus | règle (à froid) + raison explicite (l'air chauffe en roulant, fausse lecture à chaud) + limite explicite (« si on ne peut pas faire autrement », correction de +0,3 bar) |
+| `4477774964dae6e5d1bac49b5a37f3a8` | équipement hivernal (loi Montagne) | règle (pneus hiver ou chaînes, au choix) + limite explicite doublement locale/nationale (le choix est national, D314-8 ; « Quelles communes sont concernées […] dépend d'un arrêté préfectoral ») — même garde-fou que la carte Crit'Air |
+| `526d6b502e05eefba3f2066af4c2ab8d` | galerie de toit sur autoroute | règle (traînée d'air) + raison explicite (croît avec le carré de la vitesse) + limite explicite (« Vide, elle coûte encore, mais moins » — réfute directement le distracteur qui prétend le contraire) |
+| `6c9b9395e9090cd97a7fc4062b7162fc` | gilet, où le tenir en circulation | règle (à portée de main) + raison explicite (moment où l'on devient piéton en ouvrant la portière) + limite explicite (pas dans le coffre, qui s'ouvre après, du mauvais côté) |
+| `8e64074daad0e4a72e0fea2da9bac8eb` | dispenses de ceinture | règle (liste fermée de R412-1) + limite explicite (« La grossesse n'y est pas — il y faut un certificat ») ; raison portée par le mot « fermée » lui-même |
+| `cc10180c491d12311f76fc1d4d98ff45` | premier contrôle technique | règle (quatre ans puis tous les deux ans) + limite explicite (deux mois de contre-visite après une défaillance majeure) ; pas de raison physique à une cadence réglementaire |
+| `eac980f55eb23bfd3b1612f506fb81a3` | siège enfant dos à la route à l'avant | règle (admis si l'airbag est désactivé) + raison explicite (« la tête se trouve juste devant le coussin gonflable ») + limite explicite (« À l'arrière, la question ne se pose pas ») |
+
+Les 6 cartes modifiées sont `2c0a147d9ba6e61b52c7639089b6f118` (chargement, raison ajoutée),
+`089e9b57f57bbb155f81da3ec492082f` (retenue enfant, écart de justesse), `37fe1af42b8d81209e`
+(témoin rouge), `37fe1af42b8d81b99c` (témoin orange), `37fe1af42b8d81c89e` (éco-conduite) et
+`37fe1af42b8d8158a1` (niveaux à surveiller) — modifiées 6 + non modifiées 14 = 20, sans reste.
+
+**Les options.** Relues carte par carte contre les sept règles du §2 de `questions.md`. Aucun
+chiffre de distracteur sans ancrage réel : les masses de la carte catégorie B (3 500 / 5 000 /
+4 750 kg) encadrent la vraie borne (4 250 kg) par pas de quelques centaines de kilos, 3 500 kg
+étant en outre le seuil réel B/C1 ; les profondeurs de pneu (0,5 / 5 / 3 mm) restent dans
+l'ordre de grandeur réel du sujet — l'arrêté cité par la carte porte lui-même une tolérance de
++0,6/-0 mm autour du seuil, et 3 mm est le seuil de remplacement que conseillent les
+manufacturiers, bien au-dessus du minimum légal ; les délais de contrôle technique (cinq ans / trois ans / six
+mois après achat) correspondent à des régimes réellement pratiqués ailleurs en Europe ou à des
+confusions documentées. Aucun distracteur éliminable par la forme de son propre énoncé : les
+options de chaque carte partagent un même patron grammatical (« pour… », « est admis…, est
+interdit… », « dans les… »). Aucun distracteur que la carte légitime elle-même — en particulier
+sur `089e9b57f57bbb155f81da3ec492082f`, où l'explication réécrite dispense désormais l'enfant
+« déjà adapté à la ceinture, en taxi ou en transport en commun » sans jamais dire que l'option D
+(1,35 m) serait correcte dans un cas particulier. `correctID` déjà réparti sur les vingt cartes
+avant cette tâche (A 2, B 6, C 7, D 5) et inchangé, aucune option n'ayant été réordonnée.
+
+**Ce que `couverture.md` dit manquer.** La ligne du domaine porte le verdict « à compléter »,
+seul des treize à ne pas être `couvert` : sur les 20 cartes, six seulement portent vraiment la
+thématique officielle « Économie et écoconduite » (éco-conduite, frein moteur, galerie de toit,
+pression des pneus, Crit'Air, huile et batterie usagées) — les quatorze autres sont des
+équipements, du chargement et de la retenue des enfants, logés ici faute de thématique dédiée
+dans le référentiel ETG. Cette tâche ne change pas ce compte : elle réécrit les vingt cartes
+existantes, elle n'en ajoute aucune. Ce que `couverture.md` propose pour combler l'écart —
+consommation et vitesse, arrêt du moteur, entretien et rejets, choix du rapport — reste hors
+périmètre d'une passe qui n'ajoute pas de contenu.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 95 | 95 |
+| `expl/paraphrase-litterale` | 17 | 17 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Diff vide entre `.passe3/avant-06.txt` et `.passe3/apres-06.txt` sur les lignes `### `. Aucune des
+six cartes modifiées ne touche une option, donc `longueur/plus-longue` (informatif) reste à 95 à
+l'identique — pas un seul des cinq cas déjà signalés dans le domaine (`37fe1af4…` témoin d'usure,
+Crit'Air, équipements, niveaux à surveiller, témoin orange, tous +2 à +7) n'a bougé.
+`--fuites "Mécanique & environnement"` : 0 recouvrement sur 20 cartes, avant comme après.
+`--fuites` sur les quatre domaines déjà clos : 0 sur « Permis & sanctions », « Vitesse » et
+« Alcool & stupéfiants » ; 1 recouvrement incidental, inchangé et déjà documenté, sur « Usagers &
+partage de la route ».
