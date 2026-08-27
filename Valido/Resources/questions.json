@@ -276,7 +276,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard. Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin.",
+    "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard, et ce rythme ne s'accélère pas avec la quantité — trois verres ne s'éliminent pas plus vite, ils prennent trois fois plus de temps. C'est pourquoi trois verres pris à minuit peuvent laisser un taux positif au petit matin.",
     "id": "37fe1af42b8d811eae7dfa1a08ee0f64",
     "options": [
       {

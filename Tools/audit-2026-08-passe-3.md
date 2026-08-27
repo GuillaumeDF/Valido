@@ -448,9 +448,6 @@ réintroduisent ni « tribunal correctionnel » ni « prison »).
 
 ### Écarts de justesse trouvés
 
-| id | écart | ce que disait la carte | ce que dit l'article | correction |
-|---|---|---|---|---|
-
 Aucun écart de justesse au sens strict des trois catégories de la spec (valeur périmée, règle
 trop large, explication au-delà de l'article) : les 17 lignes `datée` du domaine ont toutes été
 relevées le 2026-08-24, dans un mouvement qui a déjà absorbé la loi n° 2026-798 du 18 août
@@ -469,9 +466,6 @@ condition d'ouverture — une carte affirme quelque chose que sa ligne ne couvre
 pas manifestement faux — ne s'est présentée sur aucune des 18.
 
 ### Doutes signalés, non corrigés
-
-| id | ce qui est douteux | ce qui a été lu | ce qui manque |
-|---|---|---|---|
 
 Aucun doute nouveau. Le seul flottement préexistant du domaine — `bda97dae02fa9e085f`
 (majoration d'assurance) s'appuyant sur service-public F2630 sans que l'annexe à l'article
@@ -585,13 +579,20 @@ qu'une paraphrase littérale n'ajoute jamais. **Verdict : faux positif, non corr
   l'effet d'un seul verre standard (0,20 à 0,25 g/L par verre). » L'explication argumente
   maintenant *contre* l'option 0, elle ne la cautionne plus. Figure du verre standard déjà
   sourcée sur une ligne voisine ; `sources.md` porte le renvoi plutôt qu'une nouvelle citation.
-- une explication corrigée en fix round 1 pour un recouvrement que `--fuites` ne peut pas voir
-  (le seuil de trois mots pleins ne couvre pas une paraphrase) : `37fe1af42b8d811eae7dfa1a08ee0f64`
-  (vitesse d'élimination) disait « rien d'extérieur n'accélère ce rythme », qui redit en d'autres
-  mots la bonne réponse de `37fe1af42b8d81f2a662e1b1284f99b9` (« Attendre : rien d'autre
-  n'agit »). Retirée : le fait reste enseigné en entier par `81f2a6…`, dont c'est le seul objet ;
-  `811eae…` garde la règle (le rythme) et l'illustration (trois verres à minuit), sans plus
-  empiéter sur la carte voisine.
+- une explication corrigée deux fois. En fix round 1, pour un recouvrement que `--fuites` ne
+  peut pas voir (le seuil de trois mots pleins ne couvre pas une paraphrase) :
+  `37fe1af42b8d811eae7dfa1a08ee0f64` (vitesse d'élimination) disait « rien d'extérieur
+  n'accélère ce rythme », qui redit en d'autres mots la bonne réponse de
+  `37fe1af42b8d81f2a662e1b1284f99b9` (« Attendre : rien d'autre n'agit »). Retirée : le fait
+  reste enseigné en entier par `81f2a6…`, dont c'est le seul objet — mais la retirer sans rien
+  y substituer laissait la carte sans **limite** (le seul garde-fou contre le mythe café /
+  douche / repas venait de là), régression signalée par la revue et corrigée en **fix round
+  2** : « et ce rythme ne s'accélère pas avec la quantité — trois verres ne s'éliminent pas
+  plus vite, ils prennent trois fois plus de temps », qui borne la règle sans redire la réponse
+  de `81f2a6…` (les deux cartes lues côte à côte ne partagent aucun mot plein de plus de quatre
+  lettres). C'est un fait distinct : `81f2a6…` dit que rien d'extérieur n'accélère le rythme,
+  `811eae…` dit maintenant que le rythme est le même quelle que soit la quantité — c'est ce qui
+  rend l'illustration « trois verres à minuit » réellement démonstrative plutôt que décorative.
 - un débat interne réglé sans toucher au fond en round 1, puis corrigé une seconde fois en fix
   round 1 sur la revue (voir « Les deux dettes » ci-dessus pour la chronologie complète) :
   `37fe1af42b8d817e8e2feffa6987ba00`, dont l'option correcte teste maintenant un fait qui
@@ -658,6 +659,9 @@ les cartes elles-mêmes. Quatre correctifs au total :
   (0,5 → « 0,4 à 0,6 g/L par heure »), B (0,05 → « 0,02 à 0,05 g/L par heure ») et D (1 →
   « 0,8 à 1,2 g/L par heure ») deviennent des fourchettes, chacune un ordre de grandeur
   plausible mais faux (surestimation ou sous-estimation), sans toucher à l'intervalle correct.
+  Son explication a par ailleurs regagné une limite en fix round 2 (voir Pédagogie ci-dessus) :
+  cette carte porte désormais les quatre critères sur ses trois champs, alors qu'elle n'en
+  portait que deux à l'ouverture de cette tâche.
 - **`37fe1af42b8d81b38194dba0c15484b4`** (stupéfiants, peine maximale) — **découvert en fix
   round 1**, deux défauts sur la même carte :
   - option B « Aucune peine en l'absence d'accident » était éliminable par la forme de l'énoncé
@@ -669,8 +673,15 @@ les cartes elles-mêmes. Quatre correctifs au total :
   - option C « 150 € d'amende, sans peine de prison » nommait un montant qui n'existe dans
     aucun barème du droit routier (la 4ᵉ classe forfaite à 135 €, une contravention maximale à
     750 €) — même défaut que les deux seuils d'alcoolémie inventés ci-dessus, sur un chiffre
-    plutôt qu'un seuil. Corrigée en « 135 € d'amende, sans peine de prison », le vrai montant du
-    forfait de 4ᵉ classe déjà utilisé ailleurs dans la banque.
+    plutôt qu'un seuil. Corrigée en « 135 € d'amende, sans peine de prison ». **Provenance de
+    ce chiffre, comme le veut la ruling sur le geste unique** : ce n'est pas une valeur affirmée
+    par cette carte (un distracteur est affirmé faux, il n'a pas besoin de ligne de registre),
+    c'est un montant réel recyclé d'ailleurs dans la banque — le forfait de la contravention de
+    4ᵉ classe, fixé par le 5° de l'article R49 du code de procédure pénale, cité mot pour mot sur
+    plusieurs lignes de `sources.md` (par exemple celle de `37fe1af42b8d811198bdecd01768828c`,
+    stationnement dangereux). Aucune ligne de registre n'a été touchée pour ce distracteur ; le
+    même principe vaut pour les trois fourchettes de `37fe1af42b8d811eae…` ci-dessus, qui sont
+    des estimations et non des valeurs affirmées.
 
 Sur les grandeurs continues restantes (effet d'un verre standard, `37fe1af42b8d81218099fdc3bcfd24c9`),
 les options sont des estimations physiologiques et non des seuils légaux catégoriels : elles ne
