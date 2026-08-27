@@ -191,8 +191,8 @@ synthèse non rattachée à un article en vigueur — voir « Doutes signalés �
   l'explication affirmait qu'« à partir de 30 km/h de dépassement, le juge peut ajouter une
   suspension du permis et un stage obligatoire ». Rouvert par prudence, et bien nommé : trois
   lectures successives (une recherche puis deux WebFetch sur de mauvais articles) ont d'abord
-  donné des seuils contradictoires — 30 km/h, puis « article concernant 50 km/h, abrogé le
-  29 décembre 2025 » — avant qu'une citation intégrale et verbatim de l'article réellement en
+  donné des seuils contradictoires — 30 km/h, puis un article concernant 50 km/h et abrogé le
+  29 décembre 2025 — avant qu'une citation intégrale et verbatim de l'article réellement en
   vigueur, R413-14 (`LEGIARTI000048533039`, version en vigueur depuis le 01/01/2024), ne
   tranche : son II fixe bien le seuil à « 30 km/h ou plus » pour la suspension et le stage.
   **Complété en fix round 1** : une première version de cette ligne ne citait que le palier
@@ -215,8 +215,9 @@ synthèse non rattachée à un article en vigueur — voir « Doutes signalés �
   en fix round 1** : la carte listait toute la table des réductions pluie (« 130→110,
   110→100, 90→80 »), la ligne ne portant qu'un seul palier. Complétée avec R413-2 II cité
   intégralement (même lecture que pour `f7370daabea929065f6b2586ca3eea91` ci-dessus) : les
-  quatre paliers du II couvrent exactement ce que l'explication récite. La carte n'a pas
-  bougé.
+  trois alinéas du II couvrent trois des quatre transitions que l'explication récite, la
+  quatrième (80 km/h qui reste 80) étant l'absence de réduction plutôt qu'un alinéa propre.
+  La carte n'a pas bougé.
 - **`37fe1af42b8d81d0bf26d67c5f0ff047`** (pluie, autoroute, 110 km/h) — même défaut, même
   correction : ligne complétée avec R413-2 II. La clause brouillard que l'explication ajoute
   (« tous réseaux à 50 km/h ») est renvoyée à la ligne de `37fe1af42b8d81f9ae87db1419280902`
@@ -225,8 +226,8 @@ synthèse non rattachée à un article en vigueur — voir « Doutes signalés �
   excès, délit) — la première datait le changement du 22 décembre 2025, sa voisine du 29 : lu
   côte à côte à l'étape 2, cela ressemble à la contradiction que la brève demandait de
   chercher. Rouvert : WebFetch sur service-public.gouv.fr A18723, qui donne le décret
-  n° 2025-1269, « pris le 22 décembre 2025, avec une entrée en vigueur au 29 décembre 2025 » —
-  les deux dates étaient exactes, l'une pour la signature, l'autre pour l'entrée en vigueur.
+  n° 2025-1269, pris le 22 décembre 2025 et entré en vigueur le 29 décembre 2025 — les deux
+  dates étaient exactes, l'une pour la signature, l'autre pour l'entrée en vigueur.
   Les deux explications le disent maintenant. La ligne de `37fe1af42b8d817a9111e3d52f9e5142`
   a été retravaillée une seconde fois en fix round 1 pour une raison différente — voir
   « Doutes signalés ».
@@ -283,17 +284,26 @@ d'origine (stationnement payant, heure d'application, largeur de chaussée) ne s
 confusions qu'un débutant fait réellement sur *cette* question, qui porte sur la vitesse et la
 priorité piétonne : ce sont des attributs plausibles de zones en général, pas des variantes de
 la règle testée. Réécrits en un carré sémantique centré sur ce que la question teste
-réellement (vitesse **et** priorité, contre les trois façons de se tromper sur lequel des deux
-change) :
+réellement (vitesse **et** priorité, contre les façons de se tromper sur ce qui change) :
 
-- A « La vitesse seule, la priorité restant identique »
-- B « La priorité seule, la vitesse restant identique »
+- A « La vitesse maximale, ramenée de 30 à 20 km/h »
+- B « La priorité laissée aux piétons sur la chaussée »
 - C (inchangée, correcte) « La vitesse et la priorité donnée aux piétons »
-- D « Rien : mêmes règles sous deux noms différents »
+- D « Le sens de circulation, ni la vitesse ni la priorité »
 
-Les trois distracteurs sont maintenant réellement faux (les deux zones diffèrent bien sur les
-deux axes à la fois, pas sur un seul ni sur aucun) et non éliminables par la forme (même
-longueur, même construction que la bonne réponse). Cela déplace cette carte de la liste des
+**Corrigée une seconde fois en fix round 2** : la première réécriture (ci-dessus, D « Rien :
+mêmes règles sous deux noms différents ») était éliminable par la forme même de l'énoncé,
+« la différence porte sur : », qui présuppose qu'une différence existe — répondre « Rien » à
+une question qui présuppose une différence se repère sans rien connaître aux deux zones,
+exactement le piège de forme réglé sur `07ef459d…` un peu plus haut et reproduit ici dans le
+seul jeu d'options écrit de zéro par cette tâche. D est réécrite en un quatrième axe réel
+(le sens de circulation) plutôt qu'en négation de la question, qui ne pose plus ce problème. A
+et B, en miroir strict l'une de l'autre au premier passage (« X seule, Y restant identique » /
+« Y seule, X restant identique »), sont aussi reformulées pour rompre le parallélisme
+mécanique, sans changer ce qu'elles testent. Les quatre options restent comparables en
+longueur (correcte 44, la plus longue des distracteurs 52, moyenne des distracteurs 47,7) et
+réellement fausses (les deux zones diffèrent bien sur les deux axes à la fois, le sens de
+circulation n'étant pas le critère qui les distingue). Cela déplace cette carte de la liste des
 cartes non modifiées vers celle des cartes modifiées — voir Pédagogie et le décompte final.
 
 Aucune autre carte du domaine n'a montré de chiffre inventé, de distracteur non éliminable de
@@ -314,11 +324,14 @@ tranché ici unilatéralement.
   (102 → 211), `37fe1af42b8d818da27dc338f75795fe` (74 → 199) et
   `37fe1af42b8d81f9ae87db1419280902` (80 → 167). Les quatre ne portaient que le résultat
   chiffré ; elles portent maintenant une raison et une limite.
-- cartes dont le budget de 220 a limité l'explication : `07ef459de55adcb501694169428ffd72`
-  (208/220) — la version qui portait le contraste « plafond, pas un minimum » **et** « pas les
-  conseils » a dû choisir une formulation courte pour les deux à la fois, sans place pour plus.
-  Les trois autres illustrées : `37fe1af42b8d815ba42acef16b3119a8` (208/220, non modifiée),
-  `3adc294978b6ac1f640c45e121a0e4f5` (218/220, non modifiée) et
+- cartes dont le budget de 220 a limité l'explication : `3adc294978b6ac1f640c45e121a0e4f5`
+  (218/220, non modifiée) — deux caractères de marge, la raison à ajouter (voir sa ligne dans
+  le tableau des cartes non modifiées) n'a nulle part où tenir sans retirer autre chose ;
+  **corrigé en fix round 1** dans le libellé de sa ligne d'évidence plutôt que dans la carte,
+  voir « Minor D » de fix round 2. `07ef459de55adcb501694169428ffd72` (208/220) a moins souffert
+  du budget : douze caractères de marge ont suffi à porter le contraste « plafond, pas un
+  minimum » **et** « pas les conseils » dans la même formulation courte. Les deux autres
+  illustrées : `37fe1af42b8d815ba42acef16b3119a8` (208/220, non modifiée) et
   `ed0e45e08fb4f47007934da587b5757c` (203/220, **corrigée en fix round 1** — voir ci-dessous).
   Les quatre tiennent aussi l'énoncé (≤ 70, dont le nouveau « Ce panneau signifie : » à 21) et
   chaque option (≤ 50), non touchées à l'exception de l'énoncé de `07ef459d…`.
@@ -335,7 +348,11 @@ tranché ici unilatéralement.
   critère 3 n'était pas tenu malgré la revendication du premier passage :
   `37fe1af42b8d817a9111e3d52f9e5142` (grand excès, 6 points) gagne « au-delà de 50 km/h
   d'écart, la marge de freinage disparaît presque entièrement » ; `337bfcb4d034b62de5fe0d77ca0cb0a0`
-  gagne « jugés trop dangereux pour une simple amende ».
+  gagne, en fix round 1, « jugés trop dangereux pour une simple amende ». **Corrigée une seconde
+  fois en fix round 2** : cette formulation attribuait une intention au décret (« a jugé »),
+  sans qu'aucune source lue ne porte d'exposé des motifs — A18723 donne le dispositif, pas le
+  jugement qui l'a motivé. Reformulée sans attribution : « un tel dépassement met des vies bien
+  plus directement en jeu », qui garde la raison sans prêter une pensée au texte.
 - deux cartes réécrites en fix round 1 pour corriger « chaque tranche de 10 km/h ajoute un
   point » quand la première tranche du barème (5 à 20 km/h) en fait 15 : `04182c9bbdeb305e21532f9c6913a2a2`
   et `37fe1af42b8d816b8bf5d51c4f78466c` disent maintenant « le barème monte par paliers », sans
@@ -345,16 +362,31 @@ tranché ici unilatéralement.
   le panneau d'entrée de ville », après lecture verbatim de R413-3 (`LEGIARTI000028436430`,
   version en vigueur depuis le 10/01/2014) qui donne aussi les 70 km/h de l'option C comme une
   vraie exception (« sur les sections de route où les accès des riverains et les traversées des
-  piétons sont en nombre limité »), pas un chiffre inventé.
+  piétons sont en nombre limité »), pas un chiffre inventé. **Défaut recréé et corrigé en fix
+  round 2** : la carte avait gagné cet article et cette exception en fix round 1, mais la ligne
+  de registre était restée « vitesse maximale par défaut en agglomération (50 km/h) », sans
+  R413-3 ni la clause des 70 km/h — Important 1 recréé par la correction même qui devait le
+  traiter. La ligne porte maintenant la citation intégrale de R413-3, `relevé le` 2026-08-27.
+- **Trois cartes du premier passage, absentes à tort du décompte nominatif jusqu'ici** (le
+  total de la section ne totalisait que 14 sur 17 avant fix round 2) :
+  - `25390f0f30dbb6402091dc226d63db35` (chantier autoroute) — ne portait pas de limite : ajoutée,
+    « La prescription cesse au panneau de fin de chantier, qui rend la limite habituelle. »
+  - `61eed52d453ac9d8ab59af70dae8eb3e` (probatoire, route à 70 km/h) et
+    `87c63a1be4e005f6c846d7798756696f` (probatoire, chaussées séparées à 110 km/h) — ne
+    portaient qu'une règle définitionnelle (plafond, pas abattement) sans raison : chacune
+    gagne, avec une formulation différente pour ne pas se répéter mot pour mot, « le temps
+    d'accumuler de l'expérience » / « le temps que l'expérience vienne », la raison pour
+    laquelle le permis probatoire plafonne plus bas plutôt que d'abattre uniformément.
 - énoncés reformulés parce qu'ils présupposaient la règle : toujours aucun de ce type ; un
   énoncé a néanmoins été retouché en fix round 1 pour une raison de forme différente (piège de
   forme du §2, voir « Options » ci-dessus) — `07ef459de55adcb501694169428ffd72`, « Ce panneau
   impose : » → « Ce panneau signifie : ».
 
-**Les cinq cartes non modifiées**, lues contre les quatre critères pédagogiques et jugées déjà
-conformes (règle, raison, limite ; aucune ne reformule sa bonne option) — `cac0f9db…` en est
-sortie en fix round 1 (options réécrites, voir ci-dessus), ce qui ramène cette liste de six à
-cinq :
+**Les cinq cartes non modifiées**, lues contre les quatre critères pédagogiques — quatre
+pleinement conformes (règle, raison, limite ; aucune ne reformule sa bonne option), une
+(`3adc2949…`) conforme sur trois des quatre critères et honnêtement notée comme telle, voir sa
+ligne — `cac0f9db…` en est sortie en fix round 1 (options réécrites, voir Options), ce qui
+ramène cette liste de six à cinq :
 
 | id | rôle | pourquoi jugée conforme |
 |---|---|---|

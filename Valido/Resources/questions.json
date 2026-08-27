@@ -6910,7 +6910,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, a jugé ces excès trop dangereux pour une simple amende : la qualification de contravention de cinquième classe est supprimée, le grand excès de vitesse est un délit dès la première fois, plus seulement en cas de récidive.",
+    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, retire le grand excès de vitesse du régime de la contravention de cinquième classe et de son amende forfaitaire : un tel dépassement met des vies bien plus directement en jeu, d'où le passage à un délit dès la première fois, plus seulement en cas de récidive.",
     "id": "337bfcb4d034b62de5fe0d77ca0cb0a0",
     "options": [
       {
@@ -7023,11 +7023,11 @@
     "options": [
       {
         "id": "A",
-        "text": "La vitesse seule, la priorité restant identique"
+        "text": "La vitesse maximale, ramenée de 30 à 20 km/h"
       },
       {
         "id": "B",
-        "text": "La priorité seule, la vitesse restant identique"
+        "text": "La priorité laissée aux piétons sur la chaussée"
       },
       {
         "id": "C",
@@ -7035,7 +7035,7 @@
       },
       {
         "id": "D",
-        "text": "Rien : mêmes règles sous deux noms différents"
+        "text": "Le sens de circulation, ni la vitesse ni la priorité"
       }
     ],
     "prompt": "Entre une zone 30 et une zone de rencontre, la différence porte sur :",
