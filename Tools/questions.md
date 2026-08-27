@@ -75,7 +75,7 @@ la phrase entière sur `EnvironmentKey` et les extensions.
 
 Repère chiffré, recompté sur les 448 (2026-08-27) : bonne option **43,2** caractères en
 moyenne contre **42,2** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
-`swift` (écart **+1,6**), **37,3 / 36,8** sur les `code` (écart **+0,6**).
+`swift` (écart **+1,6**), **37,3 / 36,8** sur les `code` (écart **+0,5**).
 
 L'écart entre les deux matières est structurel, pas un défaut : une option `swift`
 nomme une API et son comportement, une option `code` porte une valeur ou une règle.
@@ -291,9 +291,10 @@ expl/paraphrase-litterale  18     à relire à l'œil, une par une
 
 Vides, et qui doivent le rester : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
 `longueur/plus-10`, `forme/backtick-isole`. **Attention à ce dernier** : il ne signale que
-la bonne réponse **seule** de son côté du backtick (`audit.py:173`), donc un lot de questions
-sans aucun code span le laisse à zéro sans qu'il ait rien contrôlé — et **deux distracteurs
-qui en portent** le désarment tout autant qu'une absence totale.
+la bonne réponse **seule** de son côté du backtick (`audit.py:177`) — qu'elle soit la seule à
+en porter un ou la seule à n'en pas porter. Un lot de questions sans aucun code span le laisse
+donc à zéro sans qu'il ait rien contrôlé, et ailleurs **un seul distracteur qui partage le
+statut de la bonne réponse** suffit à le désarmer.
 
 Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé au §7 de
 [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — neuf angles morts mesurés, dont la

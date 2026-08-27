@@ -163,7 +163,10 @@ une explication.
   avec sa valeur ; une option qui compare des paliers, elle, enseigne le barème.* Reste ouvert au
   même titre : le distracteur « six points, comme un refus de priorité au piéton » de `1fe6ef49`
   énonce la bonne réponse de `2a9e02b9`, et le corriger coûterait à la carte sa meilleure
-  confusion voisine (règle 5). **À arbitrer, pas à trancher en clôture.**
+  confusion voisine (règle 5). **À arbitrer, pas à trancher en clôture.** Et que cette règle
+  **exempte les options par construction** est un choix assumé, pas un constat : il fait le
+  pari qu'une comparaison de paliers s'apprend comme un barème et non comme une réponse — il
+  reste à vérifier, et il n'a pas été vérifié ici.
 - **Le distracteur « feux de détresse » était monté à huit occurrences** sur la banque
   `code`, pour **une** bonne réponse — au-delà du « Klaxonner » à sept qui avait fait écrire
   la règle 7 du §1 de `questions.md`. Le compte de six relevé en cours de passe était juste
@@ -404,13 +407,15 @@ lecture sur le `code` : le taux de bonnes réponses plus longues que la moyenne 
 57 % à 49 %, sur une population qui a presque doublé.
 
 **Une lecture à ne pas faire.** `forme/backtick-isole` à zéro est **structurel et non
-conquis**. Le contrôle (`audit.py:173`) ne signale qu'un cas : la bonne réponse **seule** de
-son côté du backtick, `bt.count(gbt) == 1`. Il est donc désarmé de deux façons opposées, et
-la seconde est la moins visible : par l'**absence** de backtick partout, mais aussi dès que
-**deux distracteurs** en portent — `bt.count(False)` vaut alors 3, et le compteur reste muet
-même si la bonne réponse est la seule sans code span. Sur les 80 options de la dernière tâche
-`swift`, **deux** portent un backtick (`b0e607cd`, `5a4e87df`), toutes deux distractrices :
-le détecteur n'avait aucune chance de mordre. Un zéro ne prouve quelque chose que si le
+conquis**. Le contrôle (`audit.py:177`) ne signale qu'un cas : la bonne réponse **seule** de
+son côté du backtick, `bt.count(gbt) == 1` — qu'elle soit la seule à porter un code span ou
+la seule à n'en pas porter, les deux mordent. Ce qui le désarme est donc l'inverse : il suffit
+qu'**un seul** distracteur partage le statut de la bonne réponse pour que le compte passe à 2
+et que le compteur se taise ; et l'absence totale de backtick le désarme aussi (`any(bt)`).
+Sur les 80 options de la dernière tâche `swift`, **deux** portent un backtick (`b0e607cd`,
+`5a4e87df`), toutes deux distractrices et chacune seule de sa carte : la bonne réponse y est
+sans code span, mais deux autres options le sont aussi (`bt.count(False) == 3`), et le
+détecteur n'avait aucune chance de mordre. Un zéro ne prouve quelque chose que si le
 détecteur en avait une.
 
 ---
@@ -426,15 +431,15 @@ il ne touche aucun compteur et se corrige par deux caractères, donc il a été 
 
 | # | ce que l'outil fait | ce qui passe donc |
 |---|---|---|
-| 1 | **`audit.py:216-221` date le RELEVÉ, jamais la SOURCE.** `source/releve-perime` compare la colonne « relevé le » à aujourd'hui | un document de 2015 relevé hier passe pour frais. Une source vieillissante ne se signale pas d'elle-même |
-| 2 | **Aucun contrôle inter-questions.** `audit.py:95` (`schema/doublon-option`) compare les quatre options **d'une même** question, et c'est le seul contrôle de doublon de l'outil | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Deux cas vivants, tous deux corrigés : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », bonne réponse de `bda52045` ; celle de `1fe6ef49` donnait « le refus de priorité […] : quatre points », bonne réponse de `defefbae` **et hors de son topic**. Le second n'a été vu qu'en revue de branche : une revue de tâche ne voit que son diff |
-| 3 | **`audit.py:167` intersecte des jetons entiers** (`fuite/mot-enonce`) | toutes les fuites **par racine** : `annulée` / `annulation`, `Reprendre` / `reprise` ne s'apparient pas |
+| 1 | **`audit.py:220-225` date le RELEVÉ, jamais la SOURCE.** `source/releve-perime` compare la colonne « relevé le » à aujourd'hui | un document de 2015 relevé hier passe pour frais. Une source vieillissante ne se signale pas d'elle-même |
+| 2 | **Aucun contrôle inter-questions.** `audit.py:99` (`schema/doublon-option`) compare les quatre options **d'une même** question, et c'est le seul contrôle de doublon de l'outil | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Deux cas vivants, tous deux corrigés : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », bonne réponse de `bda52045` ; celle de `1fe6ef49` donnait « le refus de priorité […] : quatre points », bonne réponse de `defefbae` **et hors de son topic**. Le second n'a été vu qu'en revue de branche : une revue de tâche ne voit que son diff |
+| 3 | **`audit.py:171` intersecte des jetons entiers** (`fuite/mot-enonce`) | toutes les fuites **par racine** : `annulée` / `annulation`, `Reprendre` / `reprise` ne s'apparient pas |
 | 4 | **Le détecteur est français, et lexical** | les fuites **par traduction** : « fonction longue » → `-warn-long-function-bodies`, « traités sur le fil principal » → `MainActorMessage`, « réglage courant » → « valeur » |
-| 5 | **`audit.py:176-179` exige exactement DEUX premiers mots distincts** (`forme/ouverture-isolee`) | une bonne réponse seule de son article parmi **trois** ouvertures différentes ; et **quatre** options ouvrant toutes sur le même mot |
-| 6 | **`audit.py:173` ne signale que la bonne réponse SEULE de son côté du backtick** (`forme/backtick-isole`, `bt.count(gbt) == 1`) | un lot entier de questions sans code span laisse le compteur à zéro sans qu'il ait rien contrôlé — **et deux distracteurs qui en portent le désarment tout autant**, `bt.count(False)` valant alors 3 (§6) |
-| 7 | **`audit.py:157-161` ne contrôle l'équilibre de longueur que DANS UN SENS** | une bonne réponse nettement **plus courte** que ses distracteurs est un indice aussi lisible : le candidat apprend que la réponse est la brève. Un domaine est monté à **29 %** de réponses les plus courtes contre 9 % de référence, sans qu'aucun compteur bouge. Le piège est vicieux parce qu'on y tombe **en corrigeant** dans l'autre sens — on allonge les distracteurs au lieu de raccourcir la bonne réponse |
+| 5 | **`audit.py:180-183` exige exactement DEUX premiers mots distincts** (`forme/ouverture-isolee`) | une bonne réponse seule de son article parmi **trois** ouvertures différentes ; et **quatre** options ouvrant toutes sur le même mot |
+| 6 | **`audit.py:177` ne signale que la bonne réponse SEULE de son côté du backtick** (`forme/backtick-isole`, `bt.count(gbt) == 1`) | un lot entier de questions sans code span laisse le compteur à zéro sans qu'il ait rien contrôlé — **et ailleurs il suffit d'un seul distracteur partageant le statut de la bonne réponse** pour qu'il se taise (§6) |
+| 7 | **`audit.py:161-165` ne contrôle l'équilibre de longueur que DANS UN SENS** | une bonne réponse nettement **plus courte** que ses distracteurs est un indice aussi lisible : le candidat apprend que la réponse est la brève. Un domaine est monté à **29 %** de réponses les plus courtes contre 9 % de référence, sans qu'aucun compteur bouge. Le piège est vicieux parce qu'on y tombe **en corrigeant** dans l'autre sens — on allonge les distracteurs au lieu de raccourcir la bonne réponse |
 | 8 | **`audit.py:29` (`LETTER`) attrape une majuscule isolée entre séparateurs** | **faux positif systématique** dès qu'une explication cite une sous-section d'article au style de la maison (`118-2, A, a)`). Il a fallu écrire `118-2.A.a)`, incohérent avec le reste du dépôt — jusqu'à ce qu'un relecteur constate que l'IISR **elle-même** écrit « article 118-2.B », donc que la notation pointée est la graphie de la source et non un contournement |
-| 9 | **`audit.py:52` reconnaissait un nom d'asset sans exiger la fin de sa cellule** — l'ancrage était en début de ligne seulement, donc la première cellule des **tableaux de luminance** d'`images.md` (« `bus` — caisse du bus ») passait pour une ligne de registre | `RECENSES` portait **63 noms pour 51 imagesets**, dont douze fantômes (`bus`, `tunnel`, `sas`, `croisement`, `depassement`, `chargement`, `angle-mort`, `balise`, `cote`, `rabattement`, `immobilise`, `depassement-discontinue`). Aucun asset livré n'en dépendait, mais ce sont des **noms d'asset plausibles** : le premier qui aurait porté l'un d'eux serait passé pour recensé sans avoir de ligne de provenance. **Seul angle mort corrigé** — la regex exige désormais la barre verticale de fin de cellule ; `RECENSES` tombe à 51 et aucun compteur ne bouge |
+| 9 | **`audit.py:56` reconnaissait un nom d'asset sans exiger la fin de sa cellule** — l'ancrage était en début de ligne seulement, donc la première cellule des **tableaux de luminance** d'`images.md` (« `bus` — caisse du bus ») passait pour une ligne de registre | `RECENSES` portait **63 noms pour 51 imagesets**, dont douze fantômes (`bus`, `tunnel`, `sas`, `croisement`, `depassement`, `chargement`, `angle-mort`, `balise`, `cote`, `rabattement`, `immobilise`, `depassement-discontinue`). Aucun asset livré n'en dépendait, mais ce sont des **noms d'asset plausibles** : le premier qui aurait porté l'un d'eux serait passé pour recensé sans avoir de ligne de provenance. **Seul angle mort corrigé** — la regex exige désormais la barre verticale de fin de cellule ; `RECENSES` tombe à 51 et aucun compteur ne bouge |
 
 **Deux défauts que rien ne peut mécaniser**, et qui demandent donc un relevé à la main à
 chaque passe :
