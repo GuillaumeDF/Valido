@@ -33,10 +33,11 @@ tableau :
 ### Doutes signalés, non corrigés
 
 Aucun doute laissé ouvert. Les 19 lignes `datée` du domaine ont été relevées le 2026-08-24 ; six
-d'entre elles ont été rerelevées ou complétées le 2026-08-27 (les cinq listées ci-dessus, plus
-`37fe1af42b8d8158b3dbf9883bf83560` pour une précision déductive écrite en clair — voir
-Pédagogie). Sur les treize cartes restantes, la carte ne dit rien de plus que ce que porte sa
-ligne de registre.
+d'entre elles portent désormais `relevé le` 2026-08-27 : `f405372595dbaf85bf875adaf5ac20a4`,
+`37fe1af42b8d81ed800ecde73e28760a`, `2d45cedf9b3d349027d751f7aa672d6a`,
+`37fe1af42b8d81b6a955d17c158afb3c`, `37fe1af42b8d81b7acdacd2079297f09` et
+`37fe1af42b8d8158b3dbf9883bf83560`. Sur les treize cartes restantes, la carte ne dit rien de plus
+que ce que porte sa ligne de registre.
 
 ### Pédagogie
 
@@ -97,9 +98,22 @@ ligne de registre.
   remplacés par un renvoi non chiffré vers la carte qui les enseigne. `--fuites` confirme
   0 recouvrement sur le domaine après correction (2 avant, tous deux préexistants à cette
   passe).
+- `2d45cedf9b3d349027d751f7aa672d6a` (conduire sans avoir jamais obtenu le permis) — même défaut
+  que `0be9d147…` ci-dessus, repéré en fix round 2 en construisant la preuve par carte : elle
+  détaillait l'amende forfaitaire et les peines complémentaires sans jamais donner la peine de
+  base (un an de prison, 15 000 €) que porte la bonne option — une carte qui parle de tout sauf
+  de la règle qu'elle est censée enseigner. Ajoutée, en évitant la reprise littérale de l'option
+  (« puni d'un an d'emprisonnement et de 15 000 euros d'amende » contre « puni d'un an de prison
+  et 15 000 € d'amende » de l'option) ; `sources.md:340` portait déjà cette peine de base depuis
+  le tout premier passage, aucune nouvelle lecture n'a donc été nécessaire pour la sourcer.
 
 **Preuve par carte, pour les dix cartes non modifiées** — la liste que la relecture aurait dû
-produire dès le premier passage plutôt que de se limiter aux cartes portant un drapeau :
+produire dès le premier passage plutôt que de se limiter aux cartes portant un drapeau.
+`2d45cedf9b3d349027d751f7aa672d6a` en avait été omise à tort en fix round 1 : elle porte une
+évidence de *justesse* dans la section ci-dessus, mais aucune évidence *pédagogique*. Relue ici
+contre les quatre critères, elle ne l'était pas — la règle manquait, voir Pédagogie ci-dessus —
+et a été réécrite plutôt que forcée dans un « conforme » de complaisance. Elle sort donc
+légitimement de cette liste des cartes non modifiées, qui reste à dix (et non onze) :
 
 | id | rôle | pourquoi jugée conforme |
 |---|---|---|
