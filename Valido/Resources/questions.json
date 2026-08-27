@@ -492,7 +492,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "L'arrêt est bref avec le conducteur à proximité ; dès qu'il s'absente ou que ça dure, c'est du stationnement.",
+    "explanation": "R110-2 : l'arrêt dure le temps de monter, descendre, charger ou décharger, conducteur aux commandes ou à proximité ; le reste est stationnement. La distinction compte car de nombreux articles ne sanctionnent que le stationnement — et elle se juge aux faits, pas à l'intention.",
     "id": "37fe1af42b8d812cad07c40f6c51598c",
     "options": [
       {
@@ -708,7 +708,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "On dégage la chaussée pour ne pas gêner ni créer de danger.",
+    "explanation": "R417-4 impose de se placer hors de la chaussée « autant que possible » : hors agglomération la vitesse est plus élevée, un véhicule resté sur la voie surprend. Sans accotement, on s'en rapproche au maximum — l'obligation est de moyen, non de résultat.",
     "id": "37fe1af42b8d8148bc29ede5a0015edd",
     "options": [
       {
@@ -721,7 +721,7 @@
       },
       {
         "id": "C",
-        "text": "Vous placer sur l'accotement, hors de la chaussée"
+        "text": "Vous placer sur l'accotement, hors chaussée"
       },
       {
         "id": "D",
@@ -980,26 +980,26 @@
     "topic": "Feux"
   },
   {
-    "correctID": "A",
+    "correctID": "D",
     "difficulty": "facile",
     "explanation": "Le disque porte l'heure d'arrivée et son modèle est fixé au niveau national ; la durée gratuite, elle, dépend de l'arrêté municipal qui institue la zone — une heure et demie n'est qu'un usage répandu.",
     "id": "37fe1af42b8d8166847cf95009550b0a",
     "options": [
       {
         "id": "A",
-        "text": "Apposer un disque de stationnement bien visible"
-      },
-      {
-        "id": "B",
         "text": "Ne rien afficher, la zone étant gratuite"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Régler la durée sur une application dédiée"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Payer la durée à l'horodateur le plus proche"
+      },
+      {
+        "id": "D",
+        "text": "Apposer un disque de stationnement visible"
       }
     ],
     "prompt": "En zone bleue, vous devez :",
@@ -2306,7 +2306,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Vous n'êtes pas prioritaire : vous cédez le passage aux véhicules déjà en circulation.",
+    "explanation": "R417-8 impose de prendre « les précautions utiles pour prévenir tout risque d'accident » : clignotant et angles morts en sont l'application. En débouchant sur la chaussée (R415-11), vous n'êtes pas prioritaire — la priorité va à qui circule déjà.",
     "id": "37fe1af42b8d81e2b806fb6055602586",
     "options": [
       {
@@ -2412,26 +2412,26 @@
     "topic": "Distances & freinage"
   },
   {
-    "correctID": "A",
+    "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai, et la fourrière devient possible.",
+    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai. La fourrière suppose en plus un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent.",
     "id": "37fe1af42b8d81e9b314fcb5ac447202",
     "options": [
       {
         "id": "A",
-        "text": "7 jours au même endroit"
-      },
-      {
-        "id": "B",
         "text": "1 mois sans déplacer le véhicule"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "1 heure sur un emplacement payant"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "24 heures au même endroit"
+      },
+      {
+        "id": "D",
+        "text": "7 jours au même endroit"
       }
     ],
     "prompt": "Le stationnement est considéré comme abusif au-delà de :",
