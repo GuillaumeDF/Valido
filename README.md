@@ -93,7 +93,7 @@ disque est compilé sans toucher au `.pbxproj`.
 ```bash
 DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
   -project Valido.xcodeproj -scheme Valido \
-  -destination 'platform=iOS Simulator,name=iPhone 17'
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
 
 Un échec sur `Application failed preflight checks` / `Busy` sans qu'aucun test n'ait

@@ -6,7 +6,7 @@ exigences que la première n'avait pas : **couvrir le référentiel officiel de 
 **laisser derrière soi de quoi rejouer la vérification** plutôt qu'un rapport à croire.
 
 Résultat : **310 → 448 questions** (255 `code`, 193 `swift`), **8 → 49 illustrées**,
-139 questions écrites, une retirée, 42 imagesets créés. Vingt tâches de contenu, quarante
+139 questions écrites, une retirée, 43 imagesets créés. Vingt tâches de contenu, quarante
 commits, chacune relue par un tiers avant d'être acceptée.
 
 Deux fichiers naissent de cette passe et sont désormais imposés par `audit.py` :
@@ -21,7 +21,7 @@ redécouvrir contre quoi chaque question a été vérifiée.
 | dont `code` | 136 | **255** |
 | dont `swift` | 174 | **193** |
 | questions illustrées | 8 | **49** |
-| imagesets | 8 | **51** (49 utilisés, 2 orphelins déclarés) |
+| imagesets | 8 | **51** (43 créés ; 49 utilisés, 2 orphelins déclarés) |
 | thématiques ETG sans aucune question | 3 | **0** |
 | questions `code` sans ligne de fraîcheur | 136 | **0** |
 
@@ -184,6 +184,16 @@ faute de thématique officielle qui les accueille. C'est le seul trou de couvert
 et il est chiffrable : consommation et vitesse, arrêt du moteur, entretien et rejets, choix
 du rapport — tous sourçables sur `ecologie.gouv.fr`, qui est dans la liste blanche.
 
+**La faiblesse du critère, puisqu'il vaut mieux la nommer.** Les deux verdicts ci-dessus
+appliquent une seule et même règle — compter les questions qui portent *réellement* la
+thématique, puis comparer au repère de huit — et le fait qu'elle rende un vert et un rouge
+est ce qui montre qu'elle n'a pas été taillée pour son résultat. Mais **ce repère de huit
+est hérité** : il vient du verdict `couvert` rendu à « Signalisation », qui n'a jamais été
+justifié pour lui-même. Et la colonne « volume » compte le **topic** sur chaque ligne alors
+que le verdict porte sur la **thématique** — d'où deux lignes où le chiffre et le verdict
+paraissent se contredire, et où l'écart est expliqué en prose sous le tableau. Une passe qui
+voudrait un critère opposable commencerait par là, pas par les verdicts.
+
 **Un défaut de structure, à connaître.** Le topic `Feux` sert **deux** thématiques
 (« Signalisation » et « Visibilité et éclairage ») et rien dans `questions.json` ne les
 distingue : le partage — huit questions de signaux, onze d'éclairage — n'est écrit que dans
@@ -195,16 +205,18 @@ contenu et non de la documentation.
 
 ## 4. Illustrations
 
-C'est le mouvement le plus visible de la passe : **8 → 49 questions illustrées**, 42
-imagesets créés, un retiré. Le renderer a été découpé en `Tools/Scenes/` sans changer un
+C'est le mouvement le plus visible de la passe : **8 → 49 questions illustrées** et
+**43 imagesets créés** — les huit d'avant étaient les cinq `carrefour-*`,
+`rond-point-insertion` et les deux photos. Le renderer a été découpé en `Tools/Scenes/` sans changer un
 pixel (24 PNG identiques octet pour octet après découpage), et un panneau se dessine
 désormais **une fois**, dans `Tools/Scenes/Panneaux.swift`, pour toutes les scènes qui le
 contiennent.
 
-### 4.1 Les 42 assets créés
+### 4.1 Les 43 assets créés
 
 `autoroute-voie-de-gauche` · `carrefour-feu-en-panne` · `carrefour-tramway` ·
-`croisement-en-pente` · `feu-jaune-clignotant` · `feu-fleche-clignotante` ·
+`croisement-en-pente` · `giratoire-sortie-clignotant` · `feu-jaune-clignotant` ·
+`feu-fleche-clignotante` ·
 `passage-niveau-feu-rouge-clignotant` · `marquage-ligne-mixte` ·
 `marquage-fleches-rabattement` · `marquage-zebra` · `marquage-damier-detresse` ·
 `stationnement-ligne-jaune-continue` · `stationnement-ligne-jaune-discontinue` ·
@@ -218,9 +230,17 @@ contiennent.
 `-b6d-…`, `-b14-limitation`, `-b21b-tout-droit`, `-b30-zone-30`, `-b31-fin-interdictions`,
 `-b33-fin-limitation`, `-c1a-parking`, `-c113-voie-velo`).
 
-Un asset retiré de la banque : la photo `ligne-jaune-continue` a cédé la place à un dessin,
-plus lisible sur la bande centrale qui survit au rétrécissement du bandeau. Elle reste dans
-`images.md` et sur le disque, déclarée orpheline, comme `giratoire-sortie-clignotant`.
+**Deux orphelins, de natures différentes**, tous deux déclarés comme tels dans `images.md` —
+51 imagesets au disque, 49 référencés, aucun manquant, aucun non recensé :
+
+- `ligne-jaune-continue` est la **photo préexistante** : elle a cédé la place à un dessin,
+  plus lisible sur la bande centrale qui survit au rétrécissement du bandeau. C'est le seul
+  asset que cette passe a retiré de la banque.
+- `giratoire-sortie-clignotant` a été **créé par cette passe puis vidé de son usage** : la
+  tâche 6 l'a dessiné, et la revue a retiré l'`illustration` de la question qui le portait
+  parce qu'elle était décorative au sens du §7. Le dessin est correct et disponible ; c'est
+  la **question** qui manquait, pas l'image. Une passe qui écrirait un énoncé déictique sur
+  la sortie d'un giratoire le trouverait prêt.
 
 ### 4.2 Les questions qu'on a renoncé à illustrer, et pourquoi
 
@@ -383,7 +403,7 @@ invalidé toutes les comparaisons.
 | # | ce que l'outil fait | ce qui passe donc |
 |---|---|---|
 | 1 | **`audit.py:216-221` date le RELEVÉ, jamais la SOURCE.** `source/releve-perime` compare la colonne « relevé le » à aujourd'hui | un document de 2015 relevé hier passe pour frais. Une source vieillissante ne se signale pas d'elle-même |
-| 2 | **Aucun contrôle inter-questions.** `schema/doublon-option` compare les quatre options **d'une même** question | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Cas vivant, corrigé par cette tâche : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », qui est la bonne réponse de `bda52045` |
+| 2 | **Aucun contrôle inter-questions.** `audit.py:95` (`schema/doublon-option`) compare les quatre options **d'une même** question, et c'est le seul contrôle de doublon de l'outil | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Cas vivant, corrigé par cette tâche : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », qui est la bonne réponse de `bda52045` |
 | 3 | **`audit.py:167` intersecte des jetons entiers** (`fuite/mot-enonce`) | toutes les fuites **par racine** : `annulée` / `annulation`, `Reprendre` / `reprise` ne s'apparient pas |
 | 4 | **Le détecteur est français, et lexical** | les fuites **par traduction** : « fonction longue » → `-warn-long-function-bodies`, « traités sur le fil principal » → `MainActorMessage`, « réglage courant » → « valeur » |
 | 5 | **`audit.py:176-179` exige exactement DEUX premiers mots distincts** (`forme/ouverture-isolee`) | une bonne réponse seule de son article parmi **trois** ouvertures différentes ; et **quatre** options ouvrant toutes sur le même mot |
@@ -404,8 +424,12 @@ chaque passe :
 **Ce qu'une passe suivante devrait faire d'`audit.py`**, dans l'ordre du rapport
 coût/bénéfice : (1) le contrôle d'écart inverse — dix lignes, il attrape le défaut le plus
 répandu de cette liste ; (2) un contrôle inter-questions de similarité d'options, qui aurait
-attrapé le cas `5c11020d` ; (3) exclure du motif `LETTER` les lettres précédées d'un chiffre
-et d'un tiret, qui éteindrait le faux positif 8. **À faire hors passe de contenu**, jamais
+attrapé le cas `5c11020d` ; (3) éteindre le faux positif 8 — et **pas** en
+touchant le lookbehind de `audit.py:29`, qui exclut déjà `\w`, le backtick, le point et le
+tiret : dans `118-2, A, a)` la lettre signalée est précédée d'une **virgule et d'une
+espace**, contexte parfaitement légitime ailleurs. Le remède est de reconnaître le motif
+englobant — une lettre isolée qui suit une référence d'article (`\d+-\d+`) à quelques
+caractères de là — plutôt que son voisin immédiat. **À faire hors passe de contenu**, jamais
 pendant : la ligne de base est un instrument de comparaison.
 
 ---
@@ -456,6 +480,12 @@ Vingt tâches ont laissé derrière elles trente constats délibérément non co
 par un dans le ledger de la passe. Ils sont triés ici en trois piles, parce qu'une revue de
 branche n'a pas besoin de trente lignes, elle a besoin de savoir **où regarder d'abord**.
 
+**Le tri regroupe et reclasse : n'attendez pas trente lignes en face de trente constats.**
+Plusieurs lignes du ledger portent deux ou trois constats à la fois et sont éclatées ici ;
+à l'inverse, ceux qui décrivent un défaut de l'outil sont **remontés au [§7](#7-ce-que-loutillage-ne-voit-pas)**,
+qui est leur vrai domicile, plutôt que répétés ici. Rien n'est perdu — le recoupement a été
+fait dans les deux sens — mais l'appariement un pour un échoue par construction.
+
 ### 9.1 Ce qui ne devrait pas bloquer une fusion, mais se corrige en une passe courte (contenu)
 
 Aucun de ces constats ne rend une question fausse ; chacun la fait **travailler moins qu'elle
@@ -487,6 +517,7 @@ C'est la pile la plus importante à isoler, parce qu'elle ne se corrige pas dans
 | l'orientation verticale du chevron est un **choix** et non une citation — absente de la liste des licences d'`images.md` | documentation d'image |
 | `panneau-b33` : le halo entaille le « 7 » et coupe l'oblique en deux moignons | dessin, lisible à taille de carte mais abîmé |
 | `panneau-a13b` dont les trois bandes se lisent comme un socle à 90 points ; **listel blanc invisible en clair sur quatre panneaux à fond clair** | dessin ; le second est le plus gênant, il annule une correction de norme dans un des deux modes |
+| dans `marquage-ligne-mixte`, l'écart entre la continue et la discontinue va **bien au-delà des 2 u de la norme** | licence de dessin **déclarée** dans `images.md`, avec sa raison : à cette échelle 2 u fusionnent en un seul trait et la question devient injouable. Elle appartient à une famille de six licences assumées, toutes écrites ; à revoir seulement si les scènes changent d'échelle |
 | dans `depassement-ligne-discontinue` les deux véhicules ne se chevauchent que sur 20 unités sur 50, là où l'`alt` dit « à la hauteur de celle qu'elle double » | `alt` un peu généreux, sans effet sur la réponse |
 | **un état intermédiaire de l'historique (`7fe5ae4`) échouerait la suite de tests** | l'état final est bon ; mais un `git bisect` ou un cherry-pick sur ce commit serait trompeur. À savoir avant de bisecter cette branche |
 | deux chiffres du tableau §15 d'un rapport de tâche ne se reproduisent pas (un −1 pour un 0, un « 15 % → 14 % » pour un taux stable) | erreur de calcul **dans un rapport**, pas dans les données. Non repris ici |

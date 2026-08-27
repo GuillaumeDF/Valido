@@ -308,7 +308,7 @@ Projet Xcode à plat, pas de paquet SwiftPM : `xcodebuild`, pas `swift test`.
 cd /Users/guillaume/Developer/Swift/Valido && \
   DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
     -project Valido.xcodeproj -scheme Valido \
-    -destination 'platform=iOS Simulator,name=iPhone 17'
+    -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
 
 Si `xcodebuild` échoue sur `Application failed preflight checks` / `Busy` sans qu'aucun
@@ -358,13 +358,25 @@ Sources autorisées, et elles seules : **legifrance.gouv.fr**,
 détail par rang vivent dans [`sources.md`](sources.md) et dans le tuple `DOMAINES`
 d'`audit.py`, **à tenir synchronisés**.
 
-**Pourquoi elle a été élargie au-delà des domaines gouvernementaux.** Parce qu'aucun
-`.gouv.fr` ne chiffre ce que deux domaines de la banque exigent : ni la **cadence des
-compressions thoraciques** ni la profondeur d'un massage (`sante.gouv.fr` renvoie à
-l'enseignement, pas à un barème) ; ni la **géométrie normalisée d'un panneau**, dont le
-texte fait foi sur Legifrance mais dont les planches ne sont lisibles que par le Cerema.
-Les cinq domaines ajoutés le sont donc chacun pour **un champ** où ils font autorité et où
-l'État n'écrit pas de chiffre — jamais pour compléter du droit routier.
+**Pourquoi elle a été élargie au-delà des domaines gouvernementaux.** Six domaines s'ajoutent
+aux cinq `.gouv.fr`, et chacun pour **un champ** où il fait autorité et où l'État français
+n'écrit pas de chiffre — jamais pour compléter du droit routier :
+
+- **`erc.edu`** et **`croix-rouge.fr`** — les gestes de secours. Aucun `.gouv.fr` ne chiffre
+  la cadence des compressions thoraciques ni la profondeur d'un massage : `sante.gouv.fr`
+  renvoie à l'enseignement, pas à un barème. **`cprguidelines.eu`** est resté dans le tuple
+  mais **ne sert plus aucun contenu** : c'était une transcription erronée du nom « ERC
+  Guidelines » en nom de domaine, et l'ERC est `erc.edu`.
+- **`unece.org`** et **`eur-lex.europa.eu`** — les normes techniques et le droit européen,
+  qui sont en amont du droit français sans y être écrits.
+- **`inrs.fr`** — le métabolisme de l'alcool (verre standard, vitesse d'élimination), qui
+  est de la santé au travail et non du droit routier.
+
+**Ce qui n'y est pas, et qui pourrait surprendre** : les planches de l'Instruction
+interministérielle sur la signalisation routière. Elles ne sont lisibles que chez le Cerema,
+qui **n'entre pas** dans cette liste — la version qui fait foi est l'arrêté sur Legifrance.
+L'IISR sert de référence de **dessin** ([§7](#7-les-questions-illustrées)), jamais d'autorité
+sur un chiffre, et n'apparaît donc jamais en colonne `source` d'une ligne `datée`.
 
 **Trois rangs, et ils ne sont pas interchangeables.** `legifrance.gouv.fr` (« Version en
 vigueur depuis le … ») et `service-public.gouv.fr` (« Vérifié le … ») sont les **seules
