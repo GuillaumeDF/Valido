@@ -107,6 +107,14 @@ livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`, coordonnées en **unités de scè
 est `3 ×` celles-ci). Les zones **hachurées** ne se mesurent pas à un pixel près : on donne la
 moyenne et le maximum sur un carré de 30 unités de côté.
 
+**Rec. 709, pas Rec. 601**, et le rappel n'est pas de la pédanterie : `0,299 / 0,587 / 0,114`
+est le coefficient que la plupart des outils appellent « luma » par défaut. Sur un gris les
+deux formules coïncident, sur un rouge ou un bleu saturé elles divergent de dix à quinze
+points — assez pour faire croire qu'un chiffre du tableau ne se reproduit pas (c'est arrivé
+en revue de branche, sur trois lignes de couleur saturée). Les **69 lignes de mesure à
+coordonnées** de ce fichier, tous tableaux confondus, ont été revérifiées le 2026-08-27 sur
+les PNG livrés : toutes reproduisent à `0,05` près.
+
 | zone | x, y | clair | sombre |
 |---|---|---|---|
 | `angle-mort` — zone hachurée, carré 30×30 : moyenne / max | 240, 215 | 120,8 / 181,9 | 102,6 / 163,2 |

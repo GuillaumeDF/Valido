@@ -149,10 +149,29 @@ une explication.
   il nie le caractère cassable de la lisse) ; la supériorité d'« avancer » ne vient pas d'un
   texte — R422-3 ne prescrit aucun sens — mais d'une doctrine de conduite enseignée. Signalé
   plutôt que retouché.
-- **Le distracteur « feux de détresse » atteint six occurrences** sur la banque `code`,
-  contre deux bonnes réponses. La règle 7 du §1 de `questions.md` vise ce motif — elle avait
-  été écrite pour « Klaxonner », qui était à sept. **À surveiller, et le premier à traiter
-  d'une passe suivante.**
+- **Le barème de points se donne d'avance de carte en carte.** `defefbae` (« Un refus de
+  priorité entre deux véhicules fait perdre : » → 4 points) voyait sa réponse écrite en toutes
+  lettres dans **quatre** autres cartes : l'explication de `1fe6ef49` (Tunnels), celle de
+  `a225e458` (Distances & freinage, « le passage forcé coûte 135 € et quatre points »), et les
+  distracteurs de `2a9e02b9` et `3cb86b6e`. **La clause de `1fe6ef49` a été retirée** — c'était
+  la plus gratuite : l'explication citait deux comparateurs de même barème là où un suffit, et
+  « comme le feu rouge franchi » porte seul toute la démonstration. Les trois autres **restent**,
+  et c'est un choix : la ligne qui sépare la fuite de la pédagogie n'est pas le topic mais le
+  **rôle du chiffre**. « Feu rouge = 4 points » est l'**ancre publique** du palier, celle que
+  `defefbae` cite dans sa propre bonne réponse ; « refus de priorité = 4 points » est la valeur
+  **demandée**. La règle à retenir : *une explication ne nomme jamais le sujet d'une autre carte
+  avec sa valeur ; une option qui compare des paliers, elle, enseigne le barème.* Reste ouvert au
+  même titre : le distracteur « six points, comme un refus de priorité au piéton » de `1fe6ef49`
+  énonce la bonne réponse de `2a9e02b9`, et le corriger coûterait à la carte sa meilleure
+  confusion voisine (règle 5). **À arbitrer, pas à trancher en clôture.**
+- **Le distracteur « feux de détresse » était monté à huit occurrences** sur la banque
+  `code`, pour **une** bonne réponse — au-delà du « Klaxonner » à sept qui avait fait écrire
+  la règle 7 du §1 de `questions.md`. Le compte de six relevé en cours de passe était juste
+  au moment où il a été pris ; les deux dernières tâches `code` en ont ajouté deux sans que
+  personne recompte. **Corrigé en clôture** : deux distracteurs diversifiés (`49f761c8`,
+  `aad60a74`), le motif retombe à **six**. Détail au §9.3.
+  La « seconde bonne réponse » comptée un temps était `570e5e1e`, qui parle d'une **voie** de
+  détresse : autre concept, autre motif.
 
 ---
 
@@ -351,7 +370,7 @@ forme/seule-ponctuee        14
 longueur/plus-longue        97
 expl/paraphrase-litterale   18
 
-code:  bonne réponse plus longue que la moyenne des distracteurs dans 126/255 cas; écart moyen +0.6 car.
+code:  bonne réponse plus longue que la moyenne des distracteurs dans 125/255 cas; écart moyen +0.5 car.
 swift: bonne réponse plus longue que la moyenne des distracteurs dans 120/193 cas; écart moyen +1.6 car.
 ```
 
@@ -375,7 +394,7 @@ Et les deux lignes de synthèse, qui sont les seules à mesurer un **taux** :
 
 | | avant (310) | après (448) |
 |---|---|---|
-| `code` — bonne réponse plus longue que la moyenne des distracteurs | 77/136 (**57 %**), écart moyen **+1,4** car. | 126/255 (**49 %**), écart moyen **+0,6** car. |
+| `code` — bonne réponse plus longue que la moyenne des distracteurs | 77/136 (**57 %**), écart moyen **+1,4** car. | 125/255 (**49 %**), écart moyen **+0,5** car. |
 | `swift` — idem | 111/174 (**64 %**), écart moyen **+1,8** car. | 120/193 (**62 %**), écart moyen **+1,6** car. |
 
 **Le compteur qui a le plus bougé, et pourquoi** : `expl/paraphrase-litterale` baisse de 23
@@ -385,10 +404,14 @@ lecture sur le `code` : le taux de bonnes réponses plus longues que la moyenne 
 57 % à 49 %, sur une population qui a presque doublé.
 
 **Une lecture à ne pas faire.** `forme/backtick-isole` à zéro est **structurel et non
-conquis** : le détecteur ne mord que si au moins une option de la question porte un backtick
-(`audit.py:173`). Sur les 80 options écrites par la dernière tâche `swift`, **aucune** n'en
-porte — le compteur ne pouvait pas se déclencher. Un zéro ne prouve quelque chose que si le
-détecteur avait une chance de mordre.
+conquis**. Le contrôle (`audit.py:173`) ne signale qu'un cas : la bonne réponse **seule** de
+son côté du backtick, `bt.count(gbt) == 1`. Il est donc désarmé de deux façons opposées, et
+la seconde est la moins visible : par l'**absence** de backtick partout, mais aussi dès que
+**deux distracteurs** en portent — `bt.count(False)` vaut alors 3, et le compteur reste muet
+même si la bonne réponse est la seule sans code span. Sur les 80 options de la dernière tâche
+`swift`, **deux** portent un backtick (`b0e607cd`, `5a4e87df`), toutes deux distractrices :
+le détecteur n'avait aucune chance de mordre. Un zéro ne prouve quelque chose que si le
+détecteur en avait une.
 
 ---
 
@@ -396,20 +419,22 @@ détecteur avait une chance de mordre.
 
 **La partie de ce rapport qui servira le plus.** Chaque angle mort a été découvert par un
 relecteur qui a **mesuré** au lieu de lire, et chacun est reproductible : telle ligne fait
-telle chose, donc tel défaut passe. Aucun n'a été corrigé pendant la passe — la ligne de base
-d'`audit.py` sert de référence à vingt tâches, et la faire bouger en cours de route aurait
-invalidé toutes les comparaisons.
+telle chose, donc tel défaut passe. Aucun n'a été corrigé **pendant** la passe — la ligne de
+base d'`audit.py` sert de référence à vingt tâches, et la faire bouger en cours de route
+aurait invalidé toutes les comparaisons. Le neuvième, découvert en clôture, fait exception :
+il ne touche aucun compteur et se corrige par deux caractères, donc il a été corrigé.
 
 | # | ce que l'outil fait | ce qui passe donc |
 |---|---|---|
 | 1 | **`audit.py:216-221` date le RELEVÉ, jamais la SOURCE.** `source/releve-perime` compare la colonne « relevé le » à aujourd'hui | un document de 2015 relevé hier passe pour frais. Une source vieillissante ne se signale pas d'elle-même |
-| 2 | **Aucun contrôle inter-questions.** `audit.py:95` (`schema/doublon-option`) compare les quatre options **d'une même** question, et c'est le seul contrôle de doublon de l'outil | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Cas vivant, corrigé par cette tâche : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », qui est la bonne réponse de `bda52045` |
+| 2 | **Aucun contrôle inter-questions.** `audit.py:95` (`schema/doublon-option`) compare les quatre options **d'une même** question, et c'est le seul contrôle de doublon de l'outil | deux questions qui portent la même règle, ou dont l'une **fuite** vers l'autre. Deux cas vivants, tous deux corrigés : l'explication de `5c11020d` énumérait « feux de croisement obligatoires », bonne réponse de `bda52045` ; celle de `1fe6ef49` donnait « le refus de priorité […] : quatre points », bonne réponse de `defefbae` **et hors de son topic**. Le second n'a été vu qu'en revue de branche : une revue de tâche ne voit que son diff |
 | 3 | **`audit.py:167` intersecte des jetons entiers** (`fuite/mot-enonce`) | toutes les fuites **par racine** : `annulée` / `annulation`, `Reprendre` / `reprise` ne s'apparient pas |
 | 4 | **Le détecteur est français, et lexical** | les fuites **par traduction** : « fonction longue » → `-warn-long-function-bodies`, « traités sur le fil principal » → `MainActorMessage`, « réglage courant » → « valeur » |
 | 5 | **`audit.py:176-179` exige exactement DEUX premiers mots distincts** (`forme/ouverture-isolee`) | une bonne réponse seule de son article parmi **trois** ouvertures différentes ; et **quatre** options ouvrant toutes sur le même mot |
-| 6 | **`audit.py:173` ne mord que si une option porte un backtick** (`forme/backtick-isole`) | un lot entier de questions sans code span laisse le compteur à zéro sans qu'il ait rien contrôlé |
+| 6 | **`audit.py:173` ne signale que la bonne réponse SEULE de son côté du backtick** (`forme/backtick-isole`, `bt.count(gbt) == 1`) | un lot entier de questions sans code span laisse le compteur à zéro sans qu'il ait rien contrôlé — **et deux distracteurs qui en portent le désarment tout autant**, `bt.count(False)` valant alors 3 (§6) |
 | 7 | **`audit.py:157-161` ne contrôle l'équilibre de longueur que DANS UN SENS** | une bonne réponse nettement **plus courte** que ses distracteurs est un indice aussi lisible : le candidat apprend que la réponse est la brève. Un domaine est monté à **29 %** de réponses les plus courtes contre 9 % de référence, sans qu'aucun compteur bouge. Le piège est vicieux parce qu'on y tombe **en corrigeant** dans l'autre sens — on allonge les distracteurs au lieu de raccourcir la bonne réponse |
 | 8 | **`audit.py:29` (`LETTER`) attrape une majuscule isolée entre séparateurs** | **faux positif systématique** dès qu'une explication cite une sous-section d'article au style de la maison (`118-2, A, a)`). Il a fallu écrire `118-2.A.a)`, incohérent avec le reste du dépôt — jusqu'à ce qu'un relecteur constate que l'IISR **elle-même** écrit « article 118-2.B », donc que la notation pointée est la graphie de la source et non un contournement |
+| 9 | **`audit.py:52` reconnaissait un nom d'asset sans exiger la fin de sa cellule** — l'ancrage était en début de ligne seulement, donc la première cellule des **tableaux de luminance** d'`images.md` (« `bus` — caisse du bus ») passait pour une ligne de registre | `RECENSES` portait **63 noms pour 51 imagesets**, dont douze fantômes (`bus`, `tunnel`, `sas`, `croisement`, `depassement`, `chargement`, `angle-mort`, `balise`, `cote`, `rabattement`, `immobilise`, `depassement-discontinue`). Aucun asset livré n'en dépendait, mais ce sont des **noms d'asset plausibles** : le premier qui aurait porté l'un d'eux serait passé pour recensé sans avoir de ligne de provenance. **Seul angle mort corrigé** — la regex exige désormais la barre verticale de fin de cellule ; `RECENSES` tombe à 51 et aucun compteur ne bouge |
 
 **Deux défauts que rien ne peut mécaniser**, et qui demandent donc un relevé à la main à
 chaque passe :
@@ -418,8 +443,10 @@ chaque passe :
   la priorité et une seule qui cède : la bonne réponse se désigne par sa position logique,
   sans rien connaître. Deux questions `facile` en sont mortes.
 - **La règle 7 comptée sur toute la banque.** Un distracteur récurrent s'apprend comme un
-  motif. « Klaxonner » était à sept occurrences en passe 1 ; « feux de détresse » est à six
-  aujourd'hui (§2.2).
+  motif, et **le compte se périme dès qu'une tâche suivante écrit dans le même thème** :
+  « feux de détresse » a été relevé à six par la tâche qui l'a vu, il en portait **huit** en
+  fin de branche, au-delà du « Klaxonner » à sept de la passe 1. Ramené à six en clôture
+  (§2.2). Le relevé n'a de valeur qu'**après la dernière tâche de contenu**, jamais pendant.
 
 **Ce qu'une passe suivante devrait faire d'`audit.py`**, dans l'ordre du rapport
 coût/bénéfice : (1) le contrôle d'écart inverse — dix lignes, il attrape le défaut le plus
@@ -474,17 +501,23 @@ est pas une. Et on ne juge que la ligne `✔ Test run with N test(s)` : un
 
 ---
 
-## 9. Les trente constats mineurs parqués — le tri
+## 9. Les trente et un constats mineurs parqués — le relevé et le tri
 
-Vingt tâches ont laissé derrière elles trente constats délibérément non corrigés, tracés un
-par un dans le ledger de la passe. Ils sont triés ici en trois piles, parce qu'une revue de
-branche n'a pas besoin de trente lignes, elle a besoin de savoir **où regarder d'abord**.
+Vingt et une tâches ont laissé derrière elles **trente et un** constats délibérément non
+corrigés, tracés un par un dans le ledger de la passe. Le ledger, lui, **ne survivra pas à la
+fusion** : `.gitignore` ignore `.superpowers/`, et `git ls-files .superpowers` est vide. Ce
+qui doit survivre n'est pas la trace de leur instruction — mille cinq cents lignes de
+processus — mais les constats eux-mêmes, avec leur tâche d'origine et leur raison. Ils sont
+donc **transcrits intégralement au [§9.5](#95-le-relevé-intégral--les-trente-et-un-un-par-un)**,
+et triés ci-dessous en trois piles, parce qu'une revue de branche n'a pas besoin de trente et
+une lignes : elle a besoin de savoir **où regarder d'abord**.
 
-**Le tri regroupe et reclasse : n'attendez pas trente lignes en face de trente constats.**
+**Le tri regroupe et reclasse : n'attendez pas trente et une lignes en face du relevé.**
 Plusieurs lignes du ledger portent deux ou trois constats à la fois et sont éclatées ici ;
 à l'inverse, ceux qui décrivent un défaut de l'outil sont **remontés au [§7](#7-ce-que-loutillage-ne-voit-pas)**,
 qui est leur vrai domicile, plutôt que répétés ici. Rien n'est perdu — le recoupement a été
-fait dans les deux sens — mais l'appariement un pour un échoue par construction.
+fait dans les deux sens, et le §9.5 dit pour chacun où il a atterri — mais l'appariement un
+pour un échoue **dans le tri**, pas dans le relevé.
 
 ### 9.1 Ce qui ne devrait pas bloquer une fusion, mais se corrige en une passe courte (contenu)
 
@@ -493,7 +526,6 @@ ne pourrait**.
 
 | constat | pourquoi il attend |
 |---|---|
-| **« Feux de détresse » à six occurrences en distracteur** sur la banque `code`, contre deux bonnes réponses | c'est le motif exact que la règle 7 vise, et il est à un cran du « Klaxonner » à sept qui avait déclenché sa rédaction. **Le premier à traiter** : il se corrige en diversifiant six distracteurs, sans toucher à une bonne réponse |
 | `acfa94cd` — rupture de motif grammatical (seule bonne réponse en « vous êtes… » contre trois sujets nominaux) **et** deux seuils inventés au lieu de confusions courantes | deux défauts de §2 dans la même carte |
 | `5a4e87df` — bonne réponse déductible du nom de l'API (`Inline`Array → « sans allocation séparée ») | c'est le motif même qui a fait retirer la question WeTransfer. Le corriger demande de changer l'angle de la carte, pas une option |
 | `2f278647` — distracteur partiellement vrai, et deux options ouvrant sur « la racine » ; `62f082eb` — distracteur le plus discutable du lot | les deux restent faux ; ils sont sur la frontière de la règle 2 |
@@ -510,7 +542,7 @@ C'est la pile la plus importante à isoler, parce qu'elle ne se corrige pas dans
 
 | constat | nature |
 |---|---|
-| **Les huit angles morts d'`audit.py`** (§7) | outillage. Deux d'entre eux sont des constats parqués en propre : les fuites sous le seuil de 4 caractères (« 70 », « 30 ») que le détecteur ne voit pas, et l'écart de −13 laissé en exemple vivant sur `37fe1af4…544d1` avant sa correction |
+| **Les neuf angles morts d'`audit.py`** (§7) | outillage. Deux d'entre eux sont des constats parqués en propre : les fuites sous le seuil de 4 caractères (« 70 », « 30 ») que le détecteur ne voit pas, et l'écart de −13 laissé en exemple vivant sur `37fe1af4…544d1` avant sa correction |
 | **abaisser le seuil de `fuite/mot-enonce` sous 4 caractères** | **décision de dépôt, pas de tâche** — c'est pourquoi ce constat a été parqué et non exécuté |
 | `Tools/audit.py` et le docstring du test reprennent quasi mot pour mot le texte d'un brief | style ; cohérent avec le dépôt, non bloquant |
 | **écarts commentaire/code dans `Tools/Scenes/`** : `debordH`/`debordV` sont des **insets** et non les demi-axes que nomme le commentaire, et une borne « 1,545 r » est fausse (c'est 1,5 r) | **de la même classe que le défaut qui a coûté deux rondes de revue : un commentaire qui affirme ce que le code ne fait pas.** La conclusion du calcul est inchangée. À corriger, mais deux lignes de commentaire ne justifiaient pas une ronde |
@@ -531,7 +563,20 @@ C'est la pile la plus importante à isoler, parce qu'elle ne se corrige pas dans
 - **Les volumes périmés de `couverture.md`** (`Arrêt & stationnement` à 11 pour 17,
   `Distances & freinage` à 10 pour 21) : **recomptés en totalité** par cette tâche.
 - **Les sanctions de R412-11-3** : restaurées, relevées mot pour mot.
-- **La fuite `5c11020d` → `bda52045`** : coupée.
+- **La fuite `5c11020d` → `bda52045`** : coupée. Une seconde, de la même classe et hors
+  topic, l'a été en clôture : `1fe6ef49` → `defefbae` (§2.2).
+- **Le distracteur « feux de détresse »**, seule règle du guide qui fût en dépassement :
+  recompté en clôture à **huit** occurrences pour **une** bonne réponse — et non six pour deux
+  — puis ramené à **six** en diversifiant les deux distracteurs où l'option était la plus
+  interchangeable. `49f761c8` (autocar qui fait descendre des enfants) : « allumer vos feux de
+  détresse », qui n'avait aucun lien avec la règle testée, devient « accélérer pour écourter le
+  dépassement » — la règle voisine (*un dépassement doit être bref*) que la règle spéciale
+  contredit, et le quatrième point d'un éventail accélérer / conserver / **réduire** / arrêter
+  où la bonne réponse n'est plus à une extrémité. `aad60a74` (arrêt sur la bande d'arrêt
+  d'urgence) : la condition de tolérance change de motif et devient « toléré si vous restez au
+  volant, prêt à repartir », c'est-à-dire le critère qui sépare l'arrêt du stationnement —
+  vraie règle, appliquée là où elle ne vaut pas. Aucune bonne réponse touchée, aucun `id`
+  déplacé, aucun compteur d'`audit.py` déplacé.
 - **`Tools/questions.md` sur les trois régimes de `sourceURL`** : réécrit.
 - **La concentration du domaine `Panneaux & marquage` sur l'axe « forme/couleur → famille »**
   (5 questions sur 27) et le **miroir exact** `1a0a5812` / `37fe1af4…f5aef8` sur la ligne
@@ -546,13 +591,54 @@ C'est la pile la plus importante à isoler, parce qu'elle ne se corrige pas dans
 
 ### 9.4 Le tri, en une phrase
 
-**Rien dans les trente ne bloque une fusion.** Aucun ne rend une question fausse, aucun ne
-casse un test, aucun ne dégrade une donnée livrée. Ce qu'un relecteur de branche devrait
-regarder en priorité tient en trois lignes : le **listel blanc invisible en mode clair sur
-quatre panneaux** (une correction de norme annulée dans un des deux modes), les **écarts
-commentaire/code de `Tools/Scenes/`** (la classe de défaut la plus coûteuse de cette passe),
-et le **distracteur « feux de détresse » à six occurrences** (la seule règle du guide de
-rédaction qui soit aujourd'hui en dépassement).
+**Rien dans les trente et un ne bloque une fusion.** Aucun ne rend une question fausse, aucun
+ne casse un test, aucun ne dégrade une donnée livrée. Ce qu'un relecteur de branche devrait
+regarder en priorité tient en deux lignes : le **listel blanc invisible en mode clair sur
+quatre panneaux** (une correction de norme annulée dans un des deux modes) et les **écarts
+commentaire/code de `Tools/Scenes/`** (la classe de défaut la plus coûteuse de cette passe).
+La troisième ligne de cette liste était le **distracteur « feux de détresse »** — la seule
+règle du guide de rédaction qui fût en dépassement : elle a été refermée en clôture (§2.2),
+après qu'un recomptage l'eut trouvée à **huit** et non à six.
+
+### 9.5 Le relevé intégral — les trente et un, un par un
+
+Le tri ci-dessus regroupe ; celui-ci **n'omet rien**. Chaque ligne est un constat du ledger
+(`minor (deferred)`), avec la tâche qui l'a émis, ce qu'il dit, et où il a atterri. C'est la
+seule copie versionnée : le ledger est ignoré par git et disparaît à la fusion.
+
+| # | tâche | constat | où il vit |
+|---:|---:|---|---|
+| 1 | 1 | la ligne `Feux` / « Visibilité et éclairage » de `couverture.md` affiche le volume du **topic entier** (10) et non sa moitié dédiée (~5) | **réglé** — le partage est explicité sous le tableau, verdict au §3 (§9.3) |
+| 2 | 3 | le commentaire d'`audit.py` et le docstring du test neuf reprennent quasi mot pour mot le texte du brief | ouvert, style — cohérent avec le dépôt (§9.2) |
+| 3 | 5 | `panneau-b33` : le halo entaille le « 7 » et coupe l'oblique en deux moignons ; lisible à taille de carte mais abîmé | ouvert, dessin — à reprendre si une tâche de panneaux repasse dessus (§9.2) |
+| 4 | 5 | fuites de mot **sous le seuil de 4 caractères** d'`audit.py` (« 70 » dans `61eed52d`, « 30 » dans `ed0e45e0`), avec précédent dans la banque | ouvert — abaisser le seuil est une **décision de dépôt**, pas de tâche (§9.2 ; angle mort §7 n° 3) |
+| 5 | 6 | la reformulation de `37fe1af4…81fa` frôle l'énoncé de principe plutôt que la mise en situation | ouvert, acceptable — à surveiller (§9.3) |
+| 6 | 7 | quatre constats en une ligne : concentration de `Panneaux & marquage` sur l'axe « forme/couleur → famille » (5 sur 27) et miroir `1a0a5812` / `37fe1af4…f5aef8` ; écart ~10× la norme sur `marquage-ligne-mixte` ; `panneau-a13b` dont les trois bandes se lisent comme un socle ; **listel blanc invisible en mode clair sur quatre panneaux** | éclaté — les deux premiers **rejugés et clos** (§9.3), les deux derniers ouverts (§9.2), le listel étant la première chose à regarder (§9.4) |
+| 7 | 7 | l'orientation verticale du chevron est un **choix** et non une citation : les planches officielles n'illustrent que des zones en musoir. Absent de la liste des licences d'`images.md` | ouvert, documentation d'image (§9.2) |
+| 8 | 8 | dissonance interne « deux verres » contre « deux ou trois verres » entre deux explications du domaine alcool | ouvert, contenu (§9.1) |
+| 9 | 10 | `debordH` / `debordV` sont des **insets** et non les demi-axes que nomme le commentaire, et la borne « 1,545 r » est fausse (c'est 1,5 r). Conclusion du calcul inchangée | ouvert — **même classe que le défaut qui a coûté deux rondes** : un commentaire qui affirme ce que le code ne fait pas (§9.2, §9.4) |
+| 10 | 11 | le §9 point 7 du rapport d'août 2026 garde sa citation « 113-1 E » périmée, volontairement non retouchée, avec renvoi | clos par construction — **on n'écrase pas une trace d'exécution** (§9.2) |
+| 11 | 13 | `sources.md` ligne 221 : contenu corrigé (les 30 m ne sont plus attribués à R416-19), sourçage formel laissé à la tâche 14, propriétaire du domaine | ouvert — partage de périmètre assumé (§9.2) |
+| 12 | 13 | `eac980f5` reste une question **dense** : deux faits en plus de la règle à trouver | clos — la re-revue a jugé la réserve **excessive** ; conservé pour mémoire (§9.1) |
+| 13 | 14 | la ligne de registre du « 112 » cite encore « 119 destiné à tout enfant ou adolescent victime de violences » là où l'explication corrigée dit « enfance en danger » | ouvert, registre (§9.2) |
+| 14 | 16 | `acfa94cd` : rupture de motif grammatical (seule bonne réponse en « vous êtes… » contre trois sujets nominaux) **et** deux seuils inventés au lieu de confusions courantes | ouvert, contenu — deux défauts de §2 dans la même carte (§9.1) |
+| 15 | 16 | le distracteur « feux de détresse » atteint **six** occurrences sur la banque `code` | **périmé puis corrigé** — huit en fin de branche, ramené à six en clôture (§2.2, §9.3) |
+| 16 | 16 | `46269e3e` est la moins irrépondable des quatre illustrées : deux distracteurs s'éliminent sans l'image | ouvert, contenu — le §7 du guide reste tenu (§9.1) |
+| 17 | 16 | dans `depassement-ligne-discontinue` les deux véhicules ne se chevauchent que sur 20 unités sur 50, là où l'`alt` dit « à la hauteur de celle qu'elle double » | ouvert, `alt` un peu généreux, sans effet sur la réponse (§9.2) |
+| 18 | 17 | `Tools/couverture.md` porte des volumes périmés sur des lignes antérieures à la tâche 17 (`Arrêt & stationnement` 11 pour 17, `Distances & freinage` 10 pour 21) | **réglé** — recomptés en totalité par la tâche 21 (§9.3) |
+| 19 | 17 | **fuite d'explication introduite par la ronde** : l'explication de `5c11020d` énumère « feux de croisement obligatoires », bonne réponse de `bda52045` | **réglé** — clause coupée par la tâche 21 (§9.3), et versé au §7 n° 2 comme angle mort |
+| 20 | 19 | F1 : la fuite `MainActorMessage` est **traduite** (« traités sur le fil principal ») plutôt qu'éteinte, alors que F4 invoque la même condition pour ne rien faire | ouvert — tension de critère entre deux sections d'une même tâche ; le mouvement reste bon (§7 n° 4) |
+| 21 | 19 | F2 : en retirant « reprise », l'énoncé porte deux occurrences de la racine face au seul `Download` de la liste | ouvert — fuite par traduction pré-existante, accentuée (§7 n° 4) |
+| 22 | 19 | section B : le remplaçant (« activer la couverture de code sur le schéma de test ») est vrai et n'est faux que par le superlatif « le premier » de l'énoncé | ouvert — frontière de la règle 2, **du côté acceptable** puisque l'énoncé tranche (§5) |
+| 23 | 19 | F3 : l'écart de longueur passe de +5 à −9, à un caractère du seuil **dans l'autre sens**. Contraint par le nom réel du flag | ouvert — exemple du §7 n° 7 |
+| 24 | 19 | écart de −13 sur `37fe1af4…544d1` (`.task` contre `.onDisappear`), **antérieur à la passe**, invisible d'`audit.py` | ouvert — l'exemple vivant du §7 n° 7 (§9.2) |
+| 25 | 19 | un rapport de ronde **montre** la sortie de la suite mais ne **nomme** pas de test couvrant pour cette ronde-là | ouvert — exigence « nommer + montrer » partiellement remplie (§9.2) |
+| 26 | 20 | `5a4e87df` : bonne réponse déductible du **nom de l'API** (`Inline`Array → « sans allocation séparée ») | ouvert — le corriger demande de changer l'angle de la carte, pas une option (§9.1) |
+| 27 | 20 | `2f278647` : distracteur **partiellement vrai** (insérer chaque objet du graphe fonctionne, seul « dans l'ordre des relations » le rend faux) et deux options ouvrant sur « la racine » | ouvert — reste faux, frontière de la règle 2 (§9.1) |
+| 28 | 20 | `62f082eb` : distracteur le plus discutable du lot, reste faux | ouvert — même frontière (§9.1) |
+| 29 | 20 | `Données` change de nature (7 → 12, dont 5 toutes SwiftData et 3 sur le seul `ModelContext`) et la difficulté dérive (9 `costaud` sur 20) | ouvert — effet voulu du comblement d'un trou ; à rééquilibrer si le thème grossit (§9.1) |
+| 30 | 20 | deux chiffres du tableau récapitulatif d'un rapport de tâche ne se reproduisent pas (un −1 pour un écart nul, un « 15 % → 14 % » pour un taux stable) | clos — erreur de calcul **dans un rapport**, jamais reprise ici (§9.2) |
+| 31 | 21 | `Tools/audit-questions.md` garde `name=iPhone 17` sans `Pro` — fichier antérieur à toute la passe, hors périmètre de tous les briefs | **absorbé en clôture** : une revue de fin de branche a trouvé le fichier faux **en bloc**, pas sur une ligne ; il est marqué **historique** en tête (§10) |
 
 ---
 
@@ -566,8 +652,18 @@ rédaction qui soit aujourd'hui en dépassement).
 - Une **liste de renoncements motivés** (§4.2), dont sept lignes disent explicitement ce
   qu'il manque et rien d'autre.
 - Un **relevé d'angles morts** (§7) avec la ligne d'outil de chacun.
+- Un **relevé intégral des constats parqués** (§9.5), tâche par tâche : c'est la seule copie
+  versionnée, le ledger de la passe n'étant pas suivi par git.
 - Un dossier `Tools/Scenes/` où **un panneau se dessine une fois**, et une méthode pour
   relever une planche officielle en image plutôt que de dessiner de mémoire.
+
+Et ce qu'elle ne trouvera **pas** : un prompt d'amorçage prêt à coller.
+[`audit-questions.md`](audit-questions.md) est passé **historique** en clôture — il était
+faux sur chacun de ses chiffres, sur ses seuils de test, sur son simulateur et jusque sur
+l'absence de dépôt git, après **une seule** passe. Il n'a pas été remis à jour, et son
+en-tête dit pourquoi : il ne portait que des valeurs qui vivent déjà dans `questions.md`,
+dans ce rapport et dans `CLAUDE.md`, et un quatrième endroit où les tenir cohérents se
+périmerait de la même façon. Le brief se dérive de ces trois-là en quelques minutes.
 
 Et une chose qui n'est pas prête : **448 questions ne font toujours pas un feed infini.**
 Deux passes de contenu ont porté la banque de 250 à 448 sans changer l'ordre de grandeur.

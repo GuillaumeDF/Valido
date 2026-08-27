@@ -290,13 +290,15 @@ expl/paraphrase-litterale  18     à relire à l'œil, une par une
 ```
 
 Vides, et qui doivent le rester : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
-`longueur/plus-10`, `forme/backtick-isole`. **Attention à ce dernier** : il ne mord que si
-au moins une option de la question porte un backtick (`audit.py:173`), donc un lot de
-questions sans aucun code span le laisse à zéro sans qu'il ait rien contrôlé.
+`longueur/plus-10`, `forme/backtick-isole`. **Attention à ce dernier** : il ne signale que
+la bonne réponse **seule** de son côté du backtick (`audit.py:173`), donc un lot de questions
+sans aucun code span le laisse à zéro sans qu'il ait rien contrôlé — et **deux distracteurs
+qui en portent** le désarment tout autant qu'une absence totale.
 
 Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé au §7 de
-[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — huit angles morts mesurés, dont la
+[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — neuf angles morts mesurés, dont la
 fuite d'une carte vers **une autre** carte et l'équilibre de longueur dans le sens inverse.
+Huit sont ouverts ; le neuvième (le registre d'images lu trop largement) est corrigé.
 
 ---
 
@@ -429,13 +431,16 @@ l'identifiant** — un `id` de question neuve est trente-deux caractères hexad�
 un `id` de Notion, et rien ne les distingue à l'œil. Ce qui les distingue est de
 **recalculer le hachage** : s'il retombe sur l'`id`, la question a été créée par une passe.
 
-Au 2026-08-27 : **198** questions créées par les deux passes (250 → 448, une retirée en
-chemin), dont **188** portent un `id` qui est encore le hachage de leur énoncé courant. Les
-dix autres ont vu leur énoncé réécrit après coup sans qu'on recalcule l'`id` — ce qui est le
-comportement voulu dès qu'une question a été livrée : la progression de l'utilisateur est
-indexée sur l'`id` (`Valido/Model/ProgressSnapshot.swift`), donc le changer efface un
-historique en silence. **Un `id` de question livrée est immuable, sans exception.** Une
-question créée dans une branche jamais fusionnée peut, elle, voir son `id` suivre son énoncé.
+Au 2026-08-27 : **199** questions créées par les deux passes — 250 → 448 est un solde de
+198, et une question a été retirée en chemin ; le compte se fait en **créations**, pas en
+delta. Recompté : **249** `id` à préfixe Notion (`37fe1af42b8d…`) + **199** `id` frappés =
+448. Sur ces 199, **188** portent un `id` qui est encore le hachage de leur énoncé courant.
+Les **onze** autres ont vu leur énoncé réécrit après coup sans qu'on recalcule l'`id` — ce
+qui est le comportement voulu dès qu'une question a été livrée : la progression de
+l'utilisateur est indexée sur l'`id` (`Valido/Model/ProgressSnapshot.swift`), donc le
+changer efface un historique en silence. **Un `id` de question livrée est immuable, sans
+exception.** Une question créée dans une branche jamais fusionnée peut, elle, voir son `id`
+suivre son énoncé.
 
 **Notion n'est plus la source** : ni mise à jour, ni ré-import. Le JSON fait foi.
 

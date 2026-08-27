@@ -10005,7 +10005,7 @@
       },
       {
         "id": "C",
-        "text": "toléré si les feux de détresse restent allumés"
+        "text": "toléré si vous restez au volant, prêt à repartir"
       },
       {
         "id": "D",
@@ -11055,7 +11055,7 @@
       },
       {
         "id": "D",
-        "text": "allumer vos feux de détresse"
+        "text": "accélérer pour écourter le dépassement"
       }
     ],
     "prompt": "Vous doublez un autocar qui fait descendre des enfants. Vous devez :",
@@ -11849,7 +11849,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le code sanctionne l'infraction au passage à niveau comme le refus de priorité ou le feu rouge franchi : quatre points, contravention de la quatrième classe. S'y ajoute ce que peu de contraventions portent — la suspension du permis pour trois ans au plus, et un stage de sensibilisation.",
+    "explanation": "Le code sanctionne l'infraction au passage à niveau comme le feu rouge franchi : quatre points, contravention de la quatrième classe. S'y ajoute ce que peu de contraventions portent — la suspension du permis pour trois ans au plus, et un stage de sensibilisation.",
     "id": "1fe6ef49aad916e076477274c75c3550",
     "options": [
       {

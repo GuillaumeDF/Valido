@@ -48,8 +48,12 @@ SCENES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(PATH))),
 IMAGES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images.md')
 # Le relevé de provenance : une ligne de tableau par asset. Sans lui une image est
 # orpheline — impossible de la remplacer ou de re-sourcer si la licence change.
+# Le `\|` de fermeture n'est pas décoratif : sans lui la regex attrapait aussi la première
+# cellule des tableaux de luminance (« | `bus` — caisse du bus | … »), et `RECENSES` portait
+# 63 noms pour 51 imagesets. Les douze fantômes étaient des noms d'asset plausibles — l'un
+# d'eux serait passé pour recensé sans avoir de ligne de registre.
 try:
-    RECENSES = set(re.findall(r'^\|\s*`([a-z0-9-]+)`', open(IMAGES_MD).read(), re.M))
+    RECENSES = set(re.findall(r'^\|\s*`([a-z0-9-]+)`\s*\|', open(IMAGES_MD).read(), re.M))
 except OSError:
     RECENSES = set()
 
