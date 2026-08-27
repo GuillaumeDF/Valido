@@ -42,14 +42,28 @@ def bonne(q):
     return next(o['text'] for o in q['options'] if o['id'] == q['correctID'])
 
 
-def afficher(questions, registre, domaine):
+def domaine_absent(questions, domaine):
+    """Détecte un domaine inconnu ou mal tapé.
+
+    Une typo dans le domaine retournerait « 0 recouvrement(s) sur 0 cartes »,
+    indistinguishable d'une genuine zéro-fuite. C'est le pire cas pour un
+    contrôle qui couvre un angle mort : un silence qui ressemble à une quitus.
+    La garde signale l'erreur plutôt que de la laisser passer inaperçue.
+    """
     lot = cartes(questions, domaine)
     if not lot:
         topics = sorted({q['topic'] for q in questions if q['subject'] == 'code'})
         print(f'Aucune carte `code` dans « {domaine} ». Domaines connus :')
         for t in topics:
             print('  -', t)
+        return True
+    return False
+
+
+def afficher(questions, registre, domaine):
+    if domaine_absent(questions, domaine):
         return
+    lot = cartes(questions, domaine)
     print(f'# {domaine} — {len(lot)} cartes '
           f"({sum(1 for q in lot if q.get('illustration'))} illustrées)")
     for q in lot:
@@ -89,6 +103,8 @@ def fuites(questions, domaine):
     carte à la lumière d'une autre, et la passe 2 a elle-même introduit une fuite de
     cette forme en étoffant une explication.
     """
+    if domaine_absent(questions, domaine):
+        return
     banque = [q for q in questions if q['subject'] == 'code']
     lot = cartes(questions, domaine)
     trouve = 0
