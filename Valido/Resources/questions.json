@@ -11968,7 +11968,7 @@
       },
       {
         "id": "B",
-        "text": "il faut le recharger depuis une requête neuve"
+        "text": "le changement ne part qu'au prochain lancement"
       },
       {
         "id": "C",
@@ -12015,7 +12015,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "`SchemaMigrationPlan` décrit l'évolution : il enchaîne des étapes de migration, chacune reliant deux versions du schéma déclarées en `VersionedSchema`. Le modèle de correspondance dessiné à la souris, lui, appartient à Core Data.",
+    "explanation": "`SchemaMigrationPlan` décrit l'évolution : il enchaîne des étapes de migration, chacune reliant deux versions déclarées en `VersionedSchema`. Le modèle de correspondance, lui, appartient à Core Data et à son éditeur graphique.",
     "id": "8767f8f0fd5eb7120b65e83d2b195586",
     "options": [
       {
@@ -12024,7 +12024,7 @@
       },
       {
         "id": "B",
-        "text": "un modèle de correspondance dessiné dans l'éditeur"
+        "text": "un modèle de correspondance entre les deux schémas"
       },
       {
         "id": "C",
@@ -12044,7 +12044,7 @@
     "correctID": "B",
     "difficulty": "facile",
     "explanation": "L'initialiseur `Image(decorative:)` crée une image sans étiquette, que SwiftUI ignore pour l'accessibilité ; `accessibilityHidden(true)` la retire de la même façon. Étiqueter un ornement fait perdre du temps à VoiceOver sans rien apporter.",
-    "id": "5943c192a212b042609d370b2cbad74d",
+    "id": "8bf74d5f0f6aeb68e425d6896702b73b",
     "options": [
       {
         "id": "A",
@@ -12060,10 +12060,10 @@
       },
       {
         "id": "D",
-        "text": "reçoit une étiquette décrivant ce qu'elle dessine"
+        "text": "reste dans l'arbre, mais sans étiquette ni trait"
       }
     ],
-    "prompt": "Une image purement décorative, dans une vue SwiftUI :",
+    "prompt": "Une image déclarée avec `Image(decorative:)` :",
     "sourceURL": "https://developer.apple.com/documentation/swiftui/image/init(decorative:bundle:)",
     "subject": "swift",
     "topic": "SwiftUI"
@@ -12076,7 +12076,7 @@
     "options": [
       {
         "id": "A",
-        "text": "une étiquette d'accessibilité complétée du pourcentage"
+        "text": "une étiquette d'accessibilité complétée de la valeur"
       },
       {
         "id": "B",
@@ -12192,7 +12192,7 @@
       },
       {
         "id": "B",
-        "text": "poursuit son attente, puis s'arrête au réveil"
+        "text": "poursuit son attente, l'annulation ne la coupe pas"
       },
       {
         "id": "C",
@@ -12351,7 +12351,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "`Span` est une vue non propriétaire et non échappante : elle hérite de la durée de vie du conteneur qui possède la mémoire, ce qui écarte l'usage après libération, et ses accès sont bornés, ce qui écarte le débordement. Le compilateur vérifie, sans coût à l'exécution.",
+    "explanation": "`Span` est une vue non propriétaire et non échappante : elle hérite de la durée de vie du conteneur qui possède la mémoire, et c'est le compilateur qui l'établit, ce qui écarte l'usage après libération. Les accès, eux, sont bornés à l'exécution : un index invalide arrête le programme au lieu de lire à côté.",
     "id": "9a9fa7e8561f5460de2bb68a0db468c2",
     "options": [
       {
@@ -12456,7 +12456,7 @@
       }
     ],
     "prompt": "Ce qu'une alarme AlarmKit (iOS 26) fait et qu'une notification locale ne fait pas :",
-    "sourceURL": "https://developer.apple.com/documentation/alarmkit",
+    "sourceURL": "https://developer.apple.com/documentation/alarmkit/scheduling-an-alarm-with-alarmkit",
     "subject": "swift",
     "topic": "Frameworks iOS"
   }
