@@ -10590,7 +10590,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le I bis de l'article R412-34 tolère sur le trottoir les cyclistes de moins de huit ans, trop jeunes pour rouler en sécurité au milieu de la circulation, à charge de garder l'allure du pas et de ne gêner personne, sauf décision contraire de l'autorité de police. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
+    "explanation": "Le I bis de l'article R412-34 tolère sur le trottoir, sauf décision contraire de l'autorité de police, les cyclistes de moins de huit ans, trop jeunes pour rouler en sécurité au milieu de la circulation, à charge de garder l'allure du pas et de ne gêner personne. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
     "id": "7c2284d4cc7f32e90ce8926470fd656a",
     "options": [
       {
@@ -10706,7 +10706,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le point 6.15 de l'article R311-1 définit l'engin par sa vitesse : plus de 6 km/h, et pas plus de 25. Au-delà, l'appareil change simplement de catégorie, débridé ou vendu ainsi — ce n'est plus, par définition, un engin de déplacement personnel motorisé.",
+    "explanation": "Le point 6.15 de l'article R311-1 définit l'engin par sa vitesse : plus de 6 km/h, et pas plus de 25. Au-delà, l'appareil change de catégorie, débridé ou vendu ainsi — ce n'est plus, par définition, un engin de déplacement personnel motorisé.",
     "id": "fe6c39082afe1716a7cfe42d968635a8",
     "options": [
       {
@@ -10787,7 +10787,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "R431-1-2 protège les mains, premier appui au sol en cas de chute, et ne distingue ni l'âge ni le lieu : conducteur et passager d'une motocyclette, d'un tricycle ou d'un cyclomoteur portent des gants homologués. L'oubli est une contravention de troisième classe et coûte un point.",
+    "explanation": "Les mains sont le premier appui au sol en cas de chute, ce qui explique pourquoi R431-1-2 ne distingue ni l'âge ni le lieu : conducteur et passager d'une motocyclette, d'un tricycle ou d'un cyclomoteur portent des gants homologués. L'oubli est une contravention de troisième classe et coûte un point.",
     "id": "82b915c28f76ff1314ecc8cbc927f9b3",
     "options": [
       {
@@ -10841,7 +10841,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "R412-11-3 réserve l'inter-files aux véhicules L3e ou L5e d'un mètre de large au plus, entre les deux voies de gauche d'une autoroute ou d'une route à chaussées séparées par un terre-plein central, à deux voies par chaussée au moins et 70 km/h autorisés. Deux plafonds s'y ajoutent : cinquante à l'heure entre les files, trente si l'une d'elles est à l'arrêt. Passer outre coûte trois points et jusqu'à trois ans de suspension.",
+    "explanation": "R412-11-3 pose deux plafonds pour l'inter-files : cinquante à l'heure entre les files, trente si l'une d'elles est à l'arrêt — pour garder le temps de réagir si une portière s'ouvre ou qu'un véhicule change de file. La pratique ne vaut qu'entre les deux voies de gauche d'une chaussée. Passer outre coûte trois points et jusqu'à trois ans de suspension.",
     "id": "a6fb8c0684dce67923a3207ee19171c9",
     "options": [
       {
@@ -10868,7 +10868,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le flanc droit est le plus grand angle mort d'un poids lourd, et c'est de ce côté que la remorque balaie en tournant. Se laisser distancer est le seul geste qui vous en sorte sans doubler par la droite.",
+    "explanation": "Le flanc droit est un angle mort signalé comme tel, et c'est de ce côté que la remorque balaie en tournant. Se laisser distancer est le seul geste qui vous en sorte sans doubler par la droite.",
     "id": "c29b2e7d758f0d17e790fa40f6e83313",
     "illustration": {
       "alt": "Vue de dessus : quatre zones hachurées marquent ce que le chauffeur d'un poids lourd ne voit pas depuis sa cabine, et votre voiture est dans la plus large, qui borde son flanc droit.",
@@ -10899,7 +10899,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Depuis le 1er janvier 2021, R313-32-1 impose cette signalisation pour indiquer aux cyclistes et piétons où ils sortent du champ de vision du chauffeur, sur les côtés et à l'arrière de tout véhicule dont le poids total autorisé en charge excède 3,5 tonnes, camions comme autocars. Les engins agricoles et les engins de service hivernal en sont dispensés.",
+    "explanation": "Cyclistes et piétons y voient où ils sortent du champ de vision du chauffeur : depuis le 1er janvier 2021, R313-32-1 impose cette signalisation sur les côtés et à l'arrière de tout véhicule dont le poids total autorisé en charge excède 3,5 tonnes, camions comme autocars. Les engins agricoles et les engins de service hivernal en sont dispensés.",
     "id": "9eed1fe645eb99123b9a86e348b55f99",
     "options": [
       {
@@ -10926,7 +10926,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'article R412-36 renverse pour lui la règle des véhicules : à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps — sauf si cela compromet sa sécurité, dans un virage sans visibilité par exemple, où il peut alors changer de côté. Le trottoir ou l'accotement praticable passent de toute façon avant la chaussée.",
+    "explanation": "L'article R412-36 renverse pour lui la règle des véhicules : à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps — sauf si cela est de nature à compromettre sa sécurité, ou sauf circonstances particulières, un virage sans visibilité par exemple, où il peut alors s'en écarter. Le trottoir ou l'accotement praticable passent de toute façon avant la chaussée.",
     "id": "b7b38d7ae1faf0dd593a1a2446b59ee6",
     "options": [
       {

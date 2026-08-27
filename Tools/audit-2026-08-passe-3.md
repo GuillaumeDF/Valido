@@ -739,132 +739,107 @@ domaine ».
 
 ## Usagers & partage de la route
 
-18 cartes, 14 `datée`, 4 illustrée(s). Section révisée après relecture (fix round 1) : le
-premier passage avait sous-estimé la « règle trop large » sur deux cartes que rien
-n'y attirait l'œil (`a6fb8c0684…`, `b7b38d7ae…`) — voir « Écarts de justesse » ci-dessous
-pour ce que ça change.
+18 cartes, 14 `datée`, 4 illustrée(s). Section réécrite en entier une seconde fois (fix round 2) :
+deux défauts supplémentaires trouvés après le premier round de corrections, l'un sur une carte
+déjà corrigée une fois (`a6fb8c0684…`), l'autre sur une carte que rien n'avait signalée
+(`c29b2e7d…`).
 
 ### Écarts de justesse trouvés
 
 | id | écart | ce que disait la carte | ce que dit l'article | correction |
 |---|---|---|---|---|
-| `a6fb8c0684dce67923a3207ee19171c9` | règle trop large | « l'inter-files ne se pratique qu'entre les deux voies les plus à gauche, sur une chaussée où la vitesse autorisée atteint 70 km/h » — aucune condition de type de route ni de véhicule | R412-11-3 I limite la pratique aux « autoroutes et routes à deux chaussées séparées par un terre-plein central et dotées d'au moins deux voies chacune », et au « conducteur d'un véhicule d'une largeur d'un mètre maximum relevant de la catégorie L3e ou L5e » — une route à quatre voies limitée à 70 sans terre-plein central satisfaisait la carte sans satisfaire l'article | les deux conditions ajoutées à l'explication (type de route + gabarit du véhicule) |
-| `b7b38d7ae1faf0dd593a1a2446b59ee6` | règle trop large | « à gauche, le piéton voit arriver ce qui vient vers lui et peut s'écarter à temps » sans aucune condition | R412-36 alinéa 2 : « Hors agglomération **et sauf si cela est de nature à compromettre leur sécurité ou sauf circonstances particulières**, ils doivent se tenir près du bord gauche » — la clause de sécurité, déjà citée mot pour mot dans l'affirmation depuis le premier passage, manquait dans la carte | exception restaurée dans l'explication, avec un exemple concret (virage sans visibilité) |
+| `a6fb8c0684dce67923a3207ee19171c9` | règle trop large, deux fois | round 1 : « sur une chaussée où la vitesse autorisée atteint 70 km/h » (aucune condition de type de route ni de véhicule). Round 2, après une première correction : « entre les deux voies de gauche d'une autoroute ou d'une route à chaussées séparées par un terre-plein central, à deux voies par chaussée au moins et 70 km/h autorisés » — toujours trop large, et cette fois la cause était dans le registre lui-même | `Tools/sources.md:426` fermait ses guillemets **au milieu de la phrase**, juste après « 70 km/h », sans « … » — masquant la suite : « en application des articles R. 413-2 ou R. 413-3, **nonobstant** la fixation d'une vitesse maximale autorisée plus faible […], **lorsqu'en raison de sa densité**, la circulation s'y est établie en files ininterrompues sur toutes les voies […] ». Une autoroute vide à 130 ne remplit pas la condition que la carte affirmait (« 70 km/h autorisés ») ; une route abaissée à 50 par arrêté de police la remplit quand même (« nonobstant ») si la circulation y est dense | citation complétée dans `sources.md` (phrase entière, sans troncature — voir Fix round 2 du rapport de tâche) ; la carte, elle, ne tente plus de résumer ce champ d'application en une clause courte — l'explication se limite aux deux plafonds de vitesse et à la restriction de voies, ce que l'énoncé et les options testent réellement |
+| `b7b38d7ae1faf0dd593a1a2446b59ee6` | règle trop large, corrigée en deux temps | round 1 : aucune exception. Round 2, après une première correction : « sauf si cela **compromet** sa sécurité » — l'exception restaurée, mais rétrécie (l'article dit « est **de nature à** compromettre », un seuil plus bas que « compromet » effectivement) — et la seconde exception de l'article (« ou sauf circonstances particulières ») restait absente | R412-36 alinéa 2 : « sauf si cela **est de nature à** compromettre leur sécurité **ou sauf circonstances particulières** » — deux exceptions distinctes, toutes deux déjà citées mot pour mot dans `sources.md` depuis le round 1 | les deux nuances restaurées : « est de nature à compromettre » et « ou sauf circonstances particulières » toutes deux dans l'explication ; l'exemple (virage sans visibilité) reformulé en « il peut alors **s'en écarter** » plutôt que « changer de côté », pour ne plus pointer vers le distracteur C (« près du bord droit ») |
+| `c29b2e7d758f0d17e790fa40f6e83313` | explication au-delà de l'article (type 3) | « Le flanc droit est **le plus grand** angle mort d'un poids lourd » | l'affirmation dit explicitement : « **Aucune source de rang 1 ne cote un angle mort** : R313-32-1 rend la signalisation obligatoire sans donner aucune dimension » — la comparaison (« le plus grand ») n'est couverte par rien | adoucie en « un angle mort **signalé comme tel** », qui s'appuie sur ce que R313-32-1 impose réellement (signalisation obligatoire sur les côtés d'un véhicule > 3,5 t, carte voisine `9eed1fe6…`) sans affirmer une taille relative que personne ne mesure |
 | `e6f52409aaec9cc7d19ca28837113023` | règle trop large (citation au mauvais paragraphe) | « Assimilé au piéton par R412-34, il en garde toutes les autres obligations » | la ligne de registre ne citait que le 2° du II de R412-34, qui désigne *qui* est assimilé, pas ce que l'assimilation couvre ; le III le fait, mot pour mot : « les conducteurs sont tenus d'observer les règles imposées aux piétons » | citation du III ajoutée à `sources.md` à la place du seul II 2° ; carte réécrite pour séparer l'exception (bord droit) de la règle qui l'entoure (assimilation au piéton) |
 
-Les deux premières lignes sont une correction sur la correction : le premier passage de cette
-tâche avait confronté les sept cartes `ABS` du brief à leur affirmation et conclu, à tort pour
-deux d'entre elles, qu'elles ne disaient rien de plus. `a6fb8c0684…` avait déjà, avant cette
-tâche, une clause de type de route dans son explication (« sur une chaussée où la vitesse
-autorisée atteint 70 km/h ») ; ce n'est qu'en la relisant mot à mot contre la citation complète
-du I (déjà entièrement présente dans `sources.md` depuis le premier passage) qu'on voit qu'elle
-ne reprend que la clause de vitesse, pas celle du type de route ni celle du gabarit du véhicule.
-Même défaut de méthode sur `b7b38d7ae…` : l'affirmation portait déjà, mot pour mot, la clause de
-sécurité depuis le premier passage — elle n'avait simplement pas été comparée phrase à phrase à
-l'explication. Aucune des deux n'a demandé de nouvelle lecture de source pour être corrigée : les
-deux citations étaient déjà dans le registre, seule la carte ne les reprenait pas en entier.
+**La phrase complète de R412-11-3 I**, relevée mot pour mot le 2026-08-27, assemblée à partir de
+trois lectures WebFetch distinctes sur l'article consolidé (la première refusant de la citer en
+entier pour longueur, contournée en la découpant en deux segments plus une confirmation de la
+jonction) :
 
-Les deux citations qui fondent `a6fb8c0684…` et `e6f52409…` ont été revérifiées ce tour-ci,
-chacune par un WebFetch dédié sur l'article consolidé :
+> « Sur les autoroutes et les routes à deux chaussées séparées par un terre-plein central et
+> dotées d'au moins deux voies chacune, où la vitesse maximale autorisée est supérieure ou égale
+> à 70 km/h en application des articles R. 413-2 ou R. 413-3, nonobstant la fixation d'une
+> vitesse maximale autorisée plus faible par l'autorité de police de la circulation en
+> application de l'article R. 413-1, lorsqu'en raison de sa densité, la circulation s'y est
+> établie en files ininterrompues sur toutes les voies, y compris celles réservées, le cas
+> échéant, à la circulation de certaines catégories particulières de véhicules ou d'usagers,
+> tout conducteur d'un véhicule d'une largeur d'un mètre maximum relevant de la catégorie L3e ou
+> L5e définie à l'article R. 311-1 peut circuler entre les files de véhicules situées sur les
+> deux voies, ayant le même sens de circulation, les plus à gauche d'une chaussée. »
 
-- `https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000050963583` (R412-11-3), version
-  en vigueur depuis le 11/01/2025 confirmée, I confirmé mot pour mot : « Sur les autoroutes et
-  les routes à deux chaussées séparées par un terre-plein central et dotées d'au moins deux
-  voies chacune, où la vitesse maximale autorisée est supérieure ou égale à 70 km/h […] tout
-  conducteur d'un véhicule d'une largeur d'un mètre maximum relevant de la catégorie L3e ou L5e
-  […] peut circuler entre les files de véhicules situées sur les deux voies, ayant le même sens
-  de circulation, les plus à gauche d'une chaussée ». Verdict : citation exacte, inchangée.
-- `https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039278116/` (R412-34), version en
-  vigueur depuis le 27/04/2025 confirmée, III confirmé mot pour mot : « La circulation de tous
-  véhicules à deux roues conduits à la main est tolérée sur la chaussée. Dans ce cas, les
-  conducteurs sont tenus d'observer les règles imposées aux piétons. » Verdict : citation exacte,
-  inchangée.
-
-Les quatre autres cartes `ABS` (`9b774739…`, `058434ed…`, `45d84549…`, `49f761c8…`, `9eed1fe6…`,
-`7c2284d4…` — hors `e6f52409…` et les deux ci-dessus) restent jugées conformes à leur affirmation
-sur ce point précis (aucune clause manquante du même ordre n'y a été trouvée à la relecture) ;
-`9b774739…` généralisait toutefois un mot (voir Pédagogie, « écart signalé sans correction de
-fond »).
+Version en vigueur depuis le 11/01/2025, confirmée par un WebFetch séparé. Cette phrase est
+maintenant entière dans `Tools/sources.md:426`, sans « … » ; la carte n'en reprend que ce que
+l'énoncé teste (les deux plafonds de vitesse, la restriction de voies), pas le champ
+d'application complet — trop dense pour être résumé en une clause courte sans le trahir, comme
+l'a montré une deuxième tentative infructueuse.
 
 ### Doutes signalés, non corrigés
 
-Aucun. Les trois écarts ci-dessus ont tous été tranchés par une source déjà entièrement dans le
-registre, sans zone d'incertitude restante.
+Aucun.
 
 ### Pédagogie
 
 - explications sous 120 caractères : 0 à l'entrée, 0 à la sortie.
-- cartes dont le budget de 220 a limité l'explication : les 4 illustrées (`39fa27d5…` 219/220,
-  `9b774739…` 190/220 après ce tour, `c29b2e7d…` 202/220, `f6ef205d…` 212/220), toutes mesurées
-  après la passe complète (fix round compris). `9b774739…` est passée de 210 à 190 caractères
-  au fix round (`R414-4` au lieu de « l'article R414-4 », soit dix caractères, plus la clause de
-  sanction raccourcie) : la raison manquante (« la vitesse y est plus grande, l'appel d'air plus
-  fort ») tient dans la marge ainsi libérée, sans dépasser 220.
+- cartes dont le budget de 220 a limité l'explication : les 4 illustrées, toutes mesurées après
+  la passe complète (deux fix rounds compris) — `39fa27d5…` 219/220, `9b774739…` 190/220,
+  `c29b2e7d…` 192/220, `f6ef205d…` 212/220.
 - énoncés reformulés pour introduire un terme technique non glosé ailleurs sur la carte : 3 —
-  `45d84549…` (« engin de déplacement personnel motorisé » gagne « — trottinette électrique,
-  gyroroue — »), `5f426e8e…` et `a6fb8c0684…` (« inter-files » gagne « — rouler/entre deux files
-  de véhicules — »). Les autres énoncés du domaine employant le même vocabulaire le glosent déjà
-  ailleurs sur la carte (`fe6c3908…` : « Le code ne dit pas “trottinette” mais… ») ou l'évitent
-  (`0b13aed9…`, `d3f45f8d…` : « trottinette électrique » en clair dans l'énoncé).
-- explications réécrites pour porter une raison qui manquait (rule + limite déjà présentes,
-  seule la raison manquait) : 8 — `058434ed…`, `45d84549…`, `49f761c8…`, `7c2284d4…`,
-  `bf6922c5…`, `e6f52409…` (round 1), plus `82b915c2…` (« protège les mains, premier appui au
-  sol en cas de chute ») et `9eed1fe6…` (« pour indiquer aux cyclistes et piétons où ils sortent
-  du champ de vision du chauffeur ») ajoutées ce tour — les deux dernières avaient été laissées
-  sans raison en première relecture au motif que le fait se suffisait à lui-même ; la revue a
-  jugé, à raison, que sur un domaine d'usagers vulnérables le pourquoi d'une signalisation
-  d'angle mort **est** la leçon de sécurité, pas un supplément.
-- énoncé reformulé pour corriger une ambiguïté grammaticale : 1 — `49f761c8…`, « sans le voir
-  venir » (l'antécédent le plus proche est « le car », pas le conducteur) devient « sans vous
-  voir arriver ».
-- explication complétée pour restaurer une exception que l'affirmation portait déjà : 1 —
-  `7c2284d4…`, « sauf décision contraire de l'autorité de police » (I bis de R412-34).
-- explication reformulée pour retirer une conséquence non couverte par l'affirmation : 1 —
-  `fe6c3908…`. « n'a plus rien à faire sur la voie publique » affirmait une conséquence légale
-  que R311-1, article de définition, ne porte pas ; remplacé par un énoncé de catégorie (« ce
-  n'est plus, par définition, un engin de déplacement personnel motorisé »), qui ne dit que ce
-  que l'article dit.
-- explication corrigée pour énoncer le chiffre que la carte teste : 1 — `d3f45f8d…`. L'ancienne
-  version disait « relevé de deux ans » sans jamais écrire l'âge résultant ; « 14 ans » (chiffres,
-  pas en toutes lettres) ajouté — la forme en chiffres évite la reprise littérale de l'option
-  « quatorze ans » qui aurait fait grimper `expl/paraphrase-litterale` (essayé en toutes lettres
-  d'abord, `audit.py` est repassé à 18, corrigé en repassant aux chiffres avant de committer).
-- écart signalé sans correction de fond : `9b774739…` généralise à « l'usager dépassé » une
-  règle que R414-4 IV énumère par catégorie (véhicule à traction animale, engin à deux ou trois
-  roues, piéton, cavalier, animal). Sur cette carte précise la généralisation ne change rien en
-  pratique (le cycliste de la scène est couvert par « engin à deux […] roues », et l'énoncé ne
-  prétend parler que de lui), mais l'explication, elle, parle de « l'usager dépassé » sans
-  préciser lequel — corrigée en « vous et lui », qui renvoie explicitement au cycliste de
-  l'énoncé plutôt que d'affirmer une règle générale sur tout usager dépassé.
+  `45d84549…`, `5f426e8e…`, `a6fb8c0684…` (« engin de déplacement personnel motorisé » et
+  « inter-files », glosés en incise dans l'énoncé).
+- explications réécrites pour porter une raison qui manquait : 8 au total sur les deux rounds —
+  `058434ed…`, `45d84549…`, `49f761c8…`, `7c2284d4…`, `bf6922c5…`, `e6f52409…`, `82b915c2…`,
+  `9eed1fe6…`. Ces deux dernières ont été retouchées une seconde fois ce round-ci : la raison
+  ajoutée au round 1 était formulée à la voix de l'article (« R431-1-2 protège les mains… »,
+  « R313-32-1 impose… pour indiquer… ») alors que `sources.md` ne porte aucune clause de finalité
+  pour ni l'une ni l'autre — reformulées à la voix du raisonnement de la carte (« Les mains sont
+  le premier appui au sol en cas de chute, ce qui explique pourquoi R431-1-2… », « Cyclistes et
+  piétons y voient où ils sortent du champ de vision du chauffeur : … R313-32-1 impose… »), sur
+  le modèle déjà utilisé par `45d84549…` (« où les voitures roulent trop vite pour eux »).
+- explication complétée pour restaurer une exception que l'affirmation portait déjà, puis
+  affinée une seconde fois : `b7b38d7ae…` — voir Écarts de justesse.
+- explication adoucie pour retirer une comparaison non sourcée : `c29b2e7d…` — voir Écarts de
+  justesse. Carte illustrée, 202 → 192 caractères (la reformulation raccourcit plutôt qu'elle
+  n'allonge).
+- explication resserrée après une deuxième correction infructueuse sur le même champ
+  d'application : `a6fb8c0684…` — voir Écarts de justesse.
+- clause déplacée pour ne plus changer de sens : `7c2284d4…`. « sauf décision contraire de
+  l'autorité de police » (ajoutée au round 1 en fin de phrase, juste avant « Passé cet âge…
+  jamais l'espace des piétons ») se lisait comme si l'autorité pouvait *autoriser* au-delà de
+  huit ans, alors que l'article la met sur la tolérance elle-même : l'autorité peut *interdire*
+  ce que le I bis accorde en dessous de huit ans. Déplacée en tête, juste après « tolère sur le
+  trottoir » : « tolère sur le trottoir, sauf décision contraire de l'autorité de police, les
+  cyclistes de moins de huit ans… ».
+- mot ajusté pour ne plus affirmer un terme absent de l'article dans les deux sens :
+  `fe6c3908…`. « change **simplement** de catégorie » (round 1, pour éviter la conséquence
+  légale non sourcée « n'a plus rien à faire sur la voie publique ») sous-affirmait à son tour —
+  « simplement » n'est pas plus dans R311-1 que ne l'était la conséquence retirée. Devenu
+  « change de catégorie », qui ne dit que ce que l'article dit.
 - recouvrement incidental documenté, non corrigé par une réécriture : `e6f52409…` recouvre
   toujours, à trois mots pleins (`comme`, `passage`, `piéton`), la bonne réponse de `c5d4d52f1aaa`
-  [Arrêt & stationnement] (« de 135 €, comme sur un passage piéton »). Un premier passage l'avait
-  éteint en remplaçant « céder le passage » par « céder la priorité » — mais R412-37 impose au
-  piéton de tenir compte de la visibilité, de la distance et de la vitesse des véhicules ; il ne
-  lui accorde pas de priorité automatique. « céder la priorité » était donc moins exact que
-  « céder le passage », et le gain n'en valait pas le coût : la formulation d'origine, exacte, a
-  été restaurée. Le recouvrement est vocabulaire commun (aucune bouche d'incendie, aucun montant,
-  aucun rapport de contenu entre les deux cartes) et reste documenté ici comme tel plutôt que
-  supprimé.
+  [Arrêt & stationnement] (« de 135 €, comme sur un passage piéton »), sans aucun rapport de
+  contenu entre les deux cartes. Laissé tel quel : le corriger demanderait d'affaiblir « céder le
+  passage » (R412-37 n'accorde pas de priorité automatique au piéton, donc « céder la priorité »,
+  essayé une fois, était moins exact) pour la seule commodité de l'outil.
 
-**Preuve par carte, pour les 4 cartes non modifiées** — règle / raison / limite telles que la
+**Preuve par carte, pour les 3 cartes non modifiées** — règle / raison / limite telles que la
 carte les dit :
 
 | id | rôle | pourquoi jugée conforme |
 |---|---|---|
 | `39fa27d59e28817c42382c5f4f4e2fc0` | sas cycliste, ligne d'arrêt | règle (ligne en retrait pour les véhicules motorisés) + raison explicite (« le cycliste démarre ainsi dans le champ de vision des conducteurs, plutôt qu'à leur droite ») ; pas de limite légale à poser, la carte ne portant aucune valeur de droit (`stable`). Budget illustrée à 219/220, aucune marge |
-| `c29b2e7d758f0d17e790fa40f6e83313` | angle mort poids lourd | règle (se laisser distancer) + raison explicite (« le flanc droit est le plus grand angle mort… et c'est de ce côté que la remorque balaie ») + limite implicite (« le seul geste qui vous en sorte sans doubler par la droite » écarte les trois autres options) |
 | `f6ef205dcb2d32c5f30ca6ee69a673c8` | bus quittant un arrêt | règle (ralentir, au besoin s'arrêter) + raison explicite (« l'indicateur… ouvre un droit ») + limite explicite, doublement conditionnée comme l'article (« en agglomération » et « un arrêt signalé comme tel ») — carte la plus complète du lot |
 | `0b13aed9a8d54d809ec67944c7033775` | trottinette sur le trottoir | règle (interdite sauf décision de l'autorité) + raison explicite (« réserve le trottoir aux piétons ») + limite explicite (conditions de l'autorisation : allure du pas, sans gêner) |
 
-Les 14 autres cartes du domaine sont modifiées (`058434ed…`, `45d84549…`, `49f761c8…`,
+Les 15 autres cartes du domaine sont modifiées (`058434ed…`, `45d84549…`, `49f761c8…`,
 `7c2284d4…`, `bf6922c5…`, `e6f52409…`, `9b774739…`, `d3f45f8d…`, `fe6c3908…`, `82b915c2…`,
-`5f426e8e…`, `a6fb8c0684…`, `9eed1fe6…`, `b7b38d7a…`) — modifiées 14 + non modifiées 4 = 18,
-sans reste.
+`5f426e8e…`, `a6fb8c0684…`, `9eed1fe6…`, `b7b38d7a…`, `c29b2e7d…`) — modifiées 15 + non modifiées
+3 = 18, sans reste.
 
 ### Mouvements d'`audit.py`
 
-| sortie | avant (2026-08-27, début de tâche) | après (fix round 1) |
+| sortie | avant (2026-08-27, début de tâche) | après (fix round 2) |
 |---|---|---|
 | `lettre/reference` | 1 | 1 |
 | `forme/markdown` | 1 | 1 |
@@ -873,14 +848,7 @@ sans reste.
 | `expl/paraphrase-litterale` | 17 | 17 |
 | `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
 
-Aucun mouvement dans le rapport final : `d3f45f8d…` est passé par une version intermédiaire
-(« quatorze ans » en toutes lettres) qui faisait grimper `expl/paraphrase-litterale` à 18 — vu et
-corrigé avant commit en repassant aux chiffres, jamais laissé dans l'état livré. Ce domaine ne
-portait aucun cas `code` d'`expl/paraphrase-litterale` avant la passe (les neuf cas `code` de la
-ligne de base sont dans « Premiers secours » (2), « Vitesse » (5), « Alcool & stupéfiants » (1) et
-« Arrêt & stationnement » (1), vérifié par grep). Aucune option n'a été touchée sur tout le
-domaine, d'où `longueur/plus-longue` inchangé. `--fuites "Usagers & partage de la route"` : 1
-recouvrement, incidental, documenté ci-dessus (voir Pédagogie) — pas 0, par choix : le corriger
-aurait affaibli une phrase exacte pour satisfaire un outil. `--fuites` sur les trois domaines
-déjà clos (« Permis & sanctions », « Vitesse », « Alcool & stupéfiants ») : 0 avant et après ce
-tour.
+Diff vide contre la ligne de base d'avant tâche, aux deux rounds de correction. `--fuites
+"Usagers & partage de la route"` : 1 recouvrement, incidental, documenté ci-dessus — pas 0, par
+choix. `--fuites` sur les trois domaines déjà clos (« Permis & sanctions », « Vitesse »,
+« Alcool & stupéfiants ») : 0 avant et après ce round.
