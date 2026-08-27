@@ -1866,7 +1866,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Avoir déjà roulé des milliers de kilomètres encadré par un accompagnateur, avant même l'examen, vaut une progression plus rapide : le capital initial de six points gagne trois points par an en conduite accompagnée, contre deux sans elle. Il atteint douze en deux ans (6 → 9 → 12), quand il en faut trois (6 → 8 → 10 → 12) sans cet apprentissage — et la période probatoire elle-même se raccourcit d'autant.",
+    "explanation": "Avoir déjà roulé des milliers de kilomètres encadré par un accompagnateur, avant même l'examen, vaut une progression plus rapide : le capital initial de six points gagne trois points par an en conduite accompagnée, contre deux sans elle — mais seulement si aucune infraction n'a fait perdre de points depuis le début du probatoire, un seul retrait suffisant à geler la majoration. Il atteint douze en deux ans (6 → 9 → 12), quand il faut trois ans (6 → 8 → 10 → 12) sans cet apprentissage : le délai probatoire lui-même passe de trois ans à deux.",
     "id": "37fe1af42b8d81b6a955d17c158afb3c",
     "options": [
       {
@@ -1893,7 +1893,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le barème place la ceinture au même niveau que le téléphone : 3 points. Et le conducteur répond des passagers de moins de 18 ans non attachés, en plus de sa propre amende.",
+    "explanation": "Non attachée, une personne heurte le pare-brise ou le tableau de bord au moindre choc, ou est éjectée du véhicule : c'est ce que la ceinture empêche. Le barème range ce manquement au même niveau que le téléphone tenu en main, avec le même retrait de trois points, et le conducteur répond en plus des passagers de moins de 18 ans mal attachés. L'obligation connaît des dispenses : certificat médical d'exemption, taxi en service, livraison porte à porte en agglomération, ou intervention d'un véhicule prioritaire.",
     "id": "37fe1af42b8d81b7acdacd2079297f09",
     "options": [
       {
@@ -2136,7 +2136,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Le code réserve un délai court au cas le plus léger : un seul point perdu revient au bout de six mois. Dès que le dossier compte davantage, on retombe sur les délais longs — deux ans, ou trois si une contravention de 4e ou 5e classe ou un délit y figure.",
+    "explanation": "Le code réserve un délai court au cas le plus léger : un seul point perdu revient au bout de six mois. Dès que le dossier compte davantage, les délais s'allongent nettement — c'est le mécanisme que détaille la question sur la réattribution complète des douze points.",
     "id": "37fe1af42b8d81d29ceac642002e46d1",
     "options": [
       {
@@ -2468,7 +2468,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le capital plafonne à 12 : un stage ne peut pas créditer au-delà, il ne fait que combler ce qui a été retiré. C'est aussi pourquoi un stage sur un permis intact ne sert à rien.",
+    "explanation": "Le plafond de douze correspond au capital d'un conducteur qui a prouvé, tout au long du probatoire, qu'il ne perdait pas de points : il ne s'atteint jamais d'un coup. Pendant cette période, le permis part à six et grimpe par paliers annuels — huit, dix, douze — au fil des années sans infraction ; c'est pourquoi 6, 8 et 10 sont de vraies valeurs, mais seulement intermédiaires. Un stage ne peut créditer au-delà du plafond du moment : sur un permis déjà à douze, il ne sert donc à rien.",
     "id": "37fe1af42b8d81ed800ecde73e28760a",
     "options": [
       {
@@ -9325,7 +9325,7 @@
         "text": "96 heures"
       }
     ],
-    "prompt": "Le préfet dispose, pour transformer une rétention du permis en suspension, d'un délai de :",
+    "prompt": "Après avoir retenu sur-le-champ le permis d'un conducteur, le préfet dispose, pour le suspendre ou le rendre, d'un délai de :",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
