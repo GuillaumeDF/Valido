@@ -1109,3 +1109,220 @@ sur 20 cartes, mesuré avant édition (par `git stash` temporaire), après chaqu
 sur les quatre domaines déjà clos, revérifié à chaque ronde : 0 sur « Permis & sanctions »,
 « Vitesse » et « Alcool & stupéfiants » ; 1 recouvrement incidental, inchangé et déjà documenté,
 sur « Usagers & partage de la route ».
+
+## Distances & freinage
+
+21 cartes, 10 `datée`, 0 illustrée(s).
+
+### Écarts de justesse trouvés
+
+Aucun écart de justesse (valeur périmée, règle trop large, explication au-delà de
+l'article) trouvé sur les 21 cartes. La seconde passe (`4a5dcfe Distances: sort the
+normative from the pedagogical`) avait déjà fait, pour ce domaine précisément, le
+travail que cette tâche s'apprêtait à refaire : trier le modèle pédagogique de la norme
+(préface de `sources.md`, paragraphe « Un chiffre normatif et un ordre de grandeur
+pédagogique ne se sourcent pas pareil »), reclasser en `stable` **assumé** les cinq
+valeurs sans aucun texte possible (temps de réaction d'une seconde, règle du chiffre
+des dizaines × 3, doublement du freinage sur sol mouillé, doublement à la vitesse au
+carré, repère des deux bandes de peinture), et relever mot pour mot par `WebFetch` les
+quatre chiffres normatifs (R412-12 I et II, R421-3, R421-7). Les 21 cartes ont été
+relues clause par clause contre leur ligne — chaque condition de champ d'application
+(« dans l'année suivant une condamnation définitive », « hors agglomération », « plus de
+3,5 tonnes ou plus de 7 mètres », « sauf nécessité absolue », « téléphone tenu en main »)
+est présente dans l'énoncé ou l'explication, jamais élargie — sans en trouver un seul.
+Les cinq cartes portant un absolu (`ABS jamais/interdit/doit`) ont chacune été
+confrontées à sa ligne : dans les cinq cas l'absolu reproduit une citation mot pour mot
+de l'affirmation (« il n'est jamais égal à zéro », « est interdit », « doit céder le
+passage », « est interdite »), aucun n'élargit la règle.
+
+### Doutes signalés, non corrigés
+
+Aucun doute nouveau. Le seul point resté ouvert par la ligne de registre —
+l'entrecroisement autoroutier, écarté de `a225e45864e11748d6175d67476529d0` faute de
+source de rang 1 — est une décision déjà prise et déjà expliquée dans `sources.md`, pas
+un doute que cette relecture aurait laissé en suspens.
+
+### Pédagogie
+
+- explications sous 120 caractères : 0 à l'entrée, 0 à la sortie. Le domaine part
+  d'explications déjà étoffées (médiane 332 caractères) ; le gain de cette tâche porte
+  sur les options, pas sur l'allongement d'un texte déjà substantiel.
+- cartes dont le budget de 220 a limité l'explication : aucune, le domaine ne porte
+  aucune illustrée.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 21 énoncés se
+  lisent déjà sans connaître la réponse (mise en situation ou question fermée, tous les
+  termes introduits) ; relus un par un, aucun n'a nécessité de reformulation.
+
+**Deux cartes modifiées, sur les options, pas sur la justesse :**
+
+- `0e85e6a79127a2bae73abcc119e278bd` (tunnel, seconde infraction) — le distracteur A
+  affirmait « une contravention de cinquième classe, 200 € dus ». 200 € ne correspond à
+  aucun montant réel du barème routier (contraventions forfaitaires : 35 / 68 / 135 /
+  375 € ; au-delà, la 5e classe n'a pas de forfait et son plafond judiciaire est de
+  1 500 €, art. 131-13 5° du code pénal, « 1 500 euros au plus », version en vigueur
+  depuis le 01/04/2005, relevé par `WebFetch` le 2026-08-27). Corrigé en « une
+  contravention de cinquième classe, jusqu'à 1 500 € » : le distracteur reste faux (ce
+  n'est pas une contravention mais un délit), mais son chiffre est désormais réel plutôt
+  qu'inventé — le défaut nommé au point 2 du calibrage (« Vitesse » et « 45 / 120 km/h »,
+  « Alcool » et « 150 € »). Aucune ligne de `sources.md` à toucher : un distracteur
+  affirmé faux n'a pas besoin de ligne, et celui-ci ne recycle pas un chiffre pris
+  ailleurs dans la banque — sa source est donc portée ici plutôt que dans le registre.
+- `37fe1af42b8d81e7a041ff53b8ef69c2` (non-respect des distances, sanction) — réglé le
+  doublon inter-domaines détaillé plus bas.
+
+### Preuve par carte, pour les 19 cartes non modifiées
+
+Règle / raison / limite telles que la carte les dit :
+
+| id | rôle | règle / raison / limite |
+|---|---|---|
+| `22e6420e179103f65f7935f717521189` | vent latéral à la sortie d'un tunnel | règle (« ralentissez avant la sortie, volant tenu ferme ») + raison (« c'est là que la rafale surprend, et qu'elle déporte le plus ») + limite (qui est le plus exposé : « les deux-roues et les véhicules à grande surface latérale ») |
+| `2362d0ebc53cb6de0732afe1747e9b58` | repère au sol de l'intervalle | règle (deux bandes de peinture ≈ 90 m) + raison (géométrie IISR, 39 m de trait pour 13 m de vide) + limite explicite, la clé du modèle (« un repère d'enseignement […] pas une règle du code — la règle, elle, se compte en secondes » ; « sur une bretelle, la modulation change ») |
+| `36d598b80e93b695b2994fce6172eb50` | neige ou verglas | règle (« espacez fortement, sans geste brusque ») + raison (« l'adhérence s'effondre […] chaque ordre brusque consomme le peu de prise qui reste ») + limite (« des pneus hiver améliorent la prise, ils ne la rendent pas normale ») |
+| `37fe1af42b8d8104b119f947eb9e296d` | distance de réaction à 50 km/h | règle (14 m) + raison (13,9 m parcourus par seconde) + limite (« un ordre de grandeur d'enseignement, jamais une valeur du code, et qui ne descend jamais à zéro ») |
+| `37fe1af42b8d811f9954e63cf1aa9ffa` | règle des dizaines × 3 | règle (× 3) + raison (calcul détaillé, 50 → 15 m, 90 → 27 m) + limite (« majore un peu la réalité […] c'est un moyen de calcul de tête, pas une règle écrite dans un texte ») |
+| `37fe1af42b8d812c9bb4e393d72d6df0` | doublement de la vitesse et freinage | règle (× 4) + raison (« la distance de freinage croît comme le carré de la vitesse ») + limite (« c'est de la physique, pas une règle du code ») |
+| `37fe1af42b8d812db558cb9e19e11709` | intervalle de sécurité (R412-12 I) | règle (« deux secondes, dit le premier alinéa ») + raison (repère fixe, un intervalle en secondes suit la vitesse) + limite explicite (distingue la prudence — allonger sur chaussée mouillée — de l'obligation légale : « même si le texte ne l'exige pas ») |
+| `37fe1af42b8d815a8de7c20835afd6ac` | intervalle en mètres à 130 km/h | règle (72 m) + raison (36 m/s) + limite explicite (« il ne faut pas confondre cet intervalle avec la distance d'arrêt, qui approche 130 mètres ») |
+| `37fe1af42b8d817eb292c10d8effbad4` | composition de la distance d'arrêt | règle (réaction + freinage) + raison (fatigue, téléphone, alcool allongent la distance d'arrêt via la réaction) + limite (« sans que le freinage n'y change quoi que ce soit ») |
+| `37fe1af42b8d81e48a72e74c9a2454a2` | freinage sur sol mouillé | règle (augmente, adhérence en moins) + raison (adhérence divisée par deux) + limite explicite (« un modèle d'enseignement, pas un chiffre du code » ; réfute directement le distracteur ABS : « l'ABS […] n'empêche […] rien retirer à la distance ») |
+| `37fe1af42b8d81e98af3c07ec3728454` | temps de réaction moyen | règle (1 seconde) + raison (percevoir, traiter, décider ; dégradé à deux par fatigue/alcool/téléphone) + limite (« une moyenne d'enseignement, pas une valeur inscrite dans un texte ») |
+| `37fe1af42b8d81ef84ffe4578802422a` | fatigue ou téléphone | règle (allongent nettement la réaction) + raison (une longueur de voiture tous les 15 km/h, freinage inchangé) + limite explicite du champ d'application de la sanction (« le téléphone **tenu en main** […] interdit » — pas l'usage mains libres) |
+| `4ade42a7e2c69ec43159940235d08c5f` | aquaplanage | règle (lever le pied, sans freiner ni braquer) + raison (les pneus ne guident plus rien, l'ordre donné s'applique brutalement au retour du contact) + limite (« jusqu'à ce que les sculptures reprennent l'eau ») |
+| `8ddd0cebb28376040af43feb6f52c098` | secondes plutôt que mètres | règle (la distance grandit avec la vitesse) + raison (citation R412-12 I mot pour mot) + limite (« un nombre de mètres […] vaudrait autant à 30 qu'à 130 km/h ») |
+| `9f0fe6e809948a327c918ac0b5987cf9` | ABS en freinage d'urgence | règle (appuyer d'un coup, maintenir) + raison (l'ABS empêche le blocage, la pédale n'a plus besoin d'être relâchée) + limite explicite, contre l'idée reçue (« il ne raccourcit pas la distance de freinage — il conserve la direction ») |
+| `a225e45864e11748d6175d67476529d0` | insertion depuis une bretelle (R421-3) | règle (citation mot pour mot, céder le passage) + raison implicite (priorité au flot déjà engagé) + limite (comment s'exécute la règle sans s'arrêter : « utiliser toute la voie d'accélération ») |
+| `a4f04a8078a925fbc8c5df10f063e065` | circulation sur la BAU (R412-8) | règle (citation mot pour mot, interdite) + raison (« la bande doit rester libre pour les secours ») + limite explicite, contraste avec l'article voisin (voir « doublon » et « fuites » ci-dessous) |
+| `aad60a7453493cc6716b731af7579ebc` | arrêt sur la BAU (R421-7) | règle (35 €, sans point) + raison (« sauf en cas de nécessité absolue » ; présignalisation, dégagement d'urgence) + limite explicite, contraste avec R412-8 (« les 135 € et les 3 points existent bel et bien, mais pour l'article R412-8 […] pas l'arrêt ») |
+| `f376d218b64a41796d6efebc8ad0bb2d` | plancher poids lourds (R412-12 II) | règle (50 m) + raison (> 3,5 t ou > 7 m, même vitesse, hors agglomération) + limite explicite (« à 90 km/h, deux secondes valent justement 50 mètres — le plancher ne mord donc qu'en dessous de cette vitesse ») |
+
+Modifiées 2 + non modifiées 19 = 21, sans reste.
+
+### Les options
+
+Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le
+point 14 du calibrage (« existe-t-il une lecture où le distracteur EST la bonne
+réponse ? »). Aucun distracteur invérifiable par pure logique, aucune rupture de motif
+grammatical isolant la bonne réponse, aucun distracteur que sa propre carte légitime.
+Deux paires méritent d'être nommées parce qu'elles jouent délibérément sur des chiffres
+réels recyclés entre cartes voisines : `a4f04a8078a9…` (R412-8, circulation sur la BAU,
+135 €/3 points) et `aad60a7453…` (R421-7, arrêt sur la BAU, 35 €/0 point) recyclent
+chacune le vrai montant de l'autre comme distracteur — c'est le « rapport de quatre »
+que la ligne de registre nomme comme raison d'être de la paire, pas un chiffre inventé.
+Sur `a225e45864e11748d6…` (insertion bretelle), le distracteur D (« cédez le passage,
+quitte à vous arrêter sur la bretelle ») a été relu contre le point 14 : ce n'est pas un
+cas particulier de la bonne réponse C (« cédez le passage aux véhicules déjà sur la
+chaussée »), parce que céder le passage s'exécute par l'allure (rejoindre la vitesse du
+flot sur la voie d'accélération), jamais par l'arrêt sur la bretelle, qui est le geste
+dangereux que l'explication écarte implicitement (« reste à utiliser toute la voie
+d'accélération »). Seul le distracteur A de `0e85e6a79127a2bae7…` a été réécrit (voir
+« Pédagogie » ci-dessus) ; seule l'option C de `…81e7a0` a été réécrite (voir
+« doublon » ci-dessous). `correctID` sur les 21 cartes, mesuré avant et après cette
+tâche : A 3, B 5, C 3, D 10 — inchangé par les deux éditions, ni l'une ni l'autre
+n'ayant déplacé une bonne réponse d'une lettre à l'autre. Le total est biaisé vers D
+(10/21), mais c'est un état préexistant à cette tâche, pas un effet de ses deux
+retouches : la consigne de rotation cyclique s'applique quand des *modifications*
+empilent la réponse sur une lettre, ce qui ne s'est pas produit ici. Rééquilibrer les
+19 cartes non touchées aurait débordé du périmètre de cette tâche — aucune de leurs
+options n'a été jugée fautive — donc signalé ici plutôt que corrigé au jugé.
+
+### Le doublon inter-domaines
+
+`37fe1af42b8d81b7acdacd2079297f09` (« Permis & sanctions », ceinture) et
+`37fe1af42b8d81e7a041ff53b8ef69c2` (« Distances & freinage », distances de sécurité)
+partageaient mot pour mot la même bonne réponse : « 135 € d'amende et 3 points de
+moins ». Les deux valeurs sont réelles et bien sourcées (R412-1 III/IV pour la
+ceinture, R412-12 V/VII pour les distances : même classe, même retrait) — ce n'est pas
+un chiffre inventé, c'est une coïncidence de barème entre deux infractions distinctes.
+Le risque n'est pas la fausseté mais l'apprentissage d'une phrase plutôt que d'une
+règle : qui voit les deux cartes apprend « 135 € et 3 points » comme un motif qui
+revient, pas pourquoi chacune des deux règles existe.
+
+`Permis & sanctions` est clos ; le mouvement se fait donc côté `Distances & freinage`,
+et une différence de substance existe réellement : la ligne de registre de la ceinture
+(relue le 2026-08-27, `WebFetch` mot pour mot) ne porte **aucune** suspension de
+permis — seulement l'amende et les trois points. La ligne des distances, elle, porte en
+plus une suspension « pour une durée de trois ans au plus » (VI de R412-12), déjà
+citée dans l'explication de la carte avant cette tâche. La correction porte donc ce
+fait déjà affirmé dans l'option elle-même plutôt que de le laisser dans la seule
+explication : « 135 € d'amende, 3 points et suspension possible » (47 caractères ;
+deuxième distracteur le plus long à 37, écart +10, dans la zone informative
+`longueur/plus-longue`, pas dans `longueur/plus-10` qui reste vide). Aucune ligne de
+`sources.md` à toucher : le fait était déjà affirmé, seul son emplacement dans la
+carte change. `grep -c "135 € d'amende et 3 points de moins" Valido/Resources/questions.json`
+ne retrouve plus qu'une occurrence, sur la carte « Permis & sanctions » — inchangée,
+comme demandé.
+
+### Fuites — vérification à la main, avec la vraie définition de l'outil
+
+`relire.py --fuites` ne regarde qu'une bonne réponse d'au moins **trois mots pleins**
+(jetons `[a-z0-9]+` d'au moins cinq caractères, après minuscule et suppression des
+accents). Sur les 21 bonnes réponses du domaine, **huit** tombent sous ce seuil :
+
+| id | bonne réponse | mots pleins (≥ 5 car.) | n |
+|---|---|---|---|
+| `2362d0ebc53cb6de0732afe1747e9b58` | « deux bandes de la ligne de rive » | `bandes`, `ligne` | 2 |
+| `37fe1af42b8d8104b119f947eb9e296d` | « 14 m » | — | 0 |
+| `37fe1af42b8d811f9954e63cf1aa9ffa` | « 3 » | — | 0 |
+| `37fe1af42b8d812c9bb4e393d72d6df0` | « 4 » | — | 0 |
+| `37fe1af42b8d812db558cb9e19e11709` | « 2 secondes » | `secondes` | 1 |
+| `37fe1af42b8d815a8de7c20835afd6ac` | « 72 m » | — | 0 |
+| `37fe1af42b8d81e98af3c07ec3728454` | « 1 seconde » | `seconde` | 1 |
+| `a4f04a8078a925fbc8c5df10f063e065` | « interdit, et puni de 135 € et 3 points » | `interdit`, `points` | 2 |
+
+Les huit cherchées à la main (`grep` sur les 21 explications de `.passe3/lot-07.txt`,
+motifs « bandes de », « 14 m »/« quatorze »/« 13,9 », « dizaines… trois », « quadruple »/
+« multipliée par quatre », « deux secondes », « 72 m », « une seconde », « 135 € ») :
+
+- **Trois recouvrements réels, tous jugés délibérés et laissés en l'état.** « une
+  seconde » (temps de réaction moyen, `…81e98a`) réapparaît dans l'explication de sa
+  voisine `…8104b1` (« La Sécurité routière retient une seconde comme moyenne… ») : les
+  deux cartes testent explicitement la même valeur sous deux angles complémentaires (le
+  temps lui-même, puis la distance qu'il fait parcourir à 50 km/h) — c'est le chaînage
+  que le brief annonçait pour ce domaine, pas une fuite. « deux secondes » (intervalle
+  de sécurité, `…812db5`) réapparaît dans l'explication de `8ddd0cebb28376040a`
+  (« un délai d'au moins deux secondes », citation mot pour mot de R412-12 I) : cette
+  carte teste *pourquoi* le code compte en secondes, elle a besoin de citer la valeur
+  pour le montrer. Et le contenu numérique de « interdit, et puni de 135 € et 3
+  points » (circulation sur la bande d'arrêt d'urgence, `a4f04a8078a9…`) — les deux
+  chiffres, pas le mot « interdit » — réapparaît dans l'explication de sa carte-sœur
+  `aad60a7453493cc671…` (« Les 135 € et les 3 points existent bel et bien, mais pour
+  l'article R412-8 ») : c'est très exactement le contraste que la ligne de
+  registre de `a4f04a…` annonce comme la raison d'être de la paire (« deux articles
+  voisins, deux régimes… la paire de questions »). Couper cette phrase déferait la seule
+  chose que la carte voisine explique ; conformément au point 11 du calibrage, un zéro
+  obtenu en abîmant une carte vraie est pire que le recouvrement — gardé, documenté.
+- **Cinq propres.** « deux bandes de la ligne de rive », « 14 m », « 3 » (règle des
+  dizaines), « 4 » (doublement du freinage) et « 72 m » ne réapparaissent dans aucune
+  des vingt autres explications du domaine.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 95 | 96 |
+| `expl/paraphrase-litterale` | 17 | 17 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Le seul mouvement, +1 sur `longueur/plus-longue`, vient de la carte `…81e7a0` réglée
+ci-dessus (bonne réponse à 47 caractères contre 37 pour le distracteur le plus long,
+écart +10) — mouvement attendu et explicitement permis par le plan de la troisième
+passe puisque les options sont réécrites. `--fuites "Distances & freinage"` : 1
+recouvrement avant et après édition, fortuit et documenté ci-dessous, sur les vingt et
+une cartes — inchangé par les deux éditions, qui ne touchaient ni l'une ni l'autre des
+deux cartes en cause. `--fuites` sur les cinq domaines déjà clos, revérifié après
+édition : 0 sur « Permis & sanctions », « Vitesse », « Alcool & stupéfiants » et
+« Mécanique & environnement » ; 1 recouvrement incidental, inchangé et déjà documenté
+par la tâche 5, sur « Usagers & partage de la route ».
+
+**Le recouvrement fortuit de `--fuites` sur ce domaine.** `a4f04a8078a925fbc8c5df10f063e065`
+(circulation sur la bande d'arrêt d'urgence) recouvre par ses mots pleins la bonne
+réponse d'une carte `Vitesse` (« 4 points, avec suspension possible du permis », pour un
+dépassement de 40 à 50 km/h). Les deux cartes ne partagent aucun fait : la mienne parle
+de trois points, la sienne de quatre, et aucun chiffre n'est le même — seuls
+« points », « suspension », « possible » et « permis » sont communs, du vocabulaire
+générique du barème routier repris dans une bonne dizaine de cartes de la banque. Gardé
+tel quel, conformément au point 11 du calibrage.

@@ -2373,7 +2373,7 @@
       },
       {
         "id": "C",
-        "text": "135 € d'amende et 3 points de moins"
+        "text": "135 € d'amende, 3 points et suspension possible"
       },
       {
         "id": "D",
@@ -10051,7 +10051,7 @@
     "options": [
       {
         "id": "A",
-        "text": "une contravention de cinquième classe, 200 € dus"
+        "text": "une contravention de cinquième classe, jusqu'à 1 500 €"
       },
       {
         "id": "B",
