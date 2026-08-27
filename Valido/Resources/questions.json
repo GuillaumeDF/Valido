@@ -10563,7 +10563,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "R431-1-3 ne vise que les moins de douze ans, conducteur comme passager, et rend l'adulte qui accompagne responsable du casque de l'enfant. Au-delà de cet âge, le casque reste vivement conseillé sans être imposé.",
+    "explanation": "R431-1-3 protège les enfants, plus exposés aux chutes en apprenant à rouler, et ne vise que les moins de douze ans, conducteur comme passager ; il rend l'adulte qui accompagne responsable du casque de l'enfant. Au-delà de cet âge, le casque reste vivement conseillé sans être imposé.",
     "id": "bf6922c59ca8a1e934e50b69699af54e",
     "options": [
       {
@@ -10590,7 +10590,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le I bis de l'article R412-34 n'ouvre le trottoir qu'aux cyclistes de moins de huit ans, à charge de garder l'allure du pas et de ne gêner personne. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
+    "explanation": "Le I bis de l'article R412-34 tolère sur le trottoir les cyclistes de moins de huit ans, trop jeunes pour rouler en sécurité au milieu de la circulation, à charge de garder l'allure du pas et de ne gêner personne. Passé cet âge, la chaussée ou la piste, jamais l'espace des piétons.",
     "id": "7c2284d4cc7f32e90ce8926470fd656a",
     "options": [
       {
@@ -10733,7 +10733,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le II de R412-43-1 ferme la route à ces engins hors agglomération : il ne reste que la piste cyclable et la voie verte. L'autorité de police peut rouvrir certaines routes jusqu'à 80 km/h, et le casque devient alors obligatoire.",
+    "explanation": "Le II de R412-43-1 ferme aux engins de déplacement personnel motorisé les routes hors agglomération, où les voitures roulent trop vite pour eux : il ne reste que la piste cyclable et la voie verte. L'autorité de police peut rouvrir certaines routes jusqu'à 80 km/h, et le casque devient alors obligatoire.",
     "id": "45d84549ac552870982bf1315f9a8151",
     "options": [
       {
@@ -10953,7 +10953,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "L'article R412-37 fixe ce rayon de cinquante mètres, et impose au piéton de tenir compte de la visibilité ainsi que de la distance et de la vitesse des véhicules. L'obligation tombe en aire piétonne et en zone de rencontre, où elle n'aurait plus d'objet.",
+    "explanation": "L'article R412-37 fixe ce rayon de cinquante mètres : c'est là qu'un automobiliste s'attend à vous voir traverser. Il impose aussi au piéton de tenir compte de la visibilité ainsi que de la distance et de la vitesse des véhicules. L'obligation tombe en aire piétonne et en zone de rencontre, où elle n'aurait plus d'objet.",
     "id": "058434ed65eee628aefe05ac54ff92d1",
     "options": [
       {
@@ -10980,7 +10980,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le dernier alinéa de R412-36 sort de la règle générale celui qui pousse un cycle, un cyclomoteur ou une motocyclette, ainsi que la personne en fauteuil roulant. Assimilé au piéton par R412-34, il en garde toutes les autres obligations.",
+    "explanation": "Le troisième alinéa de R412-36 fait exception à la règle du piéton pour qui pousse un cycle, un cyclomoteur ou une motocyclette : il suit le bord droit, comme un véhicule, parce qu'il n'est plus seul à se déplacer. Pour tout le reste — traverser, céder la priorité — R412-34 l'assimile pleinement au piéton.",
     "id": "e6f52409aaec9cc7d19ca28837113023",
     "options": [
       {
@@ -11038,7 +11038,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le 3° du III de R413-17 range la montée et la descente des voyageurs d'un véhicule de transport d'enfants parmi les cas où la vitesse doit être réduite, au croisement comme au dépassement. Ce que le code impose ici est l'allure, pas l'immobilité.",
+    "explanation": "Le 3° du III de R413-17 range la montée et la descente des voyageurs d'un véhicule de transport d'enfants parmi les cas où la vitesse doit être réduite, au croisement comme au dépassement : un enfant peut surgir devant le car sans le voir venir. Ce que le code impose ici est l'allure, pas l'immobilité.",
     "id": "49f761c8ac8bd10ed3bf685b1b112f6c",
     "options": [
       {

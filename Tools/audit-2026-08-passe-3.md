@@ -736,3 +736,109 @@ l'élargissement de ses trois distracteurs en fourchettes. `--fuites` : 0 recouv
 « Alcool & stupéfiants », « Vitesse » et « Permis & sanctions » avant et après ce tour ; les
 brouillons intermédiaires qui en avaient introduit sont détaillés dans « Les deux dettes du
 domaine ».
+
+## Usagers & partage de la route
+
+18 cartes, 14 `datée`, 4 illustrée(s).
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `a6fb8c0684dce67923a3207ee19171c9` | explication au-delà de l'article | « l'inter-files ne se pratique qu'entre les deux voies les plus à gauche » | les quatre citations déjà relevées de R412-11-3 (I plafonds, II à IV sanctions) ne couvraient pas cette clause géométrique ; WebFetch sur l'article consolidé (`LEGIARTI000050963583`) donne, mot pour mot : « tout conducteur d'un véhicule d'une largeur d'un mètre maximum relevant de la catégorie L3e ou L5e définie à l'article R. 311-1 peut circuler entre les files de véhicules situées sur les deux voies, ayant le même sens de circulation, les plus à gauche d'une chaussée » | la carte disait déjà vrai — citation ajoutée à `sources.md`, aucune modification de la carte |
+| `e6f52409aaec9cc7d19ca28837113023` | règle trop large (citation au mauvais paragraphe) | « Assimilé au piéton par R412-34, il en garde toutes les autres obligations » | la ligne de registre ne citait que le 2° du II de R412-34, qui désigne *qui* est assimilé au piéton sans dire l'étendue de l'assimilation ; WebFetch sur l'article consolidé (`LEGIARTI000039278116/`) montre que c'est le III qui porte l'étendue, mot pour mot : « La circulation de tous véhicules à deux roues conduits à la main est tolérée sur la chaussée. Dans ce cas, les conducteurs sont tenus d'observer les règles imposées aux piétons. » — non qualifié, donc le « toutes les » est fondé | citation du III ajoutée à `sources.md` à la place du seul II 2° ; carte réécrite pour distinguer l'exception (bord droit, comme un véhicule) de la règle générale (assimilation au piéton pour le reste) |
+
+Le domaine compte sept cartes portant un absolu ou une obligation (`ABS` du brief) ; `e6f52409…`
+est ci-dessus. Les six autres (`9b774739…`, `058434ed…`, `45d84549…`, `49f761c8…`, `9eed1fe6…`,
+`7c2284d4…`) ont chacune été confrontées à l'affirmation ; toutes disaient déjà exactement ce
+que porte leur ligne, sans clause supplémentaire — aucune n'entre donc dans le tableau des
+écarts. Le cas le plus proche d'un vrai risque était `7c2284d4…` (« jamais l'espace des piétons »
+passé huit ans à vélo) : l'affirmation ne couvrait que l'exception des moins de huit ans, pas
+l'absence de toute autre exception. Rouverte par prudence — même article que `e6f52409…`, une
+seule lecture pour les deux — la version consolidée de R412-34 (I, I bis, II, III) ne laisse
+aucune autre
+disposition qui autoriserait un cycliste plus âgé sur le trottoir : le « jamais » est fondé,
+aucune correction nécessaire.
+
+### Doutes signalés, non corrigés
+
+Aucun. Les deux clauses qui allaient au-delà de leur affirmation (ci-dessus) ont pu être
+tranchées par un article consolidé, dans un sens ou dans l'autre — pas de valeur laissée dans
+le doute.
+
+### Pédagogie
+
+- explications sous 120 caractères : 0 à l'entrée, 0 à la sortie — le domaine n'en portait
+  aucune, conformément au brief.
+- cartes dont le budget de 220 a limité l'explication : les 4 illustrées (`39fa27d5…` 219/220,
+  `9b774739…` 210/220, `c29b2e7d…` 202/220, `f6ef205d…` 212/220) sont mesurées inchangées après
+  la passe — aucune n'avait de reformulation de la bonne réponse à couper, et aucune n'avait
+  besoin d'une correction de justesse. `9b774739…` reste la plus contrainte : la règle (1 m /
+  1,5 m) et sa limite (le régime hors agglomération) y occupent déjà les 210 caractères sans
+  qu'aucune clause n'y soit redondante à couper pour faire place à une raison explicite — laissée
+  ainsi plutôt que d'y sacrifier le régime hors agglomération ou la sanction pour un gain
+  pédagogique marginal.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun — les 18 énoncés se
+  comprenaient déjà sans connaître la réponse (revu carte par carte à l'étape 2).
+- explications réécrites pour porter une raison qui manquait (rule + limite déjà présentes,
+  seule la raison — le « pourquoi » qui rend la règle mémorisable — était absente) : 6 —
+  `058434ed…` (pourquoi 50 m : « c'est là qu'un automobiliste s'attend à vous voir traverser »),
+  `45d84549…` (pourquoi la route est fermée hors agglo : « les voitures roulent trop vite pour
+  eux »), `49f761c8…` (pourquoi réduire l'allure près d'un car scolaire : « un enfant peut
+  surgir devant le car sans le voir venir »), `7c2284d4…` (pourquoi le trottoir est toléré sous
+  huit ans : « trop jeunes pour rouler en sécurité au milieu de la circulation »), `bf6922c5…`
+  (pourquoi le casque sous douze ans : « plus exposés aux chutes en apprenant à rouler »), et
+  `e6f52409…`, réécrite en profondeur : le bord droit devient l'exception nommée à la règle
+  générale du piéton (« il n'est plus seul à se déplacer »), l'assimilation au piéton la règle
+  qui l'entoure (« pour tout le reste »).
+- carte réécrite deux fois dans la même passe : `e6f52409…`. La première réécriture, en
+  corrigeant la justesse et la raison, a introduit par accident un recouvrement de trois mots
+  pleins (`comme`, `passage`, `piéton`) avec la bonne réponse d'une carte sans rapport
+  d'« Arrêt & stationnement » (`c5d4d52f1aaa`, une amende de stationnement) — détecté par
+  `relire.py --fuites`, lu à la main (aucun contenu réellement partagé, seulement du
+  vocabulaire), et éteint en remplaçant « céder le passage » par « céder la priorité ».
+
+**Preuve par carte, pour les douze cartes non modifiées** — règle / raison / limite telles que
+la carte les dit, ou justification du manque :
+
+| id | rôle | pourquoi jugée conforme (ou laissée en l'état) |
+|---|---|---|
+| `39fa27d59e28817c42382c5f4f4e2fc0` | sas cycliste, ligne d'arrêt | règle (ligne en retrait pour les véhicules motorisés) + raison explicite (« le cycliste démarre ainsi dans le champ de vision des conducteurs, plutôt qu'à leur droite ») ; pas de limite légale à poser, la carte ne portant aucune valeur de droit (`stable`). Budget illustrée à 219/220, aucune marge |
+| `c29b2e7d758f0d17e790fa40f6e83313` | angle mort poids lourd | règle (se laisser distancer) + raison explicite (« le flanc droit est le plus grand angle mort… et c'est de ce côté que la remorque balaie ») + limite implicite (« le seul geste qui vous en sorte sans doubler par la droite » écarte les trois autres options) |
+| `f6ef205dcb2d32c5f30ca6ee69a673c8` | bus quittant un arrêt | règle (ralentir, au besoin s'arrêter) + raison explicite (« l'indicateur… ouvre un droit ») + limite explicite, doublement conditionnée comme l'article (« en agglomération » et « un arrêt signalé comme tel ») — carte la plus complète du lot |
+| `0b13aed9a8d54d809ec67944c7033775` | trottinette sur le trottoir | règle (interdite sauf décision de l'autorité) + raison explicite (« réserve le trottoir aux piétons ») + limite explicite (conditions de l'autorisation : allure du pas, sans gêner) |
+| `5f426e8e0d2326304689478d90b749fc` | inter-files, statut légal | règle (règle du code depuis janvier 2025) + contexte qui vaut raison (« a fermé neuf ans d'expérimentation ») + limite par la négative (« sans limite de durée ni de département » écarte le distracteur des onze départements) |
+| `82b915c28f76ff1314ecc8cbc927f9b3` | gants moto | règle (conducteur et passager, partout) + absence de condition d'âge ou de lieu **qui est elle-même le fait enseigné** (l'affirmation le dit explicitement : « c'est exactement ce que la question fait travailler ») ; raison physique absente, jugée non essentielle puisque le point de la carte est l'universalité de la règle, pas son fondement |
+| `9eed1fe645eb99123b9a86e348b55f99` | autocollants angles morts | règle (tout véhicule > 3,5 t) + limite explicite (exceptions agricoles et service hivernal, citées) ; raison absente (à quoi servent les autocollants n'est pas dit) mais jugée non essentielle — la fonction de la signalisation est évidente par son nom |
+| `a6fb8c0684dce67923a3207ee19171c9` | inter-files, plafonds de vitesse | règle (50 km/h, 30 si file à l'arrêt) + limite explicite (deux voies de gauche, sanction) — la carte disait déjà vrai ; seul le registre a bougé (voir Écarts de justesse) |
+| `b7b38d7ae1faf0dd593a1a2446b59ee6` | piéton sur la chaussée, hors agglo | règle (bord gauche, sens de la marche) + raison explicite (« voit arriver ce qui vient vers lui et peut s'écarter à temps ») + limite explicite (« le trottoir ou l'accotement praticable passent de toute façon avant la chaussée ») |
+| `d3f45f8d29cf6fb411382286877af9ca` | âge minimal trottinette | règle (14 ans) + raison historique explicite (« relevé… de deux ans à la fin de 2024 », explique pourquoi 12 ans est un piège de manuel obsolète) ; pas de limite à poser, l'affirmation n'en portant aucune |
+| `fe6c39082afe1716a7cfe42d968635a8` | EDPM, vitesse par construction | règle (25 km/h, plus de 6) + raison définitionnelle explicite (« l'appareil sort de la catégorie ») + limite implicite (« n'a plus rien à faire sur la voie publique ») |
+| `9b774739866a136e7c2a9bd69b2f417d` | distance de dépassement d'un cycliste | règle (1 m / 1,5 m) + limite explicite (les deux régimes agglo/hors agglo) ; raison absente — voir Pédagogie ci-dessus pour la contrainte de budget qui l'a laissée ainsi |
+
+Douze cartes dans ce tableau (et non dix), parce que deux des sept cartes `ABS` du brief
+(`9eed1fe6…`, `9b774739…`) se sont révélées conformes à l'issue de la vérification de justesse
+et n'ont donc pas été réécrites — seule leur ligne d'écart, le cas échéant, figure au tableau du
+dessus. Modifiées (6, ci-dessus en Pédagogie) + registre seul (1, `a6fb8c0684…`) + non modifiées
+évidencées (12, tableau ci-dessus, dont `e6f52409…` sort puisqu'elle a été réécrite) — un
+recomptage : modifiées 6 + non modifiées 12 = 18, sans reste.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 95 | 95 |
+| `expl/paraphrase-litterale` | 17 | 17 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Aucun mouvement : ce domaine ne portait aucun cas `code` d'`expl/paraphrase-litterale` avant
+la passe (les neuf cas `code` de la ligne de base sont dans « Premiers secours », « Vitesse »,
+« Alcool & stupéfiants » et « Arrêt & stationnement », vérifié par grep sur le rapport), et
+aucune option n'a été touchée, d'où `longueur/plus-longue` inchangé. `--fuites "Usagers &
+partage de la route"` : 1 recouvrement introduit par cette passe (voir Pédagogie ci-dessus,
+`e6f52409…`), corrigé avant commit — 0 recouvrement dans l'état final. `--fuites` sur les trois
+domaines déjà clos (« Permis & sanctions », « Vitesse », « Alcool & stupéfiants ») : 0 avant et
+après ce tour.
