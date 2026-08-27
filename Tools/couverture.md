@@ -36,22 +36,26 @@ refuse un `topic` `code` absent de la colonne du milieu : un topic non rattaché
 une faute de frappe, soit un pan de contenu hors référentiel. Le volume est indicatif et
 se relit avec `python3 Tools/audit.py`.
 
+Volumes recomptés le **2026-08-27** par la tâche 21, à la clôture de la passe : 255 questions
+`code`. Plusieurs lignes affichaient encore le volume qu'elles avaient avant les tâches de
+contenu — `Arrêt & stationnement` disait 11 pour 17, `Distances & freinage` 10 pour 21.
+
 | thématique ETG | topic Valido | volume | verdict |
 |---|---|---:|---|
-| Arrêt et stationnement | `Arrêt & stationnement` | 11 | couvert |
+| Arrêt et stationnement | `Arrêt & stationnement` | 17 | couvert |
 | Croisement et dépassement | `Croisement & dépassement` | 15 | couvert |
-| Économie et écoconduite | `Mécanique & environnement` | 10 | à compléter |
-| Règles de priorités | `Priorités & intersections` | 21 | couvert |
-| Règles de circulation | `Vitesse` | 16 | couvert |
-| Règles de circulation | `Permis & sanctions` | 14 | couvert |
-| Signalisation | `Panneaux & marquage` | 17 | couvert |
+| Économie et écoconduite | `Mécanique & environnement` | 20 | à compléter |
+| Règles de priorités | `Priorités & intersections` | 26 | couvert |
+| Règles de circulation | `Vitesse` | 22 | couvert |
+| Règles de circulation | `Permis & sanctions` | 19 | couvert |
+| Signalisation | `Panneaux & marquage` | 27 | couvert |
 | Signalisation | `Feux` | 19 | couvert |
 | Tunnels et passages à niveau | `Tunnels & passages à niveau` | 15 | couvert |
-| Visibilité et éclairage | `Feux` | 19 | à compléter |
+| Visibilité et éclairage | `Feux` | 19 | couvert |
 | Usagers, partage de l'espace public | `Usagers & partage de la route` | 18 | couvert |
-| Prise de conscience des risques | `Alcool & stupéfiants` | 14 | couvert |
-| Prise de conscience des risques | `Distances & freinage` | 10 | couvert |
-| Premiers secours | `Premiers secours` | 13 | couvert |
+| Prise de conscience des risques | `Alcool & stupéfiants` | 18 | couvert |
+| Prise de conscience des risques | `Distances & freinage` | 21 | couvert |
+| Premiers secours | `Premiers secours` | 18 | couvert |
 
 `Feux` apparaît deux fois : le topic mélange, sans le distinguer dans `questions.json`, les
 feux de signalisation (rouge/orange/vert, clignotants) et l'éclairage du véhicule (feux de
@@ -66,10 +70,31 @@ désormais de **huit** questions côté signalisation et **onze** côté éclair
 implicite dans le fichier : aucun champ ne le porte, et cette carte est le seul endroit où
 il est écrit.
 
-Le verdict de la ligne « Visibilité et éclairage » reste `à compléter` malgré ce volume :
-juger si onze questions suffisent à couvrir la thématique une fois isolée revient à la
-tâche 21, qui referme la passe et voit l'ensemble des dix-sept tâches de contenu — pas à
-celle qui vient d'y ajouter des questions.
+**Verdict de « Visibilité et éclairage », rendu par la tâche 21 : `couvert`.** Les onze
+questions du versant éclairage tiennent la thématique — obligation de croisement, feux de
+route et leur abaissement, antibrouillard avant et arrière, détresse en file, véhicule à
+l'arrêt hors zone éclairée, véhicule mal éclairé croisé de nuit, panne des croisements,
+clignotant. Le critère est celui déjà appliqué à « Signalisation », dont les huit questions
+du versant signaux ont valu `couvert`. Ce qui relève de la **visibilité** au sens strict —
+brouillard, pluie, distance de visibilité — vit dans `Vitesse` et `Distances & freinage`,
+et n'est donc pas un trou.
+
+**Ce qui reste, et qu'aucun verdict ne dit** : le partage entre les deux thématiques n'existe
+que dans ce fichier. Une passe qui voudrait le rendre opposable scinderait le topic en deux
+(`Feux` pour les signaux, un `Éclairage` neuf pour le reste). L'opération est sans risque —
+le `topic` n'entre pas dans le calcul de l'`id`, qui ne hache que l'énoncé — mais elle est du
+contenu, pas de la documentation, et cette tâche-ci est documentaire.
+
+**Verdict de « Économie et écoconduite », rendu par la tâche 21 : `à compléter` maintenu, et
+c'est le seul reste de couverture de la passe.** Le topic a doublé (10 → 20) sans que la
+thématique gagne à proportion : **six** questions la portent vraiment — éco-conduite, frein
+moteur en descente, galerie de toit et traînée, pression des pneus, classement Crit'Air,
+huile et batterie usagées. Les quatorze autres sont des **équipements, du chargement et de la
+retenue des enfants**, logés ici par la tâche 13 faute de thématique officielle qui les
+accueille. Le compte de la colonne est donc juste et le verdict le contredit exprès : c'est
+le volume du topic qui est à 20, pas celui de la thématique. Ce qu'une passe suivante
+écrirait ici : consommation et vitesse, arrêt du moteur, entretien et rejets, choix du
+rapport — tous chiffrables sur `ecologie.gouv.fr`, qui est dans la liste blanche.
 
 Le rattachement de `Vitesse` et `Permis & sanctions` à « Règles de circulation », et
 d'`Alcool & stupéfiants` et `Distances & freinage` à « Prise de conscience des risques »,
@@ -79,8 +104,9 @@ les réserves qui vont avec, sont dans le rapport de la tâche 1 — pas ici.
 
 ## Topics à créer (thématiques `absent`)
 
-Trois thématiques n'ont aucun topic `code` chez elles. Ces noms sont **arrêtés ici** : les
-tâches 15 à 17 les reprennent tels quels, sans les réinventer.
+Trois thématiques n'avaient aucun topic `code` chez elles. Ces noms ont été **arrêtés ici** :
+les tâches 15 à 17 les ont repris tels quels, sans les réinventer. **Les trois sont créées ;
+plus aucune thématique du référentiel n'est `absent`.**
 
 - `Croisement & dépassement` — pour « Croisement et dépassement ». **Créé par la tâche 16** (2026-08-26), 15 questions.
 - `Tunnels & passages à niveau` — pour « Tunnels et passages à niveau ». **Créé par la tâche 17** (2026-08-26), 15 questions.

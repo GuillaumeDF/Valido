@@ -10841,7 +10841,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'article R412-11-3 pose deux plafonds : cinquante à l'heure entre les files, trente dès que l'une d'elles est immobile. Et l'inter-files ne se pratique qu'entre les deux voies les plus à gauche, sur une chaussée où la vitesse autorisée atteint 70 km/h.",
+    "explanation": "L'article R412-11-3 pose deux plafonds : cinquante à l'heure entre les files, trente dès que l'une d'elles est immobile. Et l'inter-files ne se pratique qu'entre les deux voies les plus à gauche, sur une chaussée où la vitesse autorisée atteint 70 km/h. Passer outre est une contravention de quatrième classe, trois points en moins et jusqu'à trois ans de suspension du permis.",
     "id": "a6fb8c0684dce67923a3207ee19171c9",
     "options": [
       {
@@ -11876,7 +11876,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions, et le panneau de sortie en marque la fin : demi-tour interdit, arrêt et stationnement interdits hors des emplacements d'arrêt d'urgence, feux de croisement obligatoires. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
+    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions, et le panneau de sortie en marque la fin : demi-tour interdit, arrêt et stationnement interdits hors des emplacements d'arrêt d'urgence. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
     "id": "5c11020dc34bf45d56cf8438dd8ad79e",
     "options": [
       {
