@@ -789,7 +789,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Trois touchent directement à la sécurité — refroidissement, freins, visibilité — et, contrairement au carburant, aucun n'a de jauge sous les yeux du conducteur comme le carburant : on les vérifie soi-même, régulièrement. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
+    "explanation": "Trois touchent directement à la sécurité — refroidissement, freins, visibilité — et aucun n'a de jauge sous les yeux du conducteur comme le carburant : on les vérifie soi-même, régulièrement. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
     "id": "37fe1af42b8d8158a15ac34f4b0e4be9",
     "options": [
       {
@@ -2001,7 +2001,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Anticiper les ralentissements et garder un régime moteur modéré réduit la consommation et l'usure, le moteur restant dans sa plage la plus efficace — sauf s'il tombe trop bas pour la charge, ce qui le force au lieu de l'économiser. Vitres ouvertes ou climatisation : ça dépend de la vitesse, la traînée coûtant plus sur route rapide que la climatisation, l'inverse en ville.",
+    "explanation": "Anticiper les ralentissements et garder un régime moteur modéré réduit la consommation et l'usure, le moteur restant dans sa plage la plus efficace — sauf s'il tombe trop bas pour la charge, ce qui le force au lieu de l'économiser. Vitres ouvertes ou climatisation : le compromis dépend trop de la vitesse pour être une règle d'éco-conduite fiable, à la différence de l'anticipation, qui réduit la consommation en toute circonstance.",
     "id": "37fe1af42b8d81c89e88db8c08ca8514",
     "options": [
       {

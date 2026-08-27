@@ -933,29 +933,63 @@ croire que « local » venait du texte cité. Corrigé : citation portée jusqu'
   première ronde par « aucun n'a de jauge continue au tableau de bord », qui reste faux sur les
   véhicules à jauge d'huile graduée à l'écran. Fix round 1 : « aucun n'a de jauge **sous les
   yeux du conducteur** comme le carburant » — vrai même sur ces véhicules, la lecture y étant un
-  geste actif (menu, tige), jamais une aiguille en vue permanente.
-- `37fe1af42b8d81c89e88db8c08ca8514` (éco-conduite) — deux défauts trouvés en revue. D'abord la
-  « limite » de première ronde ne réfutait que les distracteurs A/D (accélérer fort, rapport
-  bas), sans être une vraie condition ; corrigé en ajoutant que le régime modéré cesse d'être
-  économique s'il tombe trop bas pour la charge, ce qui force le moteur au lieu de l'économiser.
-  Ensuite, l'énoncé dit « consiste **notamment** à », donc plusieurs options peuvent être vraies,
-  et le distracteur C (« Rouler vitres ouvertes plutôt qu'en climatisant ») est un demi-vrai —
-  vrai en ville, faux sur route rapide où la traînée l'emporte — que l'explication ne tranchait
-  ni dans un sens ni dans l'autre alors qu'elle avait la place. Ajouté : la nuance vitesse
-  dépendante, sans juger l'option ni vraie ni fausse dans l'absolu.
-- **Point 13 du calibrage — bonnes réponses courtes, cherchées à la main.** Une seule carte du
-  domaine a une bonne réponse de un ou deux mots pleins : `37fe1af42b8d81deaec0cb8830fa0b25`
-  (« 1,6 mm »). Elle apparaissait en entier, chiffre compris, dans l'explication de sa voisine
-  `37fe1af42b8d81139920e49f3f7b6b59` (témoin d'usure) — recouvrement invisible à `--fuites`, qui
-  ignore toute réponse de moins de trois mots pleins. La réciproque était vraie en d'autres
-  mots : l'explication de `81deae` disait « le témoin d'usure […] est placé exactement à ce
-  niveau », soit la réponse de `139920` (« la limite légale de profondeur ») paraphrasée. Le
-  rapport de première ronde affirmait « une relecture à la main n'en trouve pas d'autre » : le
-  fichier le contredisait. Les deux cartes réécrites : `139920` porte maintenant une vraie
-  raison (pourquoi le seuil compte — l'eau qui ne s'évacue plus) sans réciter le chiffre ;
-  `81deae` a perdu la phrase qui nommait le témoin d'usure. `grep -c "1,6 mm"
-  Valido/Resources/questions.json` limité aux deux cartes confirme une seule occurrence
-  restante, sur `81deae` elle-même.
+  geste actif (menu, tige), jamais une aiguille en vue permanente. Le geste a laissé un reliquat
+  de la formulation précédente (« et, contrairement au carburant, […] comme le carburant »,
+  « carburant » cité deux fois pour le même contraste) : nettoyé en fix round 2, une seule
+  mention.
+- `37fe1af42b8d81c89e88db8c08ca8514` (éco-conduite) — trois passes. La « limite » de première
+  ronde ne réfutait que les distracteurs A/D (accélérer fort, rapport bas), sans être une vraie
+  condition ; corrigée en fix round 1 en ajoutant que le régime modéré cesse d'être économique
+  s'il tombe trop bas pour la charge, ce qui force le moteur au lieu de l'économiser — ce
+  correctif tient. Mais le même fix round 1 a introduit un second défaut en voulant traiter le
+  distracteur C (« Rouler vitres ouvertes plutôt qu'en climatisant » — un demi-vrai, vrai en
+  ville, faux sur route rapide, que l'énoncé « consiste **notamment** à » ne suffit pas à
+  exclure) : la phrase ajoutée disait « la traînée coûtant plus sur route rapide que la
+  climatisation, l'inverse en ville », ce qui **confirme** C sous la lecture ville — exactement
+  le défaut de §1 règle 2 de `questions.md`, un distracteur partiellement vrai que l'énoncé ne
+  rend pas faux. Fix round 2 : la nuance vitesse-dépendante est retirée sans être remplacée par
+  une prise de position ; à la place, l'explication dit pourquoi le choix vitres/climatisation
+  n'est de toute façon pas une **règle** d'éco-conduite fiable (le compromis dépend de la
+  vitesse, contrairement à l'anticipation qui marche en toute circonstance) — ce qui explique
+  l'écart avec B sans jamais affirmer que C serait juste quelque part.
+- **Point 13 du calibrage — bonnes réponses invisibles à `--fuites`, cherchées à la main, refait
+  en fix round 2 avec la bonne définition.** Le rapport de fix round 1 comptait les mots par
+  simple séparation sur les espaces et ne trouvait qu'une carte sous le seuil : ce n'est pas ce
+  que fait l'outil. `relire.py::mots()` normalise (accents retirés, minuscules), découpe en
+  jetons `[a-z0-9]+`, ne garde que ceux d'au moins **cinq** caractères, et `fuites()` ignore
+  toute bonne réponse dont ce sac compte **moins de trois** jetons. Refait avec cette définition
+  sur les vingt bonnes réponses du domaine, six tombent sous le seuil :
+  `37fe1af42b8d81deaec0cb8830fa0b25` (« 1,6 mm », 0 jeton), `173c63baae24d7e7db9e2961bebd033f`
+  (« 4 250 kg de PTAC cumulés », 1 : `cumules`), `089e9b57f57bbb155f81da3ec492082f` (« de moins
+  de dix ans », 1 : `moins`), `8e64074daad0e4a72e0fea2da9bac8eb` (« pour le conducteur d'un taxi
+  en service », 2 : `conducteur`, `service` — `taxi` fait quatre caractères, sous le seuil de
+  cinq), `6c9b9395e9090cd97a7fc4062b7162fc` (« à portée de main dans l'habitacle », 2 :
+  `portee`, `habitacle`), `cc10180c491d12311f76fc1d4d98ff45` (« dans les six mois avant ses
+  quatre ans », 2 : `avant`, `quatre`).
+
+  Les six cherchées à la main dans les dix-neuf autres explications du lot (`grep`, script
+  Python reproduisant `mots()`, puis lecture des occurrences trouvées) : cinq propres, une
+  trouvée — déjà connue, la mutuelle `1,6 mm` / `139920` détaillée ci-dessous, corrigée dans les
+  deux cartes. Les cinq autres ne réapparaissent nulle part ailleurs dans le domaine, **sauf**
+  un mot isolé sans portée : « taxi » figure à la fois dans l'explication de
+  `8e64074d…` (sa propre bonne réponse, normal) et dans celle de `089e9b57f…` (retenue
+  enfant, « transporté en taxi ou en transport en commun », ajoutée en première ronde) — deux
+  règles distinctes (dispense de ceinture du conducteur de taxi contre dispense de siège enfant
+  pour l'enfant transporté en taxi) qui partagent un mot de vocabulaire, pas un sens ; les deux
+  jetons qui comptent pour `8e64074d…` (`conducteur`, `service`) n'apparaissent pas dans
+  l'explication de `089e9b57f…`. Documenté comme fortuit, non corrigé.
+
+  Sur `37fe1af42b8d81deaec0cb8830fa0b25` (« 1,6 mm ») : elle apparaissait en entier, chiffre
+  compris, dans l'explication de sa voisine `37fe1af42b8d81139920e49f3f7b6b59` (témoin d'usure)
+  — recouvrement doublement invisible à `--fuites` (moins de trois jetons **et** hors du champ
+  qu'un simple compte de mots pleins aurait repéré). La réciproque était vraie en d'autres mots :
+  l'explication de `81deae` disait « le témoin d'usure […] est placé exactement à ce niveau »,
+  soit la réponse de `139920` (« la limite légale de profondeur ») paraphrasée. Le rapport de
+  première ronde affirmait « une relecture à la main n'en trouve pas d'autre » : le fichier le
+  contredisait. Les deux cartes réécrites : `139920` porte maintenant une vraie raison (pourquoi
+  le seuil compte — l'eau qui ne s'évacue plus) sans réciter le chiffre ; `81deae` a perdu la
+  phrase qui nommait le témoin d'usure. `grep -c "1,6 mm" Valido/Resources/questions.json`
+  limité aux deux cartes confirme une seule occurrence restante, sur `81deae` elle-même.
 - `37fe1af42b8d814ba731d0f9dafb6945` (frein moteur en descente) — « Au point mort ou contact
   coupé, on perd ce frein — et l'assistance de direction » se lisait, au distributif, comme
   perdant l'assistance de direction dès le point mort seul, ce qui est faux (le moteur tourne
@@ -998,7 +1032,7 @@ Douze cartes modifiées au total, les six de première ronde plus six trouvées 
 `2c0a147d9ba6e61b52c7639089b6f118` (chargement, raison ajoutée), `089e9b57f57bbb155f81da3ec492082f`
 (retenue enfant, écart de justesse puis troisième dispense complétée), `37fe1af42b8d81209e`
 (témoin rouge, fuite coupée puis vraie limite), `37fe1af42b8d81b99c` (témoin orange, idem),
-`37fe1af42b8d81c89e` (éco-conduite, vraie limite puis nuance de l'option C), `37fe1af42b8d8158a1`
+`37fe1af42b8d81c89e` (éco-conduite, vraie limite puis distracteur confirmé par erreur puis corrigé), `37fe1af42b8d8158a1`
 (niveaux à surveiller, absolu corrigé deux fois), `37fe1af42b8d81139920` (témoin d'usure, vraie
 raison sans le chiffre), `37fe1af42b8d81deae` (profondeur pneus, cross-référence coupée),
 `6c9b9395` (gilet, distracteur remplacé), `37fe1af42b8d814ba7` (frein moteur, lecture
@@ -1029,15 +1063,20 @@ Aucun distracteur que la carte légitime elle-même, hors le cas corrigé ci-des
 `correctID` réparti sur les vingt cartes avant cette tâche (A 2, B 6, C 7, D 5) et inchangé,
 aucune option n'ayant été réordonnée — le remplacement de B sur `6c9b9395` ne touche pas C.
 
-**Recouvrement structurel documenté, non corrigé.** `6c9b9395e9090cd97a7fc4062b7162fc` (gilet) et
-`37fe1af42b8d814289adf64bd5b05d0e` (équipements) se recoupent par les **options**, un angle mort
-de `--fuites` qui ne regarde que les explications : l'énoncé du gilet présuppose déjà
-l'obligation du gilet, et son option A nomme « le triangle », ce qui prévient une bonne part de
-la réponse d'« équipements » (triangle + gilet, contre extincteur/trousse, trousse/couverture,
-éthylotest/ampoules). Documenté ici comme fortuit plutôt que corrigé : les deux options portent
-des faits réels et distincts (l'un une mauvaise localisation du gilet, l'autre la liste des
-équipements obligatoires), et les affaiblir pour éteindre le recouvrement serait le défaut inverse
-que le point 11 du calibrage interdit.
+**Recouvrement structurel documenté, non corrigé — raison corrigée en fix round 2.**
+`6c9b9395e9090cd97a7fc4062b7162fc` (gilet) et `37fe1af42b8d814289adf64bd5b05d0e` (équipements)
+se recoupent par les **options**, un angle mort de `--fuites` qui ne regarde que les
+explications : l'option A du gilet nomme « le triangle » au grand jour, ce qui prévient une
+bonne part de la réponse d'« équipements » (triangle + gilet, contre extincteur/trousse,
+trousse/couverture, éthylotest/ampoules). La revue a raison de le relever : la justification
+donnée en fix round 1 — le point 11 du calibrage interdirait d'affaiblir une phrase vraie pour
+satisfaire un outil — ne tenait pas ici, puisqu'un correctif sans coût existe (reformuler le
+distracteur de mauvaise localisation du gilet sans nommer le triangle ; « dans le coffre, sous
+les bagages » porterait le même défaut sans la fuite). Le recouvrement reste néanmoins non
+corrigé, pour la raison qui tient réellement : c'est un contenu antérieur à cette tâche, les
+deux réponses restent correctes et défendables, et rien dans le périmètre de la tâche 6
+n'imposait d'y toucher — laissé pour une passe de consolidation plutôt que retouché ici sur un
+motif inventé après coup.
 
 **Ce que `couverture.md` dit manquer.** La ligne du domaine porte le verdict « à compléter »,
 seul des treize à ne pas être `couvert` : sur les 20 cartes, six seulement portent vraiment la
@@ -1060,11 +1099,13 @@ périmètre d'une passe qui n'ajoute pas de contenu.
 | `expl/paraphrase-litterale` | 17 | 17 |
 | `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
 
-Diff vide contre la ligne de base d'avant tâche, aux deux rondes. Aucune des douze cartes
+Diff vide contre la ligne de base d'avant tâche, aux trois rondes. Aucune des douze cartes
 modifiées ne touche l'équilibre de longueur d'une manière qui ferait bouger `longueur/plus-longue`
-— y compris le remplacement d'option sur `6c9b9395` (46 caractères pour B, la bonne réponse à 33
-reste la plus courte du lot). `--fuites "Mécanique & environnement"` : 0 recouvrement sur 20
-cartes, mesuré avant édition (par `git stash` temporaire), après première ronde et après fix
-round 1. `--fuites` sur les quatre domaines déjà clos, revérifié en fix round 1 : 0 sur
-« Permis & sanctions », « Vitesse » et « Alcool & stupéfiants » ; 1 recouvrement incidental,
-inchangé et déjà documenté, sur « Usagers & partage de la route ».
+— y compris le remplacement d'option sur `6c9b9395` (A 31, B 46, C 33 — la bonne réponse —, D 36).
+Elle n'est pas la plus longue, ce qui suffit à ne déclencher aucun flag ; elle n'est pas non plus
+la plus courte, contrairement à ce qu'affirmait le rapport de fix round 1 — A l'est de deux
+caractères, corrigé ici en fix round 2. `--fuites "Mécanique & environnement"` : 0 recouvrement
+sur 20 cartes, mesuré avant édition (par `git stash` temporaire), après chaque ronde. `--fuites`
+sur les quatre domaines déjà clos, revérifié à chaque ronde : 0 sur « Permis & sanctions »,
+« Vitesse » et « Alcool & stupéfiants » ; 1 recouvrement incidental, inchangé et déjà documenté,
+sur « Usagers & partage de la route ».
