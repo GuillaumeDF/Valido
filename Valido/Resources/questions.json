@@ -164,7 +164,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "C'est une petite barrette moulée au fond des rainures, à 1,6 mm : quand la surface du pneu arrive à son niveau, la profondeur légale est atteinte et le pneu est à changer.",
+    "explanation": "C'est une petite barrette moulée au fond des rainures, qui affleure la bande de roulement une fois le seuil légal atteint : en dessous, l'eau ne s'évacue plus assez vite entre la gomme et la route. Arrivée à son niveau, il n'y a plus de marge : le pneu est à changer.",
     "id": "37fe1af42b8d81139920e49f3f7b6b59",
     "options": [
       {
@@ -330,7 +330,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Rouge signale une anomalie grave — huile, freins, température moteur — qui peut endommager le véhicule ou mettre en danger tout de suite : on s'arrête dès que la sécurité le permet, sans attendre la fin du trajet.",
+    "explanation": "Rouge signale une anomalie grave — huile, freins, température moteur — qui peut endommager le véhicule ou mettre en danger tout de suite. On s'arrête dès que la sécurité le permet : sur autoroute, cela veut dire gagner la bande d'arrêt d'urgence, pas s'arrêter sur une voie de circulation.",
     "id": "37fe1af42b8d81209e09c493195df716",
     "options": [
       {
@@ -681,7 +681,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Ces deux équipements servent le même but : rendre visibles le véhicule immobilisé et son conducteur avant qu'un autre ne les percute. Extincteur, trousse de secours et éthylotest ne sont pas exigés sur une voiture particulière.",
+    "explanation": "Ces deux équipements servent le même but : rendre visibles le véhicule immobilisé et son conducteur avant qu'un autre ne les percute — le gilet doit d'ailleurs être revêtu, pas seulement présent, dès qu'on descend sur la chaussée. Extincteur, trousse de secours et éthylotest n'y figurent pas.",
     "id": "37fe1af42b8d814289adf64bd5b05d0e",
     "options": [
       {
@@ -735,7 +735,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le moteur, entraîné par les roues, dissipe l'énergie que les freins auraient dû absorber : c'est ce qui évite l'échauffement des disques et la perte d'efficacité. Au point mort ou contact coupé, on perd ce frein — et l'assistance de direction.",
+    "explanation": "Le moteur, entraîné par les roues, dissipe l'énergie que les freins auraient dû absorber : c'est ce qui évite l'échauffement des disques et la perte d'efficacité. Au point mort, on perd ce frein moteur ; contact coupé, on perd en plus l'assistance de direction.",
     "id": "37fe1af42b8d814ba731d0f9dafb6945",
     "options": [
       {
@@ -789,7 +789,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Trois touchent directement à la sécurité — refroidissement, freins, visibilité — et, contrairement au carburant, aucun n'a de jauge continue au tableau de bord : on les vérifie soi-même, régulièrement. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
+    "explanation": "Trois touchent directement à la sécurité — refroidissement, freins, visibilité — et, contrairement au carburant, aucun n'a de jauge sous les yeux du conducteur comme le carburant : on les vérifie soi-même, régulièrement. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
     "id": "37fe1af42b8d8158a15ac34f4b0e4be9",
     "options": [
       {
@@ -1920,7 +1920,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Orange signale une anomalie à surveiller — un niveau bas, un capteur en défaut — sans danger immédiat : on peut continuer prudemment, mais il faut faire contrôler le véhicule avant qu'elle ne s'aggrave.",
+    "explanation": "Orange signale une anomalie à surveiller — un niveau bas, un capteur en défaut — sans danger immédiat : on peut continuer prudemment jusqu'au prochain contrôle. Si le même témoin se met à clignoter, en revanche, l'anomalie s'aggrave et il vaut mieux s'arrêter dès que possible.",
     "id": "37fe1af42b8d81b99c05ef1ffdacc30e",
     "options": [
       {
@@ -2001,7 +2001,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Anticiper les ralentissements et garder un régime moteur modéré réduit la consommation et l'usure : le moteur travaille sans à-coups, dans sa plage la plus efficace. Accélérer fort ou garder un rapport bas pour la reprise va à l'inverse de cet objectif.",
+    "explanation": "Anticiper les ralentissements et garder un régime moteur modéré réduit la consommation et l'usure, le moteur restant dans sa plage la plus efficace — sauf s'il tombe trop bas pour la charge, ce qui le force au lieu de l'économiser. Vitres ouvertes ou climatisation : ça dépend de la vitesse, la traînée coûtant plus sur route rapide que la climatisation, l'inverse en ville.",
     "id": "37fe1af42b8d81c89e88db8c08ca8514",
     "options": [
       {
@@ -2248,7 +2248,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "En dessous de cette profondeur, les rainures n'évacuent plus l'eau et le pneu aquaplane. Le témoin d'usure moulé dans la gomme est placé exactement à ce niveau.",
+    "explanation": "En dessous de cette profondeur, les rainures n'évacuent plus assez l'eau et le pneu aquaplane plus facilement : c'est une question de sécurité, pas seulement de conformité au contrôle technique.",
     "id": "37fe1af42b8d81deaec0cb8830fa0b25",
     "options": [
       {
@@ -10235,7 +10235,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "R412-2 II fixe dix ans, avec un dispositif adapté à la morphologie et au poids : il retient l'enfant bien mieux qu'une ceinture seule en cas de choc. Un seuil en centimètres circule beaucoup ; le code retient un âge, sauf enfant déjà adapté à la ceinture, en taxi ou en transport en commun.",
+    "explanation": "R412-2 II fixe dix ans, avec un dispositif adapté à la morphologie et au poids : il retient l'enfant bien mieux qu'une ceinture seule en cas de choc. Un seuil en centimètres circule beaucoup ; le code retient un âge, sauf enfant déjà adapté à la ceinture, muni d'un certificat médical, ou transporté en taxi ou en transport en commun.",
     "id": "089e9b57f57bbb155f81da3ec492082f",
     "options": [
       {
@@ -10289,7 +10289,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le gilet sert au moment où l'on ouvre la portière sur une voie où l'on va être à pied : R416-19 le veut donc à portée de main, pas dans le coffre, qui s'ouvre après et souvent du mauvais côté.",
+    "explanation": "Le gilet sert au moment où l'on ouvre la portière sur une voie où l'on va être à pied : R416-19 le veut à portée de main, pas dans le coffre — qui s'ouvre après, souvent du mauvais côté — ni sous une banquette qu'il faudrait soulever pour l'atteindre.",
     "id": "6c9b9395e9090cd97a7fc4062b7162fc",
     "options": [
       {
@@ -10298,7 +10298,7 @@
       },
       {
         "id": "B",
-        "text": "dans la boîte à gants du passager"
+        "text": "sous la banquette arrière, qu'il faut soulever"
       },
       {
         "id": "C",
@@ -10401,7 +10401,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Huile noire et batterie au plomb sont des déchets dangereux ; L541-2 du code de l'environnement confie leur gestion à qui les détient, à charge de les remettre à quelqu'un d'autorisé à les prendre en charge. Le tri sélectif ordinaire et un ferrailleur non agréé ne répondent pas à cette autorisation ; la déchèterie ou le garage, si.",
+    "explanation": "Huile noire et batterie au plomb sont des déchets dangereux ; L541-2 du code de l'environnement confie leur gestion à qui les détient, à charge de les remettre à quelqu'un d'autorisé à les prendre en charge — la déchèterie ou le garage, à la différence du tri sélectif ordinaire ou d'un ferrailleur non agréé. Un professionnel, lui, relève d'un régime séparé (R543-3).",
     "id": "204454d0e329d40811d4317fabf2ddfa",
     "options": [
       {
