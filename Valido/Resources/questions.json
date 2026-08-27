@@ -110,7 +110,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Contrairement à l'alcool, la loi ne fixe aucun seuil : la seule présence du produit dans l'organisme constitue le délit, même longtemps après la consommation et même sans effet perceptible.",
+    "explanation": "Contrairement à l'alcool, la loi ne fixe aucun seuil : la seule présence du produit dans l'organisme constitue le délit, même longtemps après la consommation et même sans effet perceptible — mais il faut qu'une analyse sanguine ou salivaire le confirme, un simple soupçon ne suffit pas.",
     "id": "37fe1af42b8d810ea54ddbcc64f356fa",
     "options": [
       {
@@ -239,7 +239,7 @@
       },
       {
         "id": "D",
-        "text": "1 g/L de sang"
+        "text": "0 g/L de sang"
       }
     ],
     "prompt": "Pour un permis classique, le taux d'alcool maximal autorisé est de :",
@@ -357,7 +357,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Un verre servi dans un bar, quelle que soit la boisson, tient dans les mêmes dix grammes d'alcool pur : 25 cl à 5 degrés, 10 cl à 12 degrés. L'organisme met environ une heure et demie à en venir à bout, ce qui met le seuil légal à portée de deux verres.",
+    "explanation": "Un verre servi dans un bar, quelle que soit la boisson, tient dans les mêmes dix grammes d'alcool pur : 25 cl à 5 degrés, 10 cl à 12 degrés. L'organisme met environ une heure et demie à en venir à bout, ce qui met le seuil légal à portée de deux ou trois verres.",
     "id": "37fe1af42b8d81218099fdc3bcfd24c9",
     "options": [
       {
@@ -1354,7 +1354,7 @@
       },
       {
         "id": "B",
-        "text": "Un délit jugé au tribunal correctionnel"
+        "text": "Un délit tranché par un magistrat"
       },
       {
         "id": "C",
@@ -2064,7 +2064,7 @@
       },
       {
         "id": "B",
-        "text": "0,3 g/L"
+        "text": "0 g/L"
       },
       {
         "id": "C",
@@ -9251,7 +9251,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Le code distingue deux régimes : dès qu'un accident a fait un blessé, les forces de l'ordre doivent soumettre le conducteur aux épreuves, sans avoir à justifier d'un soupçon ; pour tout autre accident, elles le peuvent sans y être tenues. C'est pourquoi un accrochage sans blessé ne donne pas systématiquement lieu à un contrôle.",
+    "explanation": "Le code distingue deux régimes : dès qu'un accident a fait un blessé, les forces de l'ordre doivent soumettre le conducteur aux épreuves, sans avoir à justifier d'un soupçon — la gravité de l'enjeu ne laisse pas le temps d'attendre un signe visible. Pour tout autre accident, elles le peuvent sans y être tenues : c'est pourquoi un accrochage sans blessé ne donne pas systématiquement lieu à un contrôle.",
     "id": "22603ebb1d645f3273bc07e98ab0eb23",
     "options": [
       {
