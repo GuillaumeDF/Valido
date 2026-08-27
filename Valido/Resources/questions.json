@@ -816,7 +816,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le stage crédite au plus 4 points, dans la limite du capital maximal, et n'est possible qu'une fois par an. Il est facultatif — sauf pour un conducteur probatoire ayant perdu 3 points ou plus, pour qui il devient obligatoire.",
+    "explanation": "Le stage ne remet pas le compteur à zéro : il crédite au plus quatre points, sans jamais dépasser le plafond du titulaire, et ne se rejoue qu'une fois par an — sinon il suffirait de l'enchaîner pour effacer tout un dossier. Facultatif pour la plupart des conducteurs, il devient obligatoire pour un titulaire du permis probatoire ayant perdu trois points ou plus lors d'une même infraction.",
     "id": "37fe1af42b8d8158b3dbf9883bf83560",
     "options": [
       {
@@ -1866,7 +1866,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "En AAC : 6 → 9 → 12 en deux ans. Sans AAC : +2/an sur trois ans.",
+    "explanation": "Avoir déjà roulé des milliers de kilomètres encadré par un accompagnateur, avant même l'examen, vaut une progression plus rapide : le capital initial de six points gagne trois points par an en conduite accompagnée, contre deux sans elle. Il atteint douze en deux ans (6 → 9 → 12), quand il en faut trois (6 → 8 → 10 → 12) sans cet apprentissage — et la période probatoire elle-même se raccourcit d'autant.",
     "id": "37fe1af42b8d81b6a955d17c158afb3c",
     "options": [
       {
@@ -9332,7 +9332,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le préfet agit vite et pour un temps borné : l'article L224-2 lui laisse au plus six mois, et c'est le tribunal, saisi ensuite, qui peut aller jusqu'à cinq ans. L'allongement à un an joue aussi pour l'alcool, les stupéfiants et le refus de dépistage, et toutes ces durées doublent quand le conducteur est un professionnel chargé du transport de personnes.",
+    "explanation": "C'est une mesure d'urgence, prise avant tout jugement, donc bornée dans le temps : l'article L224-2 laisse au préfet six mois au plus. Ce plafond monte à un an pour les faits les plus graves — accident mortel ou corporel, refus d'obtempérer, alcool, stupéfiants, refus de se soumettre aux vérifications — et double lorsque le conducteur est un professionnel chargé du transport de personnes. La décision définitive, elle, revient au tribunal.",
     "id": "f405372595dbaf85bf875adaf5ac20a4",
     "options": [
       {
@@ -9359,7 +9359,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. L'article L224-16 fait de cette reprise un délit distinct : la moitié du capital part de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
+    "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. L'article L224-16 fait de cette reprise un délit à part entière, puni de deux ans d'emprisonnement et 4 500 euros d'amende ; la moitié du capital part en plus de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
     "id": "0be9d147f1eba292ca2556f4dd19e51a",
     "options": [
       {
