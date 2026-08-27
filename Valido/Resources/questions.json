@@ -762,7 +762,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "50 km/h. L'entrée d'agglomération (panneau ville) impose 50 par défaut ; des zones 30 peuvent abaisser localement.",
+    "explanation": "50 km/h, parce que la densité de piétons et de carrefours en agglomération multiplie les occasions de choc : c'est le panneau d'entrée de ville qui l'impose par défaut. Des zones 30 peuvent l'abaisser localement, et il cesse au panneau de sortie d'agglomération.",
     "id": "37fe1af42b8d81589410cd055e66efc2",
     "options": [
       {
@@ -1036,7 +1036,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème monte par tranches de 10 km/h : aucun point en dessous de 5 km/h, 1 point de 5 à 20, 2 de 20 à 30, 3 de 30 à 40, 4 de 40 à 50, et 6 au-delà — où l'excès devient un délit.",
+    "explanation": "Le barème monte par tranches de 10 km/h — aucun point sous 5 km/h, 1 de 5 à 20, 2 de 20 à 30, 3 de 30 à 40, 4 de 40 à 50, 6 au-delà — parce que le risque de collision grave et la distance de freinage croissent avec l'écart. Au-delà de 50 km/h, l'excès devient un délit.",
     "id": "37fe1af42b8d816b8bf5d51c4f78466c",
     "options": [
       {
@@ -1210,7 +1210,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "80 km/h par défaut. Certains départements ont rétabli 90 km/h sur ces sections : se fier aux panneaux.",
+    "explanation": "80 km/h par défaut : sans séparateur central, un choc frontal reste possible, d'où la marge. Certains départements ont rétabli 90 km/h sur certaines sections : se fier aux panneaux plutôt qu'à la règle générale.",
     "id": "37fe1af42b8d817994d5f81863c7e6ae",
     "options": [
       {
@@ -1237,7 +1237,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Depuis le 29 décembre 2025, dépasser la limite de 50 km/h ou plus n'est plus une contravention mais un délit : amende forfaitaire délictuelle de 300 €, et jusqu'à 3 mois de prison et 3 750 € d'amende devant le tribunal correctionnel.",
+    "explanation": "Six points, le maximum du barème : depuis le 29 décembre 2025, dépasser la limite de 50 km/h ou plus relève d'un délit dès la première fois, avec une amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € d'amende encourus.",
     "id": "37fe1af42b8d817a9111e3d52f9e5142",
     "options": [
       {
@@ -1534,7 +1534,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "100 km/h. Sous la pluie : 130→110, 110→100, 90→80. Les 80 km/h restent 80.",
+    "explanation": "100 km/h : sous la pluie, l'adhérence et la visibilité chutent, donc la distance de freinage s'allonge. Chaque réseau perd 10 à 20 km/h — 130→110, 110→100, 90→80 — sauf les 80 km/h, déjà au plancher.",
     "id": "37fe1af42b8d818da27dc338f75795fe",
     "options": [
       {
@@ -1615,7 +1615,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "L'article R413-5 plafonne le permis probatoire à 110 km/h là où la limite est 130, à 100 km/h sur les autres autoroutes et routes à chaussées séparées, et à 80 km/h ailleurs. Ces valeurs ne remontent pas par beau temps.",
+    "explanation": "L'article R413-5 plafonne le permis probatoire à 110 km/h là où la limite est 130, à 100 km/h sur les autres autoroutes et routes à chaussées séparées, et à 80 km/h ailleurs — le temps que l'expérience de conduite comble l'écart. Ces valeurs ne remontent pas par beau temps.",
     "id": "37fe1af42b8d819e9620e4637f95e464",
     "options": [
       {
@@ -2109,7 +2109,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Sous la pluie, l'autoroute perd 20 km/h ; la route à chaussées séparées en perd 10, et les 80 km/h ne bougent pas. Une visibilité sous 50 mètres, elle, ramène tous les réseaux à 50 km/h d'un coup.",
+    "explanation": "Sous la pluie, l'adhérence et la visibilité chutent : l'autoroute perd 20 km/h, la route à chaussées séparées 10, et les 80 km/h ne bougent pas. Une visibilité sous 50 mètres, elle, ramène tous les réseaux à 50 km/h d'un coup.",
     "id": "37fe1af42b8d81d0bf26d67c5f0ff047",
     "options": [
       {
@@ -2657,7 +2657,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "50 km/h partout, y compris sur autoroute, dès que la visibilité tombe sous 50 m.",
+    "explanation": "50 km/h partout, y compris sur autoroute : sous 50 mètres de visibilité, le champ de vision ne laisse plus la distance de freinage nécessaire à une vitesse plus haute.",
     "id": "37fe1af42b8d81f9ae87db1419280902",
     "options": [
       {
@@ -6910,7 +6910,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le décret du 22 décembre 2025 a supprimé la qualification de contravention de cinquième classe pour ces excès : le grand excès de vitesse est un délit dès la première fois, avec une amende forfaitaire délictuelle de 300 € et jusqu'à 3 mois de prison. Avant cette date, seule la récidive faisait basculer l'infraction.",
+    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, a supprimé la qualification de contravention de cinquième classe pour ces excès : depuis, le grand excès de vitesse est un délit dès la première fois, plus seulement en cas de récidive.",
     "id": "337bfcb4d034b62de5fe0d77ca0cb0a0",
     "options": [
       {
@@ -6964,7 +6964,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "C'est le terre-plein central, et non le nombre de voies, qui autorise les 110 km/h : il supprime le risque de choc frontal. Sans séparateur, on retombe à 80 km/h même sur une route large et rectiligne.",
+    "explanation": "C'est le terre-plein central, et non le nombre de voies ni la largeur de la chaussée, qui autorise les 110 km/h : il supprime le risque de choc frontal. Sans lui, la vitesse dépend d'un autre critère — le nombre de voies affectées à votre sens.",
     "id": "fed604fe7c4b8b3b96adc066a7902138",
     "options": [
       {
@@ -6991,7 +6991,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "L'article R413-5 fixe trois plafonds au permis probatoire : 110 là où la limite est 130, 100 sur les autres autoroutes et les routes à chaussées séparées, 80 ailleurs. Ce n'est donc pas un abattement uniforme, et la limite affichée ne relève jamais ce plafond.",
+    "explanation": "L'article R413-5 fixe trois plafonds au permis probatoire, le temps que l'expérience vienne : 110 là où la limite est 130, 100 sur les autres autoroutes et les routes à chaussées séparées, 80 ailleurs. La limite affichée, elle, ne relève jamais ce plafond.",
     "id": "87c63a1be4e005f6c846d7798756696f",
     "options": [
       {
@@ -7045,7 +7045,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Chaque tranche de 10 km/h ajoute un point : 1 de 5 à 20, puis 2, 3 et 4. À partir de 30 km/h de dépassement, le juge peut ajouter une suspension du permis et un stage obligatoire ; à 50 km/h l'infraction change de nature et devient un délit.",
+    "explanation": "Le risque de collision grave croît avec l'écart : chaque tranche de 10 km/h ajoute un point (1 de 5 à 20, puis 2, 3 et 4). À partir de 30 km/h de dépassement, le juge peut ajouter une suspension du permis et un stage obligatoire ; à 50 km/h l'infraction devient un délit.",
     "id": "04182c9bbdeb305e21532f9c6913a2a2",
     "options": [
       {
@@ -8570,7 +8570,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le liseré rouge épais est la marque des panneaux d'interdiction : le nombre qu'il entoure est un plafond, pas une consigne. Et il ne vaut que sur l'axe où le panneau est planté, pas sur les rues qui le croisent.",
+    "explanation": "Le liseré rouge classe ce panneau parmi les interdictions : l'enfreindre est une infraction, pas un choix. Il ne s'étend qu'à l'axe où il est planté — les rues qui le croisent gardent leur propre limite.",
     "id": "07ef459de55adcb501694169428ffd72",
     "illustration": {
       "alt": "Disque à fond blanc bordé d'un large liseré rouge, portant le nombre 70 en sombre au centre.",
@@ -8632,7 +8632,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le carré rend la prescription zonale : elle vaut dans tout le périmètre jusqu'au panneau qui la modifie, même après plusieurs changements de direction. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
+    "explanation": "Le carré rend la prescription zonale, pour ralentir tout un quartier et non une rue : elle vaut jusqu'au panneau qui la termine, même après un virage. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
     "id": "ed0e45e08fb4f47007934da587b5757c",
     "illustration": {
       "alt": "Panneau carré à fond blanc bordé de rouge : le mot ZONE en haut, et sous lui un disque à liseré rouge portant 30.",
@@ -8663,7 +8663,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Les valeurs du permis probatoire sont des plafonds, pas un abattement : elles s'appliquent quand la route autorise davantage, jamais pour relever ce qui est déjà affiché. C'est toujours la plus basse des deux valeurs qui vaut.",
+    "explanation": "Les valeurs du permis probatoire sont des plafonds le temps d'accumuler de l'expérience, pas un abattement : elles s'appliquent quand la route autorise davantage, jamais pour relever ce qui est déjà affiché. C'est toujours la plus basse des deux valeurs qui vaut.",
     "id": "61eed52d453ac9d8ab59af70dae8eb3e",
     "options": [
       {
@@ -8717,7 +8717,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "La Sécurité routière demande de respecter scrupuleusement les panneaux du chantier et de ne pas attendre le dernier moment pour ralentir : des voies disparaissent, la bande d'arrêt d'urgence peut en tenir lieu, et des personnes travaillent à quelques mètres des roues.",
+    "explanation": "La Sécurité routière demande de respecter scrupuleusement les panneaux du chantier : des voies disparaissent, la bande d'arrêt d'urgence peut en tenir lieu, et des personnes travaillent à quelques mètres des roues. La prescription cesse au panneau de fin de chantier, qui rend la limite habituelle.",
     "id": "25390f0f30dbb6402091dc226d63db35",
     "options": [
       {

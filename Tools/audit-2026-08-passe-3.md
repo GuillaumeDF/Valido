@@ -148,3 +148,131 @@ cette passe, non introduits par elle), 0 après — voir Pédagogie ci-dessus po
 recouvrement corrigé (`…81d29c` → `2b6972fa…`) ; l'autre (`…81b7ac` → une carte de
 « Distances & freinage », sur du vocabulaire commun) a disparu comme effet de bord de la
 réécriture de la ceinture, sans avoir été le motif de cette réécriture.
+
+## Vitesse
+
+22 cartes, 19 `datée`, 4 illustrée(s).
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `fed604fe7c4b8b3b96adc066a7902138` | règle trop large | « Sans séparateur, on retombe à 80 km/h même sur une route large et rectiligne » | l'affirmation de cette ligne ne porte que sur le régime chaussées-séparées (110 km/h, 100 sous la pluie) ; une carte voisine du même domaine (`f7370daabea929065f6b2586ca3eea91`) établit que, sans terre-plein central mais avec deux voies affectées au même sens, la limite est 90 km/h et non 80 — confirmée par une relecture de service-public.gouv.fr F19460 | la clause « on retombe à 80 km/h » est retirée, remplacée par le renvoi au vrai critère : « Sans lui, la vitesse dépend d'un autre critère — le nombre de voies affectées à votre sens » |
+
+Une seule ligne au sens strict des trois écarts de la spec : c'est la seule carte du domaine
+qui affirmait quelque chose de factuellement trop large. Quatre constats voisins n'y entrent
+pas parce que, dans chacun, la carte disait déjà vrai — c'est le registre qui ne le portait
+pas encore, ou qui datait la même règle de deux façons différentes sans le dire ; racontés en
+prose plutôt que forcés dans le tableau :
+
+- **`37fe1af42b8d815ba42acef16b3119a8`** (voie de gauche, minimum 80 km/h) — l'explication
+  conditionnait déjà l'obligation à « la visibilité suffisante », en plus de la circulation
+  fluide que portait seule la ligne de registre. Rouvert : WebFetch sur R413-19
+  (`LEGIARTI000006842210`, version en vigueur depuis le 01/06/2001), qui confirme mot pour mot
+  la double condition : « En particulier sur autoroute, lorsque la circulation est fluide et
+  que les conditions atmosphériques permettent une visibilité et une adhérence suffisantes,
+  les conducteurs utilisant la voie la plus à gauche ne peuvent circuler à une vitesse
+  inférieure à 80 km/h. » La ligne est complétée avec la citation exacte ; la carte n'a pas
+  bougé.
+- **`f7370daabea929065f6b2586ca3eea91`** (deux voies même sens sans terre-plein, 90 km/h) —
+  l'explication affirmait déjà une réduction sous la pluie à 80 km/h, absente de la ligne (qui
+  ne portait que le régime sec). Rouvert : relecture de service-public.gouv.fr F19460, qui
+  aligne cette catégorie sur le même principe de réduction que les autres (un palier en
+  moins). La ligne est complétée ; la carte n'a pas bougé.
+- **`04182c9bbdeb305e21532f9c6913a2a2`** (excès 40 à moins de 50 km/h, 4 points) —
+  l'explication affirmait qu'« à partir de 30 km/h de dépassement, le juge peut ajouter une
+  suspension du permis et un stage obligatoire », une clause absente de la ligne (qui ne
+  portait que « 4 points, suspension possible »). Rouvert par prudence, et bien nommé : trois
+  lectures successives (une recherche puis deux WebFetch sur de mauvais articles) ont d'abord
+  donné des seuils contradictoires — 30 km/h, puis « article concernant 50 km/h, abrogé le
+  29 décembre 2025 » — avant qu'une citation intégrale et verbatim de l'article réellement en
+  vigueur, R413-14 (`LEGIARTI000048533039`, version en vigueur depuis le 01/01/2024), ne
+  tranche : son II fixe bien le seuil à « 30 km/h ou plus » pour la suspension (trois ans au
+  plus) et le stage, son III donne le barème de points en vigueur (« réduction de quatre
+  points » pour un dépassement « compris entre 40 km/h et moins de 50 km/h », exactement la
+  valeur de cette carte). La ligne est complétée avec les deux citations exactes ; la carte
+  n'a pas bougé sur le fond, elle a seulement gagné une phrase de raison (« le risque de
+  collision grave croît avec l'écart »).
+- **`337bfcb4d034b62de5fe0d77ca0cb0a0`** et **`37fe1af42b8d817a9111e3d52f9e5142`** (grand
+  excès, délit) — la première datait le changement du 22 décembre 2025, sa voisine du 29 : lu
+  côte à côte à l'étape 2, cela ressemble à la contradiction que la brève demandait de
+  chercher. Rouvert : WebFetch sur service-public.gouv.fr A18723, qui donne le décret
+  n° 2025-1269, « pris le 22 décembre 2025, avec une entrée en vigueur au 29 décembre 2025 » —
+  les deux dates étaient exactes, l'une pour la signature, l'autre pour l'entrée en vigueur,
+  sans que ni les cartes ni le registre ne le disent. Les deux explications sont clarifiées
+  (« signé le 22 décembre 2025 et entré en vigueur le 29 » / « depuis le 29 décembre 2025 »),
+  et les deux lignes de registre portent désormais le numéro du décret et les deux dates.
+
+### Doutes signalés, non corrigés
+
+Aucun doute laissé ouvert. Les 19 lignes `datée` du domaine ont été relevées le 2026-08-23 ;
+cinq d'entre elles portent désormais `relevé le` 2026-08-27 : `04182c9bbdeb305e21532f9c6913a2a2`,
+`337bfcb4d034b62de5fe0d77ca0cb0a0`, `37fe1af42b8d815ba42acef16b3119a8`,
+`37fe1af42b8d817a9111e3d52f9e5142` et `f7370daabea929065f6b2586ca3eea91`. Sur les quatorze
+cartes `datée` restantes (dont `fed604fe7c4b8b3b96adc066a7902138`, dont c'est le texte, pas la
+ligne de registre, qui a bougé), la carte ne dit rien de plus que ce que porte sa ligne de
+registre — vérifié carte par carte à l'étape 2.
+
+### Pédagogie
+
+- explications sous 120 caractères : 4 à l'entrée, 0 à la sortie —
+  `37fe1af42b8d81589410cd055e66efc2` (114 → 262), `37fe1af42b8d817994d5f81863c7e6ae`
+  (102 → 211), `37fe1af42b8d818da27dc338f75795fe` (74 → 199) et
+  `37fe1af42b8d81f9ae87db1419280902` (80 → 167). Les quatre ne portaient que le résultat
+  chiffré ; elles portent maintenant une raison (densité de piétons et carrefours, choc
+  frontal évité par la marge, adhérence et visibilité qui chutent, champ de vision qui ne
+  laisse plus la distance de freinage) et une limite (fin d'agglomération, exception
+  départementale, palier plancher à 80, portée « tous réseaux »).
+- cartes dont le budget de 220 a limité l'explication : `ed0e45e08fb4f47007934da587b5757c`
+  (217/220) — la raison ajoutée (« pour ralentir tout un quartier et non une rue ») a mangé la
+  place qui aurait permis de garder « même après plusieurs changements de direction » en
+  toutes lettres ; réduit à « même après un virage » pour tenir dans le budget. Les trois
+  autres illustrées tiennent avec plus de marge : `07ef459de55adcb501694169428ffd72`
+  (203/220), `37fe1af42b8d815ba42acef16b3119a8` (208/220, non modifiée) et
+  `3adc294978b6ac1f640c45e121a0e4f5` (218/220, non modifiée — déjà conforme aux trois temps
+  sans reformulation à couper). Les quatre tiennent aussi l'énoncé (≤ 70) et chaque option
+  (≤ 50), non touchés.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun — les 22 énoncés du domaine
+  sont soit un panneau à lire (les 4 illustrées, autoportées par l'image et l'`alt`), soit une
+  mise en situation qui ne nomme jamais la réponse avant les options ; aucun ne demandait de
+  connaître la règle pour être compris.
+
+**Les six cartes non modifiées**, lues contre les quatre critères pédagogiques et jugées déjà
+conformes (règle, raison, limite ; aucune ne reformule sa bonne option) :
+
+| id | rôle | pourquoi jugée conforme |
+|---|---|---|
+| `3adc294978b6ac1f640c45e121a0e4f5` | panneau B33, fin de limitation | règle (« Un « fin de » perd le liseré rouge et gagne l'oblique ») + contenu (« Ce qui reprend n'est pas la vitesse qu'on veut, mais la limite générale du type de route ») + limite (« Lever toutes les interdictions d'un coup demande un panneau sans chiffre », qui distingue du panneau B31) |
+| `37fe1af42b8d815ba42acef16b3119a8` | voie de gauche, minimum 80 km/h | règle (« L'article R413-19 impose ce minimum sur la voie la plus à gauche ») + raison (« une voiture lente y crée un obstacle et pousse les autres à se rabattre par la droite ») + limite (« quand le trafic est fluide et la visibilité suffisante », condition désormais confirmée mot pour mot par R413-19 dans le registre) |
+| `14eb253e5dc55f5633de9263f541bf91` | excès sous 5 km/h, aucun point | règle (« Le décret du 6 décembre 2023 a supprimé le retrait d'un point sous 5 km/h ») + raison (« la marge d'incertitude des appareils ne justifiait pas de toucher au capital ») + limite/nuance (« L'amende, elle, reste due — 68 € en général, 135 € là où la limite est de 50 km/h ou moins », qui distingue points et amende) |
+| `37fe1af42b8d812c957fc3415785f6d6` | zone de rencontre, 20 km/h | règle (20 km/h) + raison (« le piéton y est prioritaire sur tous les véhicules sauf les transports guidés et peut marcher sur toute la largeur de la chaussée ») + limite (« la vitesse doit permettre de s'arrêter pour lui, pas de le contourner », qui borne ce que « prioritaire » signifie concrètement) |
+| `cac0f9db162887802d4fb15ba97d768f` | zone 30 vs zone de rencontre | règle comparative (« La zone 30 limite à 30 km/h et laisse les piétons sur le trottoir ») + raison par contraste (« La zone de rencontre descend à 20 km/h et y ajoute la priorité du piéton, qui peut circuler sur la chaussée ») + troisième terme qui borne les deux premiers (« L'aire piétonne va plus loin : la circulation motorisée n'y est qu'exceptionnelle ») — la structure comparative est la pédagogie elle-même, exactement ce que demande l'énoncé (« la différence porte sur ») |
+| `f7370daabea929065f6b2586ca3eea91` | deux voies même sens, 90 km/h | règle + raison (« C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90 », qui nomme et écarte la confusion courante) + limite (« sous la pluie, ces deux valeurs retombent respectivement à 80 et à 100 », désormais confirmée dans le registre) |
+
+Seize cartes modifiées (Écarts + Pédagogie ci-dessus) + six non modifiées = 22, sans reste.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 97 | 97 |
+| `expl/paraphrase-litterale` | 17 | 17 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+`--fuites "Vitesse"` : 4 recouvrements avant toute édition de ce domaine — deux préexistants
+dès avant cette passe (`337bfcb4d034b62de5` → `2d45cedf9b3d` [Permis & sanctions] et
+`37fe1af42b8d817a91` → une carte d'« Alcool & stupéfiants », plus la même paire en interne au
+domaine et vers `2d45cedf9b3d` une seconde fois), tous quatre de même origine : les deux
+cartes « grand excès » du domaine partagent nécessairement le vocabulaire « délit »,
+« prison », « amende » avec d'autres cartes de sanction de la banque. La réécriture
+pédagogique de l'étape 5 a d'abord aggravé ce recouvrement plutôt que de le résorber — en
+ajoutant explicitement « jugé au tribunal correctionnel » (qui est mot pour mot la bonne
+réponse d'une carte d'« Alcool & stupéfiants ») aux deux explications, un contrôle
+intermédiaire est resté à 4 recouvrements. Corrigé en reformulant sans perdre l'information :
+« jugé au tribunal correctionnel » retiré (remplacé par une clause qui ne cite aucune des
+réponses d'autres cartes), et « prison » remplacé par « emprisonnement » dans l'explication du
+retrait de points — le fait reste dit, le mot qui recoupait ne l'est plus. 0 recouvrement
+après correction, vérifié à l'étape 7 finale.
