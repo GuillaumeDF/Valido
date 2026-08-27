@@ -10,7 +10,10 @@ clés triées, UTF-8.
 json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
 ```
 
-État courant : **310 questions** — 136 `code`, 174 `swift`. Huit portent une image (voir le [§7](#7-les-questions-illustrées)).
+État courant : **448 questions** — 255 `code`, 193 `swift`. **Quarante-neuf** portent une
+image (voir le [§7](#7-les-questions-illustrées)). La couverture du référentiel ETG, thématique
+par thématique, est dans [`couverture.md`](couverture.md) ; la fraîcheur de chaque question
+`code`, dans [`sources.md`](sources.md).
 
 ## Les champs
 
@@ -18,7 +21,10 @@ json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
   `hashlib.sha256(('valido-v2:' + prompt).encode()).hexdigest()[:32]`.
 - `subject` — `code` ou `swift`.
 - `topic` — un thème existant, tel quel (y compris `Outillage & diagnostics`). En créer
-  un nouveau se paie en dilution : dix thèmes `code`, treize sections `swift`.
+  un nouveau se paie en dilution : **treize** thèmes `code`, treize sections `swift`.
+  Côté `code` il se paie en plus au contrôle : `audit.py` refuse un `topic` absent de la
+  colonne du milieu de [`couverture.md`](couverture.md), donc un thème neuf s'y rattache
+  d'abord à une thématique du référentiel ETG.
 - `difficulty` — `facile`, `moyen` ou `costaud`.
 - `prompt` — voir plus bas. Backticks conservés autour des identifiants.
 - `options` — exactement 4, d'`id` `"A"`, `"B"`, `"C"`, `"D"`.
@@ -29,8 +35,13 @@ json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
   tombe sur la lettre visée. L'ordre A–D ne porte aucun sens, l'opération est sans
   effet sur le contenu.
 - `explanation` — non vide, au moins 40 caractères.
-- `sourceURL` — présent sur les 150 questions `swift` d'origine. Sur une question
-  nouvelle : **clé absente**, pas `null`.
+- `sourceURL` — **trois régimes**, et c'est voulu. Sur les 193 `swift` : **149** portent
+  l'URL `notion.so` de leur page d'origine, **20** l'URL de la page `developer.apple.com`
+  contre laquelle elles ont été écrites, **24** n'ont pas la clé. Sur les 255 `code` :
+  jamais — leur fraîcheur est tenue par [`sources.md`](sources.md), qui est un registre
+  bien plus fort qu'une URL. **Règle pour la suite : une question `swift` neuve porte
+  l'URL de sa documentation**, qui est la seule piste de fraîcheur de ce demi-fichier.
+  Quand il n'y en a pas : **clé absente**, pas `null`.
 - `illustration` — `{ asset, alt }` quand l'image porte l'énoncé, clé absente sinon.
   Détail au [§7](#7-les-questions-illustrées).
 
@@ -62,9 +73,16 @@ comparables aux trois distracteurs ; la prose complète reste dans `explanation`
 Pour `@Entry` : option = « déclarer une clé d'`EnvironmentValues` en une ligne » — pas
 la phrase entière sur `EnvironmentKey` et les extensions.
 
-Repère chiffré : longueur moyenne de la bonne option **52,5** caractères contre
-**50,5** pour les distracteurs. Écart moyen actuel **+1,8** sur les `swift`, **+1,5**
-sur les `code`.
+Repère chiffré, recompté sur les 448 (2026-08-27) : bonne option **43,2** caractères en
+moyenne contre **42,2** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
+`swift` (écart **+1,6**), **37,3 / 36,8** sur les `code` (écart **+0,5**).
+
+L'écart entre les deux matières est structurel, pas un défaut : une option `swift`
+nomme une API et son comportement, une option `code` porte une valeur ou une règle.
+Ce n'est **pas** l'illustration qui l'explique — mesurées à part, les 49 `code`
+illustrées sont à **41,5** caractères par option, les 206 autres à **35,8**. Les
+illustrées sont donc les plus longues des `code`, à neuf caractères du plafond de 50
+que leur impose le [§7](#7-les-questions-illustrées) : c'est là que le budget mord.
 
 ### `explanation` : le pourquoi, jamais la paraphrase
 
@@ -232,7 +250,19 @@ Le script couvre :
   bonne option ;
 - sur une question illustrée : `illustration` réduite à `asset` et `alt`, imageset
   **présent sur le disque**, asset **recensé dans `images.md`**, `alt` d'au moins 40
-  caractères, et **énoncé qui redit la scène**.
+  caractères, et **énoncé qui redit la scène** ;
+- **budget de hauteur** d'une question illustrée (`image/enonce-trop-long`,
+  `image/option-trop-longue`, `image/expl-trop-longue`) : 70 / 50 / 220 caractères. Les
+  mêmes seuils sont verrouillés sur le livré par un test — voir le [§7](#7-les-questions-illustrées) ;
+- **registre de fraîcheur** (`source/*`) : toute question `code` a une ligne dans
+  [`sources.md`](sources.md) (`source/absente`), avec une `affirmation` renseignée ; une
+  ligne `datée` porte une URL d'un domaine de la liste blanche (`source/hors-liste-blanche`)
+  et une date de relevé lisible (`source/date-illisible`) de moins de douze mois
+  (`source/releve-perime`) ; une ligne `stable` ne porte ni l'une ni l'autre
+  (`source/stable-avec-source`). Une ligne sans question est signalée en fin de rapport
+  (`source/ligne-orpheline`) ;
+- **carte de couverture** (`couverture/topic-non-rattache`) : tout `topic` `code` figure
+  dans la colonne du milieu de [`couverture.md`](couverture.md).
 
 Trois sorties demandent un **tri à la main**, elles produisent des faux positifs :
 
@@ -249,6 +279,28 @@ Trois sorties demandent un **tri à la main**, elles produisent des faux positif
 Le reste doit être à zéro. `longueur/plus-longue` (bonne réponse plus longue de 1 à 10
 caractères) est informatif : le seuil dur est `longueur/plus-10`.
 
+**La ligne de base, au 2026-08-27 sur 448 questions.** On se compare à elle, pas à zéro :
+
+```
+lettre/reference            1     faux positif connu (lettre ancrée par l'énoncé)
+forme/markdown              1     faux positif connu (`/** */` dans un code span)
+forme/seule-ponctuee       14     informatif, jamais cumulé avec la longueur
+longueur/plus-longue       97     informatif (+1 à +10)
+expl/paraphrase-litterale  18     à relire à l'œil, une par une
+```
+
+Vides, et qui doivent le rester : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
+`longueur/plus-10`, `forme/backtick-isole`. **Attention à ce dernier** : il ne signale que
+la bonne réponse **seule** de son côté du backtick (`audit.py:177`) — qu'elle soit la seule à
+en porter un ou la seule à n'en pas porter. Un lot de questions sans aucun code span le laisse
+donc à zéro sans qu'il ait rien contrôlé, et ailleurs **un seul distracteur qui partage le
+statut de la bonne réponse** suffit à le désarmer.
+
+Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé au §7 de
+[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — neuf angles morts mesurés, dont la
+fuite d'une carte vers **une autre** carte et l'équilibre de longueur dans le sens inverse.
+Huit sont ouverts ; le neuvième (le registre d'images lu trop largement) est corrigé.
+
 ---
 
 ## 4. Vérifier
@@ -259,7 +311,7 @@ Projet Xcode à plat, pas de paquet SwiftPM : `xcodebuild`, pas `swift test`.
 cd /Users/guillaume/Developer/Swift/Valido && \
   DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
     -project Valido.xcodeproj -scheme Valido \
-    -destination 'platform=iOS Simulator,name=iPhone 17'
+    -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
 
 Si `xcodebuild` échoue sur `Application failed preflight checks` / `Busy` sans qu'aucun
@@ -272,14 +324,22 @@ même nom de device et l'un d'eux reste coincé. Changer de device dans `-destin
 l'`asset` et l'`alt` ne sont ni vides ni blancs. C'est la boucle de retour à
 utiliser.
 
-`ValidoTests/BundledContentTests.swift` couvre en plus : volume total ≥ 295, les deux
-matières présentes (≥ 125 `code`, ≥ 170 `swift`), aucune explication et aucune **option**
-ne commençant par une lettre de réponse, options/bonne réponse cohérentes,
+`ValidoTests/BundledContentTests.swift` couvre en plus : volume total **≥ 425**, les deux
+matières présentes (**≥ 242** `code`, **≥ 183** `swift`), aucune explication et aucune
+**option** ne commençant par une lettre de réponse, options/bonne réponse cohérentes,
 **l'équilibre de longueur**, et — pour les questions illustrées — que chaque asset
-référencé **se résout dans le bundle compilé** et que son `alt` fait au moins 40
-caractères. Le contrôle d'`audit.py` regarde le disque, celui-là regarde le produit
-livré : une image posée dans le catalogue mais non compilée passerait le premier. Les seuils sont volontairement sous les 302 livrées : un
-effondrement du volume doit casser, une variation de quelques questions non.
+référencé **se résout dans le bundle compilé**, que son `alt` fait au moins 40 caractères,
+que le **budget de hauteur** du [§7](#7-les-questions-illustrées) est tenu
+(`leBudgetDeHauteurDesQuestionsIllustréesEstTenu`, 70 / 50 / 220 caractères) et qu'il
+**reste** des questions illustrées (`laBanqueGardeSonVolumeIllustré`, **≥ 44**). Ces deux
+derniers ont été ajoutés par la passe d'août 2026 : les trois tests d'image plus anciens
+vérifient chacun ce qu'une illustration doit respecter, aucun ne vérifiait qu'il en reste
+une seule.
+
+Le contrôle d'`audit.py` regarde le disque, celui du bundle regarde le produit livré : une
+image posée dans le catalogue mais non compilée passerait le premier. Les seuils de volume
+sont à **95 %** des 448 livrées (90 % pour les illustrées) : un effondrement doit casser,
+une variation de quelques questions non.
 
 Un échec du test des lettres de réponse, ou de celui de l'équilibre de longueur, se
 corrige **dans les données, jamais dans le test**.
@@ -289,14 +349,50 @@ corrige **dans les données, jamais dans le test**.
 ## 5. Fraîcheur juridique
 
 Tous les contrôles du §3 sont formels. **Rien ne vérifie que le contenu est juste**, et
-sur les 128 questions `code` c'est le risque principal : le droit bouge, vite. L'audit
+sur les 255 questions `code` c'est le risque principal : le droit bouge, vite. L'audit
 d'août 2026 a trouvé trois questions aux chiffres périmés — dont une qui l'était depuis
 **trois jours** (peines pour conduite sous stupéfiants, relevées par la loi n° 2026-798
 du 18 août 2026).
 
 Sources autorisées, et elles seules : **legifrance.gouv.fr**,
-**securite-routiere.gouv.fr**, **service-public.gouv.fr** (plus **ecologie.gouv.fr** et
-**sante.gouv.fr** pour les ZFE et les gestes de secours).
+**securite-routiere.gouv.fr**, **service-public.gouv.fr**, **ecologie.gouv.fr** et
+**sante.gouv.fr** (ZFE, gestes de secours), plus **unece.org**, **eur-lex.europa.eu**,
+**cprguidelines.eu**, **erc.edu**, **croix-rouge.fr** et **inrs.fr**. La liste exacte et son
+détail par rang vivent dans [`sources.md`](sources.md) et dans le tuple `DOMAINES`
+d'`audit.py`, **à tenir synchronisés**.
+
+**Pourquoi elle a été élargie au-delà des domaines gouvernementaux.** Six domaines s'ajoutent
+aux cinq `.gouv.fr`, et chacun pour **un champ** où il fait autorité et où l'État français
+n'écrit pas de chiffre — jamais pour compléter du droit routier :
+
+- **`erc.edu`** et **`croix-rouge.fr`** — les gestes de secours. Aucun `.gouv.fr` ne chiffre
+  la cadence des compressions thoraciques ni la profondeur d'un massage : `sante.gouv.fr`
+  renvoie à l'enseignement, pas à un barème. **`cprguidelines.eu`** est resté dans le tuple
+  mais **ne sert plus aucun contenu** : c'était une transcription erronée du nom « ERC
+  Guidelines » en nom de domaine, et l'ERC est `erc.edu`.
+- **`unece.org`** et **`eur-lex.europa.eu`** — les normes techniques et le droit européen,
+  qui sont en amont du droit français sans y être écrits.
+- **`inrs.fr`** — le métabolisme de l'alcool (verre standard, vitesse d'élimination), qui
+  est de la santé au travail et non du droit routier.
+
+**Ce qui n'y est pas, et qui pourrait surprendre** : les planches de l'Instruction
+interministérielle sur la signalisation routière. Elles ne sont lisibles que chez le Cerema,
+qui **n'entre pas** dans cette liste — la version qui fait foi est l'arrêté sur Legifrance.
+L'IISR sert de référence de **dessin** ([§7](#7-les-questions-illustrées)), jamais d'autorité
+sur un chiffre, et n'apparaît donc jamais en colonne `source` d'une ligne `datée`.
+
+**Trois rangs, et ils ne sont pas interchangeables.** `legifrance.gouv.fr` (« Version en
+vigueur depuis le … ») et `service-public.gouv.fr` (« Vérifié le … ») sont les **seules
+autorités pour affirmer une valeur**. `securite-routiere.gouv.fr` corrobore et explique,
+**jamais seul sur un chiffre** : il servait encore en août 2026 le droit d'avant le
+29 décembre 2025 sur le grand excès de vitesse, et il ne date aucune de ses pages. Les huit
+autres domaines font autorité sur leur seul champ. Une valeur dont la seule source est de
+rang 2 ou 3 **se signale au lieu de s'affirmer**.
+
+Le registre par question est [`sources.md`](sources.md) — une ligne par question `code`,
+`stable` ou `datée`, avec ce contre quoi elle a été vérifiée et quand. La carte de ce que
+la banque couvre du référentiel est [`couverture.md`](couverture.md). `audit.py` refuse une
+question `code` absente du premier et un `topic` absent du second.
 
 À revérifier à chaque passe : vitesses, barème de points, seuils d'alcoolémie et peines,
 période probatoire, sanctions et qualifications (contravention / délit), équipements
@@ -313,7 +409,9 @@ Trois règles de conduite :
    question, parce que c'est exactement ce qu'un candidat aura lu ailleurs.
 
 Le relevé des sources déjà consultées, et la liste des points laissés ouverts, sont dans
-[`audit-2026-08.md`](audit-2026-08.md).
+[`audit-2026-08.md`](audit-2026-08.md) et dans
+[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — le second referme les quatre points
+ouverts du premier.
 
 ---
 
@@ -328,9 +426,24 @@ fichier :
 - `sourceURL` pointe la page d'origine sur les 150 `swift`, et est absent sur les 100
   `code`, dont la base n'avait pas cette propriété.
 
-Les 52 questions ajoutées en août 2026 se reconnaissent à un `id` en SHA-256 de l'énoncé
-préfixé `valido-v2:`, et à l'absence de `sourceURL`. **Notion n'est plus la source** : ni
-mise à jour, ni ré-import. Le JSON fait foi.
+Les questions ajoutées depuis se reconnaissent à leur `id` :
+`sha256("valido-v2:" + prompt)[:32]`. **Le préfixe est dans l'entrée du hachage, pas dans
+l'identifiant** — un `id` de question neuve est trente-deux caractères hexadécimaux, comme
+un `id` de Notion, et rien ne les distingue à l'œil. Ce qui les distingue est de
+**recalculer le hachage** : s'il retombe sur l'`id`, la question a été créée par une passe.
+
+Au 2026-08-27 : **199** questions créées par les deux passes — 250 → 448 est un solde de
+198, et une question a été retirée en chemin ; le compte se fait en **créations**, pas en
+delta. Recompté : **249** `id` à préfixe Notion (`37fe1af42b8d…`) + **199** `id` frappés =
+448. Sur ces 199, **188** portent un `id` qui est encore le hachage de leur énoncé courant.
+Les **onze** autres ont vu leur énoncé réécrit après coup sans qu'on recalcule l'`id` — ce
+qui est le comportement voulu dès qu'une question a été livrée : la progression de
+l'utilisateur est indexée sur l'`id` (`Valido/Model/ProgressSnapshot.swift`), donc le
+changer efface un historique en silence. **Un `id` de question livrée est immuable, sans
+exception.** Une question créée dans une branche jamais fusionnée peut, elle, voir son `id`
+suivre son énoncé.
+
+**Notion n'est plus la source** : ni mise à jour, ni ré-import. Le JSON fait foi.
 
 ---
 
@@ -355,7 +468,8 @@ l'image, l'image n'a rien à faire là.
 - Sur une question sans image : **clé absente**, pas `null` — comme `sourceURL`.
 
 D'où viennent les images, et sous quelles conditions : [`images.md`](images.md). Les
-schémas se régénèrent avec `swift Tools/render-scenes.swift`, jamais à la main.
+schémas se régénèrent avec `./Tools/render-scenes.sh`, jamais à la main : on édite la scène
+sous `Tools/Scenes/`, on relance le script.
 
 ### L'énoncé ne redit pas la scène
 
@@ -372,20 +486,54 @@ le texte n'a plus la place — aucun texte de la carte n'est compressible, donc 
 le seul élément qui puisse reculer. Conséquence pratique : sur une carte chargée le
 bandeau tombe sous les 18 %, et il ne reste qu'une bande de la scène.
 
-Pour que l'image garde une taille utile, une question illustrée se tient court :
+Pour que l'image garde une taille utile, une question illustrée se tient court. **Ces trois
+seuils ne sont plus de la prose : ils sont imposés deux fois**, par `audit.py`
+(`image/enonce-trop-long`, `image/option-trop-longue`, `image/expl-trop-longue`) et par le
+test `leBudgetDeHauteurDesQuestionsIllustréesEstTenu` :
 
-- énoncé sur **deux lignes** au plus (≈ 60 caractères) ;
-- options de **50 caractères** au plus, comme le reste de la banque ;
-- explication autour de **200 caractères** — c'est elle qui mange le plus après le verdict.
+| | seuil | ce qui le contrôle |
+|---|---:|---|
+| énoncé | **70** caractères | `audit.py` avant le build, le test sur le livré |
+| chaque option | **50** caractères | idem |
+| explication | **220** caractères | idem |
 
 Mesuré sur les huit premières : à 220 caractères d'explication et un énoncé de trois
-lignes, le bandeau descend à 8 %.
+lignes, le bandeau descend à 8 %. À quarante-neuf questions illustrées, la prose ne tenait
+plus — quatre des huit premières violaient déjà le budget qu'elles étaient censées décrire.
+
+### Les panneaux : un dessin, une norme, un seul endroit
+
+Un panneau se dessine **une fois**, dans `Tools/Scenes/Panneaux.swift`, et les scènes qui
+le contiennent réutilisent la même fonction. Un B14 dans une scène de carrefour et un B14
+seul sont le même dessin : sans quoi deux versions du même panneau divergent, et le
+candidat apprend une forme qui n'existe qu'ici.
+
+La géométrie ne s'invente pas. Elle se relève sur l'**Instruction interministérielle sur la
+signalisation routière** (IISR), qui normalise formes, proportions et couleurs, et dont les
+planches sont extractibles des PDF du Cerema — la marche à suivre et la partie/page de
+chaque panneau sont dans [`images.md`](images.md). Le Cerema **n'entre pas** dans la liste
+blanche du [§5](#5-fraîcheur-juridique) : c'est une référence de **dessin**, jamais
+l'autorité d'un chiffre. Et on ne recopie jamais le fichier image d'un site officiel :
+ce qui est public, c'est la norme, donc on redessine d'après elle.
+
+Ce que l'IISR a déjà corrigé sur nos primitives : un panneau de danger est « entouré par une
+bande rouge **bordée elle-même par un listel blanc** » (2e partie, art. 23) — nos triangles
+n'avaient qu'un bord ; et ils sont « des triangles équilatéraux dont le côté inférieur est
+horizontal » (art. 21), là où nos proportions avaient été choisies à l'œil.
 
 ### La couleur ne porte jamais l'information
 
 Les schémas donnent au véhicule du candidat un liseré blanc, pas seulement une teinte, et
 les options désignent les véhicules **par leur provenance** (« venant de votre droite »),
 jamais par leur couleur. Un daltonien doit pouvoir répondre.
+
+Et **la bonne intention ne suffit pas : ça se mesure.** Une scène de feux respectant la
+règle en intention l'a violée en fait — la lampe allumée mesurait 96 en niveaux de gris
+contre 119 pour les éteintes, polarité inversée. Avant de commiter un PNG, extraire les
+valeurs de gris des zones qui portent la réponse et vérifier que l'écart va dans le bon
+sens et qu'il est franc. Deux formes de panneaux qui ne se séparent que par une teinte
+(le disque à couronne rouge contre le disque bleu) ne s'illustrent pas : la question reste
+en texte.
 
 ### Le cadrage
 

@@ -1,7 +1,32 @@
-# Prompt d'audit des questions
+# Prompt d'audit des questions — **historique, ne pas coller tel quel**
 
-À coller dans une session neuve, à la racine du projet. Refonte après la passe d'août 2026 :
-les chiffres et les seuils ci-dessous décrivent l'état **courant**, pas celui de la v1.
+> **Ce fichier décrit l'état du dépôt en août 2026, avant la seconde passe de contenu.**
+> Il a servi à amorcer cette passe-là ; **tous ses chiffres sont périmés** et plusieurs de
+> ses affirmations sont fausses aujourd'hui. Conservé comme trace de ce qui a été demandé,
+> pas comme mode d'emploi. Ce qu'il dit et qui ne tient plus :
+>
+> - « les 302 questions » et « les 128 questions `subject: "code"` » — la banque en porte
+>   **448**, dont **255** `code` et **193** `swift` ;
+> - les seuils de `BundledContentTests` « ≥ 295 / ≥ 125 / ≥ 170 » — ils valent **425 / 242 /
+>   183**, et un quatrième les a rejoints : **≥ 44 questions illustrées** ;
+> - le simulateur `name=iPhone 17` — trois runtimes déclarent ce device et l'un d'eux reste
+>   coincé ; la commande du dépôt vise **`iPhone 17 Pro`** ;
+> - « le dossier local n'est pas encore un dépôt git : aucun retour possible » — il l'est ;
+> - « tout doit être à zéro sauf `longueur/plus-longue` » — cinq compteurs ont une ligne de
+>   base non vide, documentée au §6 de [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) ;
+> - les **deux chantiers laissés ouverts** (loi du 18 août 2026, ZFE et Crit'Air) ont été
+>   refermés — voir le §2.1 du même rapport ;
+> - il ignore deux registres dont `audit.py` dépend désormais — [`sources.md`](sources.md)
+>   (fraîcheur juridique) et [`couverture.md`](couverture.md) (référentiel ETG) — ainsi que
+>   le dossier `Tools/Scenes/`, où un panneau se dessine une fois pour toutes.
+>
+> **Pour amorcer la passe suivante**, ne réécrivez pas ce fichier : le brief se dérive en
+> quelques minutes de trois documents qui, eux, sont tenus à jour — [`questions.md`](questions.md)
+> (les règles), [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) (§6 la ligne de base,
+> §7 les angles morts, §9 les constats parqués, §10 ce qui est prêt) et `CLAUDE.md` (les
+> commandes). C'est pourquoi ce fichier n'est **pas** remis à jour : il ne portait que des
+> chiffres qui vivent ailleurs, il s'est périmé en une passe sur **chacun** d'eux, et un
+> quatrième endroit où les tenir cohérents se serait périmé de la même façon.
 
 ---
 

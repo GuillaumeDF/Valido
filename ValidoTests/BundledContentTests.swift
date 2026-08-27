@@ -4,18 +4,19 @@ import UIKit
 @testable import Valido
 
 /// Seuils volontairement sous le volume livré : quelques rejets à l'import sont
-/// acceptables, un effondrement du volume ne l'est pas.
+/// acceptables, un effondrement du volume ne l'est pas. Relevés à 95 % du livré par la
+/// passe d'audit de contenu d'août 2026, qui a porté la banque de 310 à 448 questions.
 @Test func leContenuLivréEstValide() throws {
     let bank = try QuestionBank.bundled()
-    #expect(bank.count >= 295)
+    #expect(bank.count >= 425)
 }
 
 @Test func lesDeuxMatièresSontPrésentes() throws {
     let bank = try QuestionBank.bundled()
     let code = bank.questions.filter { $0.subject == .code }
     let swift = bank.questions.filter { $0.subject == .swift }
-    #expect(code.count >= 125)
-    #expect(swift.count >= 170)
+    #expect(code.count >= 242)
+    #expect(swift.count >= 183)
 }
 
 @Test func aucuneExplicationNeCommenceParUneLettreDeRéponse() throws {
@@ -86,4 +87,41 @@ import UIKit
         return alt.count < 40 ? question.id : nil
     }
     #expect(tropCourts == [])
+}
+
+/// Le bandeau de `QuestionCardView` réclame jusqu'à 38 % de la carte avant réponse et
+/// 18 % après, et il **cède** quand le texte n'a plus la place — aucun texte de la carte
+/// n'est compressible, donc l'image est le seul élément qui puisse reculer. Mesuré sur
+/// les huit premières illustrées : à 220 caractères d'explication et un énoncé de trois
+/// lignes, le bandeau descend à 8 % et il ne reste qu'une bande de la scène.
+///
+/// Les chiffres viennent du §7 de `Tools/questions.md`, où ils n'étaient que de la prose.
+/// À quarante questions illustrées, la prose ne tient plus.
+@Test func leBudgetDeHauteurDesQuestionsIllustréesEstTenu() throws {
+    let bank = try QuestionBank.bundled()
+    var fautives: [String] = []
+    for question in bank.questions where question.illustration != nil {
+        if question.prompt.count > 70 {
+            fautives.append("\(question.id) énoncé \(question.prompt.count)")
+        }
+        for option in question.options where option.text.count > 50 {
+            fautives.append("\(question.id) option \(option.text.count)")
+        }
+        if question.explanation.count > 220 {
+            fautives.append("\(question.id) explication \(question.explanation.count)")
+        }
+    }
+    #expect(fautives == [])
+}
+
+/// L'ETG est un examen visuel : un panneau se reconnaît, il ne se récite pas. La passe
+/// d'août 2026 laissait huit questions illustrées sur 310, et rien n'empêchait ce nombre
+/// de retomber à zéro sans qu'aucun test ne bronche — les trois tests d'image ci-dessus
+/// vérifient chacun ce qu'une illustration *doit* respecter, aucun ne vérifie qu'il en
+/// reste. Seuil à 90 % des 49 livrées, plus bas que les 95 % des seuils de volume : une
+/// question illustrée se retire plus facilement qu'elle ne s'écrit.
+@Test func laBanqueGardeSonVolumeIllustré() throws {
+    let bank = try QuestionBank.bundled()
+    let illustrées = bank.questions.filter { $0.illustration != nil }
+    #expect(illustrées.count >= 44)
 }

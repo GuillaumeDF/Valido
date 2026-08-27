@@ -6,7 +6,7 @@ Usage : python3 Tools/audit.py [chemin/vers/questions.json]
 Tout ce qui sort ici n'est que formel : la justesse du contenu (code de la route
 en vigueur, exactitude Swift) ne se vérifie pas d'ici — voir l'étape 8.
 """
-import json, os, re, sys, unicodedata, collections
+import json, os, re, sys, unicodedata, collections, datetime
 
 PATH = sys.argv[1] if len(sys.argv) > 1 else 'Valido/Resources/questions.json'
 QS = json.load(open(PATH))
@@ -48,10 +48,40 @@ SCENES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(PATH))),
 IMAGES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images.md')
 # Le relevé de provenance : une ligne de tableau par asset. Sans lui une image est
 # orpheline — impossible de la remplacer ou de re-sourcer si la licence change.
+# Le `\|` de fermeture n'est pas décoratif : sans lui la regex attrapait aussi la première
+# cellule des tableaux de luminance (« | `bus` — caisse du bus | … »), et `RECENSES` portait
+# 63 noms pour 51 imagesets. Les douze fantômes étaient des noms d'asset plausibles — l'un
+# d'eux serait passé pour recensé sans avoir de ligne de registre.
 try:
-    RECENSES = set(re.findall(r'^\|\s*`([a-z0-9-]+)`', open(IMAGES_MD).read(), re.M))
+    RECENSES = set(re.findall(r'^\|\s*`([a-z0-9-]+)`\s*\|', open(IMAGES_MD).read(), re.M))
 except OSError:
     RECENSES = set()
+
+COUVERTURE_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'couverture.md')
+# La carte de couverture : une ligne par couple (thématique ETG, topic). Un `topic` `code`
+# absent de cette colonne est soit une faute de frappe, soit un pan de contenu hors
+# référentiel — dans les deux cas on veut le savoir avant les tests.
+try:
+    TOPICS_DECLARES = set(re.findall(r'^\|[^|]*\|\s*`([^`]+)`\s*\|',
+                                     open(COUVERTURE_MD).read(), re.M))
+except OSError:
+    TOPICS_DECLARES = set()
+
+SOURCES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources.md')
+# Domaines dont une affirmation datable peut se réclamer. La liste est fermée : un éditeur
+# d'ETG recopie et périme sans le dire, et c'est précisément le défaut que ce registre
+# corrige. Élargie en août 2026 aux institutions européennes et académiques, faute de
+# source gouvernementale chiffrée sur les gestes de secours et la géométrie des panneaux.
+DOMAINES = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
+            'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
+            'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
+LIGNE_SOURCE = re.compile(
+    r'^\|\s*`([0-9a-f]{32})`\s*\|\s*(stable|datée)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
+try:
+    REGISTRE = {m[0]: (m[1], m[2].strip(), m[3].strip(), m[4].strip())
+                for m in LIGNE_SOURCE.findall(open(SOURCES_MD).read())}
+except OSError:
+    REGISTRE = {}
 
 findings = collections.defaultdict(list)
 def flag(kind, q, detail):
@@ -72,6 +102,10 @@ for q in QS:
     if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration'}:
         flag('schema/cle-hors-schema', q, sorted(set(q)))
 
+    # --- couverture ---
+    if q['subject'] == 'code' and TOPICS_DECLARES and q['topic'] not in TOPICS_DECLARES:
+        flag('couverture/topic-non-rattache', q, q['topic'])
+
     # --- illustration ---
     illu = q.get('illustration')
     if illu is not None:
@@ -89,6 +123,17 @@ for q in QS:
         # `alt` porte l'énoncé pour qui n'accède pas à l'image : trois mots ne suffisent
         # pas. Seuil aligné sur celui de l'explication.
         if len(alt.strip()) < 40: flag('image/alt-trop-court', q, alt)
+        # Budget de hauteur du §7, désormais imposé : le bandeau cède quand le texte
+        # n'a plus la place, et l'image est le seul élément compressible de la carte.
+        # Le test `leBudgetDeHauteurDesQuestionsIllustréesEstTenu` verrouille les mêmes
+        # seuils sur le livré ; celui-ci les attrape avant le build.
+        if len(q['prompt']) > 70:
+            flag('image/enonce-trop-long', q, f"{len(q['prompt'])} car. (max 70)")
+        for o in q['options']:
+            if len(o['text']) > 50:
+                flag('image/option-trop-longue', q, f"{o['id']} : {len(o['text'])} car. (max 50)")
+        if len(expl) > 220:
+            flag('image/expl-trop-longue', q, f'{len(expl)} car. (max 220)')
         # Si l'énoncé redit ce que l'image montre, l'image est décorative — exactement ce
         # que les questions illustrées ne doivent pas être. Sortie à trier à la main :
         # « carrefour » dans les deux est parfois inévitable.
@@ -153,7 +198,37 @@ for q in QS:
         flag('expl/paraphrase-lexicale', q, f"expl={expl[:60]}")
     if len(expl) < 40: flag('expl/trop-courte', q, expl)
 
-order = ['schema/','lettre/','forme/','longueur/','fuite/','expl/','image/']
+# --- registre de fraîcheur ---
+# Le seul contrôle d'`audit.py` qui ne porte pas sur la forme : il ne dit pas qu'une
+# valeur est juste, il dit que quelqu'un a écrit contre quoi et quand il l'a vérifiée.
+# C'est ce qui rend la passe rejouable dans six mois plutôt qu'à refaire.
+AUJOURDHUI = datetime.date.today()
+for q in QS:
+    if q['subject'] != 'code':
+        continue
+    ligne = REGISTRE.get(q['id'])
+    if ligne is None:
+        flag('source/absente', q, 'aucune ligne dans sources.md')
+        continue
+    nature, affirmation, source, releve = ligne
+    if not affirmation or 'à renseigner' in affirmation:
+        flag('source/affirmation-vide', q, affirmation or '(vide)')
+    if nature == 'datée':
+        if not any(d in source for d in DOMAINES):
+            flag('source/hors-liste-blanche', q, source or '(vide)')
+        try:
+            jour = datetime.date.fromisoformat(releve)
+        except ValueError:
+            flag('source/date-illisible', q, releve or '(vide)')
+        else:
+            if (AUJOURDHUI - jour).days > 365:
+                flag('source/releve-perime', q, f'{releve} — plus de douze mois')
+    elif source or releve:
+        flag('source/stable-avec-source', q, f'«{source}» «{releve}»')
+
+orphelines = sorted(set(REGISTRE) - {q['id'] for q in QS if q['subject'] == 'code'})
+
+order = ['schema/', 'couverture/', 'source/', 'lettre/', 'forme/', 'longueur/', 'fuite/', 'expl/', 'image/']
 print(f"== {len(QS)} questions ==\n")
 for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.startswith(p))), k)):
     v = findings[k]
@@ -166,3 +241,8 @@ for label, arr in [('code', lens_good), ('swift', lens_bad)]:
     longest = sum(1 for g, m in arr if g > m)
     print(f"{label}: bonne réponse plus longue que la moyenne des distracteurs dans {longest}/{len(arr)} cas; "
           f"écart moyen {sum(g-m for g,m in arr)/len(arr):+.1f} car.")
+
+if orphelines:
+    print(f"\n### source/ligne-orpheline  ({len(orphelines)})")
+    for qid in orphelines:
+        print(f"  {qid[:8]} — ligne dans sources.md sans question `code` correspondante")

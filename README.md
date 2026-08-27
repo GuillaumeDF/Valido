@@ -17,12 +17,12 @@ Une seule boucle : un `ScrollView` paginé, une carte plein écran, alimentée �
 du bas. Pas de menu, pas d'écran d'accueil, pas d'écran de fin de session — un « bravo,
 terminé ! » est une porte de sortie.
 
-**310 questions** embarquées dans le bundle : 136 sur le code de la route, 174 sur
+**448 questions** embarquées dans le bundle : 255 sur le code de la route, 193 sur
 Swift/iOS. Aucun réseau, aucun compte, aucun secret dans l'app.
 
-Huit de ces questions ont leur énoncé **dans une image** — carrefour, panneau, vue
-conducteur. Sans l'image, « qui passe en premier ? » n'a pas de sens : elle n'illustre
-pas, elle énonce.
+**Quarante-neuf** de ces questions ont leur énoncé **dans une image** — carrefour, panneau,
+marquage, vue conducteur. Sans l'image, « qui passe en premier ? » n'a pas de sens : elle
+n'illustre pas, elle énonce.
 
 ## Les décisions qui structurent le reste
 
@@ -72,9 +72,10 @@ Valido/
   ViewModel/   FeedViewModel, @MainActor
   View/        FeedView, QuestionCardView, ComboBadge, ContentErrorView
   Resources/   questions.json
-  Assets.xcassets/Scenes/   8 imagesets : 6 schémas dessinés, 2 photos
-ValidoTests/   62 tests (Swift Testing)
-Tools/         guide de rédaction, rendu des schémas, audit, provenance des images
+  Assets.xcassets/Scenes/   51 imagesets : 49 schémas dessinés, 2 photos
+ValidoTests/   64 tests (Swift Testing)
+Tools/         guide de rédaction, rendu des schémas, audit, provenance des images,
+               registre de fraîcheur, carte de couverture du référentiel
 design/logo/   planches du logo et de l'icône
 docs/          spec et plan de la v1
 ```
@@ -92,11 +93,14 @@ disque est compilé sans toucher au `.pbxproj`.
 ```bash
 DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
   -project Valido.xcodeproj -scheme Valido \
-  -destination 'platform=iOS Simulator,name=iPhone 17'
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
 ```
 
 Un échec sur `Application failed preflight checks` / `Busy` sans qu'aucun test n'ait
-tourné est un simulateur coincé, pas une régression : changer de device.
+tourné est un simulateur coincé, pas une régression : le démarrer d'abord
+(`xcrun simctl boot 'iPhone 17 Pro'`, `DEVELOPER_DIR` compris) ou changer de device. Et ne
+juger que la ligne `✔ Test run with N test(s)` : un `** TEST SUCCEEDED **` sans elle ne
+prouve rien.
 
 `CardScheduler` reste la pièce la plus testée, et elle est écrite pour ça — répartition
 70/30 sur 1000 tirages à graine fixe, fenêtre anti-répétition, question jamais vue qui
@@ -113,11 +117,17 @@ le fichier, on repasse les contrôles, on lance les tests.
 - [`Tools/images.md`](Tools/images.md) — la provenance de chaque image : source, auteur,
   licence, date de relevé. `audit.py` refuse un asset qui n'y a pas sa ligne, sans quoi
   une image devient orpheline et impossible à re-sourcer.
-- `swift Tools/render-scenes.swift` — regénère les six schémas de carrefour en PNG clair
-  et sombre, @2x et @3x. Les fichiers ne s'éditent jamais à la main : on édite la scène.
+- [`Tools/sources.md`](Tools/sources.md) — le registre de fraîcheur : une ligne par
+  question `code`, `stable` ou `datée`, avec la source et la date du relevé. `audit.py`
+  refuse une question `code` qui n'y est pas, et signale un relevé de plus de douze mois.
+- [`Tools/couverture.md`](Tools/couverture.md) — la carte du référentiel ETG : une ligne
+  par couple (thématique officielle, `topic`). `audit.py` refuse un `topic` qui n'y est pas.
+- `./Tools/render-scenes.sh` — regénère les schémas en PNG clair et sombre, @2x et @3x.
+  Les fichiers ne s'éditent jamais à la main : on édite la scène, sous `Tools/Scenes/`.
 - `python3 Tools/audit.py` — les contrôles mécaniques.
-- [`Tools/audit-2026-08.md`](Tools/audit-2026-08.md) — la dernière passe : ce qui a été
-  corrigé, avec les sources, et ce qui reste ouvert.
+- [`Tools/audit-2026-08.md`](Tools/audit-2026-08.md) et
+  [`Tools/audit-2026-08-passe-2.md`](Tools/audit-2026-08-passe-2.md) — les deux passes de
+  contenu : ce qui a été corrigé, avec les sources, et ce qui reste ouvert.
 
 Ce qui décide de la qualité du feed : **un distracteur manifestement faux rend la question
 gratuite**, gonfle le combo et rend le feed ennuyeux — exactement le mode d'échec que ce
@@ -125,9 +135,10 @@ projet existe pour éviter. Et la bonne réponse ne doit jamais être la plus lo
 quatre : c'est l'indice le plus fiable de tout QCM. Les options sont mélangées à chaque
 présentation, donc aucune référence de lettre nulle part.
 
-Les 136 questions de code de la route se périment : le droit bouge. La passe d'août 2026 a
-trouvé trois questions aux chiffres faux, dont une qui l'était depuis trois jours. Le §5 du
-guide dit quoi revérifier, où, et comment citer.
+Les 255 questions de code de la route se périment : le droit bouge. La première passe
+d'août 2026 a trouvé trois questions aux chiffres faux, dont une qui l'était depuis trois
+jours ; la seconde a relevé chacune de ces questions contre le texte en vigueur et laissé
+la trace dans `sources.md`. Le §5 du guide dit quoi revérifier, où, et comment citer.
 
 ## Les images
 
@@ -135,27 +146,33 @@ Deux origines, un seul champ dans le modèle (`Illustration` : un nom d'asset et
 et **aucun réseau** — tout est dans le catalogue d'assets, `URLSession` n'existe nulle
 part dans le projet.
 
-**Six schémas dessinés** par `Tools/render-scenes.swift`, en CoreGraphics, sur le modèle
-de `design/logo/render-icon.swift`. C'est le choix qui compte : la scène et la bonne
+**Quarante-neuf schémas dessinés** par `./Tools/render-scenes.sh`, en CoreGraphics, sur le
+modèle de `design/logo/render-icon.swift`. C'est le choix qui compte : la scène et la bonne
 réponse sortent de la même donnée, donc « qui passe en premier » se vérifie au lieu de
 s'espérer. Une photo trouvée et une réponse rédigée sont deux artefacts indépendants qui
 peuvent se contredire en silence. Les formes de panneaux sont redessinées d'après
-l'Instruction interministérielle sur la signalisation routière — la géométrie d'un panneau
-réglementaire est une norme publique. Aucun visuel d'éditeur d'ETG n'a été repris.
+l'Instruction interministérielle sur la signalisation routière, dont les planches se
+relèvent PDF en main — la géométrie d'un panneau réglementaire est une norme publique, et
+un panneau se dessine une fois pour toutes les scènes qui le contiennent. Aucun visuel
+d'éditeur d'ETG n'a été repris.
 
 **Deux photographies** de Wikimedia Commons, recadrées en 4:3, pour ce que le vectoriel ne
-sait pas faire : la vue conducteur. Le recadrage garde l'élément décisif dans la bande
-centrale, celle qui survit au rétrécissement du bandeau.
+sait pas faire : la vue conducteur. Une seule sert encore — l'autre a cédé la place à un
+dessin, plus lisible sur la bande qui survit au rétrécissement du bandeau.
 
 Aucune information ne repose sur la couleur seule : le véhicule du candidat porte un
 liseré blanc, et les options désignent les autres **par leur provenance**, pas par leur
-teinte.
+teinte. Et ça se mesure plutôt que ça ne s'affirme — les niveaux de gris des zones qui
+portent la réponse sont relevés avant qu'un PNG n'entre dans le dépôt, parce qu'une scène
+peut respecter la règle en intention et l'inverser en fait.
 
 ## Limite connue
 
-310 questions ne font pas un feed infini : à 30 questions par session, la banque est
-consommée en une quinzaine. La v1 répond à une seule question — la boucle tient-elle sur
-moi ? Si elle tient, le chantier suivant n'est pas une fonctionnalité, c'est la génération
-de questions depuis les pages de cours, qui alimentera le même `questions.json`.
+448 questions ne font toujours pas un feed infini : à 30 questions par session, la banque
+est consommée en une quinzaine. Deux passes de contenu l'ont portée de 250 à 448 sans
+changer cet ordre de grandeur — écrire à la main ne rattrape pas un feed. La v1 répond à
+une seule question — la boucle tient-elle sur moi ? Si elle tient, le chantier suivant
+n'est pas une fonctionnalité, c'est la génération de questions depuis les pages de cours,
+qui alimentera le même `questions.json`.
 
 Reportés, assumés : carte boss, duel, notifications, écran de statistiques, onboarding.
