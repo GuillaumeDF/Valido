@@ -3296,34 +3296,6 @@
     "topic": "Langage"
   },
   {
-    "correctID": "A",
-    "difficulty": "costaud",
-    "explanation": "À collecter et structurer des diagnostics d'app (logs/état) pour le support et le debug terrain, de façon standardisée.",
-    "id": "37fe1af42b8d8129a73be0cc0526f20a",
-    "options": [
-      {
-        "id": "A",
-        "text": "collecter et structurer des diagnostics d'app pour le support"
-      },
-      {
-        "id": "B",
-        "text": "acheminer les logs `OSLog` vers un serveur d'analyse distant"
-      },
-      {
-        "id": "C",
-        "text": "collecter des diagnostics de performance dans Instruments"
-      },
-      {
-        "id": "D",
-        "text": "remonter automatiquement les crashs à App Store Connect"
-      }
-    ],
-    "prompt": "La bibliothèque Diagnostics (WeTransfer) sert à :",
-    "sourceURL": "https://www.notion.so/362e1af42b8d81968db0fc75b19557be",
-    "subject": "swift",
-    "topic": "Frameworks iOS"
-  },
-  {
     "correctID": "B",
     "difficulty": "facile",
     "explanation": "Il est requis sur une méthode de struct (ou enum) qui modifie une propriété stockée. Une struct dans un `let` ne peut pas appeler de méthode mutating.",
@@ -4018,7 +3990,7 @@
         "text": "sur l'annulation structurée, comme un `TaskGroup`"
       }
     ],
-    "prompt": "Aujourd'hui, Combine garde l'avantage :",
+    "prompt": "En iOS 26, Combine garde l'avantage :",
     "sourceURL": "https://www.notion.so/362e1af42b8d81dab386f48636fab584",
     "subject": "swift",
     "topic": "Concurrence"
@@ -5627,7 +5599,7 @@
     "options": [
       {
         "id": "A",
-        "text": "`.onDisappear { Task { } }`, pour libérer les ressources"
+        "text": "`.onDisappear { Task { } }`, pour tout libérer"
       },
       {
         "id": "B",
@@ -11927,5 +11899,565 @@
     "prompt": "Le panneau qui signale l'entrée d'un tunnel interdit notamment :",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "SwiftData lance la requête à l'apparition de la vue, puis signale à SwiftUI toute modification ultérieure des modèles récupérés : la vue se remet à jour seule. `Query` est par ailleurs isolée au fil principal, elle n'y échappe pas.",
+    "id": "f3b2566f6da3756a086e6bde156f0d6b",
+    "options": [
+      {
+        "id": "A",
+        "text": "les résultats restent en phase avec le magasin"
+      },
+      {
+        "id": "B",
+        "text": "la requête s'exécute hors du fil principal"
+      },
+      {
+        "id": "C",
+        "text": "les résultats sont gardés d'un lancement à l'autre"
+      },
+      {
+        "id": "D",
+        "text": "les modèles récupérés sont détachés du contexte"
+      }
+    ],
+    "prompt": "Ce que `@Query` apporte de plus qu'une requête ponctuelle :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftdata/query",
+    "subject": "swift",
+    "topic": "Données"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "`autosaveEnabled` vaut `false` par défaut ; SwiftData le passe à `true` sur le contexte principal du conteneur. Un contexte créé à la main pour un import de fond n'écrit donc rien tant que personne n'appelle `save()`.",
+    "id": "d34bed830165e6d883ce3a12d2c2a768",
+    "options": [
+      {
+        "id": "A",
+        "text": "est actif partout, sauf sur un conteneur en mémoire"
+      },
+      {
+        "id": "B",
+        "text": "est actif d'office sur le seul contexte principal"
+      },
+      {
+        "id": "C",
+        "text": "se règle une fois pour toutes sur le conteneur"
+      },
+      {
+        "id": "D",
+        "text": "n'existe que sur les magasins synchronisés par CloudKit"
+      }
+    ],
+    "prompt": "L'enregistrement automatique d'un `ModelContext` :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftdata/modelcontext/autosaveenabled",
+    "subject": "swift",
+    "topic": "Données"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "Un contexte n'expose ni méthode de mise à jour ni équivalent : il suit tout seul les changements des modèles qu'il connaît. `hasChanges` sert à savoir s'il reste des écritures en attente, pas à en déclarer une.",
+    "id": "7aa93dba2f16753f292790a76118c524",
+    "options": [
+      {
+        "id": "A",
+        "text": "il faut le réinsérer, sinon le changement se perd"
+      },
+      {
+        "id": "B",
+        "text": "il faut le recharger depuis une requête neuve"
+      },
+      {
+        "id": "C",
+        "text": "il n'y a rien à faire, le contexte suit tout seul"
+      },
+      {
+        "id": "D",
+        "text": "il faut basculer son indicateur de modification"
+      }
+    ],
+    "prompt": "Après avoir modifié une propriété d'un modèle SwiftData déjà inséré :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftdata/modelcontext",
+    "subject": "swift",
+    "topic": "Données"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Le contexte reconnaît la hiérarchie et insère lui-même les modèles reliés, qu'ils soient neufs ou déjà connus. Les insérer un par un ne change rien au résultat et brouille la lecture du code.",
+    "id": "2f2786479a768672b57f84b9bf7eaf71",
+    "options": [
+      {
+        "id": "A",
+        "text": "chaque objet du graphe, dans l'ordre des relations"
+      },
+      {
+        "id": "B",
+        "text": "la racine, puis chaque objet lié une fois celle-ci écrite"
+      },
+      {
+        "id": "C",
+        "text": "un instantané du graphe, produit par le conteneur"
+      },
+      {
+        "id": "D",
+        "text": "la racine du graphe, le contexte suit les relations"
+      }
+    ],
+    "prompt": "Pour persister un objet SwiftData et les objets qui lui sont liés, on insère :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftdata/modelcontext",
+    "subject": "swift",
+    "topic": "Données"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "`SchemaMigrationPlan` décrit l'évolution : il enchaîne des étapes de migration, chacune reliant deux versions du schéma déclarées en `VersionedSchema`. Le modèle de correspondance dessiné à la souris, lui, appartient à Core Data.",
+    "id": "8767f8f0fd5eb7120b65e83d2b195586",
+    "options": [
+      {
+        "id": "A",
+        "text": "un plan de migration reliant deux schémas versionnés"
+      },
+      {
+        "id": "B",
+        "text": "un modèle de correspondance dessiné dans l'éditeur"
+      },
+      {
+        "id": "C",
+        "text": "un numéro de version incrémenté sur le conteneur"
+      },
+      {
+        "id": "D",
+        "text": "de vider le magasin puis de le reconstruire au lancement"
+      }
+    ],
+    "prompt": "Faire passer un schéma SwiftData d'une version à la suivante demande :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftdata/schemamigrationplan",
+    "subject": "swift",
+    "topic": "Données"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "L'initialiseur `Image(decorative:)` crée une image sans étiquette, que SwiftUI ignore pour l'accessibilité ; `accessibilityHidden(true)` la retire de la même façon. Étiqueter un ornement fait perdre du temps à VoiceOver sans rien apporter.",
+    "id": "5943c192a212b042609d370b2cbad74d",
+    "options": [
+      {
+        "id": "A",
+        "text": "prend l'étiquette de la vue qui la contient"
+      },
+      {
+        "id": "B",
+        "text": "sort de l'arbre lu par les aides techniques"
+      },
+      {
+        "id": "C",
+        "text": "s'annonce par le nom de son fichier d'origine"
+      },
+      {
+        "id": "D",
+        "text": "reçoit une étiquette décrivant ce qu'elle dessine"
+      }
+    ],
+    "prompt": "Une image purement décorative, dans une vue SwiftUI :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftui/image/init(decorative:bundle:)",
+    "subject": "swift",
+    "topic": "SwiftUI"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "`accessibilityValue` décrit ce que contient la vue quand cela diffère de son nom : « Volume » d'un côté, « 60 % » de l'autre. `accessibilityHint` annonce ce qui se passera après l'action, et l'identifiant sert aux tests d'interface, pas à la lecture.",
+    "id": "4694c2fed42b7342ced27e4f5602d4b7",
+    "options": [
+      {
+        "id": "A",
+        "text": "une étiquette d'accessibilité complétée du pourcentage"
+      },
+      {
+        "id": "B",
+        "text": "une indication d'accessibilité, lue juste après le nom"
+      },
+      {
+        "id": "C",
+        "text": "une valeur d'accessibilité, distincte de l'étiquette"
+      },
+      {
+        "id": "D",
+        "text": "un identifiant d'accessibilité repris par VoiceOver"
+      }
+    ],
+    "prompt": "Un curseur déjà nommé « Volume » annonce son réglage courant par :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftui/view/accessibilityvalue(_:)",
+    "subject": "swift",
+    "topic": "SwiftUI"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Un conteneur paresseux comme `List` ou `LazyVStack` ne crée ses vues qu'au moment de les afficher : posé à l'intérieur, le modificateur reste invisible à la pile, qui ne saura pas quoi présenter. Il se met par-dessus, mais toujours dans le `NavigationStack`.",
+    "id": "61920f321116e09e26271f1316b8ca43",
+    "options": [
+      {
+        "id": "A",
+        "text": "sur chaque lien, au plus près de la donnée poussée"
+      },
+      {
+        "id": "B",
+        "text": "au-dessus de la pile, sur la racine de la scène"
+      },
+      {
+        "id": "C",
+        "text": "dans le corps de la vue de destination elle-même"
+      },
+      {
+        "id": "D",
+        "text": "dans la pile, mais hors d'un conteneur paresseux"
+      }
+    ],
+    "prompt": "Le modificateur qui associe une destination à un type de donnée se place :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftui/view/navigationdestination(for:destination:)",
+    "subject": "swift",
+    "topic": "SwiftUI"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "`NavigationPath` efface les types, et c'est ce qui lui permet de tenir une collection hétérogène là où un tableau impose un seul type d'élément. Pour une pile homogène, le tableau reste plus simple et se lit mieux.",
+    "id": "62f082eb70c4454bfd0e32823484d32a",
+    "options": [
+      {
+        "id": "A",
+        "text": "la pile mêle des données de plusieurs types"
+      },
+      {
+        "id": "B",
+        "text": "la pile doit survivre à une mise en arrière-plan"
+      },
+      {
+        "id": "C",
+        "text": "la pile est modifiée depuis autre chose qu'une vue"
+      },
+      {
+        "id": "D",
+        "text": "la pile dépasse la dizaine d'écrans superposés"
+      }
+    ],
+    "prompt": "On préfère un `NavigationPath` à un tableau pour piloter la pile quand :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftui/navigationpath",
+    "subject": "swift",
+    "topic": "SwiftUI"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "`GlassEffectContainer` fond les formes de plusieurs vues en verre en une seule : SwiftUI les rend ensemble, ce qui allège le rendu et laisse les formes se déformer l'une vers l'autre. L'espacement du conteneur règle à quelle distance le mélange commence.",
+    "id": "4ff0e9a29a680d5bd997933177fc8536",
+    "options": [
+      {
+        "id": "A",
+        "text": "leur applique la même forme de découpe"
+      },
+      {
+        "id": "B",
+        "text": "les réunit dans un conteneur d'effet commun"
+      },
+      {
+        "id": "C",
+        "text": "les empile sans marge dans une même pile"
+      },
+      {
+        "id": "D",
+        "text": "les anime avec un effet de géométrie partagée"
+      }
+    ],
+    "prompt": "Deux vues voisines en Liquid Glass se fondent l'une dans l'autre si on :",
+    "sourceURL": "https://developer.apple.com/documentation/swiftui/glasseffectcontainer",
+    "subject": "swift",
+    "topic": "SwiftUI"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "`Task.sleep` ne bloque pas le fil : il suspend la tâche et rend l'exécuteur libre. Annulée avant la fin du délai, la tâche voit l'appel lancer une `CancellationError` — c'est ce qui permet au travail d'un `.task` de s'arrêter net quand la vue disparaît.",
+    "id": "b5c59640efe8eb7b339f124b34e92003",
+    "options": [
+      {
+        "id": "A",
+        "text": "reprend la main à la fin du délai prévu"
+      },
+      {
+        "id": "B",
+        "text": "poursuit son attente, puis s'arrête au réveil"
+      },
+      {
+        "id": "C",
+        "text": "voit son attente lever l'erreur d'annulation"
+      },
+      {
+        "id": "D",
+        "text": "rend la main sans que rien ne soit signalé"
+      }
+    ],
+    "prompt": "Une tâche annulée pendant un `Task.sleep` :",
+    "sourceURL": "https://developer.apple.com/documentation/swift/task/sleep(for:tolerance:clock:)",
+    "subject": "swift",
+    "topic": "Concurrence"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "Les deux avancent toujours dans le même sens, mais `SuspendingClock` s'arrête quand le système s'endort : c'est l'horloge du temps d'éveil. L'autre est le chronomètre, et c'est elle que `Task.sleep` prend par défaut.",
+    "id": "3466f9259d749c645adae4fcf7ea820b",
+    "options": [
+      {
+        "id": "A",
+        "text": "la première mesure en secondes, la seconde en tics"
+      },
+      {
+        "id": "B",
+        "text": "la première peut reculer, la seconde jamais"
+      },
+      {
+        "id": "C",
+        "text": "la première se remet à zéro à chaque tâche lancée"
+      },
+      {
+        "id": "D",
+        "text": "la première compte encore quand l'appareil dort"
+      }
+    ],
+    "prompt": "Entre `ContinuousClock` et `SuspendingClock` :",
+    "sourceURL": "https://developer.apple.com/documentation/swift/continuousclock",
+    "subject": "swift",
+    "topic": "Concurrence"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "`MainActor.assumeIsolated` vérifie l'hypothèse et ouvre un accès synchrone à l'état isolé ; si le contexte courant n'est pas l'exécuteur du `MainActor`, le programme s'arrête. Il ne s'emploie que depuis une fonction synchrone : ailleurs, un `await` suffit.",
+    "id": "d581124e5361ba3ba2c4b94910e02402",
+    "options": [
+      {
+        "id": "A",
+        "text": "une assertion d'isolation, fatale si elle est fausse"
+      },
+      {
+        "id": "B",
+        "text": "un saut vers l'acteur principal, qui rend l'appel async"
+      },
+      {
+        "id": "C",
+        "text": "une nouvelle tâche isolée, exécutée au tour suivant"
+      },
+      {
+        "id": "D",
+        "text": "une levée locale de la vérification sur la propriété"
+      }
+    ],
+    "prompt": "Depuis une fonction synchrone déjà sur le fil principal, lire un état isolé demande :",
+    "sourceURL": "https://developer.apple.com/documentation/swift/mainactor/assumeisolated(_:file:line:)",
+    "subject": "swift",
+    "topic": "Concurrence"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "La fonction retient quelles propriétés la closure a réellement lues, et ne prévient que pour celles-là. C'est le mécanisme qui porte `@Observable` sous SwiftUI, et il s'emploie tel quel ailleurs — dans un contrôleur UIKit, par exemple.",
+    "id": "5e84c4ea1915de10526573c01c067301",
+    "options": [
+      {
+        "id": "A",
+        "text": "sur toutes les propriétés du type observé"
+      },
+      {
+        "id": "B",
+        "text": "sur les seules propriétés lues dans sa closure"
+      },
+      {
+        "id": "C",
+        "text": "sur les propriétés marquées d'un attribut dédié"
+      },
+      {
+        "id": "D",
+        "text": "sur les propriétés déclarées hors extension"
+      }
+    ],
+    "prompt": "`withObservationTracking` prévient d'un changement :",
+    "sourceURL": "https://developer.apple.com/documentation/observation/withobservationtracking(_:onchange:)",
+    "subject": "swift",
+    "topic": "Architecture"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "Le type se conforme à `AsyncSequence` : on parcourt en `for await` les changements transactionnels d'un type `@Observable`, sans SwiftUI ni Combine. Une transaction va du premier `willSet` au point de suspension suivant.",
+    "id": "b0e607cdec6b385cfe779893258546d3",
+    "options": [
+      {
+        "id": "A",
+        "text": "au journal des lectures faites sur un modèle `@Observable`"
+      },
+      {
+        "id": "B",
+        "text": "à la liste des vues abonnées à un modèle observé"
+      },
+      {
+        "id": "C",
+        "text": "à une séquence asynchrone des changements d'un modèle"
+      },
+      {
+        "id": "D",
+        "text": "au cache des valeurs qu'une propriété a portées"
+      }
+    ],
+    "prompt": "Le type `Observations` (iOS 26) donne accès :",
+    "sourceURL": "https://developer.apple.com/documentation/observation/observations",
+    "subject": "swift",
+    "topic": "Architecture"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "costaud",
+    "explanation": "`InlineArray` stocke ses éléments en ligne, comme un tuple : pas de tampon alloué à part, et une copie recopie tout au lieu de partager. Son nombre d'éléments fait partie de son type, d'où l'écriture abrégée `[3 of Int]`.",
+    "id": "5a4e87dfe3df2839406060f00d38a0c0",
+    "options": [
+      {
+        "id": "A",
+        "text": "copie ses éléments à la première écriture"
+      },
+      {
+        "id": "B",
+        "text": "accepte un nombre d'éléments variable"
+      },
+      {
+        "id": "C",
+        "text": "n'accepte que des éléments conformes à `Sendable`"
+      },
+      {
+        "id": "D",
+        "text": "range ses éléments sans allocation séparée"
+      }
+    ],
+    "prompt": "Entre `InlineArray` et `Array`, le premier :",
+    "sourceURL": "https://developer.apple.com/documentation/swift/inlinearray",
+    "subject": "swift",
+    "topic": "Standard Library"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "`Span` est une vue non propriétaire et non échappante : elle hérite de la durée de vie du conteneur qui possède la mémoire, ce qui écarte l'usage après libération, et ses accès sont bornés, ce qui écarte le débordement. Le compilateur vérifie, sans coût à l'exécution.",
+    "id": "9a9fa7e8561f5460de2bb68a0db468c2",
+    "options": [
+      {
+        "id": "A",
+        "text": "des accès bornés et une durée de vie garantie"
+      },
+      {
+        "id": "B",
+        "text": "une copie du tampon faite avant chaque lecture"
+      },
+      {
+        "id": "C",
+        "text": "la conversion d'un tampon brut en tableau natif"
+      },
+      {
+        "id": "D",
+        "text": "un accès partagé entre plusieurs tâches à la fois"
+      }
+    ],
+    "prompt": "Ce que `Span` apporte face à un pointeur de tampon non sûr :",
+    "sourceURL": "https://developer.apple.com/documentation/swift/span",
+    "subject": "swift",
+    "topic": "Standard Library"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "On importe `Playgrounds`, on enveloppe l'extrait dans la macro, et Xcode affiche le résultat de chaque ligne dans le canvas — au même endroit que les previews SwiftUI, dans un onglet voisin. L'extrait vit dans le fichier qu'il explore, pas dans un document à part.",
+    "id": "7aabb06c56b07e0a072ca4097f1d2990",
+    "options": [
+      {
+        "id": "A",
+        "text": "dans un document de playground ajouté à l'espace de travail"
+      },
+      {
+        "id": "B",
+        "text": "dans un fichier source du projet, près du code visé"
+      },
+      {
+        "id": "C",
+        "text": "dans une cible de test dédiée au module exploré"
+      },
+      {
+        "id": "D",
+        "text": "dans un commentaire de documentation, sous une balise"
+      }
+    ],
+    "prompt": "La macro `#Playground` d'Xcode 26 s'écrit :",
+    "sourceURL": "https://developer.apple.com/documentation/Xcode/running-code-snippets-using-the-playground-macro",
+    "subject": "swift",
+    "topic": "Outillage & diagnostics"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "costaud",
+    "explanation": "L'instrument SwiftUI d'Xcode 26 relie chaque mise à jour à ce qui l'a provoquée : un objet observable, une valeur d'environnement, une transaction. Les nœuds bleus viennent du code de l'app, les gris du système. Le temps passé dans un corps de vue, lui, se lit sur une autre piste.",
+    "id": "f7ee9eb3cec2472630d6eb81b3d087d0",
+    "options": [
+      {
+        "id": "A",
+        "text": "un relevé du temps passé dans le corps de chaque vue"
+      },
+      {
+        "id": "B",
+        "text": "un compteur d'images perdues par seconde de rendu"
+      },
+      {
+        "id": "C",
+        "text": "un graphe des causes et des effets des mises à jour"
+      },
+      {
+        "id": "D",
+        "text": "un arbre d'appels filtré sur le module de la vue"
+      }
+    ],
+    "prompt": "Pour savoir ce qui déclenche les redessins trop fréquents d'une vue, Instruments offre :",
+    "sourceURL": "https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance",
+    "subject": "swift",
+    "topic": "Outillage & diagnostics"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Une alarme AlarmKit est une alerte proéminente : au besoin, elle outrepasse le mode silencieux et le mode de concentration de l'appareil. En échange elle exige une autorisation dédiée et la clé `NSAlarmKitUsageDescription`, faute de quoi rien n'est programmé.",
+    "id": "8e1dcd11e266b3891543fbe85be2e20a",
+    "options": [
+      {
+        "id": "A",
+        "text": "se répéter chaque semaine aux jours choisis"
+      },
+      {
+        "id": "B",
+        "text": "se déclencher à une date fixée à l'avance"
+      },
+      {
+        "id": "C",
+        "text": "demander son autorisation avant la première pose"
+      },
+      {
+        "id": "D",
+        "text": "passer outre le silencieux et la concentration"
+      }
+    ],
+    "prompt": "Ce qu'une alarme AlarmKit (iOS 26) fait et qu'une notification locale ne fait pas :",
+    "sourceURL": "https://developer.apple.com/documentation/alarmkit",
+    "subject": "swift",
+    "topic": "Frameworks iOS"
   }
 ]
