@@ -276,16 +276,16 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard, et rien d'extérieur n'accélère ce rythme. Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin.",
+    "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard. Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin.",
     "id": "37fe1af42b8d811eae7dfa1a08ee0f64",
     "options": [
       {
         "id": "A",
-        "text": "0,5 g/L par heure"
+        "text": "0,4 à 0,6 g/L par heure"
       },
       {
         "id": "B",
-        "text": "0,05 g/L par heure"
+        "text": "0,02 à 0,05 g/L par heure"
       },
       {
         "id": "C",
@@ -293,7 +293,7 @@
       },
       {
         "id": "D",
-        "text": "1 g/L par heure"
+        "text": "0,8 à 1,2 g/L par heure"
       }
     ],
     "prompt": "L'alcool dans le sang s'élimine à un rythme d'environ :",
@@ -1354,7 +1354,7 @@
       },
       {
         "id": "B",
-        "text": "Un délit tranché par un magistrat"
+        "text": "Un délit passible de prison"
       },
       {
         "id": "C",
@@ -1732,11 +1732,11 @@
       },
       {
         "id": "B",
-        "text": "Aucune peine en l'absence d'accident"
+        "text": "La seule suspension du permis"
       },
       {
         "id": "C",
-        "text": "150 € d'amende, sans peine de prison"
+        "text": "135 € d'amende, sans peine de prison"
       },
       {
         "id": "D",
@@ -2055,7 +2055,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le seuil probatoire est calé sous l'effet d'un seul verre : il équivaut à zéro alcool en pratique. Il s'applique pendant toute la période probatoire, pas seulement la première année.",
+    "explanation": "Le seuil probatoire n'est pas nul : il est fixé à 0,20 g/L, sous l'effet d'un seul verre standard (0,20 à 0,25 g/L par verre). Il s'applique pendant toute la période probatoire, pas seulement la première année.",
     "id": "37fe1af42b8d81cf8791f73464a2f801",
     "options": [
       {

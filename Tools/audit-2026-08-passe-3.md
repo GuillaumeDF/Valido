@@ -482,34 +482,57 @@ rien que sa ligne ne couvre.
 ### Les deux dettes du domaine
 
 **Doublon cross-domaine.** `37fe1af42b8d817e8e2feffa6987ba00` (« À partir de 0,8 g/L de sang,
-conduire est : ») portait, à la comma près, la même option correcte que `337bfcb4d034b62de5fe0d77ca0cb0a0`
-d'« Vitesse » : « Un délit jugé au tribunal correctionnel » contre « Un délit, jugé au tribunal
-correctionnel ». Tranché en réaimant l'option de cette tâche plutôt qu'en expliquant l'identité
-comme inévitable : nouvelle option correcte « Un délit tranché par un magistrat » — même
-classification (délit), fait différent en substance (qui juge, pas où). Trois brouillons
-intermédiaires écartés avant celui-ci :
-- « Un délit, avec un retrait de six points » recoupait mot pour mot (« délit », « retrait »,
-  « points ») les explications de deux autres cartes du même domaine (`37fe1af42b8d817e9b` et
-  `749552ac121e0cd77b`, qui discutent toutes deux ce même retrait) — détecté par
-  `--fuites`, qui est passé de 0 à 2 recouvrements avec ce brouillon ;
-- « Un délit, hors de l'amende forfaitaire » ne recoupait plus rien dans le domaine mais
-  recoupait deux cartes d'autres domaines (`337bfcb4d034b62de5` d'« Vitesse » et `2d45cedf9b3d`
-  de « Permis & sanctions »), « amende forfaitaire » étant vocabulaire courant à chaque fois
-  qu'une carte oppose contravention et délit dans toute la banque ;
-- « Un délit, tranché par un magistrat » (avec virgule) était grammaticalement correct mais
-  seule option ponctuée de la carte (`forme/seule-ponctuee`, informatif) ; la virgule retirée
-  résout aussi ce point sans rien perdre au sens.
+conduire est : ») portait, à la virgule près, la même option correcte que
+`337bfcb4d034b62de5fe0d77ca0cb0a0` de « Vitesse » : « Un délit jugé au tribunal correctionnel »
+contre « Un délit, jugé au tribunal correctionnel ». Tranché en réaimant l'option de cette carte
+plutôt qu'en expliquant l'identité comme inévitable — mais en deux temps, le premier passage
+n'ayant réglé que le doublon littéral. Chronologie complète des sept formulations essayées, sur
+les deux tours de cette tâche :
+
+1. « Un délit jugé au tribunal correctionnel » (texte de départ) — écarté : doublon littéral
+   avec `337bfcb4…`.
+2. « Un délit, avec un retrait de six points » — écarté : recoupait mot pour mot (« délit »,
+   « retrait », « points ») les explications de deux autres cartes du même domaine
+   (`37fe1af42b8d817e9b` et `749552ac121e0cd77b`, qui discutent toutes deux ce même retrait) ;
+   `--fuites` sur ce domaine passait de 0 à 2 recouvrements avec ce brouillon.
+3. « Un délit, hors de l'amende forfaitaire » — écarté : ne recoupait plus rien dans le domaine
+   mais recoupait deux cartes d'autres domaines (`337bfcb4d034b62de5` de « Vitesse » et
+   `2d45cedf9b3d` de « Permis & sanctions »), « amende forfaitaire » étant vocabulaire courant à
+   chaque fois qu'une carte de la banque oppose contravention et délit.
+4. « Un délit, tranché par un magistrat » — écarté : seule option ponctuée de la carte
+   (`forme/seule-ponctuee`, informatif).
+5. « Un délit tranché par un magistrat » (virgule retirée) — retenu en fin de premier tour, mais
+   **la revue a montré que le défaut n'était pas la forme, il était le fond** : le qualificatif
+   partagé avec l'option A (« une contravention de quatrième classe », dont l'explication
+   voisine `526ffb51…` associe déjà « jugé au tribunal correctionnel » à une contravention
+   discutée à tort) ne distingue en réalité rien — une contravention contestée peut, elle aussi,
+   passer devant un juge (tribunal de police). La carte définissait le délit par « quelqu'un le
+   juge », qui n'est pas ce qui le sépare de la contravention.
+6. « Un délit, passible d'une peine de prison » — corrige le fond : l'emprisonnement n'existe
+   pour aucune contravention, quelle que soit sa classe, donc ce qualificatif distingue
+   réellement le délit — mais réintroduisait une virgule et, sans elle, redevenait l'option la
+   plus longue de la carte (bonne=39 vs 2e=37, exactement le déséquilibre du texte de départ,
+   étape 1).
+7. **« Un délit passible de prison » — retenu.** Même fait distinctif (emprisonnement possible,
+   jamais pour une contravention), sans virgule, et raccourci pour ne plus être l'option la plus
+   longue (27 caractères contre 33–37 pour les trois autres).
+
 Vérifié par script contre les 255 cartes `code` : les trois mots pleins de la formulation
-retenue (`délit`, `tranché`, `magistrat`) ne sont réunis dans l'explication d'aucune autre
-carte. `--fuites` sur « Alcool & stupéfiants », « Vitesse » et « Permis & sanctions » : 0
-recouvrement sur les trois après ce choix.
+retenue (`délit`, `passible`, `prison`) ne sont réunis dans l'explication d'aucune autre carte.
+`--fuites` sur « Alcool & stupéfiants », « Vitesse » et « Permis & sanctions » : 0 recouvrement
+sur les trois après ce choix. Observation laissée telle quelle, sans y toucher : le seul
+« tribunal correctionnel » restant dans le domaine est maintenant sur une option **fausse**
+(`526ffb51…` B, « Commet un délit, jugé au tribunal correctionnel », une contravention à tort
+qualifiée de délit) — c'est un distracteur qui nomme une confusion réelle, pas un défaut.
 
 **Dissonance « deux verres » / « deux ou trois verres ».** Les deux cartes visées par le §9.5
 n° 8 de la passe 2 sont `37fe1af42b8d8118b6d3f82929eabdca` (seuil général, « et deux ou trois
 verres pour la franchir ») et `37fe1af42b8d81218099fdc3bcfd24c9` (verre standard, « ce qui met
 le seuil légal à portée de deux verres »). Tranché contre l'affirmation INRS TC 152 que les
 deux lignes de registre citent : un verre standard fait monter l'alcoolémie de **0,20 à 0,25
-g/L** (INRS, rang 1 ; le dépliant DSR d'avril 2022, rang 2, retient 0,25 g/L en moyenne). Pour
+g/L** (INRS, rang 3, organisme nommé, édition décembre 2015 ; le dépliant DSR d'avril 2022,
+rang 2, retient 0,25 g/L en moyenne — aucune source de rang 1 ne chiffre cette constante
+physiologique). Pour
 franchir le seuil général de 0,50 g/L : 0,50 / 0,25 = **2** verres à l'estimation haute, 0,50 /
 0,20 = **2,5** à l'estimation basse — donc entre deux et trois selon l'individu, jamais un
 compte fixe à deux. « Deux ou trois verres » est la formulation qui respecte la fourchette
@@ -543,8 +566,8 @@ qu'une paraphrase littérale n'ajoute jamais. **Verdict : faux positif, non corr
 - énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 18 énoncés se lisent déjà
   sans connaître la réponse (vérifié un par un à l'étape 2) ; aucune modification d'énoncé dans
   cette tâche.
-- deux explications complétées pour porter la **raison** que le critère 3 demande, sans y
-  toucher pour le budget (aucune contrainte de 220 caractères dans ce domaine) :
+- deux explications complétées pour porter la **raison** ou la **limite** que le critère 3
+  demande, sans y toucher pour le budget (aucune contrainte de 220 caractères dans ce domaine) :
   - `22603ebb1d645f3273bc07e98ab0eb23` (dépistage après accident corporel) gagne « la gravité de
     l'enjeu ne laisse pas le temps d'attendre un signe visible », qui explique pourquoi
     l'obligation ne demande aucun soupçon préalable plutôt que de seulement l'affirmer.
@@ -553,42 +576,63 @@ qu'une paraphrase littérale n'ajoute jamais. **Verdict : faux positif, non corr
     pas », qui borne la règle « aucun seuil » contre une lecture qui la ferait reposer sur une
     simple accusation. Le fait était déjà dans l'affirmation de la ligne (« il résulte d'une
     analyse sanguine ou salivaire ») ; aucun ajout de registre nécessaire.
-- deux distracteurs corrigés pour cesser de nommer un seuil d'alcoolémie inexistant en droit
-  français (seuls 0,20 / 0,50 / 0,80 g/L sont codifiés ; voir Options ci-dessous pour le détail
-  et la justification du remplacement par « 0 g/L ») : `37fe1af42b8d8118b6d3f82929eabdca`
-  (« 1 g/L de sang » → « 0 g/L de sang ») et `37fe1af42b8d81cf8791f73464a2f801` (« 0,3 g/L » →
-  « 0 g/L »).
-- un débat interne réglé sans toucher au fond (voir « Les deux dettes » ci-dessus) :
-  `37fe1af42b8d817e8e2feffa6987ba00`, dont l'option correcte change de mots sans changer de
-  réponse.
+- une explication corrigée en fix round 1 parce qu'elle légitimait le distracteur qu'elle aurait
+  dû réfuter : `37fe1af42b8d81cf8791f73464a2f801` (seuil probatoire) disait « il équivaut à zéro
+  alcool en pratique », ce qui validait l'option B « 0 g/L » plutôt que de l'exclure —
+  exactement le distracteur partiellement vrai que le §1 règle 2 de `questions.md` proscrit,
+  sur le domaine où c'est le moins sûr (la limite officiellement enseignée aux jeunes
+  conducteurs). Réécrite : « Le seuil probatoire n'est pas nul : il est fixé à 0,20 g/L, sous
+  l'effet d'un seul verre standard (0,20 à 0,25 g/L par verre). » L'explication argumente
+  maintenant *contre* l'option 0, elle ne la cautionne plus. Figure du verre standard déjà
+  sourcée sur une ligne voisine ; `sources.md` porte le renvoi plutôt qu'une nouvelle citation.
+- une explication corrigée en fix round 1 pour un recouvrement que `--fuites` ne peut pas voir
+  (le seuil de trois mots pleins ne couvre pas une paraphrase) : `37fe1af42b8d811eae7dfa1a08ee0f64`
+  (vitesse d'élimination) disait « rien d'extérieur n'accélère ce rythme », qui redit en d'autres
+  mots la bonne réponse de `37fe1af42b8d81f2a662e1b1284f99b9` (« Attendre : rien d'autre
+  n'agit »). Retirée : le fait reste enseigné en entier par `81f2a6…`, dont c'est le seul objet ;
+  `811eae…` garde la règle (le rythme) et l'illustration (trois verres à minuit), sans plus
+  empiéter sur la carte voisine.
+- un débat interne réglé sans toucher au fond en round 1, puis corrigé une seconde fois en fix
+  round 1 sur la revue (voir « Les deux dettes » ci-dessus pour la chronologie complète) :
+  `37fe1af42b8d817e8e2feffa6987ba00`, dont l'option correcte teste maintenant un fait qui
+  distingue réellement le délit de la contravention (l'emprisonnement possible), pas seulement
+  des mots différents pour la même identité de venue.
 
-**Les douze cartes non modifiées**, lues contre les quatre critères pédagogiques et évidencées
-individuellement :
+**Huit cartes modifiées** au total : les six ci-dessus, plus deux touchées uniquement sur leurs
+options (détail dans « Options » ci-dessous) — `37fe1af42b8d811eae7dfa1a08ee0f64` (déjà listée
+pour son explication, et dont les trois distracteurs ont aussi été élargis en fourchettes) et
+`37fe1af42b8d81b38194dba0c15484b4` (stupéfiants, peine maximale : deux options réécrites).
+
+**Les dix cartes non modifiées**, lues contre les quatre critères pédagogiques et évidencées
+individuellement — deux évidences corrigées en fix round 1, qui admettaient une raison
+seulement implicite tout en la comptant comme conforme ; elles sont maintenant nommées comme
+telles plutôt que forcées dans la colonne « conforme » :
 
 | id | rôle | pourquoi jugée conforme |
 |---|---|---|
-| `37fe1af42b8d811eae7dfa1a08ee0f64` | vitesse d'élimination | règle (« 0,1 à 0,15 g/L par heure ») + raison (« le foie met environ une heure et demie à venir à bout d'un seul verre standard, et rien d'extérieur n'accélère ce rythme ») + limite/mise en situation (« Trois verres pris à minuit peuvent donc laisser un taux positif au petit matin »), qui rend la règle abstraite concrète sans la sur-généraliser |
 | `37fe1af42b8d817e9b93c2546ad30ec9` | 0,5–0,8 g/L, retrait de points | conforme au sens du §4 (faux positif motivé ci-dessus) ; règle (« 6 points ») + raison (« le maximum possible pour une contravention […] la moitié du capital ») + limite (« Au-delà de 0,8 g/L on change de nature d'infraction […] sans que le retrait augmente pour autant ») |
-| `37fe1af42b8d81b38194dba0c15484b4` | stupéfiants, peine maximale | règle (« jusqu'à trois ans d'emprisonnement et 9 000 € ») + raison-par-parité (« L'alcoolémie délictuelle est punie au même niveau »), qui ancre le chiffre à un repère déjà connu du lecteur plutôt que de le laisser arbitraire + limite (« ce qui aggrave encore la peine, c'est le cumul des deux », qui distingue de `e13df5a7…`) |
-| `37fe1af42b8d81b3b1a2f0bc28c23b22` | effets sur la conduite | règle (réduction du champ visuel et des réflexes) + raison implicite par gradation dose-effet (« dès le premier verre […] à partir du seuil légal de 0,5 g/L elles sont tenues pour établies ») + limite qui coupe le mythe de la compensation (« Aucune ne se compense par la volonté de rester vigilant ») |
+| `37fe1af42b8d81b3b1a2f0bc28c23b22` | effets sur la conduite | règle (réduction du champ visuel et des réflexes) + **raison seulement implicite** — la gradation dose-effet (« dès le premier verre […] à partir du seuil légal de 0,5 g/L elles sont tenues pour établies ») situe *quand* les effets sont établis, pas le mécanisme qui les cause ; l'affirmation de la ligne ne va pas plus loin, donc rien à sourcer de plus + limite qui coupe le mythe de la compensation (« Aucune ne se compense par la volonté de rester vigilant ») |
 | `37fe1af42b8d81f2a662e1b1284f99b9` | accélérer l'élimination | règle (rien n'accélère) + raison (« L'alcool est éliminé par le foie à un rythme fixe ») + limite qui nomme les trois mythes et ce qu'ils changent réellement (« café, douche ou repas modifient la sensation d'ébriété, pas le taux mesuré par l'éthylomètre ») |
 | `526ffb51f8bc0ed95490405ddc0dfc0f` | probatoire à 0,4 g/L | règle (infraction dès 0,4 g/L, seuil probatoire 0,2) + raison (« vaut pendant toute la période probatoire, quel que soit l'âge ») + limite qui évite la sur-généralisation vers le délit (« mais elle reste une contravention, le délit commençant à 0,8 g/L ») |
-| `5720fa6a7cd62743982f88a4f3fa5dd2` | 0,9 g/L, peine maximale | règle (« trois ans […] et 9 000 € ») + raison-par-contraste (« c'est l'ancien barème, resté dans presque tous les manuels, qui donne deux ans et 4 500 € », qui ancre pourquoi retenir *ce* chiffre plutôt que l'autre) + limite (« La peine de cinq ans […] est réservée au cumul », qui distingue de `e13df5a7…`) |
+| `5720fa6a7cd62743982f88a4f3fa5dd2` | 0,9 g/L, peine maximale | règle (dans l'option, en chiffres : « 3 ans de prison et 9 000 € d'amende » — l'explication ne la répète pas en toutes lettres) + **raison seulement par contraste**, pas une cause (« c'est l'ancien barème, resté dans presque tous les manuels, qui donne deux ans et 4 500 € » ancre le chiffre contre la confusion la plus probable, sans dire pourquoi le législateur a choisi ce montant — aucune source lue ne porte d'exposé des motifs) + limite (« La peine de cinq ans […] est réservée au cumul », qui distingue de `e13df5a7…`) |
 | `749552ac121e0cd77beff969300b8ef9` | refus de dépistage alcool | règle (délit, même peine que 0,8 g/L) + raison (« le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler ») + limite (« seules les peines complémentaires restent différentes, la suspension du permis plafonnée à trois ans pour le refus contre cinq ans pour le délit ») |
 | `92f3fe40dd9c28ff0010261e74ae6ebe` | refus de dépistage stupéfiants | règle (même peine que l'alcool) + raison-par-parité (« encourt la même peine que celui de l'alcoolémie ») + limite qui distingue du cumul (« celui du cumul alcool et stupéfiants, à cinq ans et 15 000 €, sanctionne une infraction plus lourde ») |
 | `bda97dae02fa9e085f5f6ba0827a4f7b` | assurance après accident | règle (couvre les tiers, exclut le conducteur, majore de 150 %) + raison (« La responsabilité civile est obligatoire : elle joue pour les tiers quoi qu'ait fait l'assuré ») + limite (« 400 % ne s'applique qu'en cas d'infractions multiples […] mais seulement avec un mois de préavis ») |
 | `e13df5a7d4151bdeca7a9f914c90cf4e` | cumul alcool + stupéfiants | règle (« cinq ans […] et 15 000 € ») + raison physiologique (« Les deux produits combinent leurs effets sur la vigilance au lieu de s'annuler ») + limite (« la confiscation du véhicule devient obligatoire, la juridiction devant motiver spécialement pour y renoncer ») |
 | `ef26cca38b9d1abc6fb0b13d76247f35` | éthylotest antidémarrage | règle (bloque le démarreur, pas le moteur lancé) + raison implicite par contraste avec le distracteur A + limite/séquence (« cette interdiction ne s'applique qu'à l'issue de cette peine — le condamné ne conduit donc pas pendant la suspension […] Passer outre est un délit distinct ») |
 
-Six cartes modifiées (`22603ebb…`, `37fe1af42b8d810ea5…`, `37fe1af42b8d8118b6…`,
-`37fe1af42b8d812180…`, `37fe1af42b8d817e8e…`, `37fe1af42b8d81cf87…`) + douze non modifiées = 18,
-sans reste.
+Huit cartes modifiées (`22603ebb…`, `37fe1af42b8d810ea5…`, `37fe1af42b8d8118b6…`,
+`37fe1af42b8d812180…`, `37fe1af42b8d817e8e…`, `37fe1af42b8d81cf87…`, `37fe1af42b8d811eae…`,
+`37fe1af42b8d81b381…`) + dix non modifiées = 18, sans reste.
 
 ### Options (critère 2)
 
 Les 18 cartes relues contre les trois premières règles du §1 de `questions.md` (plausible,
 réellement faux, confusion courante plutôt que chiffre inventé) et le piège de forme du §2 (non
-éliminable par pure logique). Deux correctifs, tous deux sur un même défaut :
+éliminable par pure logique). **Ce paragraphe a été refait en fix round 1** : le premier passage
+concluait « aucune autre carte du domaine n'a montré de chiffre inventé » et « aucun distracteur
+récurrent n'apparaît dans ce domaine », deux affirmations que la revue a trouvées fausses contre
+les cartes elles-mêmes. Quatre correctifs au total :
 
 - **`37fe1af42b8d8118b6d3f82929eabdca`** (seuil général) — option D « 1 g/L de sang » n'est le
   seuil d'aucune catégorie du droit routier français : seuls 0,20 (probatoire), 0,50 (général)
@@ -597,26 +641,69 @@ réellement faux, confusion courante plutôt que chiffre inventé) et le piège 
   une tolérance zéro) plutôt qu'un quatrième seuil inventé.
 - **`37fe1af42b8d81cf8791f73464a2f801`** (seuil probatoire) — même défaut sur l'option B
   « 0,3 g/L », valeur qui n'existe dans aucune des trois catégories. Remplacée par « 0 g/L »,
-  même correctif, même justification. Les deux cartes couvrant ensemble 0 / 0,2 / 0,5 / 0,8
-  n'introduisent pas de doublon de distracteur : c'est la même confusion réelle (tolérance
-  zéro) réutilisée deux fois dans le même domaine, comme le permet la règle 5 du §1
-  (« la confusion courante est le meilleur distracteur ») — à distinguer du défaut que vise la
-  règle 7, qui porte sur un distracteur générique et vide de sens répété au point de devenir un
-  signal, non sur une confusion réelle propre au domaine.
+  même correctif — mais l'explication de cette carte, elle, validait ce distracteur au lieu de
+  le contredire ; voir Pédagogie ci-dessus pour la correction, faite dans le même geste en fix
+  round 1. Les deux cartes couvrant ensemble 0 / 0,2 / 0,5 / 0,8 n'introduisent pas de doublon
+  de distracteur : c'est la même confusion réelle (tolérance zéro) réutilisée deux fois dans le
+  même domaine, comme le permet la règle 5 du §1 (« la confusion courante est le meilleur
+  distracteur ») — à distinguer du défaut que vise la règle 7, qui porte sur un distracteur
+  générique et vide de sens répété au point de devenir un signal, non sur une confusion réelle
+  propre au domaine.
+- **`37fe1af42b8d811eae7dfa1a08ee0f64`** (vitesse d'élimination) — **découvert en fix round 1** :
+  l'option correcte (« 0,1 à 0,15 g/L par heure ») était le seul intervalle des quatre options
+  face à trois valeurs ponctuelles, **et** la plus longue de six caractères (`audit.py` :
+  bonne=24 vs 2e=18, +6) — le cumul de forme que le §2 de `questions.md` proscrit, déjà corrigé
+  une fois sur la carte voisine `37fe1af42b8d81218099fdc3bcfd24c9` dont la ligne de registre
+  enregistre le geste (« Les options ont été élargies en fourchettes »). Même correctif ici : A
+  (0,5 → « 0,4 à 0,6 g/L par heure »), B (0,05 → « 0,02 à 0,05 g/L par heure ») et D (1 →
+  « 0,8 à 1,2 g/L par heure ») deviennent des fourchettes, chacune un ordre de grandeur
+  plausible mais faux (surestimation ou sous-estimation), sans toucher à l'intervalle correct.
+- **`37fe1af42b8d81b38194dba0c15484b4`** (stupéfiants, peine maximale) — **découvert en fix
+  round 1**, deux défauts sur la même carte :
+  - option B « Aucune peine en l'absence d'accident » était éliminable par la forme de l'énoncé
+    lui-même (« expose à une peine pouvant aller jusqu'à : », qui présuppose qu'une peine
+    existe — §1 règle 4) : répondre « aucune » à une question qui présuppose une peine se
+    repère sans rien connaître au sujet. Réécrite en une croyance que l'énoncé ne réfute pas :
+    « La seule suspension du permis » (une vraie conséquence, mais incomplète — pas la bonne
+    réponse).
+  - option C « 150 € d'amende, sans peine de prison » nommait un montant qui n'existe dans
+    aucun barème du droit routier (la 4ᵉ classe forfaite à 135 €, une contravention maximale à
+    750 €) — même défaut que les deux seuils d'alcoolémie inventés ci-dessus, sur un chiffre
+    plutôt qu'un seuil. Corrigée en « 135 € d'amende, sans peine de prison », le vrai montant du
+    forfait de 4ᵉ classe déjà utilisé ailleurs dans la banque.
 
-Aucune autre carte du domaine n'a montré de chiffre inventé : les options des cartes sur les
-grandeurs continues (vitesse d'élimination, effet d'un verre standard) sont des estimations
-physiologiques et non des seuils légaux catégoriels, donc pas soumises au même test d'existence
-qu'un seuil de droit ; les options en points (`37fe1af42b8d817e9b…` : 1, 2, 3 points) reprennent
-le barème réel de R223-1 utilisé ailleurs dans le code pour d'autres infractions ; les options en
-peines (750 €, 2 ans/4 500 €, 5 ans/15 000 €) sont soit l'ancien barème recyclé (règle 3 du §5 de
-`questions.md`), soit un régime réel voisin (le cumul) cité à sa vraie place et distingué en
-explication.
+Sur les grandeurs continues restantes (effet d'un verre standard, `37fe1af42b8d81218099fdc3bcfd24c9`),
+les options sont des estimations physiologiques et non des seuils légaux catégoriels : elles ne
+sont pas soumises au même test d'existence qu'un chiffre de droit, une fourchette d'ordre de
+grandeur n'ayant pas besoin de correspondre à une catégorie codifiée. Les options en points
+(`37fe1af42b8d817e9b…` : 1, 2, 3 points) reprennent le barème réel de R223-1 utilisé ailleurs
+dans le code pour d'autres infractions ; les options en peines restantes (750 €, 2 ans/4 500 €,
+5 ans/15 000 €) sont soit l'ancien barème recyclé (règle 3 du §5 de `questions.md`), soit un
+régime réel voisin (le cumul) cité à sa vraie place et distingué en explication.
 
 Le doublon cross-domaine (`37fe1af42b8d817e8e2feffa6987ba00` face à `337bfcb4d034b62de5` de
-« Vitesse ») est traité en détail dans « Les deux dettes du domaine » ci-dessus. Aucun autre
-distracteur récurrent de la banque (« klaxonner », « aucune sanction », « rien ») n'apparaît
-dans ce domaine.
+« Vitesse ») est traité en détail dans « Les deux dettes du domaine » ci-dessus.
+
+**Le distracteur en forme de négation, recompté après le fix round 1.** Le premier passage
+affirmait qu'aucun distracteur récurrent de la banque (« klaxonner », « aucune sanction »,
+« rien ») n'apparaissait dans ce domaine — vrai au sens strict (aucun de ces trois mots), mais ça
+laissait passer une famille plus large que la revue a nommée : un distracteur qui nie toute
+conséquence plutôt que d'en nommer une plus faible. Avant le fix round 1 elle comptait cinq
+cartes sur dix-huit ; la correction de `37fe1af42b8d81b381…` B (ci-dessus, qui n'est plus une
+négation) la ramène à **quatre** : `37fe1af42b8d817e8e…` C (« Sans sanction en l'absence de
+trouble »), `37fe1af42b8d81b3b1…` D (« Aucun effet mesurable en dessous de 0,5 g/L »),
+`749552ac…` C (« Sans conséquence, faute d'infraction établie ») et `e13df5a7…` D (« Les mêmes
+peines, sans aggravation »). **Verdict : acceptable, à surveiller plutôt qu'à corriger.** Les
+quatre nomment une croyance réelle et distincte (pas de remplissage générique), ce qui les
+distingue du défaut que vise la règle 7 — mais le point commun de forme (la négation) sur 4/18
+est plus dense qu'ailleurs dans la banque, un effet secondaire probable d'un domaine où presque
+toute question porte sur une sanction : « aucune conséquence » y est une réponse fausse plus
+souvent que dans un domaine qui n'en parle pas systématiquement. Le corriger en profondeur
+demanderait de réaimer quatre cartes déjà conformes sur les trois autres règles, ce que la
+consigne de ce tour interdit explicitement (« ne pas réécrire cinq cartes en masse pour rendre
+une phrase vraie ») ; signalé pour qu'une passe future qui croiserait ce même motif dans
+« Permis & sanctions » ou « Vitesse » (non vérifié ici) sache qu'il n'est pas propre à ce
+domaine.
 
 ### Mouvements d'`audit.py`
 
@@ -625,12 +712,16 @@ dans ce domaine.
 | `lettre/reference` | 1 | 1 |
 | `forme/markdown` | 1 | 1 |
 | `forme/seule-ponctuee` | 14 | 14 |
-| `longueur/plus-longue` | 97 | 96 |
+| `longueur/plus-longue` | 97 | 95 |
 | `expl/paraphrase-litterale` | 17 | 17 |
 | `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vide | vide |
 
-`longueur/plus-longue` baisse de un : la carte `37fe1af42b8d817e8e…` sortait du lot avant
-(bonne=39 vs 2e=37, +2) et n'y est plus après réécriture de son option correcte (bonne=33 vs
-2e=37 : la bonne réponse n'est plus la plus longue). `--fuites` : 0 recouvrement sur « Alcool &
-stupéfiants » avant et après ; les brouillons intermédiaires qui en avaient introduit sont
-détaillés dans « Les deux dettes du domaine ».
+`longueur/plus-longue` baisse de deux, composition différente de celle rapportée avant le fix
+round 1 : `37fe1af42b8d817e8e…` (bonne=39 vs 2e=37, +2 à l'origine) en sort après réécriture de
+son option correcte — passée par un point haut à 39 dans un brouillon intermédiaire (chronologie
+complète ci-dessus), réglé par le raccourcissement final à 27 caractères — et
+`37fe1af42b8d811eae…` (bonne=24 vs 2e=18, +6, le plus grand écart du domaine) en sort après
+l'élargissement de ses trois distracteurs en fourchettes. `--fuites` : 0 recouvrement sur
+« Alcool & stupéfiants », « Vitesse » et « Permis & sanctions » avant et après ce tour ; les
+brouillons intermédiaires qui en avaient introduit sont détaillés dans « Les deux dettes du
+domaine ».
