@@ -68,3 +68,7 @@ DerivedData/
 
 ## Snapshots de session de l'outillage (16 Mo de copies de questions.json)
 .superpowers/
+
+# Relevés d'avant/après de la passe de relecture `code` (2026-08). Des rapports de
+# travail, pas des livrables : ce qui doit survivre va dans Tools/audit-2026-08-passe-3.md.
+.passe3/

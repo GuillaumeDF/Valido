@@ -226,6 +226,17 @@ Ceux qui ont réellement coûté des corrections.
 python3 Tools/audit.py            # défaut : Valido/Resources/questions.json
 ```
 
+Pour **lire** une carte à côté de la ligne de `sources.md` qui la couvre — ce qu'`audit.py`
+ne fait pas, il vérifie seulement que la ligne existe :
+
+    python3 Tools/relire.py "Vitesse"            # les cartes du domaine + leur ligne de registre
+    python3 Tools/relire.py --fuites "Vitesse"   # explications qui recouvrent la réponse d'une autre carte
+
+Lecture seule, sort toujours 0. Le second mode couvre l'angle mort n° 2 du §7 de
+[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — la fuite d'une carte vers une
+autre — au seuil de trois mots pleins : en dessous, le recouvrement est du vocabulaire
+commun et noie le signal.
+
 Le script couvre :
 
 - identifiants uniques et non vides ;
