@@ -3344,3 +3344,276 @@ ci-dessus), aucun de vide à non-vide. `Tools/sources.md` touché deux fois au t
 round 0 pour l'écart de `818293…`, en fix round 1 pour ajouter la citation de R415-9 aux
 deux lignes `stable` (`e0f68dd1…`, `818fb7…`). Aucun `Contents.json` reformaté aux deux
 rondes ; `CLAUDE.md` toujours untracked, jamais ajouté au commit.
+
+## Croisement & dépassement
+
+15 cartes, 3 `datée`, 4 illustrée(s).
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `f1ae9582d692d2bb7febb6a3c936ff34` | règle trop large | « Les croisements s'effectuent à droite […] demande à chacun de se rapprocher du bord droit » sans aucune limite | R414-1, 3e alinéa (déjà noté en prose dans la ligne de registre) : une signalisation d'intersection aménagée impose l'inverse — serrer à gauche | limite ajoutée à l'explication : « Une signalisation d'intersection aménagée peut toutefois imposer l'inverse, en demandant de serrer à gauche. » |
+
+Un seul écart, sur une carte non drapeautée. Les trois lignes `datée` (`07b430cc…`,
+`75e142d9…`, `93292bac…`) ont chacune été relues clause par clause contre R414-9, R414-16
+et R414-17 : aucune valeur périmée, aucune condition de champ d'application élargie —
+gabarit (2 m / 7 m), points retirés (2, pas 3), neige/verglas (pas la pluie) reproduisent
+tous l'affirmation mot pour mot.
+
+Les cinq cartes portant un absolu ou une obligation (`ABS toutes les` sur `2fc1ed8a…`,
+`ABS interdit` sur `697b226c…` et `99824d4d…`, `ABS jamais` sur `93292bac…`,
+`ABS aucun/impose` sur `b494d715…`) ont chacune été confrontées à sa ligne, l'absolu
+retrouvant à chaque fois sa borne dans le corps même de la carte : « interdit […] quand la
+visibilité vers l'avant manque, et cite le sommet de côte comme cas typique » sur
+`697b226c…` (jamais l'absence de véhicule en face) ;
+« jamais la pluie » sur `93292bac…` est la clarification elle-même, pas une
+généralisation (le texte ne vise que neige et verglas) ; « interdit […] d'emprunter la
+voie la plus à gauche d'une chaussée à double sens de plus de deux voies » sur
+`99824d4d…` porte sa condition dans la même phrase ; « il impose de s'être assuré
+qu'aucun piéton n'est engagé sur le passage » sur `b494d715…` reproduit exactement la
+condition de vérification de R414-5, pas une interdiction. Le cinquième, `2fc1ed8a…`, est
+examiné séparément ci-dessous.
+
+**Le cas `2fc1ed8a9c9274f0e06be9f12850f5a4`, examiné et non corrigé.** R414-15 ne joue
+que « sur les routes à sens unique et sur les routes à plus de deux voies » ; l'énoncé
+(« La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file
+voisine ») ne nomme pas ce type de route, ce qui ressemble d'abord au même défaut que
+`f1ae9582…`. Vérifié géométriquement avant de trancher : pour qu'une « file voisine » de
+même sens existe à comparer, il faut déjà au moins deux voies dans le même sens de
+circulation — ce qui, arithmétiquement, ne peut se produire que sur une route à sens
+unique (la totalité des voies va dans le même sens) ou sur une route à plus de deux voies
+(au moins trois, dont deux du même côté). Le scénario décrit par l'énoncé satisfait donc
+la condition de l'article par construction, dans toutes ses lectures plausibles ; ce
+n'est pas une carte comparable à `f1ae9582…`, où l'exception (l'aménagement signalé) est
+une configuration réelle que rien dans l'énoncé n'exclut. L'explication porte d'ailleurs
+déjà la limite (« R414-15 ne joue que sur les routes à sens unique ou à plus de deux
+voies […] Hors de ce cas, remonter par la droite reste un dépassement par la droite ») :
+seul l'énoncé ne la nomme pas, sans en avoir besoin. Non modifiée.
+
+### Doutes signalés, non corrigés
+
+Aucun doute laissé ouvert. Les trois lignes `datée` du domaine ont été relevées le
+2026-08-26 sur Legifrance, et aucune carte n'affirme une valeur ou une portée que
+l'affirmation ne couvre pas. Le seul point qui a demandé une vérification externe à la
+ligne — le champ d'application de R414-15 sur `2fc1ed8a…`, ci-dessus — a été tranché par
+le calcul, pas par une source rouverte, et n'est donc pas un doute qui reste en suspens.
+
+### Pédagogie
+
+- explications sous 120 caractères : 0 à l'entrée, 0 à la sortie. Le domaine part
+  d'explications déjà étoffées (médiane 231 caractères sur les 15) ; le seul mouvement de
+  cette tâche est l'ajout d'une limite manquante sur une carte, pas un allongement de
+  texte court.
+- cartes dont le budget de 220 a limité l'explication : les 4 illustrées tiennent déjà
+  rule + raison + limite dans leur budget sans reformuler la bonne réponse (mesures
+  ci-dessous) ; aucune n'a été éditée, le budget n'a donc contraint aucune réécriture
+  cette tâche-ci.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 15 énoncés se
+  lisent sans connaître la réponse — mise en situation (les 4 illustrées, `07b430cc…`,
+  `2fc1ed8a…`, `75e142d9…`, `9aaede46…`) ou question à compléter par les options
+  (les autres). `2fc1ed8a…` a été examiné pour ce critère précisément (voir ci-dessus) et
+  jugé complet tel quel.
+
+**Les 4 cartes illustrées, mesurées (inchangées) :**
+
+| id | énoncé | options (max) | explication |
+|---|---:|---:|---:|
+| `42078575c362bf24a220380788994e25` | 33 / 70 | 49 / 50 | 196 / 220 |
+| `46269e3e9018b1949b8143894e86c4fc` | 36 / 70 | 47 / 50 | 214 / 220 |
+| `697b226c6270e1cee1a6e4edb95dec42` | 45 / 70 | 47 / 50 | 216 / 220 |
+| `9aaede46c1c808687f89f4a8fb81f9df` | 44 / 70 | 47 / 50 | 215 / 220 |
+
+Les quatre respectent déjà le budget 70/50/220 et enseignent rule + raison + limite sans
+reformuler leur bonne réponse (critère 4, `expl/paraphrase-litterale` reste à 0 sur ce
+domaine avant comme après) : aucune n'a été éditée.
+
+### Preuve par carte, pour les 14 cartes non modifiées
+
+| id | rôle | règle / raison / limite |
+|---|---|---|
+| `07b430ccbde4b33b92be8686899b1ddf` | convoi hors gabarit | règle (« son conducteur réduit sa vitesse et, au besoin, s'arrête ou se gare ») + raison (gabarit > 2 m de large ou 7 m de long, remorque et chargement compris) + limite (« Les transports en commun en agglomération en sont dispensés ») |
+| `2fc1ed8a9c9274f0e06be9f12850f5a4` | files denses, vitesse relative | règle (« n'est pas considéré comme un dépassement ») + raison/limite explicite (« R414-15 ne joue que sur les routes à sens unique ou à plus de deux voies […] Hors de ce cas, remonter par la droite reste un dépassement par la droite ») — voir l'examen ci-dessus |
+| `42078575c362bf24a220380788994e25` | obstacle sur sa voie | règle (« c'est empiéter sur la moitié gauche de la chaussée ») + raison (« R414-7 ne l'autorise que si la circulation en sens inverse n'en est pas gênée ») + limite (« L'obstacle est de votre côté : l'attente aussi ») |
+| `46269e3e9018b1949b8143894e86c4fc` | achever un dépassement engagé | règle (« rien n'oblige à interrompre la manœuvre ») + raison (« La voie de gauche est dégagée et la ligne discontinue autorise à l'emprunter ») + limite (« R414-10 demande seulement de revenir à droite ensuite, sans faire ralentir le véhicule doublé ») |
+| `697b226c6270e1cee1a6e4edb95dec42` | sommet de côte | règle (« interdit tout dépassement sur chaussée à double sens quand la visibilité vers l'avant manque ») + raison (« cite le sommet de côte comme cas typique ») + limite/clarification (« Ce n'est pas ce qui vient en face qui l'interdit, c'est de l'ignorer ») |
+| `75e142d94ea93f63d0e75fa19a8f8c4f` | se faire dépasser | règle (« serrer immédiatement sur sa droite sans accélérer ») + raison (« Accélérer allonge la manœuvre et le temps passé sur la voie de gauche ») + limite (« c'est le seul manquement de cet article qui coûte des points, deux en l'occurrence ») |
+| `93292bac6a7b17452c0e2ad2b30164fa` | neige ou verglas, > 3,5 t | règle (« ni dépassement ni changement de file, au-delà de 3,5 tonnes comme pour un ensemble de plus de 7 mètres ») + raison/portée (« R414-17 vise la neige et le verglas, jamais la pluie ») + limite (le distracteur pluie/autoroute explicitement écarté dans le corps même de l'explication) |
+| `99824d4de286434d85174502e05ea59d` | chaussée à trois voies | règle (« interdit à qui dépasse d'emprunter la voie la plus à gauche d'une chaussée à double sens de plus de deux voies ») + raison (« ce qui revient à la laisser à ceux qui viennent en face ») + limite (« La voie centrale est celle du dépassement ») |
+| `9aaede46c1c808687f89f4a8fb81f9df` | rabattement trop court | règle (« demande de revenir sur sa droite sans provoquer le ralentissement du véhicule dépassé ») + raison (« Se rabattre à un mètre de son pare-chocs l'oblige à lever le pied ») + limite (« la place n'est reprise que quand elle ne coûte rien ») |
+| `acfa94cddf8eadadd75d07c9b97a5501` | ne pas s'engager si sur le point d'être dépassé | règle (le 3° de la condition, « vous êtes sur le point d'être dépassé ») + raison (rappel des deux autres conditions, reprendre sa place et une vitesse relative brève) + limite/image (« Deux dépassements emboîtés mettraient trois véhicules de front ») |
+| `ad7c53ef7c57cb946c12b29bc36c004f` | dépassement par la droite obligatoire | règle (« deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée ») + raison (« Le contourner par la gauche croiserait sa trajectoire ») + limite (seuls ces deux cas, le distracteur générique « vous fait signe » n'en fait pas partie) |
+| `b494d71578b339d0259157dd378a3b9b` | passage pour piétons | règle (« il impose de s'être assuré qu'aucun piéton n'est engagé sur le passage ») + raison (« Le danger tient au masque ») + limite (« R414-5 ne prononce pas d'interdiction », distingue la condition de vérification d'une interdiction pure) |
+| `e5b0f585f1a3654ca790b9e391db8203` | voie ferrée sans barrière | règle (« vise les seules traversées dépourvues de barrière et de demi-barrière ») + raison (« rien n'y matérialise l'arrêt, et le véhicule doublé masque justement la voie ») + limite (« Là où une barrière existe, c'est elle qui commande ») |
+| `f5a12ba77751310fe9a210a3b787286a` | dépassement près d'une intersection | règle (« lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent ») + raison (la priorité de passage justifie l'exception) + limite/distinction (« C'est le dépassement d'un deux-roues qui échappe à l'interdiction, pas le dépassement par un deux-roues ») |
+
+Modifiée 1 (`f1ae9582…`) + non modifiées 14 = 15, sans reste.
+
+### Les options
+
+Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le
+point 14 du calibrage (« existe-t-il une lecture où il est la bonne réponse ? »). Aucun
+distracteur inventé sans existence réelle : le seul chiffre qui n'est
+pas dans le texte de son propre article — « dix secondes » sur `acfa94cd…` — est nommé
+comme repère d'enseignement par la ligne de registre elle-même, pas comme une valeur du
+code, et reste une confusion réelle plutôt qu'un nombre sorti de nulle part ; les valeurs
+recyclées (« 30 km/h » sur `2fc1ed8a…`, « 3,5 t » sur `b494d715…`) sont chacune la vraie
+valeur d'un **autre** article de la banque, notée comme telle par la ligne de registre.
+Aucun distracteur éliminable par la seule forme de l'énoncé, aucun légitimé par
+l'explication de sa propre carte, et aucun qui soit un cas particulier de la bonne
+réponse une fois relu après l'ajout de la limite sur `f1ae9582…` (les quatre options —
+serrer à droite, rester au milieu, se déporter au centre, passer en feux de route — sont
+inchangées par cet ajout et restent quatre comportements distincts). `correctID`
+inchangé : la seule édition porte sur l'explication, aucune option n'a été touchée, donc
+aucune rotation n'était nécessaire.
+
+**`correctID` — mesuré avant et après, inchangé.** A 4, B 4, C 4, D 3 sur les 15 cartes,
+aux deux bouts de la tâche : la répartition était déjà proche de l'uniforme (3,75 par
+lettre) et l'unique édition ne touche aucune option, donc aucune rotation n'a été
+nécessaire.
+
+### Recoupement croisé avec « Usagers & partage de la route » et « Vitesse »
+
+**`Usagers & partage de la route`** teste la distance latérale au dépassement d'un
+cycliste (`9b774739866a136e7c2a9bd69b2f417d`, énoncé « Vous dépassez ce cycliste en le
+laissant à au moins : », réponse « 1 m de son guidon », IV de R414-4). Aucune des 15
+cartes du lot ne mentionne de cycliste, de distance latérale ni de chiffre en mètres pour
+un dépassement ; `acfa94cd…` cite bien le II de R414-4, mais son 3° (ne pas entamer un
+dépassement si l'on est soi-même sur le point d'être dépassé) est un alinéa distinct de
+celui que teste `Usagers`. Aucun recouvrement.
+
+**`Vitesse`** ne porte, après vérification, aucune carte sur ce qu'une ligne continue
+interdit — cette matière (R412-19, franchir coûte 3 points, chevaucher 1) vit dans
+`Panneaux & marquage` (`37fe1af42b8d8141…`, `3cb86b6e4c489d919…`), domaine non encore
+traité par cette passe. `697b226c…` cite « une ligne continue » uniquement dans la
+citation intégrale de R414-11 conservée au registre (l'exception qui laisse libre la
+partie gauche d'une ligne continue), jamais dans le corps de la carte elle-même — la
+scène ne montre ni ligne continue ni deux-roues, et l'explication ne mentionne aucun des
+deux, conformément à la note déjà portée par le registre (« Aucune des deux réserves ne
+joue sur la scène »). Aucun recouvrement, ni avec `Vitesse` ni avec `Panneaux & marquage`.
+
+### Point 13 — réponses sous trois mots pleins, cherchées à la main
+
+Sur les 15 bonnes réponses du lot, une seule tombe sous le seuil de trois mots pleins
+(jetons `[a-z0-9]+` d'au moins cinq caractères, minuscules et accents retirés) :
+
+| id | bonne réponse | mots pleins (≥ 5 car.) | n |
+|---|---|---|---|
+| `acfa94cddf8eadadd75d07c9b97a5501` | « vous êtes sur le point d'être dépassé » | `depasse`, `point` | 2 |
+
+```
+$ python3 - <<'EOF'
+import json
+qs = json.load(open('Valido/Resources/questions.json'))
+for q in qs:
+    if q['subject'] != 'code': continue
+    champs = [q['prompt'], q['explanation']] + [o['text'] for o in q['options']]
+    if any("être dépassé" in c.lower() or "point d'être dépassé" in c.lower() for c in champs):
+        print(q['id'][:18], q['topic'])
+EOF
+acfa94cddf8eadadd7 Croisement & dépassement
+```
+
+Une seule occurrence dans toute la banque `code`, sur la carte elle-même (son option D,
+la bonne réponse). Aucune autre carte — dans ce domaine ou ailleurs — n'énonce ni ne
+paraphrase « être sur le point d'être dépassé » en énoncé, option ou explication.
+`75e142d9…` (« Un véhicule s'apprête à vous dépasser ») décrit la situation inverse (qui
+dépasse, pas qui est sur le point d'être dépassé une deuxième fois) et teste une règle
+différente (R414-16, pas R414-4 II 3°) : proximité thématique attendue dans un domaine
+bâti sur le même vocabulaire, pas une fuite.
+
+### Point 17 — relecture séparée, contre les bonnes réponses et les options des voisines
+
+Les 15 explications relues une par une contre les bonnes réponses **et** les options des
+14 autres cartes du lot, y compris reformulées : aucune n'énonce la réponse d'une autre.
+Les recoupements de vocabulaire partagé sont attendus et non des fuites — « dépassement »,
+« voie de gauche », « véhicule doublé » reviennent sur plusieurs cartes parce que le
+domaine entier porte sur le même geste, jamais avec la valeur ou la condition qui
+distingue une carte d'une autre. Cas vérifiés en particulier, les groupes de cartes qui
+partagent une même scène ou un même article :
+
+- `46269e3e…` (achever le dépassement) et `9aaede46…` (rabattement) portent toutes deux
+  la même obligation de R414-10 (revenir à droite sans faire ralentir le véhicule
+  doublé/dépassé), chacune dans ses propres mots (« sans faire ralentir le véhicule
+  doublé » pour l'une, « sans provoquer le ralentissement du véhicule dépassé » pour
+  l'autre) — chacune teste un moment différent de la manœuvre (pendant vs après), et ni
+  l'une ni l'autre ne cite le fait distinctif de l'autre (la ligne discontinue dégagée
+  pour l'une, le mètre de distance pour l'autre).
+- `93292bac…` (neige/verglas, > 3,5 t) et `b494d715…` (passage piéton) partagent le
+  chiffre « 3,5 t », mais seulement dans une **option fausse** de `b494d715…`
+  (« interdit aux seuls véhicules de plus de 3,5 t ») — jamais dans son explication, et
+  la ligne de registre documente ce recyclage comme volontaire.
+- `e5b0f585…` (voie ferrée) et le topic `Tunnels & passages à niveau` : la carte est
+  écrite « au titre du dépassement » (registre), ne mentionne aucun chiffre de délai ni
+  de fonctionnement des barrières — le régime du franchissement lui-même reste hors de ce
+  domaine.
+- `697b226c…` (sommet de côte) et `f5a12ba7…` (intersection) partagent R414-11 en entier
+  (alinéas 1 et 2) mais testent chacun un alinéa distinct, sans jamais citer la condition
+  propre à l'autre.
+
+Voir aussi la section dédiée ci-dessus pour `Usagers & partage de la route` et `Vitesse`.
+
+### Commandes et sorties, étapes 1, 6, 7, 9
+
+```
+$ mkdir -p .passe3 && python3 Tools/audit.py > .passe3/avant-12.txt
+$ grep -E '^### ' .passe3/avant-12.txt
+### lettre/reference  (1)
+### forme/markdown  (1)
+### forme/seule-ponctuee  (14)
+### longueur/plus-longue  (84)
+### expl/paraphrase-litterale  (20)
+$ python3 - <<'EOF'   # comptage du lot
+… voir Step 1 …
+EOF
+15 cartes | expl médiane 231 | sous 120 : 0 | illustrées : 4
+
+$ python3 Tools/relire.py "Croisement & dépassement" > .passe3/lot-12.txt   # lecture des 15 cartes contre leur ligne
+
+$ python3 - <<'EOF'   # renormalisation
+… voir Step 6 …
+EOF
+448 questions
+
+$ python3 - <<'EOF'   # comparaison des id avant/après (contre HEAD, avant la tâche 12)
+… voir Step 6 …
+EOF
+mêmes ids : True | 448 -> 448
+ajoutés : [] | retirés : []
+
+$ python3 Tools/relire.py --fuites "Croisement & dépassement" | tail -40
+0 recouvrement(s) sur 15 cartes de « Croisement & dépassement ».
+
+$ python3 Tools/audit.py > .passe3/apres-12.txt
+$ diff <(grep -E '^### ' .passe3/avant-12.txt) <(grep -E '^### ' .passe3/apres-12.txt) || true
+(rien : les deux fichiers ont les mêmes cinq lignes `### `, aucune sortie vide n'est
+devenue non vide)
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcrun simctl boot 'iPhone 17 Pro' 2>/dev/null || true
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test -project Valido.xcodeproj \
+    -scheme Valido -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+    -only-testing:'ValidoTests/leContenuLivréEstValide()' [# … 10 tests …] 2>&1 | tail -30
+✔ Test run with 10 tests in 0 suites passed after 0.067 seconds.
+** TEST SUCCEEDED **
+
+$ git status --short   # après questions.json ; Contents.json non reformatés cette fois
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 84 | 84 |
+| `expl/paraphrase-litterale` | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Aucun mouvement : la seule édition ajoute une clause à une explication déjà sous les
+seuils informatifs, sans toucher une option ni une longueur. `expl/paraphrase-litterale`
+reste à 20 (ni régression, ni le mouvement attendu — ce domaine n'y contribuait aucune
+carte avant la tâche, et n'y en contribue toujours aucune). `--fuites` sur le domaine :
+0 recouvrement avant et après édition, sur 15 cartes.
