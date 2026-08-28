@@ -2364,90 +2364,217 @@ toujours untracked, aucun `Contents.json` reformaté.
 
 | id | écart | ce que disait la carte | ce que dit l'article | correction |
 |---|---|---|---|---|
-| `8a6af9d26330dc0f3bfd95d9bf0d7b81` | règle trop large | « chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte » — universel, sans condition | art. 12 de l'arrêté du 18 mars 1991 : ce choix ne vaut qu'« au plus tard au 1er janvier 2020 » et **en dessous** d'un certain trafic (« moment de circulation… inférieur à 30 000 ») ; au-delà, l'article impose deux postes téléphoniques, sans option de pancarte | explication réécrite : « Depuis 2020, en dessous d'un certain trafic, chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte […] ; au-delà, deux postes téléphoniques remplacent la pancarte. » Le champ d'application retrouve sa condition, la question elle-même (ce que dit une pancarte quand il y en a une) restait déjà correcte |
-| `3a06288bf73bb5254b83a371ae55a854` | explication au-delà de l'article | « Savoir combien il en reste devant soi décide de tout le reste : en cas d'incendie, entre ressortir par ses propres moyens et gagner à pied une issue de secours » — un mécanisme causal reliant longueur du panonceau et décision d'incendie, propre au domaine (voir le brief : « la fumée monte, donc… ») | l'affirmation ne porte que la nomenclature du panonceau M2 (IISR 5e partie, art. 75-2, 1) ; aucune source blanche ne relie la lecture du panonceau à un arbitrage incendie | clause coupée, remplacée par une raison qui reste dans le champ de l'affirmation : « La connaître permet d'évaluer, à tout instant du trajet, la distance qui reste avant la sortie. » Aucun chiffre (300 m, 1000 m) ajouté, conformément à l'interdiction déjà posée sur cette ligne |
-| `7148c3a8be7130501aa3da1644986ebb` | explication au-delà de l'article | « L'ordre compte donc — couper le contact, évacuer avec tous les passagers, gagner une issue de secours, et alerter ensuite […] » — affirme un ordre strict entre « gagner l'issue » et « alerter » | relecture complète de la page (`WebFetch`, `?_format=json`) : la section « En cas d'incendie » distingue des branches conditionnelles (sortie proche → sortir avec le véhicule ; sinon → alerter ; feu réduit → extincteur ; fumée → couper le moteur et évacuer), pas une séquence unique où l'alerte vient strictement après l'issue de secours | explication réécrite pour ne plus affirmer que ce que la page soutient sans ambiguïté : la priorité (sortir du danger avant d'appeler) et le canal (téléphones de l'ouvrage, jamais un mobile personnel) — sans ordre relatif entre « gagner l'issue » et « alerter » |
+| `8a6af9d26330dc0f3bfd95d9bf0d7b81` | règle trop large | « chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte » — universel, sans condition | art. 12 de l'arrêté du 18 mars 1991 : ce choix ne vaut qu'« au plus tard au 1er janvier 2020 » et **en dessous** d'un certain trafic (« moment de circulation… inférieur à 30 000 ») ; au-delà, l'article impose deux postes téléphoniques, sans option de pancarte | explication réécrite pour porter la condition (détail des rondes ci-dessous) |
+| `3a06288bf73bb5254b83a371ae55a854` | explication au-delà de l'article | « Savoir combien il en reste devant soi décide de tout le reste : en cas d'incendie, entre ressortir par ses propres moyens et gagner à pied une issue de secours » — un mécanisme causal reliant longueur du panonceau et décision d'incendie, propre au domaine (le brief nommait d'avance ce piège : « la fumée monte, donc… ») | l'affirmation ne porte que la nomenclature du panonceau M2 (IISR 5e partie, art. 75-2, 1) ; aucune source blanche ne relie la lecture du panonceau à un arbitrage incendie | clause coupée (détail des rondes ci-dessous) |
+| `7148c3a8be7130501aa3da1644986ebb` | explication au-delà de l'article | « L'ordre compte donc — couper le contact, évacuer avec tous les passagers, gagner une issue de secours, et alerter ensuite […] » — affirme un ordre strict entre « gagner l'issue » et « alerter » | relecture complète de la page (`WebFetch`, `?_format=json`) : la section « En cas d'incendie » est une suite de branches conditionnelles, et l'alerte (branche 2) précède toute mention des issues de secours (branche 5) — l'inverse de ce que la carte affirmait | réécrite deux fois (round 0 puis fix round 1, détail ci-dessous), la carte du fix round 1 était elle-même fautive sur deux autres points, voir plus bas |
 
 ### Doutes signalés, non corrigés
 
-Aucun doute laissé ouvert. Le seul point qui appelait une vérification externe — l'ordre
-réel des actions en cas d'incendie (`7148c3a8`) et la direction attendue quand un véhicule
-force une demi-barrière (`d50cd498`, distracteur D « reculez pour repasser derrière le bras
-d'entrée ») — a été tranché par `WebFetch` sur `securite-routiere.gouv.fr` (voir
-« Écarts » ci-dessus et « Les options » ci-dessous), pas laissé en suspens.
+| id | ce qui est douteux | ce qui a été lu | ce qui manque |
+|---|---|---|---|
+| `d50cd498f6e5261eb5a2fc9dfe45de90` | le distracteur D, « reculez pour repasser derrière le bras d'entrée », est-il faux pour une raison qu'une source blanche affirme, ou seulement en pratique ? | `WebFetch` sur la page « Passage à niveau » de `securite-routiere.gouv.fr` (rang 2) : « Dégagez votre véhicule en enfonçant la barrière, elle est conçue pour ne pas résister à ce type de choc. » « Évacuez tous les passagers du véhicule. » « Alertez au plus vite un agent SNCF avec le téléphone du passage à niveau ou composez le numéro inscrit sur la pancarte. » — aucune mention d'un sens à privilégier, ni des barrières « intérieures ». Un premier jet de ce rapport citait entre guillemets une phrase sur des « stickers réfléchissants… barrières intérieures » : cette phrase n'est **pas** sur cette page (vérifié en la refetchant), et a été retirée plutôt que corrigée par une meilleure citation, faute d'en trouver une | une source de rang 1/2/3 qui tranche le sens (avancer plutôt que reculer) une fois pris entre quatre demi-barrières cassables. Le distracteur reste jugé faux, mais sur un fondement générique non sourcé (reculer reprend à l'aveugle, sous pression, un trajet déjà engagé), du même registre que la raison non sourcée mais non contestée de `bda52045` (l'œil et la pénombre) — la carte elle-même n'affirme aucun sens, son énoncé ne parlant que de « forcer le bras » |
 
 ### Pédagogie
 
 - explications sous 120 caractères : 0 à l'entrée, 0 à la sortie. Le domaine part
-  d'explications déjà étoffées (médiane 304 caractères, cf. brief) ; aucune des 15 n'a eu
-  besoin d'un allongement, y compris les trois modifiées pour justesse.
-- cartes dont le budget de 220 a limité l'explication : `1e329fa1bba26cabf5` (moteur cale,
-  réécrite à 220/220 pile pour supprimer la fuite vers une carte `Panneaux & marquage`, voir
-  « Fuites ») — la coupe a retiré la reformulation de « bande d'arrêt d'urgence ni
-  accotement » sans perdre la règle ni la raison. `1cc2591b8808d4aa73` (205/220) et
-  `d50cd498f6e5261eb5` (208/220) n'ont pas été touchées, déjà dans le budget et jugées
-  conformes (voir preuve par carte).
-- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 15 énoncés se lisent
-  déjà sans connaître la réponse ; relus un par un, aucun n'a nécessité de reformulation.
+  d'explications déjà étoffées (médiane 304 caractères) ; le travail a porté sur la
+  justesse, les fuites et le critère 3 (rule/reason/limite), pas sur un allongement de
+  texte.
+- cartes dont le budget de 220 a limité l'explication : `1e329fa1bba26cabf5` (moteur cale)
+  est la seule des trois illustrées à avoir été réécrite, en 200/220 après le fix round 1
+  (220/220 pile au round 0, sans marge et avec une redite — voir « Fix round 1 » ci-dessous).
+  `1cc2591b8808d4aa73` (205/220) et `d50cd498f6e5261eb5` (208/220) n'ont pas été touchées.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun.
+- **critère 3 (règle/raison/limite) relu sur les 15 cartes, pas seulement les flaguées** :
+  trois cartes sans écart de justesse échouaient franchement à ce critère
+  (`c084813ff73eacb15d`, sans la règle elle-même ; `d4b4abfd51499d4ab3`, sans raison ;
+  `763ae1f8c7040ecb17`, avec une réfutation de distracteur étiquetée « limite » à la place
+  de la vraie limite). Réécrites au fix round 1, détail ci-dessous.
 
-### Preuve par carte, pour les 10 cartes non modifiées
+### Round 0 — trois écarts de justesse, deux fuites, cinq cartes modifiées
 
-Cinq cartes ont été réécrites pour justesse ou fuite (voir « Écarts » et « Fuites ») ; il en
-reste dix dont le texte n'a pas bougé. Règle / raison / limite telles que la carte les dit :
+Repris tel quel du premier jet de cette tâche :
+
+- `8a6af9d26330dc0f3b`, `3a06288bf73bb5254b`, `7148c3a8be7130501a` — les trois écarts de
+  justesse ci-dessus.
+- `1e329fa1bba26cabf5`, `1fe6ef49aad916e076` — deux fuites trouvées par
+  `relire.py --fuites` (détail dans « Fuites » ci-dessous), sans rapport avec la justesse.
+
+### Fix round 1 — la carte incendie était fautive sur trois points, plus criterion 3 sur trois autres cartes, plus deux longueurs
+
+Une revue a confronté la réécriture du round 0 à l'énoncé et aux options, pas seulement à
+la source — c'est le complément apporté au point 18 du calibrage (« pas inventé » n'est
+pas « correct »).
+
+**1. `7148c3a8be7130501a` — le refus spatial était faux dans l'autre sens.** L'énoncé pose
+« Un véhicule prend feu **devant vous** » ; l'option C est « faire demi-tour **pour
+ressortir par l'entrée** ». La réécriture du round 0 réfutait C par « faire demi-tour
+**vers le foyer** revient à s'y exposer » : un demi-tour éloigne du feu qui est devant,
+il n'en rapproche pas. La dérivation coupée au round 0 (« la fumée remonte l'ouvrage plus
+vite qu'un piéton ») n'était pas sourcée, mais celle qui l'a remplacée était fausse, pas
+seulement non sourcée — un défaut plus grave. Une première correction a essayé de réparer
+C par l'interdiction que porte le panneau C111 (« interdit de faire demi-tour, en tout
+point », sourcée sur la ligne de `5c11020dc34bf45d56cf8438dd8ad79e`) ; relue contre les
+options de `5c11020d`, cette formulation aurait donné d'avance sa bonne réponse
+(« d'y faire demi-tour, en tout point ») à qui lit les deux cartes — exactement le défaut
+que la ligne de `5c11020d` évite déjà pour `bda52045`. Fixée sans invoquer le C111 : le
+distracteur est réfuté par le même risque que « rester à bord » (le temps perdu à
+manœuvrer, quel que soit le sens, laisse la fumée rejoindre le conducteur), un fait
+générique qui ne redit la réponse d'aucune autre carte.
+- **2. « avec tous les passagers » avait disparu.** La branche 5 de la page dit
+  « quittez votre véhicule **avec tous les passagers** » ; le round 0 l'avait perdue en
+  réécrivant. Restaurée.
+- **3. La carte enseignait encore l'ordre qu'elle prétendait avoir cessé d'enseigner.**
+  Le round 0 écrivait « gagner l'issue de secours la plus proche ; **on y** alerte » — le
+  « y » renvoyant à l'issue de secours, l'alerte restait placée après elle, l'inverse de
+  ce que la page soutient (l'alerte est la branche 2, avant toute mention des issues de
+  secours). Découplé : « On alerte par les téléphones de secours de l'ouvrage, jamais
+  depuis un mobile personnel », sans « y » et sans lien de succession avec la phrase qui
+  précède. La raison du canal, que la page donne gratuitement (« qui ne permettent pas de
+  vous localiser »), est ajoutée — la carte ne se contentait plus d'interdire le mobile,
+  elle ne disait pas pourquoi.
+- Explication finale (350 caractères, non illustrée) : « Rester à bord ou revenir sur ses
+  pas revient à laisser la fumée vous rejoindre, elle qui tue avant les flammes. La
+  priorité est de couper le moteur et de sortir avec tous les passagers vers l'issue de
+  secours la plus proche. On alerte par les téléphones de secours de l'ouvrage, jamais
+  depuis un mobile personnel, qui ne permet pas de vous localiser. » Règle (couper le
+  moteur, tous les passagers, issue de secours) + raison (la fumée tue avant les flammes,
+  quel que soit ce qu'on tente d'autre) + canal sourcé avec sa raison.
+- **4. `Tools/sources.md:405` se contredisait elle-même.** La ligne ouvrait encore sur
+  « couper le contact, évacuer avec tous les passagers, gagner une issue de secours,
+  donner l'alerte par les téléphones de l'ouvrage » — exactement la séquence que la note
+  ajoutée en dessous qualifiait de non soutenue, et « couper le contact » n'est ni ce que
+  dit la page (« coupez votre moteur en laissant la clé sur le contact ») ni ce que dit la
+  carte (« couper le moteur »). Réécrite : la tête de ligne porte maintenant les branches
+  de la page, citées mot pour mot dans leur ordre réel, avec la raison du canal ; la note
+  datée devient la trace du fix plutôt qu'une justification qui contredisait la tête.
+- **Une carte de plus au fait : `5c11020dc34bf45d56` protégeait `bda52045` mais pas
+  `1e329fa1`.** Sa ligne de registre documentait déjà avoir coupé la prescription
+  « feux de croisement » pour ne pas donner d'avance la réponse de `bda52045` ; elle
+  citait encore « arrêt et stationnement interdits hors des emplacements d'arrêt
+  d'urgence », qui nomme l'emplacement d'arrêt d'urgence — la bonne réponse de
+  `1e329fa1bba26cabf5` — et élimine au passage deux de ses distracteurs (« faire
+  demi-tour », « vous arrêter sur place »). `--fuites` ne le voit pas : « emplacements »
+  (carte) contre « emplacement » (réponse) est une inflexion différente. Coupée à son
+  tour ; l'explication ne nomme plus que l'interdiction de faire demi-tour.
+- **Criterion 3 sur trois cartes non touchées par la justesse ni par une fuite :**
+  - `c084813ff73eacb15d` — l'explication donnait la raison (l'annonce est calée sur le
+    train) et réfutait des distracteurs, mais **n'énonçait jamais la règle elle-même**
+    (vingt secondes). Ajoutée en tête : « Les feux s'allument vingt secondes au moins
+    avant l'arrivée du train ». Le §1 de `questions.md` autorise explicitement la reprise
+    d'une réponse chiffrée ; `expl/paraphrase-litterale` en gagne une occurrence
+    (voir « Mouvements d'`audit.py` »), classée faux positif structurel du point 8 du
+    calibrage, pas corrigée en sens inverse.
+  - `d4b4abfd51499d4ab3` — aucune raison : la carte disait la règle et la limite
+    (« la règle ne demande pas de juger le risque : elle demande d'attendre la place »)
+    sans jamais dire *pourquoi* un véhicule immobilisé est dangereux. Ajoutée : « Un train
+    ne peut ni s'arrêter court ni se déporter : un véhicule resté sur les rails
+    deviendrait un obstacle qu'il percuterait sans pouvoir l'éviter » — le même fait
+    générique, non sourcé par un article mais non contesté non plus, que celui qui
+    fonde déjà la bonne réponse de `d50cd498` (« il ne peut pas s'arrêter court »).
+  - `763ae1f8c7040ecb17` — la phrase étiquetée « limite » dans la table du round 0
+    réfutait en réalité le distracteur des voies multiples ; la vraie limite (à quel
+    moment le passage redevient permis) n'était pas dite. Ajoutée : « Barrières relevées
+    et immobiles, en revanche, le passage redevient libre. » Relu contre les quatre
+    options après l'ajout du « en revanche » (point 14 du calibrage) : aucune ne devient
+    défendable — l'option A (« seulement une fois les demi-barrières immobiles ») ne
+    précise pas « relevées » et reste donc fausse, les options B et C sont sans rapport
+    avec cet état.
+  - `bda520451eb11447c3` — la table du round 0 étiquetait « sans condition d'heure ni
+    d'éclairage de l'ouvrage » comme la limite, alors que c'est une reformulation de la
+    règle elle-même ; la vraie limite (jusqu'où l'obligation court) était déjà sourcée sur
+    cette même ligne de registre (« le C112 indique également la fin des prescriptions
+    édictées par le panneau C111 ») mais absente de la carte. Ajoutée en fin
+    d'explication : « Cette obligation vaut jusqu'au panneau de sortie, le C112, qui la
+    termine. » Aucun ajout à `sources.md` : le fait y était déjà.
+- **Deux longueurs.** `7148c3a8` — la carte d'urgence la plus lourde du lot — avait sa
+  bonne option la plus longue (+4) : l'option C, réécrite pour le point 1
+  ci-dessus, est passée de 43 à 76 caractères, et la bonne option D (47) n'est plus la
+  plus longue (delta −29). `8a6af9d26330dc0f3b` avait sa bonne option la plus longue de
+  +1 ; touché dans le même geste, l'option B est passée de « la vitesse à ne pas dépasser
+  sur la traversée » à « la vitesse **maximale** à ne pas dépasser sur la traversée »
+  (54 caractères, delta −8). Deux cartes du lot restent avec la bonne option la plus
+  longue ou à égalité — `5ae4a8d7800141787a` (+3) et `d3af170839b4cf693c` (égalité,
+  delta 0, jamais signalée par `audit.py` qui ne teste que `delta > 0`) — inchangées :
+  aucun texte de ces deux cartes n'a été touché par cette tâche, aux deux rondes, et la
+  revue les qualifie de préexistantes plutôt que de les faire porter par ce fix.
+- **`8a6af9d26330dc0f3b`, minor : « de part et d'autre des rails » rattaché aux deux
+  branches.** La citation ne l'attache littéralement qu'aux pancartes (« Ces pancartes
+  sont installées… de part et d'autre des voies ferrées ») ; la phrase de la carte le
+  laissait lire comme valant aussi pour le téléphone seul. Réattaché à la seule pancarte :
+  « une pancarte donnant ce numéro **et posée de part et d'autre des rails** ».
+- **`3a06288bf73bb5254b`, minor : raison quasi tautologique et absence de limite.**
+  Réécrite : « Un panonceau ne redit jamais le panneau qu'il accompagne, il en précise la
+  portée […] » (raison : ce type de contenu plutôt qu'un autre) et « Cette indication
+  n'existe que là où l'entrée elle-même doit l'être — un tunnel trop court pour l'exiger
+  n'en porte pas » (limite, sans citer le seuil de 300 m que la ligne interdit d'affirmer).
+- **`1e329fa1bba26cabf5`, minors : redite et modificateur mal accroché.** La version du
+  round 0 tenait à 220/220 pile en disant deux fois la même chose (« ne prévoit aucun
+  espace pour se ranger ailleurs qu'au refuge » / « c'est le seul endroit prévu pour s'y
+  arrêter ») et faisait pendre « Signalé et souvent doté d'un poste d'appel » avec
+  « le véhicule immobilisé » entre les deux occurrences de son antécédent. Réécrite :
+  « Une chaussée de tunnel n'a ni voie de secours ni bas-côté : le véhicule immobilisé y
+  devient l'obstacle. Le refuge — signalé, souvent doté d'un poste d'appel — est le seul
+  point prévu pour s'y ranger. » (200/220). « Refuge » n'apparaît plus qu'une fois comme
+  sujet, ses deux qualificatifs entre tirets juste avant son verbe.
+- **`d50cd498f6e5261eb5`, vérification demandée.** Voir « Doutes signalés, non corrigés »
+  ci-dessus : la citation sur les « barrières intérieures » n'a pas résisté à un nouveau
+  `WebFetch` et est retirée sans être remplacée par une autre citation, faute d'en trouver
+  une qui tranche le sens.
+
+### Preuve par carte, pour les 5 cartes non modifiées
+
+Dix cartes ont été réécrites, aux deux rondes, pour justesse, fuite ou critère 3 (voir
+ci-dessus) ; il en reste cinq dont le texte n'a jamais bougé. Règle / raison / limite
+telles que la carte les dit — et, quand l'étiquette « limite » ne correspond pas au
+troisième temps, le dire plutôt que le maquiller (le défaut nommé sur `bda52045` et
+`763ae1f8` au fix round 1) :
 
 | id | rôle | règle / raison / limite |
 |---|---|---|
-| `1cc2591b8808d4aa73` | balises J10 (nombre de bandes) | règle (« la première … porte trois bandes ; les suivantes en portent deux, puis une seule ») + raison (« Moins il reste de bandes, plus la voie ferrée est proche ») + limite : nomenclature descriptive, les trois balises épuisent le champ, pas d'exception à poser |
-| `d50cd498f6e5261eb5` | demi-barrières abaissées, véhicule sur les rails | règle (« avancez en forçant le bras, conçu pour céder ») + raison (« la priorité du convoi est absolue et il ne peut pas s'arrêter court : dégager passe avant tout le reste ») + limite (« l'alerte à l'exploitant ne vient qu'ensuite » — l'urgence du dégagement prime sur la démarche d'alerte) |
-| `5ae4a8d7800141787a` | arrêt le long de la chaussée en tunnel | règle (« est gênant, au même titre que sur un pont ») + raison (« une chaussée de tunnel n'a ni accotement ni échappatoire, et un véhicule laissé dessus devient l'obstacle ») + limite (« sauf décision contraire de l'autorité de police ») |
-| `5c11020dc34bf45d56` | panneau C111, ce qu'il interdit | règle (« d'y faire demi-tour, en tout point ») + raison (« se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter ») + limite (« en tout point » : aucune section du tube n'y échappe tant que le panneau prescrit) |
-| `763ae1f8c7040ecb17` | franchissement interdit, les trois états | règle (« barrières fermées, en fermeture ou en ouverture ») + raison (« une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé ») + limite, contre l'absolu du distracteur (« c'est le mouvement de la barrière qui interdit, jamais le nombre de voies ferrées ») |
-| `a88bdac8ef012091a9` | intervalle de sécurité en tunnel | règle (« peut être allongé par l'autorité de police ») + raison (« deux secondes partout, puis réserve un cas… ») + limite (« aucun chiffre national ne s'attache au tunnel — c'est la signalisation de l'ouvrage qui dit l'intervalle à tenir ») |
-| `bda520451eb11447c3` | feux de croisement à l'entrée d'un tunnel éclairé | règle (« s'allument quand même, pour être vu ») + raison (« l'œil met plusieurs secondes à passer du plein jour à la pénombre … ce qui compte n'est pas de voir mais d'être vu ») + limite (« sans condition d'heure ni d'éclairage de l'ouvrage ») |
-| `c084813ff73eacb15d` | ordre feux / sonneries / barrières | règle (« vingt secondes au moins avant l'arrivée du train ») + raison (« l'annonce est calée sur le train et non sur ce que le conducteur aperçoit ») + limite (« passer « avant les barrières » revient donc à passer devant un train déjà lancé ») |
-| `d3af170839b4cf693c` | PN sans barrière ni feu | règle (« traversez après avoir regardé des deux côtés ») + raison (« le code ne demande pas l'arrêt mais la certitude ») + limite (« l'arrêt obligatoire existe, mais il tient à un panneau posé là par arrêté du préfet, jamais à l'absence de barrière ») |
-| `d4b4abfd51499d4ab3` | circulation arrêtée au-delà du PN | règle (« attendez d'avoir la place de dégager la voie ») + raison (« que ce soit à cause d'une file arrêtée devant lui ou de son propre gabarit ») + limite (« la règle ne demande pas de juger le risque : elle demande d'attendre la place ») |
+| `1cc2591b8808d4aa73` | balises J10 (nombre de bandes) | règle (« la première … porte trois bandes ; les suivantes en portent deux, puis une seule ») + raison (« Moins il reste de bandes, plus la voie ferrée est proche ») + **pas de limite distincte, honnêtement** : nomenclature descriptive, les trois balises épuisent le champ, aucune condition à poser |
+| `d50cd498f6e5261eb5` | demi-barrières abaissées, véhicule sur les rails | règle (« avancez en forçant le bras, conçu pour céder ») + raison (« la priorité du convoi est absolue et il ne peut pas s'arrêter court : dégager passe avant tout le reste ») + **pas de limite distincte, honnêtement** : « l'alerte à l'exploitant ne vient qu'ensuite » réfute l'ordre inverse de l'option A, ce n'est pas une borne du champ d'application |
+| `5ae4a8d7800141787a` | arrêt le long de la chaussée en tunnel | règle (« est gênant, au même titre que sur un pont ») + raison (« une chaussée de tunnel n'a ni accotement ni échappatoire, et un véhicule laissé dessus devient l'obstacle ») + limite réelle (« sauf décision contraire de l'autorité de police ») |
+| `d3af170839b4cf693c` | PN sans barrière ni feu | règle (« traversez après avoir regardé des deux côtés ») + raison (« le code ne demande pas l'arrêt mais la certitude : on ne s'engage qu'après s'être assuré qu'aucun convoi n'approche ») + limite réelle (« l'arrêt obligatoire existe, mais il tient à un panneau posé là par arrêté du préfet, jamais à l'absence de barrière ») |
+| `a88bdac8ef012091a9` | intervalle de sécurité en tunnel | règle (« peut être allongé par l'autorité de police ») + raison (« deux secondes partout, puis réserve un cas… ») + limite réelle (« aucun chiffre national ne s'attache au tunnel — c'est la signalisation de l'ouvrage qui dit l'intervalle à tenir, et elle se lit à l'entrée ») |
 
-Modifiées 5 (`8a6af9d2`, `3a06288b`, `7148c3a8`, `1e329fa1`, `1fe6ef49aad9`) + non modifiées
-10 = 15, sans reste. `a88bdac8ef012091a9` n'a pas de texte modifié dans `questions.json` :
-seule sa ligne de `sources.md` a reçu un renvoi (voir « Registre » plus bas) ; elle est
-comptée ici parmi les non modifiées, sa preuve par carte figurant dans le tableau ci-dessus.
+Modifiées 10 (`8a6af9d2`, `3a06288b`, `7148c3a8`, `1e329fa1`, `1fe6ef49aad9`, `5c11020d`,
+`c084813f`, `d4b4abfd`, `763ae1f8`, `bda52045`) + non modifiées 5 = 15, sans reste.
+`a88bdac8ef012091a9` n'a jamais eu son texte touché dans `questions.json` : seule sa ligne
+de `sources.md` a reçu un renvoi (round 0) ; comptée ici parmi les non modifiées.
 
 ### Les options
 
-Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le point
-14 du calibrage (« existe-t-il une lecture où le distracteur EST la bonne réponse ? »).
+Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le
+point 14 du calibrage (« existe-t-il une lecture où le distracteur EST la bonne
+réponse ? »), aux deux rondes.
 
 - `d50cd498f6e5261eb5` (demi-barrières abaissées) — le distracteur D, « reculez pour
   repasser derrière le bras d'entrée », a été confronté au risque d'être une seconde
-  réponse défendable (les quatre demi-barrières sont également cassables, art. 9 de
-  l'arrêté du 18 mars 1991). Vérifié par `WebFetch` sur `securite-routiere.gouv.fr` : la
-  page ne recommande de forcer que la barrière **intérieure**, côté sortie de la zone
-  dangereuse (« stickers réfléchissants « barrière cassable » installés sur les barrières
-  **intérieures** […] pour inciter les automobilistes coincés […] à forcer la barrière
-  afin de ne pas rester bloqués sur la voie »), et la conduite documentée en tout point
-  ordonne « dégager », jamais « reculer ». Le distracteur reste réellement faux, gardé tel
-  quel.
+  réponse défendable (les quatre demi-barrières sont également cassables). Signalé en
+  doute plutôt que tranché : voir « Doutes signalés, non corrigés ».
 - `1fe6ef49aad916e076` (franchir irrégulièrement) — les quatre chiffres de points (2, 4,
-  6, 3) sont chacun un palier réel du barème (2 points existe comme palier bas, 6 points
-  est le retrait pour refus de priorité à un piéton depuis 2010, 3 points celui de
-  nombreuses contraventions de 4e classe) : aucun n'est inventé, conformément au point 2
-  du calibrage.
-- Aucun autre distracteur du lot n'a paru, à cette lecture, éliminable par pure logique,
-  isolé par la forme, ou légitimé par sa propre carte — y compris sur les dix cartes non
-  modifiées listées ci-dessus, relues au même titre.
+  6, 3) sont chacun un palier réel du barème : aucun n'est inventé.
+- `7148c3a8be7130501a` (véhicule prend feu) — l'option C, réécrite au fix round 1 pour
+  porter le refus spatial correct (voir ci-dessus), reste une seconde lecture rejetée à
+  dessein : « face aux véhicules qui arrivent » décrit un risque réel du demi-tour en
+  tube unique sans affirmer qu'il est interdit, pour ne pas donner d'avance la réponse de
+  `5c11020d`.
+- Aucun autre distracteur du lot n'a paru, aux deux lectures, éliminable par pure
+  logique, isolé par la forme, ou légitimé par sa propre carte — y compris sur les cinq
+  cartes non modifiées listées ci-dessus.
 
 **`correctID` — déjà équilibré, aucune rotation.** Mesuré avant toute édition : A 4, B 4,
-C 4, D 3 sur 15 (le maximum d'équilibre atteignable sur ce total). Les cinq éditions ne
-touchent que le champ `explanation`, jamais `options` ni `correctID` : la distribution
-après édition est identique, A 4 / B 4 / C 4 / D 3.
+C 4, D 3 sur 15. Les dix éditions touchent `explanation` et, sur deux cartes
+(`7148c3a8`, `8a6af9d2`), une longueur d'option — jamais `correctID` ni le sens d'une
+bonne réponse. Distribution après les deux rondes : inchangée, A 4 / B 4 / C 4 / D 3.
 
 ### Fuites — point 13 et point 17, séparément
 
 **Point 13 — réponses sous trois mots pleins, grep à la main sur énoncés et explications
-de toute la banque.** Trois bonnes réponses du domaine tombent sous le seuil de l'outil
-(jetons `[a-z0-9]+` d'au moins cinq caractères, après minuscule et suppression des
-accents) :
+de toute la banque, avec des identifiants complets (pas tronqués à 12 caractères, qui
+regroupe à tort plusieurs cartes distinctes du fichier).** Trois bonnes réponses du
+domaine tombent sous le seuil de l'outil :
 
 | id | bonne réponse | mots pleins (≥ 5 car.) | n |
 |---|---|---|---|
@@ -2455,86 +2582,86 @@ accents) :
 | `bda520451eb11447c3` | « s'allument quand même, pour être vu » | `allument`, `quand` | 2 |
 | `5c11020dc34bf45d56` | « d'y faire demi-tour, en tout point » | `faire`, `point` | 2 |
 
-Grep sur `prompt` et `explanation` des 448 questions :
-
-```
-$ grep -i "même titre que sur un pont\|titre que sur un pont" …   # 0 hit hors sa propre carte
-$ grep -i "gênant"                                                 # 6 hits, tous « Arrêt & stationnement »/vocabulaire de barème
-$ grep -i "quand même, pour être vu\|pour être vu"                 # 0 hit hors sa propre carte
-$ grep -i "demi-tour, en tout point\|en tout point"                # 0 hit hors sa propre carte
-```
-
-Les six occurrences de « gênant » ailleurs (domaine `Arrêt & stationnement`, barème
-gênant/très gênant) sont du vocabulaire de catégorie légale partagé par construction —
-aucune ne cite la phrase entière « au même titre que sur un pont », et aucune ne donne
-la réponse de `5ae4a8d7…`. Recouvrement fortuit, documenté comme tel (point 11 du
-calibrage) : le mot juste n'est pas abîmé pour l'éteindre.
+Grep exhaustif (script Python, identifiants complets) sur `prompt` et `explanation` des
+448 questions : zéro occurrence hors la carte elle-même pour les phrases exactes
+« même titre que sur un pont », « quand même, pour être vu » et « demi-tour, en tout
+point ». Le seul recouvrement trouvé est le mot isolé « gênant », **8 occurrences sur 5
+questions distinctes** (et non 6 sur 2, chiffre d'un premier jet faussé par des
+identifiants tronqués à 12 caractères qui font apparaître comme une seule carte
+plusieurs questions différentes du domaine `Arrêt & stationnement` partageant le même
+préfixe) : `37fe1af42b8d811198bdecd01768828c`, `37fe1af42b8d8134ad4be3c7e29328f1`,
+`37fe1af42b8d8181a057c984708f0042` (4 occurrences : « gênant » et « très gênant », dans
+le prompt et dans l'explication), `37fe1af42b8d81d793bcc927205f9d79`,
+`c5d4d52f1aaa89b811c8b17847338968`. Toutes dans `Arrêt & stationnement`, vocabulaire de
+catégorie légale (gênant / très gênant) partagé par construction — aucune ne cite la
+phrase entière « au même titre que sur un pont », recouvrement fortuit documenté comme
+tel (point 11 du calibrage), pas corrigé au prix d'une phrase abîmée.
 
 **Point 17 — chaque explication relue contre les bonnes réponses et les options des
-cartes voisines, y compris reformulées.** `--fuites` a trouvé, avant correction, deux
-recouvrements réels :
+cartes voisines, y compris reformulées.** `--fuites` a trouvé, au round 0, deux
+recouvrements réels, corrigés (voir « Round 0 » ci-dessus) : `1e329fa1` contre une carte
+`Panneaux & marquage`, `1fe6ef49aad9` contre une carte `Priorités & intersections`.
 
-1. `1e329fa1bba2` (moteur cale, refuge) recouvrait mot pour mot la bonne réponse d'une
-   carte `Panneaux & marquage` (`5a4e6a38ad3e`, « La bande d'arrêt d'urgence ou
-   l'accotement ») via « n'a ni bande d'arrêt d'urgence ni accotement ». Corrigé (voir
-   « Pédagogie », budget d'image).
-2. `1fe6ef49aad9` (franchir irrégulièrement, 4 points) recouvrait mot pour mot la bonne
-   réponse d'une carte `Priorités & intersections` (`defefbae1ae6`, « 4 points, comme un
-   feu rouge franchi ») via « quatre points … comme le feu rouge franchi ». Corrigé en
-   retirant la comparaison plutôt qu'en la reformulant à l'identique : la nouvelle
-   explication justifie le chiffre par la classe de l'infraction et ses peines annexes
-   (suspension, stage), sans plus le rattacher au feu rouge — le fait était une
-   corroboration de confiance dans le registre, pas une clause que la carte devait
-   redire.
+Une **troisième fuite, intra-domaine, trouvée à la main et jamais vue par `--fuites`**
+(l'outil ne compare que les mots pleins, ici sous le seuil de trois) : `5c11020d` donnait
+d'avance la bonne réponse de `1e329fa1` (voir « Fix round 1 »). Et une **quatrième,
+évitée en écrivant plutôt que trouvée après coup** : la première réparation envisagée
+pour `7148c3a8` aurait donné d'avance la réponse de `5c11020d` en citant l'interdiction du
+C111 ; la lecture des options de `5c11020d` avant de commiter l'a écartée.
 
 `python3 Tools/relire.py --fuites "Tunnels & passages à niveau"` : **0 recouvrement sur
-15 cartes** après correction (2 avant).
-
-Relecture manuelle, domaine par domaine, des options et réponses voisines (au-delà de ce
-que `--fuites` couvre) : le cluster passage-à-niveau (`763ae1f8`, `c084813f`, `d50cd498`,
-`8a6af9d2`, `d3af1708`, `d4b4abfd`) partage du vocabulaire (« barrières », « exploitant »,
-« voie ») sans qu'aucune explication ne cite la réponse exacte d'une autre — vérifié
-carte par carte, y compris `d50cd498` (« l'alerte à l'exploitant ») contre `8a6af9d2`
-(« un numéro à composer pour alerter l'exploitant ») : les deux mentionnent l'exploitant,
-aucune ne cite « numéro » ni « composer ». Le duo `1e329fa1` (refuge) / `5ae4a8d7` (arrêt
-gênant en tunnel) partage le fait « une chaussée de tunnel n'a pas d'accotement » — un
-fait d'arrière-plan commun aux deux cartes, pas la réponse de l'une donnée par l'autre
-(`5ae4a8d7` teste une qualification légale, `1e329fa1` teste un lieu d'arrêt ; connaître
-le fait partagé ne donne ni l'une ni l'autre réponse) : recouvrement de fond documenté et
-jugé non fuyant, sur le modèle du §2/§14 de `questions.md`.
+15 cartes**, aux deux rondes. Revérifié sur les huit domaines déjà clos après le fix round
+1 : **0** partout (`Permis & sanctions`, `Vitesse`, `Alcool & stupéfiants`,
+`Usagers & partage de la route`, `Mécanique & environnement`, `Distances & freinage`,
+`Arrêt & stationnement`, `Premiers secours`).
 
 ### Registre (`Tools/sources.md`)
 
-Deux lignes touchées :
+Quatre lignes touchées, aux deux rondes :
 
-- `7148c3a8be7130501aa3da1644986ebb` — clause ajoutée documentant la relecture complète
-  de la page (au lieu des trois citations partielles de la ronde précédente) et la
-  correction de l'ordre alerte/évacuation qui en découle.
-- `a88bdac8ef012091a9b0a43b209c3b1b` — clause ajoutée en renvoi : le « deux secondes
-  partout » que l'explication rappelle est le I de R412-12, déjà sourcé sur la ligne
-  `37fe1af42b8d812db558cb9e19e11709` (domaine `Distances & freinage`), non répété ici.
+- `7148c3a8be7130501aa3da1644986ebb` — réécrite deux fois. Round 0 : trois citations
+  partielles remplacées par une relecture complète en branches. Fix round 1 : la tête de
+  ligne, qui rouvrait encore l'ancienne séquence (« couper le contact, évacuer avec tous
+  les passagers, gagner une issue de secours, donner l'alerte »), est remplacée par les
+  branches citées mot pour mot dans leur ordre réel ; la note datée devient la trace du
+  fix, pas une justification qui contredisait la tête (point 7 du calibrage : le fichier
+  doit tenir ce que le rapport affirme).
+- `a88bdac8ef012091a9b0a43b209c3b1b` — round 0 seulement : clause ajoutée en renvoi (le
+  « deux secondes partout » de l'explication est le I de R412-12, déjà sourcé sur une
+  ligne `Distances & freinage`, non répété).
+- `5c11020dc34bf45d56cf8438dd8ad79e` — fix round 1 : clause ajoutée documentant la
+  seconde coupe (protection de `1e329fa1`, voir ci-dessus) et sa correction ultérieure
+  (le renvoi vers `7148c3a8` retiré une fois que celui-ci a cessé d'utiliser ce fait).
 
-Les treize autres lignes du domaine sont inchangées, y compris leurs dates de relevé :
+Les onze autres lignes du domaine sont inchangées, y compris leurs dates de relevé :
 aucune valeur affirmée n'a changé sur ces cartes, seule leur formulation pédagogique.
 
 ### Mouvements d'`audit.py`
 
-| sortie | avant | après |
-|---|---|---|
-| `lettre/reference` | 1 | 1 |
-| `forme/markdown` | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 |
-| `longueur/plus-longue` | 90 | 90 |
-| `expl/paraphrase-litterale` | 19 | 19 |
-| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+| sortie | avant (baseline) | round 0 | fix round 1 |
+|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 |
+| `forme/markdown` | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 |
+| `longueur/plus-longue` | 90 | 90 | 88 |
+| `expl/paraphrase-litterale` | 19 | 19 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides |
 
-Aucun mouvement : les cinq éditions ne touchent que `explanation`, jamais `options` ni
-`prompt`, donc aucune catégorie de longueur ou de forme ne bouge. `expl/paraphrase-litterale`
-reste à 19 et ne compte aucune carte de ce domaine, avant comme après — ni faux positif
-structurel (point 8) ni collision de sous-chaîne (point 16) à documenter ici, le domaine
-n'y contribuant pas.
+`longueur/plus-longue` baisse de 90 à 88 au fix round 1 : les corrections de
+`7148c3a8` (+4 → −29) et `8a6af9d2` (+1 → −8) retirent chacune une occurrence, un
+mouvement dans le sens attendu par le point 15 du calibrage, pas une régression.
+`expl/paraphrase-litterale` monte de 19 à 20 : une seule carte nouvelle,
+`c084813ff73eacb15d`, dont la bonne réponse chiffrée (« vingt secondes au moins avant
+l'arrivée du train ») a été réintroduite dans l'explication pour corriger un échec du
+critère 3 (la règle n'était jamais énoncée). Faux positif structurel au sens du point 8
+du calibrage : la réponse est un chiffre, sa reprise est normale, et l'explication ajoute
+la raison (l'annonce est calée sur le train) et la réfutation des distracteurs — ce n'est
+pas la carte qui n'ajoute rien, c'est la seule façon d'énoncer une règle chiffrée. Compté,
+pas corrigé en sens inverse (point 20 du calibrage : un compteur plat obtenu en vidant une
+carte de sa substance est pire que le mouvement lui-même). Aucune sortie n'est passée de
+vide à non vide, aux deux rondes.
 
-Commandes et sorties (étapes 1, 6, 7, 9) :
+Commandes et sorties (étapes 1, 6, 7, 9 ; fix round 1 revérifié en entier) :
 
 ```
 $ python3 Tools/audit.py > .passe3/avant-10.txt && grep -E '^### ' .passe3/avant-10.txt
@@ -2543,25 +2670,35 @@ $ python3 Tools/audit.py > .passe3/avant-10.txt && grep -E '^### ' .passe3/avant
 ### forme/seule-ponctuee  (14)
 ### longueur/plus-longue  (90)
 ### expl/paraphrase-litterale  (19)
-$ python3 -c "…"   # 15 cartes | expl médiane 304 | sous 120 : 0 | illustrées : 3
 
-$ python3 -c "… renormalise …"
-448 questions
+$ # … cinq puis cinq éditions supplémentaires, renormalisation …
 $ python3 -c "… mêmes ids …"
 mêmes ids : True | 448 -> 448
 ajoutés : [] | retirés : []
 
 $ python3 Tools/relire.py --fuites "Tunnels & passages à niveau" | tail -40
 0 recouvrement(s) sur 15 cartes de « Tunnels & passages à niveau ».
-$ python3 Tools/audit.py > .passe3/apres-10.txt
-$ diff <(grep -E '^### ' .passe3/avant-10.txt) <(grep -E '^### ' .passe3/apres-10.txt)
-(vide — identique)
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" \
+           "Usagers & partage de la route" "Mécanique & environnement" \
+           "Distances & freinage" "Arrêt & stationnement" "Premiers secours"; do
+    python3 Tools/relire.py --fuites "$d" | tail -3
+  done
+0 recouvrement(s) sur 19/22/18/18/20/21/17/18 cartes respectivement.
+
+$ python3 Tools/audit.py > .passe3/apres-10-round1-final.txt
+$ diff <(grep -E '^### ' .passe3/avant-10.txt) <(grep -E '^### ' .passe3/apres-10-round1-final.txt)
+4,5c4,5
+< ### longueur/plus-longue  (90)
+< ### expl/paraphrase-litterale  (19)
+---
+> ### longueur/plus-longue  (88)
+> ### expl/paraphrase-litterale  (20)
 
 $ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] 2>&1 | tail -30
-✔ Test run with 10 tests in 0 suites passed after 0.063 seconds.
+✔ Test run with 10 tests in 0 suites passed after 0.066 seconds.
 ** TEST SUCCEEDED **
 ```
 
-`git status --short` avant `git add` : `Tools/sources.md` et
+`git status --short` avant `git add`, fix round 1 : `Tools/sources.md` et
 `Valido/Resources/questions.json` seuls modifiés, `CLAUDE.md` toujours untracked, aucun
 `Contents.json` reformaté.

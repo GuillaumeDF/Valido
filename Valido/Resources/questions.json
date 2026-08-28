@@ -11540,7 +11540,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Une chaussée de tunnel ne prévoit aucun espace pour se ranger ailleurs qu'au refuge : le véhicule immobilisé y devient l'obstacle. Signalé et souvent doté d'un poste d'appel, c'est le seul endroit prévu pour s'y arrêter.",
+    "explanation": "Une chaussée de tunnel n'a ni voie de secours ni bas-côté : le véhicule immobilisé y devient l'obstacle. Le refuge — signalé, souvent doté d'un poste d'appel — est le seul point prévu pour s'y ranger.",
     "id": "1e329fa1bba26cabf575a76ec127dad4",
     "illustration": {
       "alt": "Deux voies dans un tunnel, entre deux parois pleines ; à droite, la paroi se creuse d'un renfoncement assez large pour un véhicule, marqué d'un poste d'appel.",
@@ -11571,7 +11571,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "La fumée est le premier danger, souvent plus vite mortelle que le feu lui-même : rester à bord ou faire demi-tour vers le foyer revient à s'y exposer. Le premier geste est donc de couper le moteur et de gagner l'issue de secours la plus proche ; on y alerte par les téléphones de secours de l'ouvrage, jamais depuis un mobile personnel.",
+    "explanation": "Rester à bord ou revenir sur ses pas revient à laisser la fumée vous rejoindre, elle qui tue avant les flammes. La priorité est de couper le moteur et de sortir avec tous les passagers vers l'issue de secours la plus proche. On alerte par les téléphones de secours de l'ouvrage, jamais depuis un mobile personnel, qui ne permet pas de vous localiser.",
     "id": "7148c3a8be7130501aa3da1644986ebb",
     "options": [
       {
@@ -11584,7 +11584,7 @@
       },
       {
         "id": "C",
-        "text": "faire demi-tour pour ressortir par l'entrée"
+        "text": "faire demi-tour pour ressortir par l'entrée, face aux véhicules qui arrivent"
       },
       {
         "id": "D",
@@ -11598,7 +11598,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le panonceau qui suit un panneau d'indication en précise la portée ; sous le panneau d'entrée d'un tunnel, cette portée est sa longueur totale. La connaître permet d'évaluer, à tout instant du trajet, la distance qui reste avant la sortie.",
+    "explanation": "Un panonceau ne redit jamais le panneau qu'il accompagne, il en précise la portée : ici, la longueur du tunnel qui reste à parcourir sous l'entrée signalée. Cette indication n'existe que là où l'entrée elle-même doit l'être — un tunnel trop court pour l'exiger n'en porte pas.",
     "id": "3a06288bf73bb5254b83a371ae55a854",
     "options": [
       {
@@ -11625,7 +11625,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le panneau d'entrée de tunnel porte lui-même la prescription : l'allumage des feux de croisement y est obligatoire, sans condition d'heure ni d'éclairage de l'ouvrage. Le motif tient à l'œil, qui met plusieurs secondes à passer du plein jour à la pénombre — pendant ces secondes-là, ce qui compte n'est pas de voir mais d'être vu, et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard.",
+    "explanation": "Le panneau d'entrée de tunnel porte lui-même la prescription : l'allumage des feux de croisement y est obligatoire, de jour comme de nuit. Le motif tient à l'œil, qui met plusieurs secondes à passer du plein jour à la pénombre : ce qui compte pendant ces secondes-là n'est pas de voir mais d'être vu, et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard. Cette obligation vaut jusqu'au panneau de sortie, le C112, qui la termine.",
     "id": "bda520451eb11447c3921f8a358742f1",
     "options": [
       {
@@ -11683,7 +11683,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, ce qui arrive sur les lignes à plusieurs voies — mais c'est le mouvement de la barrière qui interdit, jamais le nombre de voies ferrées.",
+    "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, ce qui arrive sur les lignes à plusieurs voies — mais c'est le mouvement de la barrière qui interdit, jamais le nombre de voies ferrées. Barrières relevées et immobiles, en revanche, le passage redevient libre.",
     "id": "763ae1f8c7040ecb170a4ed33f09505a",
     "options": [
       {
@@ -11737,7 +11737,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Aucun conducteur ne doit s'engager sur un passage à niveau si son véhicule risque d'y rester immobilisé, que ce soit à cause d'une file arrêtée devant lui ou de son propre gabarit. La règle ne demande pas de juger le risque : elle demande d'attendre la place.",
+    "explanation": "Aucun conducteur ne doit s'engager sur un passage à niveau si son véhicule risque d'y rester immobilisé, que ce soit à cause d'une file arrêtée devant lui ou de son propre gabarit. Un train ne peut ni s'arrêter court ni se déporter : un véhicule resté sur les rails deviendrait un obstacle qu'il percuterait sans pouvoir l'éviter. La règle ne demande pas de juger le risque : elle demande d'attendre la place.",
     "id": "d4b4abfd51499d4ab343bbb613acc7ad",
     "options": [
       {
@@ -11795,7 +11795,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Depuis 2020, en dessous d'un certain trafic, chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte donnant ce numéro, de part et d'autre des rails ; au-delà, deux postes téléphoniques remplacent la pancarte. C'est par là qu'on signale un obstacle sur la voie ou une installation en dérangement : l'exploitant ferroviaire est le seul à pouvoir faire arrêter les convois.",
+    "explanation": "Depuis 2020, en dessous d'un certain trafic, chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte donnant ce numéro et posée de part et d'autre des rails ; au-delà, deux postes téléphoniques la remplacent. C'est par là qu'on signale un obstacle sur la voie ou une installation en dérangement : l'exploitant ferroviaire est le seul à pouvoir faire arrêter les convois.",
     "id": "8a6af9d26330dc0f3bfd95d9bf0d7b81",
     "options": [
       {
@@ -11804,7 +11804,7 @@
       },
       {
         "id": "B",
-        "text": "la vitesse à ne pas dépasser sur la traversée"
+        "text": "la vitesse maximale à ne pas dépasser sur la traversée"
       },
       {
         "id": "C",
@@ -11822,7 +11822,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "L'annonce est calée sur le train et non sur ce que le conducteur aperçoit : quand les feux se mettent à clignoter, le convoi est encore loin, et les demi-barrières ne descendent que quelques secondes plus tard. Passer « avant les barrières » revient donc à passer devant un train déjà lancé.",
+    "explanation": "Les feux s'allument vingt secondes au moins avant l'arrivée du train : l'annonce est calée sur le convoi, pas sur ce que le conducteur aperçoit. Quand ils se mettent à clignoter, le train est encore loin, et les demi-barrières ne descendent que quelques secondes plus tard — passer « avant les barrières » revient donc à passer devant un train déjà lancé.",
     "id": "c084813ff73eacb15dc526232c288610",
     "options": [
       {
@@ -11876,7 +11876,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions, et le panneau de sortie en marque la fin : demi-tour interdit, arrêt et stationnement interdits hors des emplacements d'arrêt d'urgence. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
+    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions que le panneau de sortie vient clore : l'interdiction de faire demi-tour en fait partie. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
     "id": "5c11020dc34bf45d56cf8438dd8ad79e",
     "options": [
       {
