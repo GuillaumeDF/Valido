@@ -384,7 +384,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le 18 aboutit au centre opérationnel des sapeurs-pompiers du département, le plus proche du terrain pour un accident de la route. Le 15 est le SAMU, le 17 la police ou la gendarmerie, le 112 l'appel européen qui redirige vers l'un des trois.",
+    "explanation": "Le 18 est le numéro dédié aux services d'incendie et de secours : il aboutit directement au centre opérationnel des pompiers, aussi bien pour un incendie que pour un accident de la route. Le 15 est le SAMU, le 17 la police ou la gendarmerie, le 112 l'appel européen qui redirige vers l'un des trois.",
     "id": "37fe1af42b8d8122b00cdea4e4368822",
     "options": [
       {
@@ -1152,12 +1152,12 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "On ne déplace une victime que face à un danger vital immédiat, sinon on attend les secours.",
+    "explanation": "Le seul motif qui autorise à déplacer une victime est un danger immédiat qu'elle ne peut pas éviter sur place, comme un début d'incendie : ni le confort, ni le froid, ni sa propre demande ne suffisent. En dehors de ce cas, on la protège où elle est et on attend les secours, qui sauront la mobiliser sans risque.",
     "id": "37fe1af42b8d8175a7fccbffc2d6bcfa",
     "options": [
       {
         "id": "A",
-        "text": "Si elle le demande et se sent capable de marcher"
+        "text": "Si elle le demande et se sent capable de marcher seule"
       },
       {
         "id": "B",
@@ -1264,7 +1264,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Trente mètres, c'est à peu près la distance de réaction à 100 km/h : de quoi laisser au conducteur qui arrive le temps de comprendre et de ralentir. La distance vient de l'arrêté du 30 septembre 2008, qui dispense aussi de poser le triangle quand l'opération met manifestement votre vie en danger.",
+    "explanation": "Le triangle avertit les véhicules qui arrivent avant qu'ils n'atteignent l'obstacle : l'arrêté du 30 septembre 2008 fixe la distance à 30 mètres environ, et davantage si la visibilité l'exige. Il ne s'impose pas quand le poser exposerait manifestement la vie du conducteur.",
     "id": "37fe1af42b8d817b9035c1079ede5c00",
     "options": [
       {
@@ -1291,7 +1291,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Ces informations permettent d'envoyer les moyens adaptés. Ne raccrochez jamais le premier.",
+    "explanation": "Décrire où l'on se trouve, combien de personnes sont touchées et comment elles vont permet aux secours d'envoyer des moyens adaptés dès le départ. La Croix-Rouge ajoute qu'il faut ensuite rester en ligne pour répondre aux questions du régulateur ou du médecin.",
     "id": "37fe1af42b8d817bb145f7084044c24e",
     "options": [
       {
@@ -1642,7 +1642,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Retirer le casque risque d'aggraver une lésion de la nuque : on le laisse aux secours.",
+    "explanation": "Un simple témoin n'a ni la formation ni le matériel pour l'ôter sans risque : ce geste attend les secours, seuls habilités à le faire. Aucune exception n'est prévue par les recommandations : la règle vaut pour tout accident de moto.",
     "id": "37fe1af42b8d81a092bee8d2faab6224",
     "options": [
       {
@@ -2603,7 +2603,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Gilet jaune, feux de détresse et triangle évitent un suraccident avant toute autre action.",
+    "explanation": "Le gilet, les feux de détresse et le triangle rendent la zone visible avant que d'autres véhicules n'y arrivent : c'est ce balisage qui protège, pas le fait de s'exposer sur la chaussée pour faire signe aux voitures. Déplacer les victimes n'est pas un geste de protection : c'est un geste de secours, réservé au cas où elles courent un danger immédiat.",
     "id": "37fe1af42b8d81f7a214d5130ad370f4",
     "options": [
       {
@@ -2616,7 +2616,7 @@
       },
       {
         "id": "C",
-        "text": "Déplacer les victimes hors de la chaussée"
+        "text": "Déplacer les victimes hors de la chaussée pour les mettre à l'abri"
       },
       {
         "id": "D",
@@ -7647,12 +7647,12 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Dégager une victime consciente et coincée risque d'aggraver une lésion vertébrale, et personne ne déclenchera l'alerte à votre place. Protéger, alerter, puis rester en contact : la désincarcération relève des secours et de leur matériel.",
+    "explanation": "Dégager une victime coincée n'est pas à la portée d'un témoin seul, et personne d'autre ne déclenchera l'alerte à votre place si vous vous en occupez en premier. La désincarcération est un geste technique, réservé aux secours et à leur matériel : protéger, alerter, puis rester en contact jusqu'à leur arrivée.",
     "id": "5fe77bbd3af80ab119da8b5a2686b39c",
     "options": [
       {
         "id": "A",
-        "text": "Attendre qu'un autre usager s'arrête"
+        "text": "Attendre qu'un autre usager s'arrête pour vous aider"
       },
       {
         "id": "B",
@@ -10428,7 +10428,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Trop lent, le cœur ne se remplit pas assez pour être vidé utilement ; trop rapide, la poitrine n'a pas le temps de remonter entre deux appuis et le sang ne revient plus. Les recommandations européennes de réanimation retiennent cette plage comme la plus efficace.",
+    "explanation": "L'ERC retient une plage plus large ; la Croix-Rouge n'en garde que la borne basse, pour simplifier l'apprentissage. Les deux sources se recoupent : aucune ne valide un rythme plus lent, ni plus rapide, que celui qu'elles recommandent.",
     "id": "fb24f6323a07a07c776d55163d42e028",
     "options": [
       {
@@ -10455,7 +10455,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Moins profond, l'appui ne chasse pas assez de sang ; plus profond, il expose aux fractures de côtes et aux lésions du foie. La plage retenue par les recommandations européennes de réanimation est ce compromis, et la poitrine doit remonter complètement entre deux appuis.",
+    "explanation": "L'ERC et la Croix-Rouge retiennent exactement la même profondeur, sans aller ni en dessous ni au-delà : ce n'est pas affaire d'appréciation individuelle. Entre deux compressions, il faut aussi laisser la poitrine reprendre sa position initiale, pour que le sang revienne vers le cœur avant l'appui suivant.",
     "id": "82a9e65c1cf2ff4a1a1a944ab59c59f9",
     "options": [
       {
@@ -10482,7 +10482,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Refroidir limite l'extension de la lésion en profondeur, à condition que l'eau soit tempérée : la glace referme les vaisseaux et aggrave ce qu'elle prétend soulager. La Croix-Rouge retient au moins dix minutes, vingt idéalement chez l'adulte, mais pas au-delà de dix minutes chez l'enfant, en faisant couler l'eau en amont de la zone touchée.",
+    "explanation": "Refroidir limite l'extension de la lésion, à condition que l'eau reste tempérée : la Croix-Rouge ne recommande jamais la glace, seulement l'eau, coulée en amont de la brûlure pour que le jet ne frappe pas directement la plaie. Elle retient au moins dix minutes, vingt idéalement chez l'adulte, mais pas au-delà de dix minutes chez l'enfant.",
     "id": "1ef7d3ed540293c212d9c304ffb297f5",
     "options": [
       {
@@ -10509,7 +10509,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Le rapport est un compromis : chaque interruption pour souffler fait chuter la pression dans les artères, et il faut plusieurs appuis pour la rétablir. Celui qui ne veut pas souffler garde tout son temps pour comprimer, ce qui reste bien mieux que de ne rien faire.",
+    "explanation": "30 compressions puis 2 insufflations est le rythme que retiennent l'ERC et la Croix-Rouge quand le sauveteur accepte de faire du bouche-à-bouche. Celui qui ne s'en sent pas capable peut comprimer seul, sans interruption, à au moins 100 par minute : les recommandations européennes jugent que cela reste une bonne chance de survie pour la victime, plutôt qu'une raison de ne rien faire.",
     "id": "d724a3c3121fafd733552c7d2ba1f5aa",
     "options": [
       {
@@ -10536,7 +10536,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Sur un matelas ou une banquette, la poitrine s'enfonce avec le support et l'appui perd sa profondeur utile ; une chaussée fait un bien meilleur plan dur. La position latérale de sécurité, elle, ne s'adresse qu'à une victime qui respire encore.",
+    "explanation": "Sur un matelas ou une banquette, la poitrine s'enfonce avec le support et l'appui perd sa profondeur utile ; une chaussée fait un bien meilleur plan dur. Sur le côté, impossible de comprimer verticalement le sternum : cette position ne convient qu'à une victime qui respire déjà, pas à un massage.",
     "id": "5e2dbc048917ecebcccbc8d54888acb3",
     "options": [
       {
