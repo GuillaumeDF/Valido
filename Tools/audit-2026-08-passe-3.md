@@ -1565,11 +1565,12 @@ ce n'est pas un doute que cette relecture laisse ouvert.
 - cartes dont le budget de 220 a limité l'explication : **`0a4e98c4605ec20320…`**
   (marquage jaune continu, 215/220 à l'entrée). Round 0 l'avait laissée telle quelle en
   disant qu'aucune carte n'était limitée par le budget ; c'était faux — cette carte
-  n'avait aucune raison (deux renvois croisés vers d'autres marquages en tenaient lieu),
-  et il a fallu couper les deux renvois pour loger un raisonnement à la place (« le
-  stationnement n'étant, par définition, que ce qui n'est pas de l'arrêt (R110-2),
-  interdire l'un interdit l'autre »), au prix du détail « même le temps de laisser
-  descendre un passager ».
+  n'avait aucune raison (deux renvois croisés vers d'autres marquages en tenaient lieu).
+  Fix round 1 a coupé les deux renvois pour loger un raisonnement à leur place, mais ce
+  raisonnement (« le stationnement n'étant, par définition, que ce qui n'est pas de
+  l'arrêt (R110-2), interdire l'un interdit l'autre ») s'est révélé une fausse
+  déduction — voir Fix round 2, qui la retire et déclare la raison absente plutôt que
+  d'en forcer une autre.
 - énoncés reformulés parce qu'ils présupposaient la règle : aucun, aux deux rondes.
 
 **Round 0 — trois cartes réécrites sur le critère 3, toutes trois COURTE :**
@@ -1615,19 +1616,20 @@ ce n'est pas un doute que cette relecture laisse ouvert.
 Cartes illustrées : les trois ont été réécrites au fix round 1 (voir ci-dessus et
 Longueur), toutes mesurées sous 220.
 
-### Preuve par carte, pour les 5 cartes non modifiées
+### Preuve par carte, pour les 4 cartes non modifiées
 
-Douze cartes ont été modifiées au total sur les deux rondes : les trois COURTE du round 0
-(`37fe1af42b8d812cad07c40f6c51598c`, `37fe1af42b8d8148bc29ede5a0015edd`,
+Treize cartes ont été modifiées au total sur les trois rondes : les trois COURTE du
+round 0 (`37fe1af42b8d812cad07c40f6c51598c`, `37fe1af42b8d8148bc29ede5a0015edd`,
 `37fe1af42b8d81e2b806fb6055602586`), l'écart de justesse
 (`37fe1af42b8d81e9b314fcb5ac447202`), la carte tournée pour `correctID`
-(`37fe1af42b8d8166847cf95009550b0a`), et sept de plus au fix round 1
+(`37fe1af42b8d8166847cf95009550b0a`), sept de plus au fix round 1
 (`0a4e98c4605ec20320f13dec75f7bb9c`, `639297cf3f0f433daf035978fa8ddfe5`,
 `a2673bae092f3eaf438b40910de6fbd4`, `37fe1af42b8d8134ad4be3c7e29328f1`,
 `37fe1af42b8d8181a057c984708f0042`, `5139c357024d2a17c499b104d7a01d81`,
-`c5d4d52f1aaa89b811c8b17847338968`) — chacune nommée
-avec ce qui a changé et pourquoi dans « Pédagogie », « Longueur » ou « Les options »
-ci-dessus. Il reste **5** cartes strictement non modifiées (le contenu de
+`c5d4d52f1aaa89b811c8b17847338968`), et une de plus au fix round 2
+(`ab50f861852232a60c2b4f29fed21b97`, voir Fix round 2) — chacune nommée avec ce qui a
+changé et pourquoi dans « Pédagogie », « Longueur », « Les options » ou « Fix round 2 »
+ci-dessus/dessous. Il reste **4** cartes strictement non modifiées (le contenu de
 `e6d0b1101f0ac46d63199b5485d17c61` n'a pas bougé non plus ; seule sa ligne de registre a
 été corrigée, voir minor 8). Règle / raison / limite telles que chacune les dit :
 
@@ -1636,10 +1638,20 @@ ci-dessus. Il reste **5** cartes strictement non modifiées (le contenu de
 | `37fe1af42b8d811198bdecd01768828c` | stationnement dangereux | règle (masque de visibilité : virage, sommet, intersection, passage à niveau) + limite explicite (« Un stationnement seulement gênant, lui, ne coûte aucun point », cohérent avec la ligne de `…8181a0`) |
 | `37fe1af42b8d811b96fdf80a7a546c1e` | côté de stationnement, double sens | règle (à droite) + raison (« placerait le conducteur du mauvais côté au moment de sortir, face au trafic ») + limite explicite (« Les deux côtés ne sont permis qu'en sens unique ») |
 | `37fe1af42b8d81d793bcc927205f9d79` | voie réservée aux bus | règle (très gênant) + raison (« renvoie tout un bus dans le trafic général, avec ses passagers ») + limite explicite (« seule la nécessité absolue l'excuse, jamais l'absence de bus ») |
-| `ab50f861852232a60c2b4f29fed21b97` | ouverture de portière | règle (« tout occupant ») + raison portée par l'énoncé lui-même (« dangereusement » nomme le critère, repris de l'affirmation : « lorsque cette manœuvre constitue un danger ») + limite explicite (« Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes ») — reconsidérée par la revue (« weaker »), gardée : la raison existe, elle vit dans l'énoncé plutôt que d'être redite dans l'explication |
 | `e6d0b1101f0ac46d63199b5485d17c61` | cinq mètres en amont d'un passage piéton | règle (5 m) + raison (« qu'un enfant engagé sur le passage soit vu à temps ») + limite explicite (amont seulement, cède devant un emplacement matérialisé) ; seule sa ligne de registre a bougé ce round (minor 8), pas la carte |
 
-Modifiées (12, nommées ci-dessus) + non modifiées évidencées (5) = 17, sans reste.
+**La treizième carte modifiée porte un vide déclaré plutôt qu'une raison forcée** :
+`0a4e98c4605ec20320f13dec75f7bb9c` (marquage continu) a règle (« interdit l'arrêt
+lui-même, pas seulement le stationnement ») et limite (le zigzag réserve un arrêt de
+bus, un cas distinct) mais **raison absente** — voir Fix round 2 pour pourquoi la
+raison ajoutée au fix round 1 a été retirée plutôt que réparée, et pourquoi aucune
+raison de remplacement n'a été trouvée dans les sources disponibles : la portée du
+tableau IISR (continue = arrêt, ce qui comprend le stationnement) est une convention
+stipulée par le texte, pas une règle qui se déduit ou s'explique par ailleurs sur cette
+carte, au même titre que l'angle de l'épi sur `639297cf…` n'a pas de raison textuelle
+et ne s'appuie que sur une planche.
+
+Modifiées (13, nommées ci-dessus) + non modifiées évidencées (4) = 17, sans reste.
 
 ### Longueur — point 15 du calibrage
 
@@ -1776,17 +1788,18 @@ légitime.
 
 ### Mouvements d'`audit.py`
 
-| sortie | avant (round 0) | après round 0 | après fix round 1 |
-|---|---|---|---|
-| `lettre/reference` | 1 | 1 | 1 |
-| `forme/markdown` | 1 | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 | 14 |
-| `longueur/plus-longue` | 96 | 94 | 93 |
-| `expl/paraphrase-litterale` | 17 | 17 | 17 (inchangé, faux positif ci-dessus) |
+| sortie | avant (round 0) | après round 0 | après fix round 1 | après fix round 2 |
+|---|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 | 1 |
+| `forme/markdown` | 1 | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 | 14 |
+| `longueur/plus-longue` | 96 | 94 | 93 | 93 |
+| `expl/paraphrase-litterale` | 17 | 17 | 17 | 17 (inchangé) |
 
 `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10` et
-`forme/backtick-isole` : vides aux trois relevés. `longueur/plus-longue` baisse de 3 au
-total (deux resserrements round 0, un de plus au fix round 1) ; aucune régression.
+`forme/backtick-isole` : vides aux quatre relevés. `longueur/plus-longue` baisse de 3 au
+total (deux resserrements round 0, un de plus au fix round 1) ; le fix round 2 ne touche
+aucune longueur d'option, il ne bouge rien ici. Aucune régression aux trois rondes.
 
 ### Neuf minors du fix round 1
 
@@ -1815,3 +1828,69 @@ total (deux resserrements round 0, un de plus au fix round 1) ; aucune régressi
    matérialisé », alors que cette réserve vient du c) lui-même et n'a aucun lien avec le
    chapeau. Corrigé, les deux faits séparés.
 9. Voir Pédagogie — `0a4e98c4…` est la carte que le budget de 220 a limitée.
+
+### Fix round 2 — une fausse déduction retirée, une raison implicite remplacée
+
+**Open 1 — `0a4e98c4605ec20320f13dec75f7bb9c` (marquage continu) : la raison ajoutée au
+fix round 1 était une fausse déduction.** Le texte disait « Le stationnement n'étant,
+par définition, que ce qui n'est pas de l'arrêt (R110-2), interdire l'un interdit
+l'autre. » R110-2 partage arrêt et stationnement en deux catégories **disjointes** —
+le stationnement étant tout ce qui échoue au test de l'arrêt. Interdire l'une des deux
+ne dit rien de l'autre par le seul fait de cette partition ; une lecture littérale
+pointerait plutôt dans l'autre sens. La vraie raison pour laquelle un marquage continu
+interdit les deux à la fois est une **convention stipulée** par le tableau de l'IISR
+que la ligne de la carte cite déjà (art. 113-2 E), pas une déduction à partir de R110-2.
+
+Cherché sans trouver : aucune clause de l'affirmation, d'`images.md` ou de R417-11/-10
+n'énonce **pourquoi** le tableau IISR fait de la continue le cas le plus large plutôt
+que l'inverse — c'est une décision de nomenclature, comme le sont « en épi » vs
+« perpendiculaire » sur `639297cf…`, qui n'a pas non plus de raison textuelle au-delà de
+la planche. Conclusion : **raison absente**, déclarée plutôt que remplacée par une
+seconde raison inventée. La carte garde règle (« interdit l'arrêt lui-même, pas
+seulement le stationnement ») et limite (le zigzag réserve un arrêt de bus, un marquage
+distinct) ; le renvoi « (R110-2) » est retiré avec la phrase qui le portait, ce qui
+éteint de lui-même le manque de renvoi que la revue avait signalé en non-bloquant sur
+`sources.md`. 194 → 165 caractères, largement sous 220.
+
+**Open 2 — `ab50f861852232a60c2b4f29fed21b97` (ouverture de portière) : « dangereusement »
+dans l'énoncé n'est pas une raison dans l'explication.** Le spec scope le critère 3 au
+champ `explanation` ; et l'adverbe de l'énoncé est la **condition de déclenchement** de
+la règle (R417-7 ne punit que si la manœuvre « constitue un danger »), pas une
+explication de pourquoi la règle existe — c'est ce que le lecteur doit déjà analyser pour
+comprendre la question, pas ce qu'il apprend en la lisant. L'explication ne disait que
+la règle, un exemple et une limite de portée, jamais le danger réel que le texte vise
+(un cycliste ou un piéton fauché par une portière ouverte sans regarder). Ajouté : « une
+portière ouverte sans regarder peut faucher un cycliste ou un piéton qui longe le
+véhicule ». Cette carte passe donc de la table des non-modifiées à celle des modifiées ;
+elle a maintenant règle, raison et limite tous trois dans l'explication elle-même.
+
+Aucune autre carte touchée ce round. Les deux corrections sont indépendantes : la
+première retire un défaut introduit au fix round 1, la seconde corrige un défaut de
+round 0 qu'une justification à l'œil (« la raison vit dans l'énoncé ») avait laissé
+passer deux rondes de suite.
+
+### Vérifications, fix round 2
+
+```
+$ python3 Tools/relire.py --fuites "Arrêt & stationnement"
+0 recouvrement(s) sur 17 cartes de « Arrêt & stationnement ».
+```
+
+Les six autres domaines finis re-testés dans le même geste, tous à 0 :
+`Permis & sanctions` (19), `Vitesse` (22), `Alcool & stupéfiants` (18),
+`Usagers & partage de la route` (18), `Mécanique & environnement` (20),
+`Distances & freinage` (21).
+
+`audit.py` inchangé par rapport à après fix round 1 (voir la table ci-dessus) : ni les
+options ni le `correctID` d'aucune carte n'ont bougé ce round, seules deux explications.
+`longueur/plus-10`, `schema/`, `couverture/`, `source/`, `fuite/`, `image/` et
+`forme/backtick-isole` toujours vides.
+
+Illustrée re-mesurée : `0a4e98c4…` 22/48/165 (contre 194 après fix round 1), largement
+sous 220 ; `639297cf…` et `a2673bae…` non touchées ce round, toujours à 219 et 215.
+
+`✔ Test run with 10 tests in 0 suites passed after 0.066 seconds.` / `** TEST SUCCEEDED **`
+sur les dix tests du contenu livré, simulateur `iPhone 17 Pro`
+(`66921B37-1805-4988-AB69-B51A94490BC0`). `git status --short` avant `git add` :
+`Valido/Resources/questions.json` seul modifié, `CLAUDE.md` toujours untracked, aucun
+`Contents.json` reformaté.

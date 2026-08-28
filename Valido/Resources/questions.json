@@ -8539,7 +8539,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Continue, elle interdit l'arrêt lui-même. Le stationnement n'étant que ce qui n'est pas de l'arrêt (R110-2), interdire l'un interdit l'autre ; le zigzag, lui, réserve la place à un arrêt de bus.",
+    "explanation": "Continue, elle interdit l'arrêt lui-même, pas seulement le stationnement : même déposer un passager est proscrit. Le zigzag, lui, réserve la place à un arrêt de bus.",
     "id": "0a4e98c4605ec20320f13dec75f7bb9c",
     "illustration": {
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir court un trait jaune, continu et sans la moindre interruption.",
@@ -9803,7 +9803,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le texte vise « tout occupant » : le passager arrière qui ouvre sans regarder commet lui-même la contravention, de première classe, 11 €. Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes.",
+    "explanation": "Le texte vise « tout occupant » car une portière ouverte sans regarder peut faucher un cycliste ou un piéton qui longe le véhicule : le passager arrière qui ouvre ainsi commet lui-même la contravention, de première classe, 11 €. Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes.",
     "id": "ab50f861852232a60c2b4f29fed21b97",
     "options": [
       {
