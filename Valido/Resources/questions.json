@@ -546,7 +546,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Dans un carrefour giratoire, les usagers déjà dans l'anneau sont prioritaires.",
+    "explanation": "Dans un carrefour à sens giratoire (triangle et cédez-le-passage à chaque entrée), R415-10 impose de céder le passage à qui circule déjà sur l'anneau : lui n'a ni à s'arrêter ni à céder à l'entrant. Un rond-point sans cette signalisation suit une autre règle.",
     "id": "37fe1af42b8d812fade7d79d309e4c48",
     "options": [
       {
@@ -928,7 +928,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Contrairement au STOP, l'arrêt n'est pas obligatoire : on s'arrête uniquement si un véhicule arrive.",
+    "explanation": "Le triangle impose de céder le passage, pas de s'arrêter : l'arrêt n'est qu'un moyen, dû seulement si un véhicule approche. Contrairement au STOP, s'arrêter sans que personne n'arrive n'a ici aucune utilité légale.",
     "id": "37fe1af42b8d8161be32fe2fe9808fff",
     "options": [
       {
@@ -1453,7 +1453,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'article R415-12 impose de céder le passage en toutes circonstances. La Sécurité routière confirme qu'un feu franchi pour dégager la voie est relevé par le radar sans contravention automatique, sauf contrôle humain si le véhicule prioritaire n'est pas lui-même flashé.",
+    "explanation": "R415-12 impose de céder le passage « en toutes circonstances » aux véhicules d'intérêt général prioritaires. La priorité ne vaut que s'ils annoncent leur approche par sirène et gyrophare : hors intervention signalée, un véhicule de secours reste un usager ordinaire.",
     "id": "37fe1af42b8d818293f3f8d862a5a505",
     "options": [
       {
@@ -2194,7 +2194,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le losange jaune signale une route à caractère prioritaire sur tout son parcours.",
+    "explanation": "Le losange jaune (AB6) signale une route à caractère prioritaire : la priorité à droite cesse d'y jouer aux intersections traversées, jusqu'au panneau qui l'annule.",
     "id": "37fe1af42b8d81d6aef7ff0b8d193d7f",
     "options": [
       {
@@ -8477,7 +8477,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le triangle à l'entrée impose de céder le passage à l'anneau, où l'on circule dans le sens antihoraire : ce qui vous coupe la route arrive donc toujours par la gauche.",
+    "explanation": "Le triangle à l'entrée impose de céder le passage à l'anneau, où l'on circule dans le sens antihoraire : ce qui vous coupe la route arrive donc toujours par la gauche. Sans triangle, un rond-point suit une autre règle.",
     "id": "dd4c58febe771b6f297f1ca46c2ec75b",
     "illustration": {
       "alt": "Giratoire à quatre branches ; un triangle rouge pointe en bas marque votre entrée par le bas, et un véhicule circule déjà sur l'anneau, arrivant de votre gauche.",
@@ -8806,7 +8806,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "R414-3 fait s'arrêter en premier le véhicule qui descend, en montagne ou sur forte déclivité. Reculer reste à lui, sauf si c'est nettement plus facile pour celui qui monte, près d'une place d'évitement.",
+    "explanation": "R414-3 fait s'arrêter et reculer le véhicule qui descend : cela se maîtrise mieux en descente qu'en côte. Sauf si c'est nettement plus facile pour celui qui monte, près d'une place d'évitement.",
     "id": "6e1a51d34b4b79e4366d6566795e5151",
     "illustration": {
       "alt": "Route étroite à forte pente, vue de côté ; vous descendez à la rencontre d'un véhicule qui monte, et la chaussée ne permet pas de passer de front.",

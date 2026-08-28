@@ -2702,3 +2702,328 @@ $ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] 2>&1 | tail
 `git status --short` avant `git add`, fix round 1 : `Tools/sources.md` et
 `Valido/Resources/questions.json` seuls modifiés, `CLAUDE.md` toujours untracked, aucun
 `Contents.json` reformaté.
+
+## Priorités & intersections
+
+26 cartes, 5 `datée`, 8 illustrée(s).
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `37fe1af42b8d818293f3f8d862a5a505` | explication au-delà de l'article (nuance imprécise, hors champ) | « La Sécurité routière confirme qu'un feu franchi pour dégager la voie est relevé par le radar sans contravention automatique, sauf contrôle humain si le véhicule prioritaire n'est pas lui-même flashé. » | Rouvert par `WebSearch` (la page `securite-routiere.gouv.fr` citée ne se laisse pas lire par `WebFetch`, contenu chargé en JS) : chaque photo radar est **toujours** revue par un OPJ ; ce qui compte est que le véhicule prioritaire **apparaisse sur la photo**, pas une alternative « automatique / contrôle humain » comme la carte le construisait. La nuance, en plus d'être imprécise, ne distingue aucune des 4 options (aucune ne porte sur le radar) : c'est un ajout hors du champ que la carte teste. | Retirée. Remplacée par une limite tirée du texte même de R415-12, relu mot pour mot sur Legifrance le 2026-08-28 : « annonçant leur approche par l'emploi des avertisseurs spéciaux prévus pour leur catégorie » — la priorité tient à l'usage effectif de la sirène et du gyrophare, pas au type de véhicule. |
+
+Un seul écart sur 26 cartes. Les cinq lignes `datée` du domaine ont chacune été relues
+contre l'article consolidé (R415-5, R415-6, R415-10, R415-12, l'arrêté du 12 janvier 2012
+créant le panonceau M12), `WebFetch`/`WebSearch` à l'appui plutôt que la seule ligne de
+`sources.md` — parce que ce domaine est justement celui où la comparaison clause par
+clause (point 10 du calibrage) est la plus exigeante : trois cartes reposent sur la
+distinction rond-point/carrefour à sens giratoire, deux sur STOP vs cédez-le-passage, deux
+sur le tramway. Sur ces sept articles, six confirment la carte mot pour mot ; le
+septième (le rang 2 sur le radar, ci-dessus) est le seul qui ne tenait pas.
+
+**R415-5** (« le conducteur venant par la gauche est tenu de céder le passage à l'autre
+conducteur, sauf dispositions différentes prévues au présent livre ») ne mentionne pas
+explicitement l'exception « chemin de terre / parking / propriété privée » que portent
+`e0f68dd1324f9a5ffaab945a3d59e197` et `37fe1af42b8d818fb7c9efba6c63d91d` — parce que
+l'article ne parle que de « routes différentes » : une sortie de parking n'étant pas une
+« route » au sens du code, elle échappe à R415-5 par construction, pas par une exception
+qu'il énoncerait. Les deux cartes restent justes ; le mécanisme cité (« la priorité à
+droite ne joue qu'entre voies de même nature ») est la doctrine qui explique pourquoi,
+pas une citation de l'article. **R415-10** (« Tout conducteur abordant un carrefour à
+sens giratoire est tenu […] de céder le passage aux usagers circulant sur la chaussée qui
+ceinture le carrefour ») ne définit pas lui-même ce qui fait qu'un rond-point *est* un
+carrefour à sens giratoire — ce que `2daf8939fc85f5b288010cf545bb681d` affirme
+explicitement (« sans la signalisation qui le désigne, un rond-point reste soumis à la
+priorité à droite ») sans le faire dire à cet article-là : cohérent, pas trop large.
+**R422-3** confirme mot pour mot les deux cartes tramway, y compris la clause qui les
+limite (« sauf pour les véhicules de transport public [...] dont les conducteurs doivent
+respecter la signalisation à prescriptions absolues »). **L'arrêté M12** confirme la
+citation exacte de `sources.md` (« en toute prudence et en respectant la priorité de
+passage accordée aux autres usagers ») ; la carte `b433eefe7ea3ce149e6d6dd09e958a00` la
+paraphrase en « aux piétons et aux véhicules de la voie croisée », plus concret que le
+texte mais pas plus large que lui (à un feu tricolore, les seuls « autres usagers »
+disposant du passage sont précisément ceux-là) — gardé tel quel, pas un doute.
+
+### Doutes signalés, non corrigés
+
+Aucun. Les cinq lignes `datée` ont chacune été revérifiées contre l'article consolidé
+(voir ci-dessus) ; le seul point qui ne tenait pas (le rang 2 sur le radar) avait une
+réponse claire dans les résultats de recherche eux-mêmes, pas un doute qui serait resté
+en suspens faute de source.
+
+### Pédagogie
+
+- explications sous 120 caractères : 3 à l'entrée (`37fe1af42b8d812fade7d79d309e4c48` 78,
+  `37fe1af42b8d8161be32fe2fe9808fff` 100, `37fe1af42b8d81d6aef7ff0b8d193d7f` 81), **0** à
+  la sortie.
+- cartes dont le budget de 220 a limité l'explication : `6e1a51d34b4b79e4366d6566795e5151`
+  (croisement en pente) — un premier ajout de la raison physique (« cela se maîtrise
+  mieux en descente qu'en côte ») portait l'explication à 238 caractères ; retravaillée à
+  193 en fusionnant l'arrêt et le recul en une seule proposition, sans perdre la limite
+  (« sauf si c'est nettement plus facile pour celui qui monte, près d'une place
+  d'évitement »). `dd4c58febe771b6f297f1ca46c2ec75b` (insertion sur giratoire) — la
+  limite ajoutée (le cas du rond-point non giratoire) a été réduite à sa forme la plus
+  courte possible, « Sans triangle, un rond-point suit une autre règle. » (218/220), pour
+  ne pas dépasser. Deux cartes non éditées restent déjà proches du plafond en entrée et
+  n'ont pas été rallongées pour cette raison : `8e9464777a61dba3859e3ecc08f7327d` (219/220)
+  et `f255331d3f234810a4807594b43b397f` (214/220), qui préfèrent réfuter leurs propres
+  distracteurs plutôt que répéter la liste complète des exceptions déjà portée par
+  `37fe1af42b8d818fb7c9efba6c63d91d`.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 26 énoncés se
+  lisent déjà sans connaître la réponse — mises en situation avec tous les termes
+  introduits (les scènes illustrées portent le contexte dans l'`alt`), ou questions
+  fermées neutres (« Qui passe en premier ? », « Qui a l'autorité la plus élevée… »).
+  Aucun n'a nécessité de reformulation.
+
+**Six cartes modifiées, sur la pédagogie (critère 3) et un écart (818293) :**
+
+- `37fe1af42b8d812fade7d79d309e4c48` (giratoire, véhicules déjà engagés) — COURTE (78
+  car.) : la règle était nue (« les usagers déjà dans l'anneau sont prioritaires »), sans
+  raison ni limite. Réécrite en 259 caractères : règle sourcée (R415-10, « impose de
+  céder le passage à qui circule déjà sur l'anneau »), limite reliée à la carte voisine
+  sans lui voler sa réponse (« Un rond-point sans cette signalisation suit une autre
+  règle »). **Note de méthode** : un premier brouillon employait « l'anneau se comporte
+  comme une route prioritaire », une analogie qui aurait confondu deux mécanismes de
+  priorité que le domaine tient justement séparés (R415-10 pour l'anneau, R415-9/AB6 pour
+  la route à caractère prioritaire) — retiré avant commit. Un second brouillon employait
+  « R415-10 donne la priorité à l'anneau », qui recouvrait mot pour mot la bonne réponse
+  d'une carte `Panneaux & marquage` (`9eb8506813f0c8b729b66157ec95a63f`, « un giratoire où
+  la priorité est à l'anneau ») — détecté par `--fuites` après coup, corrigé en évitant le
+  mot « priorité » au profit de « céder le passage ». Les deux versions écartées ne sont
+  restées dans aucun commit.
+- `37fe1af42b8d8161be32fe2fe9808fff` (cédez le passage, triangle) — COURTE (100 car.) :
+  la carte disait *que* l'arrêt n'est pas obligatoire, jamais pourquoi. Réécrite en 214
+  caractères : règle (« impose de céder le passage, pas de s'arrêter »), raison (« l'arrêt
+  n'est qu'un moyen, dû seulement si un véhicule approche »), limite/contraste avec le
+  STOP conservée.
+- `37fe1af42b8d81d6aef7ff0b8d193d7f` (losange jaune, signification) — COURTE (81 car.) :
+  pure paraphrase (« signale une route à caractère prioritaire sur tout son parcours »).
+  Réécrite en 164 caractères : raison ajoutée (la priorité à droite cesse de s'appliquer
+  aux intersections traversées) et limite (« jusqu'au panneau qui l'annule »).
+- `37fe1af42b8d818293f3f8d862a5a505` (véhicule prioritaire, sirène/gyrophare) — écart de
+  justesse traité ci-dessus. La limite ajoutée (usage effectif des avertisseurs) vient du
+  texte même de R415-12, pas d'une déduction.
+- `6e1a51d34b4b79e4366d6566795e5151` (croisement en pente, illustrée) — la carte donnait
+  déjà la règle et la limite, jamais la raison. Ajoutée : « cela se maîtrise mieux en
+  descente qu'en côte » — fait physique non controversé, déjà admis comme non sourcé pour
+  ce type de raisonnement par `Distances & freinage` (« un ordre de grandeur pédagogique
+  ne se source pas comme une norme »). 202 → 193 caractères (budget illustrée tenu).
+- `dd4c58febe771b6f297f1ca46c2ec75b` (insertion sur giratoire, illustrée) — la carte
+  n'avait pas de limite. Ajoutée, brève pour tenir le budget : le cas du rond-point sans
+  triangle suit une autre règle, sans donner la réponse de `2daf8939fc85f5b288010cf545bb681d`.
+  167 → 218 caractères.
+
+### Preuve par carte, pour les 20 cartes non modifiées
+
+| id | rôle | règle / raison / limite |
+|---|---|---|
+| `3e5d97761594126d37652be2e0e976dc` | feux hors service, priorité qui reprend | règle (« c'est la règle de l'article R415-5 qui revient, celle du croisement nu ») + raison (« un feu éteint ne prescrit plus rien : la hiérarchie redescend d'un cran ») + limite (« s'il ne reste ni agent, ni panneau, ni marquage ») |
+| `43dc08f7c9ebc00497a4022e24319683` | STOP, obligation | règle (« l'immobilisation complète, à la ligne et non au niveau du poteau, même quand rien n'arrive ») + limite/contraste (« ce qui le sépare du cédez-le-passage, où seule la priorité est due ») ; raison absente (la carte pose un contraste, pas un pourquoi causal) — non corrigé, la limite fait le travail pédagogique |
+| `8e9464777a61dba3859e3ecc08f7327d` | losange jaune, carrefour illustré | règle (« Vous, le losange jaune vous rend prioritaire ») + raison (« désigne une route à caractère prioritaire ») + limite (« tant qu'il n'est pas barré ») |
+| `e93ca4d156de5854eafce9393be39274` | carrefour en T, insertion | règle (« chacun cède à qui vient de sa droite — et vous êtes à sa droite ») + raison (réfute le mythe : « rouler sur la voie qui traverse ne confère par elle-même aucune priorité ») + limite (« faute de panneau, de marquage ou de feu ») |
+| `ef4cfd171e0e9911a2619b3b06336216` | tramway, carrefour illustré | règle (« sa priorité ne dépend pas du côté ») + raison (« un tramway ne peut ni s'écarter ni s'arrêter court ») + limite (« Seule une signalisation absolue l'arrête ») |
+| `f255331d3f234810a4807594b43b397f` | priorité à droite, illustrée | règle (« chacun cède à qui vient de sa droite ») + réfutation des deux distracteurs propres à la scène (l'ordre d'arrivée, la direction prise) ; raison et limite générales déjà portées par `37fe1af42b8d818fb7c9efba6c63d91d`, non répétées — budget d'illustrée oblige (214/220) |
+| `02f7d6a65856887348bfe8653bb90c6e` | clignotant sur giratoire | règle (« après la sortie qui précède celle que vous prenez ») + raison (« il fait démarrer celui qui attend à la branche précédente, persuadé que vous lui laissez la place ») |
+| `09f18973aee39386ee42782f04d03ec2` | tourner à gauche hors intersection réglée | règle (« Céder le passage aux véhicules venant en face ») + raison (« le clignotant annonce une intention, il ne crée aucun droit ») + champ élargi, sourcé par la scène de danger réelle (« y compris les deux-roues qui remontent la file ») |
+| `2a9e02b9719028e72fde6fdd6372a1ff` | refus de priorité à un piéton, 6 pts (`datée`) | règle (« 6 points, au même titre qu'une alcoolémie ») + raison (« le barème la place au niveau le plus élevé possible pour une contravention ») + extension datée (« depuis 2018, l'obligation vaut aussi pour le piéton qui manifeste clairement l'intention de traverser ») |
+| `2daf8939fc85f5b288010cf545bb681d` | rond-point sans panneau | règle (« à droite, donc aux véhicules qui s'y engagent ») + limite qui est tout l'objet de la carte (« un rond-point n'est un carrefour à sens giratoire que si la signalisation le dit […] sans eux, l'article R415-10 ne s'applique pas ») |
+| `37fe1af42b8d815f8684e4cc91d6950f` | feu vs panneau contradictoire | règle (« Le feu tricolore ») + raison (« réglé pour la situation du moment […] c'est le plus récent des deux qui l'emporte ») + limite (hiérarchie complète + l'exception du jaune clignotant, qui « n'attribue lui-même aucune priorité ») |
+| `37fe1af42b8d817da9fff3054d6ffa3a` | hiérarchie agent/feu/panneau/marquage | règle (« L'agent ») + raison (« un agent voit la situation réelle et peut la contredire, un feu ne fait qu'appliquer un cycle ») + limite (hiérarchie complète) |
+| `37fe1af42b8d8184beb9c6687c92ffb5` | losange jaune barré | règle (« La fin d'une route à caractère prioritaire ») + raison (« vous dispensait des règles ordinaires sur tout un itinéraire ») + limite non absolue (« le plus souvent la priorité à droite », pas systématiquement) |
+| `37fe1af42b8d818fb7c9efba6c63d91d` | priorité à droite, aucune signalisation | règle (« Au véhicule venant de la droite ») + raison (« une règle unique et mémorisable plutôt qu'un arbitrage au cas par cas ») + limite (« ni sur un giratoire, ni face à un véhicule sortant d'un chemin de terre ou d'un parking ») |
+| `37fe1af42b8d81bd9426eabc80ab4a05` | STOP (`datée`) | règle (« De marquer un arrêt complet, puis de céder », « roues bloquées à la ligne, avant même de regarder ») + limite/contraste (« ce qui le distingue du « Cédez le passage » ») + conséquence datée (4 points) ; raison absente comme sur `43dc08f7c9eb…`, même carte du point de vue légal |
+| `37fe1af42b8d81fa9debeaf114b7bf77` | tramway hors intersection | règle (« Il garde la priorité ; la règle ne s'arrête pas aux carrefours ») + raison (« un tramway ne peut ni s'écarter ni s'arrêter court ») + limite (« sauf signalisation contraire ») |
+| `e0f68dd1324f9a5ffaab945a3d59e197` | sortie de parking | règle (« Cède le passage à toute la circulation ») + raison (« la priorité à droite ne joue qu'entre voies de même nature ») + champ (« parking, station-service, chemin de terre ou propriété privée ») |
+| `b433eefe7ea3ce149e6d6dd09e958a00` | panonceau M12 (`datée`) | règle (« Les cyclistes à franchir le feu rouge en cédant le passage ») + raison (« il autorise le cycliste à passer sans s'arrêter dans la direction indiquée par la flèche ») + limite (« à condition de céder le passage aux piétons et aux véhicules de la voie croisée » — vérifiée mot pour mot contre l'arrêté, plus concrète que le texte mais pas plus large) |
+| `700316a2fd86db7d682be208673c92d5` | sas cycliste | règle (« Placer les cyclistes devant les voitures à l'arrêt ») + raison (« dans le champ de vision des conducteurs — ce qui règle la principale cause d'accident au feu ») + champ (l'espace entre ligne d'arrêt et passage piéton) |
+| `defefbae1ae651a95dd247e38524ee36` | refus de priorité entre véhicules, 4 pts (`datée`) | règle (« 4 points, comme un feu rouge franchi ») + raison (« le code aligne au même niveau tout ce qui crée un conflit de trajectoire ») + limite (« seul le refus de priorité à un piéton monte au-dessus ») |
+
+Modifiées 6 + non modifiées 20 = 26, sans reste.
+
+### Les options
+
+Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le
+point 14 du calibrage (« existe-t-il une lecture où le distracteur EST la bonne
+réponse ? »), et rechecquées après chaque nouvelle branche d'explication (point 14
+étendu). Aucun chiffre inventé : les distracteurs chiffrés du domaine (2, 3, 4, 6 points ;
+sur `2a9e02b9…` et `defefbae1ae6…`) sont tous des paliers réels du barème, déjà utilisés
+comme bonnes réponses ailleurs dans le domaine ou dans le reste de la banque — pas de
+valeur fabriquée façon « 45 km/h » ou « 150 € ». Aucun distracteur éliminable par la
+forme de son propre énoncé. Un cas revu de près pour le point 14 : sur
+`37fe1af42b8d8184beb9c6687c92ffb5` (losange jaune barré), l'explication dit que la fin du
+losange ramène « le plus souvent » à la priorité à droite — au même moment, le
+distracteur B affirme que le panneau *signifie* « une intersection avec priorité à
+droite ». Les deux ne se contredisent pas : B décrit le panneau lui-même (faux, le
+panneau ne dit que la fin du caractère prioritaire, pas ce qui vient après), l'explication
+décrit la conséquence pratique la plus fréquente à l'intersection suivante — le hedge
+(« le plus souvent », pas « toujours ») est ce qui empêche l'explication de légitimer B.
+Aucun distracteur n'est un cas particulier de la bonne réponse : vérifié en particulier
+sur `37fe1af42b8d812fade7d79d309e4c48` (giratoire) où C (« Appliquer la priorité à droite
+dans l'anneau ») et B (« Vous arrêter systématiquement ») sont deux vraies confusions
+distinctes de A, pas des variantes de A. Aucune option la plus longue n'est la bonne
+réponse sauf quand elle l'était déjà avant cette tâche et vérifiée par le test
+`laBonneRéponseNeDépassePasLaDeuxièmePlusLongueDeDixCaractères()` ; aucun distracteur
+n'apparaît comme un outlier de longueur (le seul écart notable, `37fe1af42b8d815f8684e4cc91d6950f`
+où la bonne réponse « Le feu tricolore » à 16 caractères est la plus **courte** des
+quatre — A 22, C 27, D 30 — n'est pas le tell documenté par `questions.md` §1, qui porte
+sur la réponse la plus **longue** ; pas un outlier au sens du point 15, aucune option
+n'atteint le double d'une autre).
+
+**`correctID` — mesuré, non rebalancé.** Avant comme après cette tâche (aucune option ni
+`correctID` déplacés) : A 7, B 7, C 7, D 5 sur 26. Écart de deux entre la lettre la plus
+et la moins servie sur un lot de 26 — proche de la répartition attendue de 6,5 par
+lettre, pas lopsided au sens du critère de rééquilibrage.
+
+### Point 13 — bonnes réponses sous trois mots pleins, cherchées à la main
+
+Définition reprise du fichier (`Tools/relire.py:mots`, pas du bon sens) : tokens
+`[a-z0-9]+` d'au moins cinq caractères après minuscule et suppression des accents. Sur les
+26 bonnes réponses du domaine, deux tombent sous le seuil de trois mots pleins que
+`--fuites` exige côté « réponse » :
+
+| id | bonne réponse | mots pleins (≥ 5 car.) | n |
+|---|---|---|---|
+| `37fe1af42b8d815f8684e4cc91d6950f` | « Le feu tricolore » | `tricolore` | 1 |
+| `37fe1af42b8d81d6aef7ff0b8d193d7f` | « Une route où vous êtes prioritaire » | `route`, `prioritaire` | 2 |
+
+Recherchées à la main sur les 26 ÉNONCÉ et EXPL du domaine (`grep -n` sur
+`.passe3/lot-11-final.txt`) :
+
+- **« feu tricolore » / « feux tricolores »** : trois occurrences hors sa propre carte —
+  l'option C (distracteur) de `37fe1af42b8d817da9fff3054d6ffa3a` (« Les feux tricolores,
+  qui rythment la circulation »), l'affirmation et l'énoncé de
+  `b433eefe7ea3ce149e6d6dd09e958a00` (le panonceau M12 est posé sous un feu tricolore).
+  Aucune n'est une **explication** donnant la réponse de `815f86` : la première est un
+  distracteur d'une autre carte (teste une confusion, n'en révèle aucune), la seconde
+  n'est que le décor de scène du panonceau M12 (le feu y est une donnée du problème, pas
+  la réponse à « lequel suivez-vous »). Verdict : pas de fuite.
+- **« route » + « prioritaire »** (ensemble) : trois occurrences hors sa propre carte,
+  toutes dans le même triangle de cartes sur le losange jaune/AB6 —
+  `8e9464777a61dba3859e3ecc08f7327d` (« désigne une route à caractère prioritaire »),
+  `37fe1af42b8d8184beb9c6687c92ffb5` (bonne réponse elle-même, « La fin d'une route à
+  caractère prioritaire ») et l'option distractrice de `dd4c58febe771b6f297f1ca46c2ec75b`
+  (« l'anneau n'est pas une route prioritaire »). C'est le recouvrement déjà signalé par
+  `--fuites` (voir plus bas, cluster « route à caractère prioritaire ») plus une variante
+  sous le seuil : les trois cartes portent la même désignation officielle du panneau AB6
+  sous trois angles (ce qu'il signifie, ce qu'annonce sa fin, ce qu'il n'est pas dans un
+  giratoire) — vocabulaire technique obligatoire, pas une fuite qui dispenserait de
+  connaître la matière. La troisième occurrence (l'option de `dd4c58…`) est un
+  distracteur, pas une explication : elle teste exactement la confusion inverse (que
+  l'anneau soit une route prioritaire), elle ne la valide pas. Verdict : recouvrement
+  structurel documenté (voir cluster ci-dessous), pas une fuite corrigible sans abîmer le
+  vocabulaire du panneau.
+
+### Point 17 — relecture séparée, contre les voisines et leurs options, y compris `Panneaux & marquage`
+
+Les 26 explications relues une à une contre les bonnes réponses **et** les options des
+cartes voisines du domaine, puis contre les 27 cartes de `Panneaux & marquage` qui
+partagent le même vocabulaire de signalisation (STOP, cédez-le-passage, losange jaune,
+giratoire — requête ciblée sur ces mots-clés dans les 27 cartes du domaine).
+
+**Cluster interne, structurel, déjà présent avant cette tâche.** Trois cartes du domaine
+désignent le même panneau AB6 (« route à caractère prioritaire ») sous trois angles :
+`37fe1af42b8d81d6aef7ff0b8d193d7f` (ce qu'il signifie), `37fe1af42b8d8184beb9c6687c92ffb5`
+(ce qu'annonce sa fin) et `8e9464777a61dba3859e3ecc08f7327d` (qui passe en premier à un
+carrefour qui le porte). `--fuites` en trouve 3 (inchangé avant/après cette tâche) : les
+mêmes trois occurrences que relevées au point 13. Comme pour un chiffre qui revient
+légitimement (point 8 du calibrage), le terme officiel du panneau ne peut pas être évité
+sans vider les trois cartes de ce qu'elles enseignent — il a donc été conservé, y compris
+dans la carte réécrite (`37fe1af42b8d81d6ae…`), plutôt que paraphrasé pour faire baisser
+un compteur (point 20 du calibrage).
+
+**Mirroir avec `Panneaux & marquage`, trouvé dans les deux sens.**
+
+1. La carte `7d44f7dd303fce58716234cba54480b1` de `Panneaux & marquage` (« Ce panneau
+   annonce la fin : du caractère prioritaire de votre route ») a pour explication : « […]
+   il annonce que **la route perd son caractère prioritaire** au prochain carrefour. » —
+   ceci recouvre mot pour mot (trois mots pleins : `route`, `caractere`, `prioritaire`) la
+   bonne réponse de **ma** carte `37fe1af42b8d8184beb9c6687c92ffb5` (« La fin d'une route
+   à caractère prioritaire »). C'est une carte de `Panneaux & marquage` qui fuit vers la
+   mienne, pas l'inverse — hors de mon périmètre d'édition (`Tools/questions.json`
+   n'appartient qu'à la tâche 11 pour les cartes « Priorités & intersections »). **Signalé
+   ici pour la tâche 13**, qui verra cette carte avec la visibilité complète des douze
+   domaines précédents : la correction naturelle est côté `Panneaux & marquage`, en
+   paraphrasant sa propre conséquence pratique sans reprendre l'expression exacte de la
+   bonne réponse d'une carte d'un autre domaine testant la même chose.
+2. Vérifié aussi dans l'autre sens sur les deux cartes `Panneaux & marquage` les plus
+   proches du domaine — `dce501d416e5db1cc6344725007fbad6` (cédez-le-passage sans STOP,
+   correcte : « céder le passage, sans obligation de vous arrêter ») et
+   `9eb8506813f0c8b729b66157ec95a63f` (giratoire, correcte : « un giratoire où la priorité
+   est à l'anneau ») : aucune des 26 explications de mon domaine, y compris les deux
+   réécrites sur le même sujet (`37fe1af42b8d8161be…` cédez-le-passage,
+   `37fe1af42b8d812fad…` giratoire), ne recouvre leurs mots pleins — vérifié par script
+   après coup sur l'ensemble des 448 bonnes réponses, pas seulement au seuil de 3 (voir
+   note de méthode ci-dessus : un brouillon intermédiaire de `37fe1af42b8d812fad…`
+   recouvrait bien `9eb8506813f0c8b729…`, corrigé avant commit).
+
+Aucun autre recouvrement, interne ou croisé, trouvé aux points 13 et 17.
+
+### Les 8 cartes illustrées, mesurées
+
+| id | énoncé | options (max) | explication |
+|---|---:|---:|---:|
+| `f255331d3f234810a4807594b43b397f` | 22/70 | 45/50 | 214/220 |
+| `8e9464777a61dba3859e3ecc08f7327d` | 51/70 | 49/50 | 219/220 |
+| `43dc08f7c9ebc00497a4022e24319683` | 26/70 | 49/50 | 191/220 |
+| `e93ca4d156de5854eafce9393be39274` | 67/70 | 50/50 | 200/220 |
+| `dd4c58febe771b6f297f1ca46c2ec75b` | 54/70 | 50/50 | 218/220 |
+| `3e5d97761594126d37652be2e0e976dc` | 54/70 | 50/50 | 193/220 |
+| `ef4cfd171e0e9911a2619b3b06336216` | 38/70 | 50/50 | 207/220 |
+| `6e1a51d34b4b79e4366d6566795e5151` | 51/70 | 49/50 | 193/220 |
+
+Les 8 tiennent le budget, mesuré par script (pas estimé) après chaque édition. Deux
+cartes éditées (`dd4c58…` à 218, `6e1a51…` ramenée de 238 à 193) et une non éditée
+(`8e9464…` à 219) sont à moins de 3 caractères du plafond.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 88 | 88 |
+| `expl/paraphrase-litterale` | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Sortie du rapport complet strictement identique avant/après (`diff` sur les deux fichiers
+: rien). Aucun mouvement, dans aucun sens : les six cartes réécrites l'ont été sur des
+explications déjà en dessous de tous les seuils comptés, et le seul écart de justesse
+touchait une explication `datée` déjà correcte sur son fait principal (« en toutes
+circonstances »).
+
+Commandes et sorties (étapes 1, 6, 7, 9) :
+
+```
+$ mkdir -p .passe3 && python3 Tools/audit.py > .passe3/avant-11.txt && grep -E '^### ' .passe3/avant-11.txt
+### lettre/reference  (1)
+### forme/markdown  (1)
+### forme/seule-ponctuee  (14)
+### longueur/plus-longue  (88)
+### expl/paraphrase-litterale  (20)
+$ python3 -c "…"   # 26 cartes | expl médiane 210.5 | sous 120 : 3 | illustrées : 8
+
+$ python3 Tools/relire.py "Priorités & intersections" > .passe3/lot-11.txt   # lecture, 26 cartes contre leur ligne
+
+$ # … 6 éditions de questions.json, 1 édition de sources.md (818293), renormalisation …
+$ python3 -c "…"   # mêmes ids : True | 448 -> 448 | ajoutés : [] | retirés : []
+
+$ python3 Tools/relire.py --fuites "Priorités & intersections" | tail -6
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».
+Chacun se relit à la main : un mot commun est normal, la réponse entière ne l'est pas.
+
+$ python3 Tools/audit.py > .passe3/apres-11.txt
+$ diff <(grep -E '^### ' .passe3/avant-11.txt) <(grep -E '^### ' .passe3/apres-11.txt)
+$ diff .passe3/avant-11.txt .passe3/apres-11.txt   # rien, fichiers identiques
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test -project Valido.xcodeproj \
+    -scheme Valido -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+    -only-testing:'ValidoTests/leContenuLivréEstValide()' [# … 10 tests …] 2>&1 | tail -30
+✔ Test run with 10 tests in 0 suites passed after 0.067 seconds.
+** TEST SUCCEEDED **
+```
+
+`git status --short` avant `git add` : `Tools/sources.md` et
+`Valido/Resources/questions.json` seuls modifiés, `CLAUDE.md` toujours untracked, aucun
+`Contents.json` reformaté.
