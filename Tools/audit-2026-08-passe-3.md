@@ -3353,267 +3353,374 @@ rondes ; `CLAUDE.md` toujours untracked, jamais ajouté au commit.
 
 | id | écart | ce que disait la carte | ce que dit l'article | correction |
 |---|---|---|---|---|
-| `f1ae9582d692d2bb7febb6a3c936ff34` | règle trop large | « Les croisements s'effectuent à droite […] demande à chacun de se rapprocher du bord droit » sans aucune limite | R414-1, 3e alinéa (déjà noté en prose dans la ligne de registre) : une signalisation d'intersection aménagée impose l'inverse — serrer à gauche | limite ajoutée à l'explication : « Une signalisation d'intersection aménagée peut toutefois imposer l'inverse, en demandant de serrer à gauche. » |
+| `f1ae9582d692d2bb7febb6a3c936ff34` | règle trop large | « Les croisements s'effectuent à droite […] demande à chacun de se rapprocher du bord droit » sans aucune limite | R414-1, 3e alinéa (au round 0 noté en prose seulement dans la ligne de registre) : une signalisation d'intersection aménagée impose l'inverse — serrer à gauche | limite ajoutée à l'explication : « Une signalisation d'intersection aménagée peut toutefois imposer l'inverse, en demandant de serrer à gauche. » |
+| `ad7c53ef7c57cb946c12b29bc36c004f` | règle trop large (**fix round 1**) | « [R414-6] met deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée empruntant la chaussée » — énoncé « obligatoire », sans condition | le 2° de R414-6, cité en entier par la ligne de registre depuis le round 0, se ferme sur « … lorsque l'intervalle existant entre ce véhicule et le bord de la chaussée est suffisant » ; l'écart était dans la carte, pas dans le registre | condition ajoutée à l'explication : « … si l'intervalle avec le bord de la chaussée est suffisant » |
 
-Un seul écart, sur une carte non drapeautée. Les trois lignes `datée` (`07b430cc…`,
-`75e142d9…`, `93292bac…`) ont chacune été relues clause par clause contre R414-9, R414-16
-et R414-17 : aucune valeur périmée, aucune condition de champ d'application élargie —
-gabarit (2 m / 7 m), points retirés (2, pas 3), neige/verglas (pas la pluie) reproduisent
-tous l'affirmation mot pour mot.
+Le second écart a été manqué au round 0 parce que le premier écart avait été trouvé sur
+la même carte-type (R414-1) et que le round 0 a comparé chaque *ligne de registre* à son
+article, sans relire chaque *phrase de carte* qu'un registre déjà complet peut quand même
+trahir en le résumant mal. La méthode du point 10/12 du calibrage (comparer clause par
+clause) s'applique à la carte autant qu'à la ligne — c'est le point que le round 0 a
+appliqué à moitié.
+
+Les trois lignes `datée` (`07b430cc…` R414-9, `75e142d9…` R414-16, `93292bac…` R414-17)
+restent sans valeur périmée : gabarit (2 m / 7 m), points retirés (2, pas 3),
+neige/verglas (pas la pluie) reproduisent tous l'affirmation mot pour mot.
 
 Les cinq cartes portant un absolu ou une obligation (`ABS toutes les` sur `2fc1ed8a…`,
 `ABS interdit` sur `697b226c…` et `99824d4d…`, `ABS jamais` sur `93292bac…`,
-`ABS aucun/impose` sur `b494d715…`) ont chacune été confrontées à sa ligne, l'absolu
-retrouvant à chaque fois sa borne dans le corps même de la carte : « interdit […] quand la
-visibilité vers l'avant manque, et cite le sommet de côte comme cas typique » sur
-`697b226c…` (jamais l'absence de véhicule en face) ;
-« jamais la pluie » sur `93292bac…` est la clarification elle-même, pas une
-généralisation (le texte ne vise que neige et verglas) ; « interdit […] d'emprunter la
-voie la plus à gauche d'une chaussée à double sens de plus de deux voies » sur
-`99824d4d…` porte sa condition dans la même phrase ; « il impose de s'être assuré
-qu'aucun piéton n'est engagé sur le passage » sur `b494d715…` reproduit exactement la
-condition de vérification de R414-5, pas une interdiction. Le cinquième, `2fc1ed8a…`, est
-examiné séparément ci-dessous.
+`ABS aucun/impose` sur `b494d715…`) retrouvent chacune leur borne dans le corps même de
+la carte : « interdit […] quand la visibilité vers l'avant manque, et cite le sommet de
+côte comme cas typique » sur `697b226c…` ; « jamais la pluie » sur `93292bac…` est la
+clarification elle-même, pas une généralisation ; « interdit […] d'emprunter la voie la
+plus à gauche d'une chaussée à double sens de plus de deux voies » sur `99824d4d…` porte
+sa condition dans la même phrase ; « il impose de s'être assuré qu'aucun piéton n'est
+engagé sur le passage » sur `b494d715…` reproduit exactement la condition de vérification
+de R414-5, pas une interdiction.
 
-**Le cas `2fc1ed8a9c9274f0e06be9f12850f5a4`, examiné et non corrigé.** R414-15 ne joue
+**Le cas `2fc1ed8a9c9274f0e06be9f12850f5a4`, examiné et non corrigé pour la justesse
+(mais réécrit pour le critère 3 — voir « Cartes modifiées » plus bas).** R414-15 ne joue
 que « sur les routes à sens unique et sur les routes à plus de deux voies » ; l'énoncé
 (« La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file
-voisine ») ne nomme pas ce type de route, ce qui ressemble d'abord au même défaut que
-`f1ae9582…`. Vérifié géométriquement avant de trancher : pour qu'une « file voisine » de
-même sens existe à comparer, il faut déjà au moins deux voies dans le même sens de
-circulation — ce qui, arithmétiquement, ne peut se produire que sur une route à sens
-unique (la totalité des voies va dans le même sens) ou sur une route à plus de deux voies
-(au moins trois, dont deux du même côté). Le scénario décrit par l'énoncé satisfait donc
-la condition de l'article par construction, dans toutes ses lectures plausibles ; ce
-n'est pas une carte comparable à `f1ae9582…`, où l'exception (l'aménagement signalé) est
-une configuration réelle que rien dans l'énoncé n'exclut. L'explication porte d'ailleurs
-déjà la limite (« R414-15 ne joue que sur les routes à sens unique ou à plus de deux
-voies […] Hors de ce cas, remonter par la droite reste un dépassement par la droite ») :
-seul l'énoncé ne la nomme pas, sans en avoir besoin. Non modifiée.
+voisine ») ne nomme pas ce type de route. Vérifié géométriquement avant de trancher : pour
+qu'une « file voisine » de même sens existe à comparer, il faut déjà au moins deux voies
+dans le même sens de circulation, ce qui n'arrive, arithmétiquement, que sur une route à
+sens unique ou sur une route à plus de deux voies. Le scénario satisfait donc la condition
+par construction, dans toutes ses lectures plausibles — contrairement à `ad7c53ef…` et à
+`f1ae9582…` (round 0), où l'exception est une configuration réelle que rien dans l'énoncé
+n'exclut. Non modifiée sur ce point.
 
 ### Doutes signalés, non corrigés
 
-Aucun doute laissé ouvert. Les trois lignes `datée` du domaine ont été relevées le
-2026-08-26 sur Legifrance, et aucune carte n'affirme une valeur ou une portée que
-l'affirmation ne couvre pas. Le seul point qui a demandé une vérification externe à la
-ligne — le champ d'application de R414-15 sur `2fc1ed8a…`, ci-dessus — a été tranché par
-le calcul, pas par une source rouverte, et n'est donc pas un doute qui reste en suspens.
+Aucun. Les trois lignes `datée` du domaine ont été relevées le 2026-08-26 sur Legifrance,
+et aucune carte n'affirme une valeur ou une portée que l'affirmation ne couvre pas. Le
+seul point qui a demandé une vérification externe à la ligne — le champ d'application de
+R414-15 sur `2fc1ed8a…` — a été tranché par le calcul, pas par une source rouverte.
 
 ### Pédagogie
 
-- explications sous 120 caractères : 0 à l'entrée, 0 à la sortie. Le domaine part
-  d'explications déjà étoffées (médiane 231 caractères sur les 15) ; le seul mouvement de
-  cette tâche est l'ajout d'une limite manquante sur une carte, pas un allongement de
-  texte court.
-- cartes dont le budget de 220 a limité l'explication : les 4 illustrées tiennent déjà
-  rule + raison + limite dans leur budget sans reformuler la bonne réponse (mesures
-  ci-dessous) ; aucune n'a été éditée, le budget n'a donc contraint aucune réécriture
-  cette tâche-ci.
-- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 15 énoncés se
-  lisent sans connaître la réponse — mise en situation (les 4 illustrées, `07b430cc…`,
-  `2fc1ed8a…`, `75e142d9…`, `9aaede46…`) ou question à compléter par les options
-  (les autres). `2fc1ed8a…` a été examiné pour ce critère précisément (voir ci-dessus) et
-  jugé complet tel quel.
+- explications sous 120 caractères : 0 à l'entrée, 0 à la sortie.
+- cartes dont le budget de 220 a limité l'explication : **une** — `9aaede46…` (illustrée),
+  qui a dû perdre « de son pare-chocs » et « sur lui » pour financer sa nouvelle limite
+  (215 → 207, marge round 0 de 5 caractères insuffisante). Les trois autres illustrées
+  n'ont pas été touchées, déjà dans le budget avec leurs trois temps.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. `2fc1ed8a…` a été
+  réexaminé pour ce critère (voir ci-dessus) et jugé complet tel quel — le défaut trouvé
+  au fix round 1 est ailleurs (l'explication ne posait pas la règle, voir « Cartes
+  modifiées »), pas dans l'énoncé.
 
-**Les 4 cartes illustrées, mesurées (inchangées) :**
+**Les 4 cartes illustrées, mesurées :**
 
-| id | énoncé | options (max) | explication |
-|---|---:|---:|---:|
-| `42078575c362bf24a220380788994e25` | 33 / 70 | 49 / 50 | 196 / 220 |
-| `46269e3e9018b1949b8143894e86c4fc` | 36 / 70 | 47 / 50 | 214 / 220 |
-| `697b226c6270e1cee1a6e4edb95dec42` | 45 / 70 | 47 / 50 | 216 / 220 |
-| `9aaede46c1c808687f89f4a8fb81f9df` | 44 / 70 | 47 / 50 | 215 / 220 |
+| id | énoncé | options (max) | explication | mouvement |
+|---|---:|---:|---:|---|
+| `42078575c362bf24a220380788994e25` | 33 / 70 | 49 / 50 | 196 / 220 | inchangée |
+| `46269e3e9018b1949b8143894e86c4fc` | 36 / 70 | 47 / 50 | 214 / 220 | `alt` seul changé (fix round 1, non budgété) |
+| `697b226c6270e1cee1a6e4edb95dec42` | 45 / 70 | 47 / 50 | 216 / 220 | inchangée |
+| `9aaede46c1c808687f89f4a8fb81f9df` | 44 / 70 | 47 / 50 | **207** / 220 | explication resserrée pour ajouter sa limite (fix round 1) |
 
-Les quatre respectent déjà le budget 70/50/220 et enseignent rule + raison + limite sans
-reformuler leur bonne réponse (critère 4, `expl/paraphrase-litterale` reste à 0 sur ce
-domaine avant comme après) : aucune n'a été éditée.
+### Preuve par carte, pour les 4 cartes non modifiées
 
-### Preuve par carte, pour les 14 cartes non modifiées
+Onze cartes sur quinze ont été modifiées au fix round 1 (voir la section suivante) ; il
+en reste quatre. Règle / raison / limite telles que la carte les dit, **relabellisées**
+après la revue : quatre entrées de la table du round 0 étiquetaient « limite » une
+sanction, un corollaire, une réfutation de distracteur ou l'application à la scène — le
+défaut nommé au point 21 du calibrage, retrouvé ici sans qu'aucune des deux cartes
+listées ci-dessous n'ait eu besoin d'être éditée : le contenu était juste, seule
+l'étiquette de ma table mentait.
 
 | id | rôle | règle / raison / limite |
 |---|---|---|
-| `07b430ccbde4b33b92be8686899b1ddf` | convoi hors gabarit | règle (« son conducteur réduit sa vitesse et, au besoin, s'arrête ou se gare ») + raison (gabarit > 2 m de large ou 7 m de long, remorque et chargement compris) + limite (« Les transports en commun en agglomération en sont dispensés ») |
-| `2fc1ed8a9c9274f0e06be9f12850f5a4` | files denses, vitesse relative | règle (« n'est pas considéré comme un dépassement ») + raison/limite explicite (« R414-15 ne joue que sur les routes à sens unique ou à plus de deux voies […] Hors de ce cas, remonter par la droite reste un dépassement par la droite ») — voir l'examen ci-dessus |
-| `42078575c362bf24a220380788994e25` | obstacle sur sa voie | règle (« c'est empiéter sur la moitié gauche de la chaussée ») + raison (« R414-7 ne l'autorise que si la circulation en sens inverse n'en est pas gênée ») + limite (« L'obstacle est de votre côté : l'attente aussi ») |
-| `46269e3e9018b1949b8143894e86c4fc` | achever un dépassement engagé | règle (« rien n'oblige à interrompre la manœuvre ») + raison (« La voie de gauche est dégagée et la ligne discontinue autorise à l'emprunter ») + limite (« R414-10 demande seulement de revenir à droite ensuite, sans faire ralentir le véhicule doublé ») |
-| `697b226c6270e1cee1a6e4edb95dec42` | sommet de côte | règle (« interdit tout dépassement sur chaussée à double sens quand la visibilité vers l'avant manque ») + raison (« cite le sommet de côte comme cas typique ») + limite/clarification (« Ce n'est pas ce qui vient en face qui l'interdit, c'est de l'ignorer ») |
-| `75e142d94ea93f63d0e75fa19a8f8c4f` | se faire dépasser | règle (« serrer immédiatement sur sa droite sans accélérer ») + raison (« Accélérer allonge la manœuvre et le temps passé sur la voie de gauche ») + limite (« c'est le seul manquement de cet article qui coûte des points, deux en l'occurrence ») |
-| `93292bac6a7b17452c0e2ad2b30164fa` | neige ou verglas, > 3,5 t | règle (« ni dépassement ni changement de file, au-delà de 3,5 tonnes comme pour un ensemble de plus de 7 mètres ») + raison/portée (« R414-17 vise la neige et le verglas, jamais la pluie ») + limite (le distracteur pluie/autoroute explicitement écarté dans le corps même de l'explication) |
-| `99824d4de286434d85174502e05ea59d` | chaussée à trois voies | règle (« interdit à qui dépasse d'emprunter la voie la plus à gauche d'une chaussée à double sens de plus de deux voies ») + raison (« ce qui revient à la laisser à ceux qui viennent en face ») + limite (« La voie centrale est celle du dépassement ») |
-| `9aaede46c1c808687f89f4a8fb81f9df` | rabattement trop court | règle (« demande de revenir sur sa droite sans provoquer le ralentissement du véhicule dépassé ») + raison (« Se rabattre à un mètre de son pare-chocs l'oblige à lever le pied ») + limite (« la place n'est reprise que quand elle ne coûte rien ») |
-| `acfa94cddf8eadadd75d07c9b97a5501` | ne pas s'engager si sur le point d'être dépassé | règle (le 3° de la condition, « vous êtes sur le point d'être dépassé ») + raison (rappel des deux autres conditions, reprendre sa place et une vitesse relative brève) + limite/image (« Deux dépassements emboîtés mettraient trois véhicules de front ») |
-| `ad7c53ef7c57cb946c12b29bc36c004f` | dépassement par la droite obligatoire | règle (« deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée ») + raison (« Le contourner par la gauche croiserait sa trajectoire ») + limite (seuls ces deux cas, le distracteur générique « vous fait signe » n'en fait pas partie) |
-| `b494d71578b339d0259157dd378a3b9b` | passage pour piétons | règle (« il impose de s'être assuré qu'aucun piéton n'est engagé sur le passage ») + raison (« Le danger tient au masque ») + limite (« R414-5 ne prononce pas d'interdiction », distingue la condition de vérification d'une interdiction pure) |
-| `e5b0f585f1a3654ca790b9e391db8203` | voie ferrée sans barrière | règle (« vise les seules traversées dépourvues de barrière et de demi-barrière ») + raison (« rien n'y matérialise l'arrêt, et le véhicule doublé masque justement la voie ») + limite (« Là où une barrière existe, c'est elle qui commande ») |
-| `f5a12ba77751310fe9a210a3b787286a` | dépassement près d'une intersection | règle (« lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent ») + raison (la priorité de passage justifie l'exception) + limite/distinction (« C'est le dépassement d'un deux-roues qui échappe à l'interdiction, pas le dépassement par un deux-roues ») |
+| `42078575c362bf24a220380788994e25` | obstacle sur sa voie | règle (« c'est empiéter sur la moitié gauche de la chaussée ») + **limite**, déplacée de la colonne « raison » où elle était mal rangée (« R414-7 ne l'autorise que si la circulation en sens inverse n'en est pas gênée ») + application à la scène, pas une seconde limite (« L'obstacle est de votre côté : l'attente aussi ») |
+| `697b226c6270e1cee1a6e4edb95dec42` | sommet de côte | règle (« interdit tout dépassement sur chaussée à double sens quand la visibilité vers l'avant manque, et cite le sommet de côte comme cas typique ») + **limite absente pour cette illustration précisément** : les deux réserves réelles de R414-11 (ligne continue franchissable, dépassement d'un deux-roues) ne jouent ni sur la scène ni sur les options, et les y greffer serait hors sujet ; « Ce n'est pas ce qui vient en face qui l'interdit, c'est de l'ignorer » est une réfutation du distracteur A, pas une limite |
+| `75e142d94ea93f63d0e75fa19a8f8c4f` | se faire dépasser | règle (« serrer immédiatement sur sa droite sans accélérer ») + raison (« Accélérer allonge la manœuvre et le temps passé sur la voie de gauche ») + **limite absente** : R414-16 ne pose aucune exception à cette obligation ; « c'est le seul manquement de cet article qui coûte des points, deux en l'occurrence » est une sanction, pas une limite |
+| `e5b0f585f1a3654ca790b9e391db8203` | voie ferrée sans barrière | règle (« vise les seules traversées dépourvues de barrière et de demi-barrière ») + raison (« rien n'y matérialise l'arrêt, et le véhicule doublé masque justement la voie ») + limite genuine, inchangée depuis le round 0 (« Là où une barrière existe, c'est elle qui commande ») |
 
-Modifiée 1 (`f1ae9582…`) + non modifiées 14 = 15, sans reste.
+Non modifiées 4 + modifiées 11 = 15, sans reste.
+
+### Cartes modifiées au fix round 1 (11), ce qui a changé et pourquoi
+
+| id | ce qui a changé | pourquoi |
+|---|---|---|
+| `ad7c53ef7c57cb946c12b29bc36c004f` | explication : condition du 2° ajoutée (« si l'intervalle avec le bord de la chaussée est suffisant ») | écart de justesse — voir ci-dessus. La limite vit maintenant dans la carte, plus dans ma seule prose de table |
+| `acfa94cddf8eadadd75d07c9b97a5501` | options A et D réécrites | §9.5 n° 14 (rupture de motif grammatical : D seule en sujet pronominal ; A un seuil inventé, « 50 km/h », absent du texte et de tout régime de dépassement). A devient « le véhicule devant est à moins de deux secondes de vous » (valeur réelle de R412-12, transposée hors de son régime, même geste que `30 km/h` sur `2fc1ed8a…`) ; D devient « un véhicule est sur le point de vous dépasser » (même fait que « vous êtes sur le point d'être dépassé », sujet nominal comme les trois autres) |
+| `2fc1ed8a9c9274f0e06be9f12850f5a4` | explication : la règle énoncée en premier (« R414-15 dispose que, dans ce cas, rouler plus vite qu'une file voisine n'est pas un dépassement ») | l'explication ne disait jusqu'ici que le champ d'application et le contre-cas, jamais ce que l'article accorde ; qui découvre la règle lisait « R414-15 ne joue que sur… » sans savoir sur quoi |
+| `f5a12ba77751310fe9a210a3b787286a` | explication : l'interdiction énoncée d'abord (« R414-11 interdit tout dépassement aux intersections de routes ») et la raison mise dans le texte (« les autres véhicules doivent déjà lui laisser le passage ») | l'explication ouvrait sur « lève l'interdiction » sans jamais la nommer, et la raison que ma table du round 0 lui prêtait n'était pas écrite sur la carte |
+| `93292bac6a7b17452c0e2ad2b30164fa` | option A réécrite (« sur les routes à double sens, en dessous de 50 km/h ») ; explication : « dès qu'une voie en est couverte » → « tant qu'une voie en reste couverte » | point 22 (A portait le même absolu « en toute saison » que trois autres cartes du lot) ; limite ajoutée à l'explication — le texte ne fige pas une interdiction définitive, elle tient tant que la voie reste couverte, et cesse quand elle ne l'est plus |
+| `99824d4de286434d85174502e05ea59d` | option C réécrite (« prenez la voie du milieu, en finissant par la gauche ») | point 22 (C et D✓ ne différaient que par « puis »/« pas », un mot dans le même moule — un piège de lecture, pas une confusion à comprendre) |
+| `9aaede46c1c808687f89f4a8fb81f9df` | explication : dernière clause remplacée par une limite (« aucune distance n'est fixée par le texte, seul l'effet compte ») | « la place n'est reprise que quand elle ne coûte rien » ne faisait que reformuler la règle ; la ligne de registre porte déjà la vraie limite (« Aucune distance de rabattement n'est fixée par le texte : le critère est l'effet ») et la carte ne la disait pas |
+| `b494d71578b339d0259157dd378a3b9b` | option B réécrite (« interdit seulement en agglomération ») | point 22 (B portait « dans tous les cas », le même absolu que trois autres cartes du lot) |
+| `07b430ccbde4b33b92be8686899b1ddf` | explication : condition ajoutée (« si la chaussée gêne le dépassement ») | l'explication généralisait l'obligation à tout gabarit encombrant sans la condition d'ouverture de R414-9 (« Dans tous les cas où l'insuffisance de la largeur… ne permettent pas le dépassement avec facilité et en toute sécurité ») ; l'énoncé la portait déjà, l'explication lue seule non |
+| `46269e3e9018b1949b8143894e86c4fc` | `alt` réécrit (« engagée le long de celle qu'elle double » au lieu de « à la hauteur de ») | §9.5 n° 17 : le recouvrement réel des deux véhicules dans la scène (20 unités sur 50, environ 40 %) ne correspond pas à « à la hauteur de », qui suggère un alignement complet ; sans effet sur la réponse, corrigé en passant comme le veut le spec pour un constat parqué qu'un domaine croise |
+| `f1ae9582d692d2bb7febb6a3c936ff34` | explication : limite ajoutée (round 0) | écart de justesse initial — voir ci-dessus |
 
 ### Les options
 
-Relues carte par carte contre les sept règles du §2 de `questions.md`, puis contre le
-point 14 du calibrage (« existe-t-il une lecture où il est la bonne réponse ? »). Aucun
-distracteur inventé sans existence réelle : le seul chiffre qui n'est
-pas dans le texte de son propre article — « dix secondes » sur `acfa94cd…` — est nommé
-comme repère d'enseignement par la ligne de registre elle-même, pas comme une valeur du
-code, et reste une confusion réelle plutôt qu'un nombre sorti de nulle part ; les valeurs
-recyclées (« 30 km/h » sur `2fc1ed8a…`, « 3,5 t » sur `b494d715…`) sont chacune la vraie
-valeur d'un **autre** article de la banque, notée comme telle par la ligne de registre.
-Aucun distracteur éliminable par la seule forme de l'énoncé, aucun légitimé par
-l'explication de sa propre carte, et aucun qui soit un cas particulier de la bonne
-réponse une fois relu après l'ajout de la limite sur `f1ae9582…` (les quatre options —
-serrer à droite, rester au milieu, se déporter au centre, passer en feux de route — sont
-inchangées par cet ajout et restent quatre comportements distincts). `correctID`
-inchangé : la seule édition porte sur l'explication, aucune option n'a été touchée, donc
-aucune rotation n'était nécessaire.
+**Point 22 (calibrage), ajouté après la revue : compter la forme, pas seulement la
+carte.** Un `grep` sur `dans tous les cas|sans exception|en toute saison|en toutes
+circonstances` dans les options fausses de toute la banque `code`, avant correction :
+**sept** occurrences, dont **quatre dans ce seul lot de quinze**
+(`e5b0f585…` « dans tous les cas, barrières ou non », `f5a12ba7…` « est interdit sans
+exception à tout véhicule », `b494d715…` « interdit dans tous les cas par le code »,
+`93292bac…` « … en toute saison »). Aucun outil ne le voit : chaque carte est
+irréprochable prise seule, mais un lecteur qui croise trois de ces options dans le même
+feed apprend à éliminer un absolu à vue, et quatre questions
+perdent un distracteur d'un coup. Reword au moins deux, comme demandé : `b494d715…` et
+`93292bac…` réécrites (table ci-dessus). Compte après correction : **cinq** occurrences
+dans la banque, **deux** dans ce lot (`e5b0f585…`, `f5a12ba7…`) — laissées telles quelles,
+n'étant plus que deux sur quinze, en dessous du seuil qui fait reconnaître un motif.
 
-**`correctID` — mesuré avant et après, inchangé.** A 4, B 4, C 4, D 3 sur les 15 cartes,
-aux deux bouts de la tâche : la répartition était déjà proche de l'uniforme (3,75 par
-lettre) et l'unique édition ne touche aucune option, donc aucune rotation n'a été
-nécessaire.
+Même contrôle pour les paires d'options qui ne diffèrent que d'un mot dans le même moule :
+`99824d4d…` C/D✓ (« puis celle de gauche » / « pas celle de gauche ») corrigée
+(table ci-dessus). Aucune autre paire de ce type trouvée dans le lot.
+
+**`acfa94cddf8eadadd7…`, les deux défauts du §9.5 n° 14, fermés.** Rupture de motif
+grammatical : les trois distracteurs A/B/C étaient (ou sont, après correction) des
+groupes nominaux suivis d'un verbe (« le véhicule devant… », « la manœuvre… », « la
+chaussée… ») pendant que la bonne réponse D ouvrait sur « vous êtes… », seule à sujet
+pronominal — repérable sans rien connaître du code. Reformulée en « un véhicule est sur
+le point de vous dépasser », même sujet nominal que les trois autres. Deux seuils inventés
+au lieu d'un : mon rapport de round 0 ne nommait que « dix secondes » (B) comme chiffre
+absent du texte, alors que « plus de 50 km/h » (A) ne correspond à aucune règle réelle de
+dépassement non plus. Remplacé par une valeur réelle transposée hors de son régime
+(« moins de deux secondes », R412-12), le même geste que le distracteur « 30 km/h » de
+`2fc1ed8a…` déjà documenté par la ligne de registre.
+
+**Minor, documenté et non corrigé : `ad7c53ef…` A à la frontière avec `2fc1ed8a…`.**
+`ad7c53ef…` option A (« sur autoroute, quand la file de gauche est saturée ») décrit
+exactement la situation que `2fc1ed8a…` légitime (rouler plus vite qu'une file voisine
+figée n'est pas un dépassement) : sur `ad7c53ef…`, elle reste fausse uniquement parce que
+l'énoncé demande ce qui est **obligatoire**, et que R414-15 ne rend jamais un dépassement
+obligatoire — il le requalifie. Ce n'est pas une fuite (`--fuites` ne la voit pas, et
+aucune des deux cartes ne donne la réponse de l'autre), mais un distracteur rendu plus
+discutable par son voisin de lot — frontière de la règle 2 du §1 de `questions.md`, du
+côté acceptable puisque l'énoncé tranche. Non modifié : la reformuler affaiblirait une
+confusion réelle pour un gain marginal.
+
+Aucun autre distracteur, relu après ce fix round, n'est éliminable par la seule forme,
+légitimé par sa propre carte, ou un cas particulier de la bonne réponse.
+
+**`correctID` — inchangé.** A 4, B 4, C 4, D 3 sur les 15 cartes, avant et après ce round :
+onze options ont changé de texte, aucune n'a changé de lettre correcte, et le rapport
+max/min des quatre longueurs par carte reste sous 1,45 partout (mesuré après édition) —
+aucune rotation nécessaire.
 
 ### Recoupement croisé avec « Usagers & partage de la route » et « Vitesse »
 
-**`Usagers & partage de la route`** teste la distance latérale au dépassement d'un
-cycliste (`9b774739866a136e7c2a9bd69b2f417d`, énoncé « Vous dépassez ce cycliste en le
-laissant à au moins : », réponse « 1 m de son guidon », IV de R414-4). Aucune des 15
-cartes du lot ne mentionne de cycliste, de distance latérale ni de chiffre en mètres pour
-un dépassement ; `acfa94cd…` cite bien le II de R414-4, mais son 3° (ne pas entamer un
-dépassement si l'on est soi-même sur le point d'être dépassé) est un alinéa distinct de
-celui que teste `Usagers`. Aucun recouvrement.
-
-**`Vitesse`** ne porte, après vérification, aucune carte sur ce qu'une ligne continue
-interdit — cette matière (R412-19, franchir coûte 3 points, chevaucher 1) vit dans
-`Panneaux & marquage` (`37fe1af42b8d8141…`, `3cb86b6e4c489d919…`), domaine non encore
-traité par cette passe. `697b226c…` cite « une ligne continue » uniquement dans la
-citation intégrale de R414-11 conservée au registre (l'exception qui laisse libre la
-partie gauche d'une ligne continue), jamais dans le corps de la carte elle-même — la
-scène ne montre ni ligne continue ni deux-roues, et l'explication ne mentionne aucun des
-deux, conformément à la note déjà portée par le registre (« Aucune des deux réserves ne
-joue sur la scène »). Aucun recouvrement, ni avec `Vitesse` ni avec `Panneaux & marquage`.
+Reconfirmé après le fix round 1 : aucune des onze cartes éditées n'introduit de cycliste,
+de distance latérale ni de fait sur ce qu'une ligne continue interdit. `ad7c53ef…` cite
+maintenant l'intervalle avec le bord de la chaussée pour un véhicule sur voie ferrée —
+un fait différent de la distance de dépassement d'un cycliste que teste `Usagers`
+(`9b774739866a136e7c2a9bd69b2f417d`, IV de R414-4, « 1 m de son guidon ») ; aucun
+recouvrement de mots pleins entre les deux (`intervalle`, `voie`, `ferrée`, `bord` contre
+`guidon`, `cycliste`, `mètre`). `Vitesse` : toujours aucune carte sur ce que la ligne
+continue interdit (cette matière reste dans `Panneaux & marquage`, non traité). Aucun
+recouvrement dans les deux sens.
 
 ### Point 13 — réponses sous trois mots pleins, cherchées à la main
 
-Sur les 15 bonnes réponses du lot, une seule tombe sous le seuil de trois mots pleins
-(jetons `[a-z0-9]+` d'au moins cinq caractères, minuscules et accents retirés) :
-
-| id | bonne réponse | mots pleins (≥ 5 car.) | n |
-|---|---|---|---|
-| `acfa94cddf8eadadd75d07c9b97a5501` | « vous êtes sur le point d'être dépassé » | `depasse`, `point` | 2 |
-
-```
-$ python3 - <<'EOF'
-import json
-qs = json.load(open('Valido/Resources/questions.json'))
-for q in qs:
-    if q['subject'] != 'code': continue
-    champs = [q['prompt'], q['explanation']] + [o['text'] for o in q['options']]
-    if any("être dépassé" in c.lower() or "point d'être dépassé" in c.lower() for c in champs):
-        print(q['id'][:18], q['topic'])
-EOF
-acfa94cddf8eadadd7 Croisement & dépassement
-```
-
-Une seule occurrence dans toute la banque `code`, sur la carte elle-même (son option D,
-la bonne réponse). Aucune autre carte — dans ce domaine ou ailleurs — n'énonce ni ne
-paraphrase « être sur le point d'être dépassé » en énoncé, option ou explication.
-`75e142d9…` (« Un véhicule s'apprête à vous dépasser ») décrit la situation inverse (qui
-dépasse, pas qui est sur le point d'être dépassé une deuxième fois) et teste une règle
-différente (R414-16, pas R414-4 II 3°) : proximité thématique attendue dans un domaine
-bâti sur le même vocabulaire, pas une fuite.
+**Zéro carte sous le seuil après le fix round 1** — une place gagnée par cette ronde.
+Avant correction, une seule bonne réponse tombait sous trois mots pleins :
+« vous êtes sur le point d'être dépassé » (`acfa94cddf8eadadd7…`, 2 mots pleins :
+`depasse`, `point`) ; le grep exhaustif du round 0 l'avait déjà trouvée sans fuite ailleurs
+dans la banque. Le fix round 1 reformule cette même bonne réponse en « un véhicule est sur
+le point de vous dépasser », qui compte **trois** mots pleins (`vehicule`, `depasser`,
+`point`) et passe donc, de fait, sous la couverture directe de `--fuites` — revérifié :
+0 recouvrement. Les 15 bonnes réponses du lot comptent maintenant toutes ≥ 3 mots pleins.
 
 ### Point 17 — relecture séparée, contre les bonnes réponses et les options des voisines
 
 Les 15 explications relues une par une contre les bonnes réponses **et** les options des
-14 autres cartes du lot, y compris reformulées : aucune n'énonce la réponse d'une autre.
-Les recoupements de vocabulaire partagé sont attendus et non des fuites — « dépassement »,
-« voie de gauche », « véhicule doublé » reviennent sur plusieurs cartes parce que le
-domaine entier porte sur le même geste, jamais avec la valeur ou la condition qui
-distingue une carte d'une autre. Cas vérifiés en particulier, les groupes de cartes qui
-partagent une même scène ou un même article :
+14 autres cartes du lot après le fix round 1, y compris les six explications réécrites :
+aucune n'énonce la réponse d'une autre. Les quatre paires déjà vérifiées au round 0
+(même article ou même scène) restées correctes après édition ; une cinquième vérification
+ajoutée pour les cartes touchées :
 
-- `46269e3e…` (achever le dépassement) et `9aaede46…` (rabattement) portent toutes deux
-  la même obligation de R414-10 (revenir à droite sans faire ralentir le véhicule
-  doublé/dépassé), chacune dans ses propres mots (« sans faire ralentir le véhicule
-  doublé » pour l'une, « sans provoquer le ralentissement du véhicule dépassé » pour
-  l'autre) — chacune teste un moment différent de la manœuvre (pendant vs après), et ni
-  l'une ni l'autre ne cite le fait distinctif de l'autre (la ligne discontinue dégagée
-  pour l'une, le mètre de distance pour l'autre).
-- `93292bac…` (neige/verglas, > 3,5 t) et `b494d715…` (passage piéton) partagent le
-  chiffre « 3,5 t », mais seulement dans une **option fausse** de `b494d715…`
-  (« interdit aux seuls véhicules de plus de 3,5 t ») — jamais dans son explication, et
-  la ligne de registre documente ce recyclage comme volontaire.
-- `e5b0f585…` (voie ferrée) et le topic `Tunnels & passages à niveau` : la carte est
-  écrite « au titre du dépassement » (registre), ne mentionne aucun chiffre de délai ni
-  de fonctionnement des barrières — le régime du franchissement lui-même reste hors de ce
-  domaine.
-- `697b226c…` (sommet de côte) et `f5a12ba7…` (intersection) partagent R414-11 en entier
-  (alinéas 1 et 2) mais testent chacun un alinéa distinct, sans jamais citer la condition
-  propre à l'autre.
+- `ad7c53ef…` (dépassement par la droite obligatoire) et `2fc1ed8a…` (files denses) :
+  proximité documentée ci-dessus (« Les options »), pas une fuite.
+- `93292bac…` et `9aaede46…`, toutes deux éditées, ne se recoupent pas : l'une porte sur
+  la couverture de neige/verglas, l'autre sur l'effet d'un rabattement — vocabulaire
+  disjoint.
+- `07b430cc…` (« si la chaussée gêne le dépassement ») et `93292bac…` (« tant qu'une
+  voie en reste couverte ») partagent le mot « chaussée »/« voie », vocabulaire commun
+  au domaine entier,
+  sans reprendre la condition qui distingue l'une de l'autre (gabarit contre
+  neige/verglas).
 
-Voir aussi la section dédiée ci-dessus pour `Usagers & partage de la route` et `Vitesse`.
+`--fuites "Croisement & dépassement"` : 0 recouvrement, avant et après le fix round 1.
+`--fuites` relancé sur les neuf autres domaines déjà clos et sur `Priorités &
+intersections` (calibrage point 5, une bonne réponse ayant été reformulée sur
+`acfa94cd…`) : 0 partout sauf `Priorités & intersections`, inchangé à 3 (plancher
+structurel ruled acceptable, sans lien avec cette tâche).
 
-### Commandes et sorties, étapes 1, 6, 7, 9
+### Le parked finding n° 16 (§9.5 de la passe 2), rejugé
+
+`46269e3e…` était nommée « la moins irrépondable des quatre illustrées : deux
+distracteurs s'éliminent sans l'image ». Rejugé plutôt que laissé tel quel ou corrigé au
+jugé : l'option D (« oui, mais en restant à gauche par prudence ») **tombe seule**, sans
+l'image — elle contredit R414-10 (revenir à droite est la seule sortie licite ; rester à
+gauche, prudence ou non, n'est pas une option légale) par connaissance générale du domaine,
+indépendamment de la scène. Les options A et B, en revanche, **exigent** l'image : rien
+dans l'énoncé (« Vous pouvez achever ce dépassement : ») ne dit que la ligne est
+discontinue ni que la voie de gauche est dégagée devant — ce sont l'`alt` et le dessin qui
+le disent, et B (« la ligne au sol impose de renoncer ») ne peut être écartée qu'en sachant
+que **cette** ligne-ci, vue dans l'image, est franchissable. Le §7 du guide tient : l'image
+décide réellement entre B et C, une seule option sur quatre tombe sans elle, pas deux.
+Rien changé sur la carte pour ce constat : ne rien faire était une issue acceptable, et
+la réécriture de son `alt` (§9.5 n° 17, ci-dessus) porte sur un défaut distinct.
+
+### Commandes et sorties, fix round 1
 
 ```
-$ mkdir -p .passe3 && python3 Tools/audit.py > .passe3/avant-12.txt
-$ grep -E '^### ' .passe3/avant-12.txt
-### lettre/reference  (1)
-### forme/markdown  (1)
-### forme/seule-ponctuee  (14)
-### longueur/plus-longue  (84)
-### expl/paraphrase-litterale  (20)
-$ python3 - <<'EOF'   # comptage du lot
-… voir Step 1 …
-EOF
-15 cartes | expl médiane 231 | sous 120 : 0 | illustrées : 4
-
-$ python3 Tools/relire.py "Croisement & dépassement" > .passe3/lot-12.txt   # lecture des 15 cartes contre leur ligne
-
-$ python3 - <<'EOF'   # renormalisation
-… voir Step 6 …
-EOF
-448 questions
-
-$ python3 - <<'EOF'   # comparaison des id avant/après (contre HEAD, avant la tâche 12)
-… voir Step 6 …
-EOF
+$ python3 -c "… comparaison des id contre HEAD (qui contient déjà le round 0) …"
 mêmes ids : True | 448 -> 448
-ajoutés : [] | retirés : []
-
-$ python3 Tools/relire.py --fuites "Croisement & dépassement" | tail -40
+$ python3 Tools/audit.py > .passe3/apres-12-round1.txt
+$ diff <(grep -E '^### ' .passe3/avant-12.txt) <(grep -E '^### ' .passe3/apres-12-round1.txt)
+(vide — identique)
+$ python3 Tools/relire.py --fuites "Croisement & dépassement" | tail -1
 0 recouvrement(s) sur 15 cartes de « Croisement & dépassement ».
-
-$ python3 Tools/audit.py > .passe3/apres-12.txt
-$ diff <(grep -E '^### ' .passe3/avant-12.txt) <(grep -E '^### ' .passe3/apres-12.txt) || true
-(rien : les deux fichiers ont les mêmes cinq lignes `### `, aucune sortie vide n'est
-devenue non vide)
-
-$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcrun simctl boot 'iPhone 17 Pro' 2>/dev/null || true
-$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test -project Valido.xcodeproj \
-    -scheme Valido -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-    -only-testing:'ValidoTests/leContenuLivréEstValide()' [# … 10 tests …] 2>&1 | tail -30
-✔ Test run with 10 tests in 0 suites passed after 0.067 seconds.
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" \
+           "Usagers & partage de la route" "Mécanique & environnement" \
+           "Distances & freinage" "Arrêt & stationnement" "Premiers secours" \
+           "Tunnels & passages à niveau" "Priorités & intersections"; do
+    python3 Tools/relire.py --fuites "$d" | grep "recouvrement(s) sur"
+  done
+0 recouvrement(s) … (neuf domaines)
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] 2>&1 | grep -E "Test run|SUCCEEDED"
+✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.
 ** TEST SUCCEEDED **
-
-$ git status --short   # après questions.json ; Contents.json non reformatés cette fois
+$ git status --short
+ M Tools/audit-2026-08-passe-3.md
+ M Tools/sources.md
  M Valido/Resources/questions.json
 ?? CLAUDE.md
 ```
 
 ### Mouvements d'`audit.py`
 
-| sortie | avant | après |
-|---|---|---|
-| `lettre/reference` | 1 | 1 |
-| `forme/markdown` | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 |
-| `longueur/plus-longue` | 84 | 84 |
-| `expl/paraphrase-litterale` | 20 | 20 |
-| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+| sortie | avant (round 0) | après round 0 | après fix round 1 |
+|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 |
+| `forme/markdown` | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 |
+| `longueur/plus-longue` | 84 | 84 | 84 |
+| `expl/paraphrase-litterale` | 20 | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides |
 
-Aucun mouvement : la seule édition ajoute une clause à une explication déjà sous les
-seuils informatifs, sans toucher une option ni une longueur. `expl/paraphrase-litterale`
-reste à 20 (ni régression, ni le mouvement attendu — ce domaine n'y contribuait aucune
-carte avant la tâche, et n'y en contribue toujours aucune). `--fuites` sur le domaine :
-0 recouvrement avant et après édition, sur 15 cartes.
+Aucun mouvement sur les cinq sorties non vides malgré onze cartes éditées : les six
+options réécrites restent chacune sous les seuils de longueur (mesuré carte par carte,
+voir « Les options »), et aucune des six explications réécrites n'a fait entrer ou sortir
+une carte des ensembles `longueur/plus-longue` ou `expl/paraphrase-litterale`. Aucune
+sortie vide n'est devenue non vide.
+
+## Fix round 1 (revue externe, 2026-08-29)
+
+Une revue a confirmé cinq points forts du round 0 (l'écart sur `f1ae9582…` bien réel et
+sa non-défendabilité vérifiée en pratique, le grep du point 13 exact, aucun tell de
+longueur sur les quinze cartes, les 48 citations de la table de preuve toutes vérifiées
+mot pour mot, et le geste de laisser `sources.md` intact) et trouvé cinq défauts.
+Détaillés ci-dessus par section ; résumé ici.
+
+**Important 1 — un second écart de justesse, sur une carte non drapeautée
+(`ad7c53ef…`).** L'explication citait le 2° de R414-6 sans sa condition
+(« lorsque l'intervalle existant entre ce véhicule et le bord de la chaussée est
+suffisant »), déjà présente en entier dans la ligne de registre depuis le round 0. Le
+défaut était donc dans la carte, pas dans le registre : « Dépasser par la droite est
+obligatoire » se lisait comme un ordre sans condition, alors que l'obligation ne joue que
+si l'intervalle est suffisant — sinon la bonne conduite est d'attendre. Corrigé (table
+« Écarts de justesse »).
+
+**Important 2 — le constat parqué n° 14 (§9.5 de la passe 2) sur `acfa94cd…`, encore
+entier, refermé.** Rupture de motif grammatical (D seule à sujet pronominal) et deux
+seuils inventés (pas un seul, comme mon round 0 l'affirmait) : « 50 km/h » ne correspond
+à aucune règle de dépassement, comme « dix secondes ». Les deux options réécrites (table
+« Cartes modifiées »). Les deux autres constats croisés par ce lot et absents de mon
+rapport de round 0 — n° 16 et n° 17, tous deux sur `46269e3e…` — traités séparément :
+n° 16 rejugé (le §7 du guide tient, une seule option tombe sans l'image, pas deux) et
+n° 17 fermé par une correction d'`alt` sans effet sur la réponse.
+
+**Important 3 — le critère 3 était déclaré par étiquetage plutôt que vérifié, sur huit
+cartes.** Ma colonne « limite » du round 0 rangeait une sanction, un corollaire, une
+restatement de la règle, une image, l'application à la scène, et deux réfutations de
+distracteur. Fermé en deux gestes distincts : sur quatre cartes (`75e142d9…`,
+`b494d715…`, `42078575…`, `697b226c…`) — plus `99824d4d…` et `acfa94cd…`, dont les seules
+éditions portent sur les options, pas la justesse pédagogique de leur explication —
+aucune limite n'était disponible dans l'article ou n'était utile hors du champ testé ;
+la table de preuve le dit maintenant honnêtement plutôt que de forcer un mot à la place.
+Sur deux cartes (`93292bac…`, `9aaede46…`), une vraie limite était accessible et non
+utilisée — ajoutée (table « Cartes modifiées »).
+
+**Important 4 — deux explications qui n'énonçaient jamais leur règle.** `2fc1ed8a…`
+ouvrait sur le champ d'application de R414-15 sans jamais dire ce que l'article accorde ;
+`f5a12ba7…` ouvrait sur « lève l'interdiction » sans l'avoir nommée, et la raison que ma
+table lui prêtait n'était pas écrite sur la carte. Les deux réécrites pour poser la règle
+d'abord (table « Cartes modifiées »).
+
+**Important 5 — un défaut de distribution, nouveau point 22 du calibrage.** Quatre
+options fausses du lot sur quinze portaient le même absolu (« dans tous les cas »,
+« sans exception », « en toute saison ») — quatre des sept occurrences de toute la banque
+`code`. Deux reformulées (`b494d715…`, `93292bac…`), ramenant le lot à deux occurrences
+sur cinq dans la banque. La même vérification a fermé la paire `99824d4d…` (« puis »/
+« pas », un mot dans le même moule), nommée dans le même point du calibrage.
+
+**Quatre minors.** 1) `07b430cc…` généralisait l'obligation de R414-9 sans sa condition
+d'ouverture — cinq mots ajoutés. 2) `ad7c53ef…` A, à la frontière avec `2fc1ed8a…` :
+documenté, non corrigé (voir « Les options »), une reformulation affaiblirait une
+confusion réelle. 3) `99824d4d…` C/D : fermé avec le point 22 (Important 5). 4) `46269e3e…`
+`alt` : fermé avec le n° 17 (Important 2).
+
+**Une vérification supplémentaire, demandée avant de conclure.** Le 3e alinéa de
+R414-1, seul fait nouveau introduit par ce domaine dans le registre (round 0), ne vivait
+qu'en prose. Re-fetché sur Legifrance le 2026-08-29
+(`LEGIARTI000006842211`, en vigueur depuis le 01/06/2001) : « Toutefois, certaines
+intersections peuvent être aménagées de façon telle que le conducteur doive, en fonction
+de la signalisation, serrer sur sa gauche pour permettre le croisement » Ajouté mot pour
+mot à la ligne de `f1ae9582…` dans `Tools/sources.md`, avec le 4e alinéa (sanction, non
+affirmé par la carte) noté pour mémoire.
+
+### Vérification, fix round 1
+
+```
+$ python3 -c "… comparaison des id contre HEAD (round 0 inclus) …"
+mêmes ids : True | 448 -> 448
+$ python3 Tools/audit.py > .passe3/apres-12-round1.txt
+$ diff <(grep -E '^### ' .passe3/avant-12.txt) <(grep -E '^### ' .passe3/apres-12-round1.txt)
+(vide — identique)
+$ python3 Tools/relire.py --fuites "Croisement & dépassement" | tail -1
+0 recouvrement(s) sur 15 cartes de « Croisement & dépassement ».
+$ (boucle sur les neuf domaines clos + Priorités) → 0 partout, 3 sur Priorités (inchangé)
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] 2>&1 | grep -E "Test run|SUCCEEDED"
+✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.
+** TEST SUCCEEDED **
+$ git status --short
+ M Tools/audit-2026-08-passe-3.md
+ M Tools/sources.md
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+Un seul mouvement de registre (`f1ae9582…`, 3e alinéa ajouté), aucun mouvement
+d'`audit.py`, aucune sortie de vide à non-vide. Les dix sections précédentes de ce fichier
+vérifiées byte-identiques (`head -3346` reproduit le même MD5 qu'avant le début de la
+tâche 12).
+
+### Résumé chiffré, fix round 1
+
+- Écarts de justesse corrigés au total : **2** (`f1ae9582…` round 0, `ad7c53ef…` fix
+  round 1).
+- Doutes signalés non corrigés : **0**.
+- Cartes modifiées au total : **11** sur 15 (`f1ae9582…`, `ad7c53ef…`, `acfa94cd…`,
+  `2fc1ed8a…`, `f5a12ba7…`, `93292bac…`, `99824d4d…`, `9aaede46…`, `b494d715…`,
+  `07b430cc…`, `46269e3e…`) ; non modifiées : **4** (`42078575…`, `697b226c…`,
+  `75e142d9…`, `e5b0f585…`).
+- Lignes de `Tools/sources.md` touchées : **1** (`f1ae9582…`, 3e alinéa ajouté mot pour
+  mot).
+- `correctID` : A 4 / B 4 / C 4 / D 3, inchangé.
+- Fuites (`--fuites`) : **0** sur le domaine (avant et après ce round), **0** sur les neuf
+  domaines déjà clos, **3** sur `Priorités & intersections` (plancher structurel,
+  inchangé).
+- Point 13 : **0** carte sous le seuil de trois mots pleins après ce round (1 avant).
+- Point 22 (nouveau) : occurrences de l'absolu de type « dans tous les cas », « sans
+  exception », « en toute saison » dans la banque `code` : 7 → 5, dont dans ce lot : 4 → 2.
+- `longueur/plus-longue` : 84, inchangé. `expl/paraphrase-litterale` : 20, inchangé.
+- `✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.`

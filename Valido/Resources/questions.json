@@ -11126,7 +11126,7 @@
     "explanation": "La voie de gauche est dégagée et la ligne discontinue autorise à l'emprunter : rien n'oblige à interrompre la manœuvre. R414-10 demande seulement de revenir à droite ensuite, sans faire ralentir le véhicule doublé.",
     "id": "46269e3e9018b1949b8143894e86c4fc",
     "illustration": {
-      "alt": "Route à double sens, ligne axiale discontinue ; votre voiture roule dans la moitié gauche, à la hauteur de celle qu'elle double, et la chaussée est vide devant elle.",
+      "alt": "Route à double sens, ligne axiale discontinue ; votre voiture roule dans la moitié gauche, engagée le long de celle qu'elle double, et la chaussée est vide devant elle.",
       "asset": "depassement-ligne-discontinue"
     },
     "options": [
@@ -11239,7 +11239,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "R414-6 pose que les dépassements s'effectuent à gauche, puis met deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée empruntant la chaussée. Le contourner par la gauche croiserait sa trajectoire.",
+    "explanation": "R414-6 pose que les dépassements s'effectuent à gauche, puis met deux cas à part : le véhicule qui se dispose à tourner à gauche, et celui qui circule sur une voie ferrée empruntant la chaussée, si l'intervalle avec le bord de la chaussée est suffisant. Le contourner par la gauche croiserait sa trajectoire.",
     "id": "ad7c53ef7c57cb946c12b29bc36c004f",
     "options": [
       {
@@ -11271,7 +11271,7 @@
     "options": [
       {
         "id": "A",
-        "text": "le véhicule devant roule à plus de 50 km/h"
+        "text": "le véhicule devant est à moins de deux secondes de vous"
       },
       {
         "id": "B",
@@ -11283,7 +11283,7 @@
       },
       {
         "id": "D",
-        "text": "vous êtes sur le point d'être dépassé"
+        "text": "un véhicule est sur le point de vous dépasser"
       }
     ],
     "prompt": "Vous ne devez pas entamer un dépassement si :",
@@ -11293,7 +11293,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "R414-10 demande de revenir sur sa droite sans provoquer le ralentissement du véhicule dépassé. Se rabattre à un mètre de son pare-chocs l'oblige à lever le pied : la place n'est reprise que quand elle ne coûte rien.",
+    "explanation": "R414-10 demande de revenir sur sa droite sans provoquer le ralentissement du véhicule dépassé. Se rabattre à un mètre l'oblige à lever le pied : aucune distance n'est fixée par le texte, seul l'effet compte.",
     "id": "9aaede46c1c808687f89f4a8fb81f9df",
     "illustration": {
       "alt": "Route à double sens, ligne axiale discontinue ; votre voiture vient de se replacer dans la file de droite, à un mètre du pare-chocs de celle qu'elle a doublée.",
@@ -11324,7 +11324,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "R414-9 met la charge sur le gabarit encombrant : au-delà de deux mètres de large ou sept mètres de long, remorque et chargement compris, son conducteur réduit sa vitesse et, au besoin, s'arrête ou se gare. Les transports en commun en agglomération en sont dispensés.",
+    "explanation": "R414-9 met la charge sur le gabarit encombrant, si la chaussée gêne le dépassement : au-delà de deux mètres de large ou sept mètres de long, remorque et chargement compris, son conducteur réduit sa vitesse et, au besoin, s'arrête ou se gare. Les transports en commun en agglomération en sont dispensés.",
     "id": "07b430ccbde4b33b92be8686899b1ddf",
     "options": [
       {
@@ -11351,7 +11351,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le second alinéa de R414-11 lève l'interdiction pour qui aborde une intersection où les autres doivent lui laisser le passage, ou dont le franchissement est réglé par des feux ou par un agent. C'est le dépassement d'un deux-roues qui échappe à l'interdiction, pas le dépassement par un deux-roues.",
+    "explanation": "R414-11 interdit tout dépassement aux intersections de routes, sauf quand la priorité revient à qui double : les autres véhicules doivent déjà lui laisser le passage, ou l'intersection est réglée par des feux ou par un agent. C'est le dépassement d'un deux-roues qui échappe à l'interdiction depuis le texte, pas le dépassement par un deux-roues.",
     "id": "f5a12ba77751310fe9a210a3b787286a",
     "options": [
       {
@@ -11391,7 +11391,7 @@
       },
       {
         "id": "C",
-        "text": "prenez la voie du milieu, puis celle de gauche"
+        "text": "prenez la voie du milieu, en finissant par la gauche"
       },
       {
         "id": "D",
@@ -11414,7 +11414,7 @@
       },
       {
         "id": "B",
-        "text": "interdit dans tous les cas par le code"
+        "text": "interdit seulement en agglomération"
       },
       {
         "id": "C",
@@ -11432,12 +11432,12 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "R414-17 vise la neige et le verglas, jamais la pluie, et il joue sur toute chaussée, pas seulement sur autoroute : dès qu'une voie en est couverte, ni dépassement ni changement de file, au-delà de 3,5 tonnes comme pour un ensemble de plus de 7 mètres.",
+    "explanation": "R414-17 vise la neige et le verglas, jamais la pluie, et il joue sur toute chaussée, pas seulement sur autoroute : tant qu'une voie en reste couverte, ni dépassement ni changement de file, au-delà de 3,5 tonnes comme pour un ensemble de plus de 7 mètres.",
     "id": "93292bac6a7b17452c0e2ad2b30164fa",
     "options": [
       {
         "id": "A",
-        "text": "sur les routes à double sens, en toute saison"
+        "text": "sur les routes à double sens, en dessous de 50 km/h"
       },
       {
         "id": "B",
@@ -11459,7 +11459,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "R414-15 ne joue que sur les routes à sens unique ou à plus de deux voies, et seulement quand la densité a figé la circulation en files sur toutes les voies. Hors de ce cas, remonter par la droite reste un dépassement par la droite.",
+    "explanation": "R414-15 dispose que, dans ce cas, rouler plus vite qu'une file voisine n'est pas un dépassement. L'article ne joue que sur les routes à sens unique ou à plus de deux voies, et seulement quand la densité a figé la circulation en files sur toutes les voies. Hors de ce cas, remonter par la droite reste un dépassement par la droite.",
     "id": "2fc1ed8a9c9274f0e06be9f12850f5a4",
     "options": [
       {
