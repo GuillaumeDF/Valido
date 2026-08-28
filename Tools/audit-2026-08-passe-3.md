@@ -1899,13 +1899,19 @@ sur les dix tests du contenu livré, simulateur `iPhone 17 Pro`
 
 18 cartes, 9 `datée`, 0 illustrée(s).
 
-**Cette section a été corrigée après une revue (fix round 1).** La revue a confirmé le
+**Cette section a été corrigée deux fois après revue.** Le fix round 1 a confirmé le
 règlement de la dette 112/119, le tri loi/geste sur son principe et la discipline de
 sourçage rang 3, mais a trouvé cinq raisons coupées à tort, une carte devenue fausse dans
 un cas réel du même lot, deux explications réécrites au prix de la pédagogie pour garder
 un compteur plat, une fuite de mot d'énoncé oubliée et plusieurs comptages erronés dans
-cette section elle-même. Le détail du round 1 est à la fin ; les tableaux ci-dessous sont
-la version corrigée, pas la version d'origine.
+cette section elle-même. Le fix round 2 a **vérifié les cinq raisons restaurées mot pour
+mot contre les PDF ERC et la page Croix-Rouge** (relus intégralement une seconde fois,
+indépendamment) et confirmé la carte casque **médicalement correcte dans ses deux
+branches** — mais a trouvé que la correction du round 1 avait, en réglant la médecine,
+cassé la question : l'énoncé de la carte casque n'avait pas reçu la même portée que
+l'explication, et une réfutation réécrite ailleurs donnait la réponse d'une carte voisine.
+Le détail des deux rounds est à la fin ; les tableaux ci-dessous sont la version deux fois
+corrigée, pas la version d'origine.
 
 ### Tri loi / geste, fait avant l'ouverture d'une source
 
@@ -1962,10 +1968,18 @@ public lui-même, dans une section que la première lecture n'avait pas ouverte)
 | id | raison coupée à tort | où elle se trouve réellement | correction |
 |---|---|---|---|
 | `37fe1af42b8d81a092` (casque) | « risque d'aggraver une lésion de la nuque » | ERC Guidelines 2025, livret grand public, **p. 55**, protocole ABCDE : « Has the person fallen from a height or experienced major trauma? (Consider cervical spine injury) […] Do not move the person unless they are in an unsafe situation » | raison rétablie (lésion du rachis cervical, traumatisme majeur), **et portée elle-même corrigée** — voir plus bas, c'est le défaut le plus grave du round 0 |
-| `5fe77bbd3af80ab119` (coincée) | « risque d'aggraver une lésion vertébrale » | même page 55, même citation | raison rétablie ; la substitution non sourcée du round 0 (« n'est pas à la portée d'un témoin seul ») retirée en tant que raison principale, gardée comme point secondaire |
+| `5fe77bbd3af80ab119` (coincée) | « risque d'aggraver une lésion vertébrale » | même page 55, même citation | raison rétablie, ajoutée à la suite de la phrase d'ouverture ; la formulation non sourcée du round 0 (« n'est pas à la portée d'un témoin seul ») **reste la clause d'ouverture de la carte** — ni retirée ni reléguée en second plan, contrairement à ce qu'affirmait la première version de cette ligne (corrigé en fix round 2) |
 | `82a9e65c1cf2ff4a1a` (profondeur) | « ne chasse pas assez de sang » / « fractures de côtes » / « lésions du foie » | absent du livret grand public **et** absent des ERC Guidelines 2025 Adult Basic Life Support (PDF professionnel lu en entier) ; en revanche ce document professionnel dit : « Chest compressions are […] the most accessible means of maintaining cerebral and organ perfusion […] Their effectiveness depends on correct hand position and chest compression depth, rate, and degree of chest wall recoil » et fixe explicitement la borne haute : « avoiding excessive chest compression depths greater than 6cm » | raison rétablie sur la perfusion (pas sur les fractures/lésions, qui restent absentes de tout le domaine cherché) ; la borne haute est maintenant sourcée comme un choix explicite de l'ERC, pas une extrapolation |
 | `d724a3c3121fafd733` (ratio) | « chute de pression artérielle » à chaque pause | absent du livret grand public ; présent dans le document professionnel : « Pauses in chest compressions interrupt perfusion and must be avoided to minimise the risk of ischaemic injury » | raison rétablie, sourcée sur le document professionnel |
 | `fb24f6323a07a07c77` (cadence) | « le cœur ne se remplit pas » / « la poitrine n'a pas le temps de remonter » | absent du livret grand public ; le document professionnel motive la borne basse par la perfusion (citation ci-dessus) et la borne haute par le relâchement complet : « avoiding leaning on the chest between compressions to allow full chest wall recoil », corroboré par croix-rouge.fr (« laissez la poitrine reprendre sa position initiale afin de permettre au sang de revenir vers le cœur », pages arrêt cardiaque et noyade) | raison rétablie **et le chiffre 100-120 réécrit dans l'explication**, voir « Pédagogie » |
+
+**Round 2 : les cinq citations vérifiées mot pour mot, indépendamment.** La revue a
+retéléchargé les deux PDF ERC et rerelu la page brûlure de croix-rouge.fr plutôt que de se
+fier aux citations déjà portées par cette ligne. Verdict : quatre citations disent
+exactement ce que cette table leur fait dire. La cinquième, sur `fb24f6323a07a07c77`, dit
+bien ce qui est cité mais **motive autre chose que ce que la ligne lui faisait motiver** —
+le relâchement complet, pas le plafond de 120 min⁻¹ — corrigé séparément, voir les
+minors.
 
 **Le vrai critère que le round 0 appliquait, nommé par la revue.** Ce n'était pas le test
 du point 18 (« la raison est-elle dans la source, ou déduite ? ») mais une asymétrie : tout
@@ -1991,11 +2005,27 @@ casque pour dégager les voies aériennes et pratiquer le massage et le bouche-�
 exactement ce qu'enseignent `7d456e77…` et `5e2dbc0489…` du même domaine. Une carte suivie
 à la lettre dans ce cas-là fait faire le mauvais geste.
 
-Corrigé : « Ne doit pas être retiré avant les secours » reste la bonne réponse par défaut,
-mais l'explication porte maintenant sa vraie portée — « Tant que le motard respire […] S'il
-ne respire plus, en revanche, il faut le retirer » — et sa vraie raison, sourcée p. 55 du
-livret ERC (traumatisme majeur, lésion du rachis cervical). « Seuls habilités » et « aucune
-exception » sont retirés.
+Corrigé en fix round 1 : « Ne doit pas être retiré avant les secours » reste la bonne
+réponse par défaut, mais l'explication porte maintenant sa vraie portée — « Tant que le
+motard respire […] S'il ne respire plus, en revanche, il faut le retirer » — et sa vraie
+raison, sourcée p. 55 du livret ERC (traumatisme majeur, lésion du rachis cervical).
+« Seuls habilités » et « aucune exception » sont retirés.
+
+**Round 2 : la médecine était juste, la question ne l'était plus.** La revue a vérifié
+l'explication mot pour mot contre le PDF (citation exacte, pagination correcte — le livret
+grand public numérote une page derrière l'index du PDF, vérifié) et l'a jugée **correcte
+dans ses deux branches** : un lecteur qui la suit laisse le casque tant que la victime
+respire et le retire si elle ne respire plus. Mais l'option D, « Doit être retiré pour
+dégager les voies aériennes », est **exactement** ce que l'explication prescrit dans sa
+seconde branche — et l'énoncé, « Face à un motard accidenté, son casque : », n'excluait
+cette branche nulle part. La carte enseignait donc, dans ses propres mots, que D est juste
+dans un cas que l'énoncé admet : le test des points 2 et 14 du calibrage (« existe-t-il
+une lecture où le distracteur EST la bonne réponse ? ») répondait oui, et c'est la lecture
+que la carte fournissait elle-même. Corrigé en donnant à l'énoncé la même portée qu'à
+l'explication : « Face à un motard accidenté **qui respire**, son casque : ». Sous cet
+énoncé, D redevient faux sans ambiguïté. Ajouté au calibrage, point 14 : quand une
+explication gagne un « en revanche », relire les quatre options contre la branche
+nouvelle — corriger la médecine ne suffit pas tant que la question garde deux réponses.
 
 ### La dette du §9.5 n°13 de la passe 2 (« 112 »/« 119 »)
 
@@ -2019,7 +2049,19 @@ Aucun doute nouveau. Le seul point qui y ressemble — la PLS enseignée sans la
   86, `…81f7a2` 90), 0 à la sortie.
 - cartes dont le budget de 220 a limité l'explication : aucune, le domaine ne porte
   aucune illustrée.
-- énoncés reformulés parce qu'ils présupposaient la règle : aucun.
+- énoncés reformulés parce qu'ils présupposaient la règle : un, en fix round 2 —
+  `37fe1af42b8d81a092` (casque), voir « Le défaut le plus grave » : l'énoncé ne portait
+  aucune portée alors que la médecine en imposait une.
+
+**`37fe1af42b8d8175a7` (déplacer victime), rewrite évidencé à part (point 1 du
+calibrage) — la seule des 91 → 120 caractères que le compte agrégé ci-dessus ne détaille
+pas.** Avant : « On ne déplace une victime que face à un danger vital immédiat, sinon on
+attend les secours. » (91, règle seule, aucune raison ni limite explicite). Après : la
+règle précise sa seule condition sourcée (danger immédiat, exemple de l'incendie), une
+limite qui exclut nommément les trois motifs des distracteurs (confort, froid, demande de
+la victime, puis en fix round 1 la présence d'un secouriste diplômé), et une clause de
+fin qui répond à « qui la déplace alors ? » (les secours). Round 1 a ajouté la clause sur
+le secouriste ; round 2 n'a pas retouché cette carte.
 
 **Une réécriture qui gardait un compteur plat au prix de la pédagogie, corrigée.**
 `fb24f6323a07a07c77` (cadence) ne disait plus, en sortie de round 0, quelle était la
@@ -2079,15 +2121,32 @@ par la revue et corrigés en fix round 1 :
   Remplacée par « Peut être retiré pour vérifier l'identité de la victime », une confusion
   réelle et non un remplissage.
 
+**Round 2, minor : un distracteur introduit en round 0 restait sans réfutation.**
+`37fe1af42b8d8175a7…` (déplacer victime), option D, remplacée en round 0 par « Seulement
+si un secouriste diplômé est présent sur place » (voir ci-dessus) : un vrai distracteur,
+mais que l'explication ne réfutait pas — elle n'excluait que « le confort, le froid, la
+propre demande » de la victime. Corrigé : « ni la présence d'un secouriste diplômé » ajouté
+à l'énumération des motifs insuffisants.
+
 **Une carte encore fausse après round 0, corrigée en fix round 1 : `…f7a2` (protéger
 zone).** L'option C, allongée en round 0 en « … pour les mettre à l'abri », et
 l'explication qui affirmait en plus « Déplacer les victimes n'est pas un geste de
 protection : c'est un geste de secours » ouvraient une lecture où C devenait défendable —
 la doctrine du dégagement d'urgence range précisément le déplacement d'une victime en
 danger dans les gestes de protection, et l'affirmation n'était sourcée nulle part
-(points 2 et 14 du calibrage). Corrigé : l'explication réfute maintenant C sur son motif
-propre (« pour les mettre à l'abri » n'est pas un danger immédiat) et la classification
-retirée.
+(points 2 et 14 du calibrage). Fix round 1 : l'explication réfute C sur son motif propre
+(« pour les mettre à l'abri » n'est pas un danger immédiat) et la classification retirée —
+mais en écrivant « ce n'est pas un danger immédiat, **la seule condition qui autorise à
+déplacer une victime** », ce qui donne mot pour mot la bonne réponse de la carte voisine
+`37fe1af42b8d8175a7…` (« Si elle court un danger immédiat […] »), dont l'explication ouvre
+elle-même sur « **Le seul motif qui autorise à déplacer une victime** est un danger
+immédiat ». `--fuites` est structurellement aveugle ici : il lui faut les cinq mots pleins
+de la bonne réponse au complet, et seuls deux y sont — exactement le cas que les points 5
+et 17 réservent à la relecture manuelle, et la première version de cette section
+affirmait le contraire (« `…f7a2` ne redonne pas la condition de `…8175a7` au-delà d'un
+renvoi de sens »), sur la phrase que ce même fix venait de réécrire. **Round 2** :
+l'exclusivité retirée, l'explication réfute C sur son seul motif (« ce n'est pas un
+danger immédiat »), sans nommer la condition unique.
 
 **Une carte qui redonnait la réponse de sa voisine, non vue par `--fuites` (point 13),
 manquée en round 0.** `37fe1af42b8d8122b0…` (18) finissait sur « le **112** l'appel
@@ -2134,6 +2193,21 @@ ces mots ne recoupe les trois mots pleins des bonnes réponses de `7d456e77…`
 (« compressions », « insufflations » — sous le seuil de toute façon). Aucune fuite
 nouvelle introduite par les corrections de ce round.
 
+**Round 2 : la fuite de `…f7a2` vers `…8175a7` (ci-dessus, « Les options ») qualifie cette
+affirmation — elle n'était pas la seule, et deux recouvrements partiels, en dessous du
+seuil des trois mots pleins mais réels, restent dans le fichier sans y avoir été
+introduits par cette tâche : `d724a3c3121fafd733`, dans la clause inchangée « comprimer
+seul, sans interruption, **à au moins 100 par minute** », partage deux mots pleins
+(`moins`, `minute`) avec la bonne réponse de `fb24f6323a07a07c77` (« 100 à 120
+compressions **par minute** », qui en compte deux elle-même : `compressions`, `minute`) —
+sous le seuil de trois qui déclencherait `--fuites`, donc un recouvrement fortuit, pas une
+fuite au sens du point 11. `5fe77bbd3af80ab119`, dans sa clause de fin inchangée
+« protéger, alerter, puis rester en contact », redit dans l'ordre deux des trois mots
+pleins de la bonne réponse de `37fe1af42b8d81f1b1` (« Protéger – Alerter – Secourir ») —
+également sous le seuil. Aucun des deux n'est corrigé : ce sont des mots communs au
+vocabulaire du domaine (« minute », « protéger », « alerter »), pas la réponse entière, et
+les deux existaient avant cette tâche.
+
 **`correctID` — mesuré avant et après édition, aucune rotation nécessaire.** Avant : A 5,
 B 4, C 4, D 5 (18 cartes). Aucune lettre n'a changé de carte pendant cette tâche
 (rééquilibrage par longueur d'option, pas par rotation) : distribution après identique.
@@ -2167,19 +2241,41 @@ comme caractère de mot). Détecté par un audit intermédiaire avant commit, co
 « 15 et 25 degrés » ; `lettre/reference` est resté à 1 (le faux positif connu, hors
 domaine) du premier au dernier audit de cette tâche.
 
+### Minors du round 2
+
+- **`fb24f6323a07a07c77` (cadence), attribution corrigée dans `sources.md`.** La ligne
+  faisait dire à la citation ERC sur le relâchement (« avoiding leaning on the chest
+  between compressions to allow full chest wall recoil ») qu'elle motivait le plafond de
+  120 min⁻¹ ; elle motive le relâchement lui-même, et le même document précise qu'aucune
+  étude ne porte sur les mesures de « leaning ». Le lien rythme → relâchement incomplet
+  que porte l'explication de la carte est mécaniquement sûr mais reste une inférence de la
+  carte, pas une affirmation de l'ERC sous cette forme — la ligne le dit maintenant
+  (point 3 du calibrage : le registre suit la source).
+- **`1ef7d3ed540293c212` (brûlure), réfutation corrigée sur deux options.** L'explication
+  attribuait aux cloques percées le même effet qu'au corps gras (« retardent tous deux la
+  cicatrisation ») ; la page dit autre chose pour chacune — barrière naturelle contre
+  l'infection pour les cloques, chaleur retenue et cicatrisation ralentie pour le corps
+  gras. Les deux citations exactes ajoutées à `sources.md` dans le même geste que la
+  correction de la carte (elles n'y étaient pas, alors que la clause précédente s'appuyait
+  déjà sur la page sans la citer).
+- **`5fe77bbd3af80ab119` (coincée), description corrigée dans cette section** (voir la
+  table des raisons restaurées) : la carte n'a jamais retiré sa clause d'ouverture non
+  sourcée, contrairement à ce qu'affirmait la version précédente.
+
 ### Mouvements d'`audit.py`
 
-| sortie | avant tâche 9 | après round 0 | après fix round 1 |
-|---|---|---|---|
-| `lettre/reference` | 1 | 1 | 1 (un aller-retour à 2 pendant l'édition, corrigé avant commit — voir ci-dessus) |
-| `forme/markdown` | 1 | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 | 14 (aucune carte du domaine) |
-| `longueur/plus-longue` | 93 | 90 | 90 (aucune option retouchée n'a changé son statut de plus longue) |
-| `expl/paraphrase-litterale` | 17 | 17 | **19** (deux occurrences nouvelles, classe 2, documentées ci-dessus — hausse assumée) |
-| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides |
+| sortie | avant tâche 9 | après round 0 | après fix round 1 | après fix round 2 |
+|---|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 (un aller-retour à 2 pendant l'édition, corrigé avant commit) | 1 |
+| `forme/markdown` | 1 | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 (aucune carte du domaine) | 14 |
+| `longueur/plus-longue` | 93 | 90 | 90 (aucune option retouchée n'a changé son statut de plus longue) | 90 (l'énoncé de `…81a092` a bougé, pas ses options ; aucun changement de statut) |
+| `expl/paraphrase-litterale` | 17 | 17 | **19** (deux occurrences nouvelles, classe 2, documentées ci-dessus — hausse assumée) | 19 (inchangé ; les quatre occurrences du domaine reclassées classe 2, aucune classe 1 ni 3, confirmé par un rejeu local d'`audit.py:194`) |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides | vides | vides |
 
 `python3 Tools/relire.py --fuites` sur les huit domaines déjà traités (les sept
-précédents et « Premiers secours ») : **0** partout, avant et après le fix round 1.
+précédents et « Premiers secours ») : **0** partout, avant, après le fix round 1 et après
+le fix round 2.
 
 **Vérifications, fix round 1.**
 
@@ -2213,6 +2309,49 @@ mêmes ids : True | 448 -> 448
 
 `✔ Test run with 10 tests in 0 suites passed after 0.062 seconds.` / `** TEST SUCCEEDED **`
 sur les dix tests du contenu livré, simulateur `iPhone 17 Pro`
-(`66921B37-1805-4988-AB69-B51A94490BC0`). `git status --short` avant `git add` :
-`Tools/sources.md` et `Valido/Resources/questions.json` modifiés, `CLAUDE.md` toujours
-untracked, aucun `Contents.json` reformaté.
+(`66921B37-1805-4988-AB69-B51A94490BC0`). `git status --short` avant `git add`, fix
+round 1 : `Tools/sources.md` et `Valido/Resources/questions.json` modifiés, `CLAUDE.md`
+toujours untracked, aucun `Contents.json` reformaté.
+
+**Vérifications, fix round 2.**
+
+```
+$ python3 - <<'EOF'
+import json
+p = 'Valido/Resources/questions.json'
+d = json.load(open(p))
+with open(p, 'w', encoding='utf-8') as f:
+    json.dump(d, f, ensure_ascii=False, indent=2, sort_keys=True)
+    f.write('\n')
+print(len(d), 'questions')
+EOF
+448 questions
+$ python3 -c "…"  # ids
+mêmes ids : True | 448 -> 448
+```
+```
+$ python3 Tools/audit.py > .passe3/apres-09-r5.txt
+$ diff <(grep -E '^### ' .passe3/apres-09-r4.txt) <(grep -E '^### ' .passe3/apres-09-r5.txt)
+(vide — aucune sortie n'a bougé)
+```
+```
+$ python3 Tools/relire.py --fuites "Premiers secours"
+0 recouvrement(s) sur 18 cartes de « Premiers secours ».
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" "Usagers & partage de la route" \
+           "Mécanique & environnement" "Distances & freinage" "Arrêt & stationnement"; do
+    python3 Tools/relire.py --fuites "$d" | tail -1
+  done
+0 recouvrement(s) sur 19 cartes de « Permis & sanctions ».
+0 recouvrement(s) sur 22 cartes de « Vitesse ».
+0 recouvrement(s) sur 18 cartes de « Alcool & stupéfiants ».
+0 recouvrement(s) sur 18 cartes de « Usagers & partage de la route ».
+0 recouvrement(s) sur 20 cartes de « Mécanique & environnement ».
+0 recouvrement(s) sur 21 cartes de « Distances & freinage ».
+0 recouvrement(s) sur 17 cartes de « Arrêt & stationnement ».
+```
+
+`✔ Test run with 10 tests in 0 suites passed after 0.068 seconds.` / `** TEST SUCCEEDED **`
+sur les dix tests du contenu livré, simulateur `iPhone 17 Pro`
+(`66921B37-1805-4988-AB69-B51A94490BC0`). `git status --short` avant `git add`, fix
+round 2 : `Tools/sources.md` et `Valido/Resources/questions.json` modifiés, `CLAUDE.md`
+toujours untracked, aucun `Contents.json` reformaté.

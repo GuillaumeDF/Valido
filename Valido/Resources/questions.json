@@ -1152,7 +1152,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le seul motif qui autorise à déplacer une victime est un danger immédiat qu'elle ne peut pas éviter sur place, comme un début d'incendie : ni le confort, ni le froid, ni sa propre demande ne suffisent. En dehors de ce cas, on la protège où elle est et on attend les secours, qui sauront la mobiliser sans risque.",
+    "explanation": "Le seul motif qui autorise à déplacer une victime est un danger immédiat qu'elle ne peut pas éviter sur place, comme un début d'incendie : ni le confort, ni le froid, ni sa propre demande, ni la présence d'un secouriste diplômé ne suffisent. En dehors de ce cas, on la protège où elle est et on attend les secours, qui sauront la mobiliser sans risque.",
     "id": "37fe1af42b8d8175a7fccbffc2d6bcfa",
     "options": [
       {
@@ -1662,7 +1662,7 @@
         "text": "Doit être retiré pour dégager les voies aériennes"
       }
     ],
-    "prompt": "Face à un motard accidenté, son casque :",
+    "prompt": "Face à un motard accidenté qui respire, son casque :",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -2603,7 +2603,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le gilet, les feux de détresse et le triangle rendent la zone visible avant que d'autres véhicules n'y arrivent : c'est ce balisage qui protège, pas le fait de s'exposer sur la chaussée pour faire signe aux voitures. « Pour les mettre à l'abri » n'est pas non plus un motif suffisant : ce n'est pas un danger immédiat, la seule condition qui autorise à déplacer une victime.",
+    "explanation": "Le gilet, les feux de détresse et le triangle rendent la zone visible avant que d'autres véhicules n'y arrivent : c'est ce balisage qui protège, pas le fait de s'exposer sur la chaussée pour faire signe aux voitures. « Pour les mettre à l'abri » n'est pas non plus un motif suffisant : ce n'est pas un danger immédiat.",
     "id": "37fe1af42b8d81f7a214d5130ad370f4",
     "options": [
       {
@@ -10482,7 +10482,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Refroidir à l'eau tempérée, entre 15 et 25 degrés, limite l'extension de la lésion — la Croix-Rouge ne mentionne jamais la glace, bien plus froide que cette plage. Il faut arroser au moins dix minutes, vingt idéalement chez l'adulte, mais dix au maximum chez l'enfant, dont le risque d'hypothermie est plus élevé. Percer les cloques ou appliquer un corps gras retardent tous deux la cicatrisation et favorisent l'infection.",
+    "explanation": "Refroidir à l'eau tempérée, entre 15 et 25 degrés, limite l'extension de la lésion — la Croix-Rouge ne mentionne jamais la glace, bien plus froide que cette plage. Il faut arroser au moins dix minutes, vingt idéalement chez l'adulte, mais dix au maximum chez l'enfant, dont le risque d'hypothermie est plus élevé. Percer les cloques supprime une barrière naturelle contre l'infection ; appliquer un corps gras retient la chaleur, retarde la cicatrisation et favorise l'infection.",
     "id": "1ef7d3ed540293c212d9c304ffb297f5",
     "options": [
       {
