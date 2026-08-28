@@ -901,7 +901,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le feu est réglé pour la situation du moment, le panneau pour la configuration permanente : c'est le plus récent des deux qui l'emporte. D'où la hiérarchie agent, puis feu, puis panneau, puis marquage, puis priorité à droite — sauf le jaune clignotant, qui n'attribue lui-même aucune priorité et laisse justement les panneaux trancher.",
+    "explanation": "Le feu est réglé pour la situation du moment, le panneau pour la configuration permanente : c'est le plus récent des deux qui l'emporte. Seul le jaune clignotant fait exception : il n'attribue lui-même aucune priorité et laisse justement les panneaux trancher.",
     "id": "37fe1af42b8d815f8684e4cc91d6950f",
     "options": [
       {
@@ -933,7 +933,7 @@
     "options": [
       {
         "id": "A",
-        "text": "De faire valoir une priorité absolue"
+        "text": "De faire valoir une priorité absolue sur la voie"
       },
       {
         "id": "B",
@@ -1453,7 +1453,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "R415-12 impose de céder le passage « en toutes circonstances » aux véhicules d'intérêt général prioritaires. La priorité ne vaut que s'ils annoncent leur approche par sirène et gyrophare : hors intervention signalée, un véhicule de secours reste un usager ordinaire.",
+    "explanation": "R415-12 impose de céder le passage « en toutes circonstances » aux véhicules d'intérêt général prioritaires. La priorité tient à l'usage effectif de leurs avertisseurs spéciaux, pas au type de véhicule : hors intervention signalée, un véhicule de secours reste un usager ordinaire.",
     "id": "37fe1af42b8d818293f3f8d862a5a505",
     "options": [
       {
@@ -1470,7 +1470,7 @@
       },
       {
         "id": "D",
-        "text": "Est prioritaire hors agglomération seulement"
+        "text": "Est prioritaire hors agglomération, jamais en ville"
       }
     ],
     "prompt": "Un véhicule prioritaire (pompiers, SAMU) en intervention avec sirène et gyrophare :",
@@ -2194,7 +2194,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le losange jaune (AB6) signale une route à caractère prioritaire : la priorité à droite cesse d'y jouer aux intersections traversées, jusqu'au panneau qui l'annule.",
+    "explanation": "Le losange jaune (AB6) signale une route à caractère prioritaire sur cet axe, pas sur toute la zone : la priorité à droite cesse d'y jouer aux intersections traversées.",
     "id": "37fe1af42b8d81d6aef7ff0b8d193d7f",
     "options": [
       {
@@ -2689,7 +2689,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Le premier arrivé sur la voie ferrée passe"
+        "text": "Le premier arrivé sur la voie ferrée passe, comme ailleurs"
       },
       {
         "id": "B",
@@ -7162,7 +7162,7 @@
       },
       {
         "id": "B",
-        "text": "Les bus à franchir le feu rouge sans marquer l'arrêt"
+        "text": "Les bus à franchir le feu rouge sans jamais marquer l'arrêt"
       },
       {
         "id": "C",
@@ -8322,7 +8322,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Rien ne remplace la règle par défaut : chacun cède à qui vient de sa droite. L'ordre d'arrivée ne crée aucun droit, et aller tout droit n'en donne pas davantage — la direction prise ne change rien à qui doit céder.",
+    "explanation": "Rien ne remplace la règle par défaut : chacun cède à qui vient de sa droite. L'ordre d'arrivée ne crée aucun droit, et aller tout droit n'en donne pas davantage. Sauf panneau, giratoire ou sortie de parking.",
     "id": "f255331d3f234810a4807594b43b397f",
     "illustration": {
       "alt": "Croisement à quatre branches, sans panneau ni marquage au sol ; vous montez tout droit et un véhicule arrive de votre droite pour traverser.",
@@ -8353,7 +8353,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le losange jaune (AB6) désigne une route à caractère prioritaire : tant qu'il n'est pas barré, la priorité à droite cesse de s'appliquer aux intersections traversées. Même carrefour que sans le panneau, réponse inverse.",
+    "explanation": "Le losange jaune (AB6) désigne une route à caractère prioritaire sur cet axe, pas toute la zone : la priorité à droite y cesse aux intersections traversées. Même carrefour que sans le panneau, réponse inverse.",
     "id": "8e9464777a61dba3859e3ecc08f7327d",
     "illustration": {
       "alt": "Croisement à quatre branches ; un losange jaune sur fond blanc est planté à votre droite, sur votre voie d'approche, et un véhicule arrive de la voie transversale à votre droite.",
@@ -8806,7 +8806,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "R414-3 fait s'arrêter et reculer le véhicule qui descend : cela se maîtrise mieux en descente qu'en côte. Sauf si c'est nettement plus facile pour celui qui monte, près d'une place d'évitement.",
+    "explanation": "R414-3 fait s'arrêter en premier le véhicule qui descend : à l'arrêt en côte, on redémarre mal. Il recule aussi, sauf si c'est nettement plus facile pour celui qui monte, près d'une place d'évitement.",
     "id": "6e1a51d34b4b79e4366d6566795e5151",
     "illustration": {
       "alt": "Route étroite à forte pente, vue de côté ; vous descendez à la rencontre d'un véhicule qui monte, et la chaussée ne permet pas de passer de front.",
