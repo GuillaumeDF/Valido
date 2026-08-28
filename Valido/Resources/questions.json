@@ -492,7 +492,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "R110-2 : l'arrêt dure le temps de monter, descendre, charger ou décharger, conducteur aux commandes ou à proximité ; le reste est stationnement. La distinction compte car de nombreux articles ne sanctionnent que le stationnement — et elle se juge aux faits, pas à l'intention.",
+    "explanation": "R110-2 : l'arrêt dure le temps de monter, descendre, charger ou décharger, conducteur aux commandes ou à proximité ; le reste est stationnement. R417-12 et R417-3 ne visent que le stationnement ; R417-9, 10 et 11 visent aussi l'arrêt — la distinction se juge aux faits, pas à l'intention.",
     "id": "37fe1af42b8d812cad07c40f6c51598c",
     "options": [
       {
@@ -600,7 +600,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le passage piéton fait partie des emplacements dont l'occupation oblige le piéton à sortir de sa zone protégée. Trottoir, place réservée et voie cyclable relèvent de la même catégorie très gênante, à 135 €.",
+    "explanation": "Le passage piéton oblige le piéton à sortir de sa zone protégée : l'arrêt y est puni comme le stationnement, pas seulement une immobilisation prolongée. R417-5 punit aussi l'empiètement, mais en deuxième classe — c'est la qualification très gênante, plus sévère, qui l'emporte.",
     "id": "37fe1af42b8d8134ad4be3c7e29328f1",
     "options": [
       {
@@ -708,7 +708,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "R417-4 impose de se placer hors de la chaussée « autant que possible » : hors agglomération la vitesse est plus élevée, un véhicule resté sur la voie surprend. Sans accotement, on s'en rapproche au maximum — l'obligation est de moyen, non de résultat.",
+    "explanation": "R417-4 impose de se placer hors de la chaussée « autant que possible » : hors agglomération la vitesse est plus élevée, un véhicule resté sur la voie surprend. Sans accotement, on serre le bord au maximum — l'obligation est de moyen, non de résultat.",
     "id": "37fe1af42b8d8148bc29ede5a0015edd",
     "options": [
       {
@@ -1426,7 +1426,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Le code distingue deux niveaux : gênant, contravention de 2e classe sans retrait de point, et très gênant, 4e classe à 135 €, pour ce qui touche aux trottoirs, passages piétons, places réservées et voies réservées.",
+    "explanation": "Le code distingue deux niveaux : gênant, 2e classe, soit 35 € d'amende forfaitaire, sans retrait de point ; très gênant, 4e classe, 135 €, pour le trottoir (voiture), les passages piétons, l'emplacement carte mobilité inclusion et les voies réservées.",
     "id": "37fe1af42b8d8181a057c984708f0042",
     "options": [
       {
@@ -2311,7 +2311,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Mettre le clignotant, contrôler les angles morts et céder le passage"
+        "text": "Clignotant, angles morts, puis céder le passage"
       },
       {
         "id": "B",
@@ -2414,7 +2414,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai. La fourrière suppose en plus un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent.",
+    "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif sur la voie publique ou ses dépendances, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai. La fourrière suppose un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent.",
     "id": "37fe1af42b8d81e9b314fcb5ac447202",
     "options": [
       {
@@ -8539,7 +8539,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Continue, elle supprime l'arrêt lui-même : même le temps de laisser descendre un passager. Interrompue en tirets, elle ne viserait plus que le stationnement ; le zigzag, lui, réserve l'emplacement à un arrêt de bus.",
+    "explanation": "Continue, elle interdit l'arrêt lui-même. Le stationnement n'étant que ce qui n'est pas de l'arrêt (R110-2), interdire l'un interdit l'autre ; le zigzag, lui, réserve la place à un arrêt de bus.",
     "id": "0a4e98c4605ec20320f13dec75f7bb9c",
     "illustration": {
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir court un trait jaune, continu et sans la moindre interruption.",
@@ -9687,7 +9687,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Interrompue, elle ne touche pas à l'arrêt : on peut s'immobiliser le temps de faire monter ou descendre quelqu'un, sans quitter les commandes. Continue, le même trait supprimerait aussi cet arrêt.",
+    "explanation": "Le tableau de l'art. 113-2 E assigne un rôle par style : discontinue = stationnement, continue = arrêt. Le même tracé, avec LIVRAISON et une croix, devient un emplacement de livraison, pas une interdiction générale.",
     "id": "a2673bae092f3eaf438b40910de6fbd4",
     "illustration": {
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir, un trait jaune tracé en tirets réguliers, coupé d'intervalles nets.",
@@ -9718,7 +9718,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'art. 118-2.A.a) de la 7e partie de l'IISR nomme l'oblique « en épi » et fixe son marquage, continu ou T'2 de 2u. Une seule manœuvre à l'entrée, la sortie se fait en marche arrière, visibilité réduite.",
+    "explanation": "L'IISR (118-2.A.a) nomme l'oblique « en épi », marquage continu ou T'2 de 2u, pour entrer en un mouvement. Rien n'y fixe l'angle : « en bataille » et « en créneau » sont du vocabulaire d'auto-école absent de tout texte.",
     "id": "639297cf3f0f433daf035978fa8ddfe5",
     "illustration": {
       "alt": "Vue de dessus d'une rue : des places bordées de traits blancs obliques longent le trottoir, et trois voitures y sont rangées en biais.",
@@ -9749,7 +9749,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Le code impose la périodicité : du 1er au 15 côté impair, du 16 au dernier jour du mois côté pair. Le changement de côté s'opère le dernier jour de chacune de ces deux périodes, entre 20 h 30 et 21 heures.",
+    "explanation": "Le code impose cette périodicité (1er-15 impair, 16-fin pair) et l'heure du changement (20 h 30 - 21 h) : elle répartit l'usage de la voie, souvent pour le nettoyage. Elle n'existe que si un maire l'a instituée — rien ne l'impose par défaut, c'est la signalisation qui le dit.",
     "id": "5139c357024d2a17c499b104d7a01d81",
     "options": [
       {
@@ -9785,7 +9785,7 @@
       },
       {
         "id": "B",
-        "text": "de 135 €, comme sur un passage piéton"
+        "text": "de 135 €, la classe des infractions très gênantes"
       },
       {
         "id": "C",
@@ -9796,7 +9796,7 @@
         "text": "de 68 €, la classe intermédiaire du barème"
       }
     ],
-    "prompt": "Devant une bouche d'incendie, l'amende de stationnement est :",
+    "prompt": "Devant une bouche d'incendie, la sanction de stationnement est :",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },

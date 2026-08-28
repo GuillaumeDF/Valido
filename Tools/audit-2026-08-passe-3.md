@@ -1495,131 +1495,250 @@ est retiré. Fix round 2 confirme : `--fuites "Distances & freinage"` retombe à
 
 | id | écart | ce que disait la carte | ce que dit l'article | correction |
 |---|---|---|---|---|
-| `37fe1af42b8d81e9b314fcb5ac447202` | explication au-delà de l'article | « un arrêté local peut raccourcir ce délai, et la fourrière devient possible » — sans condition | R417-12 relu intégralement par `WebFetch` le 2026-08-27 : « Lorsque le conducteur ou le titulaire du certificat d'immatriculation est absent ou refuse, malgré l'injonction des agents, de faire cesser le stationnement abusif, l'immobilisation et la mise en fourrière peuvent être prescrites » — la fourrière n'est ni immédiate ni automatique, elle suppose un agent, une injonction et un refus | explication reformulée : « La fourrière suppose en plus un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent » ; ligne de `sources.md` complétée de la citation et redatée au 2026-08-27 |
+| `37fe1af42b8d81e9b314fcb5ac447202` (stationnement abusif) | explication au-delà de l'article | « un arrêté local peut raccourcir ce délai, et la fourrière devient possible » — sans condition | R417-12 relu intégralement par `WebFetch` le 2026-08-27 : « Lorsque le conducteur ou le titulaire du certificat d'immatriculation est absent ou refuse, malgré l'injonction des agents, de faire cesser le stationnement abusif, l'immobilisation et la mise en fourrière peuvent être prescrites » — la fourrière n'est ni immédiate ni automatique, elle suppose un agent, une injonction et un refus | explication reformulée : « La fourrière suppose un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent » ; ligne de `sources.md` complétée de la citation exacte |
+| `37fe1af42b8d81e9b314fcb5ac447202` (stationnement abusif) | règle trop large — **trouvé en revue, corrigé au fix round 1** | « le véhicule est réputé abusif où qu'il soit garé, même sur un emplacement autorisé et gratuit » | R417-12, ligne de registre réécrite ce même round : « un même point de **la voie publique ou de ses dépendances** » — sept jours dans une allée privée ne sont pas abusifs au sens de cet article | « où qu'il soit garé » → « sur la voie publique ou ses dépendances », le reste de la phrase (« même sur un emplacement autorisé et gratuit ») conservé tel quel, il reste vrai à l'intérieur de ce périmètre |
 
-Une seule ligne. Les seize autres cartes ont été relues clause par clause contre leur
-ligne sans qu'aucune valeur périmée ni aucune règle trop large n'apparaisse — la
-seconde passe avait déjà, pour ce domaine précisément, fait le travail le plus dur : la
-préface de `sources.md` documente deux des quatre régimes de gênant/très gênant relevés
-le 2026-08-25 (bouche d'incendie contre borne de recharge, trottoir voiture contre
-trottoir cyclomoteur), et les dix lignes `datée` portaient déjà des citations mot pour
-mot avec alinéa exact plutôt que des résumés.
+Round 0 n'avait trouvé que le premier des deux écarts sur cette carte. Le second — la
+portée géographique de l'article, laissée trop large par la carte elle-même et non par
+sa ligne de registre, qui la portait déjà correctement (« un même point de la voie
+publique ou de ses dépendances ») — est exactement le défaut que la méthode clause par
+clause (point 10 du calibrage) est censée attraper, et round 0 l'a manqué en comparant
+la carte à son affirmation par blocs plutôt que proposition par proposition. Aucun autre
+écart trouvé sur les seize autres cartes, aux deux rondes.
 
-### Chaque carte nommant un lieu ou un véhicule, à l'alinéa (pas à la catégorie)
+### Chaque carte nommant un lieu ou un véhicule, à l'alinéa
 
-R417-11 dans son intégralité a été relu par `WebFetch` le 2026-08-27 (chapeau, I 1° à
-8°, sous-alinéas a à d du 8°, II, III) pour vérifier les quatre cartes qui s'y appuient,
-plutôt que de faire confiance à une lecture antérieure sans la revérifier :
+R417-11 a été relu **dans son intégralité** par `WebFetch` le 2026-08-27 (chapeau, I 1°
+à 8°, sous-alinéas a-d du 8°, II, III), plutôt que de faire confiance aux citations déjà
+présentes dans le registre sans les revérifier.
+
+Chapeau de R417-11 (cité mot pour mot) : « Est considéré comme très gênant pour la
+circulation publique l'arrêt ou le stationnement : ». Le 8° a son propre chapeau :
+« D'un véhicule motorisé à l'exception des engins de déplacement personnel motorisés,
+des cyclomobiles légers et des cycles à pédalage assisté », puis a) « Sur les trottoirs,
+à l'exception des motocyclettes, tricycles à moteur et cyclomoteurs ».
 
 | id | lieu / véhicule | alinéa vérifié |
 |---|---|---|
-| `37fe1af42b8d8134ad4be3c7e29328f1` | passage piéton (stationner dessus) | R417-11 I 5° — « sur les passages réservés à la circulation des piétons en traversée de chaussée » |
-| `37fe1af42b8d81d793bcc927205f9d79` | voie réservée aux bus | R417-11 I 1° — « chaussées et voies réservées à certaines catégories de véhicules, sauf en cas de nécessité absolue » ; distinct de l'emplacement d'arrêt de bus lui-même, R417-10 II 2°, gênant et non très gênant |
-| `c5d4d52f1aaa89b811c8b17847338968` | bouche d'incendie / borne de recharge | R417-11 I 8° d) (bouche d'incendie, très gênant, 135 €) contre R417-10 III 3° (borne de recharge, gênant, 35 €) — le contre-exemple nommé par la préface de `sources.md`, vérifié à l'alinéa et non à la catégorie |
-| `e6d0b1101f0ac46d63199b5485d17c61` | cinq mètres en amont d'un passage piéton | R417-11 I 8° c) ; chapeau du 8° confirmé par `WebFetch` : « D'un véhicule motorisé à l'exception des engins de déplacement personnel motorisés, des cyclomobiles légers et des cycles à pédalage assisté » — exception que la carte, tournée vers un conducteur de voiture, n'a pas besoin de porter |
+| `37fe1af42b8d8134ad4be3c7e29328f1` | passage piéton (stationner dessus) | R417-11 I 5° — « D'un véhicule sur les passages réservés à la circulation des piétons en traversée de chaussée » |
+| `37fe1af42b8d81d793bcc927205f9d79` | voie réservée aux bus | R417-11 I 1° — « D'un véhicule sur les chaussées et voies réservées à certaines catégories de véhicules, sauf en cas de nécessité absolue » ; distinct de l'emplacement d'arrêt de bus lui-même (R417-10 II 2°, gênant et non très gênant) |
+| `c5d4d52f1aaa89b811c8b17847338968` | bouche d'incendie / borne de recharge | R417-11 I 8° d) (« Au droit des bouches d'incendie », très gênant, 135 €) contre R417-10 III 3° (borne de recharge, gênant, 35 €) — le contre-exemple nommé par la préface de `sources.md`, vérifié à l'alinéa et non à la catégorie |
+| `e6d0b1101f0ac46d63199b5485d17c61` | cinq mètres en amont d'un passage piéton | R417-11 I 8° c) — « Sur une distance de cinq mètres en amont des passages piétons dans le sens de la circulation, en dehors des emplacements matérialisés à cet effet » ; réserve qui vient du c) lui-même, pas du chapeau du 8° (voir la correction de registre plus bas) |
 
-Cinq cartes de plus nomment un lieu mais relèvent d'un article distinct de R417-10/11
-(donc hors du piège gênant/très gênant, mais vérifiées au même alinéa près) : `37fe1af4…811198` (stationnement dangereux, R417-9, conditionné à « lorsque la visibilité
-est insuffisante » — l'énoncé et l'explication portent tous deux la condition) ;
-`37fe1af4…8181a0` (gênant simple, R417-10 IV, la classe générale et non un lieu précis) ;
-`37fe1af4…166847` (zone bleue, R417-3, hors de la famille gênant/très gênant) ;
-`37fe1af4…811b96` (côté de stationnement, chaussée à double sens, R417-1 I) ;
-`37fe1af4…8148bc2` (hors agglomération, accotement, R417-4 I). Sur aucune des neuf, la
-carte n'étend un régime d'un alinéa vers un autre : chacune reste dans son alinéa.
+Cinq cartes de plus nomment un lieu propre à un article distinct de R417-10/11 :
+`37fe1af4…811198` (R417-9, dangereux, conditionné à « lorsque la visibilité est
+insuffisante ») ; `37fe1af4…8181a0` (R417-10 IV, la classe générale) ; `37fe1af4…166847`
+(R417-3, zone bleue) ; `37fe1af4…811b96` (R417-1 I, chaussée à double sens) ;
+`37fe1af4…8148bc2` (R417-4 I, accotement hors agglomération).
+
+**Le round 0 avait couvert le lieu que chaque carte teste, jamais les lieux que son
+explication cite en plus — et c'est là que deux erreurs de catégorie se cachaient**
+(revue, fix round 1) :
+
+- `37fe1af42b8d8134ad4be3c7e29328f1` disait « Trottoir, place réservée et voie cyclable
+  relèvent de la même catégorie très gênante, à 135 € ». Faux sur les deux points : le
+  trottoir n'est très gênant qu'à l'alinéa a), qui exclut nommément « les motocyclettes,
+  tricycles à moteur et cyclomoteurs » (pour eux, R417-10 II 1°, gênant, 35 €) ; et
+  « place réservée » est plus large que l'alinéa 3°, qui ne vise que les « emplacements
+  réservés aux véhicules portant une carte mobilité inclusion ». L'énumération fautive a
+  été retirée (voir Pédagogie) plutôt que corrigée mot à mot, parce qu'elle ne portait
+  pas de limite au sens du critère 3 — une vraie limite l'a remplacée.
+- `37fe1af42b8d8181a057c984708f0042` disait « très gênant, 4e classe à 135 €, pour ce
+  qui touche aux trottoirs, passages piétons, places réservées et voies réservées » —
+  même défaut. Corrigée en qualifiant chaque lieu à son alinéa exact : « le trottoir
+  (voiture) », « l'emplacement carte mobilité inclusion ».
+
+Sur les neuf cartes qui nomment un lieu ou un véhicule, plus les deux qualifications
+ci-dessus une fois corrigées, aucune carte n'étend plus le régime d'un alinéa vers un
+autre : chacune reste dans son alinéa propre.
 
 ### Doutes signalés, non corrigés
 
 Aucun doute nouveau signalé ce round. Le seul point resté ouvert par la ligne de
-registre — l'échéance du 01/01/2027 sur `e6d0b1101f0ac46d63199b5485d17c61`, où le c) de
-R417-11 I 8° perd sa réserve « hors emplacement matérialisé » — est une décision déjà
-prise et déjà expliquée dans `sources.md` (ne pas rouvrir avant l'échéance), pas un doute
-que cette relecture laisse en suspens.
+registre — l'échéance du 01/01/2027 sur `e6d0b1101f0ac46d63199b5485d17c61` — est une
+décision déjà prise et déjà expliquée dans `sources.md` (ne pas rouvrir avant l'échéance) :
+ce n'est pas un doute que cette relecture laisse ouvert.
 
 ### Pédagogie
 
-- explications sous 120 caractères : 3 à l'entrée (109, 59, 86), 0 à la sortie (276,
-  251, 246 après réécriture en rule/raison/limite).
-- cartes dont le budget de 220 a limité l'explication : aucune. Les 3 illustrées
-  (215, 202, 196 caractères) n'ont pas été touchées ce round : chacune tient déjà les
-  trois temps dans la marge qui lui reste (5, 18 et 24 caractères), et les élargir
-  n'aurait rien ajouté qu'un mot de remplissage.
-- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Les 17 énoncés se
-  lisent déjà sans connaître la réponse ; relus un par un, aucun n'a nécessité de
-  reformulation.
+- explications sous 120 caractères à l'entrée : 3 (109, 59, 86), réécrites round 0.
+- cartes dont le budget de 220 a limité l'explication : **`0a4e98c4605ec20320…`**
+  (marquage jaune continu, 215/220 à l'entrée). Round 0 l'avait laissée telle quelle en
+  disant qu'aucune carte n'était limitée par le budget ; c'était faux — cette carte
+  n'avait aucune raison (deux renvois croisés vers d'autres marquages en tenaient lieu),
+  et il a fallu couper les deux renvois pour loger un raisonnement à la place (« le
+  stationnement n'étant, par définition, que ce qui n'est pas de l'arrêt (R110-2),
+  interdire l'un interdit l'autre »), au prix du détail « même le temps de laisser
+  descendre un passager ».
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun, aux deux rondes.
 
-**Trois cartes réécrites sur le critère 3 (règle, raison, limite), toutes trois COURTE :**
+**Round 0 — trois cartes réécrites sur le critère 3, toutes trois COURTE :**
 
-- `37fe1af42b8d812cad07c40f6c51598c` (arrêt vs stationnement, 109→276) — l'ancienne
-  explication donnait la règle sans la raison ni la limite. Réécrite : règle (citation
-  R110-2, durée + présence du conducteur), raison (« de nombreux articles ne
-  sanctionnent que le stationnement » — la distinction change la sanction), limite
-  (« elle se juge aux faits, pas à l'intention » — s'éloigner ou faire durer requalifie).
-- `37fe1af42b8d8148bc29ede5a0015edd` (arrêt hors agglomération, 59→251) — l'ancienne
-  explication (« On dégage la chaussée pour ne pas gêner ni créer de danger ») ne citait
-  pas l'article et n'avait pas de limite. Réécrite avec la citation exacte (« autant que
-  possible »), une raison (vitesse plus élevée hors agglomération, un véhicule sur la
-  voie surprend) et une limite (« Sans accotement, on s'en rapproche au maximum —
-  l'obligation est de moyen, non de résultat »). L'option C a aussi été resserrée
-  (« hors de la chaussée » → « hors chaussée », 49→43 car.) : elle était alors la plus
-  longue des quatre à +1 sur la deuxième plus longue (point 15 du calibrage), elle ne
-  l'est plus.
-- `37fe1af42b8d81e2b806fb6055602586` (quitter sa place, 86→246) — défaut plus profond
-  qu'une longueur : l'explication ne parlait que de R415-11 (céder le passage), jamais
-  de R417-8, alors que l'option correcte porte aussi le clignotant et les angles morts,
-  actions concrètes de la règle de précaution de R417-8 qu'aucune phrase n'expliquait.
-  Réécrite pour porter les deux articles : R417-8 (« les précautions utiles pour
-  prévenir tout risque d'accident », dont clignotant et angles morts sont l'application)
-  puis R415-11 (pas prioritaire en débouchant sur la chaussée).
+- `37fe1af42b8d812cad07c40f6c51598c` (arrêt vs stationnement) — règle (R110-2, durée +
+  présence du conducteur), raison, limite.
+- `37fe1af42b8d8148bc29ede5a0015edd` (arrêt hors agglomération) — citation exacte,
+  raison, limite ; option C resserrée (voir Longueur).
+- `37fe1af42b8d81e2b806fb6055602586` (quitter sa place) — l'explication ne parlait que
+  de R415-11 (céder le passage) alors que l'option porte aussi le clignotant et les
+  angles morts, actions de R417-8 qu'aucune phrase n'expliquait ; réécrite pour porter
+  les deux articles.
+
+**Fix round 1 — cinq cartes de plus réécrites sur le critère 3, trouvées par la revue :**
+
+- `0a4e98c4605ec20320f13dec75f7bb9c` (marquage continu, illustrée) — avait la règle,
+  aucune raison, deux renvois croisés vers les cartes sœurs en guise de limite (voir
+  Fuites). Réécrite avec la raison logique R110-2 ci-dessus ; le zigzag (sourcé par
+  `images.md`, pas une carte du domaine) reste comme seul renvoi.
+- `639297cf3f0f433daf035978fa8ddfe5` (stationnement en épi, illustrée) — avait la règle,
+  aucune raison, et « Une seule manœuvre à l'entrée, la sortie se fait en marche
+  arrière » n'est pas une limite (une condition qui fait cesser la règle) mais une
+  conséquence de conduite. Réécrite : raison (entrer en un seul mouvement), limite
+  réelle (l'angle n'est fixé par aucun texte, seulement par la planche — ce qui porte
+  aussi au rapport la réserve que `sources.md:231` demandait sans jamais la recevoir,
+  voir minor 7 plus bas).
+- `a2673bae092f3eaf438b40910de6fbd4` (marquage discontinu, illustrée) — la limite
+  existait (contraste avec la continue) mais fuyait deux cartes sœurs à la fois (voir
+  Fuites). Réécrite pour rester autonome : le tableau de l'art. 113-2 E assigne un rôle
+  par style, et le même tracé complété de LIVRAISON change de sens.
+- `37fe1af42b8d8134ad4be3c7e29328f1` (passage piéton) — la « limite » était une
+  énumération d'autres lieux très gênants, donc pas une condition de cessation, **et**
+  portait la double erreur de catégorie ci-dessus. Réécrite : l'arrêt y est puni comme
+  le stationnement (pas seulement l'installation prolongée), et R417-5 punit aussi
+  l'empiètement à une classe inférieure — c'est la qualification la plus sévère qui
+  l'emporte : une vraie limite, sourcée par l'affirmation elle-même.
+- `5139c357024d2a17c499b104d7a01d81` (unilatéral alterné) — aucune raison (le texte
+  était redit deux fois plutôt qu'expliqué), et l'heure du changement citée comme
+  « limite » est un élément de la règle, pas sa condition de cessation. Réécrite :
+  raison (répartir l'usage de la voie, souvent pour le nettoyage), limite réelle
+  (n'existe que si un maire l'a institué — rien ne l'impose par défaut).
+
+Cartes illustrées : les trois ont été réécrites au fix round 1 (voir ci-dessus et
+Longueur), toutes mesurées sous 220.
+
+### Preuve par carte, pour les 5 cartes non modifiées
+
+Douze cartes ont été modifiées au total sur les deux rondes : les trois COURTE du round 0
+(`37fe1af42b8d812cad07c40f6c51598c`, `37fe1af42b8d8148bc29ede5a0015edd`,
+`37fe1af42b8d81e2b806fb6055602586`), l'écart de justesse
+(`37fe1af42b8d81e9b314fcb5ac447202`), la carte tournée pour `correctID`
+(`37fe1af42b8d8166847cf95009550b0a`), et sept de plus au fix round 1
+(`0a4e98c4605ec20320f13dec75f7bb9c`, `639297cf3f0f433daf035978fa8ddfe5`,
+`a2673bae092f3eaf438b40910de6fbd4`, `37fe1af42b8d8134ad4be3c7e29328f1`,
+`37fe1af42b8d8181a057c984708f0042`, `5139c357024d2a17c499b104d7a01d81`,
+`c5d4d52f1aaa89b811c8b17847338968`) — chacune nommée
+avec ce qui a changé et pourquoi dans « Pédagogie », « Longueur » ou « Les options »
+ci-dessus. Il reste **5** cartes strictement non modifiées (le contenu de
+`e6d0b1101f0ac46d63199b5485d17c61` n'a pas bougé non plus ; seule sa ligne de registre a
+été corrigée, voir minor 8). Règle / raison / limite telles que chacune les dit :
+
+| id | rôle | règle / raison / limite |
+|---|---|---|
+| `37fe1af42b8d811198bdecd01768828c` | stationnement dangereux | règle (masque de visibilité : virage, sommet, intersection, passage à niveau) + limite explicite (« Un stationnement seulement gênant, lui, ne coûte aucun point », cohérent avec la ligne de `…8181a0`) |
+| `37fe1af42b8d811b96fdf80a7a546c1e` | côté de stationnement, double sens | règle (à droite) + raison (« placerait le conducteur du mauvais côté au moment de sortir, face au trafic ») + limite explicite (« Les deux côtés ne sont permis qu'en sens unique ») |
+| `37fe1af42b8d81d793bcc927205f9d79` | voie réservée aux bus | règle (très gênant) + raison (« renvoie tout un bus dans le trafic général, avec ses passagers ») + limite explicite (« seule la nécessité absolue l'excuse, jamais l'absence de bus ») |
+| `ab50f861852232a60c2b4f29fed21b97` | ouverture de portière | règle (« tout occupant ») + raison portée par l'énoncé lui-même (« dangereusement » nomme le critère, repris de l'affirmation : « lorsque cette manœuvre constitue un danger ») + limite explicite (« Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes ») — reconsidérée par la revue (« weaker »), gardée : la raison existe, elle vit dans l'énoncé plutôt que d'être redite dans l'explication |
+| `e6d0b1101f0ac46d63199b5485d17c61` | cinq mètres en amont d'un passage piéton | règle (5 m) + raison (« qu'un enfant engagé sur le passage soit vu à temps ») + limite explicite (amont seulement, cède devant un emplacement matérialisé) ; seule sa ligne de registre a bougé ce round (minor 8), pas la carte |
+
+Modifiées (12, nommées ci-dessus) + non modifiées évidencées (5) = 17, sans reste.
+
+### Longueur — point 15 du calibrage
+
+**Round 0**, deux corrections : `37fe1af4…8148bc2` (option C « hors de la chaussée » →
+« hors chaussée », 49→43, n'était plus la plus longue) et `37fe1af42b8d8166847cf95009550b0a`
+(option correcte « bien visible » → « visible », 47→42, +3 sur la deuxième).
+
+**Fix round 1**, une correction supplémentaire trouvée par la revue et manquée par le
+round 0 : `37fe1af42b8d81e2b806fb6055602586` (quitter sa place) — l'option correcte
+« Mettre le clignotant, contrôler les angles morts et céder le passage » (68 car.) était
+la plus longue des quatre, à +5 sur la deuxième (63) : un défaut du point 15 même sous le
+seuil dur, que le round 0 avait laissé passer en le classant « structurel » (trois
+actions réelles contre une par distracteur) sans le mesurer contre l'alternative. Elle
+condense au même sens : « Clignotant, angles morts, puis céder le passage » (47 car.),
+qui n'est plus la plus longue (D, 63, le redevient).
 
 ### Les options
 
 Sept règles du §2 de `questions.md` relues carte par carte, puis le point 14 du
-calibrage (« existe-t-il une lecture où le distracteur EST la bonne réponse ? ») sur
-chacune. Deux points examinés en détail et non corrigés :
+calibrage.
 
-- **`0a4e98c4605ec20320f13dec75f7bb9c`** et **`a2673bae092f3eaf438b40910de6fbd4`**
-  (les deux marquages jaunes) partagent le distracteur « (le stationnement / l'arrêt)
-  des véhicules encombrants » — un concept qui n'a pas de base dans le tableau de
-  l'art. 113-2 E ni ailleurs dans `images.md`. Examiné et **laissé tel quel** : les deux
-  occurrences forment une paire symétrique et délibérée (une fois côté stationnement,
-  une fois côté arrêt) enseignant que la taille du véhicule ne change rien au marquage —
-  pas un chiffre inventé au sens du point 2 du calibrage, et le retirer casserait la
-  symétrie sans gagner en justesse.
-- **`c5d4d52f1aaa89b811c8b17847338968`** (bouche d'incendie) — le distracteur C
-  (« de 135 €, plus trois points comme un stationnement dangereux ») recycle le montant
-  exact d'une carte voisine (`37fe1af4…811198`, R417-9) avec un nombre de points qui ne
-  s'applique pas ici (R417-11 ne retire aucun point, contrairement à R417-9) : un
-  distracteur réel, plausible et faux pour la bonne raison, gardé tel quel.
+**Le distracteur « véhicules encombrants » (`0a4e98c4…` et `a2673bae…`) — corrigé au fix
+round 1.** Round 0 l'avait qualifié de concept sans base textuelle, gardé « pour la
+symétrie pédagogique » — un motif que ni le spec ni le calibrage ne reconnaît, et la
+revue l'a relevé à raison. La base existe : R414-9 (et son jumeau R414-2, mêmes termes,
+même seuil, ligne de `07b430ccbde4b33b92be8686899b1ddf`) définissent le « gabarit
+encombrant » à *plus de deux mètres de large ou sept mètres de long, remorque et
+chargement compris*, à l'exception des transports en commun en agglomération — c'est un
+seuil chiffré réel, mais d'un régime entièrement différent (le dépassement d'un convoi
+large, pas le marquage au sol). Le distracteur transpose ce concept réel à un endroit où
+il ne joue aucun rôle : rien dans le tableau de l'art. 113-2 E ne conditionne
+l'interdiction d'arrêt ou de stationnement au gabarit du véhicule. C'est exactement le
+mécanisme déjà validé pour le distracteur « 30 km/h » de `2fc1ed8a9c9274f0e06be9f12850f5a4`
+(un seuil réel d'un régime voisin, transposé à tort) : gardé, mais avec sa provenance
+maintenant nommée, comme le point 3 du calibrage l'exige pour tout chiffre recyclé.
 
-Aucun autre distracteur n'a paru, à cette lecture, éliminable par pure logique, isolé par
-la forme, ou légitimé par sa propre carte.
+**`c5d4d52f1aaa89b811c8b17847338968` (bouche d'incendie) — deux points :**
 
-**Longueur : deux corrections, point 15 du calibrage.** En plus du resserrement de
-l'option C sur `37fe1af4…8148bc2` (ci-dessus), l'option correcte de la carte zone bleue
-(`37fe1af42b8d8166847cf95009550b0a`) a été resserrée de « Apposer un disque de
-stationnement bien visible » (47 car., alors la plus longue, +3 sur la deuxième) à
-« Apposer un disque de stationnement visible » (42 car., qui n'est plus la plus longue).
-Aucun fait perdu : « bien » ne portait aucune information.
+- Le distracteur C (« de 135 €, plus trois points comme un stationnement dangereux »)
+  recycle le montant exact d'une carte voisine (`37fe1af4…811198`, R417-9) avec un
+  nombre de points qui ne s'applique pas ici (R417-11 ne retire aucun point) : réel,
+  plausible, faux pour la bonne raison — gardé.
+- **Trouvé en revue (minor 6) :** l'énoncé demandait « l'amende », alors que deux
+  options (B et C) portent 135 € — le seul discriminant entre elles, les trois points de
+  C, n'a rien à voir avec « l'amende » telle que posée. Corrigé : l'énoncé demande
+  maintenant « la sanction », ce qui rend la comparaison entre B (135 €, sans point) et C
+  (135 € plus trois points, faux) directement pertinente à la question posée.
 
-**`correctID` — mesuré et rééquilibré.** Avant édition : A 6, B 5, C 4, D 2, sur 17 —
-un écart marqué (D à 12 % quand l'uniforme est à 25 %). Deux cartes tournées
-cycliquement (texte inchangé, seule la lettre qui porte chaque texte change) : la zone
-bleue (`37fe1af42b8d8166847cf95009550b0a`, A→D en un cran, dans le même geste que le
-resserrement de longueur ci-dessus) et le stationnement abusif
-(`37fe1af42b8d81e9b314fcb5ac447202`, A→D en un cran). Après : A 4, B 5, C 4, D 4, sur 17.
-Chaque rotation vérifiée : mêmes quatre textes sur chaque carte, seule la lettre
-correcte déplacée, et l'écart de longueur recalculé après coup (aucune des deux ne
-s'approche de `longueur/plus-10`).
+Aucun autre distracteur n'a paru, à cette relecture, éliminable par pure logique, isolé
+par la forme, ou légitimé par sa propre carte.
 
-### Fuites — vérification à la main, avec la vraie définition de l'outil
+### `correctID` — mesuré et rééquilibré
 
-`relire.py --fuites "Arrêt & stationnement"` : **0 recouvrement sur 17 cartes**, avant
-comme après édition.
+Inchangé depuis le round 0 : **A 6, B 5, C 4, D 2** avant édition, **A 4, B 5, C 4, D 4**
+après, par rotation cyclique de `37fe1af42b8d8166847cf95009550b0a` et
+`37fe1af42b8d81e9b314fcb5ac447202` (A → D sur les deux, texte inchangé). Le fix round 1
+n'a touché ni les options ni le `correctID` d'aucune carte pour cette raison ; les
+modifications d'options du round (`…81e2b8`, `c5d4d52f…`) ont chacune été vérifiées pour
+ne pas déplacer la lettre correcte.
 
-`relire.py` ignore toute bonne réponse de moins de **trois mots pleins** (jetons
-`[a-z0-9]+` d'au moins cinq caractères, accents retirés). Sur les 17 bonnes réponses du
-domaine, **sept** tombent sous ce seuil et ont été grep-ées à la main, sur les énoncés
-**et** les explications des 17 cartes (`.passe3/lot-08.txt`) :
+### Fuites — automatique, à la main, et une famille manquée en round 0
+
+```
+$ python3 Tools/relire.py --fuites "Arrêt & stationnement"
+0 recouvrement(s) sur 17 cartes de « Arrêt & stationnement ».
+```
+
+Zéro aux deux rondes — et c'est précisément le problème que la revue a nommé : `--fuites`
+teste une inclusion d'ensemble de mots pleins (`Tools/relire.py:119`) et **n'inspecte
+jamais les options**, seulement les explications contre des réponses d'au moins trois
+mots pleins. Round 0 avait traité cet angle mort pour les réponses courtes (point 13 du
+calibrage, sept réponses grep-ées à la main, tableau ci-dessous) mais pas pour une fuite
+**conceptuelle, en d'autres mots** entre deux explications — exactement le point 5 du
+calibrage, distinct du point 13, et la revue a eu raison de les nommer séparément.
+
+**Quatre recouvrements trouvés en revue, tous internes au trio des marquages jaunes
+et à leur voisine `37fe1af42b8d812cad…`, corrigés au fix round 1 :**
+
+- `0a4e98c4…` expliquait « Interrompue en tirets, elle ne viserait plus que le
+  stationnement » — la réponse même de `a2673bae…` (« le stationnement, l'arrêt restant
+  permis »), dont l'`alt` décrit justement une ligne en tirets.
+- `a2673bae…` expliquait en retour « Continue, le même trait supprimerait aussi cet
+  arrêt » — la réponse de `0a4e98c4…` (« l'arrêt du véhicule autant que son
+  stationnement »).
+- `a2673bae…` expliquait aussi « on peut s'immobiliser le temps de faire monter ou
+  descendre quelqu'un, sans quitter les commandes » — les deux critères exacts de
+  `37fe1af42b8d812cad…` (durée + présence du conducteur), en d'autres mots.
+- `c5d4d52f…` répondait « de 135 €, **comme sur un passage piéton** » — la classification
+  de `37fe1af4…8134ad4` donnée en comparaison directe.
+
+Chacune des quatre cartes réécrites au fix round 1 (voir Pédagogie et Les options) l'a
+été sans réintroduire le renvoi : `0a4e98c4…` et `a2673bae…` n'expliquent plus l'une par
+l'autre, `a2673bae…` ne redit plus la définition de `…812cad…`, et l'option de
+`c5d4d52f…` dit maintenant « de 135 €, la classe des infractions très gênantes » — le
+même fait, sans nommer la carte qui le teste ailleurs. Vérifié à la main : aucun des
+nouveaux textes ne contient plus les mots pleins de la réponse qu'il citait.
+
+**Les sept réponses courtes (point 13 du calibrage), grep-ées à la main sur énoncés et
+explications, round 0 — toujours valables, aucune n'a changé de statut au fix round 1 :**
 
 | id | bonne réponse | mots pleins (≥ 5 car.) | n |
 |---|---|---|---|
@@ -1629,60 +1748,70 @@ domaine, **sept** tombent sous ce seuil et ont été grep-ées à la main, sur l
 | `37fe1af42b8d8181a057c984708f0042` | « 35 € » | — | 0 |
 | `37fe1af42b8d81e9b314fcb5ac447202` | « 7 jours au même endroit » | `jours`, `endroit` | 2 |
 | `5139c357024d2a17c499b104d7a01d81` | « semi-mensuel, avec un changement de côté le 15 » | `mensuel`, `changement` | 2 |
-| `c5d4d52f1aaa89b811c8b17847338968` | « de 135 €, comme sur un passage piéton » | `passage`, `pieton` | 2 |
+| `c5d4d52f1aaa89b811c8b17847338968` | « de 135 €, la classe des infractions très gênantes » | `passage`, `pieton` (retirés au fix round 1) → aucun mot plein propre à la réponse | 0 |
 
-```
-$ grep -n "virage\|sommet" .passe3/lot-08.txt
-$ grep -n "droite\|circulation" .passe3/lot-08.txt
-$ grep -n "135 €\|très gênant\|tres genant" .passe3/lot-08.txt
-$ grep -n "35 €" .passe3/lot-08.txt
-$ grep -n "sept jours\|7 jours\|même endroit\|meme endroit" .passe3/lot-08.txt
-$ grep -n "mensuel\|changement" .passe3/lot-08.txt
-$ grep -n "passage piéton\|passage pieton" .passe3/lot-08.txt
-```
+`virage`/`sommet`, `droite`/`circulation`, `sept jours`/`même endroit`,
+`mensuel`/`changement` : uniquement dans la carte propriétaire, zéro recouvrement.
+`135 €`/`très gênant` et `35 €` : constante partagée par tout un régime (quatre cartes
+très gênantes de R417-11 affirment 135 €, deux cartes gênantes affirment 35 €), documenté
+comme fortuit (point 11 du calibrage) — ce ne sont **pas** les mêmes recouvrements que
+les quatre trouvés en revue ci-dessus, qui portaient sur des phrases entières et des
+réponses spécifiques, pas sur une constante de classe.
 
-`virage`/`sommet`, `droite`/`circulation`, `sept jours`/`même endroit` et
-`mensuel`/`changement` ne ressortent que de la carte propriétaire : zéro recouvrement.
+### Le faux positif de paraphrase — confirmé, et nommé calibrage point 16
 
-Les trois derniers grep tombent tous dans la même famille : `37fe1af4…8134ad4`,
-`37fe1af4…81d793b`, `c5d4d52f…`, `e6d0b110…` sont les quatre cartes très gênantes de
-R417-11 du domaine, et **toutes les quatre affirment 135 €, quatrième classe** parce
-que c'est le même régime — pas une coïncidence de rédaction. « 35 € » se retrouve pour
-la même raison dans l'option A de `c5d4d52f…` (borne de recharge, R417-10 III 3°, gênant
-comme la carte `37fe1af4…8181a0`). Dans les deux cas, le mot qui recouvre est la
-**constante partagée par tout un régime** (comme « 3 points » ou « 50 km/h » ailleurs
-dans la banque), jamais la réponse **spécifique** d'une autre carte donnée en scoop :
-lire `c5d4d52f…` (bouche d'incendie) ne dit pas si un passage piéton, une voie de bus ou
-un trottoir sont très gênants — seulement que très gênant vaut 135 €, ce que chacune des
-quatre cartes affirme déjà d'elle-même. Documenté comme fortuit (point 11 du calibrage),
-rien touché.
-
-### Le faux positif de paraphrase
-
-`37fe1af42b8d8181a057c984708f0042` (gênant simple) est l'un des 17 `expl/paraphrase-litterale`
-du rapport, sur la seule carte du domaine qui y figure. Vérifié : ce n'est **pas** le cas
-visé par le point 8 du calibrage (un chiffre correct qui revient normalement) — c'est plus
-étroit encore. La bonne option est « 35 € » ; l'explication ne cite jamais « 35 » mais
-cite « 135 € » (le montant du *très gênant*, cité par contraste). Le contrôle d'`audit.py`
-fait une recherche de sous-chaîne, et « 35 € » est une sous-chaîne littérale de « 1**35 €**» :
-c'est une collision de caractères entre deux valeurs différentes, pas un chiffre qui se
-répète. L'explication ajoute une vraie raison (la distinction des deux classes) et une
-vraie limite (« sans retrait de point », ce que très gênant n'est pas) : elle n'est pas
-raccourcie ni réécrite pour faire taire l'outil, conformément au point 11 du calibrage
-(« on ne plie jamais le contenu pour satisfaire un outil »).
+`37fe1af42b8d8181a057c984708f0042` (gênant simple) : `audit.py:194` fait `norm(good) in
+norm(expl)`, une recherche de sous-chaîne sans limite de mot. « 35 € » est une
+sous-chaîne littérale de « 1**35 €** », une valeur différente citée par contraste — la
+revue l'a confirmé et l'a ajouté à `calibrage.md` comme un **troisième type** de ce
+signal, ni le défaut réel ni le faux positif structurel du point 8 (une réponse chiffrée
+qui revient normalement). Nuance apportée par le fix round 1 : l'explication réécrite
+pour la précision trottoir/carte mobilité inclusion contient maintenant « soit 35 €
+d'amende forfaitaire » — donc le chiffre « 35 » y figure aussi **littéralement**, cette
+fois en toute légitimité (point 8, une réponse chiffrée reprise pour préciser la
+correspondance classe → montant, un vrai ajout pour qui ne la connaît pas encore). Le
+compte du drapeau ne change pas (toujours cette seule carte du domaine), seule sa nature
+exacte s'est déplacée de la collision pure vers un mélange collision + réutilisation
+légitime.
 
 ### Mouvements d'`audit.py`
 
-| sortie | avant | après |
-|---|---|---|
-| `lettre/reference` | 1 | 1 |
-| `forme/markdown` | 1 | 1 |
-| `forme/seule-ponctuee` | 14 | 14 |
-| `longueur/plus-longue` | 96 | 94 |
-| `expl/paraphrase-litterale` | 17 | 17 (inchangé, faux positif ci-dessus) |
+| sortie | avant (round 0) | après round 0 | après fix round 1 |
+|---|---|---|---|
+| `lettre/reference` | 1 | 1 | 1 |
+| `forme/markdown` | 1 | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 | 14 |
+| `longueur/plus-longue` | 96 | 94 | 93 |
+| `expl/paraphrase-litterale` | 17 | 17 | 17 (inchangé, faux positif ci-dessus) |
 
 `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10` et
-`forme/backtick-isole` : vides avant, vides après. `longueur/plus-longue` baisse de 2
-(les deux resserrements d'options ci-dessus, `37fe1af4…8148bc2` et
-`37fe1af42b8d8166847cf95009550b0a`, qui n'étaient plus les plus longues de leur carte
-après édition) ; aucune régression.
+`forme/backtick-isole` : vides aux trois relevés. `longueur/plus-longue` baisse de 3 au
+total (deux resserrements round 0, un de plus au fix round 1) ; aucune régression.
+
+### Neuf minors du fix round 1
+
+1. `…81e2b8` — voir Longueur.
+2. `Tools/sources.md:229` — le `relevé le` était passé à 2026-08-27 alors que seule la
+   clause de fourrière avait été rouverte ce jour-là ; les 35 € et R49 3° CPP dataient du
+   2026-08-25. La ligne dit maintenant explicitement lequel des deux éléments a été
+   revérifié quand.
+3. `…8148bc2` — « Sans accotement, on **s'en** rapproche au maximum » attachait « en » à
+   un accotement qui, par hypothèse, n'existe pas. Corrigé en « on serre le bord au
+   maximum ».
+4. `…812cad…` — « de nombreux articles ne sanctionnent que le stationnement » n'était
+   dans aucune ligne et contredisait le motif dominant du lot (R417-9/10/11 visent
+   « l'arrêt ou le stationnement » ensemble). Corrigé en nommant les deux cas réels
+   (R417-12, R417-3 : stationnement seul) contre les trois qui visent les deux ; renvoi
+   ajouté à la ligne de `sources.md`.
+5. `…8181a0` — voir la table des lieux ci-dessus ; « soit 35 € d'amende forfaitaire »
+   ajouté.
+6. `c5d4d52f…` — voir Les options.
+7. `Tools/sources.md:231` — la réserve « en bataille »/« en créneau », vocabulaire
+   d'auto-école absent de tout texte, promise « à porter au rapport » depuis la lecture
+   du 2026-08-25, n'avait jamais atteint aucun `audit-2026-08*.md`. Portée ici (voir
+   Pédagogie, réécriture de `639297cf…`) et dans le rapport de tâche.
+8. `Tools/sources.md:235` (`e6d0b1101f0ac46d63…`) — la ligne affirmait que l'exception de
+   véhicule du chapeau du 8° était « la raison d'être » de la réserve « hors emplacement
+   matérialisé », alors que cette réserve vient du c) lui-même et n'a aucun lien avec le
+   chapeau. Corrigé, les deux faits séparés.
+9. Voir Pédagogie — `0a4e98c4…` est la carte que le budget de 220 a limitée.
