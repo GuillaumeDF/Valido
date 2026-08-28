@@ -1318,7 +1318,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "La hiérarchie va du plus adaptable au plus rigide : un agent voit la situation réelle et peut la contredire, un feu ne fait qu'appliquer un cycle. D'où l'ordre agent, puis feu, puis panneau, puis marquage, puis priorité à droite.",
+    "explanation": "La hiérarchie va du plus adaptable au plus rigide : un agent voit la situation réelle et peut la contredire, un feu ne fait qu'appliquer un cycle. L'agent reste donc, dans tous les cas, l'autorité la plus élevée d'un carrefour.",
     "id": "37fe1af42b8d817da9fff3054d6ffa3a",
     "options": [
       {
@@ -2693,7 +2693,7 @@
       },
       {
         "id": "B",
-        "text": "Vous êtes prioritaire, un véhicule guidé restant prévisible"
+        "text": "Vous êtes prioritaire, un véhicule guidé restant toujours prévisible"
       },
       {
         "id": "C",

@@ -2711,7 +2711,7 @@ $ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] 2>&1 | tail
 
 | id | écart | ce que disait la carte | ce que dit l'article | correction |
 |---|---|---|---|---|
-| `37fe1af42b8d818293f3f8d862a5a505` | explication au-delà de l'article (nuance imprécise, hors champ) | « La Sécurité routière confirme qu'un feu franchi pour dégager la voie est relevé par le radar sans contravention automatique, sauf contrôle humain si le véhicule prioritaire n'est pas lui-même flashé. » | Rouvert par `WebSearch` (la page `securite-routiere.gouv.fr` citée ne se laisse pas lire par `WebFetch`, contenu chargé en JS) : chaque photo radar est **toujours** revue par un OPJ ; ce qui compte est que le véhicule prioritaire **apparaisse sur la photo**, pas une alternative « automatique / contrôle humain » comme la carte le construisait. La nuance, en plus d'être imprécise, ne distingue aucune des 4 options (aucune ne porte sur le radar) : c'est un ajout hors du champ que la carte teste. | Retirée. Remplacée par une limite tirée du texte même de R415-12, relu mot pour mot sur Legifrance le 2026-08-28 : « annonçant leur approche par l'emploi des avertisseurs spéciaux prévus pour leur catégorie » — la priorité tient à l'usage effectif de la sirène et du gyrophare, pas au type de véhicule. |
+| `37fe1af42b8d818293f3f8d862a5a505` | explication au-delà de l'article (nuance imprécise, hors champ) | « La Sécurité routière confirme qu'un feu franchi pour dégager la voie est relevé par le radar sans contravention automatique, sauf contrôle humain si le véhicule prioritaire n'est pas lui-même flashé. » | Rouvert par `WebSearch` (la page `securite-routiere.gouv.fr` citée ne se laisse pas lire par `WebFetch`, contenu chargé en JS) : chaque photo radar est **toujours** revue par un OPJ ; ce qui compte est que le véhicule prioritaire **apparaisse sur la photo**, pas une alternative « automatique / contrôle humain » comme la carte le construisait. La nuance, en plus d'être imprécise, ne distingue aucune des 4 options (aucune ne porte sur le radar) : c'est un ajout hors du champ que la carte teste. | Retirée. Remplacée par une limite tirée du texte même de R415-12, relu mot pour mot sur Legifrance le 2026-08-28 : « annonçant leur approche par l'emploi des avertisseurs spéciaux prévus pour leur catégorie » — la priorité tient à l'usage effectif de leurs avertisseurs spéciaux, pas au type de véhicule. |
 
 Un seul écart sur 26 cartes. Les cinq lignes `datée` du domaine ont chacune été relues
 contre l'article consolidé (R415-6, R415-11, R415-12, l'arrêté du 12 janvier 2012 créant
@@ -2935,15 +2935,83 @@ sans mouvement de vide à non-vide (`longueur/plus-longue` 88 → 85, seul mouve
 attendu), les 8 illustrées dans le budget, `git status` propre, `✔ Test run with 10
 tests in 0 suites passed`.
 
-### Preuve par carte, pour les 15 cartes non modifiées
+### Fix round 2 (revue externe, 2026-08-29) — deux cartes de plus, une table corrigée
 
-Corrigée en fix round 1 (calibrage point 21 : la table elle-même n'avait pas été relue).
-Deux défauts systématiques dans la version round 0, corrigés ligne par ligne plutôt que
-maquillés : (a) un « limite » qui n'en était pas une — un contraste avec un autre panneau,
-une énumération qui est la règle elle-même, ou un champ d'application — présenté sous la
-même étiquette qu'une vraie condition d'exception ; (b) une absence de limite non dite.
-Les cinq cartes qui ont quitté cette table pour la section « Fix round 1 » ci-dessus
-(`815f86…`, `f255331…`, `8e9464…`, `b433…`, `81fa9d…`) ne sont plus ici.
+Une seconde revue a fermé Important 2, 3 et 4 du fix round 1 et vérifié le point le plus
+sensible (les quatre distracteurs étoffés restent réels, non éliminables par la forme, ne
+deviennent des cas particuliers de rien, et ne sont pas des outliers dans l'autre sens).
+Trois défauts restaient ouverts, et le troisième s'est produit **dans l'artefact censé
+réparer le point 21** : la table de preuve elle-même, réécrite en fix round 1, n'avait
+pas été relue une fois rendue.
+
+**1. La fuite mutuelle `815f86` / `817da9` n'avait été fermée que d'un côté.**
+`815f86…` avait perdu son énumération, mais `37fe1af42b8d817da9fff3054d6ffa3a` gardait
+« D'où l'ordre agent, puis feu, puis panneau, puis marquage, puis priorité à droite » —
+soit, en clair, que le feu l'emporte sur le panneau, exactement la réponse de `815f86…`
+(« un feu et un panneau se contredisent, lequel suivez-vous » → le feu). La hiérarchie
+appartient légitimement à `817da9…` (sa réponse est « L'agent »), mais seule sa **tête**
+lui est nécessaire, pas la queue qui trahit sa voisine. Retirée : « D'où l'ordre agent,
+puis feu, puis panneau, puis marquage, puis priorité à droite. » devient « L'agent reste
+donc, dans tous les cas, l'autorité la plus élevée d'un carrefour. » — la règle et la
+raison (agent adaptable contre feu qui n'applique qu'un cycle) restent intactes, la queue
+de l'énumération disparaît. 229 → 227 caractères. `37fe1af42b8d817da9…` est donc
+lui-même une carte **modifiée** à partir de ce round, et quitte la table des « non
+modifiées » ci-dessous.
+
+**2. `37fe1af42b8d81fa9debeaf114b7bf77` restait le tell qu'il devait cesser d'être, et
+mon rapport affirmait le contraire.** Le fix round 1 n'avait étoffé que le distracteur A
+(42 → 58) ; B restait à 59 et la bonne réponse C (62) restait la plus longue, à +3 — la
+même marge qu'avant l'édition, ce que `longueur/plus-longue` confirmait déjà
+arithmétiquement (88 → 85, pas 84). Mon résumé de `task-11-report.md` disait pourtant
+« Les quatre bonnes réponses ne sont plus les plus longues », ce qui était faux pour
+celle-ci ; le texte de cette section, plus prudent, admettait le +3 et l'excusait par la
+moyenne des distracteurs — une excuse que le point 15 n'accorde pas : le défaut existe
+dès +1. Corrigé en étoffant B plutôt qu'en touchant à la bonne réponse : « Vous êtes
+prioritaire, un véhicule guidé restant prévisible » (59) → « … restant **toujours**
+prévisible » (68). La bonne réponse (62) n'est plus la plus longue (delta −6), B ne
+devient pas un outlier (68 contre 55 pour D, loin du double), et le distracteur reste
+faux et non défendable pour la même raison qu'avant : le véhicule guidé est prévisible
+**parce qu'**il est prioritaire, mais cela ne rend personne d'autre prioritaire.
+`longueur/plus-longue` passe de 85 à **84**.
+
+**3. La table de preuve, réécrite en fix round 1 pour corriger le point 21, refaisait le
+point 21 sur elle-même.** Trois défauts distincts, trouvés en relisant le **rendu** de la
+table plutôt que l'édition qui l'avait produite : le texte annonçait que
+`37fe1af42b8d81fa9d…` avait quitté la table pour la section « Fix round 1 », mais sa
+ligne (« tramway hors intersection ») y restait ; l'en-tête annonçait 15 cartes non
+modifiées quand la table en comptait 16 lignes ; et le compte « 9 genuine sur 15 »
+n'énumérait que huit id, plus une « note ci-dessus » qui n'en nommait aucun. Avec le
+retrait de `817da9…` (point 1 ci-dessus) en plus de celui de `81fa9d…`, la table
+descend maintenant à **14** lignes, en-tête et contenu accordés. Reprise ligne par ligne
+plutôt que recomptée de tête : sur les 14 cartes réellement non modifiées, **7** portent
+une limite genuine (`3e5d97…`, `e93ca4d…`, `ef4cfd…`, `2daf8939…`, `8184be…`, `818fb7…`,
+`defefbae…`) — nommées explicitement ci-dessous, pas comptées par soustraction.
+
+**Stale cross-reference.** La colonne « correction » de `37fe1af42b8d818293…` dans
+« Écarts de justesse trouvés » citait encore « la sirène et du gyrophare », la formule
+que ce même round avait remplacée dans la carte par « leurs avertisseurs spéciaux » ;
+alignée.
+
+**Vérification, fix round 2** : mêmes `id` (448 → 448), `--fuites` du domaine toujours à
+**3** (plancher inchangé, aucune des deux éditions ne touchait au cluster AB6),
+`--fuites` des neuf domaines déjà clos toujours à **0** (revérifié y compris à seuil 1,
+sans restriction à trois mots pleins, sur les deux cartes touchées : aucune collision),
+`audit.py` : `longueur/plus-longue` 85 → **84** (le seul mouvement, attendu, aucune sortie
+de vide à non-vide), `✔ Test run with 10 tests in 0 suites passed`, `git status` propre.
+Les neuf sections précédentes de ce fichier revérifiées byte-identiques.
+
+### Preuve par carte, pour les 14 cartes non modifiées
+
+Corrigée deux fois : en fix round 1 (calibrage point 21 : la table elle-même n'avait pas
+été relue) puis en fix round 2, quand une seconde revue a lu le **rendu** de cette même
+correction et trouvé qu'elle ne s'était pas appliquée à elle-même — une ligne
+(`81fa9d…`) que le texte disait partie était restée, l'en-tête ne comptait pas les
+lignes réelles, et le compte de limites genuines n'en nommait pas assez pour son total.
+Sept cartes ont quitté cette table au total, vers les sections « Fix round 1 » et
+« Fix round 2 » ci-dessus : `815f86…`, `f255331…`, `8e9464…`, `b433…`, `81fa9d…`
+(round 1, sur les options ; confirmée retirée en round 2) et `817da9…` (round 2, sur
+l'explication). Il en reste 14, et cette fois le compte a été fait en énumérant chaque
+id, pas en soustrayant de tête.
 
 | id | rôle | règle / raison / limite |
 |---|---|---|
@@ -2955,22 +3023,24 @@ Les cinq cartes qui ont quitté cette table pour la section « Fix round 1 » ci
 | `09f18973aee39386ee42782f04d03ec2` | tourner à gauche hors intersection réglée | règle (« Céder le passage aux véhicules venant en face ») + raison (« le clignotant annonce une intention, il ne crée aucun droit ») ; **limite absente** — « y compris les deux-roues qui remontent la file » élargit qui est concerné (un champ), ce n'est pas une condition d'exception |
 | `2a9e02b9719028e72fde6fdd6372a1ff` | refus de priorité à un piéton, 6 pts (`datée`) | règle (« 6 points, au même titre qu'une alcoolémie ») + raison (« le barème la place au niveau le plus élevé possible pour une contravention ») ; **limite absente** — « depuis 2018, l'obligation vaut aussi pour le piéton qui manifeste clairement l'intention » est une extension de champ (qui est couvert), pas une condition d'exception. R415-11 relue mot pour mot le 2026-08-28 : confirme le « ou » inclusif entre engagé et manifestant l'intention. |
 | `2daf8939fc85f5b288010cf545bb681d` | rond-point sans panneau | règle (« à droite, donc aux véhicules qui s'y engagent ») + **limite** qui est tout l'objet de la carte (« un rond-point n'est un carrefour à sens giratoire que si la signalisation le dit […] sans eux, l'article R415-10 ne s'applique pas ») — la clause de signalisation vient de **R110-2**, pas de R415-10 (voir « Écarts de justesse trouvés ») |
-| `37fe1af42b8d817da9fff3054d6ffa3a` | hiérarchie agent/feu/panneau/marquage | règle (« L'agent ») + raison (« un agent voit la situation réelle et peut la contredire, un feu ne fait qu'appliquer un cycle ») ; **limite absente** — l'énumération complète de la hiérarchie est la réponse à la question posée (qui a l'autorité la plus élevée), pas une exception à une règle ; c'est précisément pourquoi elle reste ici et a été retirée de `815f86…` en fix round 1 |
 | `37fe1af42b8d8184beb9c6687c92ffb5` | losange jaune barré | règle (« La fin d'une route à caractère prioritaire ») + raison (« vous dispensait des règles ordinaires sur tout un itinéraire ») + **limite** non absolue (« le plus souvent la priorité à droite », pas systématiquement — un vrai hedge, pas un contraste maquillé) |
 | `37fe1af42b8d818fb7c9efba6c63d91d` | priorité à droite, aucune signalisation | règle (« Au véhicule venant de la droite ») + raison (« une règle unique et mémorisable plutôt qu'un arbitrage au cas par cas ») + **limite** (« ni sur un giratoire, ni face à un véhicule sortant d'un chemin de terre ou d'un parking ») — sourcée à **R415-9** (voir « Écarts de justesse trouvés »), pas seulement à la doctrine de la « voie de même nature » |
 | `37fe1af42b8d81bd9426eabc80ab4a05` | STOP (`datée`) | règle (« De marquer un arrêt complet, puis de céder », « roues bloquées à la ligne, avant même de regarder ») + conséquence datée (4 points) ; **raison absente** ; **limite absente** — même défaut que `43dc08f7c9eb…` : le contraste avec le « Cédez le passage » éclaire la règle, il n'est pas une condition qui la limite |
-| `37fe1af42b8d81fa9debeaf114b7bf77` | tramway hors intersection | règle (« Il garde la priorité ; la règle ne s'arrête pas aux carrefours ») + raison (« un tramway ne peut ni s'écarter ni s'arrêter court ») + **limite** (« sauf signalisation contraire ») |
 | `e0f68dd1324f9a5ffaab945a3d59e197` | sortie de parking | règle (« Cède le passage à toute la circulation ») + raison (« la priorité à droite ne joue qu'entre voies de même nature ») ; **limite absente** — « d'un parking, d'une station-service, d'un chemin de terre ou d'une propriété privée » énumère qui est concerné (un champ, sourcé **R415-9**, voir « Écarts de justesse trouvés »), ce n'est pas une exception à la règle elle-même |
 | `700316a2fd86db7d682be208673c92d5` | sas cycliste | règle (« Placer les cyclistes devant les voitures à l'arrêt ») + raison (« dans le champ de vision des conducteurs — ce qui règle la principale cause d'accident au feu ») ; **limite absente** — l'emplacement physique du sas n'est pas une condition d'exception |
 | `defefbae1ae651a95dd247e38524ee36` | refus de priorité entre véhicules, 4 pts (`datée`) | règle (« 4 points, comme un feu rouge franchi ») + raison (« le code aligne au même niveau tout ce qui crée un conflit de trajectoire ») + **limite** (« seul le refus de priorité à un piéton monte au-dessus » — chiffre repris **délibérément**, en option, par `2a9e02b9719028e72f…`, voir « Les options ») |
 
-Compte honnête des limites : **9 genuine sur 15** non modifiées (`3e5d97…`, `e93ca4d…`,
-`ef4cfd…`, `2daf8939…`, `8184be…`, `818fb7…`, `81fa9d…`, `defefbae…`, plus la note ci-
-dessus) contre 15/15 affichées en round 0. Les 11 cartes modifiées (round 0 + fix
-round 1) portent chacune une limite ajoutée ou déjà réelle — détail dans les sections
-« Six cartes modifiées » et « Fix round 1 » ci-dessus.
+Compte honnête des limites, sur les **14** lignes ci-dessus, chacune nommée : **7**
+genuine (`3e5d97…`, `e93ca4d…`, `ef4cfd…`, `2daf8939…`, `8184be…`, `818fb7…`,
+`defefbae…`) et **7** absentes ou mal étiquetées en round 0 (`43dc08…`, `02f7d6a6…`,
+`09f18973…`, `2a9e02b9…`, `81bd94…`, `e0f68dd1…`, `700316a2…`) — contre 15/15 affichées
+en round 0, et contre un « 9 sur 15 » en fix round 1 qui ne nommait que huit id et
+comptait une carte (`81fa9d…`) qui n'aurait déjà plus dû être dans cette table. Les 12
+cartes modifiées (round 0 + fix round 1 + fix round 2, dont `817da9…` et `81fa9d…`
+ajoutées en dernier) portent chacune une limite ajoutée ou déjà réelle — détail dans les
+sections « Six cartes modifiées », « Fix round 1 » et « Fix round 2 » ci-dessus.
 
-Modifiées 11 + non modifiées 15 = 26, sans reste.
+Modifiées 12 + non modifiées 14 = 26, sans reste.
 
 ### Les options
 
