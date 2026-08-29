@@ -2,7 +2,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Tourner, dépasser, se rabattre, se garer : on signale même sans personne en vue, car un piéton ou un cycliste peut être là sans qu'on l'ait remarqué. C'est cette anticipation, pas la présence d'un témoin, qui rend la manoeuvre prévisible pour les autres.",
+    "explanation": "R412-10 impose d'avertir de son intention avant tout changement de direction ou de voie — tourner, dépasser, se rabattre, se garer — même sans personne en vue, car un piéton ou un cycliste peut être là sans qu'on l'ait remarqué. Le clignotant annonce la manoeuvre, il ne l'autorise pas : il ne crée aucune priorité.",
     "id": "37fe1af42b8d81038eabdcd0f319857c",
     "options": [
       {
@@ -191,7 +191,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le jaune clignotant signale un danger et autorise le passage, sous réserve de la priorité : un panneau, cédez-le-passage compris, garde sa valeur ; la priorité à droite ne reprend la main qu'à défaut de panneau.",
+    "explanation": "Le jaune clignotant signale un danger et autorise le passage, sous réserve de la priorité : c'est un avertissement, pas une autorisation absolue, et il ne crée aucune priorité ni ne dispense d'aucune règle.",
     "id": "37fe1af42b8d8118ab59f3f1a651bb26",
     "illustration": {
       "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, cerclée de traits de clignotement ; celles du haut et du bas restent éteintes.",
@@ -955,7 +955,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Même barème qu'un refus de priorité ou qu'un stop non marqué : le code sanctionne au même niveau tout ce qui crée un conflit de trajectoire en intersection. S'y ajoutent 135 € d'amende.",
+    "explanation": "R412-30 impose l'arrêt absolu au feu rouge ; le franchir est sanctionné comme un refus de priorité ou un stop non marqué, au même niveau que tout ce qui crée un conflit de trajectoire en intersection. S'y ajoutent 135 € d'amende.",
     "id": "37fe1af42b8d81659d11e27049af398e",
     "options": [
       {
@@ -1507,7 +1507,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le feu vert autorise le passage, mais seulement si l'intersection est déjà dégagée : s'engager pour se retrouver bloqué au milieu empêcherait le passage des véhicules des voies transversales.",
+    "explanation": "Le feu vert autorise le passage, mais seulement si l'intersection est déjà dégagée : s'engager pour se retrouver bloqué au milieu empêcherait le passage des véhicules des voies transversales. Exception rare : un transport exceptionnel engagé sur ces voies reste prioritaire, même au vert.",
     "id": "37fe1af42b8d8189a735d41a796aafb6",
     "options": [
       {
@@ -1696,7 +1696,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'article R416-7 ne les autorise qu'en cas de brouillard ou de chute de neige. Sous la seule pluie, ils éblouissent les conducteurs qui suivent sans rien apporter à votre visibilité — les feux avant, eux, couvrent un cas de plus.",
+    "explanation": "L'article R416-7 ne les autorise qu'en cas de brouillard ou de chute de neige : hors de ces deux cas, ils éblouissent les conducteurs qui suivent sans rien apporter à votre visibilité. On les éteint dès que la cause cesse, pour ne pas gêner inutilement.",
     "id": "37fe1af42b8d81b1b37feb613e893fbf",
     "options": [
       {
@@ -2299,7 +2299,7 @@
         "text": "De ralentir en gardant votre trajectoire"
       }
     ],
-    "prompt": "Ce signal vous impose :",
+    "prompt": "Ce signal rouge clignotant vous impose :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9491,7 +9491,7 @@
         "text": "vous arrêter, puis repartir comme à un stop"
       }
     ],
-    "prompt": "Ce signal tricolore, flèche jaune clignotante, autorise à :",
+    "prompt": "Ce signal d'anticipation, flèche jaune clignotante, autorise à :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9525,7 +9525,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "L'article R412-30 donne deux repères : la ligne d'arrêt quand elle est matérialisée, et à défaut une ligne située avant le passage pour piétons s'il précède le feu — sinon l'aplomb du feu lui-même.",
+    "explanation": "L'article R412-30 fixe deux repères par défaut, seulement quand aucune ligne d'arrêt n'est peinte : avant le passage pour piétons s'il précède le feu, pour ne pas l'empiéter, et sinon à l'aplomb du feu, où il reste visible depuis le point d'arrêt. Une ligne peinte prime toujours sur ces repères.",
     "id": "acaf8b468f86cd92d2b61f93637ff9dd",
     "options": [
       {
@@ -9579,7 +9579,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "L'article R416-7 ajoute la forte pluie aux deux cas du brouillard et de la chute de neige, mais pour les feux avant seulement : les feux arrière de brouillard restent soumis à une liste plus courte de conditions.",
+    "explanation": "L'article R416-7 les autorise, en plus ou à la place des feux de croisement, dans les trois cas de visibilité réduite qu'il énumère : leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue.",
     "id": "6012289234e0766392ac505dbfdbd3ae",
     "options": [
       {
@@ -9592,7 +9592,7 @@
       },
       {
         "id": "C",
-        "text": "par temps de brouillard ou de chute de neige seulement"
+        "text": "par brouillard épais uniquement, jamais par la neige"
       },
       {
         "id": "D",
@@ -9626,7 +9626,7 @@
         "text": "les feux arrière de brouillard, plus intenses que les rouges"
       }
     ],
-    "prompt": "De nuit, à l'arrêt sur une chaussée sans éclairage public, vous montrez :",
+    "prompt": "De nuit, à l'arrêt sur une chaussée sans éclairage public, vous devez montrer, à l'avant et à l'arrière :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9660,7 +9660,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Rouler sans éclairage ni signalisation en un lieu non éclairé coûte, comme un feu rouge franchi, quatre points et une contravention de quatrième classe (R416-11). Les feux de détresse ne remplacent pas les codes : ils n'éclairent rien.",
+    "explanation": "Circuler de nuit hors agglomération, sans éclairage ni signalisation, en lieu non éclairé, est sanctionné par l'amende de quatrième classe et quatre points retirés de plein droit (R416-11) : il faut donc quitter la chaussée et signaler le véhicule sans attendre. Les feux de détresse ne remplacent pas les codes : ils n'éclairent rien.",
     "id": "1f62ee2f0d02611c04ed79a57b73412a",
     "options": [
       {
