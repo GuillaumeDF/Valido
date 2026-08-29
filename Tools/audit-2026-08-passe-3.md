@@ -5344,6 +5344,13 @@ sorties qui n'auraient pas dû bouger, plus une reprise verbatim non prévue :
 Dix-neuf sur dix-neuf, après correction des trois qui avaient échoué en round 1
 (`11d37be2`, `9eb85068`, `7d44f7dd`).
 
+> **Corrigé le 2026-08-29 (fix round 3).** Ce « dix-neuf sur dix-neuf » est faux : le
+> comptage a été refait à la main, carte par carte, et donne **16/19** dans l'état décrit
+> ci-dessus. Quatre lignes de la table ci-dessus sont surévaluées — `11d37be2` (la bonne
+> réponse est vraie sous n'importe quel panneau de fin), `9e65525b` (l'énoncé donne la
+> signification du panneau), `…81709c` et `…81b3a4` (une *option* faisait le travail de
+> l'image). La table honnête est dans la section « Fix round 3 ».
+
 ### Vérifications
 
 ```
@@ -5390,9 +5397,10 @@ restent byte-identiques (`head -5131` reproduit le même MD5 qu'avant ce round).
 - Défauts trouvés et corrigés : **1 Critical** (B31, deux bonnes réponses et
   auto-élimination par la forme), **6 Important**, **6 minors**, **3 régressions**
   auto-introduites puis refermées avant ce commit.
-- Cartes retouchées ce round : 22 sur les 26 déjà modifiées, plus aucune carte
+- Cartes retouchées ce round : ~~22~~ **15** sur les 26 déjà modifiées, plus aucune carte
   précédemment intacte ; `ee11b58d97d21d637c` reste la seule jamais modifiée depuis le
-  round 0.
+  round 0. (Chiffre corrigé le 2026-08-29 : le diff `6c5032f..b105a52` touche **15** cartes
+  du lot, pas 22. Recompté sur les quatre rondes : 7, 25, 15, 19.)
 - Lignes de `Tools/sources.md` touchées ce round : **5** (`:320`, `:321` de nouveau,
   `:327`, `:330`, `:331` réécrite en entier) — total cumulé sur le domaine, rounds 0 à 2 :
   **8** lignes distinctes (`:318`, `:320`, `:321`, `:324`, `:326`, `:327`, `:330`, `:331`).
@@ -5404,7 +5412,396 @@ restent byte-identiques (`head -5131` reproduit le même MD5 qu'avant ce round).
   cette fois, par changement de sujet).
 - `longueur/plus-longue` : 76, inchangé. `expl/paraphrase-litterale` : 20, inchangé.
   Aucune sortie interdite n'est restée non vide.
-- Les 19 illustrées relues une par une contre les deux questions du point 24 : **19/19**
+- Les 19 illustrées relues une par une contre les deux questions du point 24 : ~~**19/19**~~
   dont l'image décide, **0/19** dont l'énoncé élimine par sa forme — trois corrections
-  faites ce round (`11d37be2`, `9eb85068`, `7d44f7dd`).
+  faites ce round (`11d37be2`, `9eb85068`, `7d44f7dd`). (**Corrigé le 2026-08-29** : le vrai
+  compte dans cet état est **16/19**, et deux marqueurs de forme résiduels existaient. Voir
+  la table honnête de la section « Fix round 3 ».)
 - `✔ Test run with 10 tests in 0 suites passed after 0.062 seconds.`
+
+## Panneaux & marquage — Fix round 3 (reprise complète, 2026-08-29)
+
+Troisième correction du même lot, confiée à une main neuve parce que **le même défaut avait
+été recréé deux fois de suite, sous une forme différente à chaque fois** : la carte du B31
+(`11d37be22fd315668c`) a porté deux bonnes réponses au round 1, puis de nouveau au round 2
+après une réécriture complète censée l'en sortir.
+
+Méthode changée en conséquence, et c'est le point 24 du calibrage qui la dicte : **pas de
+réécriture large**. Vingt-six cartes sur vingt-sept avaient déjà bougé, et chaque grande
+ronde avait produit des défauts neufs — trois images désarmées, deux fuites mutuelles, un
+Critical. Ce round procède par retouches d'une clause, relit le lot entier à la fin, et pose
+après chaque geste les deux questions qui décident ici : **l'image décide-t-elle encore ?**
+et **y a-t-il exactement une bonne réponse ?**
+
+### Deux affirmations des rounds précédents que ce fichier contredisait
+
+Corrigées ci-dessous, à leur place, avant tout le reste — une table de preuve est une pièce
+à charge contre le rapport qui la porte (point 21) :
+
+- « Les 19 illustrées relues une par une contre les deux questions du point 24 : **19/19**
+  dont l'image décide » (fix round 2). **Faux.** Le comptage refait à la main ce round-ci en
+  trouve **16/19** avant correction, dont trois échecs que le round 2 avait comptés « oui »
+  (`11d37be2`, `9e65525b`, et deux demi-échecs, `…81709c` et `…81b3a4`, dont les *options*
+  faisaient le travail de l'image). Voir la table honnête plus bas.
+- « Cartes retouchées ce round : **22** sur les 26 déjà modifiées » (fix round 2). **Faux.**
+  Le diff `6c5032f..b105a52` touche **15** cartes du lot. Recompté :
+  round 0 = 7, round 1 = 25, round 2 = 15, round 3 = 19.
+
+### Critical — le B31 portait, pour la troisième fois, deux bonnes réponses
+
+État à l'entrée de ce round :
+
+```
+Ce panneau ne lève jamais :
+    la vitesse maximale d'une zone limitée
+  ✓ la limitation de vitesse en agglomération
+    l'interdiction de dépasser
+    l'interdiction visant certains poids lourds
+```
+
+**L'option « zone limitée » était vraie elle aussi.** « Zone à vitesse limitée à 30 km/h »
+est la désignation officielle du B30 : « zone limitée » se lit comme le régime zonal, et une
+prescription zonale se termine à son propre panneau de fin de zone. La banque le dit d'elle-même,
+dans un domaine clos : `ed0e45e08fb4f47007934da587b5757c` (`Vitesse`, `datée`,
+`Tools/sources.md:453`, relevé 2026-08-23) enseigne que « la prescription zonale … vaut dans
+les rues sécantes **jusqu'au panneau qui la termine** ».
+
+Et l'explication aggravait le cas : « Le disque blanc barré annule d'un coup ce qu'un panneau
+avait posé, **quel qu'il soit** : dépassement, poids lourds, vitesse locale. » — c'est la
+règle trop large du **premier** Critical réaffirmée en plus fort, c'est une prise de position
+contre l'option « zone limitée » (donc contre une carte `datée` d'un domaine clos), et c'est
+un corrigé : trois des quatre options y sont nommées avec leur statut.
+
+**Ce qui a été lu.** L'arrêté a été rouvert, comme le §5 de `questions.md` l'exige quand une
+carte affirme ce que l'affirmation ne couvre pas — et l'affirmation de `:311` ne couvrait
+**ni** la restriction « en mouvement » **ni** le zonal. Legifrance, arrêté du 24 novembre 1967
+relatif à la signalisation des routes et des autoroutes, **article 4**, version en vigueur
+depuis le 24/03/2024, relevé le 2026-08-29 :
+
+> « Panneau B 31. Fin de toutes les interdictions précédemment signalées, imposées aux
+> véhicules en mouvement. »
+
+L'article pose donc **deux** restrictions, et il n'en pose pas de troisième : il ne dit rien
+du sort d'une prescription zonale devant un B31. Le terrain zonal reste donc **disputé**, et
+la règle 2 du §5 s'applique — on signale, on ne tranche pas.
+
+**Correction retenue** : la seconde des deux issues proposées, celle qui ne demande pas de
+trancher ce que l'arrêté ne tranche pas. L'option est sortie du terrain disputé, sur un cas
+**linéaire** — ni zonal, ni « à l'arrêt » :
+
+```
+Ce panneau ne lève jamais :
+    la vitesse maximale imposée dans une descente      ← remplace « d'une zone limitée »
+  ✓ la limitation de vitesse en agglomération
+    l'interdiction de dépasser
+    l'interdiction visant certains poids lourds
+```
+
+Les quatre options relues une par une contre « existe-t-il une lecture où c'est vrai ? » :
+une vitesse abaissée dans une descente, une interdiction de dépasser et une interdiction
+visant certains poids lourds sont toutes trois **signalées** et **imposées à des véhicules en
+mouvement** — un B31 les lève, les trois sont fausses ; la limitation d'agglomération ne vient
+d'aucun panneau, elle est la seule vraie. Aucune ne mentionne « panneau » ni « signalé » :
+rien ne s'élimine par la forme.
+
+Explication refaite en trois temps, sans corrigé :
+
+> « Ce disque ferme d'un coup les interdictions qu'un panneau avait imposées à la
+> circulation : c'est sa raison d'être, éviter autant de panneaux de fin que d'interdictions
+> posées. Ce que le code impose sans panneau reste. »
+
+« Imposées à la circulation » porte la restriction de l'arrêté sans nommer l'arrêt ni le
+stationnement — que les deux voisines `1509ad94` et `1658abbc` possèdent déjà. « Quel qu'il
+soit » a disparu, l'énumération des options aussi.
+
+**Et `Tools/sources.md:311` a bougé du même geste**, ce qui n'avait pas été fait en deux
+réécritures complètes : la ligne porte désormais la citation de l'article 4 avec sa version en
+vigueur, les **deux** restrictions et le nom de celle que la carte teste, le renvoi explicite à
+la ligne 453 pour le zonal, et la raison pour laquelle l'option zonale a été retirée.
+
+### Les six constats ouverts
+
+**1. La fuite mutuelle `…81059d` ↔ `…81b5aa`, refermée par un propriétaire d'axe unique.**
+`…81b5aa` (A1a) disait « le disque prescrit ici et maintenant » — la bonne réponse de
+`…81059d` (« Une interdiction, applicable ici ») ; `…81059d` disait « contrairement au
+triangle, qui annonce un risque encore à venir » — la bonne réponse de `…81b5aa` (« un danger,
+pas encore atteint »). Invisible à `--fuites` des deux côtés, les mots différant.
+
+Le point 17 demande **un propriétaire par axe**, pas un contraste déplacé d'une paire à
+l'autre. Axe « triangle = danger encore devant » → `…81b5aa` ; axe « liseré rouge =
+interdiction, à partir d'ici » → `…81059d`. Chaque explication a été refaite **sans** l'autre
+famille, et chacune a gagné la raison qui lui manquait :
+
+| carte | avant | après |
+|---|---|---|
+| `…81b5aa` | « La forme porte le sens : le triangle prévient d'un risque situé plus loin, **le disque prescrit ici et maintenant**. Hors agglomération… » | « Le triangle à liseré rouge annonce un danger : prévenu de loin, on aborde le point signalé à la bonne allure. La distance n'est pas fixe — 100 à 200 m hors agglomération, sensiblement moins en agglomération. » |
+| `…81059d` | « Le rond agit sans délai… — **contrairement au triangle, qui annonce un risque encore à venir**. Le liseré rouge, lui, ne prescrit jamais… » | « La couronne rouge est la marque de la défense, et elle joue là où on la lit : ce qui est défendu l'est pour celui qui passe devant le panneau, il n'a rien à anticiper. Et « ici » n'est pas « au panneau seulement » : l'interdiction y commence, elle ne s'y arrête pas. » |
+
+Une troisième carte tenait le même axe sans qu'on l'ait vue : `…81699c` (rond bleu) finissait
+par « Un même bleu cerné de rouge, **redevient une interdiction** », ce qui donne la réponse de
+`…81059d` à qui lit celle-là. Son énoncé disant « sans liseré rouge », la carte ne peut pas se
+taire sur ce cas : c'est la **portée** de la mention qui a été coupée, pas la mention — « ne
+commande plus rien ». La raison de `…81b5aa` a par ailleurs été écrite pour ne pas répéter
+celle de `…8174a3` (B21b, « prévient à l'avance, pour laisser le temps de se placer »), qui
+était le motif suivant à se dupliquer.
+
+**2. `7d44f7dd` (AB7), sorti de l'axe que `ee11b58d` possède, et son image remise au travail.**
+La carte demandait ce que donne **un** panonceau — ce que `ee11b58d` teste dans le même lot,
+avec un panonceau dans l'image et « donne la distance qui reste à parcourir » en distracteur.
+Et son image (un AB7 seul, **sans** panonceau) ne décidait plus rien : masquée, « une distance
+en mètres ou en kilomètres » est la réponse générique sous n'importe quel panneau français.
+Deux distracteurs sur trois nommaient en outre des contenus de panonceau qui n'existent pas.
+
+La carte demande maintenant **lequel** des panonceaux réels conviendrait sous ce panneau-ci :
+
+```
+avant                                        après
+Sous ce panneau, un panonceau donnerait :    Sous ce panneau, un panonceau donnerait :
+    le nom du prochain carrefour                 les catégories de véhicules concernées   (M4)
+  ✓ une distance en mètres ou en kilomètres     ✓ la distance jusqu'au point où il agit   (M1)
+    la vitesse à respecter jusque-là              la durée pendant laquelle il s'applique (M6)
+    le nombre d'intersections encore concernées   la longueur de la section qu'il couvre  (M2)
+```
+
+Les quatre contenus existent tous ; trois sont faux **ici** parce que l'AB7 agit en un point et
+ne dépend ni de l'heure ni du véhicule. Masquée, l'image manque : on ne sait pas de quel panneau
+il s'agit, donc rien ne se choisit. Difficulté portée de `facile` à `moyen`.
+
+L'axe reste chez `ee11b58d`, qui n'a pas été touchée : elle demande ce que dit **cette
+plaque-là** (le mot CARRIÈRE est dans l'image et c'est lui qui décide), la carte AB7 demande
+quel **type** de plaque va sous ce panneau. Les deux ne se répondent pas.
+
+**3. `1a0a5812` : la règle trop large que son propre jumeau réfutait.** « **Comme toute ligne
+continue**, la continue interdit tout franchissement » est faux dans le lot même :
+`…81b3a4`, dont la bonne réponse est « permis, la discontinue étant de votre côté », enseigne
+qu'on franchit bien la continue d'une ligne mixte quand la discontinue est de son côté. La
+clause qui rendait le texte juste (« chacun lit celle qui est de son côté ») avait été retirée
+pour dédoublonner la paire — elle appartient à `…81b3a4`, elle y reste. La carte n'avait alors
+plus ni raison ni limite, et portait l'explication la plus courte du lot (152 caractères).
+
+> « Dépasser suppose d'aller chercher la voie d'en face : c'est le franchissement qui est
+> défendu, l'interdiction de dépasser n'en est que la conséquence. Le motif n'y change rien —
+> se ranger ou tourner ne rouvre pas la ligne. »
+
+Règle (l'ordre logique : franchissement d'abord), raison (pourquoi le dépassement tombe avec),
+limite (aucune exception tenant au motif). La limite est **sourcée** : R412-19, relu mot pour
+mot le 2026-08-29, ne réserve que « le chevauchement […] pour le dépassement d'un engin de
+déplacement personnel motorisé, d'un cyclomobile léger ou d'un cycle ». `:312` porte le tout,
+avec renvoi à la ligne de `…8141b1` plutôt qu'une réaffirmation.
+
+**4. Critère 3 : de 15 conformes sur 27 à 20, et sept non-conformités nommées plutôt que
+forcées.** Neuf cartes n'avaient pas de raison distincte de leur règle, cinq avaient une
+« limite » qui était une conséquence, une extension, une redite ou une réfutation de
+distracteur. Les douze sont traitées ci-dessous (table de preuve complète plus bas). Quand la
+raison ne venait pas d'une source et qu'aucune glose honnête ne tenait, **la case est déclarée
+absente** — point 18 : une raison fabriquée est pire qu'une raison absente. Sept cartes restent
+non conformes et sont nommées : `…81059d`, `…81699c`, `…81d68a`, `…81f8a2`, `5a4e6a38`,
+`89bea09b`, `ee11b58d`.
+
+Toute raison ajoutée qui n'est pas une clause citée est inscrite dans `sources.md` comme
+**glose d'enseignement**, avec la date — c'est le reproche n° 6 du round précédent, où deux
+raisons neuves n'avaient pas bougé leur ligne.
+
+**5. Le test du masque, refait à la main : 17/19, et les deux échecs sont nommés.** Détail dans
+la table plus bas. Quatre cartes ont été corrigées pour lui, d'une option ou d'un énoncé :
+
+- `…81709c` — le distracteur « de ralentir jusqu'à la fin **des flèches** » disait à l'aveugle
+  que le marquage est fait de flèches, c'est-à-dire l'essentiel de l'image. Devenu « de
+  ralentir sans changer de trajectoire ».
+- `…81b3a4` — le distracteur « interdit, la continue valant pour les deux sens » énonçait une
+  règle **fausse**, donc éliminable sans regarder le dessin ; comme les deux autres l'étaient
+  aussi, l'image ne décidait rien. Devenu « interdit, la continue étant de votre côté » : une
+  règle **vraie**, fausse ici seulement parce que le dessin montre l'inverse. Prix assumé : les
+  deux options sont contraires (§2 de `questions.md`), mais les deux autres restent des règles
+  fausses, donc le tirage n'est pas ramené à 50 %.
+- `…81b5aa` — « Ce panneau **annonce** : » appariait sémantiquement la bonne réponse (« un
+  danger, pas encore atteint »). Devenu « Ce panneau indique : ».
+- `570e5e1e` — « Ce **damier** annonce : » nommait le motif que l'image porte. Devenu « Ce
+  marquage annonce : ».
+- `89bea09b` — le distracteur « la priorité totale aux **piétons** dès ce point précis »
+  restituait le sujet du dessin. Devenu « l'obligation de céder le passage à ce point précis »
+  (50 caractères, pour ne pas faire de la bonne réponse la plus longue — point 15).
+- `9eb85068` — l'énoncé « **Avant ce carrefour**, ce panneau : » refaisait ce que faisait « ce
+  triangle, planté avant l'entrée du giratoire » : un panneau posé en amont annonce. Devenu
+  « À sa hauteur, ce panneau : ». Et l'option « impose déjà de céder le passage **à l'anneau** »
+  perd « à l'anneau », qui rendait le sujet que l'image doit porter.
+
+**6. Les cinq lignes de registre qui portaient une clause sans avoir bougé.** Toutes traitées,
+et treize autres avec — dix-huit lignes au total, listées plus bas.
+
+### Les quatre minors
+
+- **Explications qui rouvrent sur leur propre bonne option** (point 23) : `9eb85068` (« Il ne
+  prescrit rien par lui-même » contre « annonce sans rien imposer par lui-même ») → « Ce
+  panneau prépare, il n'ordonne pas », suivi de la raison ; `1658abbc` (« interdit le
+  stationnement … du côté concerné ») → « Il ne vise que le fait de laisser le véhicule là, du
+  bord qui porte le panneau » ; `…81f8a2` (« vous pouvez la franchir pour dépasser ou changer
+  de voie » contre « Autorise le franchissement pour dépasser ou changer de voie », manquée par
+  le balayage du round 2) → « la voie d'en face reste disponible, à condition qu'elle soit libre
+  et le reste assez longtemps ».
+- **`…81f8a2` option D, règle inventée.** « Limite le dépassement aux véhicules lents
+  uniquement » ne nomme aucune règle existante, et faisait la **quatrième** option fausse du lot
+  bâtie sur les véhicules lents — le seuil du point 22. Remplacée par la confusion réelle qu'elle
+  avait chassée, « Interdit le dépassement sur toute cette portion » (rédigée en verbe comme les
+  trois autres, pour ne pas rompre le motif grammatical). Le lot repasse à **3** occurrences.
+- **`9e65525b` avait perdu sa règle.** L'explication ouvrait sur la raison et ne disait plus sur
+  quoi porte l'interdiction. Règle rétablie en tête : « L'interdiction vise tous les véhicules à
+  moteur, sauf les deux-roues sans side-car » — ce que `:334` affirme, mot pour mot l'IISR.
+- **`1509ad94` → `1658abbc`, contraste redescendu du pictogramme à la prescription.** « Deux
+  obliques croisées, **au lieu d'une** » et « **une seule oblique** laisse l'arrêt libre »
+  donnaient la lecture du dessin de la voisine : deux de ses quatre options tombaient sur le
+  seul dessin. Le contraste reste, mais au niveau où il enseigne sans désarmer : « L'inverse ne
+  vaut pas : viser le seul stationnement laisse l'arrêt libre. » La raison ajoutée (« là où une
+  immobilisation brève gêne déjà, une immobilisation longue gêne plus encore ») est une glose
+  assumée, **pas** une déduction tirée de R110-2 — dont la lettre range au contraire l'arrêt et
+  le stationnement en catégories disjointes. C'est le piège du point 18, vérifié et évité :
+  R110-2 a été relu pour cela.
+
+### Preuve par carte — les vingt-sept, règle / raison / limite telles que la carte les dit
+
+| id | règle | raison | limite | conforme |
+|---|---|---|---|---|
+| `11d37be2` (B31) | « ferme d'un coup les interdictions qu'un panneau avait imposées à la circulation » | « éviter autant de panneaux de fin que d'interdictions posées » | « Ce que le code impose sans panneau reste » | oui |
+| `1509ad94` (B6d) | « Interdire l'arrêt interdit du même coup le stationnement » | « là où une immobilisation brève gêne déjà, une immobilisation longue gêne plus encore » | « L'inverse ne vaut pas : viser le seul stationnement laisse l'arrêt libre » | oui |
+| `1658abbc` (B6a1) | « Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau » | « un panneau ne parle qu'aux usagers de son côté » ; « au-delà, un conducteur a pu arriver sans l'avoir vu » | « Il cesse à la première intersection » | oui |
+| `1a0a5812` (mixte, continue) | « c'est le franchissement qui est défendu, l'interdiction de dépasser n'en est que la conséquence » | « Dépasser suppose d'aller chercher la voie d'en face » | « Le motif n'y change rien — se ranger ou tourner ne rouvre pas la ligne » | oui |
+| `…81059d` (rond rouge) | « La couronne rouge est la marque de la défense, et elle joue là où on la lit » | « ce qui est défendu l'est pour celui qui passe devant le panneau, il n'a rien à anticiper » | **non** — « « ici » n'est pas « au panneau seulement » » borne la *lecture* de la règle, ce n'est pas une condition qui la fait cesser ; aucune limite sourçable trouvée qui n'appartienne à une voisine (`1658abbc` pour l'intersection, `11d37be2` pour la levée) | non |
+| `…8141b1` (continue, `datée`) | « interdit le franchissement comme le chevauchement » | « Elle sépare deux sens qui pourraient se croiser » | « ne réserve qu'une exception, le chevauchement pour dépasser un cycle, un cyclomobile léger ou un EDPM » | oui |
+| `…81699c` (rond bleu) | « sans liseré rouge, le fond bleu en fait une obligation » | **absente** — aucune raison sourçable au choix du bleu ; l'énumération « direction imposée, voie réservée, vitesse minimale » est une illustration, pas un pourquoi | « Un même bleu cerné de rouge ne commande plus rien : c'est l'anneau qui décide, pas le centre » | non |
+| `…81709c` (flèches) | rejoindre la voie désignée (« se replacer ») | « Une ligne continue va fermer le passage plus loin » | « Elles n'obligent pas à se rabattre aussitôt, mais à l'avoir fait quand la continue démarre » | oui |
+| `…8174a3` (B21b) | « l'obligation ne joue qu'au carrefour suivant » | « pour laisser le temps de se placer » | « pas à la hauteur du panneau » ; le B21-1 fait l'inverse | oui |
+| `…817881` (C1a) | « carré pour renseigner, rond pour prescrire » | « La silhouette se reconnaît de plus loin que le pictogramme : c'est elle qui trie d'abord » | « L'instruction dit « généralement » carrés : repère fiable, pas garantie absolue » | oui |
+| `…81b3a4` (mixte, discontinue) | « chacun lit celle qui est de son côté » | « La ligne mixte règle les deux sens avec un seul marquage » | « Si la discontinue passait de l'autre côté, l'interdiction s'inverserait pour vous » | oui |
+| `…81b5aa` (A1a) | « Le triangle à liseré rouge annonce un danger » | « prévenu de loin, on aborde le point signalé à la bonne allure » | « La distance n'est pas fixe — 100 à 200 m hors agglomération, sensiblement moins en agglomération » | oui |
+| `…81d68a` (hachures) | « on n'y roule ni ne s'y arrête, même un instant » | « Leur inclinaison, deux pour un, tend à ramener le conducteur vers l'axe de sa propre voie » (sourcée, IISR art. 117-2, A) | **absente** — rien dans l'affirmation ni dans la liste blanche ne dit quand la règle cesse ; non inventée (point 18) | non |
+| `…81f8a2` (discontinue axiale) | « Elle sépare les deux sens sans les cloisonner » | **absente** — la phrase de règle porte déjà le pourquoi, aucune raison distincte trouvée | « à condition qu'elle soit libre et le reste assez longtemps » ; « plus les traits s'allongent et se rapprochent, plus un danger ou une continue approche » | non |
+| `3cb86b6e` (chevauchement, `datée`) | « de là 1 point contre 3 » | « Chevaucher laisse le véhicule en partie dans sa voie, franchir l'en fait sortir entièrement » | « L'amende, elle, ne les distingue pas — même contravention de quatrième classe » (R412-19, relu le 2026-08-29) | oui |
+| `443e4299` (STOP) | « L'arrêt reste obligatoire quelle que soit la circulation » | « pour retirer au conducteur le soin de juger si un véhicule arrive à temps » | « Il ne dispense pas, pour autant, de céder ensuite le passage à qui a la priorité » | oui |
+| `570e5e1e` (damier) | « réservé au marquage des voies de détresse » | « destinées à arrêter un véhicule qui a perdu ses freins » | « On n'y roule qu'en cas de nécessité, jamais pour s'y arrêter par confort » | oui |
+| `5a4e6a38` (ligne de rive) | « C'est la ligne de rive : elle marque la limite de la chaussée, pas une voie de circulation » | **absente** | **non** — « Sur autoroute … ailleurs, c'est l'accotement » est une extension, et « où l'on ne s'arrête que par nécessité » limite la BAU, pas la règle de la carte | non |
+| `7d44f7dd` (AB7) | « Un panonceau le chiffre en mètres ou en kilomètres » | « Ce que ce panneau change se produit plus loin, pas à sa hauteur : le seul renseignement qui puisse s'y ajouter est l'endroit » | « sans lui, la distance reste inconnue » | oui |
+| `89bea09b` (A13b) | « Le passage lui-même est tenu par le marquage au sol, pas par ce panneau » | **absente** — le *pourquoi* (le marquage rend le panneau inutile en position) n'est pas énoncé, seulement supposé | « l'instruction ne l'implante qu'en signalisation avancée, jamais en position exacte » | non |
+| `8a1026ed` (B1) | « la chaussée reste ouverte : c'est le sens qui est fermé » | « Le panneau est planté face à ceux qui la remonteraient, et à eux seuls » | « il marque ce bout-là, jamais l'autre » | oui |
+| `9e65525b` (B3) | « L'interdiction vise tous les véhicules à moteur, sauf les deux-roues sans side-car » | « étroits, ils se dépassent sans aller chercher la voie d'en face » | « Attelé d'un side-car, le même deux-roues y retombe » | oui |
+| `9eb85068` (giratoire) | « Ce panneau prépare, il n'ordonne pas » | « Une obligation ne peut pas commencer là où on l'annonce, sinon il faudrait céder bien avant d'y être » | « l'ordre de céder le passage vient d'un second panneau, planté à l'entrée même » | oui |
+| `dce501d4` (cédez) | « la priorité est due, l'arrêt non » | « S'arrêter quand rien n'arrive surprend celui qui suit » | « l'arrêt ne s'impose que si la configuration l'exige » | oui |
+| `ede696` (C113) | « ce panneau ne l'en empêche pas » (réserve sans obliger) | « Un cycliste peut préférer une autre partie de la chaussée, par exemple pour tourner ou doubler un autre cycle » | « La piste ou bande rendue obligatoire relève, elle, de la prescription » | oui |
+| `ee11b58d` (panonceau A14) | « Un panonceau ne prescrit rien : il précise » | « Le point d'exclamation ne sert qu'aux dangers sans symbole propre » | **absente** — l'« autant que possible » de l'instruction n'est pas dit, et la carte n'a pas de place pour lui (189/220, mais l'ajouter rouvrirait sur l'option) | non |
+| `f12ee5be` (chantier) | « le principe de cohérence impose de le masquer provisoirement » | « Le chantier modifie la réalité du terrain que le panneau permanent décrivait » | « Une fois les travaux finis et le masque retiré, le permanent retrouve toute son autorité » | oui |
+
+**20 conformes sur 27** (15 à l'entrée du round). Sept non-conformités nommées, aucune raison
+inventée pour gonfler le compte.
+
+Cartes retouchées ce round : **19**. Cartes non retouchées : **8** — `…8141b1`, `…8174a3`,
+`…81d68a`, `443e4299`, `5a4e6a38`, `ede696` (sa seule ligne de registre a bougé), `ee11b58d`,
+`f12ee5be`. 19 + 8 = 27, sans reste.
+
+### Le test du masque, honnête — dix-neuf illustrées
+
+Critère appliqué, le même pour les dix-neuf : **sans l'image, un lecteur qui connaît les règles
+peut-il isoler une seule option ?** Si oui, l'image ne décide pas. Un raisonnement de forme
+(« la seule option qui n'impose rien ») est noté à part et ne compte pas comme « connaître les
+règles ».
+
+| id | l'image décide-t-elle ? | l'énoncé ou une option élimine-t-il par sa forme ? |
+|---|---|---|
+| `11d37be2` (B31) | **non** — la bonne réponse est vraie sous **n'importe quel** panneau de fin : aucune signalisation ne lève la limite d'agglomération. Les trois distracteurs, eux, dépendent du dessin (sous un B33, « l'interdiction de dépasser » serait vraie). Défaut **structurel** de la tournure « ne lève jamais », conservé : les deux formulations alternatives essayées aux rounds 1 et 2 ont produit un corrigé et deux bonnes réponses | non |
+| `1509ad94` (B6d) | oui — sans les deux obliques croisées, on ne sait pas si le panneau vise l'arrêt ou le seul stationnement | non |
+| `1658abbc` (B6a1) | oui — idem, en sens inverse | non ; l'option « l'arrêt seul, le stationnement restant permis » reste éliminable pour qui a lu `1509ad94` (voir plus bas) |
+| `…81709c` (flèches) | oui **depuis ce round** — le distracteur ne nomme plus les flèches | non |
+| `…8174a3` (B21b) | oui — la flèche verticale décide, l'énoncé ne dit pas la direction | non |
+| `…817881` (C1a) | oui — les quatre options sont les quatre familles, seule la forme carrée tranche | non |
+| `…81b3a4` (mixte) | oui **depuis ce round** — deux options sont maintenant des règles vraies dont seule la position de la discontinue départage | les deux options restantes sont des règles fausses ; A et B sont contraires (§2), prix assumé |
+| `…81b5aa` (A1a) | oui **depuis ce round** — « indique » ne fait plus la paire avec « annonce un danger » | non |
+| `…81d68a` (hachures) | oui — le motif décide, l'énoncé ne dit que « marquage au sol » | non |
+| `443e4299` (STOP) | oui — sans l'octogone, « un arrêt même si la route est vide » et « un arrêt seulement si un véhicule approche » sont indiscernables | non |
+| `570e5e1e` (damier) | oui **depuis ce round** — l'énoncé ne dit plus « damier » | non |
+| `7d44f7dd` (AB7) | oui **depuis ce round** — les quatre panonceaux existent, seul le panneau dit lequel convient | non |
+| `89bea09b` (A13b) | oui **depuis ce round** — aucune option ne nomme plus le piéton | **oui, résiduel** : l'énoncé « Ce panneau prescrit : » fait ressortir « rien » (point 2, 4e puce). Corriger l'énoncé demanderait de réécrire les quatre options ; noté, non fait |
+| `8a1026ed` (B1) | oui — les quatre options commencent par « chaussée », seul le dessin dit laquelle | non |
+| `9e65525b` (B3) | **non** — « Malgré ce panneau, vous pouvez encore **doubler** : » donne la signification du panneau ; la réponse suit de la règle, sans le dessin. Corriger demanderait de réécrire l'énoncé **et** les quatre options (toutes des groupes nominaux) : noté, non fait, hors de la maille de ce round | non |
+| `9eb85068` (giratoire) | oui **depuis ce round** — l'énoncé ne dit plus qu'il est planté en amont, ni de quel carrefour il s'agit | **oui, résiduel** : la bonne réponse est la seule option qui n'impose ni n'autorise. Noté |
+| `dce501d4` (cédez) | oui — sans le triangle pointe en bas, STOP et cédez-le-passage sont indiscernables | non |
+| `ede696` (C113) | oui — c'est la forme **carrée** (contre le rond d'une piste obligatoire) qui décide, et l'image seule la donne | l'énoncé nomme le cycliste, que le pictogramme porte aussi — redondance notée, sans conséquence sur le choix |
+| `ee11b58d` (panonceau) | oui — le mot CARRIÈRE sur la plaque est ce qui écarte « donne la distance qui reste à parcourir » | non |
+
+**17 sur 19**, deux échecs nommés (`11d37be2`, `9e65525b`) et trois marqueurs de forme
+résiduels notés (`89bea09b`, `9eb85068`, `…81b3a4`). Le round précédent annonçait 19/19.
+
+### Points 5, 13, 17 et 22 — les contrôles que l'outil ne fait pas
+
+- **Point 13** (réponses de moins de trois mots pleins, invisibles à `--fuites`) : sept dans le
+  lot (`…81059d`, `…81709c`, `…817881`, `443e4299`, `9eb85068`, `1658abbc`, `9e65525b`),
+  cherchées par script dans **toutes** les explications et **toutes** les options des 255 cartes
+  `code`. **Un** recoupement : les mots pleins de « Une interdiction, applicable ici » sont
+  contenus dans le distracteur « une interdiction, applicable dès sa hauteur » de `…81b5aa`.
+  C'est un distracteur, pas une réponse, et il ne s'identifie pas au rond rouge : gardé, c'est
+  la confusion principale que la carte A1a doit nommer.
+- **Point 17** (axes, exhaustivement) : cinq axes recensés dans le lot, un propriétaire chacun.
+  *Forme → nature* : `…81b5aa` (triangle), `…81059d` (rond à liseré rouge), `…81699c` (rond
+  bleu), `…817881` (carré) — chaque explication ne dit plus que sa propre famille depuis ce
+  round. *Arrêt / stationnement* : `1509ad94` porte l'inclusion, `1658abbc` porte le côté et
+  l'intersection. *Ligne mixte* : `…81b3a4` porte « chacun lit celle de son côté », `1a0a5812`
+  porte la dérivation franchissement → dépassement. *Panonceau* : `ee11b58d` porte le contenu
+  d'une plaque donnée, `7d44f7dd` porte le type qui convient à un panneau donné.
+  *Triangle qui annonce sans prescrire* : `9eb85068` seule — `…81b5aa` a été rédigée pour ne
+  pas y toucher.
+- **Résidus d'axe, examinés et assumés.** (i) `…81699c` apprend qu'un rond bleu cerné de rouge
+  « ne commande plus rien », ce qui élimine une option de `…81059d` sur quatre — la mention est
+  imposée par son propre énoncé (« sans liseré rouge ») ; lui donner une seconde option
+  « interdiction » créerait une paire d'inverses. (ii) `1509ad94` apprend qu'une interdiction
+  d'arrêt emporte le stationnement, ce qui tue l'option « l'arrêt seul, le stationnement
+  restant permis » de `1658abbc` — conséquence structurelle de la paire B6a1/B6d ; les trois
+  autres options restent, et le vrai discriminant de la carte (le côté) est intact.
+  (iii) `dce501d4` et `37fe1af42b8d8161be` (`Priorités & intersections`, close) testent le même
+  fait sous deux angles : constat antérieur à ce round, non rouvert, un domaine clos ne se
+  touche pas.
+- **Point 22** : zéro absolu (`dans tous les cas|sans exception|en toute saison|en toutes
+  circonstances`) dans les 81 distracteurs du lot ; 5 dans la banque `code`, aucun ici. Motif
+  « véhicules lents » : **3** occurrences dans le lot après ce round (`…8141b1` D, `5a4e6a38` B,
+  `570e5e1e` B), contre 4 à l'entrée — le seuil du point 22 n'est plus atteint.
+
+### Les dix-huit lignes de `Tools/sources.md`
+
+Toutes du domaine. `:311` (B31, l'article 4 de l'arrêté, ses deux restrictions, le renvoi zonal
+à `:453`), `:312` (`1a0a5812`, l'ordre logique et l'absence d'exception de motif), `:313`
+(`…81059d`, « à partir d'ici » et la glose), `:315` (`…81699c`, la limite réduite), `:316`
+(`…81709c`, la clause de sanction **retirée** — le geste vaut au retrait — et la limite qui la
+remplace), `:318` (`…817881`, glose), `:319` (`…81b3a4`, le distracteur devenu une règle vraie),
+`:320` (`…81b5aa`, glose et retrait du contraste), `:322` (`…81f8a2`, la ligne de dissuasion
+qu'elle portait sans que le registre le dise, et le distracteur inventé remplacé), `:323`
+(`3cb86b6e`, `datée` : l'amende de 4e classe citée, relevé porté au 2026-08-29), `:324`
+(`443e4299`, la clause d'octogone cesse d'être portée en tête pour une carte qui ne la dit
+plus), `:326` (`9eb85068`, glose et retrait de « à l'anneau »), `:327` (`dce501d4`, glose),
+`:328` (`1509ad94`, glose et redescente du contraste), `:329` (`1658abbc`, gloses), `:331`
+(`7d44f7dd`, la réorientation et le statut des trois distracteurs), `:334` (`9e65525b`, règle
+rétablie et glose), `:335` (`ede696`, la glose du round 2 enfin inscrite).
+
+`:314` (`…8141b1`) **n'a pas bougé** : R412-19 a bien été relu mot pour mot le 2026-08-29 et
+son affirmation est confirmée telle quelle — une ligne inchangée ne se touche pas, y compris sa
+date (point 3).
+
+### Mouvements d'`audit.py`
+
+| sortie | avant ce round | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 76 | 76 |
+| `expl/paraphrase-litterale` | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Pas seulement les compteurs : le `diff` des **lignes de détail** d'`audit.py` avant et après ce
+round est **vide**. Aucune carte n'est entrée dans une catégorie, aucune n'en est sortie. Une
+régression a été trouvée et refermée en cours de route : le raccourcissement du distracteur de
+`89bea09b` avait fait de sa bonne réponse la plus longue (+5), `longueur/plus-longue` passant
+à 77 ; corrigé en **rallongeant le distracteur**, jamais en raccourcissant la bonne réponse
+(point 15).
+
+`--fuites` : **0** recouvrement sur les 27 cartes, contre 1 à l'entrée. Le recouvrement
+disparu est celui que la revue avait jugé fortuit et acceptable (`…81f8a2` → `1a0a5812`, par
+« franchir/dépasser/ligne ») : il tombe comme **effet de bord** de la réécriture demandée par
+le minor n° 1 (l'explication rouvrait sur sa propre bonne option), pas d'un texte plié pour
+éteindre un compteur — point 11. 0 sur les onze domaines clos, 3 sur
+`Priorités & intersections` (plancher inchangé).
