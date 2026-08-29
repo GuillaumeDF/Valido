@@ -5967,8 +5967,11 @@ C'est la convention du §1 de `questions.md`, et les deux ne se comparent pas en
 
 L'écart `code` est passé de **+0,5 à +0,0**, et le nombre de cartes dont la bonne réponse dépasse
 la moyenne de ses distracteurs de 125 à **121 sur 255** — un poil sous la moitié, c'est-à-dire le
-partage qu'on obtiendrait si la longueur ne disait plus rien de la réponse. Le tell de longueur a
-donc été **effacé** sur les `code`, pas seulement maintenu sous le seuil.
+partage qu'on obtiendrait si la longueur ne disait plus rien de la réponse. Le compte par carte
+suit : les `code` où la bonne réponse est **strictement la plus longue des quatre** tombent de
+**34 à 13**. Les deux mesures portent cela, et pas davantage : la moyenne ne distingue plus la
+bonne réponse, et treize cartes exhibent encore l'indice le plus fiable de tout QCM. Les deux
+énoncés sont vrais ensemble, et c'est le second qui dit ce qui reste à faire.
 
 Trois réserves, sans quoi la ligne se lit mieux qu'elle ne vaut :
 
@@ -5980,21 +5983,38 @@ Trois réserves, sans quoi la ligne se lit mieux qu'elle ne vaut :
   que l'écart moyen, mesurée carte par carte, et c'est le chiffre à citer quand la moyenne paraît
   trop lisse pour être crue.
 - **Le mouvement est petit en valeur absolue** — un demi-caractère sur des options de trente-sept.
-  Il est lisible parce que 175 cartes `code` sur 255 ont été relues, pas parce qu'il serait
+  Il est lisible parce que 175 cartes `code` sur 255 ont été modifiées, pas parce qu'il serait
   spectaculaire.
 - **`swift` est le témoin.** Aucune de ses 193 cartes n'a été touchée, et son écart est resté à
-  `+1,6` **à l'identique**. C'est la meilleure preuve que le mouvement des `code` vient de la
-  réécriture et non de la mesure. Le raisonnement du §1 sur cet écart structurel — une option
-  `swift` nomme une API et son comportement, une option `code` porte une valeur ou une règle —
-  survit donc au recomptage inchangé.
+  `+1,6` **à l'identique**. À méthode de mesure inchangée, la matière non touchée ne bouge pas
+  d'un dixième : c'est ce qui sépare l'effet de la réécriture d'un artefact de mesure, et la somme
+  du paragraphe suivant le confirme par un autre chemin. Le raisonnement du §1 sur cet écart
+  structurel — une option `swift` nomme une API et son comportement, une option `code` porte une
+  valeur ou une règle — survit donc au recomptage inchangé.
 
 **Ce qui a produit le mouvement.** La passe a modifié **175 cartes `code` sur 255**. Le détail
 compte, parce que le brief de cette tâche supposait « les 1 020 options `code` réécrites », ce que
-le diff ne dit pas : **148** explications, **18** énoncés, et les options de **54** cartes
-seulement — dont 8 par simple rotation des textes (rééquilibrage de `correctID`, sans effet sur le
-contenu), soit **66** textes d'option réellement neufs. Ce sont ces 66 textes, majoritairement des
-distracteurs rallongés pour tenir la forme de la bonne réponse, qui déplacent la moyenne des
-distracteurs de 36,8 à 37,2.
+le diff ne dit pas. La décomposition, exhaustive :
+
+- **148** explications ;
+- **18** énoncés ;
+- les options de **54** cartes — dont 8 par simple rotation des textes (rééquilibrage de
+  `correctID`), soit **66** textes d'option réellement neufs ;
+- **1** `alt` d'illustration, seul champ modifié de sa carte : `46269e3e`
+  (`Croisement & dépassement`), « à la hauteur de » → « engagée le long de » dans la description
+  de la scène.
+
+Les trois premières catégories se recouvrent et couvrent **174** cartes ; l'`alt` est la 175ᵉ, et
+il vaut d'être nommé — sans lui, la décomposition tombe une carte trop court, et elle laisse croire
+qu'aucune illustration n'a bougé.
+
+**L'attribution se vérifie par la somme, elle n'est pas déduite.** Le total des bonnes réponses
+`code` perd **34** caractères (9 516 → 9 482, soit 37,32 → 37,18) et celui des distracteurs en
+gagne **306** sur 765 emplacements (28 135 → 28 441, soit 36,778 → 37,178, +0,400). Ces deux
+mouvements referment à eux seuls l'écart de +0,54, et ils viennent des 66 textes neufs :
+majoritairement des distracteurs rallongés pour tenir la forme de la bonne réponse. Les 8
+rotations n'y contribuent **rien** — elles redistribuent les mêmes textes entre A–D, laissent la
+bonne réponse identique au caractère près sur les huit cartes, et leur delta de caractères est nul.
 
 ### Volumes de `couverture.md` : inchangés
 
