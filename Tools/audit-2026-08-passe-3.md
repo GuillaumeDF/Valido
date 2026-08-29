@@ -4289,10 +4289,13 @@ $ diff <(grep -E '^### ' .passe3/avant-13.txt) <(grep -E '^### ' .passe3/apres-1
 < ### longueur/plus-longue  (84)
 ---
 > ### longueur/plus-longue  (79)
-(expl/paraphrase-litterale à 21 après le premier jet de l'Important 1 — une carte de Feux
-s'y trouvait, `6012289…`, le rallongement de round 0 étant repris en substance dans
-l'explication ; reformulé en « les trois cas de visibilité réduite qu'il énumère » plutôt
-que de recopier les trois mots de l'option, ramené à 20 sans rien perdre)
+(expl/paraphrase-litterale à 21 après le premier jet de l'Important 1 : l'option
+correcte de `6012289…`, « par brouillard, chute de neige ou forte pluie », se
+retrouvait recopiée mot pour mot dans l'explication. Reformulé en « les trois cas
+de visibilité réduite qu'il énumère », qui a ramené le compteur à 20 **au prix de
+la règle elle-même** — plus aucune des trois conditions n'était nommée, laissée à
+la seule option. Défaut identifié par la revue et corrigé au fix round 2 : voir
+cette section, « Open 1 »)
 
 $ python3 Tools/relire.py --fuites "Feux"
 0 recouvrement(s) sur 19 cartes de « Feux ».
@@ -4363,6 +4366,151 @@ plafond, pas au-delà.
   reformulation-jusqu'au-silence-de-l'outil (Important 1 et Important 4) ; une fermée en
   retirant purement et simplement le pointeur (Important 2).
 - `longueur/plus-longue` : 79, inchangé par ce round (aucune option retouchée ne change de
-  catégorie). `expl/paraphrase-litterale` : 20, inchangé au net — passé par 21 le temps
-  d'un jet sur `6012289…`, reformulé avant commit (voir vérifications).
+  catégorie). `expl/paraphrase-litterale` : 20 au commit de ce round, mais obtenu en
+  vidant `6012289…` de sa règle plutôt qu'en enseignant sans copier l'option — un
+  compteur plat n'était pas la bonne mesure du résultat ici ; corrigé au fix round 2.
 - `✔ Test run with 10 tests in 0 suites passed after 0.066 seconds.`
+
+## Feux — Fix round 2 (revue externe, 2026-08-29)
+
+La revue a fermé les Importants 1 à 5 et 7, les cinq minors et les deux vérifications dues
+du fix round 1, en testant le point 23 **dans les deux sens** sur la paire antibrouillard :
+ni `…81b1b3` ni `6012289…` ne permettent plus de répondre à l'autre, et l'énoncé de
+`1782eca1` est désormais cohérent avec sa ligne de registre et son `alt`. Trois points
+restaient ouverts.
+
+### Open 1 — la reformulation anti-compteur avait coûté sa règle à `6012289…`
+
+Round 1 avait remplacé « par brouillard, chute de neige ou forte pluie » (répété mot pour
+mot dans l'explication) par « les trois cas de visibilité réduite qu'il énumère », ce qui a
+ramené `expl/paraphrase-litterale` de 21 à 20 — mais sans plus **nommer** les trois
+conditions : le critère 3 (la règle) n'était plus tenu, seule l'option la portait. C'est
+exactement le point 20 du calibrage — un compteur plat obtenu en vidant la carte de ce
+qu'elle enseigne.
+
+`audit.py:194` teste une **sous-chaîne littérale** (`norm(bonne) in norm(explication)`),
+pas des tokens : il suffit de nommer les trois conditions autrement que par la phrase
+exacte de l'option pour que la règle survive et que le compteur ne bouge pas. Réécrit :
+« L'article R416-7 autorise ces feux avant dans trois cas : brouillard, chute de neige, et
+aussi forte pluie. Leur faisceau large et bas passe sous la couche de brouillard, là où les
+feux de croisement se reflètent dedans et gênent votre propre vue. »
+
+Deux vérifications faites avant de commiter, pas après :
+
+- **Substring `audit.py`** : `norm("par brouillard, chute de neige ou forte pluie")` n'est
+  pas une sous-chaîne de `norm(explication)` — vérifié par calcul direct avec la fonction
+  `norm` de `audit.py`, pas seulement en relançant l'outil. Confirmé par `audit.py` :
+  `expl/paraphrase-litterale` reste à 20.
+- **Bag de mots `relire.py` (point 23, sens retour)** : la phrase choisie évite le mot
+  « temps », qui est le seul mot plein que la réponse de la carte sœur `…81b1b3` (« Par
+  **temps** de brouillard ou de chute de neige ») ajoute à `brouillard`/`chute`/`neige` —
+  les trois autres déjà nécessaires à `6012289…` pour énoncer sa propre règle. Sans
+  « temps », le sac de mots de `…81b1b3` n'est plus un sous-ensemble de cette explication :
+  vérifié par calcul (`{temps, brouillard, chute, neige} ⊄` mots de l'explication), puis
+  confirmé par `--fuites` : 0 recouvrement sur le domaine.
+
+Si cette seconde contrainte n'avait pas eu de solution sans perte, la consigne du point 20
+aurait prévalu : laisser `expl/paraphrase-litterale` remonter à 21 et documenter la classe
+de l'occurrence, plutôt que de re-vider la carte. Elle n'a pas eu à s'appliquer ici.
+
+### Open 2 — la raison de `1f62ee2f…` restait circulaire, sa limite restait une réfutation
+
+Round 1 avait coupé la fuite et posé la règle (« il faut donc quitter la chaussée et
+signaler le véhicule sans attendre »), mais la phrase qui suivait ne faisait que reformuler
+la sanction (« est sanctionné… : il faut donc… ») sans jamais dire *pourquoi*, et la clause
+de fermeture (« Les feux de détresse ne remplacent pas les codes : ils n'éclairent rien »)
+réfutait un distracteur sans être une limite de la règle elle-même.
+
+**Raison ajoutée**, physique et non contestée (aucune source de la liste blanche ne la
+contredit ni ne la revendique comme sienne — elle n'est pas un fait de droit à sourcer, elle
+explique le droit) : un véhicule éteint sur une route non éclairée est invisible pour un
+conducteur qui arrive à vitesse.
+
+**Limite trouvée dans l'article lui-même**, pas inventée : R416-11 ne sanctionne ce défaut
+d'éclairage que « en un lieu **dépourvu d'éclairage public** » — clause déjà citée mot pour
+mot dans la ligne de registre de cette carte depuis le round 0. Rendue explicite : cette
+sanction précise ne vaut qu'en l'absence d'éclairage public, ailleurs la même panne ne
+relève pas de cet article.
+
+Nouvelle explication : « R416-11 sanctionne, par une amende de quatrième classe et quatre
+points retirés de plein droit, le fait de circuler de nuit sans éclairage ni signalisation
+en un lieu dépourvu d'éclairage public : il faut donc quitter la chaussée et signaler le
+véhicule sans attendre. Un véhicule éteint y devient invisible pour qui arrive à vitesse —
+les feux de détresse, qui n'éclairent rien, ne suffisent pas. Cette sanction précise ne
+vaut qu'en l'absence d'éclairage public ; ailleurs, la même panne ne relève pas de cet
+article. » La réfutation des feux de détresse reste présente (elle est vraie et utile) mais
+n'est plus étiquetée comme la limite — la limite est la portée de l'article.
+
+### Open 3 — une ligne de registre décrivait un contenu que la carte ne porte plus
+
+`Tools/sources.md:290` (`1f62ee2f…`) justifiait encore « l'explication à mettre ces quatre
+points en regard de ceux du feu rouge franchi (R412-30) » — exactement la comparaison que
+l'Important 2 du fix round 1 a retirée de la carte. La ligne n'avait pas été revisitée au
+moment de ce retrait : absente des quatre lignes que le round 1 listait comme touchées,
+confirmant l'oubli.
+
+**Fixé** : la phrase de justification retirée, remplacée par un renvoi à la clause de
+portée (« en un lieu dépourvu d'éclairage public ») que l'explication utilise désormais
+comme limite (Open 2). Aucun fait nouveau ajouté à la ligne — seul le passage périmé est
+retiré, au même geste que le contenu qu'il justifiait (calibrage point 3, sens retrait,
+sharpened par la revue à cette occasion).
+
+### Vérifications, fix round 2
+
+```
+$ python3 -c "…" # comparaison des id contre HEAD
+mêmes ids : True | 448 -> 448
+
+$ python3 Tools/audit.py > .passe3/apres-13-round2.txt
+$ diff <(grep -E '^### ' .passe3/avant-13.txt) <(grep -E '^### ' .passe3/apres-13-round2.txt)
+4c4
+< ### longueur/plus-longue  (84)
+---
+> ### longueur/plus-longue  (79)
+(expl/paraphrase-litterale reste à 20 — pas de nouvelle occurrence, la vérification par
+calcul direct de norm() avant commit s'est confirmée)
+
+$ python3 Tools/relire.py --fuites "Feux"
+0 recouvrement(s) sur 19 cartes de « Feux ».
+
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" "Usagers & partage de la route" \
+    "Mécanique & environnement" "Distances & freinage" "Arrêt & stationnement" "Premiers secours" \
+    "Tunnels & passages à niveau" "Priorités & intersections" "Croisement & dépassement"; do
+    python3 Tools/relire.py --fuites "$d" | grep "recouvrement(s)"; done
+0 recouvrement(s) … (les neuf domaines clos)
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».   # inchangé
+0 recouvrement(s) sur 15 cartes de « Croisement & dépassement ».
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] | grep -E "Test run|SUCCEEDED"
+✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.
+** TEST SUCCEEDED **
+
+$ git status --short
+ M Tools/sources.md
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+Les onze sections antérieures à « Feux » restent byte-identiques (`head -3767` reproduit le
+même MD5 qu'avant la tâche 13, revérifié après ce round).
+
+### Résumé chiffré, fix round 2
+
+- Défauts trouvés et corrigés : **3** (Open 1, Open 2, Open 3).
+- Cartes modifiées au total (round 0 + round 1 + round 2) : **16** sur 19, inchangé — les
+  deux cartes de ce round (`6012289…`, `1f62ee2f…`) étaient déjà comptées modifiées depuis
+  le round 1 ; non modifiées : **3** (`0ac1e53a…`, `362d572a…`, `fc0333a5…`).
+- Lignes de `Tools/sources.md` touchées au total : **4**, inchangé (`…819388`, `…8189a7`,
+  `…8118ab`, `…81038e`) plus la correction de la ligne `1f62ee2f…` — **5** au total,
+  celle-ci n'ajoutant ni ne retirant de fait, seulement une phrase de justification périmée.
+- `correctID` : inchangé, A4/B5/C5/D5.
+- Fuites (`--fuites`) : **0** sur le domaine, vérifié dans les deux sens sur la paire
+  antibrouillard ; **0** sur les neuf domaines clos, **3** sur `Priorités & intersections`
+  (plancher structurel).
+- `longueur/plus-longue` : 79, inchangé. `expl/paraphrase-litterale` : **20**, tenu sans
+  perte de contenu cette fois — vérifié par calcul direct de `norm()` avant commit, pas
+  seulement en relançant l'outil après coup.
+- Point 23 : appliqué dans les deux sens sur la paire antibrouillard (aucune carte ne
+  répond à l'autre), et sa version stricte respectée sur `6012289…` — enseigner sans copier
+  l'option, plutôt que copier moins pour tromper `norm()`.
+- `✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.`

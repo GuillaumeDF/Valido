@@ -9579,7 +9579,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "L'article R416-7 les autorise, en plus ou à la place des feux de croisement, dans les trois cas de visibilité réduite qu'il énumère : leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue.",
+    "explanation": "L'article R416-7 autorise ces feux avant dans trois cas : brouillard, chute de neige, et aussi forte pluie. Leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue.",
     "id": "6012289234e0766392ac505dbfdbd3ae",
     "options": [
       {
@@ -9660,7 +9660,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Circuler de nuit hors agglomération, sans éclairage ni signalisation, en lieu non éclairé, est sanctionné par l'amende de quatrième classe et quatre points retirés de plein droit (R416-11) : il faut donc quitter la chaussée et signaler le véhicule sans attendre. Les feux de détresse ne remplacent pas les codes : ils n'éclairent rien.",
+    "explanation": "R416-11 sanctionne, par une amende de quatrième classe et quatre points retirés de plein droit, le fait de circuler de nuit sans éclairage ni signalisation en un lieu dépourvu d'éclairage public : il faut donc quitter la chaussée et signaler le véhicule sans attendre. Un véhicule éteint y devient invisible pour qui arrive à vitesse — les feux de détresse, qui n'éclairent rien, ne suffisent pas. Cette sanction précise ne vaut qu'en l'absence d'éclairage public ; ailleurs, la même panne ne relève pas de cet article.",
     "id": "1f62ee2f0d02611c04ed79a57b73412a",
     "options": [
       {
