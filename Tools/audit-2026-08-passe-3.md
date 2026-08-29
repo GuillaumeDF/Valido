@@ -3445,13 +3445,51 @@ Non modifiées 4 + modifiées 11 = 15, sans reste.
 | `acfa94cddf8eadadd75d07c9b97a5501` | options A et D réécrites | §9.5 n° 14 (rupture de motif grammatical : D seule en sujet pronominal ; A un seuil inventé, « 50 km/h », absent du texte et de tout régime de dépassement). A devient « le véhicule devant est à moins de deux secondes de vous » (valeur réelle de R412-12, transposée hors de son régime, même geste que `30 km/h` sur `2fc1ed8a…`) ; D devient « un véhicule est sur le point de vous dépasser » (même fait que « vous êtes sur le point d'être dépassé », sujet nominal comme les trois autres) |
 | `2fc1ed8a9c9274f0e06be9f12850f5a4` | explication : la règle énoncée en premier (« R414-15 dispose que, dans ce cas, rouler plus vite qu'une file voisine n'est pas un dépassement ») | l'explication ne disait jusqu'ici que le champ d'application et le contre-cas, jamais ce que l'article accorde ; qui découvre la règle lisait « R414-15 ne joue que sur… » sans savoir sur quoi |
 | `f5a12ba77751310fe9a210a3b787286a` | explication : l'interdiction énoncée d'abord (« R414-11 interdit tout dépassement aux intersections de routes ») et la raison mise dans le texte (« les autres véhicules doivent déjà lui laisser le passage ») | l'explication ouvrait sur « lève l'interdiction » sans jamais la nommer, et la raison que ma table du round 0 lui prêtait n'était pas écrite sur la carte |
-| `93292bac6a7b17452c0e2ad2b30164fa` | option A réécrite (« sur les routes à double sens, en dessous de 50 km/h ») ; explication : « dès qu'une voie en est couverte » → « tant qu'une voie en reste couverte » | point 22 (A portait le même absolu « en toute saison » que trois autres cartes du lot) ; limite ajoutée à l'explication — le texte ne fige pas une interdiction définitive, elle tient tant que la voie reste couverte, et cesse quand elle ne l'est plus |
+| `93292bac6a7b17452c0e2ad2b30164fa` | option A réécrite (« sur les routes à double sens, en dessous de 50 km/h », valeur réelle de R413-3 — la limite par défaut en agglomération — transposée hors de son régime) ; explication : « dès qu'une voie en est couverte » → « tant qu'une voie en reste couverte » | point 22 (A portait le même absolu « en toute saison » que trois autres cartes du lot) ; limite ajoutée à l'explication — le texte ne fige pas une interdiction définitive, elle tient tant que la voie reste couverte, et cesse quand elle ne l'est plus |
 | `99824d4de286434d85174502e05ea59d` | option C réécrite (« prenez la voie du milieu, en finissant par la gauche ») | point 22 (C et D✓ ne différaient que par « puis »/« pas », un mot dans le même moule — un piège de lecture, pas une confusion à comprendre) |
 | `9aaede46c1c808687f89f4a8fb81f9df` | explication : dernière clause remplacée par une limite (« aucune distance n'est fixée par le texte, seul l'effet compte ») | « la place n'est reprise que quand elle ne coûte rien » ne faisait que reformuler la règle ; la ligne de registre porte déjà la vraie limite (« Aucune distance de rabattement n'est fixée par le texte : le critère est l'effet ») et la carte ne la disait pas |
 | `b494d71578b339d0259157dd378a3b9b` | option B réécrite (« interdit seulement en agglomération ») | point 22 (B portait « dans tous les cas », le même absolu que trois autres cartes du lot) |
 | `07b430ccbde4b33b92be8686899b1ddf` | explication : condition ajoutée (« si la chaussée gêne le dépassement ») | l'explication généralisait l'obligation à tout gabarit encombrant sans la condition d'ouverture de R414-9 (« Dans tous les cas où l'insuffisance de la largeur… ne permettent pas le dépassement avec facilité et en toute sécurité ») ; l'énoncé la portait déjà, l'explication lue seule non |
 | `46269e3e9018b1949b8143894e86c4fc` | `alt` réécrit (« engagée le long de celle qu'elle double » au lieu de « à la hauteur de ») | §9.5 n° 17 : le recouvrement réel des deux véhicules dans la scène (20 unités sur 50, environ 40 %) ne correspond pas à « à la hauteur de », qui suggère un alignement complet ; sans effet sur la réponse, corrigé en passant comme le veut le spec pour un constat parqué qu'un domaine croise |
 | `f1ae9582d692d2bb7febb6a3c936ff34` | explication : limite ajoutée (round 0) | écart de justesse initial — voir ci-dessus |
+
+### Important 3, fermée en entier (fix round 2) — trois cartes éditées ailleurs, jamais revisitées sur leur limite
+
+Le fix round 1 a traité cinq des huit cartes mal étiquetées à la colonne « limite »
+(`75e142d9…`, `697b226c…`, `42078575…` relabellisées ; `93292bac…`, `9aaede46…` dotées
+d'une vraie limite). Trois autres avaient été **éditées ce même round pour un motif sans
+rapport** (point 22 sur `99824d4d…` et `b494d715…`, §9.5 n° 14 sur `acfa94cd…`), ce qui a
+fait croire, à tort, que leur dossier était clos : leur explication n'avait pas bougé sur
+ce point précis, et `Tools/audit-2026-08-passe-3.md` — ce fichier — ne portait aucune
+ligne le disant, malgré un résumé de `task-12-report.md` qui comptait `b494d715…` parmi
+les « limite absente ». Fermées ici, dans le fichier qui compte :
+
+- **`99824d4de286434d85174502e05ea59d`** — l'explication se referme sur « La voie
+  centrale est celle du dépassement », qui est un corollaire de la règle (ce qui en
+  découle une fois qu'on l'a comprise), pas une condition qui la ferait cesser. R414-8 ne
+  porte qu'un seul alinéa, sans exception recensée par la ligne de registre. **Limite
+  absente**, honnêtement signalée plutôt que forcée.
+- **`acfa94cddf8eadadd75d07c9b97a5501`** — l'explication se referme sur « Deux
+  dépassements emboîtés mettraient trois véhicules de front », qui est la raison (l'image
+  du danger que crée la règle), pas une limite. Le II de R414-4 pose trois conditions
+  cumulatives (1°, 2°, 3°) pour pouvoir dépasser ; aucune n'admet d'exception propre dans
+  le texte, et le 3° testé ici (ne pas être soi-même sur le point d'être dépassé) n'en a
+  pas de plus étroite. **Limite absente**.
+- **`b494d71578b339d0259157dd378a3b9b`** — R414-5 ne porte qu'un seul alinéa, sans
+  exception à la condition de vérification (« ne doivent effectuer de dépassement
+  qu'après s'être assurés qu'aucun piéton n'est engagé »). Ce que ma table du round 0
+  rangeait sous « limite » (« R414-5 ne prononce pas d'interdiction : il impose de
+  s'être assuré… ») distingue la **nature** de la règle (une condition de vérification,
+  pas une interdiction) — un point réel, mais qui répond à « qu'est-ce que cette règle »,
+  pas à « quand cesse-t-elle de jouer ». **Limite absente**.
+
+Aucune des trois cartes n'a été éditée pour cette fermeture : les trois options/
+explications changées ce round-là répondaient à un motif distinct (point 22, §9.5 n° 14),
+et rien de plus n'est disponible dans l'article pour ces trois limites précises sans
+sortir du champ que la carte teste. Compte final du critère 3 sur les huit cartes visées
+par Important 3 : cinq honnêtement « limite absente » (`75e142d9…`, `697b226c…`,
+`99824d4d…`, `acfa94cd…`, `b494d715…`), une relabellisée sans édition (`42078575…`), deux
+dotées d'une vraie limite ajoutée au texte (`93292bac…`, `9aaede46…`).
 
 ### Les options
 
@@ -3465,9 +3503,12 @@ exception à tout véhicule », `b494d715…` « interdit dans tous les cas par 
 irréprochable prise seule, mais un lecteur qui croise trois de ces options dans le même
 feed apprend à éliminer un absolu à vue, et quatre questions
 perdent un distracteur d'un coup. Reword au moins deux, comme demandé : `b494d715…` et
-`93292bac…` réécrites (table ci-dessus). Compte après correction : **cinq** occurrences
-dans la banque, **deux** dans ce lot (`e5b0f585…`, `f5a12ba7…`) — laissées telles quelles,
-n'étant plus que deux sur quinze, en dessous du seuil qui fait reconnaître un motif.
+`93292bac…` réécrites (table ci-dessus) — cette dernière avec « 50 km/h » nommé par son
+article réel, R413-3 (la vitesse par défaut en agglomération), le même geste de citation
+que « 30 km/h » (R412-11-3) et « 3,5 t » (R414-17) ailleurs dans ce lot. Compte après
+correction : **cinq** occurrences dans la banque, **deux** dans ce lot (`e5b0f585…`,
+`f5a12ba7…`) — laissées telles quelles, n'étant plus que deux sur quinze, en dessous du
+seuil qui fait reconnaître un motif.
 
 Même contrôle pour les paires d'options qui ne diffèrent que d'un mot dans le même moule :
 `99824d4d…` C/D✓ (« puis celle de gauche » / « pas celle de gauche ») corrigée
