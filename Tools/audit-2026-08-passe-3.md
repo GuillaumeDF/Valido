@@ -4849,3 +4849,283 @@ $ git status --porcelain
 
 ✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.
 ```
+
+## Panneaux & marquage — Fix round 1 (revue externe, 2026-08-29)
+
+Une revue a confirmé la discipline formelle du round 0 (les vingt lignes de preuve
+citaient bien le texte réel des cartes, le point 22 était exact, les trois corrections de
+longueur passaient toutes par l'allongement d'un distracteur, l'IISR était absente de
+toute colonne `source`) et a trouvé trois défauts de fond que le round 0 n'avait pas vus :
+le plancher R412-19 refusé (ce n'était pas du vocabulaire partagé, la coupe existait),
+dix-sept cartes sur vingt où la case « limite » tenait en réalité un contraste de
+pictogramme, une redite ou une réfutation de distracteur, et la case « raison » une
+paraphrase de la règle, et sept cas nommés un par un. Ce round les traite tous.
+
+### Le plancher R412-19 refusé, et un troisième recouvrement invisible à l'outil
+
+`--fuites` ne voyait que deux recouvrements — `…8141b1` et `3cb86b6e` (les deux `datée` sur
+la ligne continue) recouvrant tous deux la bonne réponse de `1a0a5812` (« De dépasser et
+de franchir la ligne »). Un troisième recouvrement, sous le seuil de trois mots pleins de
+l'outil, existait entre les deux `datée` elles-mêmes : `…8141b1` finissait sur « Franchir
+coûte 3 points, chevaucher 1 » — le fait que `3cb86b6e` teste — et `3cb86b6e` finissait sur
+l'exception cycle/EDPM — le fait que `…8141b1` teste. Chaque carte donnait donc la réponse
+de l'autre, en plus de fuiter vers la ligne mixte.
+
+Le fait est un seul, réparti sur trois cartes ; le remède est de rendre à chacune ce
+qu'elle teste, sans le laisser chez sa voisine :
+
+- `…8141b1` (« Une ligne continue au centre de la chaussée ») garde la règle et
+  l'exception (« ne réserve qu'une exception : chevaucher la ligne pour dépasser un
+  cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé »), perd les
+  points.
+- `3cb86b6e` (« … fait perdre ») garde les points, perd l'exception, et gagne une raison
+  propre — la gravité, pas la règle : « chevaucher, en restant en partie dans sa voie,
+  coûte 1 point ; franchir complètement en coûte 3 » — et une limite propre, non partagée :
+  « Le chevauchement reste sanctionné même si aucun véhicule n'arrive en face. »
+
+`--fuites "Panneaux & marquage"` : **2 → 1**. Le seul recouvrement restant est documenté
+plus bas (minor 2) : une reformulation annulée sur ordre de la revue, qui rouvre
+volontairement un recouvrement fortuit plutôt que de forcer un mot de remplacement.
+
+### Dix-sept cartes sur vingt, la case « limite » et la case « raison » requalifiées
+
+La revue distingue quatre choses qui ressemblaient à une limite sans en être une — un
+contraste de pictogramme avec la carte voisine, une redite de la règle, une énumération
+d'exemples, la réfutation d'un seul distracteur — et une chose qui ressemblait à une
+raison sans en être une : la règle reformulée. Corrigé carte par carte, jamais en
+relabellant seul :
+
+| id | ce qui manquait | ajouté |
+|---|---|---|
+| `11d37be22fd315668c` (B31) | raison paraphrasée | reformulé en « sauf » : la carte teste maintenant l'exception (agglomération) plutôt que la règle générale ; raison logique (« ce qui vient d'un texte général ne vient d'aucun panneau — rien ne peut donc l'effacer ») |
+| `1509ad94aea7c6f823` (B6d) | limite = contraste de pictogramme avec B6a1 | asymétrie logique propre : « L'inverse ne vaut pas : un panneau qui n'interdit que le stationnement laisse l'arrêt libre » |
+| `1658abbc16db4667fe` (B6a1) | limite = contraste de pictogramme avec B6d (fuyait vers elle, voir plus bas) | raison de la portée géographique : « qui referme le tronçon qu'il couvrait » |
+| `37fe1af42b8d81709c` (flèches) | raison paraphrasée | raison causale : l'obligation existe parce qu'une ligne continue arrive ; limite/conséquence : l'ignorer revient à franchir ensuite cette ligne, sanctionnée séparément |
+| `37fe1af42b8d8174a3` (B21b) | raison = taxonomie générale (fuyait vers `…81699c`, voir plus bas) | raison propre : le panneau prévient à l'avance pour laisser le temps de se placer |
+| `37fe1af42b8d817881` (C1a) | limite = redite de la règle | limite sourcée : l'art. 69-1 dit « généralement » carrés, pas absolument |
+| `37fe1af42b8d81b3a4` (ligne mixte illustrée) | limite = énumération de l'autre sens | limite contrefactuelle : si la discontinue passait de l'autre côté, l'interdiction s'inverserait |
+| `37fe1af42b8d81d68a` (hachures) | limite absente | limite sourcée (art. 117-2 A, ajoutée au registre) : interdiction même momentanée |
+| `443e4299ccb3ff7166` (STOP) | raison = fait pour une autre partie de l'affirmation (la forme, pas la règle testée) ; limite = redite | limite propre à la règle testée : l'arrêt ne dispense pas de céder ensuite le passage à qui a la priorité |
+| `570e5e1ef861e0327` (damier) | absolu non sourçable gardé en place | coupé, même geste que sur `8a1026ed` (voir minor 5) |
+| `9e65525bbce6a649` (B3) | limite = énumération d'exemples | limite sourcée : l'exception s'arrête au side-car, qui retombe dans l'interdiction générale |
+| `9eb8506813f0c8b7` (giratoire) | limite = redite ; fuyait, dans les deux sens, vers trois cartes de `Priorités & intersections` | carte réorientée, voir plus bas |
+| `ede6968609d285b2` (C113) | raison = taxonomie générale (fuyait vers `…817881`, voir plus bas) | raison propre : un cycliste reste libre d'utiliser le reste de la chaussée |
+| `1a0a5812ff8659ba` (ligne mixte texte) | limite = énumération de l'autre sens ; énoncé présupposant un terme non introduit | terme introduit dans l'énoncé (« Une ligne mixte associe une continue et une discontinue ») ; limite contrefactuelle, symétrique à `…81b3a4` sans le reprendre mot pour mot |
+| `37fe1af42b8d81059d` (rond bord rouge) | limite = énumération d'exemples | limite logique, propre à ce fond : le liseré rouge n'exprime jamais une obligation |
+| `37fe1af42b8d8141b1` (ligne continue, datée) | limite = les points, qui appartiennent à `3cb86b6e` | voir plancher R412-19 ci-dessus |
+| `3cb86b6e4c489d91` (chevauchement, datée) | raison paraphrasée ; limite = l'exception, qui appartient à `…8141b1` | voir plancher R412-19 ci-dessus |
+| `f12ee5bea85947a1` (chantier) | raison = mécanisme (masquer), pas la raison du principe | raison causale : le chantier change la réalité du terrain que le panneau permanent décrivait ; limite temporelle ajoutée (le permanent retrouve son autorité une fois le masque retiré) |
+
+Les trois conformes du round 0 restaient `…8174a3`, `89bea09b` et `ee11b58d` — mais la revue
+a montré que deux des trois (`…8174a3`, `89bea09b`) fuyaient malgré tout (voir la section
+suivante). `ee11b58d` (panonceau A14) est la seule carte du lot que ce round ne touche pas.
+
+### Six paires qui fuyaient sans que l'outil ne les voie
+
+Le point 17 du calibrage a été précisé par la revue : sur un lot qui partage une
+taxonomie (forme, couleur), l'unité pertinente n'est pas la paire mais **l'axe** — une
+seule carte doit porter l'énoncé général, les autres doivent l'utiliser sans le refaire.
+Deux axes étaient dupliqués trois fois chacun :
+
+- **Carré = indication, rond = prescription.** `37fe1af42b8d817881` (C1a) et
+  `ede6968609d285b2` (C113) énonçaient toutes deux « le carré fait de ce panneau une
+  indication ». C1a en devient le seul porteur (raison sourcée par le « généralement » de
+  l'art. 69-1) ; C113 garde sa règle propre (réserve la voie, sans l'imposer) sans
+  redériver la taxonomie.
+- **Fond bleu sans liseré = obligation, liseré rouge = interdiction.** `37fe1af42b8d8174a3`
+  (B21b) énonçait « le fond bleu en fait une obligation » en passant, sans que ce soit son
+  sujet ; `37fe1af42b8d81699c` (rond fond bleu) et `37fe1af42b8d81059d` (rond bord rouge)
+  en sont les deux porteurs légitimes puisque c'est leur sujet propre. B21b perd la phrase
+  générale, garde sa raison propre (panneau avancé, temps de se placer).
+
+Restaient deux paires où la fuite ne venait pas d'une taxonomie répétée mais du même fait
+opérationnel énoncé deux fois :
+
+- **`89bea09b` (A13b) ↔ `…81b5aa` (A1a virage), dans les deux sens.** Les deux cartes
+  disaient, chacune à sa façon, « le triangle annonce un danger plus loin » — exactement le
+  fait générique qui les rendait interchangeables. `89bea09b` a été recentrée sur son fait
+  propre (l'A13b n'existe qu'en signalisation avancée, la position revient au marquage au
+  sol) sans plus mentionner de distance ; `…81b5aa` garde la distance (100 à 200 m,
+  minor 1 ci-dessous) sans plus dire « annonce » (qui, de toute façon, fuyait aussi vers
+  son propre énoncé — voir Vérifications).
+- **`…8174a3` → `…81699c`, `…81699c` → `…81059d`** : réglées par le traitement de l'axe
+  bleu/rouge ci-dessus.
+
+Revérifié à la main : aucune des quatre cartes concernées ne redonne plus, dans son
+explication, le fait générique qu'une autre teste comme sa règle propre.
+
+### La carte giratoire, réorientée deux fois
+
+Le premier remède (tester l'obligation de céder le passage à l'entrée) fermait bien la
+fuite avec `2daf8939` (« Priorités & intersections », rond-point sans panneau), mais
+`--fuites "Priorités & intersections"` est passé de 3 à **5** : deux cartes de ce domaine,
+`dd4c58febe77` et `37fe1af42b8d812fade7…`, testent déjà ce même fait (R415-10, céder le
+passage à qui circule dans l'anneau) avec un vocabulaire quasi identique
+(« céder le passage à qui circule [déjà/sur] l'anneau »). `Priorités & intersections`
+porte donc, sur ce point précis, un cluster dense de trois cartes déjà closes — tester
+« qui a la priorité à l'entrée » ne pouvait que le recouper, quelle que soit la
+formulation.
+
+Seconde réorientation, hors du terrain « qui a la priorité » : la carte teste maintenant
+la **catégorie** du panneau, pas la règle de priorité elle-même — un triangle annonce,
+sans lui-même prescrire ; la prescription (céder le passage) vient d'un panneau séparé, à
+l'entrée. C'est le même axe forme → fonction que le reste du lot (triangle = danger,
+disque = prescription), appliqué à ce panneau précis, et qui ne recoupe aucune des trois
+cartes `Priorités`. Ligne de registre réécrite en conséquence (elle ne dit plus « priorité
+à l'anneau » mais « panneau de danger qui annonce sans prescrire »).
+
+`--fuites "Priorités & intersections"` : 3 → 5 → **3** (retour au plancher structurel
+documenté, vocabulaire AB6, inchangé). `--fuites "Vitesse"` : 0 sur les deux rondes.
+
+### Le cross-domain relu à la main, pas seulement compté
+
+Deux fuites réelles, invisibles à l'outil parce que sous le seuil de trois mots pleins ou
+parce que la reformulation évitait le mot exact :
+
+- `11d37be22fd315668c` (B31) ← `3adc294978b6ac1f6…` (`Vitesse`) : l'explication de la
+  carte `Vitesse` disait « Lever toutes les interdictions d'un coup demande un panneau
+  sans chiffre » — exactement le mécanisme qui fait la bonne réponse de B31, combiné à
+  l'`alt` de B31 elle-même (« sans aucun chiffre »). `Vitesse` étant close, la carte a été
+  réorientée sur la clause de l'affirmation qui n'était pas encore testée : ce que le B31
+  ne lève **pas** (le texte général de l'agglomération), plutôt que ce qu'il lève.
+- `9eb8506813f0c8b7` (giratoire) ↔ `2daf8939fc85f5b2…` (`Priorités`) : traité ci-dessus.
+
+`--fuites` sur les onze domaines clos, revérifié après le round complet : **0** partout,
+`Priorités & intersections` à 3 (plancher).
+
+### Cinq minors
+
+1. **`…81b5aa` (A1a) — la distance reconditionnée.** L'option correcte affirmait sans
+   condition « une centaine de mètres plus loin », alors que l'affirmation borne ce
+   chiffre à « hors agglomération ». L'option a perdu le chiffre (« un danger, pas encore
+   atteint »), l'explication porte désormais la condition entière : « Hors agglomération,
+   il est planté 100 à 200 m avant le point signalé — plus près en agglomération. »
+   L'ancienne valeur (« quelques dizaines de mètres »), juste en agglomération, n'a pas été
+   réintroduite ailleurs faute d'une carte pour la porter ; signalé pour une passe future
+   plutôt que perdu en silence.
+2. **`…81f8a2` — « traverser » rendu à « franchir ».** Le remplacement de round 0 fermait
+   le compteur `--fuites` sans fermer le fait : la carte reste sur le même sujet (R412-19)
+   que les deux `datée`, et le mot juste est celui de l'article. Restauré ; le
+   recouvrement avec `1a0a5812` (documenté ci-dessus, 1 sur le domaine) est **assumé
+   comme fortuit** — trois cartes qui partagent le verbe « franchir » d'un seul article ne
+   peuvent pas toutes l'éviter sans en trahir une. Par ailleurs, C et D partageaient le
+   moule « Interdit tout… » : reformulés (« Le stationnement y est proscrit… »,
+   « Aucun dépassement n'est permis… »).
+3. **`1a0a5812` — terme non introduit sans image.** Seule carte texte du lot à employer
+   « ligne mixte » sans qu'aucune image ne le montre (sa jumelle illustrée,
+   `…81b3a4`, si). Énoncé réécrit pour l'introduire : « Une ligne mixte associe une
+   continue et une discontinue : […] »
+4. **Hachures — la raison sourcée, absente du registre.** « tend à ramener le conducteur
+   vers l'axe de sa propre voie » est la citation mot pour mot de l'art. 117-2, A
+   (`Tools/images.md`), pas une raison inventée — mais `sources.md:321` ne la portait pas.
+   Ajoutée à la ligne, avec la citation exacte.
+5. **Rapport de tâche — une longueur mal recopiée.** Le rapport SDD affirmait une
+   explication à 232 caractères pour les cartes non illustrées ; le maximum réel du lot,
+   mesuré, est de 246 (`1a0a5812`, avant sa réécriture ; 202 après). Corrigé dans ce
+   rapport et dans le rapport SDD.
+
+### Deux régressions introduites par ce round, trouvées et refermées avant de conclure
+
+Le repassage d'`audit.py` après la première vague de corrections a montré deux sorties
+qui n'étaient pas vides à l'entrée du round mais qui n'auraient jamais dû bouger :
+
+- `fuite/mot-enonce` (1) — l'option D réécrite de `…81b5aa` (« un danger, annoncé avant de
+  le rencontrer ») reprenait « annonce » de son propre énoncé (« Ce panneau annonce : »).
+  Corrigé en « un danger, pas encore atteint », qui règle dans le même geste la fuite vers
+  `89bea09b` documentée plus haut.
+- `forme/seule-ponctuee` (14 → 15) — la nouvelle bonne réponse de la carte giratoire
+  (« annonce, sans rien imposer par lui-même ») était la seule option ponctuée du lot.
+  Virgule retirée (« annonce sans rien imposer par lui-même ») ; le contenu ne change pas.
+
+Les deux sont rentrées dans l'ordre avant le commit ; aucune des deux ne serait restée
+visible dans un simple diff de rapport de sortie si elles n'avaient pas été cherchées.
+
+### `sources.md` — quatre lignes touchées, pas zéro
+
+Le rapport de round 0 affirmait qu'aucune ligne de registre n'avait bougé. Faux pour au
+moins une carte (`dce501d416e5db1cc6`, dont la clause fautive a été coupée avant que la
+question ne se pose vraiment) et incomplet pour trois autres, où ce round **ajoute** une
+clause déjà présente dans une source déjà citée mais jamais reportée sur la ligne :
+
+- `37fe1af42b8d817881` (C1a) : ajout de la nuance « généralement » (art. 69-1), qui fonde
+  la nouvelle limite de la carte.
+- `37fe1af42b8d81d68a` (hachures) : ajout de la citation exacte de l'art. 117-2 A (minor
+  4).
+- `9eb8506813f0c8b729` (giratoire) : ligne réécrite en entier, la carte testant maintenant
+  un fait différent (catégorie du panneau plutôt que règle de priorité).
+- `443e4299ccb3ff7166` (STOP) : ajout de la clause « l'arrêt ne dispense pas des règles de
+  priorité », qui fonde la nouvelle limite.
+
+Aucune autre ligne n'a été touchée : les autres ajouts de raison/limite (B6d, B6a1, B3,
+B1, chantier) restent des conséquences logiques directes de ce que la ligne affirme déjà,
+sans fait nouveau à sourcer.
+
+### Bilan des cartes
+
+Vingt-six cartes sur vingt-sept ont été modifiées entre le round 0 et ce round (sept en
+round 0, dix-neuf de plus ici) ; `ee11b58d97d21d637c` (panonceau A14) reste la seule
+inchangée depuis le départ — conforme au round 0, non fuyante, revérifiée ici sans
+modification.
+
+### Vérifications
+
+```
+$ python3 - <<'EOF'
+# comparaison des id contre HEAD
+EOF
+mêmes ids : True | 448 -> 448
+
+$ python3 Tools/audit.py > .passe3/apres-14-fix1.txt
+$ diff <(grep -E '^### ' .passe3/avant-14.txt) <(grep -E '^### ' .passe3/apres-14-fix1.txt)
+4c4
+< ### longueur/plus-longue  (79)
+---
+> ### longueur/plus-longue  (76)
+
+$ python3 Tools/relire.py --fuites "Panneaux & marquage" | tail -3
+1 recouvrement(s) sur 27 cartes de « Panneaux & marquage ».
+
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" \
+    "Usagers & partage de la route" "Mécanique & environnement" \
+    "Distances & freinage" "Arrêt & stationnement" "Premiers secours" \
+    "Tunnels & passages à niveau" "Priorités & intersections" \
+    "Croisement & dépassement" "Feux"; do
+    python3 Tools/relire.py --fuites "$d" | grep "recouvrement(s)"
+  done
+0 recouvrement(s) … (les onze domaines clos)
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».   # plancher, inchangé
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] | grep -E "Test run|SUCCEEDED"
+✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.
+** TEST SUCCEEDED **
+
+$ git status --porcelain
+ M Tools/sources.md
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+Les sections antérieures à « Panneaux & marquage » restent byte-identiques (`head -4851`
+reproduit le même MD5 qu'avant ce round).
+
+### Résumé chiffré, fix round 1
+
+- Défauts trouvés et corrigés : le plancher R412-19 refusé (3 cartes), dix-sept
+  requalifications de critère 3, six paires de fuites internes rouvertes puis refermées,
+  deux fuites cross-domaine, cinq minors, deux régressions auto-introduites puis
+  corrigées.
+- Cartes modifiées au total : **26 sur 27** (7 en round 0, 19 de plus ici) ; non modifiée :
+  **1** (`ee11b58d97d21d637c`).
+- Lignes de `Tools/sources.md` touchées au total : **4** (C1a, hachures, giratoire, STOP) —
+  le round 0 en comptait 0, à tort pour `dce501d416e5db1cc6` (résolu par une coupe plutôt
+  qu'un renvoi).
+- `correctID` : A 8→7, B 5→6, C 6→6, D 8→8 (round 0), puis A 7, B 6, C 6, D 8 (inchangé ce
+  round, aucune carte touchée pour ce seul motif).
+- Fuites : domaine 2→1 (le seul restant, assumé fortuit, minor 2) ; cross-domaine 2 fuites
+  réelles fermées (`Vitesse`, `Priorités & intersections` deux fois avant stabilisation) ;
+  0 sur les onze domaines clos, 3 sur `Priorités & intersections` (plancher, inchangé).
+- `longueur/plus-longue` : 76, inchangé depuis round 0. `expl/paraphrase-litterale` : 20,
+  inchangé. Aucune sortie vide n'est devenue non vide dans l'état final (deux l'étaient
+  transitoirement — `fuite/mot-enonce`, `forme/seule-ponctuee` — toutes deux refermées
+  avant ce commit).
+- `✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.`
