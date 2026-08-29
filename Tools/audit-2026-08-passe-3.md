@@ -3765,3 +3765,283 @@ tâche 12).
   exception », « en toute saison » dans la banque `code` : 7 → 5, dont dans ce lot : 4 → 2.
 - `longueur/plus-longue` : 84, inchangé. `expl/paraphrase-litterale` : 20, inchangé.
 - `✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.`
+
+## Feux
+
+19 cartes, 2 `datée`, 3 illustrée(s).
+
+**Particularité structurelle du domaine, traitée en premier lieu (étape 2).** Le topic
+`Feux` mélange deux familles sans les distinguer dans `questions.json`
+(`Tools/couverture.md`, où il apparaît sous « Signalisation » et sous « Visibilité et
+éclairage ») : les signaux tricolores de circulation (rouge, orange, vert, clignotants,
+flèche) et l'éclairage propre au véhicule (feux de croisement, de route, de brouillard,
+de position, de détresse, clignotant de direction). Tri des 19 avant toute édition :
+
+| famille | n | cartes |
+|---|---:|---|
+| signaux (feu tricolore) | 8 | `0ac1e53a…`, `1782eca1…`, `37fe1af4…8118ab` (Ce feu signifie), `37fe1af4…81659d` (franchir rouge), `37fe1af4…8189a7` (feu vert), `37fe1af4…81df97` (Ce signal impose), `37fe1af4…81fc9b` (jaune fixe), `acaf8b46…` |
+| éclairage véhicule | 11 | `1f62ee2f…`, `362d572a…`, `37fe1af4…81038e` (clignotant), `37fe1af4…819388` (croisement obligatoire), `37fe1af4…81adbe` (détresse), `37fe1af4…81b1b3` (antibrouillard arrière), `37fe1af4…81c8af` (croisement au croisement), `6012289…` (brouillard avant), `a3b1d0cf…`, `d5505e2b…`, `fc0333a5…` |
+
+Répartition **8 / 11**, conforme au partage documenté par `couverture.md` (« huit questions
+côté signalisation et onze côté éclairage »). **Deux énoncés étaient ambigus par
+construction** : les deux illustrées `1782eca179c9…` (« Ces feux vous autorisent à : ») et
+`37fe1af42b8d8118ab…` (« Ce feu signifie : ») ne nommaient pas la famille — un feu de
+signalisation ne se distingue d'un feu de véhicule que dans l'image, jamais dans le texte.
+Les deux ont été réécrits (« Ce signal tricolore, flèche jaune clignotante, autorise à : »
+et « Ce signal tricolore, jaune clignotant, signifie : ») : les 19 énoncés nomment
+désormais leur famille sans ambiguïté (mesuré en relisant les 19 `prompt` après coup — voir
+`.passe3/lot-13-apres.txt`). Aucune autre carte n'était ambiguë : les 17 autres nomment déjà
+« un feu jaune clignotant », « un feu rouge fixe », « un feu vert », « les feux de
+croisement », « le clignotant », « en plein phares », etc.
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `37fe1af42b8d8193887bfe48eab17d43` | règle trop large + explication au-delà de l'article | « Nuit, tunnel, pluie, brouillard : les codes rendent visible sans éblouir » — un « tunnel » que R416-6 ne cite jamais, et une obligation par pluie présentée sans exception | R416-6 II 3° intégral (relevé le 2026-08-29, LEGIARTI000006842262) : « Quand la visibilité est réduite en raison des circonstances atmosphériques. **Toutefois, en agglomération, même par temps de pluie, cette disposition ne s'applique pas aux véhicules à moteur autres que les motocyclettes qui circulent avec au moins leurs feux de position allumés, lorsque la chaussée est suffisamment éclairée** […] » — et R416-6 en entier ne mentionne aucun tunnel | explication réécrite : cite R416-4 + R416-6, retire « tunnel », ajoute l'exception agglomération/motos ; `Tools/sources.md` mis à jour dans le même geste |
+| `37fe1af42b8d8189a735d41a796aafb6` | citation du registre tronquée sans « … » (point 12) | la ligne fermait son guillemet sur « … voies transversales », comme si la phrase de l'article s'arrêtait là | R412-33 intégral (relevé le 2026-08-29, LEGIARTI000033842024) : la phrase continue par « et qu'un transport exceptionnel […] ne soit pas engagé sur ces voies. Dans ce dernier cas, la priorité de passage appartient au transport exceptionnel […] » | la carte ne testait pas ce cas et reste juste ; `Tools/sources.md` corrigé pour fermer la citation par « … » et porter la suite, en prose, comme doute réglé plutôt que laissé ouvert |
+| `37fe1af42b8d8118ab59f3f1a651bb26` | explication/option au-delà de l'article | option correcte et explication disaient « un passage **prudent** » | R412-32 intégral (relevé le 2026-08-29, LEGIARTI000006842155) : « attirer l'attention […] Ils autorisent le passage des véhicules sous réserve, le cas échéant, du respect des dispositions relatives aux règles de priorité » — aucune mention de prudence dans cet article (le mot appartient à l'art. 7 de l'arrêté 1967, qui gouverne la carte *voisine* `1782eca1…`, signal d'anticipation) | option D et explication réécrites sans « prudent », alignées sur la seule réserve de priorité que R412-32 pose ; `Tools/sources.md` inchangé (l'affirmation existante était déjà exacte, c'est la carte qui allait au-delà) |
+
+### Doutes signalés, non corrigés
+
+Aucun. Les deux doutes ouverts pendant la relecture (R412-33 tronqué, R416-6 3°
+potentiellement plus étroit qu'affirmé) ont chacun été réglés par relecture de l'article
+consolidé sur Legifrance (étape 3 du brief), pas laissés en suspens.
+
+### Pédagogie
+
+- explications sous 120 caractères : 5 à l'entrée (`37fe1af4…81038e` 88, `37fe1af4…8189a7`
+  92, `37fe1af4…819388` 73, `37fe1af4…81adbe` 76, `37fe1af4…81c8af` 72), **0 à la sortie**
+  (respectivement 254, 191, 271, 257, 193 caractères — mesurés sur le fichier final).
+- cartes dont le budget de 220 a limité l'explication : les 3 illustrées. `1782eca1…`
+  (signal d'anticipation) n'a pas été touchée sur ce plan (206/220, déjà sous le plafond,
+  aucune coupe nécessaire) ; `37fe1af4…8118ab` a gagné en justesse (retrait de « prudent »)
+  tout en repassant de 218 à 211/220 ; `37fe1af4…81df97` n'a pas changé d'explication
+  (208/220, déjà conforme), seule son option B a été rallongée pour le critère de longueur.
+  Aucune des trois n'a perdu la clause qui porte sa réponse : mesuré, pas estimé (table
+  ci-dessous).
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun sur ce critère précis —
+  les deux réécritures d'énoncé (`1782eca1…`, `37fe1af4…8118ab`) répondent au critère 1 de
+  la consigne de tâche (ambiguïté de famille), pas au critère 1 des Global Constraints
+  (présupposition de la réponse).
+
+### Cartes illustrées : mesures
+
+| id | énoncé (≤70) | option la plus longue (≤50) | explication (≤220) |
+|---|---:|---:|---:|
+| `1782eca179c97b4c0294cb40b4938c5c` | 59 | 47 | 206 |
+| `37fe1af42b8d8118ab59f3f1a651bb26` | 49 | 50 | 211 |
+| `37fe1af42b8d81df975dea92682dad6c` | 23 | 48 | 208 |
+
+### `correctID`
+
+Avant : A 4 / B 3 / C 6 / D 6 (sur 19). Après rotation cyclique de deux cartes (aucun
+contenu changé, seule la lettre porteuse) : A 4 / B 5 / C 5 / D 5. Cartes tournées :
+`37fe1af42b8d8193887bfe48eab17d43` (C→B) et `37fe1af42b8d81659d11e27049af398e` (D→B).
+
+### Point 13 — réponses sous trois mots pleins, cherchées à la main
+
+Trois bonnes réponses passent sous le seuil de `relire.py` :
+
+| id | bonne réponse | mots pleins | recherché dans | résultat |
+|---|---|---|---|---|
+| `37fe1af42b8d81659d11e27049af398e` | « 4 points » | 1 (`points`) | énoncés et explications des 19 cartes | absent |
+| `37fe1af42b8d8193887bfe48eab17d43` | « La nuit et dès que la visibilité est réduite » | 2 (`visibilite`, `reduite`) | idem | absent |
+| `37fe1af42b8d81c8af99ca09e3710b01` | « Vous passez en feux de croisement » | 2 (`croisement`, `passez`) | idem | absent |
+
+Aucune fuite trouvée par grep littéral, avant comme après édition.
+
+### Point 17 — relecture croisée des explications, séparée du point 13
+
+`--fuites` (seuil outillé, trois mots pleins) a trouvé **2 recouvrements avant correction**,
+tous deux relus à la main :
+
+1. **Fuite mutuelle réelle, corrigée** — `37fe1af42b8d81b1b37feb613e893fbf` (feux arrière
+   antibrouillard) énonçait la réponse complète de sa carte sœur `6012289234e0766392ac…`
+   (feux avant) via « …sont admis par forte pluie », et réciproquement
+   `6012289234e0766392ac…` énonçait « …les feux arrière […] restent réservés au brouillard
+   et à la neige ». Les deux cartes s'expliquaient l'une l'autre par contraste, exactement
+   le cas du §17 du calibrage (paire « marquage jaune » d'`Arrêt`). Les deux explications
+   réécrites pour garder chacune sa règle et sa raison, mais sans énumérer les conditions
+   précises de l'autre (« couvrent un cas de plus » / « restent soumis à une liste plus
+   courte »). Revérifié par `--fuites` : 0 recouvrement sur cette paire après correction.
+2. **Analogie inter-domaine, jugée non problématique, non corrigée** —
+   `1f62ee2f0d02611c04ed…` (panne d'éclairage de nuit) dit « comme un feu rouge franchi,
+   quatre points », qui recouvre au mot près la bonne réponse de `defefbae1ae651a…`
+   [Priorités & intersections] (« 4 points, comme un feu rouge franchi »). Contrairement au
+   cas n° 1, ce n'est pas un secret dévoilé : l'analogie « 4 points, comme un feu rouge
+   franchi » figure déjà **en clair sur l'option de la carte Priorités elle-même** (ce
+   n'est le libellé d'aucune information cachée), le fait qu'un feu rouge franchi vaille
+   4 points est **la propre réponse de notre carte `37fe1af42b8d81659d11e27049af398e`**, et
+   c'est explicitement le fait que `Tools/sources.md` autorise à cette ligne (« C'est ce qui
+   autorise l'explication à mettre ces quatre points en regard de ceux du feu rouge
+   franchi »). Retirer l'analogie abîmerait une carte juste pour un recoupement qui ne
+   révèle rien (point 11 du calibrage) ; gardée telle quelle.
+
+Relecture manuelle complémentaire (au-delà de `--fuites`), **entre les deux familles** et à
+l'intérieur de chacune : aucune autre carte du lot ne réutilise mot pour mot ou en
+reformulation la bonne réponse d'une voisine. Les paires thématiquement proches
+(`37fe1af4…819388` obligation de croisement / `37fe1af4…81c8af` croisement au moment de
+croiser / `362d572a…` croisement en suivant un véhicule) ont été relues côte à côte : chacune
+teste une clause distincte de R416-6 (II 3°, II 1° a, II 1° b) sans se répondre l'une
+l'autre.
+
+### Point 22 — récurrence de forme de distracteur, comptée sur le lot et sur la banque
+
+Motif retenu (options fausses uniquement) : `dans tous les cas|sans exception|en toute
+saison|en toutes circonstances`.
+
+```
+$ grep (script Python, options fausses seulement) sur la banque code entière
+TOTAL bank: 5 | dans Feux: 1
+```
+
+Une seule occurrence dans le lot — `fc0333a5ae17dd22f31…` D « à tout conducteur de la file,
+**sans exception** » — répartie sur 5 domaines différents dans la banque (Feux, Mécanique &
+environnement, Usagers & partage de la route, Croisement & dépassement ×2). Pas de
+concentration : contrairement à `Croisement` (4 occurrences sur 15 cartes du même lot),
+aucune carte de `Feux` n'expose un lecteur à cette heuristique plus d'une fois dans le
+même feed. Non corrigé — un seul cas isolé n'est pas le défaut que le point 22 vise.
+Recherche des paires « même moule, un mot différent » (type « puis »/« pas ») : aucune sur
+ce lot (le seul jeu d'options à faible variance textuelle est un jeu de quatre valeurs
+numériques de points, structurellement sans risque de ce type).
+
+### Distracteur recyclant un chiffre réel d'ailleurs (point 3 du calibrage)
+
+`acaf8b468f86cd92d2b61f93637ff9dd` option B, « cinq mètres avant le feu, comme devant un
+stop non marqué », recycle un chiffre réel du code (R417-10 I 8° a, distance de 5 mètres
+imposée en stationnement gênant près d'une intersection) appliqué à tort à la position
+d'arrêt devant un feu. Le nombre existe dans le droit routier, seul le rapprochement est
+faux : distracteur conservé, provenance documentée ici plutôt que dans le fichier.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 84 | 79 |
+| `expl/paraphrase-litterale` | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+`longueur/plus-longue` baisse de 5 : les cinq cartes du lot où la bonne réponse était la
+plus longue de sa carte (`37fe1af4…81df97` +3, `37fe1af4…81fc9b` +3, `37fe1af4…81c8af` +2,
+`6012289…` +1, `a3b1d0cf…` +2) ont chacune reçu un distracteur rallongé — jamais la bonne
+réponse raccourcie. Deux égalités restent (`37fe1af4…81659d`, options numériques à 8/8/8/7 ;
+`37fe1af4…81b1b3`, 44/44/43/37) : `audit.py` ne les compte pas (`delta` nul, pas `> 0`), et
+une égalité à trois façons sur un jeu de points chiffrés n'est pas le tell de longueur que
+le point 15 vise. `expl/paraphrase-litterale` reste à 20 : aucune carte de `Feux` n'y
+figurait avant ni après (vérifié par grep sur les deux rapports). Aucune sortie vide n'est
+devenue non vide.
+
+### Toutes les cartes, modifiées ou non — preuve par carte
+
+| id | famille | modifiée | rule / raison / limite (telles que dites par la carte, après correction) |
+|---|---|---|---|
+| `0ac1e53ac8978390a5725830ebcff433` | signal | non | rule : un cédez-le-passage garde toute sa valeur sous un jaune clignotant. raison : « le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place ». limite : « un panneau de priorité garde une valeur permanente, que les feux fonctionnent ou non, et c'est lui qui tranche avant la priorité à droite ». |
+| `1782eca179c97b4c0294cb40b4938c5c` | signal (IMG) | oui — énoncé (ambiguïté de famille) | rule : le jaune clignotant d'un signal d'anticipation autorise à franchir la ligne d'arrêt du rouge associé. raison : absente de l'affirmation (non ajoutée : point 18). limite : « dans la seule direction montrée », avec prudence et en respectant la priorité des autres usagers. |
+| `1f62ee2f0d02611c04ed79a57b73412a` | éclairage | non | rule : deux codes éteints de nuit hors agglomération imposent de quitter la chaussée et signaler le véhicule. raison : absente de l'affirmation pour la conduite à tenir (pratique non sourcée, non inventée comme fait légal) ; le coût (4 points, 4e classe, R416-11) est lui sourcé et mis en regard du feu rouge franchi. limite : les feux de détresse ne remplacent pas les codes, « ils n'éclairent rien ». |
+| `362d572a8e9eb2d2940513b207d2e448` | éclairage | non | rule : feux de croisement imposés dès qu'on suit un véhicule à faible distance. raison : le rétroviseur du véhicule suivi renvoie le faisceau — l'éblouissement ne vient pas que d'en face. limite : le seul répit est la manœuvre de dépassement elle-même (R416-6 II 1° b). |
+| `37fe1af42b8d81038eabdcd0f319857c` | éclairage | oui — explication (critère 3) | rule : le clignotant s'utilise à chaque changement de direction ou de voie. raison : un piéton ou un cycliste peut être présent sans qu'on l'ait remarqué — l'anticipation, pas la présence d'un témoin visible, rend la manœuvre prévisible. limite : réfute directement l'option « uniquement quand un autre véhicule est visible ». |
+| `37fe1af42b8d8118ab59f3f1a651bb26` | signal (IMG) | oui — énoncé, option D, explication (écart R412-32 + ambiguïté de famille) | rule : le jaune clignotant signale un danger et autorise le passage, sous réserve de la priorité. raison : absente de l'affirmation (non ajoutée). limite : un panneau (cédez-le-passage compris) garde sa valeur ; la priorité à droite ne reprend la main qu'à défaut de panneau. |
+| `37fe1af42b8d81659d11e27049af398e` | signal | oui — `correctID` tourné (C/D→B, aucun contenu changé) | rule : franchir un feu rouge fixe fait perdre 4 points. raison : même barème que refus de priorité ou stop non marqué — le code aligne tout conflit de trajectoire en intersection. limite : aucune (règle inconditionnelle sur ce point précis) ; 135 € d'amende ajoutés en clause annexe. |
+| `37fe1af42b8d8189a735d41a796aafb6` | signal | oui — explication (critère 3) + registre (citation tronquée) | rule : le feu vert autorise le passage seulement si l'intersection est déjà dégagée. raison : s'engager pour rester bloqué empêcherait le passage des véhicules des voies transversales. limite : implicite dans la condition elle-même (pas de passage si non dégagé) ; le cas des transports exceptionnels, non testé, est documenté au registre. |
+| `37fe1af42b8d8193887bfe48eab17d43` | éclairage | oui — explication (écart R416-6 3°) + `correctID` tourné (B) | rule : codes obligatoires la nuit et dès que le temps réduit la visibilité (pluie, brouillard, neige). raison : absente au-delà de la règle elle-même. limite : en agglomération, chaussée assez éclairée, les voitures peuvent garder leurs feux de position — pas les motos. |
+| `37fe1af42b8d81adbe05ccc6da87aef7` | éclairage | oui — explication (critère 3) | rule : les feux de détresse signalent un danger ou un ralentissement brutal (bouchon, panne, accident). raison : avertir les autres usagers qu'on risque de les surprendre (R416-18). limite : « ni un remerciement ni une autorisation de stationner » — réfute directement A et D. |
+| `37fe1af42b8d81b1b37feb613e893fbf` | éclairage | oui — explication (fuite mutuelle avec `6012289…`) | rule : feux arrière antibrouillard réservés au brouillard ou à la chute de neige. raison : sous la pluie seule ils éblouissent les conducteurs suivants sans rien apporter à la visibilité. limite : les feux avant, eux, couvrent un cas de plus (non détaillé, pour ne pas répondre à la carte sœur). |
+| `37fe1af42b8d81c8af99ca09e3710b01` | éclairage | oui — option A (longueur) + explication (critère 3) | rule : on passe en feux de croisement dès qu'on s'apprête à croiser un véhicule. raison : ne pas éblouir son conducteur avec des feux de route bien plus puissants et orientés vers l'avant. limite : implicite au moment précis du croisement (R416-6 II 1° a). |
+| `37fe1af42b8d81df975dea92682dad6c` | signal (IMG) | oui — option B (longueur) | rule : un feu rouge clignotant impose l'arrêt absolu, train visible ou non. raison : il interdit momentanément le passage devant un obstacle (passage à niveau, pont mobile, sortie de pompiers). limite : absolu « comme devant un feu rouge fixe » — aucune dérogation par simple visibilité du danger. |
+| `37fe1af42b8d81fc9bbbee0a1767bba6` | signal | oui — option B (longueur) | rule : au jaune fixe, arrêt obligatoire. raison : absente au-delà de la règle elle-même. limite : la seule exception que R412-31 pose — ne plus pouvoir s'arrêter en sécurité au moment de l'allumage du feu — est reprise dans l'explication ; l'option correcte la condense en « sauf si l'arrêt est dangereux », qui n'est pas la formule de l'article. |
+| `6012289234e0766392ac505dbfdbd3ae` | éclairage | oui — option C (longueur) + explication (fuite mutuelle avec `37fe1af4…81b1b3`) | rule : les feux avant de brouillard remplacent les codes par brouillard, chute de neige ou forte pluie. raison : absente au-delà de la règle. limite : les feux arrière obéissent à une liste plus courte (non détaillée, pour ne pas répondre à la carte sœur). |
+| `a3b1d0cf8c4fde31d009c3924754bfba` | éclairage | oui — option A (longueur) | rule : face à un véhicule à un seul feu, on ralentit et fixe le bord droit de la chaussée. raison : la largeur réelle du véhicule et son axe sont inconnus (moto ou voiture à feu grillé). limite : aucune — la prudence vaut quel que soit le cas réel. |
+| `acaf8b468f86cd92d2b61f93637ff9dd` | signal | non | rule : sans ligne d'arrêt peinte, l'arrêt se fait avant le passage piéton s'il précède le feu, sinon à l'aplomb du feu. raison : absente au-delà de la règle (R412-30 2° reproduit tel quel). limite : « sinon l'aplomb du feu lui-même » — c'est le repère par défaut, seulement à défaut des deux premiers. |
+| `d5505e2b6bdcdeb78eecbec2a2a2a724` | éclairage | non | rule : à l'arrêt de nuit sans éclairage public, feux de position à l'avant, feux rouges + plaque à l'arrière. raison : absente au-delà de la règle. limite : en agglomération, une chaussée assez éclairée dispense de tout signalement (R416-16). |
+| `fc0333a5ae17dd22f31bbbe63d0e8824` | éclairage | non | rule : en file ininterrompue à allure fortement réduite, seul le dernier véhicule doit ses feux de détresse. raison : c'est lui que les suivants risquent de surprendre. limite : l'obligation générale (R416-18 al. 1) ne pèse que sur ce seul véhicule en file (al. 2). |
+
+**Total : 19 cartes, 12 modifiées, 7 non modifiées, 19 évidencées — sans reste.**
+
+### Vérifications (commandes et sorties)
+
+```
+$ mkdir -p .passe3 && python3 Tools/audit.py > .passe3/avant-13.txt
+$ grep -E '^### ' .passe3/avant-13.txt
+### lettre/reference  (1)
+### forme/markdown  (1)
+### forme/seule-ponctuee  (14)
+### longueur/plus-longue  (84)
+### expl/paraphrase-litterale  (20)
+$ python3 -c "... comptage du lot ..."
+19 cartes | expl médiane 206 | sous 120 : 5 | illustrées : 3
+
+$ python3 Tools/relire.py "Feux" > .passe3/lot-13.txt   # lecture avant édition, 235 lignes
+
+$ python3 Tools/relire.py --fuites "Feux" | tail -6      # après correction
+1 recouvrement(s) sur 19 cartes de « Feux ».
+Chacun se relit à la main : un mot commun est normal, la réponse entière ne l'est pas.
+
+$ python3 -c "... comparaison des id contre HEAD ..."
+mêmes ids : True | 448 -> 448
+ajoutés : [] | retirés : []
+
+$ python3 Tools/audit.py > .passe3/apres-13-final.txt
+$ diff <(grep -E '^### ' .passe3/avant-13.txt) <(grep -E '^### ' .passe3/apres-13-final.txt)
+4c4
+< ### longueur/plus-longue  (84)
+---
+> ### longueur/plus-longue  (79)
+
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" "Usagers & partage de la route" \
+    "Mécanique & environnement" "Distances & freinage" "Arrêt & stationnement" "Premiers secours" \
+    "Tunnels & passages à niveau" "Priorités & intersections" "Croisement & dépassement"; do
+    python3 Tools/relire.py --fuites "$d" | grep "recouvrement(s)"; done
+0 recouvrement(s) sur 19 cartes de « Permis & sanctions ».
+0 recouvrement(s) sur 22 cartes de « Vitesse ».
+0 recouvrement(s) sur 18 cartes de « Alcool & stupéfiants ».
+0 recouvrement(s) sur 18 cartes de « Usagers & partage de la route ».
+0 recouvrement(s) sur 20 cartes de « Mécanique & environnement ».
+0 recouvrement(s) sur 21 cartes de « Distances & freinage ».
+0 recouvrement(s) sur 17 cartes de « Arrêt & stationnement ».
+0 recouvrement(s) sur 18 cartes de « Premiers secours ».
+0 recouvrement(s) sur 15 cartes de « Tunnels & passages à niveau ».
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».
+0 recouvrement(s) sur 15 cartes de « Croisement & dépassement ».
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
+    -project Valido.xcodeproj -scheme Valido \
+    -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+    -only-testing:'ValidoTests/leContenuLivréEstValide()' [...10 tests...] 2>&1 | tail -5
+✔ Test run with 10 tests in 0 suites passed after 0.066 seconds.
+** TEST SUCCEEDED **
+
+$ git status --short
+ M Tools/sources.md
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+### Résumé chiffré
+
+- Écarts de justesse corrigés : **3** (`37fe1af4…819388` R416-6 3° tronqué, `37fe1af4…8189a7`
+  registre R412-33 tronqué, `37fe1af4…8118ab` explication au-delà de R412-32).
+- Doutes signalés non corrigés : **0**.
+- Cartes modifiées : **12** sur 19 (`1782eca1…`, `37fe1af4…8118ab`, `37fe1af4…81df97`,
+  `37fe1af4…81659d` [rotation seule], `37fe1af4…8189a7`, `37fe1af4…819388`, `37fe1af4…81adbe`,
+  `37fe1af4…81b1b3`, `37fe1af4…81c8af`, `37fe1af4…81fc9b`, `6012289…`, `a3b1d0cf…`) ; non
+  modifiées : **7** (`0ac1e53a…`, `1f62ee2f…`, `362d572a…`, `37fe1af4…81038e`, `acaf8b46…`,
+  `d5505e2b…`, `fc0333a5…`) — 12+7 = 19, sans reste.
+- Lignes de `Tools/sources.md` touchées : **2** (`37fe1af4…819388`, `37fe1af4…8189a7`).
+- `correctID` : A4/B3/C6/D6 → A4/B5/C5/D5 (rotation cyclique sur 2 cartes, aucun contenu
+  changé).
+- Fuites (`--fuites`) : **1** sur le domaine après correction (analogie inter-domaine jugée
+  non problématique, documentée) ; **0** sur les neuf domaines déjà clos, **3** sur
+  `Priorités & intersections` (plancher structurel, inchangé).
+- Point 13 : **0** fuite manuelle trouvée sur les 3 réponses courtes du lot.
+- Point 22 : occurrences de l'absolu (« dans tous les cas », « sans exception », « en toute
+  saison », « en toutes circonstances ») sur options fausses, banque `code` entière : **5**,
+  dont **1** dans ce lot — pas de concentration, non corrigé.
+- `longueur/plus-longue` : 84 → 79 (−5, les 5 cartes du lot où la bonne réponse était la plus
+  longue). `expl/paraphrase-litterale` : 20, inchangé (aucune carte de `Feux` concernée).
+- Cartes illustrées : `1782eca1…` 59/47/206, `37fe1af4…8118ab` 49/50/211, `37fe1af4…81df97`
+  23/48/208 — toutes sous 70/50/220.
+- `✔ Test run with 10 tests in 0 suites passed after 0.066 seconds.`

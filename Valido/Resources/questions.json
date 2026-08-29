@@ -2,7 +2,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Tourner, dépasser, se rabattre, se garer : on annonce toujours son intention à l'avance.",
+    "explanation": "Tourner, dépasser, se rabattre, se garer : on signale même sans personne en vue, car un piéton ou un cycliste peut être là sans qu'on l'ait remarqué. C'est cette anticipation, pas la présence d'un témoin, qui rend la manoeuvre prévisible pour les autres.",
     "id": "37fe1af42b8d81038eabdcd0f319857c",
     "options": [
       {
@@ -191,7 +191,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le jaune clignotant signale un danger et autorise un passage prudent, sans toucher à la priorité : un panneau, cédez-le-passage compris, garde sa valeur ; la priorité à droite ne reprend la main qu'à défaut de panneau.",
+    "explanation": "Le jaune clignotant signale un danger et autorise le passage, sous réserve de la priorité : un panneau, cédez-le-passage compris, garde sa valeur ; la priorité à droite ne reprend la main qu'à défaut de panneau.",
     "id": "37fe1af42b8d8118ab59f3f1a651bb26",
     "illustration": {
       "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, cerclée de traits de clignotement ; celles du haut et du bas restent éteintes.",
@@ -212,10 +212,10 @@
       },
       {
         "id": "D",
-        "text": "Un passage prudent, en respectant la priorité"
+        "text": "Un passage possible, sous réserve de la priorité"
       }
     ],
-    "prompt": "Ce feu signifie :",
+    "prompt": "Ce signal tricolore, jaune clignotant, signifie :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -953,26 +953,26 @@
     "topic": "Priorités & intersections"
   },
   {
-    "correctID": "D",
+    "correctID": "B",
     "difficulty": "moyen",
     "explanation": "Même barème qu'un refus de priorité ou qu'un stop non marqué : le code sanctionne au même niveau tout ce qui crée un conflit de trajectoire en intersection. S'y ajoutent 135 € d'amende.",
     "id": "37fe1af42b8d81659d11e27049af398e",
     "options": [
       {
         "id": "A",
-        "text": "6 points"
-      },
-      {
-        "id": "B",
-        "text": "1 point"
-      },
-      {
-        "id": "C",
         "text": "2 points"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "4 points"
+      },
+      {
+        "id": "C",
+        "text": "6 points"
+      },
+      {
+        "id": "D",
+        "text": "1 point"
       }
     ],
     "prompt": "Franchir un feu rouge fixe fait perdre :",
@@ -1507,7 +1507,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le vert autorise le passage à condition que l'intersection soit dégagée (piétons, bouchon…).",
+    "explanation": "Le feu vert autorise le passage, mais seulement si l'intersection est déjà dégagée : s'engager pour se retrouver bloqué au milieu empêcherait le passage des véhicules des voies transversales.",
     "id": "37fe1af42b8d8189a735d41a796aafb6",
     "options": [
       {
@@ -1586,26 +1586,26 @@
     "topic": "Priorités & intersections"
   },
   {
-    "correctID": "C",
+    "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Nuit, tunnel, pluie, brouillard : les codes rendent visible sans éblouir.",
+    "explanation": "Le code impose les codes la nuit (R416-4) et dès que le temps réduit la visibilité — pluie, brouillard, neige (R416-6). Exception : en agglomération, sur une chaussée assez éclairée, les voitures peuvent garder leurs feux de position ; les motos restent tenues aux codes.",
     "id": "37fe1af42b8d8193887bfe48eab17d43",
     "options": [
       {
         "id": "A",
-        "text": "Le jour seulement, pour être vu de loin"
-      },
-      {
-        "id": "B",
         "text": "Sur autoroute uniquement, de jour comme de nuit"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "La nuit et dès que la visibilité est réduite"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Hors agglomération, où l'éclairage manque"
+      },
+      {
+        "id": "D",
+        "text": "Le jour seulement, pour être vu de loin"
       }
     ],
     "prompt": "Les feux de croisement (codes) sont obligatoires :",
@@ -1669,7 +1669,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Bouchon soudain, panne, accident : on prévient les autres usagers du danger.",
+    "explanation": "L'article R416-18 impose les feux de détresse à qui roule momentanément à allure fortement réduite, pour avertir les autres usagers qu'il risque de surprendre — bouchon soudain, panne, accident. Ce n'est ni un remerciement ni une autorisation de stationner.",
     "id": "37fe1af42b8d81adbe05ccc6da87aef7",
     "options": [
       {
@@ -1696,7 +1696,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "L'article R416-7 ne les autorise qu'en cas de brouillard ou de chute de neige. Sous la pluie, ils éblouissent les conducteurs qui suivent sans rien apporter à votre visibilité — les feux avant antibrouillard, eux, sont admis par forte pluie.",
+    "explanation": "L'article R416-7 ne les autorise qu'en cas de brouillard ou de chute de neige. Sous la seule pluie, ils éblouissent les conducteurs qui suivent sans rien apporter à votre visibilité — les feux avant, eux, couvrent un cas de plus.",
     "id": "37fe1af42b8d81b1b37feb613e893fbf",
     "options": [
       {
@@ -2028,12 +2028,12 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "On repasse en codes pour ne pas éblouir le conducteur croisé (ou suivi).",
+    "explanation": "L'article R416-6 impose les feux de croisement dès qu'on s'apprête à croiser un véhicule, pour ne pas éblouir son conducteur avec des feux de route bien plus puissants et orientés vers l'avant.",
     "id": "37fe1af42b8d81c8af99ca09e3710b01",
     "options": [
       {
         "id": "A",
-        "text": "Vous passez en feux de position"
+        "text": "Vous passez en feux de position, le temps de croiser"
       },
       {
         "id": "B",
@@ -2288,7 +2288,7 @@
       },
       {
         "id": "B",
-        "text": "D'appliquer la priorité à droite, sans arrêt"
+        "text": "D'appliquer la priorité à droite, sans s'arrêter"
       },
       {
         "id": "C",
@@ -2720,7 +2720,7 @@
       },
       {
         "id": "B",
-        "text": "Ralentir fortement, sans marquer l'arrêt"
+        "text": "Ralentir fortement, en évitant de vous arrêter"
       },
       {
         "id": "C",
@@ -9491,7 +9491,7 @@
         "text": "vous arrêter, puis repartir comme à un stop"
       }
     ],
-    "prompt": "Ces feux vous autorisent à :",
+    "prompt": "Ce signal tricolore, flèche jaune clignotante, autorise à :",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9579,7 +9579,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "L'article R416-7 ajoute la forte pluie aux deux cas du brouillard et de la chute de neige, mais pour les feux avant seulement : les feux arrière de brouillard, eux, restent réservés au brouillard et à la neige.",
+    "explanation": "L'article R416-7 ajoute la forte pluie aux deux cas du brouillard et de la chute de neige, mais pour les feux avant seulement : les feux arrière de brouillard restent soumis à une liste plus courte de conditions.",
     "id": "6012289234e0766392ac505dbfdbd3ae",
     "options": [
       {
@@ -9592,7 +9592,7 @@
       },
       {
         "id": "C",
-        "text": "par brouillard ou chute de neige seulement"
+        "text": "par temps de brouillard ou de chute de neige seulement"
       },
       {
         "id": "D",
@@ -9638,7 +9638,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Vous vous décalez vers l'axe pour mieux l'identifier"
+        "text": "Vous vous décalez vers l'axe de la route pour mieux l'identifier"
       },
       {
         "id": "B",
