@@ -5344,12 +5344,14 @@ sorties qui n'auraient pas dû bouger, plus une reprise verbatim non prévue :
 Dix-neuf sur dix-neuf, après correction des trois qui avaient échoué en round 1
 (`11d37be2`, `9eb85068`, `7d44f7dd`).
 
-> **Corrigé le 2026-08-29 (fix round 3).** Ce « dix-neuf sur dix-neuf » est faux : le
-> comptage a été refait à la main, carte par carte, et donne **16/19** dans l'état décrit
-> ci-dessus. Quatre lignes de la table ci-dessus sont surévaluées — `11d37be2` (la bonne
-> réponse est vraie sous n'importe quel panneau de fin), `9e65525b` (l'énoncé donne la
-> signification du panneau), `…81709c` et `…81b3a4` (une *option* faisait le travail de
-> l'image). La table honnête est dans la section « Fix round 3 ».
+> **Corrigé le 2026-08-29 (fix round 3, prose reprise au fix round 4).** Ce « dix-neuf sur
+> dix-neuf » est faux : le comptage a été refait à la main, carte par carte, et donne
+> **16/19** dans l'état décrit ci-dessus. **Quatre** lignes de la table ci-dessus sont
+> surévaluées, ce qui fait **trois** points de déduction — `11d37be2` (la bonne réponse est
+> vraie sous n'importe quel panneau de fin) et `9e65525b` (l'énoncé donne la signification du
+> panneau) comptent chacun pour un échec plein ; `…81709c` et `…81b3a4`, où une *option*
+> faisait le travail de l'image, comptent pour un demi chacun. La table honnête est dans la
+> section « Fix round 3 ».
 
 ### Vérifications
 
@@ -5708,25 +5710,27 @@ règles ».
 | `11d37be2` (B31) | **non** — la bonne réponse est vraie sous **n'importe quel** panneau de fin : aucune signalisation ne lève la limite d'agglomération. Les trois distracteurs, eux, dépendent du dessin (sous un B33, « l'interdiction de dépasser » serait vraie). Défaut **structurel** de la tournure « ne lève jamais », conservé : les deux formulations alternatives essayées aux rounds 1 et 2 ont produit un corrigé et deux bonnes réponses | non |
 | `1509ad94` (B6d) | oui — sans les deux obliques croisées, on ne sait pas si le panneau vise l'arrêt ou le seul stationnement | non |
 | `1658abbc` (B6a1) | oui — idem, en sens inverse | non ; l'option « l'arrêt seul, le stationnement restant permis » reste éliminable pour qui a lu `1509ad94` (voir plus bas) |
-| `…81709c` (flèches) | oui **depuis ce round** — le distracteur ne nomme plus les flèches | non |
+| `…81709c` (flèches) | oui **depuis ce round** — le distracteur ne nomme plus les flèches | **oui, léger** (relevé au fix round 4) : la bonne réponse dit « la voie **qu'il désigne** », ce qui suppose un marquage directionnel — plus faible que ce qui a été corrigé, mais de la même famille |
 | `…8174a3` (B21b) | oui — la flèche verticale décide, l'énoncé ne dit pas la direction | non |
 | `…817881` (C1a) | oui — les quatre options sont les quatre familles, seule la forme carrée tranche | non |
 | `…81b3a4` (mixte) | oui **depuis ce round** — deux options sont maintenant des règles vraies dont seule la position de la discontinue départage | les deux options restantes sont des règles fausses ; A et B sont contraires (§2), prix assumé |
 | `…81b5aa` (A1a) | oui **depuis ce round** — « indique » ne fait plus la paire avec « annonce un danger » | non |
 | `…81d68a` (hachures) | oui — le motif décide, l'énoncé ne dit que « marquage au sol » | non |
 | `443e4299` (STOP) | oui — sans l'octogone, « un arrêt même si la route est vide » et « un arrêt seulement si un véhicule approche » sont indiscernables | non |
-| `570e5e1e` (damier) | oui **depuis ce round** — l'énoncé ne dit plus « damier » | non |
+| `570e5e1e` (damier) | oui **depuis ce round** — l'énoncé ne dit plus « damier » | **oui, léger** (relevé au fix round 4) : la bonne réponse est la seule à nommer une situation d'urgence, ce qui la fait ressortir sans le dessin |
 | `7d44f7dd` (AB7) | oui **depuis ce round** — les quatre panonceaux existent, seul le panneau dit lequel convient | non |
 | `89bea09b` (A13b) | oui **depuis ce round** — aucune option ne nomme plus le piéton | **oui, résiduel** : l'énoncé « Ce panneau prescrit : » fait ressortir « rien » (point 2, 4e puce). Corriger l'énoncé demanderait de réécrire les quatre options ; noté, non fait |
 | `8a1026ed` (B1) | oui — les quatre options commencent par « chaussée », seul le dessin dit laquelle | non |
 | `9e65525b` (B3) | **non** — « Malgré ce panneau, vous pouvez encore **doubler** : » donne la signification du panneau ; la réponse suit de la règle, sans le dessin. Corriger demanderait de réécrire l'énoncé **et** les quatre options (toutes des groupes nominaux) : noté, non fait, hors de la maille de ce round | non |
-| `9eb85068` (giratoire) | oui **depuis ce round** — l'énoncé ne dit plus qu'il est planté en amont, ni de quel carrefour il s'agit | **oui, résiduel** : la bonne réponse est la seule option qui n'impose ni n'autorise. Noté |
+| `9eb85068` (giratoire) | oui **sous le critère énoncé** — l'énoncé ne dit plus qu'il est planté en amont, ni de quel carrefour il s'agit ; mais le « oui » ne tient que parce qu'un raisonnement de forme n'est pas compté comme « connaître les règles ». Relevé au fix round 4 : cette ligne est **plus près d'un troisième échec** que la table ne le laisse croire | **oui, résiduel** : « impose **déjà** » dans une option, et la bonne réponse seule à n'imposer ni n'autoriser — les deux ensemble répondent à la carte sans le dessin |
 | `dce501d4` (cédez) | oui — sans le triangle pointe en bas, STOP et cédez-le-passage sont indiscernables | non |
 | `ede696` (C113) | oui — c'est la forme **carrée** (contre le rond d'une piste obligatoire) qui décide, et l'image seule la donne | l'énoncé nomme le cycliste, que le pictogramme porte aussi — redondance notée, sans conséquence sur le choix |
-| `ee11b58d` (panonceau) | oui — le mot CARRIÈRE sur la plaque est ce qui écarte « donne la distance qui reste à parcourir » | non |
+| `ee11b58d` (panonceau) | oui — le mot CARRIÈRE sur la plaque est ce qui écarte « donne la distance qui reste à parcourir » | **oui, résiduel** (relevé au fix round 4, la ligne disait « non » à tort) : la bonne réponse nomme « **le triangle** », c'est-à-dire le pictogramme — exactement la classe de marqueur corrigée sur `…81709c` et `89bea09b`. Carte non touchée ce round-là : consignée, pas éditée |
 
-**17 sur 19**, deux échecs nommés (`11d37be2`, `9e65525b`) et trois marqueurs de forme
-résiduels notés (`89bea09b`, `9eb85068`, `…81b3a4`). Le round précédent annonçait 19/19.
+**17 sur 19**, deux échecs nommés (`11d37be2`, `9e65525b`) et — après reprise de la colonne
+de droite au fix round 4 — **six** marqueurs de forme résiduels notés (`89bea09b`, `9eb85068`,
+`…81b3a4`, `ee11b58d`, `…81709c`, `570e5e1e`), dont un, `9eb85068`, plus près d'un troisième
+échec que d'un « oui ». Le round précédent annonçait 19/19 sans marqueur.
 
 ### Points 5, 13, 17 et 22 — les contrôles que l'outil ne fait pas
 
@@ -5805,3 +5809,128 @@ disparu est celui que la revue avait jugé fortuit et acceptable (`…81f8a2` �
 le minor n° 1 (l'explication rouvrait sur sa propre bonne option), pas d'un texte plié pour
 éteindre un compteur — point 11. 0 sur les onze domaines clos, 3 sur
 `Priorités & intersections` (plancher inchangé).
+
+## Panneaux & marquage — Fix round 4 (revue externe, 2026-08-29)
+
+La revue a rouvert l'arrêté et **tranché le Critical en faveur du round 3** : `11d37be22fd315668c`
+n'a qu'une bonne réponse, vérifiée option par option contre l'article 4 ; la citation de
+`Tools/sources.md:311` est mot pour mot et se ferme sur le point ; la ligne a bougé du même geste ;
+l'explication n'est plus un corrigé — elle ne nomme aucune option et ne dit jamais
+« agglomération ». Le cas de la descente est confirmé bon distracteur (un B14 est signalé et vise
+des véhicules en mouvement : le B31 le lève), et « imposées à la circulation » est jugée une glose
+fidèle de « en mouvement ». Les six constats et les quatre minors du round 3 sont clos, le test du
+masque à **17/19** est confirmé honnête après sondage de quatorze lignes, et les deux échecs
+déclarés sont jugés **justes à laisser** : pour le B31, la forme alternative demanderait trois
+options que le panneau **ne lève pas**, et il n'en existe pas de quatrième ; pour `9e65525b`, le
+fait à enseigner **est** l'exception à la règle du panneau, donc tout énoncé qui la pose révèle le
+panneau. Les trois arbitrages assumés et la décision de ne pas bouger `:314` sont maintenus.
+
+### Important — la fermeture d'un axe avait remplacé une clause vraie par une fausse
+
+`37fe1af42b8d81699c` disait, depuis le round 3 : « Un même bleu cerné de rouge **ne commande plus
+rien** : c'est l'anneau qui décide, pas le centre. »
+
+C'est faux. Un disque bleu cerné de rouge est le B6a1 ou le B6d — les deux panneaux que
+`1658abbc16db4667fe` et `1509ad94aea7c6f823` enseignent **dans ce même lot** — et tous deux
+commandent : ils interdisent. La phrase contredisait en outre sa propre ouverture, « Le rond
+prescrit ». La clause remplacée (« redevient une interdiction ») était vraie ; elle avait été
+coupée pour retenir la bonne réponse de `37fe1af42b8d81059d`, et le remplaçant n'avait pas été
+relu contre l'énoncé, les options et les voisines. C'est le corollaire du point 18 une fois de
+plus : **« pas inventé » n'est pas « juste »**.
+
+Correction, qui ne coûte rien et ne rouvre pas la fuite, seule l'**obligation** ayant besoin
+d'être niée :
+
+> « Un même bleu cerné de rouge **n'oblige plus** : c'est l'anneau qui décide, pas le centre. »
+
+Vrai, et retient toujours « Une interdiction, applicable ici ». `Tools/sources.md:315`, qui
+portait la même affirmation fausse en enregistrant le motif du changement, a bougé du même geste
+et raconte les deux états.
+
+### Les trois minors
+
+1. **`9eb85068` rouvrait toujours sur sa bonne option.** « Il ne prescrit rien par lui-même » était
+   devenu « Ce panneau prépare, il n'ordonne pas », c'est-à-dire « annonce sans rien imposer par
+   lui-même » en d'autres mots — le point 23 vaut aussi pour le critère 4 : **reformulé n'est pas
+   réglé**. L'explication n'ouvre plus sur ce que le panneau *ne fait pas* mais sur l'endroit d'où
+   l'ordre vient réellement : « L'ordre de céder le passage est porté par un second panneau, planté
+   à l'entrée même, et il ne commence pas avant : une obligation ne peut pas naître là où on
+   l'annonce, sinon il faudrait céder bien avant d'y arriver. » (216/220.) `:326` enregistre le
+   motif.
+2. **Deux gloses ajoutées sans que leur ligne bouge**, contre la politique que ce round s'était
+   lui-même donnée : `8a1026ed` avait gagné « Le panneau est planté face à ceux qui la
+   remonteraient, et à eux seuls » avec `:333` immobile, et la raison de finalité de `11d37be2`
+   (« éviter autant de panneaux de fin que d'interdictions posées ») n'était pas inscrite dans
+   `:311`, pourtant réécrite pour tout le reste. Les deux lignes portent désormais leur glose,
+   datée et étiquetée comme telle.
+3. **`7d44f7dd` disait « sans lui, la distance reste inconnue »**, ce qui laissait croire que le
+   **point** l'est aussi — alors que `:331` le donne (le prochain carrefour) et que la carte ne le
+   dit pas seulement parce que ce fait appartient à `37fe1af42b8d8184be`, dans un domaine clos.
+   Couper plutôt que paraphraser restait le bon geste (point 23) ; c'est la phrase résiduelle qui
+   était trompeuse. Corrigée en « à défaut, le repère n'est pas chiffré » (217/220), et `:331`
+   explique pourquoi la carte se tait sur l'endroit.
+
+### Deux constats consignés, non corrigés
+
+- **La colonne « marqueur de forme » de la table du masque sous-déclarait.** Quatre lignes ont été
+  reprises sur place : `ee11b58d` passe de « non » à « **oui, résiduel** » — sa bonne réponse nomme
+  « le triangle », c'est-à-dire le pictogramme, exactement la classe de marqueur corrigée sur
+  `…81709c` et `89bea09b` ; la carte n'ayant pas été touchée au round 3, le constat est consigné et
+  la carte n'est pas éditée. `…81709c` (« la voie qu'il désigne ») et `570e5e1e` reçoivent la même
+  note en plus faible. Et `9eb85068` ne compte « oui » que sous le critère annoncé — un
+  raisonnement de forme n'y vaut pas « connaître les règles » : « impose **déjà** » dans une option
+  et la bonne réponse seule à n'imposer ni n'autoriser répondent à la carte sans le dessin. La
+  ligne est donc **plus près d'un troisième échec** que la table ne le laissait croire, et le dit.
+  Le compte de marqueurs résiduels passe de trois à **six** ; le 17/19 lui-même ne bouge pas.
+- **Une erreur d'arithmétique dans ma propre correction du round 3** : l'encadré disait « **quatre**
+  lignes surévaluées » d'un côté et le résumé « **trois** échecs » de l'autre, en énumérant quatre
+  éléments. Le 16/19 est cohérent avec **trois** points de déduction : deux échecs pleins
+  (`11d37be2`, `9e65525b`) et deux demi-échecs (`…81709c`, `…81b3a4`). La prose de l'encadré le dit
+  maintenant.
+
+### Vérifications, fix round 4
+
+```
+$ python3 (renormalisation, puis comparaison des id contre HEAD)
+448 questions
+mêmes ids : True | 448 -> 448 | ajoutés : [] | retirés : []
+27 cartes | illustrées : 19 | code : 255 | illustrées totales : 49
+9eb8506813f0c8b729  énoncé 26 | option la plus longue 49 | expl 216   (budget 70/50/220)
+7d44f7dd303fce5871  énoncé 41 | option la plus longue 39 | expl 217   (budget 70/50/220)
+
+$ python3 Tools/audit.py > .passe3/final-14b.txt
+$ diff <(grep -E '^  \[' .passe3/final-14.txt) <(grep -E '^  \[' .passe3/final-14b.txt)
+(aucune différence — lignes de détail identiques à celles du round 3)
+sorties interdites : toutes vides
+
+$ python3 Tools/relire.py --fuites "Panneaux & marquage" | tail -2
+0 recouvrement(s) sur 27 cartes de « Panneaux & marquage ».
+
+$ (boucle sur les onze domaines clos, puis Priorités)
+0 recouvrement(s) … (les onze domaines clos)
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».   # plancher, inchangé
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] | tail
+✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.
+** TEST SUCCEEDED **
+```
+
+Les douze sections antérieures à « Panneaux & marquage » restent byte-identiques : `head -4517`
+reproduit le même MD5 (`177a3b3c7ddf5893ceb1c722cf3f9bcb`).
+
+### Résumé chiffré, fix round 4
+
+- **1 Important** (une clause vraie remplacée par une fausse en fermant un axe) et **3 minors**,
+  tous corrigés ; **2 constats** consignés sans édition de carte.
+- Cartes retouchées ce round : **3** (`…81699c`, `9eb85068`, `7d44f7dd`) — explication seule,
+  aucune option, aucun énoncé, aucune illustration.
+- Lignes de `Tools/sources.md` touchées : **5** (`:311`, `:315`, `:326`, `:331`, `:333`).
+- Critère 3 : **20 conformes sur 27**, inchangé — les trois retouches remplacent une clause par une
+  autre de même fonction.
+- Test du masque : **17/19**, inchangé ; colonne des marqueurs de forme reprise, 3 → **6**.
+- `--fuites` : **0** sur le domaine, maintenu ; 0 sur les onze domaines clos ; 3 sur
+  `Priorités & intersections`.
+- `audit.py` : identique **jusqu'aux lignes de détail** — `lettre/reference` 1, `forme/markdown` 1,
+  `forme/seule-ponctuee` 14, `longueur/plus-longue` 76, `expl/paraphrase-litterale` 20, sorties
+  interdites vides.
+- `✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.`

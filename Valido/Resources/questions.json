@@ -1009,7 +1009,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le rond prescrit ; sans liseré rouge, le fond bleu en fait une obligation — direction imposée, voie réservée, vitesse minimale. Un même bleu cerné de rouge ne commande plus rien : c'est l'anneau qui décide, pas le centre.",
+    "explanation": "Le rond prescrit ; sans liseré rouge, le fond bleu en fait une obligation — direction imposée, voie réservée, vitesse minimale. Un même bleu cerné de rouge n'oblige plus : c'est l'anneau qui décide, pas le centre.",
     "id": "37fe1af42b8d81699c2ffbefd648d9a3",
     "options": [
       {
@@ -8508,7 +8508,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Ce panneau prépare, il n'ordonne pas : l'ordre de céder le passage vient d'un second panneau, planté à l'entrée même. Une obligation ne peut pas commencer là où on l'annonce, sinon il faudrait céder bien avant d'y être.",
+    "explanation": "L'ordre de céder le passage est porté par un second panneau, planté à l'entrée même, et il ne commence pas avant : une obligation ne peut pas naître là où on l'annonce, sinon il faudrait céder bien avant d'y arriver.",
     "id": "9eb8506813f0c8b729b66157ec95a63f",
     "illustration": {
       "alt": "Vue depuis le poste de conduite, sur une route de campagne à deux voies ; un panneau triangulaire à bord rouge portant trois flèches disposées en anneau est planté sur l'accotement de droite.",
@@ -9135,7 +9135,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Ce que ce panneau change se produit plus loin, pas à sa hauteur : le seul renseignement qui puisse s'y ajouter est l'endroit. Un panonceau le chiffre en mètres ou en kilomètres ; sans lui, la distance reste inconnue.",
+    "explanation": "Ce que ce panneau change se produit plus loin, pas à sa hauteur : le seul renseignement qui puisse s'y ajouter est l'endroit. Un panonceau le chiffre en mètres ou en kilomètres ; à défaut, le repère n'est pas chiffré.",
     "id": "7d44f7dd303fce58716234cba54480b1",
     "illustration": {
       "alt": "Carré blanc posé sur la pointe, portant un losange jaune barré d'une large oblique noire.",
