@@ -4514,3 +4514,338 @@ même MD5 qu'avant la tâche 13, revérifié après ce round).
   répond à l'autre), et sa version stricte respectée sur `6012289…` — enseigner sans copier
   l'option, plutôt que copier moins pour tromper `norm()`.
 - `✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.`
+
+## Panneaux & marquage
+
+27 cartes, 2 `datée`, 19 illustrée(s) — le plus gros lot de la passe, et plus d'un tiers
+des 49 illustrées de la banque.
+
+### Écarts de justesse trouvés
+
+| id | écart | ce que disait la carte | ce que dit l'article | correction |
+|---|---|---|---|---|
+| `37fe1af42b8d81b5aa9fc685af3ba92f` | incohérence interne (l'option correcte contredisait la propre explication de la carte, qui cite l'affirmation du registre) | l'option D disait « un danger, quelques dizaines de mètres après » | l'affirmation et l'explication de la carte elle-même disent « implanté 100 à 200 m en amont hors agglomération » (IISR 2e partie, art. 21 et 25) — « quelques dizaines » (20-90 m) n'est pas « une centaine à deux cents » | option D réécrite en « un danger, une centaine de mètres plus loin », alignée sur le chiffre que la carte affirme déjà dans sa propre explication |
+| `8a1026edb35c31c37ab6df7b29851ef2` | explication au-delà de l'article | l'explication ajoutait « C'est le seul panneau d'interdiction dont la couronne ne porte aucun symbole » | l'affirmation ne couvre que la portée du B1 (sens unique, sens inverse) ; et deux voisines du même lot, B6a1 et B6d, ont elles aussi un disque à couronne rouge sans pictogramme, seulement une ou deux obliques — l'exclusivité affirmée est contredite par le lot lui-même | clause retirée ; le rule + le contraste (« il en interdit ce sens », pas la chaussée entière) suffisent sans elle |
+
+Le sujet du B31 (`11d37be22fd315668cb2930373e95c80`) a été vérifié de la même façon —
+l'explication ajoute que le disque blanc barré annule aussi « les prescriptions de
+vitesse annoncées avant lui » — mais une limitation de vitesse est elle-même une
+prescription d'interdiction (interdiction de dépasser le chiffre indiqué) dans la
+nomenclature B, et l'affirmation dit « toutes les interdictions signalées » sans
+l'exclure : lu comme un cas particulier de la règle affirmée, pas comme un ajout,
+donc non corrigé.
+
+### Le doublon inter-domaines
+
+Trouvé et pré-qualifié par la tâche 11, confirmé ici : `7d44f7dd303fce58716234cba54480b1`
+(« Ce panneau annonce la fin : ») et `37fe1af42b8d8184beb9c6687c92ffb5` (« Priorités &
+intersections », « Le panneau losange jaune barré signifie : ») illustrent le **même
+panneau** (AB7, le losange jaune barré) et testaient le **même fait** — la carte disait
+« il annonce que la route perd son caractère prioritaire au prochain carrefour », la
+voisine répond « La fin d'une route à caractère prioritaire ». `--fuites` confirmait
+aussi un second recouvrement, vers `8e9464777a61dba3859e3ecc08f7327d` (même domaine,
+« Vous, le losange jaune vous rend prioritaire »).
+
+`Priorités & intersections` est clos (tâche 10) ; le mouvement se fait donc côté
+`Panneaux & marquage`. L'affirmation du registre de ma carte porte deux clauses : « sans
+panonceau de distance » et « il annonce la perte de priorité au prochain carrefour » — la
+voisine ne teste que la seconde (ce que signifie le panneau) ; la première (la condition
+du panonceau, et où la règle par défaut s'applique) n'était testée nulle part. La carte a
+donc été réorientée sur cette clause plutôt que fusionnée ou supprimée : énoncé, options
+et explication réécrits pour porter sur le **quand** (au prochain carrefour, faute de
+panonceau) plutôt que sur le **quoi** (déjà testé ailleurs) :
+
+- énoncé : « Ce panneau annonce la fin : » → « Sans panonceau de distance, ce panneau
+  cesse de s'appliquer : »
+- options : « du caractère prioritaire de votre route » (A, correcte) / « de toutes les
+  interdictions signalées avant » (B) / « d'une limitation de vitesse ponctuelle » (C) /
+  « d'une section à statut autoroutier » (D) → « dès le panneau lui-même » (A) / « au
+  prochain carrefour rencontré » (B, correcte) / « à l'entrée de l'agglomération
+  suivante » (C) / « seulement au prochain panneau identique » (D)
+- explication : réécrite pour ne plus nommer « la route » ni « le caractère prioritaire »
+  (les mots de la réponse voisine), et pour dire à la place la clause du panonceau :
+  « Sans panonceau, ce losange jaune barré cesse au prochain carrefour : un panonceau de
+  distance déplacerait ce point. Il ne parle que de priorité, jamais d'une autre
+  prescription du trajet. »
+
+`grep -c "caractère prioritaire" Valido/Resources/questions.json` : quatre occurrences
+restantes, aucune sur ma carte réécrite — une dans un distracteur non touché de
+`11d37be22fd315668cb2930373e95c80` (B31, qui propose à tort « le caractère prioritaire
+de cette route » comme ce que le disque barré lèverait ; distracteur réel, déjà
+couvert par la preuve par carte ci-dessus, sans lien avec l'AB7), les trois autres
+dans `Priorités & intersections` (domaine clos). Aucune ligne de
+`sources.md` à toucher : l'affirmation couvrait déjà les deux clauses avant cette tâche,
+seul le test s'est déplacé de l'une à l'autre.
+
+### Doutes signalés, non corrigés
+
+| id | ce qui est douteux | ce qui a été lu | ce qui manque |
+|---|---|---|---|
+| `570e5e1ef861e032773f43b44bc817a9` | l'explication affirme « C'est le seul marquage routier où le rouge soit employé » | la ligne de registre ne couvre que la fonction du damier (voie de détresse, IISR 7e partie, art. 113-1 A 3 et 118-10), pas une exclusivité chromatique sur l'ensemble du marquage français | aucune des onze sources de la liste blanche ne traite de nomenclature chromatique du marquage au sol ; seule l'IISR le ferait, et elle n'est pas recevable comme autorité (§5 de `questions.md`) — la phrase est plausible (aucune autre couleur que blanc/jaune n'est utilisée en marquage permanent hors ce cas) mais ni confirmable ni manifestement fausse dans le périmètre de cette passe, donc laissée en l'état plutôt que corrigée au jugé |
+
+### Le registre et l'IISR
+
+Vérification demandée par le brief : dans les 27 lignes du domaine, l'IISR n'apparaît
+**jamais en colonne `source`** — les deux lignes `datée` (`…8141b1`, `…489d919a`) citent
+`legifrance.gouv.fr` (R412-19) ; les 25 lignes `stable` ont une colonne `source` vide,
+comme l'exige leur nature. L'IISR n'apparaît qu'en colonne `affirmation`, entre
+parenthèses, comme référence de la **portée** d'un panneau (« IISR 4e partie, art. 68-1 »
+pour le B31, etc.) — jamais comme fondement d'un chiffre. C'est le même usage, sur le
+même registre, que **seize** lignes déjà écrites par des tâches antérieures et closes
+(`sources.md` lignes 219, 231-232, 253, 268, 280, 282-283, 401, 404-406, 408-410, 418
+— dont sept de `Tunnels & passages à niveau`, tâche 9, qui a explicitement tranché :
+« la liste blanche ne mord pas, la question ne portant aucun chiffre »). Aucune ligne de
+mon domaine ne cite l'IISR comme **source** d'un chiffre ; aucune n'est donc une
+régression sur ce point.
+
+### Pédagogie
+
+- explications sous 120 caractères : 1 à l'entrée (`37fe1af42b8d81f8a2f3f8bd2afc9d2d`,
+  99 caractères, ne posait même pas la règle avant d'enchaîner sur un fait secondaire), 0
+  à la sortie.
+- cartes dont le budget de 220 a limité l'explication : `dce501d416e5db1cc6344725007fbad6`
+  (cédez le passage) tient exactement à 220 après l'ajout de sa raison manquante — un
+  caractère de plus aurait cassé le budget ; `443e4299ccb3ff71669f8df6669b8bf4` (STOP,
+  212) et `37fe1af42b8d8174a3c3e94967027ed1` (B21b, 214) étaient déjà tendues et n'ont pas
+  été touchées pour ne pas les faire déborder.
+- énoncés reformulés parce qu'ils présupposaient la règle : aucun. Le seul énoncé réécrit
+  du domaine (`7d44f7dd303fce58716234cba54480b1`, AB7) l'a été pour rompre le doublon
+  inter-domaines ci-dessus, pas parce qu'il présupposait la règle — les 26 autres se
+  lisent déjà sans connaître la réponse.
+
+### Preuve par carte, pour les 20 cartes non modifiées
+
+| id | rôle | règle / raison / limite (mots de la carte) |
+|---|---|---|
+| `11d37be22fd315668cb2930373e95c80` | B31, fin de toutes les interdictions | règle (« toutes les interdictions signalées avant lui ») + raison (« annule d'un coup les interdictions et les prescriptions de vitesse annoncées avant lui ») + limite (« Il ne touche pas à ce qui découle d'un texte général, comme la limitation propre à l'agglomération ») |
+| `1509ad94aea7c6f82355f3362b10a8e1` | B6d, arrêt interdit | règle (« vous arrêter, donc encore moins stationner ») + raison (« la prescription la plus large emporte l'autre ») + limite/contraste (« Deux obliques croisées au lieu d'une, et le panneau passe du seul stationnement à l'arrêt ») |
+| `1658abbc16db4667fec7211f8c9b0f93` | B6a1, stationnement interdit | règle (« le stationnement, du côté où il est planté ») + raison/limite explicite (« ne valent que du côté de la route où le panneau est posé, et jusqu'à la prochaine intersection ») + contraste (« Une oblique interdit le stationnement ; deux interdiraient aussi l'arrêt ») |
+| `37fe1af42b8d81709c93fcc98510a42d` | flèches de rabattement | règle (« de rejoindre la voie qu'il désigne ») + raison (« annoncent un marquage qui oblige à emprunter la voie ») + limite (« ici la ligne continue qui commence à leur extrémité, et qu'il serait interdit de franchir ») |
+| `37fe1af42b8d8174a3c3e94967027ed1` | B21b, tout droit au carrefour suivant | règle (« de continuer tout droit au carrefour suivant ») + raison (« Le disque prescrit, le fond bleu en fait une obligation ») + limite explicite (« C'est un panneau avancé : l'obligation joue au carrefour suivant, pas à sa hauteur. Le B21-1 […] impose au contraire de tourner avant lui ») |
+| `37fe1af42b8d817881dee3d999a911c3` | C1a, indication vs prescription | règle (« un renseignement, et rien de contraignant ») + raison (« Les panneaux d'indication sont carrés, les panneaux de prescription ronds ») + limite (« la forme suffit […] sans avoir à distinguer une seule couleur ») |
+| `37fe1af42b8d81b3a4b7d484aef5aef8` | ligne mixte, côté discontinu | règle (« permis, la discontinue étant de votre côté ») + raison (« chacun lit celle qui est de son côté ») + limite/autre sens (« le conducteur d'en face longe la continue et ne peut pas ») |
+| `37fe1af42b8d81d68a70da4a7305f6c1` | hachures | règle (« délimite une zone interdite à la circulation ») + raison (« couvrent les surfaces normalement inutilisées ») + mécanisme (« leur inclinaison, deux pour un, tend à ramener le conducteur vers l'axe de sa propre voie ») |
+| `443e4299ccb3ff71669f8df6669b8bf4` | STOP | règle (« un arrêt, même si la route est vide ») + raison (« réservé à ce seul panneau […] pour qu'il reste identifiable de dos, sous la neige ou en contre-jour ») + limite (« L'arrêt y est inconditionnel : il ne dépend d'aucun véhicule ») |
+| `570e5e1ef861e032773f43b44bc817a9` | damier de détresse | règle (« une voie de détresse, si vos freins lâchent ») + raison (« destinées à arrêter un véhicule qui a perdu ses freins ») + une clause au-delà de l'affirmation, signalée en doute ci-dessus plutôt que retirée au jugé |
+| `89bea09b482974f37e7dd7d35aba23f5` | A13b, passage piéton avancé | règle (« rien, il annonce un danger plus loin ») + raison (« l'instruction ne l'implante qu'en signalisation avancée, jamais en position ») + limite (« Le passage lui-même est tenu par le marquage au sol, pas par ce panneau ») |
+| `9e65525bbce6a6491d37bbf6f180c04c` | B3, dépassement interdit | règle (« un deux-roues sans side-car, moto comprise ») + raison/limite explicite (« L'interdiction porte sur tous les véhicules à moteur autres que ceux à deux roues sans side-car : une moto, un scooter ou un cyclomoteur restent doublables, un tracteur ou un camion non ») |
+| `9eb8506813f0c8b729b66157ec95a63f` | giratoire vs rond-point | règle (« un giratoire où la priorité est à l'anneau ») + raison (« un cédez-le-passage attend à l'entrée, et ceux qui tournent déjà passent avant ») + contraste (« Un rond-point laisserait jouer la priorité à droite ») |
+| `ede6968609d285b22494f57032c53e2f` | C113, voie vélo conseillée | règle (« réserve la voie sans l'obliger à la prendre ») + raison (« Le carré fait de ce panneau une indication ») + limite/contraste (« La piste ou bande rendue obligatoire relève de la prescription et se signale, elle, par un panneau rond ») |
+| `ee11b58d97d21d637c3ec38c7181fa87` | panonceau sous A14 | règle (« nomme le danger que le triangle laisse ouvert ») + raison (« Un panonceau ne prescrit rien : il précise ») + limite (« Le point d'exclamation ne sert qu'aux dangers sans symbole propre ») |
+| `1a0a5812ff8659ba24b3b4c750e469e5` | ligne mixte, côté continu | règle (« De dépasser et de franchir la ligne ») + raison (« chaque conducteur lit celle qui est de son côté ») + limite/autre sens (« le véhicule d'en face, qui longe la discontinue, peut dépasser ») |
+| `37fe1af42b8d81059d80e8954b36ed7f` | rond à bord rouge | règle (« Une interdiction, applicable ici ») + raison (« signale une prescription qui s'applique à l'endroit même du panneau ») + limite/famille (« le liseré rouge en fait une interdiction — sens interdit, vitesse limitée, dépassement interdit ») |
+| `37fe1af42b8d8141b1d0e3ca0b855119` | ligne continue, R412-19 (datée) | règle (« Interdit le franchissement comme le chevauchement ») + limite exacte (« ne réserve qu'une exception : chevaucher la ligne pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé ») + sanction (« Franchir coûte 3 points, chevaucher 1 ») |
+| `3cb86b6e4c489d919a495408021f062a` | chevauchement, points (datée) | règle (« 1 point, le chevauchement étant distingué ») + raison (« chevaucher la ligne coûte 1 point, la franchir en coûte 3 ») + limite/exception (« autorise même le chevauchement pour dépasser un cycle ou une trottinette motorisée ») |
+| `f12ee5bea85947a13d387f574e817337` | chantier contredisant un panneau permanent | règle (« applique la signalisation temporaire ») + raison (« Le principe de cohérence impose de masquer provisoirement le panneau permanent en cause ») + limite (« seule reste en vigueur la signalisation temporaire du chantier ») |
+
+Modifiées 7 + non modifiées 20 = 27, sans reste.
+
+### Les sept cartes modifiées
+
+- `37fe1af42b8d81b5aa9fc685af3ba92f` (A1a virage) — écart de justesse ci-dessus : option D
+  réécrite.
+- `8a1026edb35c31c37ab6df7b29851ef2` (B1) — écart de justesse ci-dessus : clause retirée
+  de l'explication.
+- `7d44f7dd303fce58716234cba54480b1` (AB7) — doublon inter-domaines ci-dessus : énoncé,
+  quatre options et explication réécrits.
+- `dce501d416e5db1cc6344725007fbad6` (cédez le passage) — critère 3 : à 161/220,
+  l'explication décrivait les indices visuels et le contraste avec le STOP, mais pas de
+  raison propre à la règle « pas d'arrêt obligatoire ». Ajoutée : « Ce qui compte est la
+  voie libre, pas l'arrêt » — la logique même du cédez-le-passage, sans fait nouveau au
+  registre.
+- `37fe1af42b8d81f8a2f3f8bd2afc9d2d` (ligne discontinue axiale) — la seule explication
+  sous 120 caractères du domaine (Pédagogie ci-dessus) : réécrite pour poser la règle
+  avant le fait secondaire sur la longueur des traits, et rééquilibrée en longueur (voir
+  ci-dessous).
+- `37fe1af42b8d81699c2ffbefd648d9a3` (panneau rond fond bleu) — option A allongée pour que
+  la bonne réponse (B, 43) ne soit plus la seule plus longue (avant : +3 sur la 2e ;
+  après : la plus longue est A, 51).
+- `5a4e6a38ad3e1153f807ec5e0e6ba40e` (ligne discontinue en bord de chaussée) — même
+  défaut (+5), même fix : option B allongée.
+
+Aucune de ces sept corrections n'a changé ce qui est affirmé au-delà de la ligne de
+registre existante : `Tools/sources.md` n'a donc aucune ligne à modifier pour ce domaine
+(vérifié carte par carte, ci-dessus et dans le doublon inter-domaines).
+
+### Les options
+
+Relues contre les sept règles du §2 de `questions.md` et contre le point 14 du calibrage
+(« existe-t-il une lecture où le distracteur EST la bonne réponse ? »), pour les 27
+cartes, pas seulement les modifiées. Aucun distracteur trouvé absurde, éliminable par la
+forme, ou légitimé par sa propre carte, hormis les deux longueurs corrigées ci-dessus.
+
+**Point 22 — récurrence de forme sur les distracteurs seuls.** Le motif nommé par le
+calibrage (`dans tous les cas|sans exception|en toute saison|en toutes circonstances`) :
+zéro occurrence sur les 27 cartes (et cinq sur toute la banque `code`, dans quatre autres
+domaines). Un balayage plus large des 81 distracteurs du lot ne fait apparaître aucune
+autre forme répétée trois fois ou plus (le seul rapprochement trouvé — « une
+interdiction, applicable [ici/dès sa hauteur] » entre `…81059d` (bonne réponse) et
+`…81b5aa` (distracteur A) — ne recouvre que deux cartes, avec une bonne réponse d'un côté
+et un distracteur de l'autre, donc rien qui apprenne une heuristique).
+
+**`correctID` — mesuré avant et après.** Avant : A 8, B 5, C 6, D 8 (sur 27) — pas de
+lettre systématiquement bonne, pas de correction requise par elle-même. Le seul
+mouvement vient du réaménagement du doublon AB7 : ses quatre options ont été réécrites de
+toute façon, l'occasion a été prise de faire porter la bonne réponse par B plutôt que par
+A, qui était déjà la lettre la plus chargée. Après : A 7, B 6, C 6, D 8 — la répartition
+qui s'écartait le plus de l'équilibre (D, à 8 sur 27) reste inchangée, faute d'avoir
+retouché une autre carte `D` pour cette seule raison ; aucune rotation forcée sur un
+contenu par ailleurs conforme.
+
+### Fuites — points 13 et 17, séparément
+
+**Point 13 — les sept bonnes réponses sous le seuil de trois mots pleins.** `relire.py`
+ignore toute bonne réponse dont les tokens `[a-z0-9]+` d'au moins cinq caractères
+(après minuscule et suppression des accents) sont moins de trois :
+
+| id | bonne réponse | mots pleins (≥ 5 car.) | n |
+|---|---|---|---|
+| `37fe1af42b8d81059d80e8954b36ed7f` | « Une interdiction, applicable ici » | `applicable`, `interdiction` | 2 |
+| `37fe1af42b8d81709c93fcc98510a42d` | « de rejoindre la voie qu'il désigne » | `designe`, `rejoindre` | 2 |
+| `37fe1af42b8d817881dee3d999a911c3` | « un renseignement, et rien de contraignant » | `contraignant`, `renseignement` | 2 |
+| `443e4299ccb3ff71669f8df6669b8bf4` | « un arrêt, même si la route est vide » | `arret`, `route` | 2 |
+| `89bea09b482974f37e7dd7d35aba23f5` | « rien, il annonce un danger plus loin » | `annonce`, `danger` | 2 |
+| `1658abbc16db4667fec7211f8c9b0f93` | « le stationnement, du côté où il est planté » | `plante`, `stationnement` | 2 |
+| `9e65525bbce6a6491d37bbf6f180c04c` | « un deux-roues sans side-car, moto comprise » | `comprise`, `roues` | 2 |
+
+Grep à la main de la phrase entière et de la paire de jetons, sur les 27 énoncés,
+explications, `alt` et **options** du domaine (pas seulement les explications) :
+
+- aucune phrase entière retrouvée ailleurs que sur sa propre carte ;
+- trois paires de jetons se recoupent, toujours contre une **option fausse** d'une autre
+  carte, jamais contre une bonne réponse ni une explication : « applicable » +
+  « interdiction » (bonne réponse de `…81059d`) contre le distracteur A de `…81b5aa`
+  (« une interdiction, applicable dès sa hauteur ») ; « arrêt » + « route » (bonne réponse
+  de STOP, `443e4299…`) contre l'explication de `…16db4667fe` — mais seulement les deux
+  mots isolés, pas le fait « arrêt obligatoire même si la route est vide » ; « annonce » +
+  « danger » (bonne réponse de `…974f37e`, A13b) contre trois distracteurs différents
+  (« Un danger, annoncé en amont », « Annonce un danger, sans rien interdire », « un
+  danger annoncé quelques mètres avant ») qui partagent tous la tournure générique
+  « annonce un danger », plausible pour n'importe quel panneau triangulaire — vocabulaire
+  commun de la famille « triangle = danger », pas la réponse d'une carte donnée à une
+  autre.
+
+Aucun des sept ne fuit réellement : dans les trois cas de recoupement, ce qui se recoupe
+est un fragment générique (deux mots isolés, ou une tournure passe-partout), jamais assez
+pour reconstituer la réponse propre à la carte visée, et jamais contre une bonne réponse.
+
+**Point 17 — relecture séparée, contre les bonnes réponses ET les options des voisines,
+reformulées comprises.** Fait à la lecture du lot entier (étape 2, avant toute édition) et
+revérifié après : les paires « B6a1 / B6d » (obliques simple/double), « A1a / A13b »
+(triangle = danger, disque = prescrit), « C1a / C113 » (carré = indication) et « ligne
+mixte / ligne mixte » (les deux côtés du même marquage) partagent une même heuristique
+d'une carte à l'autre, mais chacune teste un fait distinct que l'autre ne donne pas :
+aucune des quatre paires ne permet de répondre à sa voisine sans autre connaissance que
+cette heuristique commune, déjà documentée comme volontaire par la passe 2 (« miroir
+1a0a5812 / …f5aef8 : constat réel, mais les deux cartes ont été délibérément
+différenciées plutôt que fusionnées », §9.3 de `audit-2026-08-passe-2.md`) et non
+rejugée puisque le domaine n'a pas grossi depuis (17 → 27, stable à 27 pour cette tâche).
+
+**`--fuites` — mécanique, cross-domaine et intra-domaine.** Avant édition : 4
+recouvrements — le doublon AB7 (2, vers `Priorités & intersections`, traité ci-dessus) et
+deux cas internes sur `1a0a5812ff8659ba24b3b4c750e469e5` (« De dépasser et de franchir la
+ligne ») contre les explications des deux cartes `datée` sur R412-19. Une modification de
+`…81f8a2` (ligne discontinue axiale) a ajouté un cinquième recouvrement fortuit sur la
+même cible pendant la réécriture (« la franchir » + « dépasser » + « ligne continue ») —
+refermé en substituant « traverser » à « franchir » dans cette phrase, sans rien changer
+au fait enseigné (point 23 : c'est l'information qui doit être coupée, pas le mot — ici
+il n'y avait pas d'information à couper, seulement une collision lexicale entre deux
+sujets adjacents). Après : **2 recouvrements**, tous deux sur les cartes `datée` de
+R412-19 vers la même carte `…81a24` (ligne mixte), jugés irréductibles : les trois cartes
+partagent le vocabulaire légal de l'article (franchir, chevaucher, dépasser un cycle) et
+chacune ajoute un fait propre que les deux autres ne donnent pas (le régime général et
+son exception pour l'une, le barème de points pour l'autre, la lecture d'une ligne mixte
+pour la troisième) — même situation que le plancher structurel documenté sur
+`Priorités & intersections` (3 recouvrements autour du vocabulaire AB6, ruled floor),
+non corrigée pour la même raison : la fermer par reformulation viderait l'une des trois
+cartes de sa précision légale sans rien retirer d'apprenable.
+
+### Les 19 illustrées, une par une : l'image fait-elle le travail ?
+
+| id | ce que montre l'image, exploité par les options |
+|---|---|
+| `11d37be22fd315668c` | le disque barré **sans aucun chiffre** exclut A (dépassement seul) et C (vitesse) — sans l'image, aucune des quatre options n'est déductible |
+| `1509ad94aea7c6f823` | la **double** oblique croisée (contre l'oblique simple de la voisine B6a1) porte à elle seule le passage du stationnement à l'arrêt |
+| `1658abbc16db4667fe` | l'oblique **simple** (contre la double de B6d) borne l'interdiction au seul stationnement |
+| `37fe1af42b8d81709c` | les flèches courbant vers la droite et la ligne qui **devient continue au-delà** sont ce qui fait choisir D plutôt que A/B/C |
+| `37fe1af42b8d8174a3` | la flèche **verticale** (contre l'horizontale du B21-1) tranche entre A et C |
+| `37fe1af42b8d817881` | la forme **carrée** (contre les panneaux ronds testés ailleurs dans le lot) porte directement D |
+| `37fe1af42b8d81b3a4` | la position de la **discontinue de votre côté** décide entre permis/interdit — sans l'image, 50/50 |
+| `37fe1af42b8d81b5aa` | la forme **triangulaire** tranche entre les quatre catégories (interdiction/ordre/service/danger) ; le pictogramme du virage lui-même n'est pas exploité par les options — c'est l'axe forme/couleur→famille déjà relevé par la passe 2 (§9.5 n° 6, 5 cartes sur 27), constat réel mais tranché et non rejugé puisque le domaine n'a pas grossi depuis |
+| `37fe1af42b8d81d68a` | le motif **hachuré** (contre un simple marquage de voie) identifie une zone interdite à la circulation |
+| `443e4299ccb3ff7166` | l'**octogone** et l'inscription STOP identifient ce panneau précis (contre le cédez-le-passage voisin du lot) et donc son régime d'arrêt inconditionnel |
+| `570e5e1ef861e03277` | le **damier rouge et blanc** exclut à lui seul les trois distracteurs (aire de repos, péage, plateforme) |
+| `7d44f7dd303fce5871` | le **losange jaune barré** doit être identifié pour savoir de quel panneau il s'agit, sur la carte réécrite comme sur l'ancienne |
+| `89bea09b482974f37e` | le pictogramme piéton dans un **triangle** (pas un rond, pas un simple marquage au sol) porte directement « il annonce, il ne prescrit pas » |
+| `8a1026edb35c31c37a` | le disque **rouge plein sans couronne** (contraste avec B6a1/B6d, bleu à couronne rouge, dans le même lot) identifie B1 et son régime de sens unique |
+| `9e65525bbce6a6491d` | les **deux voitures** (pas un pictogramme générique) précisent que l'interdiction porte sur les véhicules à moteur, laissant les deux-roues doublables |
+| `9eb8506813f0c8b729` | les trois flèches en **anneau** (contre l'absence de panneau pour un rond-point) tranchent entre C et D — sans l'image, 50/50 |
+| `dce501d416e5db1cc6` | le triangle **pointe en bas** et la ligne discontinue à traits **larges** (contre un STOP) excluent A |
+| `ede6968609d285b224` | la forme **carrée bleue** porte directement la distinction « conseillée » contre le panneau rond qui, lui, obligerait |
+| `ee11b58d97d21d637c` | le texte **« CARRIÈRE »** inscrit sur la plaque prouve concrètement qu'un panonceau nomme le danger, plutôt que reprendre la prescription ou indiquer une distance |
+
+Dix-neuf sur dix-neuf : l'image fait un travail nécessaire (aucune des quatre options
+n'est déductible du seul énoncé). Une seule, `37fe1af42b8d81b5aa` (A1a), le fait
+principalement sur l'axe forme/couleur plutôt que sur le pictogramme précis — situation
+déjà connue et tranchée par la passe précédente, non rouverte ici.
+
+### Trois constats de dessin parqués, toujours ouverts
+
+Hors périmètre de cette tâche (dessin, pas contenu) — ni les assets ni `Tools/Scenes/`
+n'ont été touchés :
+
+- **listel blanc invisible en mode clair sur quatre panneaux** (§9.5 n° 6 de
+  `audit-2026-08-passe-2.md`, signalé comme « la première chose à regarder ») — toujours
+  ouvert, non revérifié pixel par pixel (hors périmètre).
+- **`panneau-b33-fin-limitation`** : le halo entaille le « 7 » (§9.5 n° 3) — toujours
+  référencé dans la banque (`grep panneau-b33-fin-limitation Valido/Resources/questions.json`,
+  une occurrence, hors des 27 cartes de ce domaine) ; asset non modifié.
+- **l'orientation verticale du chevron** de `marquage-zebra` est un choix de dessin et non
+  une citation, absente de la liste des licences déclarées d'`images.md` (§9.5 n° 7) —
+  vérifié : la liste de « Trois licences prises sur la géométrie » (`Tools/images.md`,
+  autour de la ligne 647) ne mentionne toujours pas ce choix. Toujours ouvert.
+
+### Mouvements d'`audit.py`
+
+| sortie | avant | après |
+|---|---|---|
+| `lettre/reference` | 1 | 1 |
+| `forme/markdown` | 1 | 1 |
+| `forme/seule-ponctuee` | 14 | 14 |
+| `longueur/plus-longue` | 79 | 76 |
+| `expl/paraphrase-litterale` | 20 | 20 |
+| `schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` | vides | vides |
+
+Les trois occurrences de `longueur/plus-longue` retirées de ce round appartenaient
+toutes aux 27 cartes du domaine (`…81699c`, `…81f8a2`, `5a4e6a38…`) ; aucune autre carte
+de la banque n'est affectée. `expl/paraphrase-litterale` reste à 20 : aucune des sept
+cartes modifiées n'était comptée dans les 20, et aucune ne l'est devenue — vérifié par
+`norm(bonne) in norm(explication)` sur les sept avant de conclure.
+
+### Vérifications
+
+```
+$ python3 Tools/audit.py > .passe3/apres-14.txt
+$ diff <(grep -E '^### ' .passe3/avant-14.txt) <(grep -E '^### ' .passe3/apres-14.txt)
+25c25
+< ### longueur/plus-longue  (79)
+---
+> ### longueur/plus-longue  (76)
+(+ les trois lignes détaillées retirées, mêmes trois cartes que ci-dessus)
+
+$ python3 Tools/relire.py --fuites "Panneaux & marquage" | tail -5
+2 recouvrement(s) sur 27 cartes de « Panneaux & marquage ».
+Chacun se relit à la main : un mot commun est normal, la réponse entière ne l'est pas.
+
+$ python3 - <<'EOF'
+# vérification des ids (script de l'étape 6)
+EOF
+mêmes ids : True | 448 -> 448
+ajoutés : [] | retirés : []
+
+$ git status --porcelain
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+
+✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.
+```
