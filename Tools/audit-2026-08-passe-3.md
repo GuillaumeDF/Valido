@@ -1,3 +1,118 @@
+# Relecture des 255 questions `code` — passe 3, août 2026
+
+Troisième passe de contenu. La première ([`audit-2026-08.md`](audit-2026-08.md)) a
+vérifié des valeurs et l'a consigné en prose ; la deuxième
+([`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md)) a construit le registre de
+fraîcheur, la carte de couverture et le registre d'images. Celle-ci lit chaque carte
+`code` **contre sa ligne de registre** et la réécrit pour qui découvre la règle.
+
+Spec : [`docs/superpowers/specs/2026-08-27-relecture-code-pedagogie-design.md`](../docs/superpowers/specs/2026-08-27-relecture-code-pedagogie-design.md).
+
+Treize sections de domaine suivent, dans l'ordre de marche de la spec, puis « Repères
+recomptés » et la ligne de base publiée. Les sections de domaine sont l'autorité : les
+quatre tableaux ci-dessous ne font que les additionner, et chaque total dit d'où il vient.
+
+## Ce que la passe a trouvé
+
+| | nombre |
+|---|---:|
+| cartes relues | 255 |
+| cartes `code` modifiées | 175 |
+| valeurs périmées corrigées | **0** |
+| règles énoncées trop largement, resserrées | 10 |
+| explications qui dépassaient l'article, coupées ou sourcées | 13 |
+| doutes signalés sans correction | 4 |
+| sources rouvertes (déclenchement de l'étape 3) | 31 lignes redatées |
+| explications sous 120 caractères | 24 → **0** |
+| fuites d'une carte vers une autre, trouvées et éteintes | 30 |
+
+**D'où vient chaque nombre.** Aucun n'est un arrondi ; ceux qui ne se lisent pas
+directement dans une section portent leur méthode ici.
+
+- **255 relues, 175 modifiées** — décomposition exhaustive en « Repères recomptés » :
+  148 explications, 18 énoncés, les options de 54 cartes (dont 8 par simple rotation de
+  `correctID`, soit 66 textes d'option neufs), et 1 `alt` d'illustration. Les trois
+  premières catégories se recouvrent et couvrent 174 cartes ; l'`alt` est la 175ᵉ.
+- **0 valeur périmée** — les treize tableaux « Écarts de justesse trouvés » ne portent
+  **aucune** ligne de cette catégorie. `Premiers secours` l'écrit en toutes lettres
+  (« Aucune valeur périmée »), `Alcool & stupéfiants` et `Distances & freinage` écrivent la
+  forme plus large (« aucun écart de justesse au sens strict des trois catégories »). Ce
+  n'est pas un angle mort de la relecture, c'est le registre de fraîcheur qui a fait son
+  travail : les 130 lignes `datée` avaient été relevées entre le 2026-08-23 et le
+  2026-08-27, et la dernière loi à avoir déplacé des valeurs du périmètre (n° 2026-798 du
+  18 août 2026, peines d'alcoolémie délictuelle, de stupéfiants et de refus de dépistage)
+  était **déjà** absorbée en ligne, avec l'ancien couple 2 ans / 4 500 € recyclé en
+  distracteur, avant l'ouverture de cette passe. Un zéro obtenu par un registre à jour,
+  pas par une lecture distraite.
+- **10 règles trop larges** — les lignes étiquetées « règle trop large » dans les treize
+  tableaux, comptées par carte : `fed604fe…` (`Vitesse`), `a6fb8c06…`, `b7b38d7a…`,
+  `e6f52409…` (`Usagers`), `089e9b57…` (`Mécanique`), `37fe1af4…447202` (`Arrêt`),
+  `8a6af9d2…` (`Tunnels`), `f1ae9582…`, `ad7c53ef…` (`Croisement`), `37fe1af4…17d43`
+  (`Feux`, comptée aussi dans la ligne suivante, l'étiquette portant les deux écarts).
+- **13 explications au-delà de l'article** — 9 lignes ainsi étiquetées dans les treize
+  tableaux (`f4053725…`, `c29b2e7d…`, `37fe1af4…447202`, `3a06288b…`, `7148c3a8…`,
+  `37fe1af4…a5a505`, `37fe1af4…17d43`, `37fe1af4…1bb26`, `8a1026ed…`) plus les 4 raisons
+  non sourcées de `Premiers secours`, dont le tableau a une autre forme mais dont la
+  section dit « le défaut dominant est *explication au-delà de l'article* ». Deux lignes
+  de tableau ne sont dans **aucune** des trois catégories de la spec et ne sont donc
+  comptées nulle part ici : la citation de registre tronquée de `37fe1af4…6aafb6`
+  (`Feux`, point 12 du calibrage) et l'incohérence interne de `37fe1af4…3ba92f`
+  (`Panneaux`, l'option correcte contredisait sa propre explication).
+- **4 doutes** — les lignes des quatre tableaux « Doutes signalés, non corrigés » qui en
+  portent : `37fe1af4…5e5142` (`Vitesse`, les 6 points du régime délictuel jamais rattachés
+  à un article en vigueur), `173c63ba…` (`Mécanique`, la durée de la formation B96),
+  `d50cd498…` (`Tunnels`, le sens de dégagement entre quatre demi-barrières),
+  `570e5e1e…` (`Panneaux`, l'exclusivité chromatique du rouge en marquage). Les neuf autres
+  domaines écrivent « aucun » et disent pourquoi.
+- **31 lignes redatées** — mesure exacte, pas un décompte de prose : lignes de
+  `Tools/sources.md` dont la colonne `relevé le` a avancé entre le merge-base `0976d5e` et
+  HEAD (24 au 2026-08-27, 6 au 2026-08-28, 1 au 2026-08-29). C'est la trace **datée** des
+  sources rouvertes ; 75 lignes du tableau ont été modifiées au total, les 44 autres étant
+  des compléments d'affirmation tirés d'une lecture déjà faite. Deux réserves : une source
+  rouverte qui ne change rien ne déplace pas forcément sa date — `Mécanique & environnement`
+  nomme sept articles relus **en entier** sans écart, qui ne laissent aucune trace dans ce
+  compte — et `Alcool & stupéfiants` écrit à l'inverse que rien n'y a été rouvert au sens
+  de l'étape 3, la condition d'ouverture ne s'étant présentée sur aucune de ses 18 cartes.
+  Le nombre borne donc par le bas les lectures réelles.
+- **24 → 0** — mesuré deux fois, par deux chemins qui coïncident : la somme des treize
+  bullets « explications sous 120 caractères : *n* à l'entrée » des sections Pédagogie fait
+  24, et chacune dit « 0 à la sortie » ; et un comptage direct sur `questions.json` donne
+  24 sur `git show 0976d5e:Valido/Resources/questions.json` contre 0 sur le fichier livré.
+  C'est le chiffre que la spec citait comme mesure du défaut « la carte teste, elle
+  n'enseigne pas ».
+- **30 fuites** — comptées carte par carte, avec une règle explicite : une **paire nommée
+  dans le rapport** où une carte livrait la réponse d'une autre, et que la passe a fermée.
+  Les recouvrements documentés comme fortuits et **gardés** n'y sont pas (vocabulaire légal
+  partagé, constantes de classe à 135 €/35 €, plancher structurel AB6 à 3, analogie des
+  quatre points de `Feux`) : ils sont dans « Constats parqués ». Par domaine :
+  `Permis & sanctions` 1, `Vitesse` 0, `Alcool & stupéfiants` 1, `Usagers` 0,
+  `Mécanique & environnement` 2, `Distances & freinage` 1, `Arrêt & stationnement` 4,
+  `Premiers secours` 3, `Tunnels & passages à niveau` 3, `Priorités & intersections` 3,
+  `Croisement & dépassement` 0, `Feux` 3, `Panneaux & marquage` 9. **Cinq seulement ont
+  été trouvées par `--fuites`** (`…81d29c` sur `Permis & sanctions`, `5e2dbc0489` sur
+  `Premiers secours`, `1e329fa1` et `1fe6ef49` sur `Tunnels`, la paire antibrouillard sur
+  `Feux`) : **vingt-cinq l'ont été à la main**, parce qu'elles passaient sous le seuil de
+  trois mots pleins, vivaient dans les **options**, ou redisaient la réponse voisine en
+  d'autres mots. C'est le fait le plus important de cette ligne, et la raison d'être de la
+  section « Ce que l'outillage ne voit toujours pas ».
+
+## Ce que la passe n'a pas fait, et pourquoi
+
+- **Les 193 questions `swift`** : hors périmètre de la demande. Elles servent de témoin —
+  leur écart de longueur est resté à `+1,6` au dixième près, ce qui sépare l'effet de la
+  réécriture d'un artefact de mesure (voir « Repères recomptés »).
+- **Le plafond de 220 caractères des 49 illustrées : tenu.** `audit.py` ne remonte aucune
+  sortie `image/`. Les cartes où il a limité l'explication sont nommées domaine par domaine,
+  dans le bullet « cartes dont le budget de 220 a limité l'explication » de chaque section
+  Pédagogie. La marge réelle est nulle sur les plus tendues : quatre cartes finissent à
+  **219/220** (`dce501d4…`, `1658abbc…`, `639297cf…`, `39fa27d5…`) et une cinquième à 218.
+  C'est un régime pédagogique à deux vitesses, assumé, pas un oubli — sur ces 49 cartes,
+  enseigner mieux veut dire couper du redondant, jamais allonger.
+- **La génération depuis les pages de cours**, seule chose qui fera un feed infini (§10 de
+  la passe 2). 255 cartes meilleures ne font pas plus de cartes.
+- **Les seuils d'`audit.py` et de `BundledContentTests`** : aucun n'a été touché, ce que la
+  spec posait comme condition. Un échec s'y corrige dans les données.
+
 ## Permis & sanctions
 
 19 cartes, 19 `datée`, 0 illustrée(s).
@@ -6058,3 +6173,147 @@ le moindre mouvement de ces compteurs voudrait dire le contraire. Les sorties `s
 `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10` et `forme/backtick-isole` restent
 vides. Les deux dernières lignes correspondent aux écarts du tableau ci-dessus, qui est mesuré par
 un autre chemin (moyenne globale) que le leur (moyenne des écarts par carte) : les deux coïncident.
+
+## Ce que l'outillage ne voit toujours pas
+
+Sur le modèle du §7 de la passe 2. Chaque angle mort a **coûté un défaut réel dans cette
+passe** : la colonne de droite dit où le regarder dans le code, la dernière où il a mordu.
+
+| n° | angle mort | ligne d'outil | où il a mordu |
+|---|---|---|---|
+| 1 | **`expl/paraphrase-litterale` teste une sous-chaîne littérale**, pas un sens. `norm()` ne fait que minuscules + suppression des diacritiques : il ne touche ni à la ponctuation ni aux chiffres. Écrire « quatre » au lieu de « 4 » fait donc **sortir** une carte de la liste sans qu'aucune fuite ne se ferme. | `Tools/audit.py:194-195`, `norm()` en `31-34` | `37fe1af42b8d8158b3dbf9883bf83560` (stage de sensibilisation). Bonne réponse « 4 points » ; l'explication réécrite dit « il crédite au plus **quatre** points ». Elle énonce toujours la réponse — c'est le détecteur qui ne la voit plus. **Le compteur a baissé d'un cas pour rien : c'est le cas le plus instructif de la passe.** |
+| 2 | **`--fuites` ignore toute bonne réponse de moins de trois mots pleins**, un mot plein étant un jeton `[a-z0-9]+` d'au moins **cinq** caractères. « 1,6 mm » compte 0 mot plein, « à portée de main dans l'habitacle » en compte 2. Le seuil a été choisi pour la lisibilité (235 faux positifs en sous-chaîne, 49 à deux mots, 19 à trois), **pas parce que deux mots ne fuient jamais**. | `Tools/relire.py:120`, `mots()` en `92` | `Mécanique & environnement` : « 1,6 mm » apparaissait **en entier** dans l'explication de sa voisine, et la réciproque en d'autres mots. `Premiers secours` : « 112 » livrait la réponse de la carte voisine. Aucune n'a jamais été signalée. |
+| 3 | **`--fuites` n'inspecte que les `explanation`.** Les **options** ne sont jamais comparées entre elles, dans aucun sens. | `Tools/relire.py:112` | `Mécanique & environnement` : l'option A de la carte « gilet » nomme « le triangle », c'est-à-dire la moitié de la bonne réponse de la carte « équipements ». `Premiers secours` : `…81f7a2` → `…8175a7`. `Panneaux & marquage` : trois paires de jetons se recoupent contre des options fausses. |
+| 4 | **`--fuites` ne voit pas une réponse redite en d'autres mots.** Le test est une inclusion d'ensembles de mots pleins ; une paraphrase sans mot commun passe, et une reformulation suffit à faire retomber le compteur à zéro **sans fermer la fuite** (point 23 du calibrage). | `Tools/relire.py:120` | `Alcool` (« rien d'extérieur n'accélère ce rythme » = la réponse de la voisine), `Arrêt` (quatre recouvrements dans le trio des marquages jaunes, `--fuites` à 0 aux deux rondes), `Priorités` (deux fuites sémantiques du cluster AB6), `Feux` (la paire antibrouillard « refermée » d'abord par les mots, pas par l'information), `Panneaux` (six paires internes). |
+| 5 | **`--fuites` ne voit pas une comparaison numérique interne.** L'outil ne cherche que le sens carte → réponse externe ; « un de plus que le non-respect des distances » donne un barème sans citer aucun mot de la réponse visée. | `Tools/relire.py:112-120` | `Distances & freinage`, `a4f04a…` livrait le nombre de points de `…81e7a0` par simple arithmétique. |
+| 6 | **Collision de sous-chaîne dans `expl/paraphrase-litterale`** : sans frontière de mot, « 35 € » est « trouvé » dans « 135 € ». Troisième classe du point 16 du calibrage, distincte du vrai défaut et du faux positif chiffré. | `Tools/audit.py:195` | `Arrêt & stationnement`, `37fe1af4…708f0042` : la carte cite 135 € **par contraste** et ne porte nulle part son propre 35 €. |
+| 7 | **`longueur/plus-longue` est informatif, et son seuil dur est ailleurs.** Une bonne réponse à **+10 pile** ne produit aucune sortie interdite alors qu'elle est à un caractère de `longueur/plus-10` — et le §1 de `questions.md` rappelle que la plus longue option est l'indice le plus fiable de tout QCM. | `Tools/audit.py:164-165` | `Distances & freinage` a livré une bonne réponse à +10 pile alors qu'une reformulation sans perte la ramenait à +1 (point 15 du calibrage). |
+| 8 | **`forme/backtick-isole` ne mord que si une option porte un backtick**, et un seul distracteur qui partage le statut de la bonne réponse suffit à le désarmer. Son zéro ne prouve rien sur un lot sans code span — c'est-à-dire sur **les 255 cartes `code`**. | `Tools/audit.py:175-177` | Nulle part, et c'est le problème : la sortie est vide sur tout le périmètre de cette passe sans avoir rien contrôlé. |
+| 9 | **Aucune sortie ne mesure « règle trop large ».** La carte est bien formée, sa ligne existe, sa source est recevable, et elle dit quand même plus que l'article. C'est le défaut qui justifiait la passe, et il se cherche **clause par clause**, une carte lue d'ensemble « disant la même chose » que son affirmation. | — | 10 cas, sur 8 domaines. `Usagers` en a livré deux qui avaient la même cause : la carte comparée à son affirmation par blocs, pas proposition par proposition (point 10 du calibrage). |
+| 10 | **Une citation tronquée dans le registre rend l'affirmation elle-même fausse**, et aucun contrôle ne la voit : `audit.py` vérifie qu'une ligne existe et que son domaine est blanc, jamais qu'elle ferme sa phrase. Un guillemet fermant au milieu d'une phrase est un mensonge par omission — et la relecture clause par clause, méthode juste, laisse alors passer la carte, parce que c'est **l'affirmation** qui est incomplète. | `Tools/audit.py`, contrôles `source/` | **Six lignes de registre, sur quatre domaines.** `Usagers` (R412-11-3, guillemet fermé juste avant le « nonobstant » qui change le champ d'application) ; `Permis` (R223-1 III) ; `Mécanique` (R412-2 III, tronqué entre les points d'une énumération, et L2213-4-1 II, avec un mot du texte laissé hors des guillemets) ; `Feux` (R412-33 et R412-32). |
+| 11 | **La récurrence d'une forme de distracteur sur le lot n'est visible d'aucun outil**, chaque carte étant irréprochable prise seule. Un lecteur qui croise trois cartes portant le même absolu apprend l'heuristique et perd un distracteur sur chacune. Le contrôle est un `grep` sur les **options fausses** — compter les bonnes réponses gonfle le chiffre en rangeant une carte saine parmi les fautives. | — (motif : `dans tous les cas\|sans exception\|en toute saison\|en toutes circonstances`) | `Croisement & dépassement` : quatre cartes sur quinze portaient le même absolu, sur les sept que comptait alors la banque `code` entière (point 22 du calibrage). `Feux`, mesuré après coup, n'en compte plus qu'une sur cinq dans la banque. |
+| 12 | **Rien ne mesure si l'image décide encore.** Le budget 70/50/220 borne la place, jamais le partage de la charge entre l'énoncé et le dessin. Un énoncé enrichi peut désarmer son illustration — et, en le faisant, éliminer des options par sa seule forme. | `Tools/audit.py:133-141` (budget et `image/enonce-redit-la-scene`) | `Panneaux & marquage` : trois images ont cessé de travailler d'un coup en fix round 1, et le test du masque, refait honnêtement en round 3, s'arrête à **17/19** avec six marqueurs de forme résiduels. |
+
+## Constats parqués
+
+Ce qui a été trouvé, jugé, et **volontairement laissé en l'état**. Aucun n'est une dette
+cachée : chacun a une raison écrite, et la relire coûte moins cher que le retrouver.
+
+| n° | tâche | constat | statut |
+|---|---|---|---|
+| 1 | `Vitesse` | Les « 6 points » du grand excès ≥ 50 km/h reposent sur une page de synthèse. R413-14-1 est abrogé depuis le 29/12/2025, R413-14 s'arrête à « moins de 50 km/h » : l'article qui porte aujourd'hui ce retrait n'a pas été identifié. | Doute signalé, non corrigé. `relevé le` **ramené** à 2026-08-23, la date la moins récente des deux figures de la ligne — une date déplacée ne couvre pas les chiffres qu'on n'a pas revérifiés. |
+| 2 | `Mécanique & environnement` | La durée de la formation B96 (7 h, dont 4 hors circulation) vient d'une seule extraction assistée, jamais confirmée mot pour mot. | Doute signalé, non corrigé. La carte ne chiffre pas (« une formation s'y ajoute ») ; la piste est écrite pour la passe suivante. |
+| 3 | `Tunnels & passages à niveau` | Le distracteur « reculez pour repasser derrière le bras d'entrée » est jugé faux sur un fondement générique, aucune source de rang 1/2/3 ne tranchant le sens de dégagement entre quatre demi-barrières. | Doute signalé, non corrigé. Une citation inventée à ce sujet a été **retirée** du rapport plutôt que remplacée par une meilleure. |
+| 4 | `Panneaux & marquage` | « C'est le seul marquage routier où le rouge soit employé » : aucune des onze sources de la liste blanche ne traite de nomenclature chromatique du marquage au sol. | Doute signalé, non corrigé. Plausible, ni confirmable ni manifestement faux dans le périmètre — laissé plutôt que corrigé au jugé. |
+| 5 | `Mécanique & environnement` | Les cartes « gilet » et « équipements de sécurité » se recoupent **par les options** : l'option A du gilet nomme le triangle. Un correctif sans coût existe. | Non corrigé, et la raison a été rectifiée : ce n'est pas le point 11 qui protège ce texte (il n'y a rien à abîmer), c'est que le contenu est antérieur à la passe et hors du périmètre de la tâche. À reprendre en consolidation. |
+| 6 | `Premiers secours` | Deux recouvrements partiels sous le seuil, antérieurs à la passe : `d724a3c3…` partage `moins`/`minute` avec la réponse de `fb24f632…`, et `5fe77bbd…` redit deux des trois mots de « Protéger – Alerter – Secourir ». | Non corrigés : vocabulaire commun du domaine, pas la réponse entière. |
+| 7 | `Priorités & intersections` | `--fuites` reste à **3** sur le domaine, sur le seul terme officiel du panneau AB6 partagé par trois cartes qui l'abordent sous trois angles. | Plancher structurel, **ruled acceptable** — le premier domaine de la passe à avoir le droit de finir ailleurs qu'à 0. Le vider ferait perdre aux trois cartes ce qu'elles enseignent (point 20). |
+| 8 | `Feux` | L'analogie « 4 points, comme un feu rouge franchi » recouvre au mot près la bonne réponse d'une carte `Priorités` — mais l'analogie figure déjà en clair sur l'option de cette carte-là, et `sources.md` l'autorise nommément. | Gardée. Retirer l'analogie abîmerait une carte juste pour un recoupement qui ne révèle rien (point 11). |
+| 9 | `Arrêt & stationnement` | 135 € et 35 € reviennent sur toutes les cartes d'un même régime (quatre « très gênant », deux « gênant »). | Fortuit et documenté : constante de classe, pas la réponse d'une carte donnée à une autre. |
+| 10 | `Panneaux & marquage` | Trois constats de **dessin**, hérités du §9.5 de la passe 2 : listel blanc invisible en mode clair sur quatre panneaux ; halo entaillant le « 7 » de `panneau-b33-fin-limitation` (l'asset est toujours référencé une fois dans la banque) ; orientation verticale du chevron de `marquage-zebra` absente des licences déclarées d'`images.md`. | Toujours ouverts. Hors périmètre : ni les assets ni `Tools/Scenes/` n'ont été touchés. **Le premier est signalé depuis la passe 2 comme « la première chose à regarder ».** |
+| 11 | `Panneaux & marquage` | Le test du masque finit à **17/19**, avec six marqueurs de forme résiduels et non trois — dont `ee11b58d`, dont la bonne réponse nomme le pictogramme. | Consigné, carte non éditée : la carte n'avait pas été touchée au round concerné. La ligne est « plus près d'un troisième échec que la table ne le laissait croire », et le dit. |
+| 12 | Hors périmètre du brief | Le §6 de `Tools/questions.md` affirmait 188 `id` frappés encore égaux au hachage de leur énoncé, et onze réécrits. | **Corrigé** en tâche 15 : 176 et vingt-trois, avec la date du recomptage. Aucun `id` n'a bougé — c'est exactement le comportement que ce paragraphe documente. |
+
+## La ligne de base publiée
+
+Mesurée sur le fichier livré le 2026-08-29, en fin de passe. C'est cette ligne, et non
+zéro, que la passe suivante doit prendre pour référence ; elle est répliquée à l'identique
+dans [`CLAUDE.md`](../CLAUDE.md) et au §3 de [`questions.md`](questions.md).
+
+```
+lettre/reference            1     faux positif connu (lettre ancrée par l'énoncé)
+forme/markdown              1     faux positif connu (`/** */` dans un code span)
+forme/seule-ponctuee       14     informatif, jamais cumulé avec la longueur
+longueur/plus-longue       76     informatif (+1 à +10) — 13 `code`, 63 `swift`
+expl/paraphrase-litterale  20     à relire à l'œil, une par une — 12 `code`, 8 `swift`
+```
+
+Vides, et qui doivent le rester : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
+`longueur/plus-10`, `forme/backtick-isole` — ce dernier sans avoir rien contrôlé sur un lot
+sans code span (angle mort n° 8).
+
+### Ce qui a bougé, et pourquoi ce n'est pas ce que la spec attendait
+
+| sortie | 2026-08-27 (`0976d5e`) | 2026-08-29 | dont `code` |
+|---|---:|---:|---|
+| `lettre/reference` | 1 | 1 | 0 → 0 |
+| `forme/markdown` | 1 | 1 | 0 → 0 |
+| `forme/seule-ponctuee` | 14 | 14 | 3 → 3 |
+| `longueur/plus-longue` | 97 | **76** | 34 → **13** |
+| `expl/paraphrase-litterale` | 18 | **20** | 10 → **12** |
+
+Les deux colonnes « avant » sont mesurées en faisant tourner `audit.py` lui-même sur
+`git show 0976d5e:Valido/Resources/questions.json` — l'outil accepte un chemin en argument,
+et réimplémenter la règle à la main donne un autre chiffre. Les 63 `swift` de
+`longueur/plus-longue` et les 8 `swift` de `expl/paraphrase-litterale` n'ont pas bougé
+d'une unité : la matière non touchée est le témoin de la mesure.
+
+**`longueur/plus-longue` : 97 → 76, tout le mouvement côté `code`** (34 → 13), et il vient
+de l'élargissement des distracteurs, pas d'un raccourcissement des bonnes réponses. La
+somme le confirme : les bonnes réponses `code` perdent 34 caractères, les distracteurs en
+gagnent 306 sur 765 emplacements, et l'écart moyen `code` passe de +0,5 à **+0,0** (détail
+en « Repères recomptés »). Treize cartes exhibent encore l'indice le plus fiable de tout
+QCM ; c'est le chiffre à citer quand la moyenne paraît trop lisse pour être crue.
+
+**`expl/paraphrase-litterale` : 18 → 20. La spec attendait une baisse ; il a monté.** Le
+mouvement est entièrement côté `code` (10 → 12), les 8 `swift` étant intacts. Une carte est
+sortie, trois sont entrées, et **aucune des quatre ne dit ce que le compteur laisse croire**.
+
+*La sortie est un artefact.* `37fe1af42b8d8158b3dbf9883bf83560` (stage de sensibilisation),
+bonne réponse « 4 points » : l'explication réécrite dit « il crédite au plus **quatre**
+points ». Elle énonce toujours la réponse. Le détecteur ne la voit plus parce qu'il teste
+une sous-chaîne littérale (angle mort n° 1). **Le compteur a baissé sans qu'aucune fuite
+ne se ferme** — et si la passe s'était donné pour but de le faire baisser, c'est cette
+manœuvre-là qu'elle aurait répétée treize fois.
+
+*Les trois entrées sont le prix du critère 3*, qui exige qu'une explication porte la règle,
+sa raison **et** sa limite :
+
+- `fb24f632…` — « Le massage cardiaque s'effectue à une cadence de : » / « 100 à 120
+  compressions par minute ». Avant, l'explication donnait la raison physiologique sans
+  jamais nommer ni le chiffre ni la source. Après : « L'ERC retient une plage de 100 à 120
+  compressions par minute ; la Croix-Rouge n'en garde que la borne basse, 100, pour
+  simplifier l'apprentissage. » La règle est enfin énoncée, et sourcée.
+- `d724a3c3…` — « Quand le sauveteur pratique aussi le bouche-à-bouche, il alterne : » /
+  « 30 compressions et 2 insufflations ». Même mouvement, plus la branche « comprimer seul,
+  à au moins 100 par minute ». Un premier jet avait remplacé « et » par « puis » : un mot
+  changé, qui passe sous le test de sous-chaîne sans satisfaire le critère 4. Annulé.
+- `c084813f…` — « Les feux rouges clignotants d'un passage à niveau automatique
+  s'allument : » / « vingt secondes au moins avant l'arrivée du train ». Avant,
+  l'explication expliquait le *pourquoi* sans jamais énoncer la *règle* : la carte
+  n'apprenait rien à qui s'était trompé.
+
+**Le conflit, écrit une fois pour toutes.** Le critère 3 exige que l'explication **énonce
+la règle** ; `expl/paraphrase-litterale` mesure l'objectif **inverse** — ne pas redire la
+réponse. Sur une carte dont la règle *est* un chiffre, l'option correcte *est* ce chiffre,
+et les deux objectifs s'opposent frontalement. Il n'existe pas de rédaction qui satisfasse
+les deux : on peut seulement choisir laquelle des deux cartes on livre. **Cette passe a
+tranché pour la pédagogie et laissé le compteur monter**, ce que les points 8, 16 et 20 du
+calibrage imposent — et le §1 de `questions.md` autorisait déjà explicitement (« Une
+réponse chiffrée reprise dans l'explication est normale — le défaut est l'explication qui
+n'ajoute rien »).
+
+La conséquence pratique, à retenir avant toute passe suivante : **`expl/paraphrase-litterale`
+n'est pas un compteur à minimiser.** C'est une liste à relire à l'œil, une par une, où trois
+classes cohabitent — le vrai défaut (l'explication ne fait que renommer la réponse), le faux
+positif structurel (la réponse est un chiffre, il revient, et l'explication ajoute une raison
+et une limite) et la collision de sous-chaîne (« 35 € » dans « 135 € »). Une passe qui le
+prendrait pour un objectif chiffré **dégraderait le contenu** : `Premiers secours` en a fait
+la démonstration en réécrivant deux explications « pour ne pas le faire remonter », au prix
+d'une carte de la cadence qui n'énonçait plus la cadence. Les deux ont été refaites.
+
+### Ce que la prochaine passe trouvera prêt
+
+- **Les trois registres sont à jour et vérifiés** : `sources.md` (75 lignes de tableau
+  modifiées, 31 redatées, aucun changement de `nature`), `couverture.md` (quatorze lignes
+  recomptées contre `questions.json`, toutes exactes, fichier non modifié) et `images.md`
+  (aucun asset touché).
+- **Le seuil des explications courtes est retombé à zéro** : plus aucune explication `code`
+  sous 120 caractères. Le prochain défaut de pédagogie ne se trouvera donc plus par la
+  longueur — il faudra le critère 3, carte par carte.
+- **Douze angles morts sont nommés avec leur ligne d'outil** ci-dessus. Les cinq premiers
+  concernent `relire.py` et `audit.py:194` ; ce sont les seuls endroits où un peu de code
+  achèterait un contrôle réel, et le §7 de la passe 2 les attendait déjà.
+- **Ce qui n'a pas avancé d'un pas** : les 193 `swift`, les trois constats de dessin, et la
+  génération depuis les pages de cours — seule chose qui fera un feed infini. 255 cartes
+  meilleures ne font toujours pas plus de cartes.

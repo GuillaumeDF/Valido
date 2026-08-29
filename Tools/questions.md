@@ -300,15 +300,42 @@ Trois sorties demandent un **tri à la main**, elles produisent des faux positif
 Le reste doit être à zéro. `longueur/plus-longue` (bonne réponse plus longue de 1 à 10
 caractères) est informatif : le seuil dur est `longueur/plus-10`.
 
-**La ligne de base, au 2026-08-27 sur 448 questions.** On se compare à elle, pas à zéro :
+**La ligne de base, au 2026-08-29 sur 448 questions.** On se compare à elle, pas à zéro :
 
 ```
 lettre/reference            1     faux positif connu (lettre ancrée par l'énoncé)
 forme/markdown              1     faux positif connu (`/** */` dans un code span)
 forme/seule-ponctuee       14     informatif, jamais cumulé avec la longueur
-longueur/plus-longue       97     informatif (+1 à +10)
-expl/paraphrase-litterale  18     à relire à l'œil, une par une
+longueur/plus-longue       76     informatif (+1 à +10) — 13 `code`, 63 `swift`
+expl/paraphrase-litterale  20     à relire à l'œil, une par une — 12 `code`, 8 `swift`
 ```
+
+Relevée en fin de passe 3, qui a relu les 255 questions `code` et en a modifié 175. Deux
+chiffres ont bougé, et **ni l'un ni l'autre ne se lit sans son explication** :
+
+- `longueur/plus-longue` **97 → 76**, tout le mouvement côté `code` (34 → 13). Il vient de
+  l'élargissement des distracteurs, pas du raccourcissement des bonnes réponses : l'écart
+  moyen `code` passe de +0,5 à +0,0 caractère. Les 63 `swift` n'ont pas bougé, la passe ne
+  les ayant pas touchés.
+- `expl/paraphrase-litterale` **18 → 20**, dont `code` 10 → 12. La spec de la passe attendait
+  une **baisse** ; il a monté, et c'est le résultat voulu. Le critère pédagogique 3 exige
+  qu'une explication énonce **la règle**, sa raison et sa limite ; ce compteur mesure
+  l'objectif inverse — ne pas redire la bonne réponse. Sur une carte dont la règle *est* un
+  chiffre, l'option correcte *est* ce chiffre, et les deux s'opposent frontalement. La passe
+  a tranché pour la pédagogie : trois cartes de secourisme et de passage à niveau ont gagné
+  le chiffre qui leur manquait et sont entrées dans la liste, une en est sortie sans qu'aucune
+  fuite ne se ferme (l'explication écrit « quatre » là où l'option dit « 4 », et le test de
+  sous-chaîne d'`audit.py:194` ne la voit plus).
+
+**Conséquence, à ne pas oublier : `expl/paraphrase-litterale` n'est pas un compteur à
+minimiser.** C'est une liste à relire une par une, où trois classes cohabitent — le vrai
+défaut (l'explication ne fait que renommer la réponse), le faux positif structurel (la réponse
+est un chiffre, il revient, et l'explication ajoute une raison et une limite, autorisé au §1
+ci-dessus) et la collision de sous-chaîne (« 35 € » trouvé dans « 135 € »). Une passe qui le
+prendrait pour un objectif chiffré **dégraderait le contenu** : la passe 3 en a fait la
+démonstration en réécrivant deux explications « pour ne pas le faire remonter », au prix d'une
+carte de la cadence de massage cardiaque qui n'énonçait plus la cadence. Les deux ont été
+refaites, et le compteur laissé monter.
 
 Vides, et qui doivent le rester : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
 `longueur/plus-10`, `forme/backtick-isole`. **Attention à ce dernier** : il ne signale que
@@ -319,7 +346,10 @@ statut de la bonne réponse** suffit à le désarmer.
 
 Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé au §7 de
 [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — neuf angles morts mesurés, dont la
-fuite d'une carte vers **une autre** carte et l'équilibre de longueur dans le sens inverse.
+fuite d'une carte vers **une autre** carte et l'équilibre de longueur dans le sens inverse —
+puis, mesurés sur les 255 `code`, aux **douze** angles morts de
+[`audit-2026-08-passe-3.md`](audit-2026-08-passe-3.md), chacun avec sa ligne d'outil et le
+défaut réel qu'il a laissé passer.
 Huit sont ouverts ; le neuvième (le registre d'images lu trop largement) est corrigé.
 
 ---
