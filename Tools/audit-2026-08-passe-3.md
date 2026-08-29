@@ -5934,3 +5934,107 @@ reproduit le même MD5 (`177a3b3c7ddf5893ceb1c722cf3f9bcb`).
   `forme/seule-ponctuee` 14, `longueur/plus-longue` 76, `expl/paraphrase-litterale` 20, sorties
   interdites vides.
 - `✔ Test run with 10 tests in 0 suites passed after 0.065 seconds.`
+
+## Repères recomptés
+
+Les chiffres que les registres citent **sur le lot**, recomptés sur `questions.json` le
+2026-08-29, en fin de passe. La colonne « avant » n'est pas recopiée des registres : elle est
+mesurée sur `git show 0976d5e:Valido/Resources/questions.json`, l'état d'où la passe est partie.
+Les deux coïncident au dixième près, ce qui valide au passage les valeurs que `questions.md`
+portait — et rend le mouvement attribuable à la réécriture, pas à un changement de méthode.
+
+| repère | avant | après |
+|---|---|---|
+| volume `code` | 255 | **255** |
+| volume `swift` | 193 | **193** |
+| volume total | 448 | **448** |
+| volume illustrées | 49 | **49** |
+| bonne option / distracteurs, toutes | 43,2 / 42,2 (+1,0) | **43,1 / 42,4 (+0,7)** |
+| bonne option / distracteurs, `swift` | 50,9 / 49,3 (+1,6) | **50,9 / 49,3 (+1,6)** |
+| bonne option / distracteurs, `code` | 37,3 / 36,8 (+0,5) | **37,2 / 37,2 (+0,0)** |
+| cartes `code` où la bonne dépasse la moyenne de ses distracteurs | 125 / 255 | **121 / 255** |
+| `code` illustrées, moyenne par option | 41,5 | **41,3** |
+| `code` non illustrées, moyenne par option | 35,8 | **36,2** |
+| cartes `code` dans `longueur/plus-longue` | 34 (banque : 97) | **13 (banque : 76)** |
+| cartes `code` dans `longueur/plus-10` | 0 | **0** |
+| `id` frappés encore égaux au hachage de leur énoncé | 188 / 199 | **176 / 199** |
+
+**Unités.** Les trois premières lignes de moyenne sont un couple *bonne réponse / distracteurs* ;
+les deux lignes d'illustration sont des moyennes **sur les quatre options**, bonne comprise.
+C'est la convention du §1 de `questions.md`, et les deux ne se comparent pas entre elles.
+
+### Ce que le mouvement des `code` dit, et ce qu'il ne dit pas
+
+L'écart `code` est passé de **+0,5 à +0,0**, et le nombre de cartes dont la bonne réponse dépasse
+la moyenne de ses distracteurs de 125 à **121 sur 255** — un poil sous la moitié, c'est-à-dire le
+partage qu'on obtiendrait si la longueur ne disait plus rien de la réponse. Le tell de longueur a
+donc été **effacé** sur les `code`, pas seulement maintenu sous le seuil.
+
+Trois réserves, sans quoi la ligne se lit mieux qu'elle ne vaut :
+
+- **La moyenne n'a jamais été un critère de recevabilité.** Le seuil dur est `longueur/plus-10`,
+  et il porte **sur la carte** ; il est vide avant comme après. Un `+0,0` d'ensemble n'interdit
+  pas qu'une carte isolée porte encore l'indice : `longueur/plus-longue` — la bonne réponse plus
+  longue de +1 à +10 que le plus long de ses distracteurs — en compte encore **13** côté `code`.
+  Elles étaient **34** avant la passe, les **63** `swift` n'ayant pas bougé. C'est la même chose
+  que l'écart moyen, mesurée carte par carte, et c'est le chiffre à citer quand la moyenne paraît
+  trop lisse pour être crue.
+- **Le mouvement est petit en valeur absolue** — un demi-caractère sur des options de trente-sept.
+  Il est lisible parce que 175 cartes `code` sur 255 ont été relues, pas parce qu'il serait
+  spectaculaire.
+- **`swift` est le témoin.** Aucune de ses 193 cartes n'a été touchée, et son écart est resté à
+  `+1,6` **à l'identique**. C'est la meilleure preuve que le mouvement des `code` vient de la
+  réécriture et non de la mesure. Le raisonnement du §1 sur cet écart structurel — une option
+  `swift` nomme une API et son comportement, une option `code` porte une valeur ou une règle —
+  survit donc au recomptage inchangé.
+
+**Ce qui a produit le mouvement.** La passe a modifié **175 cartes `code` sur 255**. Le détail
+compte, parce que le brief de cette tâche supposait « les 1 020 options `code` réécrites », ce que
+le diff ne dit pas : **148** explications, **18** énoncés, et les options de **54** cartes
+seulement — dont 8 par simple rotation des textes (rééquilibrage de `correctID`, sans effet sur le
+contenu), soit **66** textes d'option réellement neufs. Ce sont ces 66 textes, majoritairement des
+distracteurs rallongés pour tenir la forme de la bonne réponse, qui déplacent la moyenne des
+distracteurs de 36,8 à 37,2.
+
+### Volumes de `couverture.md` : inchangés
+
+Les quatorze lignes du tableau ont été recomptées contre `questions.json` et sont **toutes
+exactes** ; le fichier n'a pas été modifié. C'est le résultat attendu — la passe réécrit sans
+ajouter ni retirer — et c'est aussi le contrôle qui aurait révélé une carte perdue ou dupliquée en
+chemin : `total code 255 | total banque 448`, et les treize topics à leur volume déclaré (17, 15,
+20, 26, 22, 19, 27, 19, 15, 18, 18, 21, 18). `audit.py` ne remonte aucune sortie `couverture/`.
+
+La ligne « Volumes recomptés le **2026-08-27** par la tâche 21 » garde sa date : elle date le
+recomptage de la passe 2, que celui-ci confirme sans le refaire.
+
+### Un chiffre faux trouvé hors du périmètre du brief
+
+Le §6 de `questions.md` (« Provenance ») affirmait que **188** des 199 `id` frappés sont encore le
+hachage de leur énoncé courant, les **onze** autres ayant vu leur énoncé réécrit après livraison.
+Le recomptage en donne **176** et **vingt-trois** : la passe a réécrit dix-huit énoncés `code`,
+dont treize portent un `id` frappé, dont douze étaient encore conformes à leur hachage. Aucun `id`
+n'a bougé — c'est précisément le comportement que ce paragraphe documente, et le chiffre qui le
+mesure devait donc bouger avec lui. Corrigé, avec la date du recomptage.
+
+Le bloc « La ligne de base, au 2026-08-27 sur 448 questions » du §3 est, lui, **laissé en l'état** :
+`longueur/plus-longue` (97 → 76) et `expl/paraphrase-litterale` (18 → 20) ont bougé, mais leur
+republication est le livrable de la tâche 16, qui les tient avec `CLAUDE.md` dans le même geste.
+
+### Vérification
+
+```
+$ python3 Tools/audit.py | grep -E '^### |^code:|^swift:'
+### lettre/reference  (1)
+### forme/markdown  (1)
+### forme/seule-ponctuee  (14)
+### longueur/plus-longue  (76)
+### expl/paraphrase-litterale  (20)
+code: bonne réponse plus longue que la moyenne des distracteurs dans 121/255 cas; écart moyen +0.0 car.
+swift: bonne réponse plus longue que la moyenne des distracteurs dans 120/193 cas; écart moyen +1.6 car.
+```
+
+Identique à l'état de clôture du dernier domaine — cette tâche ne touche pas `questions.json`, et
+le moindre mouvement de ces compteurs voudrait dire le contraire. Les sorties `schema/`,
+`couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10` et `forme/backtick-isole` restent
+vides. Les deux dernières lignes correspondent aux écarts du tableau ci-dessus, qui est mesuré par
+un autre chemin (moyenne globale) que le leur (moyenne des écarts par carte) : les deux coïncident.

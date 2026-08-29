@@ -73,14 +73,24 @@ comparables aux trois distracteurs ; la prose complète reste dans `explanation`
 Pour `@Entry` : option = « déclarer une clé d'`EnvironmentValues` en une ligne » — pas
 la phrase entière sur `EnvironmentKey` et les extensions.
 
-Repère chiffré, recompté sur les 448 (2026-08-27) : bonne option **43,2** caractères en
-moyenne contre **42,2** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
-`swift` (écart **+1,6**), **37,3 / 36,8** sur les `code` (écart **+0,5**).
+Repère chiffré, recompté sur les 448 (2026-08-29) : bonne option **43,1** caractères en
+moyenne contre **42,4** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
+`swift` (écart **+1,6**), **37,2 / 37,2** sur les `code` (écart **+0,0**).
+
+Sur les `code`, cet écart valait **+0,5** avant la troisième passe de contenu ; la
+réécriture des options l'a ramené à zéro, et la bonne réponse dépasse la moyenne de ses
+distracteurs sur **121 cartes sur 255** — un poil sous la moitié, c'est-à-dire le partage
+qu'on obtiendrait si la longueur ne disait plus rien de la réponse. C'est une mesure, pas
+un acquis : le seuil de recevabilité reste **+10 sur la carte** (`longueur/plus-10`), la
+moyenne n'en a jamais été un, et un `+0,0` d'ensemble n'interdit pas qu'une carte isolée
+porte encore l'indice. Le `swift`, dont la passe n'a touché aucune carte, est resté à
+**+1,6** à l'identique : c'est ce qui rattache le mouvement des `code` à la réécriture
+plutôt qu'à la mesure.
 
 L'écart entre les deux matières est structurel, pas un défaut : une option `swift`
 nomme une API et son comportement, une option `code` porte une valeur ou une règle.
 Ce n'est **pas** l'illustration qui l'explique — mesurées à part, les 49 `code`
-illustrées sont à **41,5** caractères par option, les 206 autres à **35,8**. Les
+illustrées sont à **41,3** caractères par option, les 206 autres à **36,2**. Les
 illustrées sont donc les plus longues des `code`, à neuf caractères du plafond de 50
 que leur impose le [§7](#7-les-questions-illustrées) : c'est là que le budget mord.
 
@@ -443,12 +453,14 @@ l'identifiant** — un `id` de question neuve est trente-deux caractères hexad�
 un `id` de Notion, et rien ne les distingue à l'œil. Ce qui les distingue est de
 **recalculer le hachage** : s'il retombe sur l'`id`, la question a été créée par une passe.
 
-Au 2026-08-27 : **199** questions créées par les deux passes — 250 → 448 est un solde de
-198, et une question a été retirée en chemin ; le compte se fait en **créations**, pas en
-delta. Recompté : **249** `id` à préfixe Notion (`37fe1af42b8d…`) + **199** `id` frappés =
-448. Sur ces 199, **188** portent un `id` qui est encore le hachage de leur énoncé courant.
-Les **onze** autres ont vu leur énoncé réécrit après coup sans qu'on recalcule l'`id` — ce
-qui est le comportement voulu dès qu'une question a été livrée : la progression de
+Au 2026-08-29 : **199** questions créées — la troisième passe n'en ajoute aucune ; 250 →
+448 est un solde de 198, et une question a été retirée en chemin, donc le compte se fait
+en **créations**, pas en delta. Recompté : **249** `id` à préfixe Notion
+(`37fe1af42b8d…`) + **199** `id` frappés = 448. Sur ces 199, **176** portent un `id` qui
+est encore le hachage de leur énoncé courant ; ils étaient **188** avant la troisième
+passe, qui a réécrit dix-huit énoncés `code` sans toucher à un seul `id`. Les
+**vingt-trois** autres ont vu leur énoncé réécrit après coup sans qu'on recalcule l'`id`
+— ce qui est le comportement voulu dès qu'une question a été livrée : la progression de
 l'utilisateur est indexée sur l'`id` (`Valido/Model/ProgressSnapshot.swift`), donc le
 changer efface un historique en silence. **Un `id` de question livrée est immuable, sans
 exception.** Une question créée dans une branche jamais fusionnée peut, elle, voir son `id`
