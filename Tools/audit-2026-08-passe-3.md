@@ -5129,3 +5129,282 @@ reproduit le même MD5 qu'avant ce round).
   transitoirement — `fuite/mot-enonce`, `forme/seule-ponctuee` — toutes deux refermées
   avant ce commit).
 - `✔ Test run with 10 tests in 0 suites passed after 0.069 seconds.`
+
+## Panneaux & marquage — Fix round 2 (revue externe, 2026-08-29)
+
+Une revue a confirmé fermés : le plancher R412-19 (les deux `datée` et la ligne mixte),
+Important 4 du round 1 (`…81699c`, plus contredit par B6a1/B6d), Important 8 (l'absolu du
+damier), les cinq minors du round 1, les deux régressions transitoires d'`audit.py`, et
+l'arbitrage de garder « franchir » sur `…81f8a2` malgré le recouvrement avec `1a0a5812`
+(point 11 correctement appliqué : la fuite ne tient qu'à la complémentarité des deux
+cartes, pas à une rédaction qui viserait l'une pour l'autre, et « franchir » est le mot de
+l'article). Mais le round a bougé 26 cartes sur 27 sans relire le lot entier après coup, et
+a produit treize défauts nouveaux — dont un Critical. C'est la leçon du point 24, ajouté au
+calibrage par la revue : **un round qui réécrit la quasi-totalité d'un lot n'est pas une
+correction, c'est une passe**, et au-delà de quelques cartes il doit la même discipline que
+la première écriture — relire le lot entier après coup, pas seulement les cartes touchées.
+
+### Critical — `11d37be22fd315668c` se répondait elle-même et portait deux bonnes réponses
+
+L'énoncé de round 1, « Ce panneau lève toutes les interdictions posées par un panneau,
+sauf : », rendait les trois distracteurs éliminables par leur seule forme (« signalé par un
+panneau », « si elle était signalée », « si signalés », contre une bonne réponse qui ne
+porte aucune de ces marques) — calibrage point 2, sans connaissance requise. Et
+l'explication listait « arrêt » parmi ce que le B31 lève, alors que la portée réelle du B31
+ne couvre que les interdictions visant les véhicules **en mouvement** : une interdiction
+d'arrêt ou de stationnement n'est pas de celles-là, ce qui aurait fait de l'option D une
+seconde bonne réponse. Trois défauts à la fois — règle trop large, explication au-delà de
+l'article, deux réponses possibles.
+
+Carte entièrement réécrite pour sortir du terrain disputé plutôt que le trancher sans
+source recevable :
+
+```
+avant : Ce panneau lève toutes les interdictions posées par un panneau, sauf :
+    la limite de vitesse propre à l'agglomération     ✓
+    l'interdiction de dépasser, si elle était signalée
+    un arrêt ou un stationnement, si signalés
+    une vitesse maximale signalée par un panneau
+
+après : Ce panneau ne lève jamais :
+    la vitesse maximale d'une zone limitée
+    la limitation de vitesse en agglomération          ✓
+    l'interdiction de dépasser
+    l'interdiction visant certains poids lourds
+```
+
+Aucune des quatre options ne mentionne plus « panneau » ni « signalé » : rien à éliminer
+par la forme. Aucune ne touche à l'arrêt ni au stationnement : le terrain disputé (« véhicules
+en mouvement ») est écarté du champ de la carte plutôt que sourcé au jugé. L'explication ne
+liste plus que dépassement, poids lourds et vitesse locale — jamais l'arrêt.
+
+### Le lien image/énoncé : trois cartes où l'énoncé a repris ce que l'image devait porter
+
+Sur un lot illustré, l'énoncé et l'image se partagent la charge : ce que l'énoncé dit,
+l'image cesse de le porter. Trois cartes de round 1 en faisaient trop dire à l'énoncé,
+rendant l'image décorative pour au moins une partie de la réponse — retrouvé en masquant
+chaque image et en vérifiant si la réponse tombe quand même :
+
+- `11d37be2` (B31) — réglé par la réécriture ci-dessus : l'énoncé ne nomme plus rien que
+  l'image doive confirmer, seule l'image dit qu'il s'agit du disque blanc barré.
+- `9eb85068` (giratoire) — « Ce **triangle**, planté avant l'entrée du **giratoire** »
+  donnait la forme et le sujet en toutes lettres, alors que la règle enseignée est
+  précisément « triangle = annonce, pas prescription ». Réécrit en « Avant ce carrefour,
+  ce panneau : » — ni la forme ni le sujet ne sont plus donnés hors de l'image.
+- `7d44f7dd` (AB7) — le sujet « la priorité » nommé dans l'énoncé rouvrait le doublon avec
+  `Priorités & intersections` (voir Important 2 plus bas) et les quatre options tombaient
+  sur l'heuristique générique « la portée d'un panneau s'arrête à la prochaine
+  intersection », que `1658abbc` enseigne déjà dans ce même lot. La carte a été réorientée
+  sur un terrain que rien d'autre ne couvre : ce qu'indiquerait un panonceau de distance
+  sous ce panneau (en mètres ou en kilomètres), et non plus où s'arrête la priorité.
+
+Les dix-neuf illustrées relues une par une contre les deux questions du point 24 (l'image
+décide-t-elle ? l'énoncé élimine-t-il par sa seule forme ?) : le détail est dans le tableau
+plus bas, les trois ci-dessus sont les seules à avoir échoué au round 1.
+
+### Six Important
+
+1. **`dce501d416…`** — « Il le devient dès qu'un véhicule approche » reprenait mot pour mot
+   le distracteur B de `443e4299` (« un arrêt seulement si un véhicule approche »), trop
+   large (l'arrêt est requis pour céder, pas à la seule approche d'un véhicule), et en
+   tension avec la propre bonne réponse de la carte (« sans obligation de vous arrêter »).
+   Réécrit : « Il n'est qu'un moyen d'y parvenir, requis si la configuration l'exige,
+   jamais par principe » — ne nomme plus de véhicule qui approche, reste cohérent avec la
+   bonne réponse. `Tools/sources.md:327` mis à jour pour porter cette nuance.
+2. **`7d44f7dd…`** — traité ci-dessus (lien image/énoncé) ; le doublon avec
+   `37fe1af42b8d8184be` (`Priorités`) est refermé par le changement de sujet, pas par un
+   choix de mots : la carte ne parle plus de priorité du tout.
+3. **Point 17, toujours pas exhaustif — quatre paires refermées.** `…81059d` ↔ `…81699c`
+   avait deux porteurs de l'axe bleu/rouge au lieu d'un (`…81059d` disait « contrairement
+   au fond bleu, qui prescrit une obligation », la réponse même de `…81699c`) : la phrase
+   est retirée, `…81059d` contraste désormais avec le triangle (axe déjà possédé par
+   `…81b5aa`/`89bea09b`) plutôt qu'avec le fond bleu. `9eb85068 → …81b5aa` (« Comme tout
+   triangle, il annonce un danger à venir » contre la propre raison de `…81b5aa`) : la
+   phrase générique est retirée du giratoire, qui va directement à son fait propre (un
+   panneau séparé impose). `ede696 → …817881` (« celui-là contraignant » contre « rien de
+   contraignant ») : retiré.
+4. **`…81b3a4` et `1a0a5812` étaient devenues quasi la même carte.** Les deux explications
+   ne différaient plus que par la substitution continue/discontinue et l'inversion du
+   pronom — chacune donnait donc la clé de l'autre. `…81b3a4` reste porteuse du mécanisme
+   (chacun lit sa propre ligne, contrefactuel si la discontinue changeait de côté) ;
+   `1a0a5812` ne le redérive plus et applique directement la règle générale des lignes
+   continues (« comme toute ligne continue, la continue interdit tout franchissement ; la
+   discontinue de l'autre côté n'y change rien pour vous ») — sans reprendre « franchir »
+   comme verbe conjugué pointant vers R412-19 (elle utilise « franchissement », nom, qui
+   ne recoupe pas la bonne réponse « De dépasser et de **franchir** la ligne »).
+5. **Critère 3, la case reason.** Le défaut a migré de la limite vers la raison :
+   `443e4299` avait une raison qui portait sur l'octogone, pas sur l'arrêt inconditionnel —
+   corrigée en une raison propre à la règle testée (l'arrêt retire au conducteur le soin de
+   juger si un véhicule arrive à temps). Ajoutées dans le même geste : `1658abbc`/`1509ad94`
+   (raison logique — portée la plus étroite possible / la plus large emporte l'autre —
+   **et** le lien pictogramme rétabli, minor 3 ci-dessous), `9e65525b` (raison : un
+   deux-roues sans side-car est étroit et dégage vite la voie opposée). `…81709c` a perdu
+   la reprise verbatim de sa propre bonne réponse et gagné une vraie limite (une seconde
+   infraction distincte, pas la même) ; `3cb86b6e` a perdu sa fausse limite (une
+   réfutation, « même si aucun véhicule n'arrive en face ») pour une vraie (le compte vaut
+   aussi bien pour une ligne axiale que séparative — directement tiré de l'affirmation).
+6. **Quatre clauses ajoutées sans que leur ligne bouge.** `sources.md:320` (A1a, « plus
+   près en agglomération », marquée comme nuance logique non chiffrée), `:321` (hachures,
+   « même un instant », plus la justification de la renumérotation 117 → 117-2, A, déjà
+   documentée dans `Tools/images.md` mais jamais reportée ici), `:327` (cédez-le-passage,
+   ci-dessus), `:330` (damier, « jamais par confort »). La ligne d'AB7 (`:331`) a, en plus,
+   été réécrite pour suivre le nouveau sujet de la carte (le panonceau de distance plutôt
+   que la priorité) — sans qu'aucune source nouvelle ait été rouverte, ce qui est la forme
+   grave du point 3 que la revue nomme : le registre doit suivre la source, pas la carte.
+   Signalé tel quel : la ligne décrit maintenant fidèlement ce que la carte teste, mais
+   rien n'a été revérifié contre l'IISR au-delà de ce qui l'était déjà. La ligne du
+   giratoire (`:326`), réécrite au round 1 pour le même motif, n'a pas eu besoin de bouger
+   à nouveau : le fait qu'elle décrit (le triangle annonce, un panneau séparé prescrit)
+   n'a pas changé, seul l'énoncé a cessé de le nommer en toutes lettres.
+
+### Le verdict sur les « ajouts de savoir sûr » du round 1
+
+- **Faux tel qu'écrit, corrigé** : `dce501d`'s « dès qu'un véhicule approche » (Important 1).
+- **Vrais mais sans ligne à jour, corrigés** : `:320`, `:321`, `:327`, `:330` (Important 6).
+- **Vrais, utiles, gardés sans sourçage supplémentaire** : `…8174a3`'s « pour laisser le
+  temps de se placer », `7d44f7dd`'s « en mètres ou en kilomètres », `…81699c`'s « c'est
+  l'anneau qui décide, pas le centre », `570e5e1e`'s « jamais pour s'y arrêter par
+  confort ».
+
+### Six minors
+
+1. **`…81b5aa`** — « il est planté » avait pour antécédent grammatical le plus proche « le
+   disque », pas le triangle. Corrigé en « ce panneau est planté ».
+2. **Hachures, renumérotation justifiée.** `art. 117, A` → `art. 117-2, A` sans
+   justification dans le rapport de round 1 ; `Tools/images.md` porte déjà la note (« numéroté
+   « 117 A » dans une édition antérieure de l'IISR, même texte ») — reportée sur la ligne de
+   registre (Important 6).
+3. **Le lien pictogramme, retiré à tort en round 1, restauré sans reformer la fuite.**
+   `1658abbc` et `1509ad94` ne disaient plus pourquoi une oblique signifie stationnement et
+   deux, l'arrêt — la revue avait disqualifié le contraste comme *limite*, pas demandé sa
+   suppression. Restauré de façon asymétrique : `1658abbc` dit ce que porte SA seule
+   oblique (« L'oblique unique... interdit le stationnement, rien de plus ») ; `1509ad94`
+   dit ce que portent SES deux obliques croisées (« Deux obliques croisées, au lieu d'une,
+   interdisent l'arrêt »), sans que l'une ne décrive plus le pictogramme de l'autre.
+4. **Cinq explications rouvraient leur propre bonne réponse quasi mot pour mot** (critère
+   4, invisible à `expl/paraphrase-litterale` faute d'une sous-chaîne exacte) :
+   `…81709c` (« rejoindre la voie qu'elles désignent » contre « rejoindre la voie qu'il
+   désigne »), `9eb85068` (« il annonce un danger à venir sans rien prescrire par
+   lui-même » contre « annonce sans rien imposer par lui-même »), `ede696` (« réserve la
+   voie sans l'imposer » contre « réserve la voie sans l'obliger à la prendre »),
+   `1658abbc` (« où il est planté » repris de l'option A), et `11d37be2`, réglé par la
+   réécriture du Critical. Les quatre autres réécrites pour ne plus reprendre le tour de
+   phrase de leur propre option.
+5. **`…81f8a2`, le tell de forme grammaticale.** A et B complétaient la syntaxe de
+   l'énoncé (« Autorise… », « Signale… ») quand C et D étaient des phrases autonomes
+   (« Le stationnement y est proscrit… », « Aucun dépassement n'est permis… ») : la lecture
+   se scindait en deux paires, la bonne réponse dans celle qui respecte la syntaxe. Les
+   quatre options récrites au même mode (verbe à la troisième personne, continuant
+   l'énoncé) : « Autorise… / Signale… / Interdit… / Limite… », quatre verbes différents,
+   aucun couple.
+6. **Giratoire, pronom sans antécédent.** « si **elle** semble libre » n'avait rien à
+   quoi se rattacher dans « Ce triangle ». Corrigé en « si la voie est libre » (et l'énoncé
+   ne dit plus « triangle », de toute façon — voir plus haut).
+
+### Deux régressions trouvées et refermées avant ce commit
+
+Le repassage d'`audit.py` après la première vague de corrections a de nouveau montré deux
+sorties qui n'auraient pas dû bouger, plus une reprise verbatim non prévue :
+
+- `forme/seule-ponctuee` (14 → 15) — la nouvelle bonne réponse d'AB7 (« une distance, en
+  mètres ou en kilomètres ») était la seule option ponctuée du lot. Virgule retirée.
+- Le nouveau `correctID` d'AB7 et de B31 avait fait retomber `B` à 4 sur 27 (les deux
+  cartes avaient basculé de `B` vers `C` dans la même réécriture) : les options des deux
+  cartes tournées pour ramener une bonne réponse sur `B`, sans toucher au contenu.
+- La nouvelle raison de `443e4299` (STOP) reprenait presque mot pour mot sa propre bonne
+  réponse (« L'arrêt reste obligatoire même si la route paraît vide » contre « un arrêt,
+  même si la route est vide ») — trouvé par un balayage systématique des 27 cartes contre
+  leur propre bonne réponse, pas par `audit.py`. Corrigé en « quelle que soit la
+  circulation », qui ne reprend plus « route ».
+
+### Preuve par carte : les dix-neuf illustrées, le lien image et la forme de l'énoncé
+
+| id | l'image décide-t-elle (masquée, la réponse tombe-t-elle encore) ? | l'énoncé élimine-t-il par sa forme ? |
+|---|---|---|
+| `11d37be2` (B31) | oui — rien dans l'énoncé ne dit que c'est le disque sans chiffre | non, plus de marqueur commun (round 1 corrigé) |
+| `1509ad94` (B6d) | oui — la double oblique croisée décide | non |
+| `1658abbc` (B6a1) | oui — l'oblique simple décide | non |
+| `…81709c` (flèches) | oui — la courbe et la ligne continue à venir décident | non |
+| `…8174a3` (B21b) | oui — la flèche verticale décide | non |
+| `…817881` (C1a) | oui — la forme carrée décide | non |
+| `…81b3a4` (ligne mixte) | oui — la position de la discontinue décide | non |
+| `…81b5aa` (A1a) | oui — la forme triangulaire décide (axe forme/couleur, déjà noté) | non |
+| `…81d68a` (hachures) | oui — le motif chevronné décide | non |
+| `443e4299` (STOP) | oui — l'octogone et le texte STOP décident | non |
+| `570e5e1e` (damier) | oui — le motif rouge/blanc décide | non |
+| `7d44f7dd` (AB7) | oui, désormais — rien dans l'énoncé ne dit quel panneau ni quel panonceau | non |
+| `89bea09b` (A13b) | oui — le pictogramme piéton dans un triangle décide | non |
+| `8a1026ed` (B1) | oui — le disque rouge plein sans couronne décide | non |
+| `9e65525b` (B3) | oui — les deux voitures décident | non |
+| `9eb85068` (giratoire) | oui, désormais — l'énoncé ne dit plus « triangle » ni « giratoire » | non |
+| `dce501d4` (cédez) | oui — le triangle pointe en bas et le marquage large décident | non |
+| `ede696` (C113) | oui — la forme carrée bleue décide | non |
+| `ee11b58d` (panonceau) | oui — le texte « CARRIÈRE » sur la plaque décide | non |
+
+Dix-neuf sur dix-neuf, après correction des trois qui avaient échoué en round 1
+(`11d37be2`, `9eb85068`, `7d44f7dd`).
+
+### Vérifications
+
+```
+$ python3 - <<'EOF'
+# comparaison des id contre HEAD
+EOF
+mêmes ids : True | 448 -> 448
+
+$ python3 Tools/audit.py > .passe3/apres-14-fix2.txt
+$ diff <(grep -E '^### ' .passe3/avant-14.txt) <(grep -E '^### ' .passe3/apres-14-fix2.txt)
+4c4
+< ### longueur/plus-longue  (79)
+---
+> ### longueur/plus-longue  (76)
+
+$ python3 Tools/relire.py --fuites "Panneaux & marquage" | tail -3
+1 recouvrement(s) sur 27 cartes de « Panneaux & marquage ».
+
+$ for d in "Permis & sanctions" "Vitesse" "Alcool & stupéfiants" \
+    "Usagers & partage de la route" "Mécanique & environnement" \
+    "Distances & freinage" "Arrêt & stationnement" "Premiers secours" \
+    "Tunnels & passages à niveau" "Priorités & intersections" \
+    "Croisement & dépassement" "Feux"; do
+    python3 Tools/relire.py --fuites "$d" | grep "recouvrement(s)"
+  done
+0 recouvrement(s) … (les onze domaines clos)
+3 recouvrement(s) sur 26 cartes de « Priorités & intersections ».   # plancher, inchangé
+
+$ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test […] | grep -E "Test run|SUCCEEDED"
+✔ Test run with 10 tests in 0 suites passed after 0.062 seconds.
+** TEST SUCCEEDED **
+
+$ git status --porcelain
+ M Tools/sources.md
+ M Valido/Resources/questions.json
+?? CLAUDE.md
+```
+
+Les sections antérieures à ce round (rounds 0 et 1 de « Panneaux & marquage » inclus)
+restent byte-identiques (`head -5131` reproduit le même MD5 qu'avant ce round).
+
+### Résumé chiffré, fix round 2
+
+- Défauts trouvés et corrigés : **1 Critical** (B31, deux bonnes réponses et
+  auto-élimination par la forme), **6 Important**, **6 minors**, **3 régressions**
+  auto-introduites puis refermées avant ce commit.
+- Cartes retouchées ce round : 22 sur les 26 déjà modifiées, plus aucune carte
+  précédemment intacte ; `ee11b58d97d21d637c` reste la seule jamais modifiée depuis le
+  round 0.
+- Lignes de `Tools/sources.md` touchées ce round : **5** (`:320`, `:321` de nouveau,
+  `:327`, `:330`, `:331` réécrite en entier) — total cumulé sur le domaine, rounds 0 à 2 :
+  **8** lignes distinctes (`:318`, `:320`, `:321`, `:324`, `:326`, `:327`, `:330`, `:331`).
+- `correctID` : A 7, B 6, C 6, D 8 (inchangé en proportion après rééquilibrage des deux
+  cartes qui avaient fait chuter B).
+- Fuites : domaine à **1** (le seul assumé fortuit, `…81f8a2`/`1a0a5812`, confirmé par la
+  revue comme le bon arbitrage) ; cross-domaine 0 sur les onze domaines clos, 3 sur
+  `Priorités & intersections` (plancher, inchangé — le doublon AB7 est refermé pour de bon
+  cette fois, par changement de sujet).
+- `longueur/plus-longue` : 76, inchangé. `expl/paraphrase-litterale` : 20, inchangé.
+  Aucune sortie interdite n'est restée non vide.
+- Les 19 illustrées relues une par une contre les deux questions du point 24 : **19/19**
+  dont l'image décide, **0/19** dont l'énoncé élimine par sa forme — trois corrections
+  faites ce round (`11d37be2`, `9eb85068`, `7d44f7dd`).
+- `✔ Test run with 10 tests in 0 suites passed after 0.062 seconds.`
