@@ -21,6 +21,7 @@ DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
 -only-testing:'ValidoTests/répartition70_30()'
 
 python3 Tools/audit.py              # contrôles de forme + fraîcheur + couverture
+python3 Tools/relire.py --fuites "Feux"   # une carte qui livre la réponse d'une autre
 ./Tools/render-scenes.sh            # regénère les schémas PNG (clair/sombre, @2x/@3x)
 ```
 
@@ -54,8 +55,9 @@ Trois cartes ont gagné le chiffre qui leur manquait, une est sortie de la liste
 fuite ne se ferme (elle écrit « quatre » là où l'option dit « 4 » — `audit.py:194` teste une
 sous-chaîne). **Donc : `expl/paraphrase-litterale` n'est pas un compteur à minimiser** ; le
 faire baisser pour lui-même vide les cartes de ce qu'elles enseignent. Les trois classes à
-distinguer et les douze angles morts mesurés sont dans
-`Tools/audit-2026-08-passe-3.md`, section « La ligne de base publiée ».
+distinguer sont dans `Tools/audit-2026-08-passe-3.md`, section « La ligne de base
+publiée » ; les **douze angles morts** mesurés sont dans la section « Ce que l'outillage
+ne voit toujours pas » du même fichier, chacun avec sa ligne d'outil.
 
 ## Architecture
 
@@ -118,7 +120,18 @@ Deux registres, tous deux imposés par `audit.py` :
 
 Avant toute édition de questions, lire [`Tools/questions.md`](Tools/questions.md) : 7 règles
 de distracteur, 9 pièges de forme, fraîcheur juridique (§5, sources officielles imposées),
-questions illustrées (§7). Puis `audit.py`, puis les tests.
+questions illustrées (§7). Puis `audit.py`, puis `relire.py`, puis les tests.
+
+[`Tools/relire.py`](Tools/relire.py) est en **lecture seule** et sort toujours 0, comme
+`audit.py`. Deux modes : `relire.py "<domaine>"` met chaque carte en face de sa ligne de
+`sources.md` — l'affirmation est la référence, la carte est ce qu'on vérifie contre elle, et
+`audit.py` ne les affiche jamais ensemble ; `relire.py --fuites "<domaine>"` cherche les
+explications qui livrent la bonne réponse d'une **autre** carte. **Ce que `--fuites` ne voit
+pas** décide de la relecture à la main qui doit l'accompagner : il ignore toute bonne réponse
+de moins de **trois mots pleins** (jetons d'au moins cinq caractères — « 1,6 mm » en compte
+zéro), n'inspecte que les `explanation` et jamais les **options**, et ne reconnaît pas une
+réponse redite en d'autres mots. Sur les 33 fuites fermées par la passe 3, il en avait trouvé
+neuf ; les vingt-quatre autres se sont vues à l'œil, en lisant les cartes voisines côte à côte.
 
 `ValidoTests/BundledContentTests.swift` verrouille le livré : volume ≥ 425, ≥ 242 `code` et
 ≥ 183 `swift`, **≥ 44 illustrées**, aucune lettre de réponse en tête d'option ou
@@ -148,6 +161,7 @@ et `FeedViewModel` en gardent la trace datée. Une correction non évidente s'in
 commentaire du type concerné, au même format ; ne pas nettoyer ces blocs en les prenant pour
 du bavardage.
 
-`docs/superpowers/` (spec et plan de la v1, puis de la seconde passe de contenu) et
-`.superpowers/sdd/` (traces d'exécution, non suivies par git) sont de l'historique : on les
-lit, on ne les met pas à jour.
+`docs/superpowers/` (spec et plan de la v1, puis des deuxième et troisième passes de
+contenu — la troisième, `2026-08-27-relecture-code-pedagogie-design.md`, est la référence
+du rapport de passe 3) et `.superpowers/sdd/` (traces d'exécution, non suivies par git)
+sont de l'historique : on les lit, on ne les met pas à jour.

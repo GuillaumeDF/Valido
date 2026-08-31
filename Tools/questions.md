@@ -344,13 +344,19 @@ en porter un ou la seule à n'en pas porter. Un lot de questions sans aucun code
 donc à zéro sans qu'il ait rien contrôlé, et ailleurs **un seul distracteur qui partage le
 statut de la bonne réponse** suffit à le désarmer.
 
-Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé au §7 de
-[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — neuf angles morts mesurés, dont la
-fuite d'une carte vers **une autre** carte et l'équilibre de longueur dans le sens inverse —
-puis, mesurés sur les 255 `code`, aux **douze** angles morts de
-[`audit-2026-08-passe-3.md`](audit-2026-08-passe-3.md), chacun avec sa ligne d'outil et le
-défaut réel qu'il a laissé passer.
-Huit sont ouverts ; le neuvième (le registre d'images lu trop largement) est corrigé.
+Ce que le script **ne voit pas**, et qu'il faut donc regarder soi-même, est recensé à deux
+endroits. Au §7 de [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) d'abord — neuf
+angles morts mesurés, dont la fuite d'une carte vers **une autre** carte et l'équilibre de
+longueur dans le sens inverse ; **de ces neuf-là**, huit sont ouverts et le neuvième (le
+registre d'images lu trop largement) est corrigé. Puis, mesurés sur les 255 `code`, aux
+**douze** angles morts de la section « Ce que l'outillage ne voit toujours pas » de
+[`audit-2026-08-passe-3.md`](audit-2026-08-passe-3.md), chacun avec le défaut réel qu'il a
+laissé passer. Neuf des douze portent une ligne d'outil ; les trois autres n'en ont pas et
+ne peuvent pas en avoir — « règle trop large », la récurrence d'une forme de distracteur sur
+le lot, et le fait qu'aucun contrôle ne lise une citation de registre jusqu'au bout sont
+précisément les défauts qu'**aucune sortie ne mesure**. Un douzième cas est plus retors
+encore : `forme/backtick-isole` a bien une ligne (`audit.py:175-177`) et n'a mordu nulle
+part, parce que sur un lot sans code span il ne contrôle rien.
 
 ---
 

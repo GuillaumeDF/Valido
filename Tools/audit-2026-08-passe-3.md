@@ -19,15 +19,21 @@ quatre tableaux ci-dessous ne font que les additionner, et chaque total dit d'o�
 | cartes relues | 255 |
 | cartes `code` modifiées | 175 |
 | valeurs périmées corrigées | **0** |
-| règles énoncées trop largement, resserrées | 10 |
-| explications qui dépassaient l'article, coupées ou sourcées | 13 |
+| **cartes** dont une règle énoncée trop largement a été resserrée | 12 |
+| explications qui dépassaient l'article, coupées ou sourcées | 14 |
 | doutes signalés sans correction | 4 |
 | sources rouvertes (déclenchement de l'étape 3) | 31 lignes redatées |
 | explications sous 120 caractères | 24 → **0** |
-| fuites d'une carte vers une autre, trouvées et éteintes | 30 |
+| paires de cartes dont la fuite a été trouvée et éteinte | 33 |
 
 **D'où vient chaque nombre.** Aucun n'est un arrondi ; ceux qui ne se lisent pas
-directement dans une section portent leur méthode ici.
+directement dans une section portent leur méthode ici. **Les trois lignes d'écarts de
+justesse couvrent la passe entière, rondes de correction comprises** — les treize tableaux
+« Écarts de justesse trouvés » sont la base, et les cas trouvés en ronde de correction leur
+sont ajoutés nommément, parce qu'un total qui se lit comme un total de passe doit en être
+un. Deux cartes de `Panneaux & marquage` sont dans ce cas, et seulement elles : un `grep`
+des trois étiquettes de la spec sur le fichier entier, hors des treize tableaux, ne remonte
+que `11d37be22fd315668c` (fix round 2) et `1a0a5812` (fix round 3).
 
 - **255 relues, 175 modifiées** — décomposition exhaustive en « Repères recomptés » :
   148 explications, 18 énoncés, les options de 54 cartes (dont 8 par simple rotation de
@@ -44,16 +50,23 @@ directement dans une section portent leur méthode ici.
   était **déjà** absorbée en ligne, avec l'ancien couple 2 ans / 4 500 € recyclé en
   distracteur, avant l'ouverture de cette passe. Un zéro obtenu par un registre à jour,
   pas par une lecture distraite.
-- **10 règles trop larges** — les lignes étiquetées « règle trop large » dans les treize
-  tableaux, comptées par carte : `fed604fe…` (`Vitesse`), `a6fb8c06…`, `b7b38d7a…`,
-  `e6f52409…` (`Usagers`), `089e9b57…` (`Mécanique`), `37fe1af4…447202` (`Arrêt`),
-  `8a6af9d2…` (`Tunnels`), `f1ae9582…`, `ad7c53ef…` (`Croisement`), `37fe1af4…17d43`
-  (`Feux`, comptée aussi dans la ligne suivante, l'étiquette portant les deux écarts).
-- **13 explications au-delà de l'article** — 9 lignes ainsi étiquetées dans les treize
+- **12 cartes portant une règle trop large** — dix dans les treize tableaux : `fed604fe…`
+  (`Vitesse`), `a6fb8c06…`, `b7b38d7a…`, `e6f52409…` (`Usagers`), `089e9b57…`
+  (`Mécanique`), `37fe1af4…447202` (`Arrêt`), `8a6af9d2…` (`Tunnels`), `f1ae9582…`,
+  `ad7c53ef…` (`Croisement`), `37fe1af4…17d43` (`Feux`, comptée aussi dans la ligne
+  suivante, l'étiquette portant les deux écarts) ; deux de plus en ronde de correction sur
+  `Panneaux & marquage`, `11d37be22fd315668c` (fix round 2, « règle trop large, explication
+  au-delà de l'article, deux réponses possibles ») et `1a0a5812` (fix round 3, « la règle
+  trop large que son propre jumeau réfutait »). **Huit domaines** au total. Le compte est
+  en **cartes**, pas en règles : `a6fb8c06…` est étiquetée « règle trop large, deux fois »
+  et vaut donc à elle seule deux règles resserrées — onze règles sur douze cartes.
+- **14 explications au-delà de l'article** — 9 lignes ainsi étiquetées dans les treize
   tableaux (`f4053725…`, `c29b2e7d…`, `37fe1af4…447202`, `3a06288b…`, `7148c3a8…`,
-  `37fe1af4…a5a505`, `37fe1af4…17d43`, `37fe1af4…1bb26`, `8a1026ed…`) plus les 4 raisons
+  `37fe1af4…a5a505`, `37fe1af4…17d43`, `37fe1af4…1bb26`, `8a1026ed…`), les 4 raisons
   non sourcées de `Premiers secours`, dont le tableau a une autre forme mais dont la
-  section dit « le défaut dominant est *explication au-delà de l'article* ». Deux lignes
+  section dit « le défaut dominant est *explication au-delà de l'article* », et
+  `11d37be22fd315668c` en ronde de correction, qui porte les deux écarts comme
+  `37fe1af4…17d43`. Deux lignes
   de tableau ne sont dans **aucune** des trois catégories de la spec et ne sont donc
   comptées nulle part ici : la citation de registre tronquée de `37fe1af4…6aafb6`
   (`Feux`, point 12 du calibrage) et l'incohérence interne de `37fe1af4…3ba92f`
@@ -80,21 +93,56 @@ directement dans une section portent leur méthode ici.
   24 sur `git show 0976d5e:Valido/Resources/questions.json` contre 0 sur le fichier livré.
   C'est le chiffre que la spec citait comme mesure du défaut « la carte teste, elle
   n'enseigne pas ».
-- **30 fuites** — comptées carte par carte, avec une règle explicite : une **paire nommée
-  dans le rapport** où une carte livrait la réponse d'une autre, et que la passe a fermée.
-  Les recouvrements documentés comme fortuits et **gardés** n'y sont pas (vocabulaire légal
-  partagé, constantes de classe à 135 €/35 €, plancher structurel AB6 à 3, analogie des
-  quatre points de `Feux`) : ils sont dans « Constats parqués ». Par domaine :
-  `Permis & sanctions` 1, `Vitesse` 0, `Alcool & stupéfiants` 1, `Usagers` 0,
-  `Mécanique & environnement` 2, `Distances & freinage` 1, `Arrêt & stationnement` 4,
-  `Premiers secours` 3, `Tunnels & passages à niveau` 3, `Priorités & intersections` 3,
-  `Croisement & dépassement` 0, `Feux` 3, `Panneaux & marquage` 9. **Cinq seulement ont
-  été trouvées par `--fuites`** (`…81d29c` sur `Permis & sanctions`, `5e2dbc0489` sur
-  `Premiers secours`, `1e329fa1` et `1fe6ef49` sur `Tunnels`, la paire antibrouillard sur
-  `Feux`) : **vingt-cinq l'ont été à la main**, parce qu'elles passaient sous le seuil de
-  trois mots pleins, vivaient dans les **options**, ou redisaient la réponse voisine en
-  d'autres mots. C'est le fait le plus important de cette ligne, et la raison d'être de la
-  section « Ce que l'outillage ne voit toujours pas ».
+- **33 fuites.** La convention de comptage, écrite parce qu'elle décide du chiffre :
+
+  1. L'unité est **une paire de cartes**, source → cible. Une fuite **mutuelle** compte
+     pour **une** paire : c'est un seul fait partagé, et une seule fermeture ferme les deux
+     sens.
+  2. Une paire rouverte à un round ultérieur puis refermée compte **une fois**. C'est une
+     fuite, pas deux — la paire antibrouillard de `Feux`, fermée au round 0, rouverte au
+     fix round 1 parce qu'elle ne l'était que pour l'outil, refermée ensuite, en est le cas.
+  3. Un **axe** partagé par plusieurs cartes vaut le nombre de paires que la section nomme
+     explicitement, ni le nombre de cartes ni un. Cela **contredit deux sous-totaux publiés
+     par `Panneaux & marquage`** et il faut le dire : son titre « Six paires qui fuyaient »
+     et son bilan comptent **six** là où la section ne nomme que **quatre** paires
+     (C1a ↔ C113 ; `…8174a3` → `…81699c` ; `…81699c` → `…81059d` ; `89bea09b` ↔ `…81b5aa`).
+     Le six compte les **énoncés d'axe** — « deux axes dupliqués trois fois chacun » — pas
+     les paires ; sa propre phrase de clôture parle d'ailleurs de « quatre cartes
+     concernées ». C'est le quatre qui est retenu ici.
+  4. Un recouvrement documenté comme **fortuit** n'est pas compté, qu'il ait été gardé ou
+     qu'il ait disparu par effet de bord : vocabulaire légal partagé des cartes « grand
+     excès » de `Vitesse`, constantes de classe à 135 €/35 € d'`Arrêt`, plancher AB6 de
+     `Priorités`, analogie des quatre points de `Feux`, collision « franchir/dépasser » de
+     `Distances`. Ils sont en « Constats parqués ».
+  5. « Trouvée par l'outil » veut dire que `relire.py --fuites` l'a **imprimée avant
+     correction**. Tout le reste est manuel.
+
+  Par domaine, sous cette convention : `Permis & sanctions` 1, `Vitesse` 0,
+  `Alcool & stupéfiants` 1, `Usagers` 0, `Mécanique & environnement` 2,
+  `Distances & freinage` 1, `Arrêt & stationnement` 4, `Premiers secours` 3,
+  `Tunnels & passages à niveau` 3, `Priorités & intersections` 3,
+  `Croisement & dépassement` 0, `Feux` 3, `Panneaux & marquage` 12.
+
+  Le douze de `Panneaux` se décompose ainsi, parce que c'est le seul des treize qu'on ne
+  reconstruit pas de tête : le doublon AB7 vers `Priorités`, 2 paires ; le cluster R412-19,
+  3 paires (`…8141b1` → `1a0a5812` et `3cb86b6e` → `1a0a5812`, plus la mutuelle
+  `…8141b1` ↔ `3cb86b6e` sous le seuil de l'outil) ; les 4 paires d'axe du fix round 1
+  ci-dessus ; les 2 cross-domaine du fix round 1 (`11d37be2` ← `3adc2949` de `Vitesse`,
+  `9eb85068` ↔ `2daf8939` de `Priorités`) ; et la mutuelle `…81059d` ↔ `…81b5aa` du round 3.
+  La troisième carte du même axe au round 3 (`…81699c`) rouvre une paire déjà comptée : elle
+  ne compte pas deux fois, règle 2.
+
+  **Neuf de ces 33 ont été trouvées par `--fuites`, vingt-quatre à la main.** Les neuf :
+  `…81d29c` (`Permis`), `5e2dbc0489` (`Premiers secours`), `1e329fa1` et `1fe6ef49`
+  (`Tunnels`), la paire antibrouillard (`Feux`), et **quatre sur `Panneaux & marquage`** —
+  les deux du doublon AB7 et les deux du cluster R412-19 vers `1a0a5812`. Une première
+  version de cette ligne annonçait 5 / 25 en portant les fuites de `Panneaux` en entier au
+  compte manuel : c'était faux, et faux dans le sens qui arrangeait la thèse de la section.
+  Le partage réel reste net — **près des trois quarts échappent à l'outil** (24 sur 33),
+  parce qu'elles passent sous le seuil de trois mots pleins, vivent dans les **options**, ou
+  redisent la réponse voisine en d'autres mots — et c'est la raison d'être de la section « Ce que
+  l'outillage ne voit toujours pas ». Il ne dit pas que `--fuites` est inutile : il a
+  ouvert, seul, neuf dossiers que personne ne cherchait.
 
 ## Ce que la passe n'a pas fait, et pourquoi
 
@@ -104,8 +152,10 @@ directement dans une section portent leur méthode ici.
 - **Le plafond de 220 caractères des 49 illustrées : tenu.** `audit.py` ne remonte aucune
   sortie `image/`. Les cartes où il a limité l'explication sont nommées domaine par domaine,
   dans le bullet « cartes dont le budget de 220 a limité l'explication » de chaque section
-  Pédagogie. La marge réelle est nulle sur les plus tendues : quatre cartes finissent à
-  **219/220** (`dce501d4…`, `1658abbc…`, `639297cf…`, `39fa27d5…`) et une cinquième à 218.
+  Pédagogie. La marge réelle est nulle sur les plus tendues : **huit cartes vivent dans les
+  deux derniers caractères du budget** — quatre à **219/220** (`dce501d4…`, `1658abbc…`,
+  `639297cf…`, `39fa27d5…`) et quatre à **218** (`11d37be2…`, `dd4c58fe…`, `3adc2949…`,
+  `1509ad94…`).
   C'est un régime pédagogique à deux vitesses, assumé, pas un oubli — sur ces 49 cartes,
   enseigner mieux veut dire couper du redondant, jamais allonger.
 - **La génération depuis les pages de cours**, seule chose qui fera un feed infini (§10 de
@@ -6189,10 +6239,10 @@ passe** : la colonne de droite dit où le regarder dans le code, la dernière o�
 | 6 | **Collision de sous-chaîne dans `expl/paraphrase-litterale`** : sans frontière de mot, « 35 € » est « trouvé » dans « 135 € ». Troisième classe du point 16 du calibrage, distincte du vrai défaut et du faux positif chiffré. | `Tools/audit.py:195` | `Arrêt & stationnement`, `37fe1af4…708f0042` : la carte cite 135 € **par contraste** et ne porte nulle part son propre 35 €. |
 | 7 | **`longueur/plus-longue` est informatif, et son seuil dur est ailleurs.** Une bonne réponse à **+10 pile** ne produit aucune sortie interdite alors qu'elle est à un caractère de `longueur/plus-10` — et le §1 de `questions.md` rappelle que la plus longue option est l'indice le plus fiable de tout QCM. | `Tools/audit.py:164-165` | `Distances & freinage` a livré une bonne réponse à +10 pile alors qu'une reformulation sans perte la ramenait à +1 (point 15 du calibrage). |
 | 8 | **`forme/backtick-isole` ne mord que si une option porte un backtick**, et un seul distracteur qui partage le statut de la bonne réponse suffit à le désarmer. Son zéro ne prouve rien sur un lot sans code span — c'est-à-dire sur **les 255 cartes `code`**. | `Tools/audit.py:175-177` | Nulle part, et c'est le problème : la sortie est vide sur tout le périmètre de cette passe sans avoir rien contrôlé. |
-| 9 | **Aucune sortie ne mesure « règle trop large ».** La carte est bien formée, sa ligne existe, sa source est recevable, et elle dit quand même plus que l'article. C'est le défaut qui justifiait la passe, et il se cherche **clause par clause**, une carte lue d'ensemble « disant la même chose » que son affirmation. | — | 10 cas, sur 8 domaines. `Usagers` en a livré deux qui avaient la même cause : la carte comparée à son affirmation par blocs, pas proposition par proposition (point 10 du calibrage). |
-| 10 | **Une citation tronquée dans le registre rend l'affirmation elle-même fausse**, et aucun contrôle ne la voit : `audit.py` vérifie qu'une ligne existe et que son domaine est blanc, jamais qu'elle ferme sa phrase. Un guillemet fermant au milieu d'une phrase est un mensonge par omission — et la relecture clause par clause, méthode juste, laisse alors passer la carte, parce que c'est **l'affirmation** qui est incomplète. | `Tools/audit.py`, contrôles `source/` | **Six lignes de registre, sur quatre domaines.** `Usagers` (R412-11-3, guillemet fermé juste avant le « nonobstant » qui change le champ d'application) ; `Permis` (R223-1 III) ; `Mécanique` (R412-2 III, tronqué entre les points d'une énumération, et L2213-4-1 II, avec un mot du texte laissé hors des guillemets) ; `Feux` (R412-33 et R412-32). |
+| 9 | **Aucune sortie ne mesure « règle trop large ».** La carte est bien formée, sa ligne existe, sa source est recevable, et elle dit quand même plus que l'article. C'est le défaut qui justifiait la passe, et il se cherche **clause par clause**, une carte lue d'ensemble « disant la même chose » que son affirmation. | — | 12 cartes, sur 8 domaines — dix relevées dans les treize tableaux d'écarts, deux de plus en ronde de correction sur `Panneaux & marquage`. `Usagers` en a livré deux qui avaient la même cause : la carte comparée à son affirmation par blocs, pas proposition par proposition (point 10 du calibrage). |
+| 10 | **Une citation tronquée dans le registre rend l'affirmation elle-même fausse**, et aucun contrôle ne la voit : `audit.py` vérifie qu'une ligne existe et que son domaine est blanc, jamais qu'elle ferme sa phrase. Un guillemet fermant au milieu d'une phrase est un mensonge par omission — et la relecture clause par clause, méthode juste, laisse alors passer la carte, parce que c'est **l'affirmation** qui est incomplète. | `Tools/audit.py`, contrôles `source/` | **Sept lignes de registre, sur quatre domaines.** `Usagers` (R412-11-3, guillemet fermé juste avant le « nonobstant » qui change le champ d'application) ; `Permis` (R223-1 III) ; `Mécanique` (R412-2 III, tronqué entre les points d'une énumération, et L2213-4-1 II, avec un mot du texte laissé hors des guillemets) ; `Feux`, qui en porte **trois** (R412-33, R412-32, et R416-4 sur `sources.md:276`, fermée sur « faire usage des feux » alors que la phrase continue). Le critère d'inclusion est la troncature elle-même, pas son effet sur la carte : `Permis` et `Feux`/R416-4 y sont alors même que leur carte ne s'appuyait pas sur la partie coupée. |
 | 11 | **La récurrence d'une forme de distracteur sur le lot n'est visible d'aucun outil**, chaque carte étant irréprochable prise seule. Un lecteur qui croise trois cartes portant le même absolu apprend l'heuristique et perd un distracteur sur chacune. Le contrôle est un `grep` sur les **options fausses** — compter les bonnes réponses gonfle le chiffre en rangeant une carte saine parmi les fautives. | — (motif : `dans tous les cas\|sans exception\|en toute saison\|en toutes circonstances`) | `Croisement & dépassement` : quatre cartes sur quinze portaient le même absolu, sur les sept que comptait alors la banque `code` entière (point 22 du calibrage). `Feux`, mesuré après coup, n'en compte plus qu'une sur cinq dans la banque. |
-| 12 | **Rien ne mesure si l'image décide encore.** Le budget 70/50/220 borne la place, jamais le partage de la charge entre l'énoncé et le dessin. Un énoncé enrichi peut désarmer son illustration — et, en le faisant, éliminer des options par sa seule forme. | `Tools/audit.py:133-141` (budget et `image/enonce-redit-la-scene`) | `Panneaux & marquage` : trois images ont cessé de travailler d'un coup en fix round 1, et le test du masque, refait honnêtement en round 3, s'arrête à **17/19** avec six marqueurs de forme résiduels. |
+| 12 | **Rien ne mesure si l'image décide encore.** Le budget 70/50/220 borne la place, jamais le partage de la charge entre l'énoncé et le dessin. Un énoncé enrichi peut désarmer son illustration — et, en le faisant, éliminer des options par sa seule forme. | `Tools/audit.py:130-141` (budget et `image/enonce-redit-la-scene`) | `Panneaux & marquage` : trois images ont cessé de travailler d'un coup en fix round 1, et le test du masque, refait honnêtement en round 3, s'arrête à **17/19** avec six marqueurs de forme résiduels. |
 
 ## Constats parqués
 
