@@ -6411,13 +6411,15 @@ d'une carte de la cadence qui n'énonçait plus la cadence. Les deux ont été r
 
 ## Revue de fin de branche
 
-2026-08-31, sur `230053c`. Une relecture externe de la branche a rendu neuf constats ; ils
-sont traités ici. **Rien au-dessus de cette ligne n'a été touché**, à deux exceptions
+2026-08-31, sur `230053c`. Une relecture externe de la branche a rendu deux Critical, cinq
+Important — le septième portant deux cas distincts, `7a` et `7b` — un bloc de Minor, et une
+consigne de rejeu : refaire le contrôle du point 13 du calibrage sur les treize domaines,
+une fois `relire.py` réparé. Tout est traité ici. **Rien au-dessus de cette ligne n'a été touché**, à deux exceptions
 nommées dans la table des « Constats parqués » : le n° 1, refermé, et le n° 6, requalifié.
 Les treize sections de domaine et « Repères recomptés » sont closes.
 
 **Ce qui a bougé, en volume.** 21 cartes sur 448 — 15 explications, 10 options, aucun
-énoncé, aucune illustration, aucun `id`. 21 lignes de `sources.md`. `Tools/relire.py` et le
+énoncé, aucune illustration, aucun `id`. 21 lignes de `sources.md`. `Tools/relire.py`, et les §1 et
 §3 de `Tools/questions.md`. `audit.py` et `ValidoTests/` n'ont pas été ouverts.
 
 **La ligne de base n'a pas bougé d'une unité** : `lettre/reference` 1, `forme/markdown` 1,
