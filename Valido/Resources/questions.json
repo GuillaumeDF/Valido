@@ -1237,7 +1237,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Six points, le maximum du barème : au-delà de 50 km/h d'écart, la marge de freinage disparaît presque entièrement. Depuis le 29 décembre 2025, ce dépassement relève d'un délit dès la première fois — amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € encourus.",
+    "explanation": "Six points : ce retrait n'est pas celui du barème des contraventions, c'est celui que l'art. L413-1 attache de plein droit au délit d'excès de vitesse. Depuis fin décembre 2025, le grand excès en est un dès la première fois, sans attendre la récidive — amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € encourus. Au-delà de 50 km/h d'écart, la marge de freinage a presque entièrement disparu.",
     "id": "37fe1af42b8d817a9111e3d52f9e5142",
     "options": [
       {
@@ -6910,7 +6910,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le décret n° 2025-1269, signé le 22 décembre 2025 et entré en vigueur le 29, retire le grand excès de vitesse du régime de la contravention de cinquième classe et de son amende forfaitaire : un tel dépassement met des vies bien plus directement en jeu, d'où le passage à un délit dès la première fois, plus seulement en cas de récidive.",
+    "explanation": "Un décret ne peut pas créer un délit : la Constitution réserve à la loi la détermination des délits et des peines (art. 34). C'est la loi n° 2025-622 du 9 juillet 2025 qui a réécrit l'art. L413-1 du code de la route — trois mois d'emprisonnement et 3 750 € d'amende encourus dès le premier dépassement de 50 km/h. Le décret n° 2025-1269 n'en a tiré que la conséquence réglementaire, en abrogeant la contravention devenue sans objet. L'action publique peut toutefois s'éteindre sans audience, par une amende forfaitaire délictuelle de 300 €.",
     "id": "337bfcb4d034b62de5fe0d77ca0cb0a0",
     "options": [
       {
