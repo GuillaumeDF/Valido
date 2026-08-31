@@ -933,7 +933,7 @@
     "options": [
       {
         "id": "A",
-        "text": "De faire valoir une priorité absolue sur la voie"
+        "text": "De faire valoir une priorité sur la voie croisée"
       },
       {
         "id": "B",
@@ -1852,7 +1852,7 @@
       },
       {
         "id": "C",
-        "text": "une indication de service, sans aucune contrainte"
+        "text": "une indication de service, sans contrainte"
       },
       {
         "id": "D",
@@ -2041,7 +2041,7 @@
       },
       {
         "id": "C",
-        "text": "Vous passez en feux de croisement"
+        "text": "Vous passez immédiatement en feux de croisement"
       },
       {
         "id": "D",
@@ -2136,7 +2136,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Le code réserve un délai court au cas le plus léger : un seul point perdu revient au bout de six mois. Dès que le dossier compte davantage, les délais s'allongent nettement — c'est le mécanisme que détaille la question sur la réattribution complète des douze points.",
+    "explanation": "Le code réserve un délai court au cas le plus léger : un seul point perdu revient au bout de six mois. Dès que le dossier compte davantage, les délais s'allongent nettement. Et le compte ne part pas du jour de l'infraction : il court de la date où la sanction est acquise — amende forfaitaire payée, titre exécutoire émis ou condamnation devenue définitive.",
     "id": "37fe1af42b8d81d29ceac642002e46d1",
     "options": [
       {
@@ -2689,7 +2689,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Le premier arrivé sur la voie ferrée passe, comme ailleurs"
+        "text": "Le premier arrivé sur la voie ferrée passe"
       },
       {
         "id": "B",
@@ -10509,7 +10509,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "30 compressions et 2 insufflations : c'est le rapport que retiennent l'ERC et la Croix-Rouge quand le sauveteur accepte de faire du bouche-à-bouche. Chaque pause pour souffler interrompt la perfusion, ce que l'ERC signale comme un risque à limiter ; celui qui ne s'en sent pas capable peut comprimer seul, sans interruption, à au moins 100 par minute — les recommandations jugent que cela reste une bonne chance de survie pour la victime, plutôt qu'une raison de ne rien faire.",
+    "explanation": "30 compressions et 2 insufflations : c'est le rapport que retiennent l'ERC et la Croix-Rouge quand le sauveteur accepte de faire du bouche-à-bouche. Chaque pause pour souffler interrompt la perfusion, ce que l'ERC signale comme un risque à limiter ; celui qui ne s'en sent pas capable peut comprimer seul, sans interruption — les recommandations jugent que cela reste une bonne chance de survie pour la victime, plutôt qu'une raison de ne rien faire.",
     "id": "d724a3c3121fafd733552c7d2ba1f5aa",
     "options": [
       {
@@ -11584,7 +11584,7 @@
       },
       {
         "id": "C",
-        "text": "faire demi-tour pour ressortir par l'entrée, face aux véhicules qui arrivent"
+        "text": "faire demi-tour pour ressortir par l'entrée du tunnel"
       },
       {
         "id": "D",
