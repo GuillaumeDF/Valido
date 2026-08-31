@@ -7018,24 +7018,24 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "La zone 30 limite à 30 km/h et laisse les piétons sur le trottoir. La zone de rencontre descend à 20 km/h et y ajoute la priorité du piéton, qui peut circuler sur la chaussée. L'aire piétonne va plus loin : la circulation motorisée n'y est qu'exceptionnelle.",
+    "explanation": "R110-2 sépare les deux zones par deux traits à la fois : la zone 30 ne pose qu'une limite de vitesse, quand la zone de rencontre l'abaisse encore et donne en plus la priorité au piéton, autorisé à marcher sur la chaussée. La limite tient dans un mot de l'article : il l'y autorise à « circuler sur la chaussée sans y stationner » — la chaussée reste une voie de passage, pas un trottoir élargi.",
     "id": "cac0f9db162887802d4fb15ba97d768f",
     "options": [
       {
         "id": "A",
-        "text": "La vitesse maximale, ramenée de 30 à 20 km/h"
+        "text": "La seule vitesse maximale, le piéton gardant le trottoir"
       },
       {
         "id": "B",
-        "text": "La priorité laissée aux piétons sur la chaussée"
+        "text": "La place du piéton, la vitesse restant celle d'une zone 30"
       },
       {
         "id": "C",
-        "text": "La vitesse et la priorité donnée aux piétons"
+        "text": "La vitesse et la priorité donnée au piéton sur la chaussée"
       },
       {
         "id": "D",
-        "text": "Le sens de circulation, ni la vitesse ni la priorité"
+        "text": "Le sens de circulation autant que la vitesse et la priorité"
       }
     ],
     "prompt": "Entre une zone 30 et une zone de rencontre, la différence porte sur :",
