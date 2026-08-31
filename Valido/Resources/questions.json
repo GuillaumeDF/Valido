@@ -1237,7 +1237,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Six points : ce retrait n'est pas celui du barème des contraventions, c'est celui que l'art. L413-1 attache de plein droit au délit d'excès de vitesse. Depuis fin décembre 2025, le grand excès en est un dès la première fois, sans attendre la récidive — amende forfaitaire délictuelle de 300 €, jusqu'à trois mois d'emprisonnement et 3 750 € encourus. Au-delà de 50 km/h d'écart, la marge de freinage a presque entièrement disparu.",
+    "explanation": "Six points : ce retrait ne suit pas le barème des contraventions d'excès de vitesse, qui plafonne plus bas ; c'est l'art. L413-1 qui l'attache de plein droit à cette infraction-là. Il ne se gradue pas non plus — passé le seuil, le retrait est le même à 55 comme à 90 km/h de trop. Au-delà de 50 km/h d'écart, la marge de freinage a presque entièrement disparu.",
     "id": "37fe1af42b8d817a9111e3d52f9e5142",
     "options": [
       {
@@ -2055,7 +2055,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le seuil probatoire n'est pas nul : il est fixé à 0,20 g/L, sous l'effet d'un seul verre standard (0,20 à 0,25 g/L par verre). Il s'applique pendant toute la période probatoire, pas seulement la première année.",
+    "explanation": "Le seuil probatoire n'est pas nul : il est fixé à 0,20 g/L, sous l'effet d'un seul verre standard. Il s'applique pendant toute la période probatoire, pas seulement la première année.",
     "id": "37fe1af42b8d81cf8791f73464a2f801",
     "options": [
       {
@@ -2495,7 +2495,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Un temps de réaction qui passe d'une à deux secondes ajoute une longueur de voiture tous les 15 km/h — le freinage, lui, n'a pas bougé d'un mètre. Le téléphone tenu en main y ajoute une sanction : l'article R412-6-1 l'interdit, en quatrième classe, avec trois points de moins.",
+    "explanation": "Une seconde de réaction en plus ajoute une longueur de voiture tous les 15 km/h — le freinage, lui, n'a pas bougé d'un mètre. Le téléphone tenu en main y ajoute une sanction : l'article R412-6-1 l'interdit, et le range en quatrième classe.",
     "id": "37fe1af42b8d81ef84ffe4578802422a",
     "options": [
       {
@@ -7045,7 +7045,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le risque de collision grave croît avec l'écart : le barème monte par paliers (1 point de 5 à 20 km/h, puis 2, 3 et 4). À partir de 30 km/h de dépassement, le juge peut ajouter une suspension du permis et un stage obligatoire ; à 50 km/h l'infraction devient un délit.",
+    "explanation": "Le risque de collision grave croît avec l'écart, et le barème suit : quatre points, dernier palier du régime contraventionnel. À partir de 30 km/h de dépassement, le juge peut y ajouter une suspension du permis et un stage obligatoire, qui restent à sa main — rien de tout cela n'est automatique.",
     "id": "04182c9bbdeb305e21532f9c6913a2a2",
     "options": [
       {
@@ -7458,7 +7458,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le seuil probatoire de 0,2 g/L vaut pendant toute la période probatoire, quel que soit l'âge. À 0,4 g/L l'infraction est constituée alors qu'un titulaire d'un permis définitif serait encore en règle — mais elle reste une contravention, le délit commençant à 0,8 g/L.",
+    "explanation": "Un permis probatoire n'a pas le même plafond qu'un permis définitif, et le sien vaut pendant toute la période probatoire, quel que soit l'âge : à 0,4 g/L l'infraction est déjà constituée alors qu'un conducteur confirmé serait encore en règle. Elle reste une contravention — le délit, lui, ne commence qu'à 0,8 g/L.",
     "id": "526ffb51f8bc0ed95490405ddc0dfc0f",
     "options": [
       {
@@ -9224,7 +9224,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; celui du cumul alcool et stupéfiants, à cinq ans et 15 000 €, sanctionne une infraction plus lourde.",
+    "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; le cumul avec l'alcool, lui, est une infraction distincte et plus lourdement punie.",
     "id": "92f3fe40dd9c28ff0010261e74ae6ebe",
     "options": [
       {
@@ -9557,7 +9557,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Vous passez en feux de croisement sans attendre"
+        "text": "Vous repassez en feux de croisement, et vous y restez"
       },
       {
         "id": "B",
