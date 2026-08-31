@@ -24,7 +24,7 @@ quatre tableaux ci-dessous ne font que les additionner, et chaque total dit d'o�
 | doutes signalés sans correction | 4 |
 | sources rouvertes (déclenchement de l'étape 3) | 31 lignes redatées |
 | explications sous 120 caractères | 24 → **0** |
-| paires de cartes dont la fuite a été trouvée et éteinte | 33 |
+| paires de cartes dont la fuite a été trouvée et éteinte | 34 |
 
 **D'où vient chaque nombre.** Aucun n'est un arrondi ; ceux qui ne se lisent pas
 directement dans une section portent leur méthode ici. **Les trois lignes d'écarts de
@@ -93,7 +93,7 @@ que `11d37be22fd315668c` (fix round 2) et `1a0a5812` (fix round 3).
   24 sur `git show 0976d5e:Valido/Resources/questions.json` contre 0 sur le fichier livré.
   C'est le chiffre que la spec citait comme mesure du défaut « la carte teste, elle
   n'enseigne pas ».
-- **33 fuites.** La convention de comptage, écrite parce qu'elle décide du chiffre :
+- **34 fuites.** La convention de comptage, écrite parce qu'elle décide du chiffre :
 
   1. L'unité est **une paire de cartes**, source → cible. Une fuite **mutuelle** compte
      pour **une** paire : c'est un seul fait partagé, et une seule fermeture ferme les deux
@@ -110,10 +110,19 @@ que `11d37be22fd315668c` (fix round 2) et `1a0a5812` (fix round 3).
      les paires ; sa propre phrase de clôture parle d'ailleurs de « quatre cartes
      concernées ». C'est le quatre qui est retenu ici.
   4. Un recouvrement documenté comme **fortuit** n'est pas compté, qu'il ait été gardé ou
-     qu'il ait disparu par effet de bord : vocabulaire légal partagé des cartes « grand
-     excès » de `Vitesse`, constantes de classe à 135 €/35 € d'`Arrêt`, plancher AB6 de
-     `Priorités`, analogie des quatre points de `Feux`, collision « franchir/dépasser » de
-     `Distances`. Ils sont en « Constats parqués ».
+     qu'il ait disparu par effet de bord. Les six exclusions, chacune avec son vrai
+     domaine — une première version en logeait une sous `Distances` alors qu'elle est dans
+     `Panneaux` : vocabulaire de sanction partagé par les deux cartes « grand excès » de
+     `Vitesse` (4 recouvrements à l'entrée, 0 à la sortie, jamais traités comme des
+     fuites) ; constantes de classe à 135 €/35 € d'`Arrêt` ; plancher AB6 de `Priorités` ;
+     analogie des quatre points de `Feux` ; vocabulaire générique du barème
+     (`points`/`suspension`/`possible`/`permis`) entre `a4f04a…` de `Distances & freinage`
+     et une carte `Vitesse`, antérieur à la passe et tombé par effet de bord au fix
+     round 2 ; collision lexicale « franchir/dépasser/ligne » entre `…81f8a2` et
+     `1a0a5812`, **dans `Panneaux & marquage`**, qui maintient `--fuites` de ce domaine à 1
+     pendant deux rondes avant de tomber au round 3. **Les six sont en « Constats
+     parqués »** — les deux dernières y ont été ajoutées en ronde 2, la phrase promettant
+     une traçabilité que la table n'honorait pas pour elles.
   5. « Trouvée par l'outil » veut dire que `relire.py --fuites` l'a **imprimée avant
      correction**. Tout le reste est manuel.
 
@@ -121,24 +130,48 @@ que `11d37be22fd315668c` (fix round 2) et `1a0a5812` (fix round 3).
   `Alcool & stupéfiants` 1, `Usagers` 0, `Mécanique & environnement` 2,
   `Distances & freinage` 1, `Arrêt & stationnement` 4, `Premiers secours` 3,
   `Tunnels & passages à niveau` 3, `Priorités & intersections` 3,
-  `Croisement & dépassement` 0, `Feux` 3, `Panneaux & marquage` 12.
+  `Croisement & dépassement` 0, `Feux` 3, `Panneaux & marquage` 13.
 
-  Le douze de `Panneaux` se décompose ainsi, parce que c'est le seul des treize qu'on ne
-  reconstruit pas de tête : le doublon AB7 vers `Priorités`, 2 paires ; le cluster R412-19,
-  3 paires (`…8141b1` → `1a0a5812` et `3cb86b6e` → `1a0a5812`, plus la mutuelle
+  Le treize de `Panneaux` se décompose ainsi, parce que c'est le seul des treize domaines
+  qu'on ne reconstruit pas de tête : le doublon AB7 vers `Priorités`, 2 paires ; le cluster
+  R412-19, 3 paires (`…8141b1` → `1a0a5812` et `3cb86b6e` → `1a0a5812`, plus la mutuelle
   `…8141b1` ↔ `3cb86b6e` sous le seuil de l'outil) ; les 4 paires d'axe du fix round 1
   ci-dessus ; les 2 cross-domaine du fix round 1 (`11d37be2` ← `3adc2949` de `Vitesse`,
-  `9eb85068` ↔ `2daf8939` de `Priorités`) ; et la mutuelle `…81059d` ↔ `…81b5aa` du round 3.
-  La troisième carte du même axe au round 3 (`…81699c`) rouvre une paire déjà comptée : elle
-  ne compte pas deux fois, règle 2.
+  `9eb85068` ↔ `2daf8939` de `Priorités`) ; la mutuelle `…81059d` ↔ `…81b5aa` du round 3 ;
+  et **la mutuelle B6a1 `1658abbc` ↔ B6d `1509ad94`**, treizième, ajoutée en ronde 2. La
+  troisième carte de l'axe rouge/bleu au round 3 (`…81699c`) rouvre une paire déjà comptée :
+  elle ne compte pas deux fois, règle 2.
 
-  **Neuf de ces 33 ont été trouvées par `--fuites`, vingt-quatre à la main.** Les neuf :
+  **Pourquoi la paire B6a1/B6d compte, alors qu'un recomptage la manque.** C'est le seul
+  endroit du lot où la convention ne se lit pas d'une traite, et il faut donc écrire la
+  preuve. Le fix round 1 la **nomme comme fuite** dans sa table de requalification —
+  `1658abbc`, « limite = contraste de pictogramme avec B6d (**fuyait vers elle**, voir plus
+  bas) » — mais son « voir plus bas » ne mène nulle part : la paire est absente de la
+  section « Six paires qui fuyaient », si bien qu'un recompte fait sur cette seule section
+  ne la voit pas. Elle réapparaît deux rondes plus loin, dans l'autre sens, et **s'y
+  ferme** : au round 3, `1509ad94` → `1658abbc` perd le contraste de dessin (« deux obliques
+  croisées, au lieu d'une ») qui faisait tomber deux options de la voisine sur le seul
+  pictogramme, au profit d'un contraste de prescription. Une paire nommée dans un sens,
+  refermée dans l'autre : règle 1, une paire. Ce qui subsiste au round 4 — une interdiction
+  d'arrêt qui emporte le stationnement, donc une option de `1658abbc` qui tombe — est
+  qualifié par la section elle-même de « conséquence structurelle de la paire B6a1/B6d », et
+  une conséquence structurelle n'est pas la fuite : les trois autres options tiennent et le
+  vrai discriminant de la carte, le côté, est intact. Deux garde-fous ont pesé dans le même
+  sens : la comparaison avec la mutuelle `…81059d` ↔ `…81b5aa`, comptée pour exactement le
+  même motif, et la règle qu'en cas de doute on prend la direction qui **n'arrange pas** la
+  thèse de la section — ici 34 avec 9 / 25, qui dégrade la part de l'outil.
+
+  Le « voir plus bas » orphelin reste dans une section close et n'est pas touché ; il est
+  signalé ici parce que c'est exactement la forme que prend une fuite invisible à un
+  recomptage — nommée dans une table, jamais reprise dans la section qui les énumère.
+
+  **Neuf de ces 34 ont été trouvées par `--fuites`, vingt-cinq à la main.** Les neuf :
   `…81d29c` (`Permis`), `5e2dbc0489` (`Premiers secours`), `1e329fa1` et `1fe6ef49`
   (`Tunnels`), la paire antibrouillard (`Feux`), et **quatre sur `Panneaux & marquage`** —
   les deux du doublon AB7 et les deux du cluster R412-19 vers `1a0a5812`. Une première
   version de cette ligne annonçait 5 / 25 en portant les fuites de `Panneaux` en entier au
   compte manuel : c'était faux, et faux dans le sens qui arrangeait la thèse de la section.
-  Le partage réel reste net — **près des trois quarts échappent à l'outil** (24 sur 33),
+  Le partage réel reste net — **près des trois quarts échappent à l'outil** (25 sur 34),
   parce qu'elles passent sous le seuil de trois mots pleins, vivent dans les **options**, ou
   redisent la réponse voisine en d'autres mots — et c'est la raison d'être de la section « Ce que
   l'outillage ne voit toujours pas ». Il ne dit pas que `--fuites` est inutile : il a
@@ -6263,6 +6296,8 @@ cachée : chacun a une raison écrite, et la relire coûte moins cher que le ret
 | 10 | `Panneaux & marquage` | Trois constats de **dessin**, hérités du §9.5 de la passe 2 : listel blanc invisible en mode clair sur quatre panneaux ; halo entaillant le « 7 » de `panneau-b33-fin-limitation` (l'asset est toujours référencé une fois dans la banque) ; orientation verticale du chevron de `marquage-zebra` absente des licences déclarées d'`images.md`. | Toujours ouverts. Hors périmètre : ni les assets ni `Tools/Scenes/` n'ont été touchés. **Le premier est signalé depuis la passe 2 comme « la première chose à regarder ».** |
 | 11 | `Panneaux & marquage` | Le test du masque finit à **17/19**, avec six marqueurs de forme résiduels et non trois — dont `ee11b58d`, dont la bonne réponse nomme le pictogramme. | Consigné, carte non éditée : la carte n'avait pas été touchée au round concerné. La ligne est « plus près d'un troisième échec que la table ne le laissait croire », et le dit. |
 | 12 | Hors périmètre du brief | Le §6 de `Tools/questions.md` affirmait 188 `id` frappés encore égaux au hachage de leur énoncé, et onze réécrits. | **Corrigé** en tâche 15 : 176 et vingt-trois, avec la date du recomptage. Aucun `id` n'a bougé — c'est exactement le comportement que ce paragraphe documente. |
+| 13 | `Vitesse` | Les deux cartes « grand excès » partagent, par construction, le vocabulaire de sanction (« délit », « prison », « amende ») avec les cartes de sanction des autres domaines : 4 recouvrements `--fuites` à l'entrée, tous de cette origine. | Fortuits, jamais traités comme des fuites. Retombés à 0 à la sortie comme effet de bord de la réécriture d'option, pas d'un texte plié pour éteindre un compteur. Ajouté à cette table en ronde 2 : la règle 4 le citait en exemple sans qu'il y figure. |
+| 14 | `Panneaux & marquage` | La collision lexicale « franchir / dépasser / ligne » entre `…81f8a2` et `1a0a5812` — deux sujets adjacents, aucun fait partagé — maintient `--fuites` du domaine à 1 pendant deux rondes. | Fortuite. Une reformulation avait été annulée sur ordre de la revue plutôt que de forcer un mot de remplacement (point 11) ; le recouvrement tombe au round 3 par effet de bord d'un minor sans rapport. Ajouté en ronde 2, même motif que le n° 13. |
 
 ## La ligne de base publiée
 

@@ -57,7 +57,10 @@ sous-chaîne). **Donc : `expl/paraphrase-litterale` n'est pas un compteur à min
 faire baisser pour lui-même vide les cartes de ce qu'elles enseignent. Les trois classes à
 distinguer sont dans `Tools/audit-2026-08-passe-3.md`, section « La ligne de base
 publiée » ; les **douze angles morts** mesurés sont dans la section « Ce que l'outillage
-ne voit toujours pas » du même fichier, chacun avec sa ligne d'outil.
+ne voit toujours pas » du même fichier. Neuf des douze portent une ligne d'outil ; les
+trois autres n'en ont pas et ne peuvent pas en avoir — « règle trop large », la récurrence
+d'une forme de distracteur sur le lot et la citation de registre jamais lue jusqu'au bout
+sont précisément ce qu'aucune sortie ne mesure.
 
 ## Architecture
 
@@ -130,8 +133,8 @@ explications qui livrent la bonne réponse d'une **autre** carte. **Ce que `--fu
 pas** décide de la relecture à la main qui doit l'accompagner : il ignore toute bonne réponse
 de moins de **trois mots pleins** (jetons d'au moins cinq caractères — « 1,6 mm » en compte
 zéro), n'inspecte que les `explanation` et jamais les **options**, et ne reconnaît pas une
-réponse redite en d'autres mots. Sur les 33 fuites fermées par la passe 3, il en avait trouvé
-neuf ; les vingt-quatre autres se sont vues à l'œil, en lisant les cartes voisines côte à côte.
+réponse redite en d'autres mots. Sur les 34 fuites fermées par la passe 3, il en avait trouvé
+neuf ; les vingt-cinq autres se sont vues à l'œil, en lisant les cartes voisines côte à côte.
 
 `ValidoTests/BundledContentTests.swift` verrouille le livré : volume ≥ 425, ≥ 242 `code` et
 ≥ 183 `swift`, **≥ 44 illustrées**, aucune lettre de réponse en tête d'option ou
