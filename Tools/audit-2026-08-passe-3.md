@@ -113,16 +113,19 @@ que `11d37be22fd315668c` (fix round 2) et `1a0a5812` (fix round 3).
      qu'il ait disparu par effet de bord. Les six exclusions, chacune avec son vrai
      domaine — une première version en logeait une sous `Distances` alors qu'elle est dans
      `Panneaux` : vocabulaire de sanction partagé par les deux cartes « grand excès » de
-     `Vitesse` (4 recouvrements à l'entrée, 0 à la sortie, jamais traités comme des
-     fuites) ; constantes de classe à 135 €/35 € d'`Arrêt` ; plancher AB6 de `Priorités` ;
-     analogie des quatre points de `Feux` ; vocabulaire générique du barème
-     (`points`/`suspension`/`possible`/`permis`) entre `a4f04a…` de `Distances & freinage`
-     et une carte `Vitesse`, antérieur à la passe et tombé par effet de bord au fix
-     round 2 ; collision lexicale « franchir/dépasser/ligne » entre `…81f8a2` et
-     `1a0a5812`, **dans `Panneaux & marquage`**, qui maintient `--fuites` de ce domaine à 1
-     pendant deux rondes avant de tomber au round 3. **Les six sont en « Constats
-     parqués »** — les deux dernières y ont été ajoutées en ronde 2, la phrase promettant
-     une traçabilité que la table n'honorait pas pour elles.
+     `Vitesse` (4 recouvrements à l'entrée, 0 à la sortie) ; constantes de classe à
+     135 €/35 € d'`Arrêt` ; plancher AB6 de `Priorités` ; analogie des quatre points de
+     `Feux` ; vocabulaire générique du barème (`points`/`suspension`/`possible`/`permis`)
+     entre `a4f04a…` de `Distances & freinage` et une carte `Vitesse`, antérieur à la passe,
+     tombé par effet de bord au fix round 1 puis rouvert par ce même round et refermé
+     délibérément au fix round 2 ; collision lexicale « franchir/dépasser/ligne » entre
+     `…81f8a2` et `1a0a5812`, **dans `Panneaux & marquage`**, qui maintient `--fuites` de ce
+     domaine à 1 pendant deux rondes avant de tomber au round 3. **Les six ont chacune leur
+     ligne en « Constats parqués »**, n° 13, 9, 7, 8, 15 et 14 dans l'ordre où elles sont
+     citées ici ; les trois dernières (13 `Vitesse`, 14 `Panneaux`, 15 `Distances`) y ont été
+     ajoutées en rondes 2 et 3, la phrase ayant promis deux fois une traçabilité que la table
+     n'honorait pas encore — d'abord pour deux d'entre elles, puis pour celle que la
+     correction venait de créer.
   5. « Trouvée par l'outil » veut dire que `relire.py --fuites` l'a **imprimée avant
      correction**. Tout le reste est manuel.
 
@@ -6296,8 +6299,9 @@ cachée : chacun a une raison écrite, et la relire coûte moins cher que le ret
 | 10 | `Panneaux & marquage` | Trois constats de **dessin**, hérités du §9.5 de la passe 2 : listel blanc invisible en mode clair sur quatre panneaux ; halo entaillant le « 7 » de `panneau-b33-fin-limitation` (l'asset est toujours référencé une fois dans la banque) ; orientation verticale du chevron de `marquage-zebra` absente des licences déclarées d'`images.md`. | Toujours ouverts. Hors périmètre : ni les assets ni `Tools/Scenes/` n'ont été touchés. **Le premier est signalé depuis la passe 2 comme « la première chose à regarder ».** |
 | 11 | `Panneaux & marquage` | Le test du masque finit à **17/19**, avec six marqueurs de forme résiduels et non trois — dont `ee11b58d`, dont la bonne réponse nomme le pictogramme. | Consigné, carte non éditée : la carte n'avait pas été touchée au round concerné. La ligne est « plus près d'un troisième échec que la table ne le laissait croire », et le dit. |
 | 12 | Hors périmètre du brief | Le §6 de `Tools/questions.md` affirmait 188 `id` frappés encore égaux au hachage de leur énoncé, et onze réécrits. | **Corrigé** en tâche 15 : 176 et vingt-trois, avec la date du recomptage. Aucun `id` n'a bougé — c'est exactement le comportement que ce paragraphe documente. |
-| 13 | `Vitesse` | Les deux cartes « grand excès » partagent, par construction, le vocabulaire de sanction (« délit », « prison », « amende ») avec les cartes de sanction des autres domaines : 4 recouvrements `--fuites` à l'entrée, tous de cette origine. | Fortuits, jamais traités comme des fuites. Retombés à 0 à la sortie comme effet de bord de la réécriture d'option, pas d'un texte plié pour éteindre un compteur. Ajouté à cette table en ronde 2 : la règle 4 le citait en exemple sans qu'il y figure. |
+| 13 | `Vitesse` | Les deux cartes « grand excès » partagent, par construction, le vocabulaire de sanction (« délit », « prison », « amende ») avec les cartes de sanction des autres domaines : 4 recouvrements `--fuites` à l'entrée, tous de cette origine. | Fortuits par leur origine, mais activement travaillés — le statut n'est pas celui du n° 14. Un brouillon de réécriture a d'abord **maintenu** le compte à 4 en ajoutant « jugé au tribunal correctionnel » aux deux explications, ce qui est mot pour mot la bonne réponse d'une carte d'`Alcool & stupéfiants`. Fermé par une reformulation ciblée des **explications**, sans perdre l'information : la clause retirée, et « prison » remplacé par « emprisonnement » dans celle du retrait de points — le fait reste dit, le mot qui recoupait ne l'est plus. 0 après correction, reconfirmé après fix round 1. Ajouté à cette table en ronde 2 : la règle 4 le citait en exemple sans qu'il y figure. |
 | 14 | `Panneaux & marquage` | La collision lexicale « franchir / dépasser / ligne » entre `…81f8a2` et `1a0a5812` — deux sujets adjacents, aucun fait partagé — maintient `--fuites` du domaine à 1 pendant deux rondes. | Fortuite. Une reformulation avait été annulée sur ordre de la revue plutôt que de forcer un mot de remplacement (point 11) ; le recouvrement tombe au round 3 par effet de bord d'un minor sans rapport. Ajouté en ronde 2, même motif que le n° 13. |
+| 15 | `Distances & freinage` | `a4f04a…` (circulation sur la BAU) recouvrait la bonne réponse d'une carte `Vitesse` par le seul vocabulaire générique du barème (« points », « suspension », « possible », « permis »), sans chiffre commun — trois points contre quatre. | Fortuit, et **antérieur à la passe** : présent en round 0 avant toute édition. Tombé par effet de bord au fix round 1 (retrait de « possible » pour régler une vraie fuite), qui en a recréé un autre de son propre fait ; celui-là a été retiré délibérément au fix round 2, le gloss final pouvant partir sans rien coûter. Ajouté à cette table en ronde 3 : la ronde 2 avait séparé cette exclusion de celle de `Panneaux` sans lui donner sa ligne. |
 
 ## La ligne de base publiée
 
