@@ -73,19 +73,24 @@ comparables aux trois distracteurs ; la prose complète reste dans `explanation`
 Pour `@Entry` : option = « déclarer une clé d'`EnvironmentValues` en une ligne » — pas
 la phrase entière sur `EnvironmentKey` et les extensions.
 
-Repère chiffré, recompté sur les 448 (2026-08-29) : bonne option **43,1** caractères en
+Repère chiffré, recompté sur les 448 (2026-08-31) : bonne option **43,2** caractères en
 moyenne contre **42,4** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
-`swift` (écart **+1,6**), **37,2 / 37,2** sur les `code` (écart **+0,0**).
+`swift` (écart **+1,6**), **37,3 / 37,2** sur les `code` (écart **+0,2**).
 
 Sur les `code`, cet écart valait **+0,5** avant la troisième passe de contenu ; la
-réécriture des options l'a ramené à zéro, et la bonne réponse dépasse la moyenne de ses
-distracteurs sur **121 cartes sur 255** — un poil sous la moitié, c'est-à-dire le partage
-qu'on obtiendrait si la longueur ne disait plus rien de la réponse. C'est une mesure, pas
-un acquis : le seuil de recevabilité reste **+10 sur la carte** (`longueur/plus-10`), la
-moyenne n'en a jamais été un, et un `+0,0` d'ensemble n'interdit pas qu'une carte isolée
-porte encore l'indice. Le `swift`, dont la passe n'a touché aucune carte, est resté à
-**+1,6** à l'identique : c'est ce qui rattache le mouvement des `code` à la réécriture
-plutôt qu'à la mesure.
+réécriture des options l'a ramené à **+0,0** au 2026-08-29, et la revue de fin de branche
+l'a remis à **+0,2** — la bonne réponse dépasse la moyenne de ses distracteurs sur
+**125 cartes sur 255**, contre 121 en fin de passe. **Le mouvement est voulu et il est
+petit** : la revue a raccourci trois distracteurs trop longs (jusqu'à 76 caractères contre
+47 pour leur bonne réponse) et allongé une bonne réponse de 33 à 47 caractères, pour fermer
+des déséquilibres **inversés** qu'`audit.py` ne mesure pas — il ne regarde l'écart que dans
+un sens. Rendre ces quatre cartes lisibles valait deux dixièmes de caractère sur une
+moyenne. C'est une mesure, pas un acquis, et surtout pas un objectif : le seuil de
+recevabilité reste **+10 sur la carte** (`longueur/plus-10`), la moyenne n'en a jamais été
+un, et un écart d'ensemble proche de zéro n'interdit pas qu'une carte isolée porte encore
+l'indice. Le `swift`, qu'aucune des deux passes n'a touché, est resté à **+1,6** à
+l'identique : c'est ce qui rattache les deux mouvements `code` aux réécritures plutôt qu'à
+la mesure.
 
 L'écart entre les deux matières est structurel, pas un défaut : une option `swift`
 nomme une API et son comportement, une option `code` porte une valeur ou une règle.

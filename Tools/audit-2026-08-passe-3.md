@@ -6406,3 +6406,298 @@ d'une carte de la cadence qui n'énonçait plus la cadence. Les deux ont été r
 - **Ce qui n'a pas avancé d'un pas** : les 193 `swift`, les trois constats de dessin, et la
   génération depuis les pages de cours — seule chose qui fera un feed infini. 255 cartes
   meilleures ne font toujours pas plus de cartes.
+
+---
+
+## Revue de fin de branche
+
+2026-08-31, sur `230053c`. Une relecture externe de la branche a rendu neuf constats ; ils
+sont traités ici. **Rien au-dessus de cette ligne n'a été touché**, à deux exceptions
+nommées dans la table des « Constats parqués » : le n° 1, refermé, et le n° 6, requalifié.
+Les treize sections de domaine et « Repères recomptés » sont closes.
+
+**Ce qui a bougé, en volume.** 21 cartes sur 448 — 15 explications, 10 options, aucun
+énoncé, aucune illustration, aucun `id`. 21 lignes de `sources.md`. `Tools/relire.py` et le
+§3 de `Tools/questions.md`. `audit.py` et `ValidoTests/` n'ont pas été ouverts.
+
+**La ligne de base n'a pas bougé d'une unité** : `lettre/reference` 1, `forme/markdown` 1,
+`forme/seule-ponctuee` 14, `longueur/plus-longue` 76, `expl/paraphrase-litterale` 20, et
+`schema/`, `couverture/`, `source/`, `fuite/`, `image/`, `longueur/plus-10`,
+`forme/backtick-isole` vides. `--fuites` reste à 0 sur douze domaines et à 3 sur
+`Priorités & intersections`, le plancher AB6 du constat parqué n° 7. 64 tests passent.
+448 questions, 255 `code`, 193 `swift`, 49 illustrées, les mêmes `id` dans le même ordre.
+
+### Critical 1 — le délit venait de la loi, pas du décret
+
+L'explication de `337bfcb4d034b62de5fe0d77ca0cb0a0` et sa ligne de registre attribuaient au
+**décret n° 2025-1269** la suppression de l'exigence de récidive, « d'où le passage à un
+délit dès la première fois ». Un décret ne peut pas créer un délit : l'article 34 de la
+Constitution du 4 octobre 1958 (version en vigueur depuis le 10/03/2024) réserve à la loi
+« La détermination des crimes et délits ainsi que les peines qui leur sont applicables ; la
+procédure pénale ; l'amnistie ; la création de nouveaux ordres de juridiction et le statut
+des magistrats ; ».
+
+Lu à la source, rang 1 (`legifrance.gouv.fr/codes/article_lc/LEGIARTI000051877176`,
+WebFetch du 2026-08-31) : **L413-1 du code de la route, version en vigueur depuis le
+31/12/2025, modifié par la LOI n° 2025-622 du 9 juillet 2025 - art. 6**. Son I : « Le fait,
+pour tout conducteur d'un véhicule à moteur, de dépasser de 50 kilomètres à l'heure ou plus
+la vitesse maximale autorisée est puni de trois mois d'emprisonnement et de 3 750 euros
+d'amende. » — aucune condition de récidive. Son IV ouvre l'extinction de l'action publique
+par une amende forfaitaire de 300 euros. Le décret, lui, s'intitule « pris pour la mise en
+œuvre du délit d'excès de vitesse en application de la loi n° 2025-622 du 9 juillet 2025 »
+et se borne, en son article 1er IV, à « L'article R. 413-14-1 est abrogé. »
+
+Les deux lignes de registre concernées pointent désormais sur l'article consolidé et non
+plus sur la page d'actualité `service-public` A18723 : une page d'actualité porte « publiée
+le / mise à jour le », pas le « Vérifié le … » sur lequel le §5 de `questions.md` fonde le
+rang 1. Les deux dates du décret restent exactes et gardent leur emploi (signature le 22,
+entrée en vigueur le 29 décembre 2025) mais ne datent plus le délit : la carte dit « fin
+décembre 2025 », l'article consolidé portant le 31/12/2025 et le décret le 29/12/2025.
+
+**Le constat parqué n° 1 est refermé par le même article.** Son III : « Ce délit donne lieu
+de plein droit à la réduction de la moitié du nombre maximal de points du permis de
+conduire. » — et R223-1 (version en vigueur depuis le 01/01/2019) fixe ce maximum : « Le
+permis de conduire est affecté d'un nombre maximal de douze points. » D'où les six points de
+`37fe1af42b8d817a9111e3d52f9e5142`. Le doute tenait depuis le 2026-08-23 parce que la
+recherche avait été menée dans la **partie réglementaire** — R413-14-1 abrogé, R413-14
+s'arrêtant à « moins de 50 km/h » ; l'article est législatif. La ligne repart au 2026-08-31,
+et sa figure « 6 points » n'est plus lue sur la page de synthèse F19460.
+
+### Critical 2 — deux réponses défendables sur `cac0f9db162887802d4fb15ba97d768f`
+
+Les distracteurs disaient « X seule, Y restant identique » au premier passage ; un fix round
+les a reformulés « pour rompre le parallélisme mécanique » et a emporté l'exclusivité avec
+lui. « La vitesse maximale, ramenée de 30 à 20 km/h » et « La priorité laissée aux piétons
+sur la chaussée » sont alors devenus **vrais**, sous un énoncé — « la différence porte
+sur : » — qui ne les rend pas faux.
+
+L'exclusivité est rendue sous **deux formes différentes**, de sorte que le parallélisme ne
+revient pas : « La **seule** vitesse maximale, le piéton gardant le trottoir » et « La place
+du piéton, la vitesse **restant celle d'une zone 30** ». Le quatrième, bancal après « porte
+sur : » (« Le sens de circulation, ni la vitesse ni la priorité »), devient un piège par
+excès — « Le sens de circulation autant que la vitesse et la priorité » —, ce qui a un effet
+de bord voulu : **l'option la plus longue des quatre est désormais un distracteur**, et la
+bonne réponse cesse de se lire comme l'union des deux autres.
+
+R110-2 (version en vigueur depuis le 25/04/2022) est cité en entier sur la ligne, pour les
+deux zones, et son « sans y stationner » donne à l'explication une limite qui lui appartient.
+
+Un premier jet portait la bonne réponse à 60 caractères contre 59 au plus long distracteur :
+la revue l'a rejeté au point 15 (« rendre la bonne réponse la plus longue est un défaut,
+même à +1 »), et la version livrée est à 58 contre 59.
+
+**La carte ne chiffre plus les 20 km/h**, qui sont la bonne réponse de
+`37fe1af42b8d812c957fc3415785f6d6`. Reste, assumé, qu'elle dise une zone de rencontre plus
+lente qu'une zone 30 : c'est son sujet, et cela n'écarte que deux des quatre options de la
+voisine.
+
+### Important 5, puis le rejeu du point 13
+
+`Tools/relire.py:120` ne cherchait une bonne réponse que si elle portait au moins trois mots
+pleins — et « mot plein » veut dire cinq caractères après normalisation (`relire.py:92`), pas
+« mot ». **85 des 255 bonnes réponses `code`, soit 33 %**, passent dessous : 15 dans
+`Vitesse`, 11 dans `Permis & sanctions`, 9 dans `Alcool & stupéfiants` et
+`Usagers & partage de la route`, 8 dans `Distances & freinage`, 7 dans
+`Panneaux & marquage`, 6 dans `Premiers secours`, `Arrêt & stationnement` et
+`Mécanique & environnement`, 3 dans `Feux` et `Tunnels & passages à niveau`, 2 dans
+`Priorités & intersections`, 0 dans `Croisement & dépassement`. Ce sont exactement les cartes
+dont la réponse est un nombre. L'outil imprimait quand même « N recouvrement(s) sur M
+cartes », sans distinguer les cartes testées des cartes ignorées — le défaut que le docstring
+de `domaine_absent` dénonce mot pour mot, sur une autre fonction.
+
+Le seuil n'a pas bougé. Le résumé porte maintenant la **portée réelle** du test (« 170 bonnes
+réponses `code` sur 255 ont été cherchées ; 85 sont sous le seuil et n'ont été cherchées
+nulle part ») et **nomme**, `id` entier à l'appui, celles du domaine — les anciens `id`
+Notion partagent leurs douze premiers caractères, un préfixe tronqué ne nommerait rien. Deux
+minor du même fichier au passage : la regex de lecture du registre passe de `(.*?)` à
+`([^|]*)`, comme `audit.py:79` — sur une affirmation contenant un `|`, la première trouvait
+un découpage et affichait des colonnes décalées en silence, la seconde ne trouve rien et les
+deux outils le disent — et le docstring de `domaine_absent` perd ses deux mots anglais.
+
+**Le rejeu.** Les 85 réponses ont été cherchées, littéralement puis en lecture, dans les
+explications, les **options** et les `alt` de toutes les autres cartes `code`. Bilan :
+**85 examinées, 11 recouvrements fermés sur 9 cartes éditées, 7 documentés comme
+fortuits.**
+
+| carte | ce qui fuyait | vers | traitement |
+|---|---|---|---|
+| `cac0f9db1628…` | « ramenée de 30 à **20 km/h** » en option, et « descend à 20 km/h » en explication | `37fe1af42b8d812c…` (« 20 km/h ») | fermée en Critical 2 |
+| `37fe1af42b8d81cf…` | « (0,20 à 0,25 g/L par verre) » | `37fe1af42b8d8121…` (« 0,20 à 0,25 g/L ») | parenthèse retirée (Important 3) |
+| `526ffb51f8bc…` | « Le seuil probatoire de **0,2 g/L** vaut… », en tête d'explication | `37fe1af42b8d81cf…` (« 0,2 g/L ») | dit le plafond différent sans le chiffrer |
+| `04182c9bbdeb…` | « le barème monte par paliers (1 point de 5 à 20 km/h, puis 2, 3 et 4) » | `37fe1af42b8d816b…` (« 3 points ») | l'échelle revient à la carte qui la teste |
+| `04182c9bbdeb…` | « à 50 km/h l'infraction devient un délit » | `337bfcb4d034…` (« Un délit, jugé au tribunal correctionnel ») | clause retirée du même geste |
+| `37fe1af42b8d817a…` | la qualification racontée en entier — dates, absence de récidive, peines | `337bfcb4d034…` | ne garde que le retrait et sa source |
+| `362d572a8e9e…` | bonne réponse « Vous passez en feux de croisement sans attendre » | `37fe1af42b8d81c8…` (« Vous passez en feux de croisement ») | dit la durée, qui lui est propre |
+| `92f3fe40dd9c…` | « le cumul alcool et stupéfiants, **à cinq ans et 15 000 €** » — la question et la réponse de la voisine dans la même phrase | `e13df5a7d415…` | le chiffre part, la comparaison reste |
+| `37fe1af42b8d81ef…` | « un temps de réaction qui passe **d'une** à deux secondes » et « avec **trois points** de moins » | `37fe1af42b8d81e9…` (« 1 seconde ») et `37fe1af42b8d8132…` (« 3 points ») | les deux figures retirées |
+| `d724a3c3121f…` | « à au moins **100 par minute** » | `fb24f6323a07…` (« 100 à 120 compressions par minute ») | fermée, et le constat parqué n° 6 requalifié |
+
+Dix lignes pour onze recouvrements et neuf cartes éditées : `04182c9b` en portait
+deux, `37fe1af42b8d81ef…` deux que la table réunit sur une ligne.
+
+**Les sept recouvrements documentés comme fortuits**, sous la règle 4 de la convention de
+comptage — un recouvrement jugé fortuit se documente au lieu d'être forcé :
+
+1. `37fe1af42b8d81cf…` (« 0,2 g/L ») ↔ l'option C de `37fe1af42b8d8118…`. Un **distracteur**,
+   pas une explication : la carte du permis classique propose le seuil probatoire comme
+   confusion, ce que le §1 règle 5 de `questions.md` recommande. Voir une option ne dit pas à
+   quelle carte elle répond.
+2. `5720fa6a7cd6…` (« 3 ans de prison et 9 000 € d'amende ») ↔ l'option B de `e13df5a7d415…`,
+   et réciproquement l'option D. Paire de confusion délibérée, dans les deux sens.
+3. Le couple « trois ans et 9 000 € » lui-même, présent dans quatre explications du domaine
+   `Alcool & stupéfiants` (`37fe1af42b8d817e`, `749552ac`, `92f3fe40`, `e13df5a7`). C'est la
+   peine du **régime** délictuel routier depuis la loi du 18 août 2026, pas la réponse privée
+   d'une carte — même statut que les 135 € / 35 € du constat parqué n° 9. Le vider obligerait
+   `e13df5a7` à expliquer une aggravation sans dire de quoi.
+4. `37fe1af42b8d812d…` (« 2 secondes ») ↔ l'option C de `37fe1af42b8d81e9…`, et
+   réciproquement. Intervalle de sécurité et temps de réaction se confondent vraiment ;
+   chacun sert de distracteur à l'autre, jamais d'explication.
+5. `0be9d147f1eb…` (« 2 ans de prison et 4 500 € d'amende ») ↔ deux options `Alcool`.
+   L'ancien barème recyclé en distracteur (§5 règle 3) là-bas, la bonne réponse ici. **Une
+   réserve, notée sans être corrigée** : `5720fa6a` et `92f3fe40` qualifient ce couple
+   d'« ancien barème » pour l'alcool, ce qui pourrait faire écarter à tort une réponse juste
+   sur `0be9d147`. Les deux phrases sont vraies et bornées à leur infraction ; les toucher
+   coûterait plus que le risque.
+6. `37fe1af42b8d815f…` (« Le feu tricolore ») ↔ l'option C de `0ac1e53ac897…`. Terme
+   générique, aucun fait partagé.
+7. `058434ed65ee…` (« 50 mètres ») ↔ l'explication de `f376d218b64a…` (intervalle entre deux
+   poids lourds). Même quantité, deux règles sans rapport ; lire l'une ne permet pas de
+   répondre à l'autre.
+
+À quoi s'ajoute, sur `a2673bae…`, un résidu assumé : « déposer quelqu'un reste possible »
+illustre l'arrêt sans en nommer le critère, qui est la bonne réponse de
+`37fe1af42b8d812cad…` (« la durée et la présence du conducteur »). Un exemple, pas le
+critère.
+
+**Ce que le rejeu dit du point 13.** Il a été inventé au huitième domaine et jamais rejoué
+sur les sept d'avant — `Permis & sanctions`, `Vitesse`, `Alcool & stupéfiants`, `Usagers`,
+`Mécanique & environnement`, `Distances & freinage`, `Arrêt & stationnement`. Des onze
+recouvrements fermés ici, **neuf étaient dans ces sept domaines-là** — `Vitesse` ×4,
+`Alcool & stupéfiants` ×3, `Distances & freinage` ×2 — et deux seulement dans un domaine
+traité après l'invention du point (`Feux`, `Premiers secours`). Le coût de l'oubli est
+mesuré, pas supposé.
+
+### Important 3, 4, 6 et 7 — les explications
+
+- **Important 3** (`37fe1af42b8d81cf…`) est la ligne 2 du tableau ci-dessus. La clause
+  « sous l'effet d'un seul verre standard » est **gardée** : c'est elle qui réfute le
+  distracteur « 0 g/L », et elle ne chiffre rien. Aucune paraphrase de remplacement n'a été
+  écrite (point 23).
+- **Important 4 + 7a** (`a2673bae092f…`, illustrée) : l'explication citait « Le tableau de
+  l'art. 113-2 E » — une référence d'instruction que rien n'introduit et que le §5 tient hors
+  de la liste blanche — et opposait « discontinue = stationnement, **continue = arrêt** ».
+  Ce second membre est la bonne réponse de `0a4e98c4605e…`, dont l'`alt` dit « continu ». Le
+  rapport avait déclaré la paire fermée au motif qu'« aucun des nouveaux textes ne contient
+  plus les mots pleins de la réponse qu'il citait » : le test lexical passait, l'information
+  non. C'est le motif que la passe a su nommer ailleurs — « restait fermée pour l'outil, pas
+  pour le lecteur » — et n'a pas appliqué ici. La carte n'énonce plus que son propre style,
+  garde le tracé LIVRAISON comme limite, et tient à 213 caractères sur 220.
+- **Important 6a** (`37fe1af42b8d817da…`) finissait sur « L'agent reste donc, **dans tous les
+  cas**, l'autorité la plus élevée d'un carrefour » : la bonne option redite (critère 4), un
+  absolu de plus, et pas de limite (critère 3). La limite est le champ du geste — hors de ce
+  que l'agent règle, la signalisation en place reprend la main. L'énumération de la
+  hiérarchie n'est **pas** rétablie : c'est elle qui fuyait vers une voisine.
+- **Important 6b** (`89bea09b4829…`, illustrée) : 157 caractères sur 220, la règle seule,
+  après avoir perdu sa raison pour fermer l'axe « le triangle annonce un danger plus loin »
+  (que `37fe1af42b8d81b5aa…` porte désormais seule). La raison rendue est propre à l'A13b et
+  ne rouvre pas l'axe : le passage étant **déjà tracé au sol**, un panneau planté à sa
+  hauteur n'ajouterait rien — d'où la seule signalisation avancée. La limite est le revers du
+  même fait : sans marquage, pas de passage. Ni distance, ni mention du triangle. 218/220.
+- **Important 6c** (`82a9e65c1cf2…`) : la limite était « au-delà de 6 cm, l'ERC ne recommande
+  pas d'aller plus loin », c'est-à-dire la borne haute de la bonne réponse réénoncée. **Le
+  motif du plafond n'a pas été trouvé sur la liste blanche** : le livret grand public et
+  `croix-rouge.fr` ne le motivent pas, le document professionnel de l'ERC le pose sans le
+  justifier, et les explications qui circulent (lésions hépatiques, fractures) sont hors
+  liste blanche — ce sont celles que le round 1 avait retirées comme inventées, et elles ne
+  sont pas rétablies (point 18). La limite vient d'ailleurs, d'une phrase déjà relevée mot
+  pour mot sur la ligne : « Their effectiveness depends on correct hand position and chest
+  compression depth, rate, and degree of chest wall recoil » — la profondeur ne décide pas
+  seule. La plage reste énoncée en entier, comme le veut le point 20.
+- **Important 7b** (`639297cf3f0f…`, illustrée à 219/220) : « marquage continu ou T'2 de 2u »
+  et la cote « (118-2.A.a) » sont remplacés par ce que la scène montre — des places tracées
+  en biais. La référence reste sur la ligne de registre, où elle est à sa place.
+
+### Les Minor
+
+**Distracteurs rembourrés.** Six insertions signalées. Trois sont sorties : « une priorité
+absolue **sur la voie** » devient « une priorité sur **la voie croisée** », qui nomme la
+confusion réelle à longueur égale ; « Le premier arrivé sur la voie ferrée passe**, comme
+ailleurs** » perd sa queue ; « une indication de service, sans **aucune** contrainte » perd
+son absolu, ce qui réduit aussi l'écart inversé de sa carte.
+
+**Les trois autres sont mesurées et gardées**, chacune avec sa raison sur sa ligne de
+registre : retirer « rencontré » (`37fe1af42b8d81f8a2…`, la bonne réponse passerait à +6),
+« jamais » (`b433eefe7ea3…`, +6), « pour vous aider » (`5fe77bbd3af8…`, +7) ou « toujours »
+(`37fe1af42b8d81fa9…`, +3) ferait de la bonne réponse la plus longue des quatre. Les quatre
+cas ont été mesurés en faisant tourner `audit.py` sur le fichier modifié, un par un :
+`longueur/plus-longue` passe à **77** dans les quatre. **Le rembourrage et l'équilibre de longueur sont le
+même bouton** : c'est le vrai enseignement de ce minor, et il vaut pour la passe suivante.
+
+**Déséquilibre inversé.** `7148c3a8be71…` portait un distracteur de 76 caractères contre 47 à
+la bonne réponse, le plus large de la banque `code` ; sa queue « face aux véhicules qui
+arrivent » ajoutait en outre une réfutation étrangère à celle que sa ligne retient (la fumée)
+et faisait s'auto-dénoncer l'option. Ramené à 53 : l'écart inversé tombe de 29 à 6. `37fe1af42b8d81c8af…` gagne
+« immédiatement » sur sa bonne réponse — que R416-6 porte déjà (« Au moment où il s'apprête à
+croiser ») : écart de 19 à 5, et la carte cesse de partager sa bonne réponse au mot près avec
+`362d572a`. `37fe1af42b8d81b5aa…` passe de +20 à +14 par le retrait du « aucune ».
+**Deux restent au-dessus de +15 et ne sont pas corrigées** : `37fe1af42b8d81e2b…` (+16) et
+`25390f0f30db…` (+20), dont les longues clauses de distracteur portent chacune une
+information réelle.
+
+**Constat parqué n° 6** : requalifié dans la table, et sa première moitié fermée. Voir
+ci-dessus.
+
+### Deux chiffres publiés qui bougent, et pourquoi
+
+Le tableau « Repères recomptés » est **clos** : il mesure le fichier livré le 2026-08-29 et
+il reste exact pour cette date. Deux de ses lignes ne décrivent plus le fichier d'aujourd'hui,
+et le §1 de [`questions.md`](questions.md) — le seul autre endroit où elles vivent — est mis à
+jour avec la date du 2026-08-31. `CLAUDE.md` ne porte aucun de ces deux chiffres.
+
+| repère | 2026-08-29 | 2026-08-31 |
+|---|---|---|
+| bonne option / distracteurs, `code` | 37,2 / 37,2 (+0,0) | **37,3 / 37,2 (+0,2)** |
+| cartes `code` où la bonne dépasse la moyenne de ses distracteurs | 121 / 255 | **125 / 255** |
+| bonne option / distracteurs, toutes | 43,1 / 42,4 (+0,7) | **43,2 / 42,4 (+0,8)** |
+| bonne option / distracteurs, `swift` | 50,9 / 49,3 (+1,6) | 50,9 / 49,3 (+1,6) |
+| `code` illustrées / non illustrées, moyenne par option | 41,3 / 36,2 | 41,3 / 36,2 |
+| cartes `code` dans `longueur/plus-longue` | 13 (banque : 76) | 13 (banque : 76) |
+
+**Le mouvement va dans le mauvais sens et il est assumé.** Trois cartes ont été corrigées
+pour un défaut qu'`audit.py` **ne mesure pas** — le déséquilibre **inversé**, où c'est un
+distracteur qui dépasse largement la bonne réponse : `7148c3a8be71…` (distracteur ramené de
+76 à 53, contre 47 pour la bonne réponse), `37fe1af42b8d81b5aa…` (de 49 à 42, contre 29) et
+`37fe1af42b8d81c8af…`, dont la bonne réponse passe de 33 à 47 face à un distracteur de 52.
+S'y ajoutent le retrait de rembourrage sur `37fe1af42b8d81fa9…` (un distracteur de 58 à 42)
+et les quatre options réécrites de `cac0f9db1628…` en Critical 2, plus longues que celles
+qu'elles remplacent. Chaque geste raccourcit un distracteur ou allonge une bonne réponse :
+la moyenne ne pouvait que monter.
+
+Le compte par carte, lui, **n'a pas bougé** : treize cartes `code` où la bonne réponse est
+strictement la plus longue des quatre, 76 dans la banque, zéro au-dessus de +10. C'est ce
+compte-là qui porte le seuil de recevabilité ; la moyenne n'en a jamais été un. Deux dixièmes
+de caractère contre quatre cartes rendues lisibles est un échange que cette revue accepte, et
+c'est exactement le raisonnement du point 11 du calibrage pris dans l'autre sens : on ne plie
+pas le contenu pour un outil, y compris quand l'outil est une moyenne qu'on a soi-même
+publiée.
+
+**Renvoi d'une carte à une autre** (`37fe1af42b8d81d29…`) : l'explication finissait par
+« c'est le mécanisme que détaille la question sur la réattribution complète des douze
+points ». Dans un feed infini, rien ne garantit que le lecteur la croise, et le renvoi ne
+remplace pas la limite qu'il avait chassée. L223-6 relu **en entier** (WebFetch, 2026-08-31,
+version en vigueur depuis le 16/03/2011) en donne une vraie : « ce point est réattribué au
+terme du délai de six mois **à compter de la date mentionnée au premier alinéa** » —
+c'est-à-dire le paiement de l'amende forfaitaire, l'émission du titre exécutoire, l'exécution
+de la composition pénale ou la condamnation définitive. La citation que portait la ligne
+s'arrêtait avant ce renvoi et masquait donc le point de départ : le point 12 du calibrage,
+une fois de plus, et sur une ligne que la passe avait relue.
+
+### Ce que cette revue n'a pas traité
+
+- **Les constats parqués n° 2, 3, 4, 5 et 10** restent ouverts, avec leur motif d'origine.
+  Le n° 10 (trois constats de dessin, dont le listel blanc invisible en mode clair, signalé
+  depuis la passe 2 comme « la première chose à regarder ») n'a toujours reçu aucun pixel.
+- **Le distracteur « Vous éteignez tous vos feux »** de `37fe1af42b8d81c8af…` reste ce qu'il
+  est : proche de l'absurde au sens de la règle 1 du §1, donc ramenant la question à trois
+  options. Repéré en passant, hors des neuf constats, non corrigé.
+- **Les 193 `swift`**, qu'aucune des trois passes n'a ouvertes.
