@@ -20,8 +20,13 @@ RACINE = Path(__file__).resolve().parent.parent
 BANQUE = RACINE / 'Valido' / 'Resources' / 'questions.json'
 REGISTRE = RACINE / 'Tools' / 'sources.md'
 
+# Les trois champs sont `[^|]*` et non `.*?`, comme dans `audit.py:79`. Sur une ligne dont
+# l'affirmation contient un `|`, `.*?` trouve quand même un découpage : la ligne est lue avec
+# une affirmation tronquée et les colonnes décalées d'un cran, en silence. `[^|]*` ne trouve
+# rien, la ligne disparaît du registre, et les deux outils le disent bruyamment — `audit.py`
+# en `source/absente`, celui-ci en « AUCUNE ligne dans sources.md ».
 LIGNE = re.compile(
-    r'^\| `([0-9a-f]{32})` \| (stable|datée) \|(.*?)\|(.*?)\|(.*?)\|\s*$', re.M)
+    r'^\| `([0-9a-f]{32})` \| (stable|datée) \|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
 
 
 def charger():
@@ -46,8 +51,8 @@ def domaine_absent(questions, domaine):
     """Détecte un domaine inconnu ou mal tapé.
 
     Une typo dans le domaine retournerait « 0 recouvrement(s) sur 0 cartes »,
-    indistinguishable d'une genuine zéro-fuite. C'est le pire cas pour un
-    contrôle qui couvre un angle mort : un silence qui ressemble à une quitus.
+    impossible à distinguer d'une vraie absence de fuite. C'est le pire cas pour un
+    contrôle qui couvre un angle mort : un silence qui ressemble à un quitus.
     La garde signale l'erreur plutôt que de la laisser passer inaperçue.
     """
     lot = cartes(questions, domaine)
@@ -96,6 +101,31 @@ def mots(texte, seuil=5):
     return {m for m in re.findall(r"[a-z0-9]+", plat) if len(m) >= seuil}
 
 
+# Trois mots pleins au minimum : sous ce seuil le recouvrement est du vocabulaire commun
+# (« 50 km/h », « 3 points ») et noie le signal — mesuré à 235 faux positifs en sous-chaîne,
+# 49 à deux mots, 19 à trois. Le seuil reste le bon ; ce qu'il coûte se compte (voir
+# `sous_le_seuil`), il ne se tait plus.
+SEUIL_MOTS = 3
+
+
+def sous_le_seuil(lot):
+    """Les cartes dont la bonne réponse ne sera cherchée nulle part.
+
+    `fuites` ne va chercher une bonne réponse dans les explications que si elle porte au
+    moins `SEUIL_MOTS` mots pleins — et « mot plein » veut dire cinq caractères après
+    normalisation (voir `mots`), pas « mot ». Sur les 255 `code`, **85** passent dessous :
+    ce sont très exactement les cartes dont la réponse est un nombre, celles où une fuite
+    décide de tout.
+
+    Imprimer « 0 recouvrement(s) sur 18 cartes » sans le dire est le défaut que le
+    docstring de `domaine_absent` dénonce sur sa propre garde : un silence qui ressemble à
+    un quitus. Le seuil ne bouge pas ; le résumé nomme ce qu'il n'a pas regardé, et le
+    point 13 du calibrage dit quoi en faire — un `grep` à la main, que l'outil ne fera
+    jamais.
+    """
+    return [q for q in lot if len(mots(bonne(q))) < SEUIL_MOTS]
+
+
 def fuites(questions, domaine):
     """Une explication qui contient la bonne réponse d'une AUTRE carte.
 
@@ -114,10 +144,9 @@ def fuites(questions, domaine):
             if autre['id'] == q['id']:
                 continue
             reponse = mots(bonne(autre))
-            # Trois mots pleins au minimum : sous ce seuil le recouvrement est du
-            # vocabulaire commun (« 50 km/h », « 3 points ») et noie le signal — mesuré
-            # à 235 faux positifs en sous-chaîne, 49 à deux mots, 19 à trois.
-            if len(reponse) >= 3 and reponse <= cible:
+            if len(reponse) < SEUIL_MOTS:
+                continue
+            if reponse <= cible:
                 trouve += 1
                 print(f"{q['id'][:12]} (expl) recouvre la bonne réponse de "
                       f"{autre['id'][:12]} [{autre['topic']}]")
@@ -127,6 +156,26 @@ def fuites(questions, domaine):
     if trouve:
         print("Chacun se relit à la main : un mot commun est normal, la réponse "
               "entière ne l'est pas.")
+
+    ignorees = sous_le_seuil(banque)
+    print(f"Portée réelle du test : {len(banque) - len(ignorees)} bonnes réponses `code` "
+          f"sur {len(banque)} ont été cherchées dans ces {len(lot)} explications ; "
+          f"{len(ignorees)} sont sous le seuil de {SEUIL_MOTS} mots pleins et n'ont été "
+          f"cherchées nulle part.")
+    local = sous_le_seuil(lot)
+    if not local:
+        print(f"Aucune carte de « {domaine} » n'est dans ce cas : les {len(lot)} bonnes "
+              f"réponses du domaine sont toutes au-dessus du seuil.")
+        return
+    print(f"{len(local)} bonne(s) réponse(s) de « {domaine} » sous le seuil, NON TESTÉES — "
+          f"à chercher à la main dans les explications et les OPTIONS des voisines "
+          f"(point 13 du calibrage) :")
+    # `id` entier, pas tronqué : les anciens id Notion partagent leurs douze premiers
+    # caractères (`37fe1af42b8d…` couvre une bonne part de la banque), et cette liste sert
+    # à greper. Un préfixe qui désigne sept cartes ne nomme rien.
+    for q in sorted(local, key=lambda q: q['id']):
+        print(f"  - {q['id']}  « {bonne(q)} »")
+        print(f"      énoncé : {q['prompt']}")
 
 
 def main():

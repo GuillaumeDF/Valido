@@ -247,6 +247,16 @@ Lecture seule, sort toujours 0. Le second mode couvre l'angle mort n° 2 du §7 
 autre — au seuil de trois mots pleins : en dessous, le recouvrement est du vocabulaire
 commun et noie le signal.
 
+**Et il dit désormais ce que ce seuil lui coûte.** « Mot plein » veut dire cinq caractères
+après normalisation, pas « mot » : **85 des 255** bonnes réponses `code` passent dessous et
+ne sont donc cherchées nulle part — les cartes dont la réponse est un nombre, celles où une
+fuite décide de tout. Jusqu'à la revue de fin de branche d'août 2026, `--fuites` imprimait
+« 0 recouvrement(s) sur 18 cartes » sans distinguer les cartes testées des cartes ignorées.
+Le seuil n'a pas bougé ; le résumé porte maintenant la **portée réelle** du test et **nomme**
+les bonnes réponses du domaine qu'il n'a pas regardées. Ce sont elles que le point 13 du
+calibrage envoie chercher à la main, dans les explications **et dans les options** des
+voisines.
+
 Le script couvre :
 
 - identifiants uniques et non vides ;
