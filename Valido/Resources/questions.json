@@ -1318,7 +1318,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "La hiérarchie va du plus adaptable au plus rigide : un agent voit la situation réelle et peut la contredire, un feu ne fait qu'appliquer un cycle. L'agent reste donc, dans tous les cas, l'autorité la plus élevée d'un carrefour.",
+    "explanation": "La hiérarchie va du plus adaptable au plus rigide : un agent voit ce que le carrefour a de particulier et peut contredire un feu, qui ne fait qu'appliquer un cycle. Encore faut-il qu'il règle : hors de son geste, la signalisation en place reprend la main.",
     "id": "37fe1af42b8d817da9fff3054d6ffa3a",
     "options": [
       {
@@ -8922,7 +8922,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le passage lui-même est tenu par le marquage au sol, pas par ce panneau : l'instruction ne l'implante qu'en signalisation avancée, jamais en position exacte.",
+    "explanation": "Le passage est déjà tracé au sol : planté à sa hauteur, ce panneau n'ajouterait rien, et il n'y est jamais implanté. En amont, il prévient. Sans marquage au sol, il n'y a pas de passage — le panneau seul n'en crée pas.",
     "id": "89bea09b482974f37e7dd7d35aba23f5",
     "illustration": {
       "alt": "Triangle à fond blanc bordé de rouge portant la silhouette d'un piéton qui marche sur des bandes de passage.",
@@ -9687,7 +9687,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le tableau de l'art. 113-2 E assigne un rôle par style : discontinue = stationnement, continue = arrêt. Le même tracé, avec LIVRAISON et une croix, devient un emplacement de livraison, pas une interdiction générale.",
+    "explanation": "C'est le style du trait jaune qui dit la portée de l'interdiction : en tirets, elle ne vise que le stationnement, et déposer quelqu'un reste possible. Complété d'une croix et du mot LIVRAISON, il réserve la place.",
     "id": "a2673bae092f3eaf438b40910de6fbd4",
     "illustration": {
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir, un trait jaune tracé en tirets réguliers, coupé d'intervalles nets.",
@@ -9718,7 +9718,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "L'IISR (118-2.A.a) nomme l'oblique « en épi », marquage continu ou T'2 de 2u, pour entrer en un mouvement. Rien n'y fixe l'angle : « en bataille » et « en créneau » sont du vocabulaire d'auto-école absent de tout texte.",
+    "explanation": "Le rangement oblique s'appelle « en épi » : les places sont tracées en biais pour qu'on y entre d'un seul mouvement. Aucun texte ne fixe l'angle, et « en bataille » comme « en créneau » sont du vocabulaire d'auto-école.",
     "id": "639297cf3f0f433daf035978fa8ddfe5",
     "illustration": {
       "alt": "Vue de dessus d'une rue : des places bordées de traits blancs obliques longent le trottoir, et trois voitures y sont rangées en biais.",
@@ -10455,7 +10455,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Sous 5 cm, la compression n'assure plus la perfusion du cerveau et des organes que le massage doit maintenir ; au-delà de 6 cm, l'ERC ne recommande pas d'aller plus loin. Entre deux compressions, il faut aussi laisser la poitrine reprendre sa position initiale, pour que le sang revienne vers le cœur avant l'appui suivant.",
+    "explanation": "L'ERC borne la plage des deux côtés : au moins 5 cm, pas plus de 6. Sous 5, la compression n'assure plus la perfusion du cerveau et des organes que le massage doit maintenir. Et la profondeur ne décide pas seule : l'ERC met sur le même plan la position des mains, la cadence et le relâchement — entre deux appuis, il faut laisser la poitrine reprendre sa position initiale pour que le sang revienne vers le cœur.",
     "id": "82a9e65c1cf2ff4a1a1a944ab59c59f9",
     "options": [
       {
