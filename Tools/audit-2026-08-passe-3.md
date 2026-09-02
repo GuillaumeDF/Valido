@@ -14,6 +14,68 @@ quatre tableaux ci-dessous ne font que les additionner, et chaque total dit d'o�
 
 ## Ce que la passe a trouvé
 
+**Portée de cette table, et son raccord avec la branche.** Elle mesure la **relecture des
+treize domaines et ses trois rondes de correction**, c'est-à-dire le fichier tel qu'il a été
+livré à `230053c` — pas le bilan de la branche. La **revue de fin de branche** qui a suivi a
+son propre bilan chiffré en fin de fichier (voir « [Revue de fin de
+branche](#revue-de-fin-de-branche) »), et elle a déplacé quatre de ces nombres. Les voici
+raccordés, mesurés sur le diff `0976d5e..HEAD` (`git merge-base main HEAD`) et non posés de
+tête :
+
+| repère | passe (→ `230053c`) | branche (→ `HEAD`) |
+|---|---:|---:|
+| cartes `code` modifiées | 175 | **178** |
+| paires de cartes dont la fuite a été trouvée et éteinte | 34 | **44** |
+| doutes signalés encore ouverts | 4 | **3** |
+| lignes de `sources.md` redatées | 31 | **33** |
+| valeurs périmées corrigées | 0 | 0 |
+| cartes dont une règle trop large a été resserrée | 12 | 12 |
+| explications qui dépassaient l'article, coupées ou sourcées | 14 | 14 |
+| explications `code` sous 120 caractères | 0 | 0 |
+
+- **178 cartes `code`** — les 175 de la passe, plus **trois** que la relecture des treize
+  domaines n'avait pas touchées et que la revue a éditées : `37fe1af42b8d81ef84…`
+  (`Distances & freinage`), `526ffb51f8bc0ed954…` et `92f3fe40dd9c28ff00…`
+  (`Alcool & stupéfiants`). Les dix-neuf autres cartes de la revue étaient déjà dans les 175.
+  Une vingt-troisième, `362d572a8e9e…`, a été éditée puis **rendue à son texte d'origine** :
+  elle n'est dans aucun des deux comptes.
+- **44 paires de fuites** — les 34 de la passe et les 10 de la revue, **et les dix ne
+  doublent aucune des trente-quatre**, vérifié paire par paire contre les sous-totaux par
+  domaine de la convention de comptage ci-dessous : `Vitesse` compte **0** dans les 34, donc
+  les quatre fermetures `Vitesse` de la revue sont neuves ; `Alcool & stupéfiants` compte 1
+  (`…811eae` → `…81f2a6`, la paraphrase « rien d'extérieur n'accélère ce rythme »), qui n'est
+  aucune des trois de la revue — dont l'une, la parenthèse « (0,20 à 0,25 g/L par verre) »,
+  a précisément été **écrite par** une ronde de la passe ; `Distances & freinage` compte 1
+  (`a225e458…` → `…81e7a0`, la comparaison de points), qui n'est aucune des deux de la
+  revue ; `Premiers secours` compte 3, dont aucune n'est `d724a3c3…`/`fb24f632…`, resté
+  jusque-là au constat parqué n° 6 sous la mention « non corrigés » et donc hors des 34 par
+  la règle 4. **Une nuance de cette même règle 4 s'applique en sens inverse** : en retirant
+  « d'une à deux secondes » de `…81ef84`, la revue a fait disparaître l'une des cinq
+  occurrences de « deux secondes » que la passe avait documentées comme défendables pour
+  `…812db5`. Un recouvrement fortuit qui tombe par effet de bord n'est pas compté — la
+  règle 4 le dit en ces termes — et il ne l'est pas ici.
+- **3 doutes encore ouverts** — le premier des quatre, `37fe1af4…5e5142` (les 6 points du
+  régime délictuel, « jamais rattachés à un article en vigueur »), est **refermé** par la
+  revue : L413-1 III, avec R223-1 pour le nombre maximal de points. Sa ligne dans la table
+  des « Constats parqués » (n° 1) est barrée. Les trois autres — B96, sens de dégagement
+  entre demi-barrières, exclusivité chromatique du rouge — sont inchangés.
+- **33 lignes redatées** — la revue en a redaté **trois** (`337bfcb4…`, `37fe1af4…5e5142`,
+  `cac0f9db…`), dont deux que la passe avait déjà redatées : 31 et 3 font 33 lignes
+  distinctes, pas 34. Aucun changement de `nature` sur la branche, comme pendant la passe.
+- **Les quatre autres lignes ne bougent pas, et c'est mesuré, pas supposé.** « 0 valeur
+  périmée » **tient** : le Critical 1 de la revue a corrigé une **attribution** (quel texte
+  a créé le délit), pas une valeur — les trois mois, les 3 750 €, les 300 € et les six points
+  que portaient les deux cartes sont tous exacts, et l'article les confirme mot pour mot. Ce
+  défaut-là n'entre dans **aucune** des trois catégories de la spec, comme les deux lignes de
+  tableau que la dérivation ci-dessous met déjà hors compte ; la revue le nomme comme tel.
+  « 12 règles trop larges » tient : la seule que la revue ait produite (« et vous y restez »
+  sur l'option de `362d572a…`) a été introduite **et retirée** à l'intérieur de la revue,
+  jamais livrée. « 14 explications au-delà de l'article » tient : aucune édition de la revue
+  n'entre dans cette catégorie. Et « 0 explication sous 120 caractères » tient, recompté sur
+  le fichier courant. Le seul compteur de défaut que la revue fait monter est côté registre
+  et il vit ailleurs : les citations tronquées de l'angle mort n° 10 passent de **sept à
+  huit**, la huitième étant la ligne de `cac0f9db…` que la revue a elle-même écrite.
+
 | | nombre |
 |---|---:|
 | cartes relues | 255 |
@@ -6424,6 +6486,12 @@ les §1 et §3 de `Tools/questions.md`. `audit.py` et `ValidoTests/` n'ont pas �
 (Une vingt-troisième carte, `362d572a8e9e…`, a été éditée puis **rendue à son texte
 d'origine** en seconde ronde : elle ne compte pas ici, mais sa ligne de registre est dans
 les 24, car elle porte le classement du recouvrement.)
+
+**Le raccord avec le bilan de la passe** — 175 cartes `code` modifiées et 34 paires de
+fuites deviennent **178** et **44** au niveau de la branche, sans doublon, et deux autres
+nombres bougent — est en tête de fichier, dans le préambule de « Ce que la passe a trouvé ».
+C'est là qu'un lecteur tombe d'abord sur ces chiffres, donc c'est là qu'ils doivent dire
+leur portée.
 
 **La ligne de base n'a pas bougé d'une unité** : `lettre/reference` 1, `forme/markdown` 1,
 `forme/seule-ponctuee` 14, `longueur/plus-longue` 76, `expl/paraphrase-litterale` 20, et

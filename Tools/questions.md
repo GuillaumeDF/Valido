@@ -330,8 +330,10 @@ longueur/plus-longue       76     informatif (+1 à +10) — 13 `code`, 63 `swif
 expl/paraphrase-litterale  20     à relire à l'œil, une par une — 12 `code`, 8 `swift`
 ```
 
-Relevée en fin de passe 3, qui a relu les 255 questions `code` et en a modifié 175. Deux
-chiffres ont bougé, et **ni l'un ni l'autre ne se lit sans son explication** :
+Relevée en fin de passe 3, qui a relu les 255 questions `code` et en a modifié 175 — 178 en
+comptant la revue de fin de branche, qui a édité trois cartes de plus et n'a fait bouger
+aucune de ces cinq sorties. Deux chiffres ont bougé pendant la passe, et **ni l'un ni l'autre
+ne se lit sans son explication** :
 
 - `longueur/plus-longue` **97 → 76**, tout le mouvement côté `code` (34 → 13). Il vient de
   l'élargissement des distracteurs, pas du raccourcissement des bonnes réponses : l'écart

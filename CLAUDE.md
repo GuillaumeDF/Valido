@@ -135,6 +135,11 @@ de moins de **trois mots pleins** (jetons d'au moins cinq caractères — « 1,6
 zéro), n'inspecte que les `explanation` et jamais les **options**, et ne reconnaît pas une
 réponse redite en d'autres mots. Sur les 34 fuites fermées par la passe 3, il en avait trouvé
 neuf ; les vingt-cinq autres se sont vues à l'œil, en lisant les cartes voisines côte à côte.
+La revue de fin de branche en a fermé **dix de plus** — 44 sur la branche, sans doublon — en
+rejouant à la main le point 13 sur les treize domaines ; **aucune** n'a été trouvée par
+l'outil. Depuis cette revue, `--fuites` **nomme** les bonnes réponses qu'il n'a pas testées
+(84 des 255, relevé du 2026-08-31, recompté à chaque fois car il bouge avec les options) :
+c'est cette liste-là qu'on grep à la main.
 
 `ValidoTests/BundledContentTests.swift` verrouille le livré : volume ≥ 425, ≥ 242 `code` et
 ≥ 183 `swift`, **≥ 44 illustrées**, aucune lettre de réponse en tête d'option ou
