@@ -113,9 +113,17 @@ def sous_le_seuil(lot):
 
     `fuites` ne va chercher une bonne réponse dans les explications que si elle porte au
     moins `SEUIL_MOTS` mots pleins — et « mot plein » veut dire cinq caractères après
-    normalisation (voir `mots`), pas « mot ». Sur les 255 `code`, **85** passent dessous :
-    ce sont très exactement les cartes dont la réponse est un nombre, celles où une fuite
-    décide de tout.
+    normalisation (voir `mots`), pas « mot ». Sur les 255 `code`, **84** passent dessous
+    (mesuré le 2026-08-31) : ce sont très exactement les cartes dont la réponse est un
+    nombre, celles où une fuite décide de tout.
+
+    **Ce compte bouge avec les options, pas seulement avec le volume de la banque.** Il ne
+    dépend que du texte des bonnes réponses : rallonger une option de deux mots la fait
+    passer au-dessus du seuil et la retire de cette liste, sans qu'aucune question n'ait
+    été ajoutée. C'est arrivé le 2026-08-31 — une bonne réponse de `Feux` a gagné un
+    adverbe pour réparer un déséquilibre de longueur et est sortie du sous-seuil, faisant
+    passer le compte de 85 à 84. Le chiffre écrit ici, au §3 de `questions.md` et dans le
+    rapport de passe est donc un relevé daté, à recompter en faisant tourner l'outil.
 
     Imprimer « 0 recouvrement(s) sur 18 cartes » sans le dire est le défaut que le
     docstring de `domaine_absent` dénonce sur sa propre garde : un silence qui ressemble à

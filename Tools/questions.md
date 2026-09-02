@@ -75,16 +75,17 @@ la phrase entière sur `EnvironmentKey` et les extensions.
 
 Repère chiffré, recompté sur les 448 (2026-08-31) : bonne option **43,2** caractères en
 moyenne contre **42,4** pour les distracteurs. Par matière : **50,9 / 49,3** sur les
-`swift` (écart **+1,6**), **37,3 / 37,2** sur les `code` (écart **+0,2**).
+`swift` (écart **+1,6**), **37,3 / 37,2** sur les `code` (écart **+0,1**).
 
 Sur les `code`, cet écart valait **+0,5** avant la troisième passe de contenu ; la
 réécriture des options l'a ramené à **+0,0** au 2026-08-29, et la revue de fin de branche
-l'a remis à **+0,2** — la bonne réponse dépasse la moyenne de ses distracteurs sur
-**125 cartes sur 255**, contre 121 en fin de passe. **Le mouvement est voulu et il est
+l'a remis à **+0,1** — la bonne réponse dépasse la moyenne de ses distracteurs sur
+**124 cartes sur 255**, contre 121 en fin de passe. **Le mouvement est voulu et il est
 petit** : la revue a raccourci trois distracteurs trop longs (jusqu'à 76 caractères contre
 47 pour leur bonne réponse) et allongé une bonne réponse de 33 à 47 caractères, pour fermer
 des déséquilibres **inversés** qu'`audit.py` ne mesure pas — il ne regarde l'écart que dans
-un sens. Rendre ces quatre cartes lisibles valait deux dixièmes de caractère sur une
+un sens ; trois autres distracteurs ont été **étoffés** en échange, ce qui a ramené l'écart
+de +0,2 à +0,1. Rendre ces cartes lisibles valait un dixième de caractère sur une
 moyenne. C'est une mesure, pas un acquis, et surtout pas un objectif : le seuil de
 recevabilité reste **+10 sur la carte** (`longueur/plus-10`), la moyenne n'en a jamais été
 un, et un écart d'ensemble proche de zéro n'interdit pas qu'une carte isolée porte encore
@@ -253,14 +254,18 @@ autre — au seuil de trois mots pleins : en dessous, le recouvrement est du voc
 commun et noie le signal.
 
 **Et il dit désormais ce que ce seuil lui coûte.** « Mot plein » veut dire cinq caractères
-après normalisation, pas « mot » : **85 des 255** bonnes réponses `code` passent dessous et
-ne sont donc cherchées nulle part — les cartes dont la réponse est un nombre, celles où une
-fuite décide de tout. Jusqu'à la revue de fin de branche d'août 2026, `--fuites` imprimait
-« 0 recouvrement(s) sur 18 cartes » sans distinguer les cartes testées des cartes ignorées.
+après normalisation, pas « mot » : **84 des 255** bonnes réponses `code` passent dessous
+(relevé du 2026-08-31 ; 85 la veille) et ne sont donc cherchées nulle part — les cartes
+dont la réponse est un nombre, celles où une fuite décide de tout. Jusqu'à la revue de fin
+de branche d'août 2026, `--fuites` imprimait « 0 recouvrement(s) sur 18 cartes » sans
+distinguer les cartes testées des cartes ignorées.
 Le seuil n'a pas bougé ; le résumé porte maintenant la **portée réelle** du test et **nomme**
 les bonnes réponses du domaine qu'il n'a pas regardées. Ce sont elles que le point 13 du
 calibrage envoie chercher à la main, dans les explications **et dans les options** des
-voisines.
+voisines. **Ce compte se recompte, il ne se recopie pas** : il ne dépend que du texte des
+bonnes réponses, donc allonger une option de deux mots l'y retire sans qu'aucune question
+n'ait bougé — c'est ce qui l'a fait passer de 85 à 84 le 2026-08-31, quand une bonne réponse
+de `Feux` a gagné un adverbe pour réparer un déséquilibre de longueur.
 
 Le script couvre :
 

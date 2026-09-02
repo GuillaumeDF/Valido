@@ -2693,7 +2693,7 @@
       },
       {
         "id": "B",
-        "text": "Vous êtes prioritaire, un véhicule guidé restant toujours prévisible"
+        "text": "Vous êtes prioritaire, un véhicule guidé restant prévisible"
       },
       {
         "id": "C",
@@ -2701,7 +2701,7 @@
       },
       {
         "id": "D",
-        "text": "Aucune règle ne s'impose hors d'un carrefour réglementé"
+        "text": "Aucune règle ne s'impose hors d'un carrefour réglementé par des feux"
       }
     ],
     "prompt": "Vous croisez une voie de tramway, hors intersection :",
@@ -6910,7 +6910,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Un décret ne peut pas créer un délit : la Constitution réserve à la loi la détermination des délits et des peines (art. 34). C'est la loi n° 2025-622 du 9 juillet 2025 qui a réécrit l'art. L413-1 du code de la route — trois mois d'emprisonnement et 3 750 € d'amende encourus dès le premier dépassement de 50 km/h. Le décret n° 2025-1269 n'en a tiré que la conséquence réglementaire, en abrogeant la contravention devenue sans objet. L'action publique peut toutefois s'éteindre sans audience, par une amende forfaitaire délictuelle de 300 €.",
+    "explanation": "Depuis fin 2025, l'art. L413-1 punit de trois mois d'emprisonnement et de 3 750 € d'amende le dépassement de 50 km/h ou plus, dès la première fois. La loi qui l'a réécrit annonce son motif dans son titre : créer l'homicide routier et lutter contre la violence routière — le grand excès sort du barème des contraventions parce qu'on le range désormais du côté des faits qui tuent. L'action publique peut toutefois s'éteindre sans audience, par une amende forfaitaire délictuelle de 300 €.",
     "id": "337bfcb4d034b62de5fe0d77ca0cb0a0",
     "options": [
       {
@@ -7158,11 +7158,11 @@
     "options": [
       {
         "id": "A",
-        "text": "Tous les usagers à tourner à droite au feu rouge"
+        "text": "Tous les usagers à tourner à droite après un arrêt au feu rouge"
       },
       {
         "id": "B",
-        "text": "Les bus à franchir le feu rouge sans jamais marquer l'arrêt"
+        "text": "Les bus à franchir le feu rouge sans marquer l'arrêt"
       },
       {
         "id": "C",
@@ -7652,7 +7652,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Attendre qu'un autre usager s'arrête pour vous aider"
+        "text": "Attendre qu'un autre usager s'arrête"
       },
       {
         "id": "B",
@@ -7660,7 +7660,7 @@
       },
       {
         "id": "C",
-        "text": "La dégager du véhicule au plus vite"
+        "text": "La dégager du véhicule avant l'arrivée des secours"
       },
       {
         "id": "D",
@@ -9224,7 +9224,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; le cumul avec l'alcool, lui, est une infraction distincte et plus lourdement punie.",
+    "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; le cumul avec l'alcool, lui, est une infraction distincte.",
     "id": "92f3fe40dd9c28ff0010261e74ae6ebe",
     "options": [
       {
@@ -9557,7 +9557,7 @@
     "options": [
       {
         "id": "A",
-        "text": "Vous repassez en feux de croisement, et vous y restez"
+        "text": "Vous passez en feux de croisement sans attendre"
       },
       {
         "id": "B",
