@@ -1216,7 +1216,7 @@ ont laissé de plus utile aux passes suivantes.
 | 3 | La conception d'une scène illustrée ne se lit que dans le code source de la scène, jamais dans `questions.json` ni dans un compteur. `Tools/Scenes/ScenesCirculation.swift` dit de deux scènes d'`Arrêt & stationnement` qu'elles sont dessinées « du même point de vue et avec la même voiture » pour ne pas rejouer « photo contre schéma » (l. 971) ; il dit de la balise de `passage-a-niveau-balises` l'inverse de lui-même — vue « de face et seule, comme les quatorze panneaux du dossier » (l. 1463-1466). Une lecture qui s'arrête à `questions.json` ou à l'`alt` jugera mal une carte illustrée. | aucune — c'est un commentaire de code, pas une donnée mesurable depuis les cartes elles-mêmes. |
 | 4 | `forme/hors-situation` ne mesure pas ce qu'il nomme : il coïncide avec « la carte n'a pas d'illustration » sur 249/255 cartes, son test déictique ne repêche que 6 des 206 cartes non illustrées, et il classe comme « ancrées » 26 des 44 cartes illustrées qui matcheraient de toute façon le motif sur un simple pointeur nu vers l'image (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3) — exactement la forme qu'OBS-16 dit abandonnée par la réforme. Il ne peut ni servir de cible à une réécriture, ni être élargi (il classerait encore plus de panneaux isolés comme ancrés), ni resserré (déplacerait la ligne de base publiée, 200). | `audit.py:146-147` (motif `DEICTIQUE`, l. 43) — déjà quantifié en §3, deux fois indépendamment. |
 | 5 | `forme/definitionnel` manque structurellement 13 cartes de barème par points, réparties sur sept domaines : son lexique fixe ne contient ni « fait perdre », ni « entraîne un retrait de », ni « coûte », ni « constitue », ni « consiste à », ni « vise », et « Combien de points perdez-vous ? » échappe en plus au test du « : » final. | `audit.py:148-149` (motif `DEFINITION`, l. 47) — déjà quantifié en §3. |
-| 6 | `d4b4abfd51499d4ab343bbb613acc7ad` (`Tunnels & passages à niveau`, « La circulation est arrêtée juste au-delà d'un passage à niveau. Vous : ») est un faux négatif de `forme/hors-situation` non catalogué en §3 : une scène réelle, manquée faute de motif déictique — une huitième instance du même angle mort que les sept déjà listées (4 par recherche ciblée, 3 par relecture indépendante), trouvée en lisant le domaine plutôt que par une recherche de mots-clés. | `audit.py:146-147`, même motif que la ligne 4 — un cas non catalogué, pas un mécanisme nouveau. |
+| 6 | `d4b4abfd51499d4ab343bbb613acc7ad` (`Tunnels & passages à niveau`, « La circulation est arrêtée juste au-delà d'un passage à niveau. Vous : ») est un faux positif de `forme/hors-situation` non catalogué en §3 : une scène réelle, manquée faute de motif déictique — au moins la **quinzième** instance du même angle mort, pas la huitième : les sept de §3 (4 par recherche ciblée, 3 par relecture indépendante) plus sept autres déjà nommées en lisant les domaines du §4 avant celui-ci (`f12ee5be…` en `Panneaux & marquage`, `a225e458…` et `22e6420e…` en `Distances & freinage`, quatre dans `Feux`) portent le compte à quatorze avant celle-ci, trouvée en lisant le domaine plutôt que par une recherche de mots-clés. | `audit.py:146-147`, même motif que la ligne 4 — un cas non catalogué, pas un mécanisme nouveau. |
 
 **Un septième angle mort, mais interne à ce rapport plutôt qu'au corpus.** La première
 version de §3 citait `37fe1af42b8d81a092bee8d2faab6224` (« Face à un motard accidenté qui
@@ -1248,18 +1248,26 @@ Par ordre de rendement décroissant :
 1. **Ancrage — panneau ou signal isolé** (18 cartes en `non` : 13 dans `Panneaux &
    marquage`, 2 dans `Feux`, 2 dans `Vitesse`, 1 dans `Tunnels & passages à niveau` ; plus 2
    cartes en `partiel`, toutes deux dans `Panneaux & marquage`, pour une catégorie générique
-   plutôt qu'un signal précis — 20 au total, 65 % concentrées dans un seul domaine). C'est la
+   plutôt qu'un signal précis — 20 au total, dont 15 (**trois quarts**) dans `Panneaux &
+   marquage` ; le lot lui-même s'étend malgré tout sur quatre domaines, ce n'est donc pas un
+   travail borné à un seul). C'est la
    forme qu'OBS-16 nomme explicitement abandonnée par la réforme de 2016 (« le seul panneau
    et la connaissance de sa signification » contre « le visuel met le candidat en situation
-   réelle de conduite »), et c'est le seul défaut qui se prête à un batch : les 20 cartes
+   réelle de conduite »), et c'est le seul défaut qui se prête à un batch : 19 des 20 cartes
    partagent le même geste correctif — remplacer l'image isolée par une scène de conduite,
    comme le code des scènes le fait déjà pour `Arrêt & stationnement` et `Usagers & partage
-   de la route` (§4, note sur `ScenesCirculation.swift`). **Ce que ça coûte** : une nouvelle
+   de la route` (§4, note sur `ScenesCirculation.swift`) — **sauf
+   `1cc2591b8808d4aa73d5af596388d948`** (`Tunnels & passages à niveau`), dont la scène
+   documente elle-même pourquoi le décor doit rester absent : dessiner la voie ferrée
+   « ferait répondre le décor à la place du candidat »
+   (`Tools/Scenes/ScenesCirculation.swift:1463-1466`) ; sa réécriture demande une scène
+   d'approche du passage à niveau, pas un enrichissement de la balise existante. **Ce que ça
+   coûte** : une nouvelle
    fonction de scène par carte dans `Tools/Scenes/`, son rendu PNG clair/sombre @2x/@3x via
    `./Tools/render-scenes.sh`, un `alt` réécrit (≥ 40 caractères, budget de hauteur 70/50/220),
    sa ligne dans `images.md`, et le contrôle de niveaux de gris avant de commiter chaque PNG —
-   un dessin individuel par carte, pas un script. Pour 20 cartes concentrées aux deux tiers
-   dans un seul domaine déjà identifié, c'est le lot qui rapporte le plus de `non` corrigés
+   un dessin individuel par carte, pas un script. Pour 20 cartes concentrées aux trois quarts
+   dans `Panneaux & marquage`, c'est le lot qui rapporte le plus de `non` corrigés
    par heure de travail, mais ce n'est jamais un remplacement de texte seul : sans nouvelle
    scène, réécrire seulement le `prompt` ne change rien à ce qu'OBS-16 reproche à la forme.
 2. **Objet — forme sans équivalent dans le spécimen** (4 cartes : `cac0f9db…` et
@@ -1291,7 +1299,13 @@ a précisément quittée, pas à s'en rapprocher.
 
 **Coût estimé de l'ensemble, et ce qui reste inconnu.** Environ 20 scènes à dessiner (lot 1),
 4 réécritures de structure ponctuelles (lot 2), une suppression de deux mots (lot 3) — 25
-cartes sur 255, moins d'une sur dix, dont 90 % du volume déjà localisé dans un seul domaine.
+cartes sur 255, moins d'une sur dix. 15 des 25 cartes, et 15 des 20 du lot ancrage, sont déjà
+localisées dans `Panneaux & marquage` — mais le lot ancrage lui-même s'étend sur quatre
+domaines (`Panneaux & marquage`, `Feux`, `Vitesse`, `Tunnels & passages à niveau`), et les 25
+cartes touchent en tout sept domaines distincts une fois les lots 2 et 3 ajoutés (les quatre
+ci-dessus, plus `Arrêt & stationnement`, `Distances & freinage` et `Priorités &
+intersections`) : ce n'est donc, même lu comme un plan de travail, pas localisé dans un seul
+domaine.
 Ce que ce chiffrage ne couvre pas : aucun compteur ne peut vérifier le résultat du lot 1 —
 `forme/hors-situation` ne distingue pas une scène située d'un pointeur nu vers l'image (§3),
 donc confirmer qu'une carte réécrite a bien quitté la forme abandonnée demandera la même
@@ -1304,7 +1318,7 @@ ratio — §1, §2).
 que les 199 prompts impersonnels devraient être réécrits — le corpus ne l'a jamais permis
 (`forme/impersonnel` reste un descripteur, §1 et §4). Elle peut conclure qu'un ensemble
 précis, nommé et dénombrable de 20 cartes reprend une forme que la source officielle dit
-elle-même avoir abandonnée, concentré aux deux tiers dans un seul domaine déjà identifié. Ce
+elle-même avoir abandonnée, concentré aux trois quarts dans `Panneaux & marquage`. Ce
 sont deux recommandations très différentes, et les confondre déferait l'exercice même de
 cette passe : mesurer avant de corriger, et ne corriger que ce que la mesure a effectivement
 établi. Sur les 255 cartes lues, 230 (90 %) n'appellent aucune réécriture sur aucun des trois
