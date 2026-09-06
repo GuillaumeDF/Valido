@@ -995,3 +995,44 @@ lien avec l'illustration. Une nouvelle carte échappe au lexique de `forme/defin
 ci-dessus (`ab50f861…`) ; les autres flags des trois compteurs sur ce domaine sont confirmés à
 la lecture.
 
+### Croisement & dépassement (15 cartes)
+
+Quatre cartes illustrées sur quinze, et aucune n'est un pictogramme isolé — toutes montrent
+une chaussée avec au moins un véhicule, vue depuis le poste de conduite ou de profil (jamais
+la scène de panneau isolé de `ScenesPanneaux.swift`). Ce domaine concentre par ailleurs, sans
+qu'aucune lecture n'ait eu à les redécouvrir, quatre exemples déjà nommés en §3 : l'une des
+trois cartes trouvées par relecture indépendante (`75e142d9…`), l'un des deux faux positifs
+connus de `forme/definitionnel` (`2fc1ed8a…`), et les deux « tournures voisines… écartées du
+décompte » de `forme/hors-situation` (`b494d715…`, `f5a12ba7…`). Les citer ici confirme §3,
+ça ne le redécouvre pas.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `42078575c362bf24a220380788994e25` | situé — scène complète (chaussée étroite, obstacle à l'arrêt et véhicule en face) | faire (attendre) | inversion de priorité (qui doit céder) | oui | scène de conduite complète, décision claire — forme exemplaire |
+| `46269e3e9018b1949b8143894e86c4fc` | situé — scène de dépassement en cours, voie dégagée devant | faire (poursuivre la manœuvre) | ligne discontinue jugée à tort contraignante | oui | scène complète, décision claire |
+| `697b226c6270e1cee1a6e4edb95dec42` | situé — scène de sommet de côte, visibilité coupée au-delà | règle (légalité du dépassement dans cette scène précise) | conditionnement trompeur sur la présence d'un véhicule en face | oui | scène réelle et concrète (visibilité coupée), pas un panneau isolé — même si le prompt se termine en « est : », flaggé `forme/definitionnel` |
+| `9aaede46c1c808687f89f4a8fb81f9df` | situé — scène de rabattement juste après un dépassement | règle (l'effet du rabattement sur le véhicule doublé) | absolus trompeurs (trop tôt/trop tard mal attribués) | oui | scène réelle précise, décision jugée sur l'effet plutôt que sur une distance chiffrée |
+| `07b430ccbde4b33b92be8686899b1ddf` | non situé, générique (3ᵉ personne, « un convoi ») | règle (obligation du convoi encombrant) | fausses bonnes pratiques (feux de détresse, priorité imposée) | oui | rappel réglementaire standard, accord avec le compteur |
+| `2fc1ed8a9c9274f0e06be9f12850f5a4` | non situé — état de circulation décrit, pas un moment vécu par « vous » | **désaccord avec le compteur `forme/definitionnel`** — règle (qualification : n'est pas considéré comme un dépassement), question elliptique | seuil de vitesse recyclé d'un autre régime (30 km/h, inter-files) | oui | l'un des deux faux positifs de `forme/definitionnel` déjà documentés en §3 (question elliptique sans copule propre) ; qualification juridique réelle, accord avec le compteur sur l'ancrage |
+| `75e142d94ea93f63d0e75fa19a8f8c4f` | **désaccord avec le compteur `forme/hors-situation`** — situé (« Un véhicule s'apprête à vous dépasser »), déjà documenté en §3 comme l'une des trois cartes trouvées par une relecture indépendante | faire (serrer à droite sans accélérer) | absolu trompeur (accélérer pour raccourcir la manœuvre) | oui | scène de conduite confirmée en §3 |
+| `93292bac6a7b17452c0e2ad2b30164fa` | non situé — condition météo (neige/verglas), pas une scène | règle (interdiction conditionnée) | fausse généralisation (pluie, nuit) | oui | condition générale suivie d'une règle, accord avec le compteur, même famille que les cartes météo de `Vitesse`/`Feux` |
+| `99824d4de286434d85174502e05ea59d` | non situé — configuration de chaussée (trois voies), pas une scène précise | faire (quelle voie prendre pour dépasser) | fausse extension à la voie de gauche | oui | configuration générale plutôt qu'un instant vécu, accord avec le compteur |
+| `acfa94cddf8eadadd75d07c9b97a5501` | non situé — condition (« si »), pas un moment | faire (ne pas entamer le dépassement) | repère d'enseignement inventé (dix secondes) | oui | condition générale, accord avec le compteur, même famille que les cartes « à l'approche de » déjà exclues |
+| `ad7c53ef7c57cb946c12b29bc36c004f` | non situé, générique | règle (exception qui impose le dépassement par la droite) | fausse généralisation (autoroute saturée) | oui | qualification/obligation, forme standard |
+| `b494d71578b339d0259157dd378a3b9b` | non situé — condition (« à l'approche de… »), pas une scène ; déjà documentée en §3 comme tournure voisine écartée du décompte | règle (condition de vérification, pas une interdiction) | seuil de tonnage recyclé d'un autre article (3,5 t) | oui | règle générale, accord avec le compteur — confirmé en §3 |
+| `e5b0f585f1a3654ca790b9e391db8203` | non situé — condition (absence de barrière), pas une scène | règle (interdiction conditionnée) | absolu trompeur (« dans tous les cas ») | oui | condition générale, accord avec le compteur |
+| `f1ae9582d692d2bb7febb6a3c936ff34` | non situé, générique (« chaque conducteur », pas « vous ») | règle (obligation de croisement) | inversion (se déporter au centre) | oui | rappel réglementaire à la 3ᵉ personne générique, accord avec le compteur |
+| `f5a12ba77751310fe9a210a3b787286a` | non situé — condition (« à l'approche de… »), pas une scène ; déjà documentée en §3 comme tournure voisine écartée du décompte | règle (exception qui autorise le dépassement) | absolu trompeur (clignotant substitué à la priorité) | oui | règle générale, accord avec le compteur — confirmée en §3 |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** rien de neuf — ce domaine
+confirme quatre exemples déjà catalogués en §3 (`75e142d9…`, `2fc1ed8a…`, `b494d715…`,
+`f5a12ba7…`) plutôt que d'en produire de nouveaux. Les quatre illustrations sont toutes des
+scènes de conduite réelles (0 pictogramme isolé, comme mesuré avant cette lecture), et le
+compteur les reconnaît correctement comme situées via l'exemption d'image — aucun désaccord
+sur les cartes illustrées elles-mêmes. Aucune carte du domaine ne repose sur une comparaison
+de deux dispositifs, une méthode de calcul ou une abstraction hiérarchique sans cas concret :
+les quinze cartes se lisent oui.
+
+**Ce que les compteurs ont signalé à tort :** rien au-delà des quatre confirmations déjà
+nommées en §3.
+
