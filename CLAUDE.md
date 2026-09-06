@@ -169,9 +169,10 @@ et `FeedViewModel` en gardent la trace datée. Une correction non évidente s'in
 commentaire du type concerné, au même format ; ne pas nettoyer ces blocs en les prenant pour
 du bavardage.
 
-`docs/superpowers/specs/` garde les trois specs de design — v1, puis deuxième et troisième
-passes de contenu ; la troisième, `2026-08-27-relecture-code-pedagogie-design.md`, est la
-référence du rapport de passe 3. C'est de l'historique : on le lit, on ne le met pas à jour.
+`docs/superpowers/specs/` garde les specs de design — v1, deuxième et troisième passes de
+contenu, puis `2026-09-06-formes-questions-etg-design.md`. La troisième,
+`2026-08-27-relecture-code-pedagogie-design.md`, est la référence du rapport de passe 3.
+Les trois premières sont de l'historique : on les lit, on ne les met pas à jour.
 Les plans d'exécution, les traces de session `.superpowers/sdd/` et le rapport de la
 première passe ont été supprimés le 2026-09-06 : ils ne portaient que du déroulé de travaux
 finis, et leurs chiffres vivent déjà dans les rapports de passe 2 et 3.
