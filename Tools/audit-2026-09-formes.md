@@ -349,6 +349,26 @@ de tâche, pas ce fichier) ne le nommait pas non plus en évoquant « deux domai
 et 6 cartes pour ce blocage lexical — d'où le sous-compte corrigé en §3 (13 cartes sur 7
 domaines, vérifiées carte par carte).
 
+**Ce que le critère n'a jamais pu tester : le registre.** Sur les 135 cartes lues à ce stade
+(`Panneaux & marquage`, `Priorités & intersections`, `Vitesse`, `Distances & freinage`,
+`Mécanique & environnement`, `Feux`), la première clause du critère (« aucune des 24
+questions du spécimen n'a cette forme ») n'a fondé un verdict que quatre fois — `7d44f7dd…`
+(objet absent de l'image), `37fe1af42b8d817da9…` (abstraction hiérarchique sans cas concret),
+`cac0f9db…` (comparaison de deux dispositifs), `37fe1af42b8d811f9…` (méthode de calcul
+mental) — toujours sur une bizarrerie structurelle, jamais sur un registre. L'axe Personne,
+lui, n'a jamais fondé un seul verdict : sa seule occurrence dans toute la section 4
+(`37fe1af42b8d81d0bf26d67c5f0ff047`, `Vitesse`) *loue* une carte d'avoir le registre du
+spécimen (« puis-je », OBS-1) plutôt que de faire défaut à celles qui ne l'ont pas.
+
+Ce n'est pas un oubli de la lecture : c'est une limite du corpus. Aucune des trois strates ne
+porte l'énoncé littéral d'une question du spécimen — §1 le dit dès son avertissement
+d'ouverture : la colonne « Personne (§ réponse) » qu'OBS-1 et OBS-2 mesurent est le
+paragraphe qui reconstruit la réponse et le commentaire pédagogique qui la suit, tous deux
+déclarés distincts de « la question telle qu'elle est lue par le candidat ». Conclure « ce
+prompt est impersonnel, donc inadmissible » ferait dire au corpus plus qu'il ne peut établir —
+exactement ce que §1 interdit. `forme/impersonnel` (199/255 cartes) reste donc, ici comme
+dans les lectures à venir, un **descripteur**, jamais un critère d'admissibilité.
+
 ### Panneaux & marquage (27 cartes)
 
 | id | ancrage | objet | piège | se poserait à l'examen ? | motif |
@@ -573,35 +593,40 @@ l'inverse.
 
 ### Mécanique & environnement (20 cartes)
 
-Domaine quasi sans illustration (1/20), et le contenu recoupe directement deux thèmes que le
-spécimen déclare lui-même : « Connaître les principaux organes du véhicule » (Q22),
+Domaine quasi sans illustration (1/20), et le contenu recoupe le **sujet** de trois thèmes
+que le spécimen déclare lui-même : « Connaître les principaux organes du véhicule » (Q22),
 « Connaître les principaux équipements du véhicule » (Q23), et « Conduite écologique et
-respectueuse de l'environnement » (Q17) — un recoupement textuel plus direct qu'ailleurs dans
-ce chantier, puisque ces trois libellés du spécimen correspondent presque mot pour mot au
-`topic` du domaine.
+respectueuse de l'environnement » (Q17) — un recoupement de sujet plus direct qu'ailleurs
+dans ce chantier, puisque ces trois libellés du spécimen correspondent presque mot pour mot
+au `topic` du domaine. **Ce recoupement ne porte que sur le sujet, jamais sur la forme** :
+OBS-1 enregistre les paragraphes de réponse de Q17/Q22/Q23 comme étant à la première
+personne, quand les prompts justifiés ci-dessous contre eux sont impersonnels — « Le témoin
+d'usure d'un pneu indique : » partage un sujet avec ces questions, pas un registre (voir le
+constat de registre ajouté en tête de la section 4). Les motifs concernés le disent
+maintenant en toutes lettres.
 
 | id | ancrage | objet | piège | se poserait à l'examen ? | motif |
 |---|---|---|---|---|---|
-| `37fe1af42b8d81139920e49f3f7b6b59` | non situé, générique | règle (connaissance d'un organe du véhicule) | faux-ami (confondre avec la dimension, la pression recommandée, la marque) | oui | connaissance des organes du véhicule — thème directement attesté par le spécimen (Q22) |
-| `37fe1af42b8d81209e09c493195df716` | non situé, générique | règle (code couleur des témoins) | faux-ami (confondre avec un entretien à programmer ou une info de confort) | oui | même thème (Q22), code couleur des témoins — connaissance d'organe/équipement |
-| `37fe1af42b8d8123abc0da9b2b7a51e0` | non situé, générique | règle (fonction d'un dispositif administratif) | faux-ami (confondre avec l'assurance, le contrôle technique, le télépéage) | oui | thème directement attesté par le spécimen (Q17) |
-| `37fe1af42b8d814289adf64bd5b05d0e` | non situé, générique | règle (liste fermée d'équipements obligatoires) | faux-ami (extincteur, éthylotest — jamais ou plus obligatoires) | oui | thème directement attesté (Q23) |
+| `37fe1af42b8d81139920e49f3f7b6b59` | non situé, générique | règle (connaissance d'un organe du véhicule) | faux-ami (confondre avec la dimension, la pression recommandée, la marque) | oui | connaissance des organes du véhicule — sujet attesté par le spécimen (Q22), pas la forme : Q22 est à la première personne (OBS-1), ce prompt est impersonnel |
+| `37fe1af42b8d81209e09c493195df716` | non situé, générique | règle (code couleur des témoins) | faux-ami (confondre avec un entretien à programmer ou une info de confort) | oui | même sujet (Q22), pas la forme — code couleur des témoins, connaissance d'organe/équipement |
+| `37fe1af42b8d8123abc0da9b2b7a51e0` | non situé, générique | règle (fonction d'un dispositif administratif) | faux-ami (confondre avec l'assurance, le contrôle technique, le télépéage) | oui | sujet attesté par le spécimen (Q17), pas la forme — même réserve que la carte précédente |
+| `37fe1af42b8d814289adf64bd5b05d0e` | non situé, générique | règle (liste fermée d'équipements obligatoires) | faux-ami (extincteur, éthylotest — jamais ou plus obligatoires) | oui | sujet attesté (Q23), pas la forme |
 | `37fe1af42b8d814ba731d0f9dafb6945` | non situé — condition de conduite (« sur une longue descente »), pas une scène | faire (technique : rétrograder) | faux-ami (point mort, qui fait perdre le frein moteur ; couper le contact, qui fait perdre la direction assistée) | oui | décision technique de conduite, forme attestée par OBS-7 |
-| `37fe1af42b8d8158a15ac34f4b0e4be9` | non situé, générique | règle (liste des niveaux à surveiller) | option qui isole un seul niveau comme « vraiment critique » (le carburant) | oui | connaissance d'entretien, même thème que les organes du véhicule (Q22) |
-| `37fe1af42b8d81b99c05ef1ffdacc30e` | non situé, générique | règle (code couleur des témoins) | faux-ami (confondre orange et rouge sur l'urgence de la réaction) | oui | jumelle de `37fe1af42b8d81209e…`, même thème |
-| `37fe1af42b8d81c89e88db8c08ca8514` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (définition de l'éco-conduite) | faux-ami (vitres ouvertes contre climatisation, présenté à tort comme une règle fixe) | oui | « consiste à » est hors du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; thème directement attesté par le spécimen (Q17) |
-| `37fe1af42b8d81deaec0cb8830fa0b25` | non situé, générique | règle (chiffre-règle : seuil légal 1,6 mm) | seuil chiffré proche de distracteurs (0,5/3/5 mm) | oui | connaissance d'équipement (Q22/23), forme de rappel chiffré standard |
-| `37fe1af42b8d81f4b915cd58b951d9e4` | non situé, générique | règle (méthode de contrôle : à froid) | faux-ami (croire qu'à chaud la mesure reste valable) | oui | connaissance d'entretien (Q22) |
+| `37fe1af42b8d8158a15ac34f4b0e4be9` | non situé, générique | règle (liste des niveaux à surveiller) | option qui isole un seul niveau comme « vraiment critique » (le carburant) | oui | connaissance d'entretien, même sujet que les organes du véhicule (Q22), pas la forme |
+| `37fe1af42b8d81b99c05ef1ffdacc30e` | non situé, générique | règle (code couleur des témoins) | faux-ami (confondre orange et rouge sur l'urgence de la réaction) | oui | jumelle de `37fe1af42b8d81209e…`, même sujet, pas la forme |
+| `37fe1af42b8d81c89e88db8c08ca8514` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (définition de l'éco-conduite) | faux-ami (vitres ouvertes contre climatisation, présenté à tort comme une règle fixe) | oui | « consiste à » est hors du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; sujet attesté par le spécimen (Q17), pas la forme |
+| `37fe1af42b8d81deaec0cb8830fa0b25` | non situé, générique | règle (chiffre-règle : seuil légal 1,6 mm) | seuil chiffré proche de distracteurs (0,5/3/5 mm) | oui | connaissance d'équipement — sujet attesté (Q22/23), pas la forme —, et par ailleurs forme de rappel chiffré standard |
+| `37fe1af42b8d81f4b915cd58b951d9e4` | non situé, générique | règle (méthode de contrôle : à froid) | faux-ami (croire qu'à chaud la mesure reste valable) | oui | connaissance d'entretien — sujet attesté (Q22), pas la forme |
 | `cc10180c491d12311f76fc1d4d98ff45` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (chiffre-règle : échéance réglementaire) | seuil chiffré (4 ans) proche de distracteurs (3 et 5 ans) | oui | « a lieu » est hors du lexique du compteur ; contenu réglementaire standard sur le véhicule |
 | `4477774964dae6e5d1bac49b5a37f3a8` | non situé — condition saisonnière et administrative (« commune soumise à l'obligation »), pas une scène | **désaccord avec le compteur `forme/definitionnel`** — règle (ce qui satisfait l'obligation) | faux-ami (croire qu'un seul pneu hiver par essieu suffit) | oui | « suffisent » est hors du lexique du compteur — même mécanisme de lexique étroit que les deux cartes précédentes, sur un troisième verbe |
 | `8e64074daad0e4a72e0fea2da9bac8eb` | non situé, générique | règle (liste fermée d'exceptions, R412-1) | faux-ami (la grossesse déclarée, absente de la liste légale) | oui | connaissance réglementaire, forme de rappel d'exception standard |
 | `089e9b57f57bbb155f81da3ec492082f` | non situé, générique | règle (chiffre-règle : seuil d'âge, R412-2) | seuil chiffré (10 ans) proche de distracteurs (4/7 ans, 1,35 m) | oui | connaissance réglementaire sur l'équipement enfant |
 | `eac980f55eb23bfd3b1612f506fb81a3` | non situé, générique | règle (condition : airbag désactivé) | faux-ami (croire l'airbag protecteur pour un enfant dos à la route) | oui | connaissance d'équipement de sécurité, forme standard |
-| `6c9b9395e9090cd97a7fc4062b7162fc` | non situé, générique | règle (emplacement requis, R416-19) | faux-ami (le coffre, qui s'ouvre trop tard et souvent du mauvais côté) | oui | thème équipement (Q23) |
+| `6c9b9395e9090cd97a7fc4062b7162fc` | non situé, générique | règle (emplacement requis, R416-19) | faux-ami (le coffre, qui s'ouvre trop tard et souvent du mauvais côté) | oui | sujet équipement (Q23), pas la forme |
 | `2c0a147d9ba6e61b52c7639089b6f118` | semi-situé — scène réelle (chargement débordant photographié), mais vue de l'extérieur du véhicule, pas du poste de conduite | règle (limite légale de débord, R312-21) | seuil chiffré (3 m) contre un distracteur qui contredit l'image elle-même (« rien ne dépasse de ce côté ») | oui | seule carte illustrée du domaine : une scène réelle et concrète, pas un pictogramme abstrait — plus proche de l'esprit de la réforme que les panneaux isolés d'autres domaines, même si la vue n'est pas depuis le poste de conduite |
 | `173c63baae24d7e7db9e2961bebd033f` | non situé, générique | règle (chiffre-règle : seuil administratif du permis B) | seuil chiffré (4 250 kg) proche de trois distracteurs voisins | oui | connaissance réglementaire standard |
 | `526d6b502e05eefba3f2066af4c2ab8d` | non situé, générique | règle (mécanisme : traînée aérodynamique) | faux-ami (croire que seul le poids ajouté compte) | oui | mécanisme physique attesté par OBS-7, même famille que les cartes de mécanique de `Distances & freinage` |
-| `204454d0e329d40811d4317fabf2ddfa` | non situé, générique | règle (obligation de traitement des déchets dangereux, L541-2) | faux-ami (tri sélectif ordinaire, ferrailleur non agréé) | oui | thème directement attesté (Q17, écologie) |
+| `204454d0e329d40811d4317fabf2ddfa` | non situé, générique | règle (obligation de traitement des déchets dangereux, L541-2) | faux-ami (tri sélectif ordinaire, ferrailleur non agréé) | oui | sujet attesté (Q17, écologie), pas la forme |
 
 **Ce que la lecture a vu et que les compteurs n'ont pas vu :** ce domaine ne produit aucun
 « non » ni « partiel », et ce n'est pas un relâchement du critère mais la conséquence de deux
@@ -610,13 +635,16 @@ et cette illustration montre une scène réelle (un chargement photographié qui
 pictogramme isolé — le seul autre lot de ce chantier avec une part illustrée aussi faible
 (`Distances & freinage`, 0/21) produit lui aussi zéro « non » sur ce seul motif. Par ailleurs,
 trois thèmes du spécimen (Q17, Q22, Q23) recoupent le `topic` de ce domaine presque mot pour
-mot, ce qui n'est vrai d'aucun autre domaine lu jusqu'ici. Trois cartes (`37fe1af42b8d81c89e…`,
-`cc10180c…`, `4477774964d…`) échappent à `forme/definitionnel` sur trois verbes distincts
-(« consiste à », « a lieu », « suffisent »), tous absents du lexique du compteur — un lexique
-déjà connu pour manquer les 13 cartes de barème (§3) et les deux verbes trouvés dans le
-tableau de `Distances & freinage` ci-dessus (« constitue ») ; ce domaine en ajoute trois
-nouveaux en vingt cartes, la plus forte densité de ce type de désaccord rencontrée dans ce
-chantier.
+mot, ce qui n'est vrai d'aucun autre domaine lu jusqu'ici — **un recoupement de sujet, jamais
+de forme** : OBS-1 place Q17/Q22/Q23 à la première personne, quand les onze cartes qui s'y
+justifient ci-dessus sont impersonnelles ; voir le constat de registre en tête de la section 4
+sur pourquoi le corpus ne permet pas de trancher davantage. Trois cartes
+(`37fe1af42b8d81c89e…`, `cc10180c…`, `4477774964d…`) échappent à `forme/definitionnel` sur
+trois verbes distincts (« consiste à », « a lieu », « suffisent »), tous absents du lexique du
+compteur — un lexique déjà connu pour manquer les 13 cartes de barème (§3) et le verbe trouvé
+dans le tableau de `Distances & freinage` ci-dessus (« constitue ») ; ce domaine en ajoute
+trois nouveaux en vingt cartes, la plus forte densité de ce type de désaccord rencontrée dans
+ce chantier.
 
 **Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
 répertoriés en §3 sur ce domaine ; les trois désaccords ci-dessus sont des cartes que le
@@ -647,7 +675,7 @@ l'illustration en général : au titre de ce que son image montre.
 | `fc0333a5ae17dd22f31bbbe63d0e8824` | non situé, générique (configuration collective, pas un « vous ») | règle (portée : qui est concerné dans la file) | contre-intuitif (l'obligation ne pèse que sur le dernier véhicule) | oui | contenu réglementaire précis, correctement repéré par le compteur (R416-18) |
 | `acaf8b468f86cd92d2b61f93637ff9dd` | non situé, générique — « devant » y a un sens spatial/structurel (le repère par défaut), pas un moment vécu ; **faux positif du compteur `forme/hors-situation`**, qui ne le flague pas à cause du seul mot « devant » | règle (repère par défaut, R412-30) | faux-ami (confondre avec le repère du stop non marqué, 5 m) | oui | rappel de repère légal, généraliste malgré le mot « devant » qui satisfait à tort le motif déictique du compteur |
 | `362d572a8e9eb2d2940513b207d2e448` | situé — scène complète (« vous roulez… derrière »), correctement repérée par le compteur | faire (passer en feux de croisement) | contre-intuitif (l'éblouissement vient du rétroviseur du véhicule suivi, pas seulement de face) | oui | carte modèle : scène, décision, sans aucun désaccord avec les compteurs |
-| `6012289234e0766392ac505dbfdbd3ae` | non situé — condition météo, pas une scène | règle (cas d'usage autorisés, R416-7) | faux-ami (limiter à un seul cas parmi les trois) | oui | condition météo suivie d'une règle, accord avec le compteur |
+| `6012289234e0766392ac505dbfdbd3ae` | non situé — condition météo, pas une scène | règle (cas d'usage autorisés, feux avant, R416-7) | faux-ami (limiter à un seul cas parmi les trois) | oui | condition météo suivie d'une règle, accord avec le compteur — jumelle de `37fe1af42b8d81b1…` (même article, cas symétrique : feux avant contre feux arrière) |
 | `d5505e2b6bdcdeb78eecbec2a2a2a724` | **désaccord avec le compteur `forme/hors-situation`** — situé (moment précis : arrêté de nuit sans éclairage public) | règle (ce qu'il faut montrer, R416-12) | faux-ami (confondre avec les feux de détresse ou l'antibrouillard arrière) | oui | scène nocturne précise avec « vous devez », manquée par le compteur (« montrer » hors des sept verbes listés) |
 | `a3b1d0cf8c4fde31d009c3924754bfba` | non situé — événement précis à la 3ᵉ personne (« un véhicule »), pas « vous » dans l'énoncé | faire (réaction : ralentir, fixer le bord droit) | faux-ami (l'appel de phares, tentant mais aveuglant en plus) | oui | événement concret décrit à la 3ᵉ personne, la décision elle-même n'apparaît que dans les options — accord avec le compteur, même famille que les cartes analogues de `Priorités & intersections` |
 | `1f62ee2f0d02611c04ed79a57b73412a` | **désaccord avec le compteur `forme/hors-situation`** — situé (incident précis : extinction des feux de croisement) | faire (réaction : quitter la chaussée, signaler) | faux-ami (rouler aux feux de détresse, qui n'éclairent rien) | oui | incident vécu à l'instant (« vos deux feux… s'éteignent »), manqué par le compteur car « vos » n'est pas un motif déictique couvert |
