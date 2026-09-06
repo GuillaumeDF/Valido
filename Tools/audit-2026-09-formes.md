@@ -175,7 +175,19 @@ Deux se rendent vides côté client (ornikar, digischool), un est un mur de conn
 seuls fragments utilisables viennent d'un forum attaché à l'un de ces éditeurs, pas de
 l'éditeur lui-même. Les quatre domaines restent dans `DOMAINES_FORME` d'`audit.py` — la
 règle de corroboration qu'ils y servent est saine, et la porte doit rester ouverte pour une
-passe qui aurait accès à leur contenu réel — mais il faut le dire sans détour : **aucun des
+passe qui aurait accès à leur contenu réel.
+
+**Une réserve à consigner ici, pas à corriger dans cette passe.** Le test de corroboration
+(`audit.py`, `if not any(d in source for d in DOMAINES_FAIT)`, autour de la ligne 259) est un
+test de sous-chaîne sur l'intégralité de l'URL, pas un test de nom d'hôte : une ligne
+d'éditeur dont l'URL porterait un domaine officiel dans son chemin plutôt que dans son hôte
+(`ornikar.com/blog/que-dit-service-public.gouv.fr`) le franchirait sans être détectée, alors
+qu'aucune des quatre sources n'y a réellement accès. Fermer ce trou toucherait le seul code
+exécutable de la branche à sa clôture et demanderait de revérifier toute la ligne de base
+publiée, pour un cas qu'aucune ligne réelle de `sources.md` ne réalise aujourd'hui — la
+décision est laissée à qui écrira la première ligne d'éditeur.
+
+Mais il faut le dire sans détour : **aucun des
 quatre n'a livré quoi que ce soit à cette passe-ci.**
 
 ### Ce que ce corpus ne peut pas dire
@@ -351,16 +363,26 @@ de tâche, pas ce fichier) ne le nommait pas non plus en évoquant « deux domai
 et 6 cartes pour ce blocage lexical — d'où le sous-compte corrigé en §3 (13 cartes sur 7
 domaines, vérifiées carte par carte).
 
-**Ce que le critère n'a jamais pu tester : le registre.** Sur les 135 cartes lues à ce stade
-(`Panneaux & marquage`, `Priorités & intersections`, `Vitesse`, `Distances & freinage`,
-`Mécanique & environnement`, `Feux`), la première clause du critère (« aucune des 24
-questions du spécimen n'a cette forme ») n'a fondé un verdict que quatre fois — `7d44f7dd…`
+**Une convention de vocabulaire, elle aussi fixée une fois pour toutes.** Une carte que le
+compteur `forme/hors-situation` classe « non situé » alors qu'elle est en réalité située se
+dit ici **faux positif** — le compteur affirme, à tort, « hors situation » — jamais faux
+négatif ; les treize tableaux de domaine qui suivent, et le blind-spot en fin de rapport,
+appliquent ce seul terme.
+
+**Ce que le critère n'a jamais pu tester : le registre.** Sur les 255 cartes de ce chantier
+(treize domaines), la première clause du critère (« aucune des 24
+questions du spécimen n'a cette forme ») n'a fondé un verdict que cinq fois — `7d44f7dd…`
 (objet absent de l'image), `37fe1af42b8d817da9…` (abstraction hiérarchique sans cas concret),
-`cac0f9db…` (comparaison de deux dispositifs), `37fe1af42b8d811f9…` (méthode de calcul
-mental) — toujours sur une bizarrerie structurelle, jamais sur un registre. L'axe Personne,
-lui, n'a jamais fondé un seul verdict : sa seule occurrence dans toute la section 4
-(`37fe1af42b8d81d0bf26d67c5f0ff047`, `Vitesse`) *loue* une carte d'avoir le registre du
-spécimen (« puis-je », OBS-1) plutôt que de faire défaut à celles qui ne l'ont pas.
+`cac0f9db…` (comparaison de deux dispositifs), `37fe1af42b8d811f9954e63cf1aa9ffa` (méthode de
+calcul mental), `37fe1af42b8d812cad07c40f6c51598c` (`Arrêt & stationnement`, comparaison de
+deux notions juridiques) — toujours sur une bizarrerie structurelle, jamais sur un registre.
+L'axe Personne, lui, n'a jamais fondé un seul verdict : ses deux occurrences dans la section 4
+(`37fe1af42b8d81d0bf26d67c5f0ff047`, `Vitesse`, et `37fe1af42b8d81139920e49f3f7b6b59`,
+`Mécanique & environnement`) sont toutes deux jugées `oui`, ce qui renforce le constat plutôt
+que de le contredire : la première *loue* une carte d'avoir le registre du spécimen
+(« puis-je », OBS-1) ; la seconde va plus loin, en disant qu'un sujet attesté à la première
+personne par le spécimen (Q22) n'impose aucun registre à la carte Valido qui n'en partage que
+le sujet.
 
 Ce n'est pas un oubli de la lecture : c'est une limite du corpus. Aucune des trois strates ne
 porte l'énoncé littéral d'une question du spécimen — §1 le dit dès son avertissement
@@ -380,7 +402,7 @@ absente — un corpus qui ne montre aucune proposition ne peut ni l'attester ni 
 première lecture de `Premiers secours` (tâche 13) l'a fait sur deux cartes dont les quatre
 options réordonnent une même liste de trois gestes (Protéger/Alerter/Secourir,
 Alerter/Masser/Défibriller) — corrigé en `oui` (Ruling 22, 2026-09-06) : la structure reste
-la plus singulière relevée sur les 190 cartes lues à ce stade, mais son inadmissibilité ne
+la plus singulière relevée sur les 255 cartes de ce chantier, mais son inadmissibilité ne
 peut pas s'établir contre un corpus qui ne montre aucune proposition.
 
 Ce n'est pas un oubli de la lecture : c'est une limite du corpus, la seconde après le
@@ -435,7 +457,7 @@ réforme dit avoir quittée, alors que le compteur les traite comme anchrées au
 que les deux scènes réelles. Ce n'est pas une erreur du compteur — il mesure la présence
 d'une illustration, pas sa nature — mais une limite de ce que ce diagnostic peut établir
 sans corpus de vraies diapositives d'examen. Une deuxième carte (`f12ee5be…`) est un vrai
-faux négatif : une scène en prose (contradiction de signalisation rencontrée) manquée faute
+faux positif : une scène en prose (contradiction de signalisation rencontrée) manquée faute
 de motif lexical, sur le modèle déjà connu.
 
 **Ce n'est pas l'image qui épargne ces cartes — ce n'est pas non plus « par construction ».**
@@ -506,7 +528,7 @@ reste, à mes yeux, moins ancrée qu'une carte à « vous » même sans verbe de
 **Ce que les compteurs ont signalé à tort :** `forme/seule-ponctuee` sur l'option correcte de
 `37fe1af42b8d81bd9426eabc80ab4a05` (« De marquer un arrêt complet, puis de céder ») — une
 phrase complète et normale, pas un défaut de forme ; le compteur mesure l'absence de
-ponctuation finale, pas une brièveté suspecte.
+ponctuation interne chez les distracteurs, pas une brièveté suspecte de la bonne réponse.
 
 ### Vitesse (22 cartes)
 
@@ -548,7 +570,7 @@ nettement au-dessus de la moyenne — l'attente se vérifie, mais sur un ensembl
 différent de celui que le compteur peut nommer. La même famille lexicale manque aussi deux
 cartes du domaine Priorités & intersections lues plus haut (`2a9e02b9…`, `defefbae…`), donc
 ce n'est pas un artefact isolé à Vitesse. Par ailleurs, `25390f0f…` (« à l'approche d'un
-chantier ») **n'est pas** un faux négatif de `forme/hors-situation`, contrairement à ce
+chantier ») **n'est pas** un faux positif de `forme/hors-situation`, contrairement à ce
 qu'une première lecture en avait conclu : c'est exactement la construction que §3 exclut
 (« à l'approche de » + règle) — une condition, pas une scène ; le compteur a raison de la
 classer non située.
@@ -594,7 +616,7 @@ paragraphe de réponse du spécimen sur 24 questions.
 **Ce que la lecture a vu et que les compteurs n'ont pas vu :** ce domaine est le premier du
 chantier sans aucune carte illustrée (0/21) — le ressort principal du lot 1 (pictogramme
 isolé contre OBS-16) ne peut donc mécaniquement produire aucun « non » ici, et il n'en
-produit aucun : le seul « non » du domaine (`37fe1af42b811f99…`) vient d'un mécanisme
+produit aucun : le seul « non » du domaine (`37fe1af42b8d811f9954e63cf1aa9ffa`) vient d'un mécanisme
 entièrement différent — une astuce de calcul mental, jamais un pictogramme — justifié par la
 taxonomie même d'OBS-7 (décision/conséquence/mécanisme), qui ne prévoit aucune case pour une
 méthode de calcul. Deux scènes réelles (`a225e458…`, `22e6420e…`) sont manquées par
@@ -832,13 +854,13 @@ d'un silence : le spécimen ne montre jamais ses propres options (OBS-4), donc r
 corpus ne peut établir qu'une structure d'options y est absente. Corrigé en `oui` (Ruling 22,
 2026-09-06) ; le nouveau blind-spot en tête de section 4 porte cette limite pour les lectures
 à venir. Par ailleurs, `5fe77bbd3af80ab119da8b5a2686b39c` confirme, sur un troisième domaine,
-le faux négatif de `forme/hors-situation` déjà documenté en §3 (scène singulière, « premier
+le faux positif de `forme/hors-situation` déjà documenté en §3 (scène singulière, « premier
 sur un accident, seul… », manquée car aucun verbe listé ne la couvre) ; deux autres cartes à
 « vous » (`…alertez les secours`, `…protéger une zone d'accident`) auraient pu sembler du même
 type mais s'en distinguent à la lecture : ce sont des procédures générales (« lorsque »/
 « pour »), pas des instants narrés — accord avec le compteur, à la différence de `5fe77bbd…`.
 
-**Ce que les compteurs ont signalé à tort :** rien à ajouter au faux négatif de
+**Ce que les compteurs ont signalé à tort :** rien à ajouter au faux positif de
 `forme/hors-situation` déjà nommé en §3 (`5fe77bbd3af80ab119da8b5a2686b39c`, confirmé ici sur
 un troisième domaine). Les 7 cartes flaggées `forme/definitionnel` (numéro d'urgence ×2,
 victime à ne déplacer que sous condition, position latérale de sécurité, les deux cartes de
@@ -1079,7 +1101,7 @@ scène le confirme dans ses propres termes plutôt que par simple lecture de l'a
 commentaire de `passage-a-niveau-balises` se compare lui-même « aux quatorze panneaux du
 dossier », le vocabulaire même des « non » déjà rendus sur `Panneaux & marquage` et `Feux`.
 `d4b4abfd…` cumule deux désaccords sur le même mot : le faux positif de `forme/definitionnel`
-déjà nommé en §3, et un faux négatif de `forme/hors-situation` que la première mention en §3
+déjà nommé en §3, et un faux positif de `forme/hors-situation` que la première mention en §3
 n'avait pas relevé (aucun motif déictique dans « La circulation est arrêtée juste au-delà
 d'un passage à niveau. Vous : », qui reste pourtant une scène précise à la lecture) — à noter
 pour une future relecture de la ligne `forme/hors-situation` en §3.
