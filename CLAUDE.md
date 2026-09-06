@@ -173,6 +173,8 @@ du bavardage.
 contenu, puis `2026-09-06-formes-questions-etg-design.md`. La troisième,
 `2026-08-27-relecture-code-pedagogie-design.md`, est la référence du rapport de passe 3.
 Les trois premières sont de l'historique : on les lit, on ne les met pas à jour.
-Les plans d'exécution, les traces de session `.superpowers/sdd/` et le rapport de la
-première passe ont été supprimés le 2026-09-06 : ils ne portaient que du déroulé de travaux
-finis, et leurs chiffres vivent déjà dans les rapports de passe 2 et 3.
+Les plans des trois premières passes, les traces de session `.superpowers/sdd/` et le
+rapport de la première passe ont été supprimés le 2026-09-06 : ils ne portaient que du
+déroulé de travaux **finis**, et leurs chiffres vivent déjà dans les rapports de passe 2
+et 3. `docs/superpowers/plans/` ne garde donc que les plans **en cours** — un plan se
+supprime quand son travail est livré et que son rapport le résume.
