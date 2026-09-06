@@ -235,9 +235,9 @@ que la tâche 3 hérite de la réduction plutôt que de la découvrir :
   ratio : ce corpus ne peut jamais dire quelle part de la vraie banque est illustrée, et
   aucun axe ne doit viser « passer de 19 % à X % ».
 - **Objet** — gardé, sur OBS-7 (critère resserré à « au moins 13/24 »).
-- **Format** — réduit au **nombre** de propositions (OBS-9, tiré du droit : 0 à 4 lettres
-  possibles). La **longueur** des propositions sort de la grille : aucune observation du
-  corpus ne la mesure.
+- **Format** — réduit au nombre de **réponses correctes acceptées** (OBS-9, tiré du droit :
+  0 à 4 lettres possibles). La **longueur** des propositions sort de la grille : aucune
+  observation du corpus ne la mesure.
 - **Piège** — **retiré**. Son seul appui, OBS-14, est antérieur à la réforme du 2 mai 2016
   (ci-dessus) — la spec (§2) : « un axe qu'aucune observation ne soutient est retiré. »
 - **Poids** — **retiré**, et `couverture/poids` ne sera pas écrit (raison ci-dessus).
@@ -249,9 +249,9 @@ soutenu est listé plus bas, avec son motif de retrait.
 
 | Axe | Ce qu'il oppose | Observations | Mécanisable ? |
 |---|---|---|---|
-| Personne | « je », « vous » / impersonnel | OBS-1, OBS-2 | Oui — `forme/impersonnel` (tâche 4). Deux registres, mesurables séparément par un test lexical sur le texte livré : le marqueur de première personne dans le paragraphe qui rejoue la situation (OBS-1, 21/24) et le registre impersonnel du commentaire pédagogique qui le suit (OBS-2, 23/24). Deux motifs de surface, sans ambiguïté sémantique à trancher pour un script. |
+| Personne | « je », « vous » / impersonnel | OBS-1, OBS-2 | Oui — `forme/impersonnel` (tâche 4). Deux registres du spécimen, mesurés côté Valido par un seul test lexical sur `prompt` : le marqueur de première personne dans le paragraphe qui rejoue la situation (OBS-1, 21/24) et le registre impersonnel du commentaire pédagogique qui le suit (OBS-2, 23/24). Deux motifs de surface, sans ambiguïté sémantique à trancher pour un script. |
 | Ancrage | question posée sur une scène vue du poste de conduite / savoir hors situation — **qualitatif seulement**, aucune cible chiffrée | OBS-16 | Oui, avec réserve. `forme/hors-situation` (tâche 4) décrit la part de cartes Valido sans mise en situation explicite, mais ne se compare à **aucun** taux de l'épreuve réelle : OBS-16 est une déclaration qualitative de la source elle-même (« moderniser la forme »), jamais un ratio, et ce corpus ne peut mesurer aucune part illustrée de la vraie banque. Le compteur reste un diagnostic interne à Valido, jamais une cible chiffrée — et ne doit jamais être relu comme telle. |
-| Objet | ce que je dois **faire** / ce que la règle **dit** | OBS-7 | Oui — `forme/definitionnel` (tâche 4). Le critère resserré à « au moins 13/24 » (verbe d'action explicite dans le paragraphe de réponse, OBS-7) transpose en test lexical sur `explanation` — un motif de surface, aussi mou à la marge que le corpus lui-même le signale (Q13, Q17 comptées côté constat faute de verbe net, sans casser le total). |
+| Objet | ce que je dois **faire** / ce que la règle **dit** | OBS-7 | Oui — `forme/definitionnel` (tâche 4). Le critère resserré à « au moins 13/24 » (verbe d'action explicite dans le paragraphe de réponse, OBS-7 — le proxy du `prompt` dans ce corpus) transpose en test lexical sur `prompt` — un motif de surface, aussi mou à la marge que le corpus lui-même le signale (Q13, Q17 comptées côté constat faute de verbe net, sans casser le total). |
 | Format | nombre et longueur des propositions — **réduit** au nombre de réponses correctes acceptées ; la longueur sort de la grille, aucune observation ne la mesure | OBS-3, OBS-9 | Non — voir « Le cas Format » ci-dessous. |
 
 **Le cas Format.** L'écart est réel et doublement corroboré : le droit autorise de 0 à 4
