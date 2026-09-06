@@ -346,7 +346,7 @@ signal précis.
 |---|---|---|---|---|---|
 | `11d37be22fd315668cb2930373e95c80` | image isolée (disque seul, pas de scène) | règle | absolu d'énoncé (« ne lève jamais ») contre une option qui est elle-même l'exception qu'il ne lève pas | non | portée réelle et testée d'un panneau de fin d'interdiction, mais photo isolée + question de sens — exactement la forme qu'OBS-16 nomme abandonnée par la réforme |
 | `1509ad94aea7c6f82355f3362b10a8e1` | image isolée | faire (ce qu'on ne peut pas faire) | contraste arrêt/stationnement, faux-ami de statut | non | teste une confusion réelle (arrêt implique stationnement) par contraste d'options, mais panneau isolé sans scène — la connaissance de sa signification qu'OBS-16 dit abandonnée, même posée comme une action interdite plutôt qu'une définition |
-| `1658abbc16db4667fec7211f8c9b0f93` | image isolée | règle | aucun notable | non | portée standard (côté, limite à la première intersection), mais photo isolée + question de sens — la forme qu'OBS-16 dit abandonnée |
+| `1658abbc16db4667fec7211f8c9b0f93` | image isolée | règle | aucun | non | portée standard (côté, limite à la première intersection), mais photo isolée + question de sens — la forme qu'OBS-16 dit abandonnée |
 | `37fe1af42b8d81709c93fcc98510a42d` | semi-situé (marquage photographié sur chaussée) | faire (rejoindre la voie désignée) | contraste avec une option de statu quo (« garder votre voie ») | oui | marquage vu en contexte de chaussée, teste un geste concret — plus proche de l'esprit de la réforme que les panneaux isolés du même lot |
 | `37fe1af42b8d8174a3c3e94967027ed1` | image isolée | règle (portée de l'obligation, pas une décision) | aucun | non | distinction B21b/B21-1, contenu solide, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
 | `37fe1af42b8d817881dee3d999a911c3` | image isolée | règle | aucun | non | distinction carré/rond (info/prescription), contenu solide, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
@@ -357,7 +357,7 @@ signal précis.
 | `570e5e1ef861e032773f43b44bc817a9` | semi-situé (aire décrite sur la chaussée) | règle | aucun | oui | marquage rare, correctement testé en reconnaissance |
 | `7d44f7dd303fce58716234cba54480b1` | image isolée, et hypothétique (le panonceau demandé est absent de l'image) | règle | distracteurs nommant des panonceaux réels mais hors-sujet | non | seule carte du lot à interroger un élément absent de sa propre image — aucune des 24 questions du spécimen n'a cette forme, et le panneau isolé qui la porte est par ailleurs celle qu'OBS-16 dit abandonnée |
 | `89bea09b482974f37e7dd7d35aba23f5` | image isolée | règle (une limite : ce qu'il ne prescrit pas) | absolu (« rien ») contre des options d'obligation | non | teste une limite précise (position tenue par le marquage au sol), mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
-| `8a1026edb35c31c37ab6df7b29851ef2` | image isolée | règle | aucun notable | non | reconnaissance de panneau standard, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
+| `8a1026edb35c31c37ab6df7b29851ef2` | image isolée | règle | aucun | non | reconnaissance de panneau standard, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
 | `9e65525bbce6a6491d37bbf6f180c04c` | image isolée, mais « vous pouvez encore doubler » évoque une exception à choisir | faire (exception) | exception à une interdiction générale | non | teste une exception réelle et précise, plus proche d'une décision que les autres panneaux isolés du lot — mais reste un panneau isolé sans scène, la forme qu'OBS-16 dit abandonnée |
 | `9eb8506813f0c8b729b66157ec95a63f` | situé — vraie scène vue du poste de conduite | règle (ce que le panneau fait/ne fait pas) | absolu retiré de l'option (« à l'anneau » supprimé) | oui | seule vraie mise en situation du lot avec `dce501d416e5db1cc6344725007fbad6` — exactement la forme qu'OBS-16 dit visée par la réforme |
 | `dce501d416e5db1cc6344725007fbad6` | situé — scène + « ici » + « vous engager » | faire | absolu dans un distracteur (« arrêt complet, roues bloquées ») | oui | mise en situation complète et décision à prendre — la forme la plus proche de la réforme du lot |
@@ -369,8 +369,8 @@ signal précis.
 | `37fe1af42b8d81699c2ffbefd648d9a3` | non situé, générique | règle | aucun | partiel | même réserve que le panneau à bord rouge du même lot : teste une catégorie plutôt qu'un panneau réel |
 | `37fe1af42b8d81f8a2f3f8bd2afc9d2d` | non situé, générique | règle | paire d'inverses décrite (franchissement autorisé/interdit) | oui | règle centrale testée sans mise en situation, forme standard de rappel |
 | `3cb86b6e4c489d919a495408021f062a` | non situé — formulation infinitive générique, pas une scène vécue | règle (barème) | distinction chevauchement/franchissement, proche faux-ami | oui | question de barème factuelle, forme neutre cohérente avec son objet |
-| `5a4e6a38ad3e1153f807ec5e0e6ba40e` | non situé, générique | règle | aucun notable | oui | rappel de règle standard (ligne de rive), pas de mise en situation nécessaire |
-| `f12ee5bea85947a13d387f574e817337` | **désaccord avec le compteur — situé en prose** (conflit de signalisation décrit, à la 3ᵉ personne, sans démonstratif ni verbe listé) | faire | aucun absolu marqué | oui | scène décrite en prose (conflit de signalisation rencontré), manquée par `forme/hors-situation` faute de démonstratif ou de « vous » + verbe listé — même angle mort que l'exemple donné en tête de tâche |
+| `5a4e6a38ad3e1153f807ec5e0e6ba40e` | non situé, générique | règle | aucun | oui | rappel de règle standard (ligne de rive), pas de mise en situation nécessaire |
+| `f12ee5bea85947a13d387f574e817337` | **désaccord avec le compteur — situé en prose** (conflit de signalisation décrit, à la 3ᵉ personne, sans démonstratif ni verbe listé) | faire | aucun | oui | scène décrite en prose (conflit de signalisation rencontré), manquée par `forme/hors-situation` faute de démonstratif ou de « vous » + verbe listé — même angle mort que l'exemple donné en tête de tâche |
 
 **Ce que la lecture a vu et que les compteurs n'ont pas vu :** `forme/hors-situation` est bas
 sur ce domaine (8/27) exactement comme prévu — mais pour une raison plus étroite que
@@ -401,22 +401,22 @@ non situées à la lecture, sauf `f12ee5be…` ci-dessus.
 | `43dc08f7c9ebc00497a4022e24319683` | situé — scène + « à ce panneau » + « vous devez » | faire | absolu correct (« même quand rien n'arrive ») contre un conditionnel trompeur | oui | scène complète, décision d'action demandée — forme exemplaire |
 | `6e1a51d34b4b79e4366d6566795e5151` | situé — scène décrite (pente, véhicule qui monte) | faire (qui doit céder) | contre-intuitif (celui qui descend cède, pas celui qui monte) | oui | scène de conduite réelle et rare (croisement en côte), forme et contenu alignés |
 | `8e9464777a61dba3859e3ecc08f7327d` | situé — scène + « vous arrivez » | faire | inversion de la règle par défaut par un panneau | oui | scène complète, teste une inversion de règle — bien alignée avec la mise en situation |
-| `dd4c58febe771b6f297f1ca46c2ec75b` | situé — scène giratoire | faire | aucun absolu marqué | oui | scène complète et décision claire |
+| `dd4c58febe771b6f297f1ca46c2ec75b` | situé — scène giratoire | faire | aucun | oui | scène complète et décision claire |
 | `e93ca4d156de5854eafce9393be39274` | situé — scène (carrefour en T décrit) | faire | faux-ami (« rouler sur la voie qui traverse » ne donne pas la priorité) | oui | scène concrète, décision de priorité classique bien testée |
 | `ef4cfd171e0e9911a2619b3b06336216` | situé — scène (carrefour + tramway décrits) | faire | absolu correct (priorité indépendante du côté), faux-ami (signal sonore requis) | oui | scène complète, contenu rare (priorité du tramway) bien testé |
 | `f255331d3f234810a4807594b43b397f` | situé — scène illustrée (croisement nu, véhicule à droite), malgré un énoncé très court | faire | règle de base, aucun absolu | oui | l'énoncé le plus court du lot (« Qui passe en premier ? »), mais la scène illustrée le précise suffisamment |
-| `02f7d6a65856887348bfe8653bb90c6e` | **désaccord avec le compteur — situé** (« sur l'anneau, votre » place un moment de conduite précis) | faire (quand signaler) | faux-ami de timing (trop tôt vs trop tard) | oui | geste précis et pédagogiquement important (angle mort d'accident), situé sans image malgré l'absence des motifs lexicaux du compteur |
-| `09f18973aee39386ee42782f04d03ec2` | **désaccord avec le compteur — situé** (« vous devez » introduit une décision de conduite précise) | faire | faux-ami (croire que le clignotant rend prioritaire) | oui | scène en prose (tourner à gauche hors carrefour) manquée par le compteur faute de verbe listé, sur le modèle déjà documenté en §3 pour le giratoire |
-| `2a9e02b9719028e72fde6fdd6372a1ff` | non situé — formulation générique (barème) | règle | aucun absolu | oui | question de barème factuelle, forme cohérente avec son objet |
+| `02f7d6a65856887348bfe8653bb90c6e` | non situé — un lieu (« sur l'anneau ») et une règle de geste, pas un moment | faire (quand signaler) | faux-ami de timing (trop tôt vs trop tard) | oui | un lieu et une condition ne sont pas une scène : la règle vaut pour tout instant passé sur l'anneau, elle ne fixe aucun moment précis — accord avec le compteur |
+| `09f18973aee39386ee42782f04d03ec2` | non situé — condition générale (« hors d'une intersection réglée »), pas une scène | faire | faux-ami (croire que le clignotant rend prioritaire) | oui | même construction que « En zone bleue, vous devez : », exclue en §3 comme règle générale : une condition n'est pas un moment — accord avec le compteur |
+| `2a9e02b9719028e72fde6fdd6372a1ff` | non situé — formulation générique (barème) | règle | aucun | oui | question de barème factuelle, forme cohérente avec son objet |
 | `2daf8939fc85f5b288010cf545bb681d` | non situé, générique (catégorie de rond-point, pas un cas précis) | règle | faux-ami (croire que tout rond-point est un carrefour giratoire) | oui | configuration générale (absence de signalisation), pas une scène précise — accord avec le compteur |
-| `37fe1af42b8d812fade7d79d309e4c48` | **désaccord — situé** (« vous devez »), déjà documenté en §3 comme faux positif | faire | aucun absolu | oui | scène de conduite claire (approche d'un giratoire), faux positif déjà connu de `forme/hors-situation` — confirmé |
+| `37fe1af42b8d812fade7d79d309e4c48` | **désaccord — situé** (« vous devez »), déjà documenté en §3 comme faux positif | faire | aucun | oui | scène de conduite claire (approche d'un giratoire), faux positif déjà connu de `forme/hors-situation` — confirmé |
 | `37fe1af42b8d815f8684e4cc91d6950f` | **désaccord — situé** (« Lequel suivez-vous ? »), déjà documenté en §3 | faire | exception décrite (jaune clignotant) | oui | scène en prose (contradiction rencontrée), déjà relevée en §3 — confirmé |
 | `37fe1af42b8d8161be32fe2fe9808fff` | non situé, générique — définition de panneau sans scène | règle | faux-ami (croire à un arrêt obligatoire comme au STOP) | oui | distinction cédez-le-passage/STOP, contenu solide, forme neutre |
 | `37fe1af42b8d817da9fff3054d6ffa3a` | non situé — question de hiérarchie abstraite, « à un carrefour » générique | règle (structure hiérarchique) | aucun absolu depuis la correction | non | seule carte du lot posée en pure abstraction hiérarchique, sans aucun cas concret pour l'ancrer — l'examen teste cette hiérarchie à travers une scène (feu en panne, agent, priorité à droite), jamais comme un classement ; aucune des 24 questions du spécimen n'a cette forme |
 | `37fe1af42b8d818293f3f8d862a5a505` | non situé — événement générique (« un véhicule »), pas « vous » | règle | absolu correct (« en toutes circonstances ») | oui | décrit un événement reconnaissable (sirène, gyrophare) mais à la 3ᵉ personne générique, sans scène propre |
 | `37fe1af42b8d8184beb9c6687c92ffb5` | non situé, générique | règle | aucun | oui | reconnaissance de panneau sans aucun support visuel — seule ressource, le nom du panneau |
 | `37fe1af42b8d818fb7c9efba6c63d91d` | non situé — catégorie générale (« une intersection »), pas un cas précis | règle | exception décrite (chemin de terre/parking) | oui | configuration générale, pas une scène précise — accord avec le compteur, à la différence du giratoire déjà documenté |
-| `37fe1af42b8d81bd9426eabc80ab4a05` | non situé, générique | règle (barème) | aucun absolu marqué | oui | contenu factuel solide (4 points) ; l'option correcte flaggée `forme/seule-ponctuee` est une phrase complète normale, faux positif sur la forme, pas sur le fond |
+| `37fe1af42b8d81bd9426eabc80ab4a05` | non situé, générique | règle (barème) | aucun | oui | contenu factuel solide (4 points) ; l'option correcte flaggée `forme/seule-ponctuee` est une phrase complète normale, faux positif sur la forme, pas sur le fond |
 | `37fe1af42b8d81d6aef7ff0b8d193d7f` | non situé, générique | règle | aucun | oui | reconnaissance de panneau sans image, jumelle du losange barré du même lot |
 | `37fe1af42b8d81fa9debeaf114b7bf77` | **désaccord — situé** (« vous croisez »), déjà documenté en §3 | faire | absolu retiré, faux-ami (carrefour à feux seulement) | oui | scène de conduite claire, déjà documentée en §3 comme faux positif du compteur — confirmé |
 | `700316a2fd86db7d682be208673c92d5` | non situé, générique — question de fonction d'un dispositif | règle | aucun | oui | question de fonction (à quoi sert le sas), forme cohérente avec son objet |
@@ -427,15 +427,16 @@ non situées à la lecture, sauf `f12ee5be…` ci-dessus.
 **Ce que la lecture a vu et que les compteurs n'ont pas vu :** les 18 cartes non illustrées
 du domaine sont **toutes** flaggées `forme/hors-situation` (les 8 illustrées, aucune) — dans
 ce lot, l'illustration est le seul facteur qui change le verdict du compteur, jamais son
-texte. Sur ces 18, cinq sont en désaccord avec ma lecture : trois sont déjà documentées en
+texte. Sur ces 18, trois sont en désaccord avec ma lecture, toutes trois déjà documentées en
 §3 comme faux positifs connus (giratoire « vous n'avez pas la priorité », feu/panneau
-contradictoires, croisement d'une voie de tramway — confirmées ici) et deux sont des
-faux négatifs **nouveaux** : `09f18973…` (« vous devez » introduit une décision de tourne-à-
-gauche, sur le même modèle que le giratoire déjà connu) et `02f7d6a6…` (« sur l'anneau,
-votre » place un moment de conduite précis — plus marginal, la scène tenant à un lieu et un
-geste plutôt qu'à un verbe de déplacement). Les treize autres cartes non illustrées sont
-bien non situées à la lecture : elles décrivent des catégories générales (« un rond-point
-qu'aucun panneau n'annonce », « une intersection sans aucune signalisation ») ou des
+contradictoires, croisement d'une voie de tramway — confirmées ici). Les quinze autres
+cartes non illustrées sont bien non situées à la lecture, dont deux qui avaient d'abord paru
+en désaccord avant relecture : `09f18973…` (« hors d'une intersection réglée » pose une
+condition générale — même construction que « En zone bleue, vous devez : », exclue en §3 :
+une condition n'est pas un moment) et `02f7d6a6…` (« sur l'anneau, votre » place un lieu et
+une règle de geste, pas un moment précis). Les treize cartes restantes décrivent des
+catégories générales (« un rond-point qu'aucun panneau n'annonce », « une intersection sans
+aucune signalisation ») ou des
 événements à la 3ᵉ personne générique (« un véhicule qui sort d'un parking », « un véhicule
 prioritaire … ») plutôt qu'une scène où le candidat est placé — la nuance entre ces deux
 formes n'est pas mécanisable, mais elle est réelle : une carte à la 3ᵉ personne générique
@@ -456,7 +457,7 @@ ponctuation finale, pas une brièveté suspecte.
 | `ed0e45e08fb4f47007934da587b5757c` | situé — « vous fait entrer dans » (verbe de mouvement) | règle (portée zonale), animée par un effet de franchissement | distinction portée zonale/linéaire (rues sécantes) | oui | la formulation en action de franchissement anime une carte autrement définitionnelle — bon compromis sur un contenu à portée complexe |
 | `04182c9bbdeb305e21532f9c6913a2a2` | non situé, générique (barème) | **désaccord avec le compteur `forme/definitionnel`** — règle, pas action | seuil chiffré précis (paliers de 10 km/h), déséquilibre de longueur signalé (+3, sous le seuil dur) | oui | « fait perdre » est un verbe de conséquence absent du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; l'objet réel est pourtant un barème, pas une décision |
 | `14eb253e5dc55f5633de9263f541bf91` | non situé, générique | **désaccord — règle, pas action** | seuil chiffré précis, absence de retrait devenue la bonne réponse (contre-intuitif) | oui | même mécanisme que la carte précédente : « fait perdre » hors lexique du compteur, objet pourtant définitionnel |
-| `25390f0f30dbb6402091dc226d63db35` | **désaccord avec le compteur `forme/hors-situation` — situé** (« à l'approche d'un chantier » décrit un événement en cours d'approche) | règle (la vitesse à tenir) | aucun absolu | oui | scène de conduite en prose (approche d'un chantier), sur le modèle des faux positifs « à l'approche de » déjà documentés en §3 |
+| `25390f0f30dbb6402091dc226d63db35` | non situé — « à l'approche d'un chantier » énonce une condition, pas une scène | règle (la vitesse à tenir) | aucun | oui | exactement la construction exclue en §3 (« à l'approche de » + règle) : une condition n'est pas un moment — accord avec le compteur |
 | `337bfcb4d034b62de5fe0d77ca0cb0a0` | non situé, générique | règle (qualification juridique) | absolu implicite (dès la première fois, sans récidive), faux-ami avec l'ancien régime | partiel | seule carte du lot à dater explicitement l'entrée en vigueur dans l'énoncé même (« Depuis fin 2025 ») — une marque de fraîcheur utile au produit, mais étrangère au style des 24 questions du spécimen, qui ne datent jamais leur propre règle |
 | `37fe1af42b8d812c957fc3415785f6d6` | non situé, générique | règle (chiffre-règle : la règle **est** le nombre) | seuil chiffré, quatre valeurs voisines (10/20/30/50) | oui | la règle testée est un chiffre (20 km/h) : la forme définitionnelle est ici la forme juste, comme l'anticipe la consigne — pas un défaut |
 | `37fe1af42b8d81589410cd055e66efc2` | non situé, générique | règle (chiffre-règle) | exception réelle citée en option (70 km/h), pas un distracteur inventé | oui | même cas que la zone de rencontre — chiffre-règle, forme définitionnelle appropriée |
@@ -464,7 +465,7 @@ ponctuation finale, pas une brièveté suspecte.
 | `37fe1af42b8d817994d5f81863c7e6ae` | non situé, générique | règle (chiffre-règle) | nuance locale (90 sur décision départementale), faux-ami de généralisation | oui | chiffre-règle avec nuance territoriale réelle, forme appropriée |
 | `37fe1af42b8d817a9111e3d52f9e5142` | non situé, générique | **désaccord — règle (barème), pas action** | seuil chiffré, absence de gradation au-delà du seuil (contre-intuitif) | oui | « entraîne un retrait de » est hors du lexique du compteur définitionnel, l'objet est pourtant un barème pur |
 | `37fe1af42b8d818da27dc338f75795fe` | non situé, générique (condition météo, pas une scène précise) | règle (chiffre-règle) | paliers de réduction (10-20 km/h selon réseau), faux-ami de généralisation | oui | chiffre-règle conditionné par la météo, forme cohérente avec un contenu par nature numérique |
-| `37fe1af42b8d819e9620e4637f95e464` | non situé, générique | règle (chiffre-règle) | aucun absolu | oui | chiffre-règle simple, forme cohérente |
+| `37fe1af42b8d819e9620e4637f95e464` | non situé, générique | règle (chiffre-règle) | aucun | oui | chiffre-règle simple, forme cohérente |
 | `37fe1af42b8d81d0bf26d67c5f0ff047` | non situé, générique, mais à la première personne (« puis-je ») | règle (chiffre-règle) | aucun | oui | seule carte du lot à la première personne (« puis-je »), un registre du spécimen (OBS-1, 21/24 à la 1ʳᵉ personne) que ce lot pratique rarement ailleurs |
 | `37fe1af42b8d81f9ae87db1419280902` | non situé, générique | règle (chiffre-règle) | seuil chiffré (50 m) précis, option indûment restreinte (« agglomération seulement ») | oui | chiffre-règle conditionné, forme appropriée |
 | `61eed52d453ac9d8ab59af70dae8eb3e` | non situé, générique, mais à la 2ᵉ personne (« vous ne dépassez pas ») | règle (un plafond légal, pas une décision) | faux-ami (abattement systématique plutôt qu'un plafond) | oui | formulation à la deuxième personne, plus proche du registre du spécimen que la plupart des cartes du lot, malgré l'absence de scène |
@@ -486,8 +487,10 @@ nettement au-dessus de la moyenne — l'attente se vérifie, mais sur un ensembl
 différent de celui que le compteur peut nommer. La même famille lexicale manque aussi deux
 cartes du domaine Priorités & intersections lues plus haut (`2a9e02b9…`, `defefbae…`), donc
 ce n'est pas un artefact isolé à Vitesse. Par ailleurs, `25390f0f…` (« à l'approche d'un
-chantier ») est un faux négatif de `forme/hors-situation` sur le modèle déjà documenté en
-§3 des cartes « à l'approche de ».
+chantier ») **n'est pas** un faux négatif de `forme/hors-situation`, contrairement à ce
+qu'une première lecture en avait conclu : c'est exactement la construction que §3 exclut
+(« à l'approche de » + règle) — une condition, pas une scène ; le compteur a raison de la
+classer non située.
 
 **Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
 répertoriés en §3 (les cartes citant « puis-je », « vous dépassez », « vous ne dépassez
