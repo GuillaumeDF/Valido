@@ -429,3 +429,52 @@ reste, à mes yeux, moins ancrée qu'une carte à « vous » même sans verbe de
 `37fe1af42b8d81bd9426eabc80ab4a05` (« De marquer un arrêt complet, puis de céder ») — une
 phrase complète et normale, pas un défaut de forme ; le compteur mesure l'absence de
 ponctuation finale, pas une brièveté suspecte.
+
+### Vitesse (22 cartes)
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `07ef459de55adcb501694169428ffd72` | image isolée (disque seul) | règle | distinction max/min/conseillée, faux-ami de sens | oui | reconnaissance de panneau classique, forme proche de l'ancien modèle (OBS-16), contenu solide |
+| `37fe1af42b8d815ba42acef16b3119a8` | situé — « cette voie » + scène d'autoroute décrite | règle (un plafond légal, énoncé comme limite d'une scène) | seuil chiffré précis (80 km/h), condition (beau temps, circulation fluide) | oui | scène autoroutière concrète correctement reconnue comme telle ; le chiffre exact est la règle même — forme légitime sur ce contenu |
+| `3adc294978b6ac1f640c45e121a0e4f5` | image isolée | règle | paire d'inverses (fin de limitation / limitation) parmi les distracteurs | oui | reconnaissance de panneau, forme ancien modèle, distinction solide |
+| `ed0e45e08fb4f47007934da587b5757c` | situé — « vous fait entrer dans » (verbe de mouvement) | règle (portée zonale), animée par un effet de franchissement | distinction portée zonale/linéaire (rues sécantes) | oui | la formulation en action de franchissement anime une carte autrement définitionnelle — bon compromis sur un contenu à portée complexe |
+| `04182c9bbdeb305e21532f9c6913a2a2` | non situé, générique (barème) | **désaccord avec le compteur `forme/definitionnel`** — règle, pas action | seuil chiffré précis (paliers de 10 km/h), déséquilibre de longueur signalé (+3, sous le seuil dur) | oui | « fait perdre » est un verbe de conséquence absent du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; l'objet réel est pourtant un barème, pas une décision |
+| `14eb253e5dc55f5633de9263f541bf91` | non situé, générique | **désaccord — règle, pas action** | seuil chiffré précis, absence de retrait devenue la bonne réponse (contre-intuitif) | oui | même mécanisme que la carte précédente : « fait perdre » hors lexique du compteur, objet pourtant définitionnel |
+| `25390f0f30dbb6402091dc226d63db35` | **désaccord avec le compteur `forme/hors-situation` — situé** (« à l'approche d'un chantier » décrit un événement en cours d'approche) | règle (la vitesse à tenir) | aucun absolu | oui | scène de conduite en prose (approche d'un chantier), sur le modèle des faux positifs « à l'approche de » déjà documentés en §3 |
+| `337bfcb4d034b62de5fe0d77ca0cb0a0` | non situé, générique | règle (qualification juridique) | absolu implicite (dès la première fois, sans récidive), faux-ami avec l'ancien régime | partiel | seule carte du lot à dater explicitement l'entrée en vigueur dans l'énoncé même (« Depuis fin 2025 ») — une marque de fraîcheur utile au produit, mais étrangère au style des 24 questions du spécimen, qui ne datent jamais leur propre règle |
+| `37fe1af42b8d812c957fc3415785f6d6` | non situé, générique | règle (chiffre-règle : la règle **est** le nombre) | seuil chiffré, quatre valeurs voisines (10/20/30/50) | oui | la règle testée est un chiffre (20 km/h) : la forme définitionnelle est ici la forme juste, comme l'anticipe la consigne — pas un défaut |
+| `37fe1af42b8d81589410cd055e66efc2` | non situé, générique | règle (chiffre-règle) | exception réelle citée en option (70 km/h), pas un distracteur inventé | oui | même cas que la zone de rencontre — chiffre-règle, forme définitionnelle appropriée |
+| `37fe1af42b8d816b8bf5d51c4f78466c` | non situé — « Vous dépassez de 30 km/h… » est un excès chiffré, pas une scène (cas déjà examiné et écarté en §3) | **désaccord — règle (barème), pas action**, malgré la 2ᵉ personne | seuil chiffré précis | oui | « Combien de points perdez-vous ? » interroge le barème, pas une décision, malgré la 2ᵉ personne ; « perdez » est hors du lexique du compteur définitionnel |
+| `37fe1af42b8d817994d5f81863c7e6ae` | non situé, générique | règle (chiffre-règle) | nuance locale (90 sur décision départementale), faux-ami de généralisation | oui | chiffre-règle avec nuance territoriale réelle, forme appropriée |
+| `37fe1af42b8d817a9111e3d52f9e5142` | non situé, générique | **désaccord — règle (barème), pas action** | seuil chiffré, absence de gradation au-delà du seuil (contre-intuitif) | oui | « entraîne un retrait de » est hors du lexique du compteur définitionnel, l'objet est pourtant un barème pur |
+| `37fe1af42b8d818da27dc338f75795fe` | non situé, générique (condition météo, pas une scène précise) | règle (chiffre-règle) | paliers de réduction (10-20 km/h selon réseau), faux-ami de généralisation | oui | chiffre-règle conditionné par la météo, forme cohérente avec un contenu par nature numérique |
+| `37fe1af42b8d819e9620e4637f95e464` | non situé, générique | règle (chiffre-règle) | aucun absolu | oui | chiffre-règle simple, forme cohérente |
+| `37fe1af42b8d81d0bf26d67c5f0ff047` | non situé, générique, mais à la première personne (« puis-je ») | règle (chiffre-règle) | aucun | oui | seule carte du lot à la première personne (« puis-je »), un registre du spécimen (OBS-1, 21/24 à la 1ʳᵉ personne) que ce lot pratique rarement ailleurs |
+| `37fe1af42b8d81f9ae87db1419280902` | non situé, générique | règle (chiffre-règle) | seuil chiffré (50 m) précis, option indûment restreinte (« agglomération seulement ») | oui | chiffre-règle conditionné, forme appropriée |
+| `61eed52d453ac9d8ab59af70dae8eb3e` | non situé, générique, mais à la 2ᵉ personne (« vous ne dépassez pas ») | règle (un plafond légal, pas une décision) | faux-ami (abattement systématique plutôt qu'un plafond) | oui | formulation à la deuxième personne, plus proche du registre du spécimen que la plupart des cartes du lot, malgré l'absence de scène |
+| `87c63a1be4e005f6c846d7798756696f` | non situé, générique, 2ᵉ personne | règle | faux-ami (abattement systématique) | oui | jumelle de la carte précédente, même registre, même plafond testé sur un réseau différent |
+| `cac0f9db162887802d4fb15ba97d768f` | non situé — comparaison entre deux catégories, pas une scène | règle (nature comparative, pas une portée simple) | paire d'inverses assumée sur l'exclusivité (§2), quatre options isolant chacune un trait | partiel | seule carte du lot (et l'une des rares de tout l'échantillon lu) à comparer deux dispositifs plutôt que d'interroger une règle ou une scène unique — une forme sans équivalent dans le spécimen |
+| `f7370daabea929065f6b2586ca3eea91` | non situé, générique | règle (chiffre-règle) | nuance fine (nombre de voies, pas largeur), faux-ami de critère | oui | chiffre-règle avec un critère fin et réel, forme appropriée |
+| `fed604fe7c4b8b3b96adc066a7902138` | non situé, générique | règle (chiffre-règle) | critère distinctif (terre-plein vs nombre de voies), faux-ami de critère, jumelle de la précédente | oui | même forme appropriée à un contenu chiffré |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** le compteur `forme/
+definitionnel` ne compte que 8/22 (36 %) sur ce domaine — à peine en dessous de la moyenne
+globale (94/255, 37 %), ce qui **ne confirme pas** l'attente énoncée en tête de tâche
+(« devrait être élevé ») si l'on s'en tient au chiffre du compteur seul. Mais son lexique fixe (est/sont/sert à/signifie/indique/impose/
+doit être/permet de) ne couvre ni « fait perdre », ni « entraîne un retrait de », ni
+« Combien de points perdez-vous ? » — la famille des cartes de barème par point, propre à
+ce domaine. En objet réel (ce que demande la carte : un fait de barème, pas une décision),
+quatre cartes de plus sont définitionnelles à la lecture (`04182c9b…`, `14eb253e…`,
+`37fe1af42b8d816b8bf5d51c4f78466c`, `37fe1af42b8d817a9111e3d52f9e5142`) : 12/22 (55 %),
+nettement au-dessus de la moyenne — l'attente se vérifie, mais sur un ensemble de cartes
+différent de celui que le compteur peut nommer. La même famille lexicale manque aussi deux
+cartes du domaine Priorités & intersections lues plus haut (`2a9e02b9…`, `defefbae…`), donc
+ce n'est pas un artefact isolé à Vitesse. Par ailleurs, `25390f0f…` (« à l'approche d'un
+chantier ») est un faux négatif de `forme/hors-situation` sur le modèle déjà documenté en
+§3 des cartes « à l'approche de ».
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
+répertoriés en §3 (les cartes citant « puis-je », « vous dépassez », « vous ne dépassez
+pas » restent correctement non-situées sur l'axe Ancrage — seul l'axe Personne y voit une
+première ou deuxième personne, ce que `forme/impersonnel` ne flagge d'ailleurs pas pour
+elles).
