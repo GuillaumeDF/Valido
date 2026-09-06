@@ -228,18 +228,16 @@ visuel » tirée de ce corpus hérite de cette approximation.
 ### Ce qui reste de la grille, après ce corpus
 
 Les six axes de la spec (§2) ne sortent pas tous intacts de cette lecture. Décidé ici pour
-que la tâche 3 hérite de la réduction plutôt que de la découvrir :
+que la tâche 3 hérite de la réduction plutôt que de la découvrir — le développement de
+chaque décision est en « 2. La grille » ci-dessous, à l'exception de Poids, dont le motif
+reste ci-dessus, dans « Ce que ce corpus ne peut pas dire » :
 
-- **Personne** — gardé, solide (OBS-1 : 21/24).
-- **Ancrage** — gardé **qualitativement seulement**, sur OBS-16. Une direction, jamais un
-  ratio : ce corpus ne peut jamais dire quelle part de la vraie banque est illustrée, et
-  aucun axe ne doit viser « passer de 19 % à X % ».
-- **Objet** — gardé, sur OBS-7 (critère resserré à « au moins 13/24 »).
-- **Format** — réduit au nombre de **réponses correctes acceptées** (OBS-9, tiré du droit :
-  0 à 4 lettres possibles). La **longueur** des propositions sort de la grille : aucune
-  observation du corpus ne la mesure.
-- **Piège** — **retiré**. Son seul appui, OBS-14, est antérieur à la réforme du 2 mai 2016
-  (ci-dessus) — la spec (§2) : « un axe qu'aucune observation ne soutient est retiré. »
+- **Personne** — gardé (OBS-1, OBS-2).
+- **Ancrage** — gardé, **qualitativement seulement** (OBS-16).
+- **Objet** — gardé (OBS-7).
+- **Format** — réduit au nombre de **réponses correctes acceptées** ; la **longueur** des
+  propositions sort de la grille (OBS-3, OBS-9).
+- **Piège** — **retiré** (OBS-14).
 - **Poids** — **retiré**, et `couverture/poids` ne sera pas écrit (raison ci-dessus).
 
 ## 2. La grille
@@ -250,7 +248,7 @@ soutenu est listé plus bas, avec son motif de retrait.
 | Axe | Ce qu'il oppose | Observations | Mécanisable ? |
 |---|---|---|---|
 | Personne | « je », « vous » / impersonnel | OBS-1, OBS-2 | Oui — `forme/impersonnel` (tâche 4). Deux registres du spécimen, mesurés côté Valido par un seul test lexical sur `prompt` : le marqueur de première personne dans le paragraphe qui rejoue la situation (OBS-1, 21/24) et le registre impersonnel du commentaire pédagogique qui le suit (OBS-2, 23/24). Deux motifs de surface, sans ambiguïté sémantique à trancher pour un script. |
-| Ancrage | question posée sur une scène vue du poste de conduite / savoir hors situation — **qualitatif seulement**, aucune cible chiffrée | OBS-16 | Oui, avec réserve. `forme/hors-situation` (tâche 4) décrit la part de cartes Valido sans mise en situation explicite, mais ne se compare à **aucun** taux de l'épreuve réelle : OBS-16 est une déclaration qualitative de la source elle-même (« moderniser la forme »), jamais un ratio, et ce corpus ne peut mesurer aucune part illustrée de la vraie banque. Le compteur reste un diagnostic interne à Valido, jamais une cible chiffrée — et ne doit jamais être relu comme telle. |
+| Ancrage | question posée sur une scène vue du poste de conduite / savoir hors situation — **qualitatif seulement**, aucune cible chiffrée | OBS-16 | Oui, avec réserve. `forme/hors-situation` (tâche 4) décrit la part de cartes Valido sans mise en situation explicite, mais ne se compare à **aucun** taux de l'épreuve réelle : OBS-16 est une déclaration qualitative de la source elle-même (« moderniser la forme »), jamais un ratio, et ce corpus ne peut mesurer aucune part illustrée de la vraie banque. Le compteur reste un diagnostic interne à Valido, jamais une cible chiffrée — et ne doit jamais être relu comme telle, par exemple en visant « de 19 % à X % ». |
 | Objet | ce que je dois **faire** / ce que la règle **dit** | OBS-7 | Oui — `forme/definitionnel` (tâche 4). Le critère resserré à « au moins 13/24 » (verbe d'action explicite dans le paragraphe de réponse, OBS-7 — le proxy du `prompt` dans ce corpus) transpose en test lexical sur `prompt` — un motif de surface, aussi mou à la marge que le corpus lui-même le signale (Q13, Q17 comptées côté constat faute de verbe net, sans casser le total). |
 | Format | nombre et longueur des propositions — **réduit** au nombre de réponses correctes acceptées ; la longueur sort de la grille, aucune observation ne la mesure | OBS-3, OBS-9 | Non — voir « Le cas Format » ci-dessous. |
 
@@ -273,13 +271,11 @@ cet axe, et ce n'est pas un oubli.
   un fil de forum daté du 13 novembre 2012 — antérieur de plus de trois ans à la réforme du
   2 mai 2016 que le spécimen lui-même revendique comme une modernisation de la forme des
   questions (OBS-16). Un axe qu'aucune observation postérieure à la réforme ne soutient est
-  retiré, plutôt que gardé sur un témoin de l'ancienne banque.
-- **Poids** — retiré. Le spécimen répartit 24 questions sur environ dix-sept étiquettes de
-  thème, elles-mêmes instables orthographiquement (OBS-6), qui ne se recoupent pas proprement
-  avec les onze thèmes officiels de communication ; l'arrêté du 29 avril 2024 mentionne des
-  « thèmes pédagogiques » sans les énumérer. Aucune table « part d'un thème dans la vraie
-  banque » n'est donc écrivable depuis ce corpus, et `couverture/poids` ne sera pas écrit —
-  pour cette raison précise, pas par omission.
+  retiré, plutôt que gardé sur un témoin de l'ancienne banque — la spec (§2) : « un axe
+  qu'aucune observation ne soutient est retiré. »
+- **Poids** — retiré, et `couverture/poids` ne sera pas écrit. Motif complet en §1, « Ce que
+  ce corpus ne peut pas dire » : ne pas le redire une troisième fois ici est le point de la
+  tâche 5, pas un oubli.
 
 ## Observations
 
