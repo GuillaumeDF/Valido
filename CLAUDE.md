@@ -50,6 +50,14 @@ sert à vérifier la règle sur un cas d'essai.
 Comparer à cette base, pas à zéro ; le §3 de `Tools/questions.md` dit lesquelles demandent
 un tri à la main, et le §7 de `Tools/audit-2026-08-passe-2.md` ce que l'outil ne voit pas.
 
+Trois compteurs de forme sont nés le 2026-09-06 avec le diagnostic
+[`Tools/audit-2026-09-formes.md`](Tools/audit-2026-09-formes.md) :
+`forme/impersonnel`, `forme/hors-situation` et `forme/definitionnel`. Ils sont
+**informatifs**, comme `longueur/plus-longue`, et ne rejoignent pas les compteurs devant
+rester vides : ils mesurent l'écart de forme avec l'épreuve réelle, pas un défaut. Les
+faire baisser pour eux-mêmes est un contresens — sur une carte de signalisation, un énoncé
+impersonnel est souvent la forme juste. Leurs valeurs de départ sont dans le §3 du rapport.
+
 **Les deux chiffres qui ont bougé à la passe 3 sont voulus, ce ne sont pas des dérives.**
 `longueur/plus-longue` **97 → 76** : tout le mouvement est côté `code` (34 → 13), obtenu en
 élargissant les distracteurs, pas en raccourcissant les bonnes réponses. Et

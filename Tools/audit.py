@@ -28,6 +28,23 @@ type types valeur valeurs faut doit etc lequel laquelle lesquels laquelle entre 
 # (« Le « D » de SOLID », « Le disque « A » ») est légitime.
 LETTER = re.compile(r"(?<![\w`.\-])[A-D](?![\w`’'])")
 
+# --- forme ETG (informatifs) ---
+# Ces trois compteurs mesurent un écart de forme avec l'épreuve réelle, pas un défaut.
+# Un énoncé impersonnel n'est pas fautif : sur une carte de signalisation ou de mécanique,
+# c'est peut-être la forme juste. Ils ne rejoignent donc PAS les compteurs devant rester
+# vides, et les faire baisser pour eux-mêmes est un contresens — c'est exactement ce que
+# `expl/paraphrase-litterale` a appris à la passe 3.
+PERSONNE = re.compile(r"\b(?:vous|votre|vos|je|mon|ma|mes)\b|\bj'", re.I)
+# « ce », « cette » ne comptent que devant un nom : « ce qui », « ce que », « ce dont »
+# ne situent rien.
+DEICTIQUE = re.compile(
+    r"\b(?:ce|cet|cette|ces)\s+(?!qui\b|que\b|qu'|dont\b)\w+"
+    r"|\bici\b|\bdevant\b|\bderri[èe]re\b"
+    r"|\bvous\s+(?:arrivez|roulez|approchez|suivez|circulez|abordez|quittez)\b", re.I)
+DEFINITION = re.compile(
+    r"\b(?:est|sont|sert\s+à|servent\s+à|signifie|signifient|indique|indiquent"
+    r"|impose|imposent|doit\s+être|doivent\s+être|permet\s+de|permettent\s+de)\b", re.I)
+
 def norm(s):
     s = unicodedata.normalize('NFD', s.lower())
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
@@ -42,6 +59,9 @@ def opt(q, oid):
 def firstword(t):
     m = re.match(r"[`«\"]?([\wéèêàçûôîùâ']+)", t.strip())
     return norm(m.group(1)) if m else ''
+
+def illu_absente(q):
+    return q.get('illustration') is None
 
 SCENES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(PATH))),
                       'Assets.xcassets', 'Scenes')
@@ -114,6 +134,16 @@ for q in QS:
     # --- couverture ---
     if q['subject'] == 'code' and TOPICS_DECLARES and q['topic'] not in TOPICS_DECLARES:
         flag('couverture/topic-non-rattache', q, q['topic'])
+
+    # --- forme ETG (informatifs, cf. le rapport du 2026-09) ---
+    if q['subject'] == 'code':
+        p = q['prompt']
+        if not PERSONNE.search(p):
+            flag('forme/impersonnel', q, f"«{p[:60]}»")
+        if illu_absente(q) and not DEICTIQUE.search(p):
+            flag('forme/hors-situation', q, f"«{p[:60]}»")
+        if p.rstrip().endswith(':') and DEFINITION.search(p):
+            flag('forme/definitionnel', q, f"«{p[:60]}»")
 
     # --- illustration ---
     illu = q.get('illustration')
@@ -250,6 +280,10 @@ for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.
     print()
 
 for label, arr in [('code', lens_good), ('swift', lens_bad)]:
+    # Un corpus mono-sujet (fixture de test, extrait `code` seul…) laisse l'une des deux
+    # listes vide : diviser par sa longueur ferait planter le rapport, alors que sortir
+    # toujours 0 est une contrainte globale de l'outil.
+    if not arr: continue
     longest = sum(1 for g, m in arr if g > m)
     print(f"{label}: bonne réponse plus longue que la moyenne des distracteurs dans {longest}/{len(arr)} cas; "
           f"écart moyen {sum(g-m for g,m in arr)/len(arr):+.1f} car.")
