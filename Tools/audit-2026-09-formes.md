@@ -1036,3 +1036,47 @@ les quinze cartes se lisent oui.
 **Ce que les compteurs ont signalé à tort :** rien au-delà des quatre confirmations déjà
 nommées en §3.
 
+### Tunnels & passages à niveau (15 cartes)
+
+Trois cartes illustrées sur quinze. Le code source de la seule balise isolée du domaine
+(`passage-a-niveau-balises`) le dit sans ambiguïté : « Rien d'autre n'est dessiné, et surtout
+**pas la voie ferrée** […] C'est aussi pour cela que la balise est vue de face et seule,
+**comme les quatorze panneaux du dossier** » (`Tools/Scenes/ScenesCirculation.swift`, autour
+de la ligne 1463) — une déclaration d'intention identique, mot pour mot, à celle qui fonde les
+« non » de `Panneaux & marquage` et de `Feux`. Les deux autres illustrations du domaine
+(panne en tunnel, véhicule pris entre des demi-barrières) sont au contraire des scènes
+dramatiques complètes. Le domaine porte aussi l'une des deux cartes déjà documentées en §3
+comme faux positif de `forme/definitionnel` (`d4b4abfd…`), et l'unique carte de barème par
+points de ce domaine parmi les treize recensées en §3 (`1fe6ef49…`).
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `1cc2591b8808d4aa73d5af596388d948` | image isolée — la balise seule, plantée sur son support ; ni route ni voie ferrée dessinées, par choix explicite du code source | règle (signification : distance restante avant la voie ferrée) | inversion proche/loin | **non** | image isolée + question de sens (« vous annonce ») — exactement la forme qu'OBS-16 nomme abandonnée ; le commentaire de la scène la compare lui-même « aux quatorze panneaux du dossier » |
+| `1e329fa1bba26cabf575a76ec127dad4` | situé — scène de panne dans un tunnel, refuge d'urgence visible | faire (rejoindre le refuge) | fausses bonnes pratiques (demi-tour, marcher, s'arrêter sur place) | oui | scène réelle de conduite, décision claire — forme exemplaire |
+| `d50cd498f6e5261eb5a2fc9dfe45de90` | situé — scène de véhicule pris entre deux demi-barrières abaissées | faire (forcer le passage) | fausses bonnes pratiques (attendre, reculer) | oui | scène réelle et précise, décision claire |
+| `1fe6ef49aad916e076477274c75c3550` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (barème), pas action | seuil chiffré (4 points) proche de distracteurs (2/3/6) | oui | « fait perdre » est hors du lexique du compteur — la seule carte de ce domaine parmi les treize recensées en §3 ; barème attesté, forme appropriée |
+| `3a06288bf73bb5254b83a371ae55a854` | non situé, générique | règle (fonction d'un panonceau) | fonction plausible mais fausse (hauteur libre, vitesse, issues) | oui | question de fonction d'un dispositif, non illustrée, même forme que les cartes analogues de `Mécanique & environnement`/`Priorités & intersections` déjà jugées oui |
+| `5ae4a8d7800141787ada8a389ff74fc1` | non situé, générique | règle (qualification : gênant) | qualification voisine trop sévère (très gênant) | oui | qualification juridique, forme standard |
+| `5c11020dc34bf45d56cf8438dd8ad79e` | non situé — référence verbale à un panneau, sans image | règle (une prescription parmi trois) | fausses prescriptions plausibles (changer de voie, remorque) | oui | reconnaissance de panneau par son nom seul, sans support visuel — même forme que les cartes analogues de `Priorités & intersections` (`37fe1af42b8d8184be…`, `37fe1af42b8d81d6ae…`), jugées oui |
+| `763ae1f8c7040ecb170a4ed33f09505a` | non situé, générique | règle (trois états des barrières) | généralisation fausse (lignes multiples) | oui | chiffre/condition-règle standard |
+| `7148c3a8be7130501aa3da1644986ebb` | situé — scène d'incendie devant vous dans un tunnel | faire (couper le moteur, gagner une issue de secours) | fausses priorités (rester à bord, téléphoner d'abord, faire demi-tour) | oui | scène d'urgence réelle, correctement repérée par le compteur (« devant vous ») |
+| `8a6af9d26330dc0f3bfd95d9bf0d7b81` | non situé, générique | règle (fonction d'une pancarte) | fonctions plausibles mais fausses (ligne, voirie) | oui | connaissance de dispositif, forme standard |
+| `a88bdac8ef012091a9b0a43b209c3b1b` | non situé — condition (« dans un tunnel »), pas une scène | règle (qui peut allonger l'intervalle) | seuil recyclé d'un autre régime (50 m) | oui | condition générale, accord avec le compteur |
+| `bda520451eb11447c3921f8a358742f1` | non situé — condition (« de jour, tunnel éclairé »), pas un moment | règle (obligation d'allumage malgré l'éclairage) | absolu trompeur (veilleuses suffisantes) | oui | condition générale, accord avec le compteur |
+| `c084813ff73eacb15dc526232c288610` | non situé, générique | règle (chiffre-règle : délai) | ordre des opérations inversé en distracteur | oui | chiffre-règle standard |
+| `d3af170839b4cf693c8bcba1a1e5c45a` | non situé — condition (absence de barrière et de feu), pas un moment | faire (s'assurer avant de traverser) | absolu trompeur (arrêt obligatoire comme à un STOP) | oui | condition générale, accord avec le compteur |
+| `d4b4abfd51499d4ab343bbb613acc7ad` | **désaccord avec les compteurs `forme/definitionnel` et `forme/hors-situation`** — situé (scène : file arrêtée juste après un passage à niveau) | faire (attendre la place de dégager la voie) | fausses bonnes pratiques (reculer, avancer jusqu'aux rails) | oui | déjà documentée en §3 comme faux positif du compteur définitionnel (question elliptique, « Vous : » sans verbe) ; scène réelle, manquée aussi par `forme/hors-situation` faute de motif déictique |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** la prédiction d'un seul
+pictogramme isolé sur trois illustrations se vérifie exactement, et le code source de la
+scène le confirme dans ses propres termes plutôt que par simple lecture de l'alt-text : le
+commentaire de `passage-a-niveau-balises` se compare lui-même « aux quatorze panneaux du
+dossier », le vocabulaire même des « non » déjà rendus sur `Panneaux & marquage` et `Feux`.
+`d4b4abfd…` cumule deux désaccords sur le même mot : le faux positif de `forme/definitionnel`
+déjà nommé en §3, et un faux négatif de `forme/hors-situation` que la première mention en §3
+n'avait pas relevé (aucun motif déictique dans « La circulation est arrêtée juste au-delà
+d'un passage à niveau. Vous : », qui reste pourtant une scène précise à la lecture) — à noter
+pour une future relecture de la ligne `forme/hors-situation` en §3.
+
+**Ce que les compteurs ont signalé à tort :** rien au-delà des deux désaccords déjà nommés
+ci-dessus.
