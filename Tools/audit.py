@@ -37,6 +37,9 @@ LETTER = re.compile(r"(?<![\w`.\-])[A-D](?![\w`’'])")
 PERSONNE = re.compile(r"\b(?:vous|votre|vos|je|mon|ma|mes)\b|\bj'", re.I)
 # « ce », « cette » ne comptent que devant un nom : « ce qui », « ce que », « ce dont »
 # ne situent rien.
+# `forme/hors-situation`, qui s'appuie sur ce motif, décrit la banque Valido — aucun taux de
+# l'épreuve réelle n'est mesurable depuis le corpus de ce rapport (cf. §1). Ce compteur ne se
+# lit donc jamais comme un écart à une cible, seulement comme un état interne à ce dépôt.
 DEICTIQUE = re.compile(
     r"\b(?:ce|cet|cette|ces)\s+(?!qui\b|que\b|qu'|dont\b)\w+"
     r"|\bici\b|\bdevant\b|\bderri[èe]re\b"
