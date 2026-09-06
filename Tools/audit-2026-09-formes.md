@@ -242,6 +242,45 @@ que la tâche 3 hérite de la réduction plutôt que de la découvrir :
   (ci-dessus) — la spec (§2) : « un axe qu'aucune observation ne soutient est retiré. »
 - **Poids** — **retiré**, et `couverture/poids` ne sera pas écrit (raison ci-dessus).
 
+## 2. La grille
+
+Chaque axe est adossé aux observations qui le soutiennent. Un axe que le corpus n'a pas
+soutenu est listé plus bas, avec son motif de retrait.
+
+| Axe | Ce qu'il oppose | Observations | Mécanisable ? |
+|---|---|---|---|
+| Personne | « je », « vous » / impersonnel | OBS-1, OBS-2 | Oui — `forme/impersonnel` (tâche 4). Deux registres, mesurables séparément par un test lexical sur le texte livré : le marqueur de première personne dans le paragraphe qui rejoue la situation (OBS-1, 21/24) et le registre impersonnel du commentaire pédagogique qui le suit (OBS-2, 23/24). Deux motifs de surface, sans ambiguïté sémantique à trancher pour un script. |
+| Ancrage | question posée sur une scène vue du poste de conduite / savoir hors situation — **qualitatif seulement**, aucune cible chiffrée | OBS-16 | Oui, avec réserve. `forme/hors-situation` (tâche 4) décrit la part de cartes Valido sans mise en situation explicite, mais ne se compare à **aucun** taux de l'épreuve réelle : OBS-16 est une déclaration qualitative de la source elle-même (« moderniser la forme »), jamais un ratio, et ce corpus ne peut mesurer aucune part illustrée de la vraie banque. Le compteur reste un diagnostic interne à Valido, jamais une cible chiffrée — et ne doit jamais être relu comme telle. |
+| Objet | ce que je dois **faire** / ce que la règle **dit** | OBS-7 | Oui — `forme/definitionnel` (tâche 4). Le critère resserré à « au moins 13/24 » (verbe d'action explicite dans le paragraphe de réponse, OBS-7) transpose en test lexical sur `explanation` — un motif de surface, aussi mou à la marge que le corpus lui-même le signale (Q13, Q17 comptées côté constat faute de verbe net, sans casser le total). |
+| Format | nombre et longueur des propositions — **réduit** au nombre de réponses correctes acceptées ; la longueur sort de la grille, aucune observation ne la mesure | OBS-3, OBS-9 | Non — voir « Le cas Format » ci-dessous. |
+
+**Le cas Format.** L'écart est réel et doublement corroboré : le droit autorise de 0 à 4
+lettres correctes par question (OBS-9) et le spécimen en porte la trace, 14 des 24 questions
+marquant deux bonnes réponses plutôt qu'une, jamais trois ni quatre (OBS-3). Mais rien dans
+cette passe n'agit dessus, pour deux raisons distinctes et non pour une seule. D'abord, le
+**nombre d'options** affichées (toujours quatre, A–D) est déjà couvert par `schema/options` ;
+un second compteur mesurerait la même chose sous un autre nom. Ensuite, le **nombre de
+réponses correctes** est un choix de produit déjà tranché en amont de cette passe, pas par ce
+rapport : « la réponse unique est gardée » (spec, « Ce qui est décidé, et ce qui ne l'est
+pas », point 1) — `Question.correctID` reste un singulier. Mesurer l'écart entre 0-4 et 1 ne
+débouche donc sur aucune décision que cette passe puisse prendre. Un chiffre qu'aucune
+décision en aval ne peut consommer n'est pas un diagnostic ; aucun compteur n'est écrit pour
+cet axe, et ce n'est pas un oubli.
+
+### Axes retirés
+
+- **Piège** — retiré. Son unique appui, OBS-14, décrit sept structures de piège relevées sur
+  un fil de forum daté du 13 novembre 2012 — antérieur de plus de trois ans à la réforme du
+  2 mai 2016 que le spécimen lui-même revendique comme une modernisation de la forme des
+  questions (OBS-16). Un axe qu'aucune observation postérieure à la réforme ne soutient est
+  retiré, plutôt que gardé sur un témoin de l'ancienne banque.
+- **Poids** — retiré. Le spécimen répartit 24 questions sur environ dix-sept étiquettes de
+  thème, elles-mêmes instables orthographiquement (OBS-6), qui ne se recoupent pas proprement
+  avec les onze thèmes officiels de communication ; l'arrêté du 29 avril 2024 mentionne des
+  « thèmes pédagogiques » sans les énumérer. Aucune table « part d'un thème dans la vraie
+  banque » n'est donc écrivable depuis ce corpus, et `couverture/poids` ne sera pas écrit —
+  pour cette raison précise, pas par omission.
+
 ## Observations
 
 | id | strate | source | date | ce qui est observé |
