@@ -67,14 +67,23 @@ try:
 except OSError:
     TOPICS_DECLARES = set()
 
-SOURCES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources.md')
-# Domaines dont une affirmation datable peut se réclamer. La liste est fermée : un éditeur
-# d'ETG recopie et périme sans le dire, et c'est précisément le défaut que ce registre
-# corrige. Élargie en août 2026 aux institutions européennes et académiques, faute de
-# source gouvernementale chiffrée sur les gestes de secours et la géométrie des panneaux.
-DOMAINES = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
-            'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
-            'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
+# Le registre est surchargeable pour que la règle de corroboration ci-dessous se vérifie
+# sur un cas d'essai : sans ça elle n'est qu'une phrase dans un guide.
+SOURCES_MD = os.environ.get('VALIDO_SOURCES_MD') or os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'sources.md')
+# Deux listes, et la frontière entre les deux est le cœur du registre.
+# `DOMAINES_FAIT` : seule autorité sur un chiffre. Élargie en août 2026 aux institutions
+# européennes et académiques, faute de source gouvernementale chiffrée sur les gestes de
+# secours et la géométrie des panneaux.
+DOMAINES_FAIT = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
+                 'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
+                 'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
+# `DOMAINES_FORME` : admis pour ce qu'un éditeur sait — comment l'examen pose la question,
+# quel piège il tend, à quelle fréquence un thème tombe. Jamais pour un chiffre : un
+# éditeur recopie et périme sans le dire, et c'est le défaut que ce registre corrige.
+# D'où la règle : une ligne `datée` porte toujours une source de `DOMAINES_FAIT`, et une
+# source d'éditeur ne vient qu'en plus.
+DOMAINES_FORME = ('ornikar.com', 'envoituresimone.com', 'codeclic.com', 'digischool.fr')
 LIGNE_SOURCE = re.compile(
     r'^\|\s*`([0-9a-f]{32})`\s*\|\s*(stable|datée)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
 try:
@@ -214,8 +223,11 @@ for q in QS:
     if not affirmation or 'à renseigner' in affirmation:
         flag('source/affirmation-vide', q, affirmation or '(vide)')
     if nature == 'datée':
-        if not any(d in source for d in DOMAINES):
-            flag('source/hors-liste-blanche', q, source or '(vide)')
+        if not any(d in source for d in DOMAINES_FAIT):
+            if any(d in source for d in DOMAINES_FORME):
+                flag('source/editeur-non-corrobore', q, source)
+            else:
+                flag('source/hors-liste-blanche', q, source or '(vide)')
         try:
             jour = datetime.date.fromisoformat(releve)
         except ValueError:

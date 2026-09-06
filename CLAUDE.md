@@ -42,6 +42,11 @@ ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plu
 `forme/markdown` 1). Doivent rester **vides** : `schema/`, `couverture/`, `source/`,
 `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que
 si une option porte un backtick, son zéro ne prouve rien sur un lot sans code span.
+Depuis le 2026-09-06, `source/` recouvre aussi `source/editeur-non-corrobore` : la liste
+blanche est scindée en `DOMAINES_FAIT` (autorité sur un chiffre) et `DOMAINES_FORME` (les
+éditeurs d'ETG, admis pour la forme des questions), et une ligne `datée` qui ne citerait
+qu'un éditeur est refusée. Le registre est surchargeable par `VALIDO_SOURCES_MD`, ce qui
+sert à vérifier la règle sur un cas d'essai.
 Comparer à cette base, pas à zéro ; le §3 de `Tools/questions.md` dit lesquelles demandent
 un tri à la main, et le §7 de `Tools/audit-2026-08-passe-2.md` ce que l'outil ne voit pas.
 
