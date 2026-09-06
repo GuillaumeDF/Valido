@@ -708,3 +708,57 @@ compteur rencontré dans ce chantier sur son propre motif (les faux positifs pr�
 touchaient `forme/seule-ponctuee`, jamais `forme/hors-situation` lui-même) : une confirmation
 concrète de la réserve déjà écrite en §3, où « devant » figure parmi les motifs susceptibles
 de sur-déclencher.
+
+### Permis & sanctions (19 cartes)
+
+Domaine sans aucune carte illustrée (0/19), comme `Distances & freinage` et `Mécanique &
+environnement` : le seul levier structurel qui produit un « non » ailleurs dans ce chantier —
+le pictogramme isolé contre OBS-16 — ne peut donc pas jouer ici. Le contenu est presque
+entièrement un barème ou une peine légale (points, amendes, prison, délais administratifs) :
+un domaine à échelle de sanction, comme `Vitesse` l'était pour les seuils de vitesse, et le
+précédent du lot 1 s'applique tel quel — sur une carte dont la règle **est** un chiffre, une
+forme définitionnelle est la forme juste, pas un défaut. Le thème du spécimen le plus proche,
+Q7 (« Sensibilisation aux conséquences des infractions au code de la route »), reste un
+intitulé générique, pas celui de ce domaine : aucune carte ci-dessous ne s'appuie sur un
+rapprochement de sujet avec le spécimen — chaque verdict tient sur la forme (chiffre-règle,
+qualification pénale, conséquence) attestée par OBS-7, jamais sur un thème.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `0be9d147f1eba292ca2556f4dd19e51a` | non situé, générique | règle (chiffre-règle : peine, 2 ans + 4 500 €) | contraste de régimes (délit pénal vs barème administratif) parmi les distracteurs | oui | peine pénale attestée par un chiffre, chiffre-règle attesté par OBS-7, correctement repérée par le compteur |
+| `2b6972fab03433e709d73ccc5a949ac9` | non situé, générique | règle (chiffre-règle : délai de réattribution, 2 ou 3 ans) | seuil conditionné par la gravité du dossier (délit/contravention 4e-5e classe) | oui | chiffre-règle standard, condition claire sans artefact |
+| `2d45cedf9b3d349027d751f7aa672d6a` | non situé, générique | règle (qualification pénale : délit) | confusion contravention/délit, faux-ami de gravité | oui | qualification juridique attestée, forme standard de rappel de sanction |
+| `302262003495b5750d28f00caeae3b6b` | non situé, générique | règle (chiffre-règle : peine, 2 ans + 30 000 €) | ancien barème (15 000 €) recyclé en distracteur, aggravations réelles (réunion, cumul) en options voisines | oui | chiffre-règle de sanction, forme standard |
+| `37fe1af42b8d8132a22dde248e277c2b` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (barème), pas action | seuil chiffré proche de distracteurs (1/6 points/aucun) | oui | « fait perdre » est hors du lexique du compteur — l'une des trois cartes de ce domaine parmi les treize recensées en §3 (téléphone en main) ; l'objet réel est un barème, chiffre-règle attesté |
+| `37fe1af42b8d8158b3dbf9883bf83560` | non situé, générique | règle (chiffre-règle : plafond de récupération, 4 points) | seuil chiffré (2/4/6/tous) | oui | chiffre-règle standard, correctement repérée par le compteur |
+| `37fe1af42b8d8174b45bd538ca3a9483` | non situé, générique | règle (chiffre-règle : capital initial, 6 points) | valeurs voisines (4/6/8/12) | oui | chiffre-règle simple, forme cohérente |
+| `37fe1af42b8d81b6a955d17c158afb3c` | non situé, générique | règle (chiffre-règle : rythme de progression conditionné) | rythme comparé entre deux voies d'apprentissage, condition (aucune infraction depuis le début du probatoire) | oui | chiffre-règle avec condition réelle, costaud mais standard — la voie alternative (hors conduite accompagnée) n'apparaît qu'en distracteur, ce n'est pas une carte de comparaison comme `cac0f9db…` (`Vitesse`) |
+| `37fe1af42b8d81b7acdacd2079297f09` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (barème), pas action | contre-intuitif (rien pour le conducteur, seul le passager paierait) | oui | « coûte » est hors du lexique du compteur — la deuxième des trois cartes de ce domaine parmi les treize recensées en §3 (défaut de ceinture) ; barème attesté, forme définitionnelle appropriée |
+| `37fe1af42b8d81c593b3e0a4cb5bb76d` | non situé, générique | règle (chiffre-règle : durée, 3 ans ou 2 ans en conduite accompagnée) | aucun | oui | chiffre-règle standard |
+| `37fe1af42b8d81d09328df58d56a4dc6` | non situé, générique | règle (portée de l'obligation : où et quand l'apposer) | absolu erroné (« jamais, l'obligation supprimée ») | oui | obligation réglementaire, forme de rappel standard |
+| `37fe1af42b8d81d29ceac642002e46d1` | non situé, générique — « ce point » est anaphorique (renvoie au « 1 point » du prompt), pas un déictique de scène ; **faux positif du compteur `forme/hors-situation`**, déjà nommé en §3, qui ne le flague pas à cause de ce « ce » | règle (chiffre-règle : délai de réattribution, 6 mois) | seuil temporel proche de distracteurs (1 mois/2 ans/jamais) | oui | chiffre-règle standard ; le compteur ne le flague pas hors-situation à cause d'un « ce » anaphorique, déjà documenté en §3 comme faux positif |
+| `37fe1af42b8d81ecb163c6b59334b160` | non situé — condition (« lorsque »), pas un moment | règle (conséquence : invalidation) | options contrastées (suspendu un mois/maintenu sous stage/converti en probatoire) contre l'invalidation réelle | oui | condition générale suivie d'une conséquence, forme standard, accord avec le compteur |
+| `37fe1af42b8d81ed800ecde73e28760a` | non situé, générique | règle (chiffre-règle : plafond, 12 points) | valeurs intermédiaires réelles du barème progressif (6/8/10) en distracteurs | oui | chiffre-règle simple, forme standard |
+| `3e99bcc374a5538e9af609b3038f08ad` | non situé, générique | règle (chiffre-règle : peine, 7 ans + 100 000 €) | gradation cohérente avec le barème réel (3/5/10 ans) parmi les distracteurs | oui | chiffre-règle de sanction récente, forme standard |
+| `666bb472f111a4f4634a0e30abdf180a` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (barème : plafond de cumul), pas action | contre-intuitif (un distracteur nie l'existence d'un plafond) | oui | « entraînent » est hors du lexique du compteur — la troisième des trois cartes de ce domaine parmi les treize recensées en §3 (cumul d'infractions) ; plafond chiffré attesté, forme appropriée |
+| `aa44507977673661e72b2c2ba6a6d885` | non situé — procédure administrative (« le préfet »), pas une scène du candidat | règle (chiffre-règle : délai, 72 heures) | valeurs voisines (24/48/72/96 heures) | oui | chiffre-règle procédural, forme standard |
+| `f405372595dbaf85bf875adaf5ac20a4` | non situé, générique | règle (chiffre-règle : plafond, 6 mois ou 1 an aggravé) | gradation entre distracteurs (3 mois/1 an/2 ans) qui pourrait laisser croire à un simple doublement | oui | chiffre-règle standard |
+| `bc949f3e3918b2e407b638892b47b540` | non situé — cas particulier (permis étranger) | règle (conséquence : interdiction de circuler un an) | faux-ami (croire à une exemption faute de titre français, ou à une annulation par le préfet local) | oui | cas réglementaire précis, conséquence attestée par OBS-7, forme standard |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** le compteur
+`forme/definitionnel` ne compte que 9/19 (47 %) sur ce domaine ; en objet réel, trois cartes
+de plus sont définitionnelles (barème) mais échappent à son lexique — les trois cartes de ce
+domaine parmi les treize recensées en §3 (téléphone en main, défaut de ceinture, cumul
+d'infractions) — soit 12/19 (63 %), nettement au-dessus de la moyenne globale (94/255,
+37 %) : l'attente énoncée en tête de tâche se vérifie sur ce domaine à échelle de sanction,
+comme elle s'était déjà vérifiée sur `Vitesse`. Une quatrième carte,
+`37fe1af42b8d81d29ceac642002e46d1`, est le faux positif inverse déjà nommé en §3 : « ce
+point » y est anaphorique (il renvoie au « 1 point » du prompt), pas un déictique de scène,
+mais le compteur `forme/hors-situation` la classe à tort comme située. Aucune carte du
+domaine ne repose sur une comparaison de deux dispositifs distincts, une méthode de calcul ou
+un objet absent de sa propre image — les trois formes qui avaient produit un « non » en
+dehors du levier pictogramme dans les domaines déjà lus.
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter aux quatre désaccords déjà
+nommés ci-dessus dans le tableau.
+
