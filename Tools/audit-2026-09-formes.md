@@ -315,3 +315,64 @@ Reproduire : `python3 Tools/audit.py | grep -E '^### forme/'`.
 
 Aucun des trois ne dépasse le tiers de faux positifs fixé comme seuil de resserrement ; les
 trois sont déclarés tels quels, à l'image de `lettre/reference` (1) et `forme/markdown` (1).
+
+## 4. La lecture à la main
+
+Treize domaines, un tableau chacun, dans l'ordre où ils ont été lus. Chaque ligne porte un
+verdict sur trois axes non mécanisables — ancrage, objet, piège — puis la question directe
+(« se poserait-elle à l'examen ? ») et son motif en une phrase. L'axe Piège est **décrit**,
+jamais jugé : la spec (§2 d'`audit-2026-09-formes.md`) retire cet axe faute d'appui
+postérieur à la réforme de 2016, et rien ci-dessous n'en tire une conclusion de conformité.
+
+### Panneaux & marquage (27 cartes)
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `11d37be22fd315668cb2930373e95c80` | image isolée (disque seul, pas de scène) | règle | absolu d'énoncé (« ne lève jamais ») contre une option qui est elle-même l'exception qu'il ne lève pas | oui | portée réelle et testée d'un panneau de fin d'interdiction, mais photo isolée + question de sens — la forme qu'OBS-16 dit dépassée, pas la scène de conduite que la réforme revendique |
+| `1509ad94aea7c6f82355f3362b10a8e1` | image isolée | faire (ce qu'on ne peut pas faire) | contraste arrêt/stationnement, faux-ami de statut | oui | teste une confusion réelle (arrêt implique stationnement) par contraste d'options, sans mise en situation |
+| `1658abbc16db4667fec7211f8c9b0f93` | image isolée | règle | aucun notable | oui | portée standard (côté, limite à la première intersection), photo isolée + question de sens |
+| `37fe1af42b8d81709c93fcc98510a42d` | semi-situé (marquage photographié sur chaussée) | faire (rejoindre la voie désignée) | contraste avec une option de statu quo (« garder votre voie ») | oui | marquage vu en contexte de chaussée, teste un geste concret — plus proche de l'esprit de la réforme que les panneaux isolés du même lot |
+| `37fe1af42b8d8174a3c3e94967027ed1` | image isolée | règle (portée de l'obligation, pas une décision) | aucun | oui | distinction B21b/B21-1, contenu solide, forme ancien modèle |
+| `37fe1af42b8d817881dee3d999a911c3` | image isolée | règle | aucun | oui | distinction carré/rond (info/prescription), forme ancien modèle |
+| `37fe1af42b8d81b3a4b7d484aef5aef8` | semi-situé (chaussée décrite, « de votre côté ») | règle (permis/interdit, pas une action choisie) | paire d'options contraires assumée (deux règles fausses parmi quatre, §2 questions.md) | oui | l'image tranche un cas ambigu — proche de l'esprit « mise en situation » malgré l'absence de scène de conduite complète |
+| `37fe1af42b8d81b5aa9fc685af3ba92f` | image isolée | règle | absolu retiré du distracteur (« sans contrainte » sans « aucune ») | oui | distinction danger/prescription standard, forme ancien modèle |
+| `37fe1af42b8d81d68a70da4a7305f6c1` | semi-situé (chaussée décrite) | règle | aucun | oui | marquage rare mais réel, lecture de sens plutôt que décision |
+| `443e4299ccb3ff71669f8df6669b8bf4` | image isolée | règle | absolu correct (« même si la route est vide ») contre un distracteur conditionnel | oui | contenu classique (arrêt inconditionnel), forme ancien modèle |
+| `570e5e1ef861e032773f43b44bc817a9` | semi-situé (aire décrite sur la chaussée) | règle | aucun | oui | marquage rare, correctement testé en reconnaissance |
+| `7d44f7dd303fce58716234cba54480b1` | image isolée, et hypothétique (le panonceau demandé est absent de l'image) | règle | distracteurs nommant des panonceaux réels mais hors-sujet | partiel | seule carte du lot à interroger un élément absent de sa propre image — forme contournée, sans équivalent dans les 24 questions du spécimen |
+| `89bea09b482974f37e7dd7d35aba23f5` | image isolée | règle (une limite : ce qu'il ne prescrit pas) | absolu (« rien ») contre des options d'obligation | oui | teste une limite précise (position tenue par le marquage au sol), forme ancien modèle |
+| `8a1026edb35c31c37ab6df7b29851ef2` | image isolée | règle | aucun notable | oui | reconnaissance de panneau standard, forme ancien modèle |
+| `9e65525bbce6a6491d37bbf6f180c04c` | image isolée, mais « vous pouvez encore doubler » évoque une exception à choisir | faire (exception) | exception à une interdiction générale | oui | teste une exception réelle et précise, plus proche d'une décision que les autres panneaux isolés du lot |
+| `9eb8506813f0c8b729b66157ec95a63f` | situé — vraie scène vue du poste de conduite | règle (ce que le panneau fait/ne fait pas) | absolu retiré de l'option (« à l'anneau » supprimé) | oui | seule vraie mise en situation du lot avec `dce501d416e5db1cc6344725007fbad6` — exactement la forme qu'OBS-16 dit visée par la réforme |
+| `dce501d416e5db1cc6344725007fbad6` | situé — scène + « ici » + « vous engager » | faire | absolu dans un distracteur (« arrêt complet, roues bloquées ») | oui | mise en situation complète et décision à prendre — la forme la plus proche de la réforme du lot |
+| `ede6968609d285b22494f57032c53e2f` | image isolée | règle | aucun | oui | distinction conseillé/obligatoire, contenu solide, forme ancien modèle |
+| `ee11b58d97d21d637c3ec38c7181fa87` | image isolée (mais panonceau réellement visible, à la différence de `7d44f7dd`) | règle | aucun | oui | rôle du panonceau testé sur un exemple concret visible dans l'image |
+| `1a0a5812ff8659ba24b3b4c750e469e5` | non situé — configuration décrite en mots, sans l'image de sa jumelle `37fe1af42b8d81b3a4b7d484aef5aef8` | règle | aucun | oui | reformule en toutes lettres une configuration que la carte-sœur illustre ; sans image, la lecture demande plus d'effort de représentation qu'à l'examen réel |
+| `37fe1af42b8d81059d80e8954b36ed7f` | non situé, générique (catégorie de panneau, pas un panneau précis) | règle | aucun | partiel | seule catégorie générique du domaine (« un panneau rond à bord rouge », pas un panneau donné) — l'examen montre toujours un signal, jamais une classe |
+| `37fe1af42b8d8141b1d0e3ca0b855119` | non situé, générique | règle | aucun | oui | rappel d'une règle centrale du code (R412-19), pas besoin de scène pour être testé valablement |
+| `37fe1af42b8d81699c2ffbefd648d9a3` | non situé, générique | règle | aucun | partiel | même réserve que le panneau à bord rouge du même lot : teste une catégorie plutôt qu'un panneau réel |
+| `37fe1af42b8d81f8a2f3f8bd2afc9d2d` | non situé, générique | règle | paire d'inverses décrite (franchissement autorisé/interdit) | oui | règle centrale testée sans mise en situation, forme standard de rappel |
+| `3cb86b6e4c489d919a495408021f062a` | non situé — formulation infinitive générique, pas une scène vécue | règle (barème) | distinction chevauchement/franchissement, proche faux-ami | oui | question de barème factuelle, forme neutre cohérente avec son objet |
+| `5a4e6a38ad3e1153f807ec5e0e6ba40e` | non situé, générique | règle | aucun notable | oui | rappel de règle standard (ligne de rive), pas de mise en situation nécessaire |
+| `f12ee5bea85947a13d387f574e817337` | **désaccord avec le compteur — situé en prose** (conflit de signalisation décrit, à la 3ᵉ personne, sans démonstratif ni verbe listé) | faire | aucun absolu marqué | oui | scène décrite en prose (conflit de signalisation rencontré), manquée par `forme/hors-situation` faute de démonstratif ou de « vous » + verbe listé — même angle mort que l'exemple donné en tête de tâche |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** `forme/hors-situation` est bas
+sur ce domaine (8/27) exactement comme prévu — mais pour une raison plus étroite que
+« illustré = situé » : sur les 19 cartes illustrées, seules deux (`9eb85068…`, `dce501d4…`)
+montrent une vraie scène vue du poste de conduite ; quatre montrent un marquage photographié
+en contexte de chaussée (semi-situé) ; les treize autres montrent un panneau isolé sur fond
+neutre, associé à un prompt purement définitionnel (« Ce panneau signifie/indique/impose/
+prescrit/interdit »). Or OBS-16 (le commentaire du spécimen officiel lui-même, Q4 et Q19)
+oppose explicitement « le visuel met le candidat en situation réelle de conduite » à « le
+confronter, comme c'était le cas auparavant, au seul panneau et à la connaissance de sa
+signification » : ces treize cartes sont, par cette définition même, la forme que la
+réforme dit avoir quittée, alors que le compteur les traite comme anchrées au même titre
+que les deux scènes réelles. Ce n'est pas une erreur du compteur — il mesure la présence
+d'une illustration, pas sa nature — mais une limite de ce que ce diagnostic peut établir
+sans corpus de vraies diapositives d'examen. Une deuxième carte (`f12ee5be…`) est un vrai
+faux négatif : une scène en prose (contradiction de signalisation rencontrée) manquée faute
+de motif lexical, sur le modèle déjà connu.
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
+répertoriés en §3 sur ce domaine — les 8 cartes flaggées `forme/hors-situation` sont bien
+non situées à la lecture, sauf `f12ee5be…` ci-dessus.
