@@ -820,3 +820,54 @@ réordonnancement, premier geste face à une brûlure) sont bien de forme défin
 lecture — le compteur ne se trompe pas sur son propre motif lexical, même quand la carte est
 par ailleurs jugée « non » pour une raison structurelle qu'il ne mesure pas.
 
+### Alcool & stupéfiants (18 cartes)
+
+Domaine sans aucune carte illustrée (0/18), comme `Permis & sanctions` : même absence du
+levier structurel (pictogramme isolé contre OBS-16), et un contenu presque entièrement un
+seuil chiffré ou une qualification légale (taux d'alcool, peine, retrait de points, dispositif
+technique) — même famille de forme que `Vitesse` et `Permis & sanctions`, le précédent du
+lot 1 s'applique de la même façon : une carte dont la règle **est** un chiffre appelle une
+forme définitionnelle, ce n'est pas un défaut. Aucune des vingt étiquettes de thème distinctes
+du spécimen (OBS-6) ne nomme explicitement l'alcool ou les stupéfiants — à la différence de
+`Mécanique & environnement`, où trois intitulés du spécimen recoupaient presque mot pour mot
+le `topic` du domaine, aucun rapprochement de sujet, même générique, n'est tenté ici : chaque
+carte ci-dessous est jugée sur sa forme seule.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `22603ebb1d645f3273bc07e98ab0eb23` | non situé — condition (« après »), pas un moment | règle (obligation, distinction de régimes) | faux-ami (croire le dépistage soumis à un indice d'ivresse, ou réservé aux accidents graves) | oui | règle procédurale attestée (conséquence, OBS-7), forme standard, correctement repérée par le compteur définitionnel |
+| `37fe1af42b8d810ea54ddbcc64f356fa` | non situé, générique | règle (qualification pénale : délit sans seuil) | faux-ami (seuil de tolérance, exemption si prescription) | oui | qualification juridique attestée, forme standard de rappel de sanction, même famille que « Conduire sans avoir jamais obtenu le permis est : » (`Permis & sanctions`) |
+| `37fe1af42b8d8118b6d3f82929eabdca` | non situé, générique | règle (chiffre-règle : seuil, 0,5 g/L) | valeurs voisines correspondant à d'autres seuils réels (0,2 probatoire, 0,8 délit) | oui | chiffre-règle standard |
+| `37fe1af42b8d811eae7dfa1a08ee0f64` | non situé, générique | règle (mécanisme physiologique : vitesse d'élimination) | valeurs voisines qui donneraient une élimination bien plus rapide ou lente | oui | fait physiologique attesté par OBS-7 (mécanisme), même famille que les cartes de mécanique de `Distances & freinage` |
+| `37fe1af42b8d81218099fdc3bcfd24c9` | non situé, générique | règle (mécanisme : conversion dose/alcoolémie) | valeurs voisines contre-intuitives (trop bas ou beaucoup trop haut) | oui | fait physiologique attesté, mécanisme, même famille que la carte précédente |
+| `37fe1af42b8d817e8e2feffa6987ba00` | non situé — seuil-condition (« à partir de »), pas un moment | règle (qualification : délit) | faux-ami (croire à une contravention simple, ou à une absence de sanction sans trouble visible) | oui | seuil-condition suivi d'une qualification, forme standard, accord avec le compteur |
+| `37fe1af42b8d817e9b93c2546ad30ec9` | non situé — seuil-condition, pas un moment | **désaccord avec le compteur `forme/definitionnel`** — règle (barème), pas action | seuil chiffré (6 points), valeur maximale du barème pour une contravention | oui | « fait perdre » est hors du lexique du compteur — la seule carte de ce domaine parmi les treize recensées en §3 ; l'objet réel est un barème, chiffre-règle attesté |
+| `37fe1af42b8d81b38194dba0c15484b4` | non situé, générique | règle (chiffre-règle : peine, 3 ans + 9 000 €) | distracteur recyclant l'ancien barème alcool (4 500 €/2 ans), faux-ami de confusion entre régimes | oui | chiffre-règle de sanction, forme standard |
+| `37fe1af42b8d81b3b1a2f0bc28c23b22` | non situé, générique — « ces effets » est anaphorique (renvoie aux quatre options qui suivent), pas un déictique de scène ; **faux positif du compteur `forme/hors-situation`**, déjà nommé en §3, qui ne le flague pas à cause de ce « ces » | règle (reconnaissance : effet physiologique réel) | effets inversés ou inventés (meilleure vision nocturne, réaction raccourcie par l'excitation) | oui | reconnaissance factuelle standard (énumération à choix unique) ; le compteur ne le flague pas hors-situation à cause d'un « ces » anaphorique, déjà documenté en §3 comme faux positif — la seconde occurrence de ce faux positif dans ce chantier |
+| `37fe1af42b8d81cf8791f73464a2f801` | non situé, générique | règle (chiffre-règle : seuil probatoire, 0,2 g/L) | valeurs voisines (0/0,5/0,8) correspondant à d'autres seuils réels | oui | chiffre-règle standard, jumelle de la carte du permis classique |
+| `37fe1af42b8d81f2a662e1b1284f99b9` | non situé, générique | faire (décision : démenti de mythe — attendre) | gestes populaires mais inopérants (douche froide, manger gras, café) | oui | démenti de mythe, décision attestée par OBS-7, même famille que les cartes de mécanique déjà lues (ABS, aquaplanage) |
+| `526ffb51f8bc0ed95490405ddc0dfc0f` | non situé — cas numérique appliqué, pas une scène | règle (qualification : infraction ou non selon un seuil déjà fixé) | faux-ami (croire que le seuil probatoire est celui du permis définitif) | oui | application chiffrée d'une règle déjà posée par ailleurs dans le domaine, forme standard |
+| `5720fa6a7cd62743982f88a4f3fa5dd2` | non situé, générique | règle (chiffre-règle : peine) | ancien barème recyclé en distracteur (2 ans/4 500 €), confusion avec le cumul stupéfiants (5 ans/15 000 €) | oui | chiffre-règle de sanction, forme standard |
+| `749552ac121e0cd77beff969300b8ef9` | non situé, générique | règle (qualification : délit assimilé) | faux-ami (croire à un droit de refus, ou à l'absence de conséquence) | oui | qualification juridique attestée, forme standard |
+| `92f3fe40dd9c28ff0010261e74ae6ebe` | non situé, générique | règle (chiffre-règle : peine) | gradation de distracteurs reproduisant d'autres barèmes du domaine (2 ans/4 500 €, 5 ans/15 000 €) | oui | chiffre-règle de sanction, jumelle de la carte sur le refus de dépistage d'alcoolémie |
+| `bda97dae02fa9e085f5f6ba0827a4f7b` | non situé — condition (« après »), pas un moment | règle (conséquence assurantielle) | options en tout-ou-rien (sans majoration, avec 400 %, sans préavis) contre la réalité nuancée | oui | conséquence attestée par OBS-7 (catégorie « conséquence »), forme standard, sans artefact |
+| `e13df5a7d4151bdeca7a9f914c90cf4e` | non situé, générique | règle (chiffre-règle : peine aggravée, cumul) | gradation cohérente avec le reste du domaine (2/3/5 ans) ; option contre-intuitive (« mêmes peines, sans aggravation ») | oui | chiffre-règle de sanction, forme standard |
+| `ef26cca38b9d1abc6fb0b13d76247f35` | non situé, générique | règle (fonction d'un dispositif) | fonctions plausibles mais fausses (coupe le moteur en roulant, enregistre, alerte les forces de l'ordre) | oui | connaissance de dispositif, même forme que les cartes de fonction de dispositif de `Mécanique & environnement` |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** le compteur
+`forme/definitionnel` compte 7/18 (39 %) sur ce domaine, déjà au-dessus de la moyenne globale
+(94/255, 37 %) sans même corriger son lexique. Une carte de plus (`37fe1af42b8d817e9b93c2546ad30ec9`,
+« fait perdre ») est manquée pour la raison déjà recensée en §3 — la seule carte de ce domaine
+parmi les treize du lexique étroit — soit 8/18 (44 %) en objet réel. Une seconde carte,
+`37fe1af42b8d81b3b1a2f0bc28c23b22` (« Parmi ces effets… »), est la seconde occurrence dans ce
+chantier du faux positif « ce/ces anaphorique » de `forme/hors-situation` déjà nommé en §3 —
+« ces effets » renvoie aux quatre options qui suivent, ce n'est pas un déictique de scène, mais
+le compteur la classe comme située. Aucune carte du domaine ne repose sur une comparaison de
+deux dispositifs distincts, une méthode de calcul ou un réordonnancement d'une liste fixe.
+
+**Ce que les compteurs ont signalé à tort :** `forme/seule-ponctuee` sur la bonne réponse de
+`37fe1af42b8d810ea54ddbcc64f356fa` (« Un délit, sans seuil de tolérance ») — une phrase
+complète et normale, pas un défaut de forme ; comme déjà noté pour `Priorités &
+intersections`, le compteur mesure l'absence de ponctuation interne chez les distracteurs, pas
+une brièveté suspecte de la bonne réponse. Rien à ajouter au faux positif de
+`forme/hors-situation` déjà nommé ci-dessus.
