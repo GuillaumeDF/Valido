@@ -324,29 +324,45 @@ verdict sur trois axes non mécanisables — ancrage, objet, piège — puis la 
 jamais jugé : la spec (§2 d'`audit-2026-09-formes.md`) retire cet axe faute d'appui
 postérieur à la réforme de 2016, et rien ci-dessous n'en tire une conclusion de conformité.
 
+**Le critère d'admissibilité, déclaré ici parce qu'il ne l'avait jamais été.** La première
+version des trois tableaux ci-dessous répondait « oui » sur les 75 lignes et « non » sur
+aucune — y compris sur onze lignes dont le motif nommait lui-même un défaut de forme
+(« forme ancien modèle », « photo isolée + question de sens »...) sans que le verdict en
+tienne compte. La lecture carte par carte n'était pas en cause — les 75 motifs sont
+distincts et les faits qu'ils rapportent se vérifient — mais aucun critère ne séparait
+« oui » de « non » : la colonne collectait un « oui » par défaut. En voici un, appliqué
+ci-dessous ligne par ligne :
+
+**`non`** = aucune des 24 questions du spécimen n'a cette forme, **ou** OBS-16 nomme cette
+forme comme abandonnée par la réforme.
+**`partiel`** = la forme est attestée dans le spécimen, mais la carte y ajoute un artefact
+étranger — datation de la règle, objet absent de sa propre image, catégorie au lieu d'un
+signal précis.
+**`oui`** = forme attestée, sans artefact.
+
 ### Panneaux & marquage (27 cartes)
 
 | id | ancrage | objet | piège | se poserait à l'examen ? | motif |
 |---|---|---|---|---|---|
-| `11d37be22fd315668cb2930373e95c80` | image isolée (disque seul, pas de scène) | règle | absolu d'énoncé (« ne lève jamais ») contre une option qui est elle-même l'exception qu'il ne lève pas | oui | portée réelle et testée d'un panneau de fin d'interdiction, mais photo isolée + question de sens — la forme qu'OBS-16 dit dépassée, pas la scène de conduite que la réforme revendique |
-| `1509ad94aea7c6f82355f3362b10a8e1` | image isolée | faire (ce qu'on ne peut pas faire) | contraste arrêt/stationnement, faux-ami de statut | oui | teste une confusion réelle (arrêt implique stationnement) par contraste d'options, sans mise en situation |
-| `1658abbc16db4667fec7211f8c9b0f93` | image isolée | règle | aucun notable | oui | portée standard (côté, limite à la première intersection), photo isolée + question de sens |
+| `11d37be22fd315668cb2930373e95c80` | image isolée (disque seul, pas de scène) | règle | absolu d'énoncé (« ne lève jamais ») contre une option qui est elle-même l'exception qu'il ne lève pas | non | portée réelle et testée d'un panneau de fin d'interdiction, mais photo isolée + question de sens — exactement la forme qu'OBS-16 nomme abandonnée par la réforme |
+| `1509ad94aea7c6f82355f3362b10a8e1` | image isolée | faire (ce qu'on ne peut pas faire) | contraste arrêt/stationnement, faux-ami de statut | non | teste une confusion réelle (arrêt implique stationnement) par contraste d'options, mais panneau isolé sans scène — la connaissance de sa signification qu'OBS-16 dit abandonnée, même posée comme une action interdite plutôt qu'une définition |
+| `1658abbc16db4667fec7211f8c9b0f93` | image isolée | règle | aucun notable | non | portée standard (côté, limite à la première intersection), mais photo isolée + question de sens — la forme qu'OBS-16 dit abandonnée |
 | `37fe1af42b8d81709c93fcc98510a42d` | semi-situé (marquage photographié sur chaussée) | faire (rejoindre la voie désignée) | contraste avec une option de statu quo (« garder votre voie ») | oui | marquage vu en contexte de chaussée, teste un geste concret — plus proche de l'esprit de la réforme que les panneaux isolés du même lot |
-| `37fe1af42b8d8174a3c3e94967027ed1` | image isolée | règle (portée de l'obligation, pas une décision) | aucun | oui | distinction B21b/B21-1, contenu solide, forme ancien modèle |
-| `37fe1af42b8d817881dee3d999a911c3` | image isolée | règle | aucun | oui | distinction carré/rond (info/prescription), forme ancien modèle |
+| `37fe1af42b8d8174a3c3e94967027ed1` | image isolée | règle (portée de l'obligation, pas une décision) | aucun | non | distinction B21b/B21-1, contenu solide, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
+| `37fe1af42b8d817881dee3d999a911c3` | image isolée | règle | aucun | non | distinction carré/rond (info/prescription), contenu solide, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
 | `37fe1af42b8d81b3a4b7d484aef5aef8` | semi-situé (chaussée décrite, « de votre côté ») | règle (permis/interdit, pas une action choisie) | paire d'options contraires assumée (deux règles fausses parmi quatre, §2 questions.md) | oui | l'image tranche un cas ambigu — proche de l'esprit « mise en situation » malgré l'absence de scène de conduite complète |
-| `37fe1af42b8d81b5aa9fc685af3ba92f` | image isolée | règle | absolu retiré du distracteur (« sans contrainte » sans « aucune ») | oui | distinction danger/prescription standard, forme ancien modèle |
+| `37fe1af42b8d81b5aa9fc685af3ba92f` | image isolée | règle | absolu retiré du distracteur (« sans contrainte » sans « aucune ») | non | distinction danger/prescription standard, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
 | `37fe1af42b8d81d68a70da4a7305f6c1` | semi-situé (chaussée décrite) | règle | aucun | oui | marquage rare mais réel, lecture de sens plutôt que décision |
-| `443e4299ccb3ff71669f8df6669b8bf4` | image isolée | règle | absolu correct (« même si la route est vide ») contre un distracteur conditionnel | oui | contenu classique (arrêt inconditionnel), forme ancien modèle |
+| `443e4299ccb3ff71669f8df6669b8bf4` | image isolée | règle | absolu correct (« même si la route est vide ») contre un distracteur conditionnel | non | contenu classique (arrêt inconditionnel), mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
 | `570e5e1ef861e032773f43b44bc817a9` | semi-situé (aire décrite sur la chaussée) | règle | aucun | oui | marquage rare, correctement testé en reconnaissance |
-| `7d44f7dd303fce58716234cba54480b1` | image isolée, et hypothétique (le panonceau demandé est absent de l'image) | règle | distracteurs nommant des panonceaux réels mais hors-sujet | partiel | seule carte du lot à interroger un élément absent de sa propre image — forme contournée, sans équivalent dans les 24 questions du spécimen |
-| `89bea09b482974f37e7dd7d35aba23f5` | image isolée | règle (une limite : ce qu'il ne prescrit pas) | absolu (« rien ») contre des options d'obligation | oui | teste une limite précise (position tenue par le marquage au sol), forme ancien modèle |
-| `8a1026edb35c31c37ab6df7b29851ef2` | image isolée | règle | aucun notable | oui | reconnaissance de panneau standard, forme ancien modèle |
-| `9e65525bbce6a6491d37bbf6f180c04c` | image isolée, mais « vous pouvez encore doubler » évoque une exception à choisir | faire (exception) | exception à une interdiction générale | oui | teste une exception réelle et précise, plus proche d'une décision que les autres panneaux isolés du lot |
+| `7d44f7dd303fce58716234cba54480b1` | image isolée, et hypothétique (le panonceau demandé est absent de l'image) | règle | distracteurs nommant des panonceaux réels mais hors-sujet | non | seule carte du lot à interroger un élément absent de sa propre image — aucune des 24 questions du spécimen n'a cette forme, et le panneau isolé qui la porte est par ailleurs celle qu'OBS-16 dit abandonnée |
+| `89bea09b482974f37e7dd7d35aba23f5` | image isolée | règle (une limite : ce qu'il ne prescrit pas) | absolu (« rien ») contre des options d'obligation | non | teste une limite précise (position tenue par le marquage au sol), mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
+| `8a1026edb35c31c37ab6df7b29851ef2` | image isolée | règle | aucun notable | non | reconnaissance de panneau standard, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
+| `9e65525bbce6a6491d37bbf6f180c04c` | image isolée, mais « vous pouvez encore doubler » évoque une exception à choisir | faire (exception) | exception à une interdiction générale | non | teste une exception réelle et précise, plus proche d'une décision que les autres panneaux isolés du lot — mais reste un panneau isolé sans scène, la forme qu'OBS-16 dit abandonnée |
 | `9eb8506813f0c8b729b66157ec95a63f` | situé — vraie scène vue du poste de conduite | règle (ce que le panneau fait/ne fait pas) | absolu retiré de l'option (« à l'anneau » supprimé) | oui | seule vraie mise en situation du lot avec `dce501d416e5db1cc6344725007fbad6` — exactement la forme qu'OBS-16 dit visée par la réforme |
 | `dce501d416e5db1cc6344725007fbad6` | situé — scène + « ici » + « vous engager » | faire | absolu dans un distracteur (« arrêt complet, roues bloquées ») | oui | mise en situation complète et décision à prendre — la forme la plus proche de la réforme du lot |
-| `ede6968609d285b22494f57032c53e2f` | image isolée | règle | aucun | oui | distinction conseillé/obligatoire, contenu solide, forme ancien modèle |
-| `ee11b58d97d21d637c3ec38c7181fa87` | image isolée (mais panonceau réellement visible, à la différence de `7d44f7dd`) | règle | aucun | oui | rôle du panonceau testé sur un exemple concret visible dans l'image |
+| `ede6968609d285b22494f57032c53e2f` | image isolée | règle | aucun | non | distinction conseillé/obligatoire, contenu solide, mais forme ancien modèle — celle qu'OBS-16 dit remplacée |
+| `ee11b58d97d21d637c3ec38c7181fa87` | image isolée (mais panonceau réellement visible, à la différence de `7d44f7dd`) | règle | aucun | non | rôle du panonceau testé sur un exemple concret visible dans l'image, sans l'artefact d'objet absent de `7d44f7dd` — mais reste un panneau isolé sans scène, la forme qu'OBS-16 dit abandonnée |
 | `1a0a5812ff8659ba24b3b4c750e469e5` | non situé — configuration décrite en mots, sans l'image de sa jumelle `37fe1af42b8d81b3a4b7d484aef5aef8` | règle | aucun | oui | reformule en toutes lettres une configuration que la carte-sœur illustre ; sans image, la lecture demande plus d'effort de représentation qu'à l'examen réel |
 | `37fe1af42b8d81059d80e8954b36ed7f` | non situé, générique (catégorie de panneau, pas un panneau précis) | règle | aucun | partiel | seule catégorie générique du domaine (« un panneau rond à bord rouge », pas un panneau donné) — l'examen montre toujours un signal, jamais une classe |
 | `37fe1af42b8d8141b1d0e3ca0b855119` | non situé, générique | règle | aucun | oui | rappel d'une règle centrale du code (R412-19), pas besoin de scène pour être testé valablement |
