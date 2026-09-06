@@ -42,8 +42,24 @@ ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plu
 `forme/markdown` 1). Doivent rester **vides** : `schema/`, `couverture/`, `source/`,
 `fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que
 si une option porte un backtick, son zéro ne prouve rien sur un lot sans code span.
+Depuis le 2026-09-06, `source/` recouvre aussi `source/editeur-non-corrobore` : la liste
+blanche est scindée en `DOMAINES_FAIT` (autorité sur un chiffre) et `DOMAINES_FORME` (les
+éditeurs d'ETG, admis pour la forme des questions), et une ligne `datée` qui ne citerait
+qu'un éditeur est refusée. Le registre est surchargeable par `VALIDO_SOURCES_MD`, ce qui
+sert à vérifier la règle sur un cas d'essai.
 Comparer à cette base, pas à zéro ; le §3 de `Tools/questions.md` dit lesquelles demandent
 un tri à la main, et le §7 de `Tools/audit-2026-08-passe-2.md` ce que l'outil ne voit pas.
+
+Trois compteurs de forme sont nés le 2026-09-06 avec le diagnostic
+[`Tools/audit-2026-09-formes.md`](Tools/audit-2026-09-formes.md) :
+`forme/impersonnel`, `forme/hors-situation` et `forme/definitionnel`. Ils sont
+**informatifs**, comme `longueur/plus-longue`, et ne rejoignent pas les compteurs devant
+rester vides : ils mesurent l'écart de forme avec l'épreuve réelle, pas un défaut. Les
+faire baisser pour eux-mêmes est un contresens — sur une carte de signalisation, un énoncé
+impersonnel est souvent la forme juste. Leurs valeurs de départ sont dans le §3 du rapport ;
+sa section « Ce que l'outillage ne voit pas » et sa recommandation chiffrée (§4, les 255
+cartes lues à la main, 230 `oui` / 3 `partiel` / 22 `non`) sont l'entrée de toute décision de
+réécriture — ne pas la rejouer de mémoire, la relire.
 
 **Les deux chiffres qui ont bougé à la passe 3 sont voulus, ce ne sont pas des dérives.**
 `longueur/plus-longue` **97 → 76** : tout le mouvement est côté `code` (34 → 13), obtenu en

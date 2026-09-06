@@ -129,6 +129,9 @@ le fichier, on repasse les contrôles, on lance les tests.
   [`Tools/audit-2026-08-passe-3.md`](Tools/audit-2026-08-passe-3.md) — les deux rapports de
   contenu conservés : ce qui a été corrigé, avec les sources, et ce qui reste ouvert. Le
   second publie la ligne de base d'`audit.py` à laquelle on compare.
+- [`Tools/audit-2026-09-formes.md`](Tools/audit-2026-09-formes.md) — le diagnostic de
+  forme : ce qui sépare une carte de Valido d'une question de l'épreuve réelle, chiffré
+  carte par carte, et ce qu'il faudrait réécrire.
 
 Ce qui décide de la qualité du feed : **un distracteur manifestement faux rend la question
 gratuite**, gonfle le combo et rend le feed ennuyeux — exactement le mode d'échec que ce

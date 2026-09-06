@@ -28,6 +28,26 @@ type types valeur valeurs faut doit etc lequel laquelle lesquels laquelle entre 
 # (« Le « D » de SOLID », « Le disque « A » ») est légitime.
 LETTER = re.compile(r"(?<![\w`.\-])[A-D](?![\w`’'])")
 
+# --- forme ETG (informatifs) ---
+# Ces trois compteurs mesurent un écart de forme avec l'épreuve réelle, pas un défaut.
+# Un énoncé impersonnel n'est pas fautif : sur une carte de signalisation ou de mécanique,
+# c'est peut-être la forme juste. Ils ne rejoignent donc PAS les compteurs devant rester
+# vides, et les faire baisser pour eux-mêmes est un contresens — c'est exactement ce que
+# `expl/paraphrase-litterale` a appris à la passe 3.
+PERSONNE = re.compile(r"\b(?:vous|votre|vos|je|mon|ma|mes)\b|\bj'", re.I)
+# « ce », « cette » ne comptent que devant un nom : « ce qui », « ce que », « ce dont »
+# ne situent rien.
+# `forme/hors-situation`, qui s'appuie sur ce motif, décrit la banque Valido — aucun taux de
+# l'épreuve réelle n'est mesurable depuis le corpus de ce rapport (cf. §1). Ce compteur ne se
+# lit donc jamais comme un écart à une cible, seulement comme un état interne à ce dépôt.
+DEICTIQUE = re.compile(
+    r"\b(?:ce|cet|cette|ces)\s+(?!qui\b|que\b|qu'|dont\b)\w+"
+    r"|\bici\b|\bdevant\b|\bderri[èe]re\b"
+    r"|\bvous\s+(?:arrivez|roulez|approchez|suivez|circulez|abordez|quittez)\b", re.I)
+DEFINITION = re.compile(
+    r"\b(?:est|sont|sert\s+à|servent\s+à|signifie|signifient|indique|indiquent"
+    r"|impose|imposent|doit\s+être|doivent\s+être|permet\s+de|permettent\s+de)\b", re.I)
+
 def norm(s):
     s = unicodedata.normalize('NFD', s.lower())
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
@@ -42,6 +62,9 @@ def opt(q, oid):
 def firstword(t):
     m = re.match(r"[`«\"]?([\wéèêàçûôîùâ']+)", t.strip())
     return norm(m.group(1)) if m else ''
+
+def illu_absente(q):
+    return q.get('illustration') is None
 
 SCENES = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(PATH))),
                       'Assets.xcassets', 'Scenes')
@@ -67,14 +90,23 @@ try:
 except OSError:
     TOPICS_DECLARES = set()
 
-SOURCES_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources.md')
-# Domaines dont une affirmation datable peut se réclamer. La liste est fermée : un éditeur
-# d'ETG recopie et périme sans le dire, et c'est précisément le défaut que ce registre
-# corrige. Élargie en août 2026 aux institutions européennes et académiques, faute de
-# source gouvernementale chiffrée sur les gestes de secours et la géométrie des panneaux.
-DOMAINES = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
-            'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
-            'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
+# Le registre est surchargeable pour que la règle de corroboration ci-dessous se vérifie
+# sur un cas d'essai : sans ça elle n'est qu'une phrase dans un guide.
+SOURCES_MD = os.environ.get('VALIDO_SOURCES_MD') or os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'sources.md')
+# Deux listes, et la frontière entre les deux est le cœur du registre.
+# `DOMAINES_FAIT` : seule autorité sur un chiffre. Élargie en août 2026 aux institutions
+# européennes et académiques, faute de source gouvernementale chiffrée sur les gestes de
+# secours et la géométrie des panneaux.
+DOMAINES_FAIT = ('legifrance.gouv.fr', 'securite-routiere.gouv.fr', 'service-public.gouv.fr',
+                 'ecologie.gouv.fr', 'sante.gouv.fr', 'unece.org', 'eur-lex.europa.eu',
+                 'cprguidelines.eu', 'erc.edu', 'croix-rouge.fr', 'inrs.fr')
+# `DOMAINES_FORME` : admis pour ce qu'un éditeur sait — comment l'examen pose la question,
+# quel piège il tend, à quelle fréquence un thème tombe. Jamais pour un chiffre : un
+# éditeur recopie et périme sans le dire, et c'est le défaut que ce registre corrige.
+# D'où la règle : une ligne `datée` porte toujours une source de `DOMAINES_FAIT`, et une
+# source d'éditeur ne vient qu'en plus.
+DOMAINES_FORME = ('ornikar.com', 'envoituresimone.com', 'codeclic.com', 'digischool.fr')
 LIGNE_SOURCE = re.compile(
     r'^\|\s*`([0-9a-f]{32})`\s*\|\s*(stable|datée)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$', re.M)
 try:
@@ -105,6 +137,16 @@ for q in QS:
     # --- couverture ---
     if q['subject'] == 'code' and TOPICS_DECLARES and q['topic'] not in TOPICS_DECLARES:
         flag('couverture/topic-non-rattache', q, q['topic'])
+
+    # --- forme ETG (informatifs, cf. le rapport du 2026-09) ---
+    if q['subject'] == 'code':
+        p = q['prompt']
+        if not PERSONNE.search(p):
+            flag('forme/impersonnel', q, f"«{p[:60]}»")
+        if illu_absente(q) and not DEICTIQUE.search(p):
+            flag('forme/hors-situation', q, f"«{p[:60]}»")
+        if p.rstrip().endswith(':') and DEFINITION.search(p):
+            flag('forme/definitionnel', q, f"«{p[:60]}»")
 
     # --- illustration ---
     illu = q.get('illustration')
@@ -214,8 +256,11 @@ for q in QS:
     if not affirmation or 'à renseigner' in affirmation:
         flag('source/affirmation-vide', q, affirmation or '(vide)')
     if nature == 'datée':
-        if not any(d in source for d in DOMAINES):
-            flag('source/hors-liste-blanche', q, source or '(vide)')
+        if not any(d in source for d in DOMAINES_FAIT):
+            if any(d in source for d in DOMAINES_FORME):
+                flag('source/editeur-non-corrobore', q, source)
+            else:
+                flag('source/hors-liste-blanche', q, source or '(vide)')
         try:
             jour = datetime.date.fromisoformat(releve)
         except ValueError:
@@ -238,6 +283,10 @@ for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.
     print()
 
 for label, arr in [('code', lens_good), ('swift', lens_bad)]:
+    # Un corpus mono-sujet (fixture de test, extrait `code` seul…) laisse l'une des deux
+    # listes vide : diviser par sa longueur ferait planter le rapport, alors que sortir
+    # toujours 0 est une contrainte globale de l'outil.
+    if not arr: continue
     longest = sum(1 for g, m in arr if g > m)
     print(f"{label}: bonne réponse plus longue que la moyenne des distracteurs dans {longest}/{len(arr)} cas; "
           f"écart moyen {sum(g-m for g,m in arr)/len(arr):+.1f} car.")

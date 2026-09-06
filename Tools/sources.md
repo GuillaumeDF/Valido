@@ -12,14 +12,23 @@ s'utilise à chaque changement de voie » porte une valeur datable.
 - `datée` — tout seuil, barème, montant, durée ou qualification pénale. URL d'un domaine
   de la liste blanche **et** date de relevé obligatoires.
 
-La liste blanche : `legifrance.gouv.fr`, `securite-routiere.gouv.fr`,
-`service-public.gouv.fr`, `ecologie.gouv.fr`, `sante.gouv.fr`, `unece.org`,
-`eur-lex.europa.eu`, `cprguidelines.eu`, `erc.edu`, `croix-rouge.fr`, `inrs.fr`. Rien
-d'autre : les éditeurs d'ETG et les sites d'auto-école se recopient et périment sans le
-dire, ce qui est exactement le défaut que ce registre corrige. `cprguidelines.eu` ne sert
-plus aucun contenu (voir plus bas) ; `erc.edu` — la véritable adresse de l'ERC, dont
-`cprguidelines.eu` était une transcription erronée du nom « ERC Guidelines » — est la
-porte d'entrée à citer pour les recommandations de secourisme.
+**Deux listes, et la frontière entre les deux est ce que ce registre garantit.**
+
+*Autorité sur un chiffre* (`DOMAINES_FAIT` dans `audit.py`) : `legifrance.gouv.fr`,
+`securite-routiere.gouv.fr`, `service-public.gouv.fr`, `ecologie.gouv.fr`, `sante.gouv.fr`,
+`unece.org`, `eur-lex.europa.eu`, `cprguidelines.eu`, `erc.edu`, `croix-rouge.fr`,
+`inrs.fr`. `cprguidelines.eu` ne sert plus aucun contenu (voir plus bas) ; `erc.edu` — la
+véritable adresse de l'ERC, dont `cprguidelines.eu` était une transcription erronée du nom
+« ERC Guidelines » — est la porte d'entrée à citer pour les recommandations de secourisme.
+
+*Admis en complément* (`DOMAINES_FORME`) : `ornikar.com`, `envoituresimone.com`,
+`codeclic.com`, `digischool.fr`. Un éditeur d'ETG sait une chose que l'État ne publie pas :
+comment l'examen pose la question, quel piège il tend, à quelle fréquence un thème tombe.
+Il ne sait pas le droit — il le recopie et le périme sans le dire, ce qui est exactement le
+défaut que ce registre corrige. **D'où la règle, tenue par `audit.py` et non par la bonne
+volonté : une ligne `datée` porte toujours une source de la première liste ; une source
+d'éditeur ne vient qu'en plus, jamais seule.** Le manquement lève
+`source/editeur-non-corrobore`, qui doit rester vide.
 
 `audit.py` signale un relevé de plus de douze mois. Ce n'est pas une erreur, c'est une
 échéance : le droit routier bouge, et la passe d'août 2026 a trouvé un chiffre périmé
