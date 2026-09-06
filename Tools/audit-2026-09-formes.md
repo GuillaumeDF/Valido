@@ -322,10 +322,76 @@ baisser pour eux-mêmes viderait les cartes, ce que la passe 3 a appris à ses d
 | compteur | effectif sur 255 | faux positifs relevés | ce qu'il mesure vraiment |
 |---|---|---|---|
 | `forme/impersonnel` | 199 | 0 relevé — recherché sur « on doit/peut », « doit-on », « tu/nous/ton/ta/tes » et l'élision `j’` (apostrophe courbe) dans les 199 cartes flaggées : aucune occurrence. | L'absence de marqueur de première ou deuxième personne (vous/votre/vos/je/mon/ma/mes/j') dans `prompt` — un test de présence, sans ambiguïté sur ce lexique-là. Le critère « ni verbe à l'impératif en tête » de la spec §3 a été abandonné en cours de tâche 3 sans motif écrit ; vérifié après coup, aucun `prompt` des 255 cartes `code` n'ouvre sur un impératif nu — l'abandon ne change donc rien sur la banque actuelle, mais serait à rouvrir si une future carte s'écrivait « Ralentissez dès que : ». |
-| `forme/hors-situation` | 200 | **4-6 % estimés**, pas un compte exhaustif. Ma recherche ciblée (`vous croisez`, `vous doublez`, `à l'approche de` + « vous devez », `face à`) en avait trouvé 4/200 (2 %) : `De nuit hors agglomération, vous croisez un véhicule…`, `Vous croisez une voie de tramway…`, `Vous doublez un autocar qui fait descendre des enfants…`, `À l'approche d'un carrefour à sens giratoire…, vous devez :`. Un cinquième candidat matchait le motif de recherche « face à » sans porter de « vous » — `Face à un motard accidenté qui respire, son casque :` — mais la lecture à la main de `Premiers secours` (tâche 13) le reclasse : c'est un événement à la 3ᵉ personne générique (« son casque », pas « votre casque »), de la même famille que les autres cartes à 3ᵉ personne générique jugées non situées ailleurs dans ce chantier (`e0f68dd1…` en `Priorités & intersections`, `a3b1d0cf…` en `Feux`) — retiré de cette liste, le compteur ayant raison sur cette carte. Une relecture indépendante, sur un échantillon distinct, en trouve davantage — trois cartes que ma propre recherche n'avait pas prises : `Premier sur un accident, seul, face à une victime consciente et coincée, vous devez :`, `Un véhicule s'apprête à vous dépasser. Vous devez :`, `Un feu de circulation et un panneau de priorité se contredisent. Lequel suivez-vous ?`. Ni l'une ni l'autre lecture n'est exhaustive sur les 200 : le chiffre est une estimation à méthode déclarée (deux échantillons, pas un dépouillement complet), pas une précision. **Le trou de couverture qui explique l'écart** : une scène posée en prose, sans démonstratif ni verbe de déplacement, échappe au motif — et aucun élargissement lexical ne la rattrape sans marquer comme situées des règles générales qui ne le sont pas (« En zone bleue, vous devez : » serait, à tort, marquée comme située si `devez` rejoignait la liste de verbes — c'est une règle générale, pas une scène ; et ce que `Lequel suivez-vous ?` situe, c'est « se contredisent », une scène posée en prose, pas l'inversion interrogative). Des tournures voisines examinées et **écartées** du décompte, parce qu'elles ne sont pas des scènes malgré une tournure proche : `Si vous doublez votre vitesse…` (relation numérique, pas une scène), `Vous dépassez de 30 km/h…` (excès chiffré, pas un dépassement), `Tenir son téléphone en main au volant…` / `La fatigue ou l'usage du téléphone au volant…` (« au volant » générique), `À l'approche d'une intersection, le dépassement :` / `…d'un passage pour piétons, dépasser est :` (règle générale, pas une scène précise). **Ce que le compteur anchre réellement, mesuré deux fois indépendamment** : il coïncide avec « la carte n'a pas d'illustration » sur 249 des 255 cartes (97,6 %) — le test déictique n'en repêche que 6 sur les 206 cartes sans illustration, dont 2 sur un « ces »/« ce » anaphorique plutôt qu'un déictique de scène (`Parmi ces effets, lequel est causé par l'alcool au volant ?`, `Après une infraction ayant entraîné le retrait d'1 point, ce point est récupéré :`). Côté illustré, 44 des 49 cartes matcheraient `DEICTIQUE` même sans l'exemption d'image, et 26 d'entre elles le font sur un pointeur vers l'image elle-même (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3). **La conséquence, à écrire parce qu'elle est le point** : le compteur classe comme ancrée exactement la forme dont OBS-16 dit que la réforme de 2016 l'a abandonnée (« le seul panneau et la connaissance de sa signification »). Il ne peut donc **ni** servir de cible à une réécriture **ni** être corrigé en élargissant `DEICTIQUE` — il faudrait au contraire le *restreindre*, ce qui déplacerait une ligne de base publiée aujourd'hui même (200) et retenue parmi les huit compteurs que ce chantier ne doit pas faire bouger. Sans cette dernière clause, un lecteur ultérieur conclut « il suffit d'élargir le motif » ; la mesure dit l'inverse. | La part de cartes Valido sans mise en situation explicite (`ce/cette/cet/ces` + nom, `ici/devant/derrière`, ou `vous` + un verbe de sept listés) et sans illustration — **un diagnostic interne à Valido, comparé à aucun taux de l'épreuve réelle** (aucun n'est mesurable depuis ce corpus, cf. §1). Ne jamais relire ce chiffre comme une cible. |
+| `forme/hors-situation` | 200 | **Au moins 7,5 % (15/200) une fois les treize domaines du §4 lus — 4-6 % était l'estimation initiale de cette seule section**, pas un compte exhaustif. Ma recherche ciblée (`vous croisez`, `vous doublez`, `à l'approche de` + « vous devez », `face à`) en avait trouvé 4/200 (2 %) : `De nuit hors agglomération, vous croisez un véhicule…`, `Vous croisez une voie de tramway…`, `Vous doublez un autocar qui fait descendre des enfants…`, `À l'approche d'un carrefour à sens giratoire…, vous devez :`. Un cinquième candidat matchait le motif de recherche « face à » sans porter de « vous » — `Face à un motard accidenté qui respire, son casque :` — mais la lecture à la main de `Premiers secours` (tâche 13) le reclasse : c'est un événement à la 3ᵉ personne générique (« son casque », pas « votre casque »), de la même famille que les autres cartes à 3ᵉ personne générique jugées non situées ailleurs dans ce chantier (`e0f68dd1…` en `Priorités & intersections`, `a3b1d0cf…` en `Feux`) — retiré de cette liste, le compteur ayant raison sur cette carte. Une relecture indépendante, sur un échantillon distinct, en trouve davantage — trois cartes que ma propre recherche n'avait pas prises : `Premier sur un accident, seul, face à une victime consciente et coincée, vous devez :`, `Un véhicule s'apprête à vous dépasser. Vous devez :`, `Un feu de circulation et un panneau de priorité se contredisent. Lequel suivez-vous ?`. Ni l'une ni l'autre lecture n'est exhaustive sur les 200 : le chiffre est une estimation à méthode déclarée (deux échantillons, pas un dépouillement complet), pas une précision. **Mise à jour après les treize lectures de domaine du §4** : ce 4-6 % ne comptait que les découvertes de cette section (7 cartes). Le blind-spot n°6 en nomme huit de plus, trouvées en lisant les domaines plutôt qu'en cherchant des mots-clés (`f12ee5be…` en `Panneaux & marquage` ; `a225e458…` et `22e6420e…` en `Distances & freinage` ; quatre dans `Feux` ; `d4b4abfd…` dans `Tunnels & passages à niveau`) — le compte connu passe de 7 à 15 sur 200, soit environ **7,5 %**, toujours pas un compte exhaustif, seulement le plus complet établi à ce jour. **Le trou de couverture qui explique l'écart** : une scène posée en prose, sans démonstratif ni verbe de déplacement, échappe au motif — et aucun élargissement lexical ne la rattrape sans marquer comme situées des règles générales qui ne le sont pas (« En zone bleue, vous devez : » serait, à tort, marquée comme située si `devez` rejoignait la liste de verbes — c'est une règle générale, pas une scène ; et ce que `Lequel suivez-vous ?` situe, c'est « se contredisent », une scène posée en prose, pas l'inversion interrogative). Des tournures voisines examinées et **écartées** du décompte, parce qu'elles ne sont pas des scènes malgré une tournure proche : `Si vous doublez votre vitesse…` (relation numérique, pas une scène), `Vous dépassez de 30 km/h…` (excès chiffré, pas un dépassement), `Tenir son téléphone en main au volant…` / `La fatigue ou l'usage du téléphone au volant…` (« au volant » générique), `À l'approche d'une intersection, le dépassement :` / `…d'un passage pour piétons, dépasser est :` (règle générale, pas une scène précise). **Ce que le compteur anchre réellement, mesuré deux fois indépendamment** : il coïncide avec « la carte n'a pas d'illustration » sur 249 des 255 cartes (97,6 %) — le test déictique n'en repêche que 6 sur les 206 cartes sans illustration, dont 2 sur un « ces »/« ce » anaphorique plutôt qu'un déictique de scène (`Parmi ces effets, lequel est causé par l'alcool au volant ?`, `Après une infraction ayant entraîné le retrait d'1 point, ce point est récupéré :`). Côté illustré, 44 des 49 cartes matcheraient `DEICTIQUE` même sans l'exemption d'image, et 26 d'entre elles le font sur un pointeur vers l'image elle-même (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3). **La conséquence, à écrire parce qu'elle est le point** : le compteur classe comme ancrée exactement la forme dont OBS-16 dit que la réforme de 2016 l'a abandonnée (« le seul panneau et la connaissance de sa signification »). Il ne peut donc **ni** servir de cible à une réécriture **ni** être corrigé en élargissant `DEICTIQUE` — il faudrait au contraire le *restreindre*, ce qui déplacerait une ligne de base publiée aujourd'hui même (200) et retenue parmi les huit compteurs que ce chantier ne doit pas faire bouger. Sans cette dernière clause, un lecteur ultérieur conclut « il suffit d'élargir le motif » ; la mesure dit l'inverse. | La part de cartes Valido sans mise en situation explicite (`ce/cette/cet/ces` + nom, `ici/devant/derrière`, ou `vous` + un verbe de sept listés) et sans illustration — **un diagnostic interne à Valido, comparé à aucun taux de l'épreuve réelle** (aucun n'est mesurable depuis ce corpus, cf. §1). Ne jamais relire ce chiffre comme une cible. |
 | `forme/definitionnel` | 94 | 2 sur 94 (2,1 %) — trouvés en vérifiant, pour chaque carte flaggée, si le motif `DEFINITION` matche encore dans la dernière proposition avant le « : » (et non dans une phrase antérieure sans rapport) : `La circulation est arrêtée juste au-delà d'un passage à niveau. Vous :` (la question posée est « que faites-vous », pas une définition — le « est » vient d'une phrase de mise en situation) et `La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file voisine :` (même mécanisme, question elliptique sans copule propre). | Un `prompt` `code` qui se termine par « : » et contient un verbe de définition/obligation (est/sont/sert à/signifie/indique/impose/doit être/permet de) — proxy lexical de l'axe Objet (« ce que la règle dit » plutôt que « ce que je dois faire »). **Angle mort transversal, mesuré une fois pour toutes** : 13 des 255 cartes `code` (5,1 %) portent un prompt de barème par points, et les 13 sont manquées par ce compteur — vérifié carte par carte contre `questions.json` et contre la liste des 94 prompts flaggés (aucun des 13 n'y figure). Réparties sur **sept** domaines, pas six comme une première estimation non vérifiée l'aurait dit : `Permis & sanctions` ×3 (téléphone en main, défaut de ceinture, cumul d'infractions), `Vitesse` ×4, `Priorités & intersections` ×2, et une carte chacun dans `Feux`, `Alcool & stupéfiants`, `Panneaux & marquage` (`3cb86b6e…`) et `Tunnels & passages à niveau`. La cause : le lexique (est/sont/sert à/signifie/indique/impose/doit être/permet de) ne contient ni « fait perdre », ni « entraîne un retrait de », ni « coûte » — et « Combien de points perdez-vous ? » échappe en plus au test du « : » final, puisqu'elle se termine par un point d'interrogation. Consigné une fois ici pour que les tableaux des dix domaines restants le citent plutôt que de le redécouvrir un par un. |
 
-Reproduire : `python3 Tools/audit.py | grep -E '^### forme/'`.
+Reproduire le tableau lui-même : `python3 Tools/audit.py | grep -E '^### forme/'`.
+
+**Reproduire les chiffres détaillés de chaque cellule** — les trois scripts suivants tournent
+depuis la racine du dépôt, ne modifient rien, et ont été exécutés pour ce rapport :
+
+- `forme/impersonnel`, le « 0 relevé » sur les 199 flaggées (sortie : `199 0`) :
+  ```bash
+  python3 - <<'PY'
+  import json, re
+  qs = json.load(open('Valido/Resources/questions.json'))
+  code = [q for q in qs if q['subject'] == 'code']
+  PERSONNE = re.compile(r"\b(?:vous|votre|vos|je|mon|ma|mes)\b|\bj'", re.I)
+  flaggees = [q for q in code if not PERSONNE.search(q['prompt'])]
+  SUSPECT = re.compile(r"\bon\s+doit\b|\bon\s+peut\b|\bdoit-on\b|\btu\b|\bnous\b|\bton\b|\bta\b|\btes\b|j’", re.I)
+  print(len(flaggees), sum(1 for q in flaggees if SUSPECT.search(q['prompt'])))
+  PY
+  ```
+- `forme/hors-situation`, 249/255, 6/206, 44/49, 26 (18/5/3) (sortie :
+  `249/255`, `6/206`, `44/49`, `26 (panneau=18, marquage=5, signal=3)`) :
+  ```bash
+  python3 - <<'PY'
+  import json, re
+  qs = json.load(open('Valido/Resources/questions.json'))
+  code = [q for q in qs if q['subject'] == 'code']
+  DEICTIQUE = re.compile(
+      r"\b(?:ce|cet|cette|ces)\s+(?!qui\b|que\b|qu'|dont\b)\w+"
+      r"|\bici\b|\bdevant\b|\bderri[èe]re\b"
+      r"|\bvous\s+(?:arrivez|roulez|approchez|suivez|circulez|abordez|quittez)\b", re.I)
+  illu_absente = lambda q: q.get('illustration') is None
+  flagged = lambda q: illu_absente(q) and not DEICTIQUE.search(q['prompt'])
+  coincide = sum(1 for q in code if flagged(q) == illu_absente(q))
+  non_illu = [q for q in code if illu_absente(q)]
+  repeches = sum(1 for q in non_illu if DEICTIQUE.search(q['prompt']))
+  illustrees = [q for q in code if not illu_absente(q)]
+  matchent = [q for q in illustrees if DEICTIQUE.search(q['prompt'])]
+  POINTEUR = re.compile(r'\bce\s+(panneau|marquage|signal)\b', re.I)
+  pointeurs = [m.group(1).lower() for q in matchent if (m := POINTEUR.search(q['prompt']))]
+  print(f"{coincide}/{len(code)}", f"{repeches}/{len(non_illu)}", f"{len(matchent)}/{len(illustrees)}",
+        len(pointeurs), pointeurs.count('panneau'), pointeurs.count('marquage'), pointeurs.count('signal'))
+  PY
+  ```
+- `forme/definitionnel`, les 13 cartes de barème par points, 7 domaines, 0 déjà flaggée
+  (sortie : `13 7 0`) :
+  ```bash
+  python3 - <<'PY'
+  import json, re
+  qs = json.load(open('Valido/Resources/questions.json'))
+  by_id = {q['id']: q for q in qs}
+  DEFINITION = re.compile(
+      r'\b(?:est|sont|sert\s+à|servent\s+à|signifie|signifient|indique|indiquent'
+      r'|impose|imposent|doit\s+être|doivent\s+être|permet\s+de|permettent\s+de)\b', re.I)
+  BAREME_13 = ['3cb86b6e4c489d919a495408021f062a','04182c9bbdeb305e21532f9c6913a2a2',
+      '14eb253e5dc55f5633de9263f541bf91','37fe1af42b8d816b8bf5d51c4f78466c',
+      '37fe1af42b8d817a9111e3d52f9e5142','2a9e02b9719028e72fde6fdd6372a1ff',
+      'defefbae1ae651a95dd247e38524ee36','37fe1af42b8d8132a22dde248e277c2b',
+      '37fe1af42b8d81b7acdacd2079297f09','666bb472f111a4f4634a0e30abdf180a',
+      '37fe1af42b8d81659d11e27049af398e','37fe1af42b8d817e9b93c2546ad30ec9',
+      '1fe6ef49aad916e076477274c75c3550']
+  topics, deja = set(), 0
+  for i in BAREME_13:
+      q = by_id[i]
+      p = q['prompt']
+      if p.rstrip().endswith(':') and DEFINITION.search(p): deja += 1
+      topics.add(q['topic'])
+  print(len(BAREME_13), len(topics), deja)
+  PY
+  ```
 
 Aucun des trois ne dépasse le tiers de faux positifs fixé comme seuil de resserrement ; les
 trois sont déclarés tels quels, à l'image de `lettre/reference` (1) et `forme/markdown` (1).
@@ -471,6 +537,22 @@ déictique dans leur `prompt`. Dire que les cartes illustrées échappent au com
 construction », via l'exemption d'image, inverse donc la conclusion pour 27 des 31 : ce
 n'est pas l'image qui les épargne, c'est « Ce panneau » — la forme même de l'ancien modèle
 que les treize cartes du paragraphe précédent reproduisent par ailleurs.
+
+Reproduire le 27/31 (tourne depuis la racine du dépôt ; sortie : `31 27`) :
+```bash
+python3 - <<'PY'
+import json, re
+qs = json.load(open('Valido/Resources/questions.json'))
+code = [q for q in qs if q['subject'] == 'code']
+DEICTIQUE = re.compile(
+    r"\b(?:ce|cet|cette|ces)\s+(?!qui\b|que\b|qu'|dont\b)\w+"
+    r"|\bici\b|\bdevant\b|\bderri[èe]re\b"
+    r"|\bvous\s+(?:arrivez|roulez|approchez|suivez|circulez|abordez|quittez)\b", re.I)
+topics = {'Panneaux & marquage', 'Priorités & intersections', 'Vitesse'}
+sub = [q for q in code if q['topic'] in topics and q.get('illustration') is not None]
+print(len(sub), sum(1 for q in sub if DEICTIQUE.search(q['prompt'])))
+PY
+```
 
 **Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
 répertoriés en §3 sur ce domaine — les 8 cartes flaggées `forme/hors-situation` sont bien
@@ -1108,6 +1190,18 @@ pour une future relecture de la ligne `forme/hors-situation` en §3.
 
 **Ce que les compteurs ont signalé à tort :** rien au-delà des deux désaccords déjà nommés
 ci-dessus.
+
+**Reproduire la tally de la colonne « se poserait-elle à l'examen ? » sur les treize
+domaines** (tourne depuis la racine du dépôt, sur ce fichier lui-même ; la plage commence au
+premier tableau de domaine pour ne pas se recompter elle-même) :
+```bash
+awk '/^### Panneaux/{f=1} /^## Ce que l.outillage ne voit pas/{f=0} f' \
+    Tools/audit-2026-09-formes.md | grep -oE '\| \*{0,2}(oui|non|partiel)\*{0,2} \|' | sort | uniq -c
+awk '/^### Panneaux/{f=1} /^## Ce que l.outillage ne voit pas/{f=0} f' \
+    Tools/audit-2026-09-formes.md | grep -cE '^\| `[0-9a-f]{8,32}'
+```
+Attendu : deux lignes `**non**`, vingt `non`, deux cent trente `oui`, trois `partiel`
+(vingt-deux `non` en tout), et deux cent cinquante-cinq lignes.
 
 ## Ce que l'outillage ne voit pas
 
