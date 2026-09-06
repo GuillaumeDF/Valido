@@ -1,7 +1,7 @@
 # Relecture des 255 questions `code` — justesse contre source, et pédagogie
 
-Spec du 2026-08-27. Troisième passe de contenu, après celle d'août 2026
-([`Tools/audit-2026-08.md`](../../../Tools/audit-2026-08.md)) et la seconde
+Spec du 2026-08-27. Troisième passe de contenu, après une première d'août 2026 dont le
+rapport n'est plus conservé, et la seconde
 ([`Tools/audit-2026-08-passe-2.md`](../../../Tools/audit-2026-08-passe-2.md)), qui a
 construit le registre de fraîcheur sur lequel cette passe s'appuie.
 
@@ -125,7 +125,7 @@ dans le même sens.
   longueur, 20 sur l'écart de registre. Ni `audit.py` ni `BundledContentTests` ne sont
   touchés par cette passe.
 - **Le volume.** 255 `code`, 49 illustrées. Cette passe réécrit, elle n'ajoute ni ne retire.
-- **`docs/superpowers/` et `.superpowers/` antérieurs**, qui sont de l'historique.
+- **`docs/superpowers/` antérieur**, qui est de l'historique.
 
 ## Ce qui bouge en même temps que les questions
 

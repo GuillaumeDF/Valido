@@ -1,7 +1,7 @@
 # Audit de contenu, passe 2 — fraîcheur, couverture, illustrations
 
-Spec du 2026-08-23. Deuxième audit de la banque de questions, après celui d'août 2026
-consigné dans [`Tools/audit-2026-08.md`](../../../Tools/audit-2026-08.md).
+Spec du 2026-08-23. Deuxième audit de la banque de questions, après un premier d'août 2026
+dont le rapport n'est plus conservé.
 
 ## Le problème
 

@@ -76,8 +76,8 @@ Valido/
 ValidoTests/   64 tests (Swift Testing)
 Tools/         guide de rédaction, rendu des schémas, audit, provenance des images,
                registre de fraîcheur, carte de couverture du référentiel
-design/logo/   planches du logo et de l'icône
-docs/          spec et plan de la v1
+design/logo/   render-icon.swift, le rendu de l'icône
+docs/          les trois specs de design
 ```
 
 La cible compile avec `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor`, ce qui isolerait aussi
@@ -125,9 +125,10 @@ le fichier, on repasse les contrôles, on lance les tests.
 - `./Tools/render-scenes.sh` — regénère les schémas en PNG clair et sombre, @2x et @3x.
   Les fichiers ne s'éditent jamais à la main : on édite la scène, sous `Tools/Scenes/`.
 - `python3 Tools/audit.py` — les contrôles mécaniques.
-- [`Tools/audit-2026-08.md`](Tools/audit-2026-08.md) et
-  [`Tools/audit-2026-08-passe-2.md`](Tools/audit-2026-08-passe-2.md) — les deux passes de
-  contenu : ce qui a été corrigé, avec les sources, et ce qui reste ouvert.
+- [`Tools/audit-2026-08-passe-2.md`](Tools/audit-2026-08-passe-2.md) et
+  [`Tools/audit-2026-08-passe-3.md`](Tools/audit-2026-08-passe-3.md) — les deux rapports de
+  contenu conservés : ce qui a été corrigé, avec les sources, et ce qui reste ouvert. Le
+  second publie la ligne de base d'`audit.py` à laquelle on compare.
 
 Ce qui décide de la qualité du feed : **un distracteur manifestement faux rend la question
 gratuite**, gonfle le combo et rend le feed ennuyeux — exactement le mode d'échec que ce

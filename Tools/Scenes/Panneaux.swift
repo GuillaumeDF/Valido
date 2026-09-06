@@ -343,8 +343,8 @@ enum Lentille { case eteinte, allumee, clignotante }
 /// (le rayon qui toucherait le **filet** de la lentille voisine) avec 9 % de marge. Les
 /// deux bornes viennent de la même géométrie que ci-dessus et valent pour tout `largeur`.
 ///
-/// Ce que ça change, mesuré à l'identique (`.superpowers/sdd/…/tmp/mesure_feux.py`, bande
-/// horizontale ±12°, rayon 1,75–2,05r, hors du caisson à tout angle de la bande) : le
+/// Ce que ça change, mesuré à l'identique (bande horizontale ±12°, rayon 1,75–2,05r,
+/// hors du caisson à tout angle de la bande) : le
 /// fond juste au-delà du caisson, à hauteur de la lentille rouge allumée, passe de 235,1
 /// (fond nu, identique à une lentille éteinte) à 189,5 en clair (écart 45,6) et de 37,2 à
 /// 60,6 en sombre (écart 23,4, signe inversé — le rouge sombre est plus clair que le fond

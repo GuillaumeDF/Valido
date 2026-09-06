@@ -1,6 +1,6 @@
 # Relecture des 255 questions `code` — passe 3, août 2026
 
-Troisième passe de contenu. La première ([`audit-2026-08.md`](audit-2026-08.md)) a
+Troisième passe de contenu. La première — rapport non conservé — a
 vérifié des valeurs et l'a consigné en prose ; la deuxième
 ([`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md)) a construit le registre de
 fraîcheur, la carte de couverture et le registre d'images. Celle-ci lit chaque carte

@@ -1,6 +1,6 @@
 # Audit de la banque de questions — seconde passe, août 2026
 
-Suite de [`audit-2026-08.md`](audit-2026-08.md), qui avait porté la banque de 250 à 302
+Suite d'une première passe — rapport non conservé — qui avait porté la banque de 250 à 302
 questions — 310 au moment où celle-ci démarre — et laissé quatre points ouverts. Cette passe-ci reprend l'exercice avec deux
 exigences que la première n'avait pas : **couvrir le référentiel officiel de l'ETG**, et
 **laisser derrière soi de quoi rejouer la vérification** plutôt qu'un rapport à croire.
@@ -643,7 +643,7 @@ seule copie versionnée : le ledger est ignoré par git et disparaît à la fusi
 | 28 | 20 | `62f082eb` : distracteur le plus discutable du lot, reste faux | ouvert — même frontière (§9.1) |
 | 29 | 20 | `Données` change de nature (7 → 12, dont 5 toutes SwiftData et 3 sur le seul `ModelContext`) et la difficulté dérive (9 `costaud` sur 20) | ouvert — effet voulu du comblement d'un trou ; à rééquilibrer si le thème grossit (§9.1) |
 | 30 | 20 | deux chiffres du tableau récapitulatif d'un rapport de tâche ne se reproduisent pas (un −1 pour un écart nul, un « 15 % → 14 % » pour un taux stable) | clos — erreur de calcul **dans un rapport**, jamais reprise ici (§9.2) |
-| 31 | 21 | `Tools/audit-questions.md` garde `name=iPhone 17` sans `Pro` — fichier antérieur à toute la passe, hors périmètre de tous les briefs | **absorbé en clôture** : une revue de fin de branche a trouvé le fichier faux **en bloc**, pas sur une ligne ; il est marqué **historique** en tête (§10) |
+| 31 | 21 | `Tools/audit-questions.md` garde `name=iPhone 17` sans `Pro` — fichier antérieur à toute la passe, hors périmètre de tous les briefs | **absorbé en clôture** : une revue de fin de branche a trouvé le fichier faux **en bloc**, pas sur une ligne ; il a été marqué **historique** en tête (§10), puis supprimé le 2026-09-06 |
 
 ---
 
@@ -663,12 +663,13 @@ seule copie versionnée : le ledger est ignoré par git et disparaît à la fusi
   relever une planche officielle en image plutôt que de dessiner de mémoire.
 
 Et ce qu'elle ne trouvera **pas** : un prompt d'amorçage prêt à coller.
-[`audit-questions.md`](audit-questions.md) est passé **historique** en clôture — il était
-faux sur chacun de ses chiffres, sur ses seuils de test, sur son simulateur et jusque sur
-l'absence de dépôt git, après **une seule** passe. Il n'a pas été remis à jour, et son
-en-tête dit pourquoi : il ne portait que des valeurs qui vivent déjà dans `questions.md`,
-dans ce rapport et dans `CLAUDE.md`, et un quatrième endroit où les tenir cohérents se
-périmerait de la même façon. Le brief se dérive de ces trois-là en quelques minutes.
+`audit-questions.md` est passé **historique** en clôture, puis a été supprimé le
+2026-09-06 — il était faux sur chacun de ses chiffres, sur ses seuils de test, sur son
+simulateur et jusque sur l'absence de dépôt git, après **une seule** passe. Il n'a jamais
+été remis à jour, pour la raison qui a fini par le faire disparaître : il ne portait que des
+valeurs qui vivent déjà dans `questions.md`, dans ce rapport et dans `CLAUDE.md`, et un
+quatrième endroit où les tenir cohérents se périmerait de la même façon. Le brief se dérive
+de ces trois-là en quelques minutes.
 
 Et une chose qui n'est pas prête : **448 questions ne font toujours pas un feed infini.**
 Deux passes de contenu ont porté la banque de 250 à 448 sans changer l'ordre de grandeur.

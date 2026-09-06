@@ -306,7 +306,6 @@ Ordre suggéré, chaque étape vérifiable seule :
 8. Câblage du paquet dans la cible Xcode, Swift 6, build vert.
 9. `FeedView` / `QuestionCardView` — feel, haptique, timings.
 
-Plan détaillé : `docs/superpowers/plans/2026-08-22-valido-v1.md`.
 
 ## 13. Limite connue
 

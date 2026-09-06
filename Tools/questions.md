@@ -488,9 +488,9 @@ Trois règles de conduite :
    question, parce que c'est exactement ce qu'un candidat aura lu ailleurs.
 
 Le relevé des sources déjà consultées, et la liste des points laissés ouverts, sont dans
-[`audit-2026-08.md`](audit-2026-08.md) et dans
-[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) — le second referme les quatre points
-ouverts du premier.
+[`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) et dans
+[`audit-2026-08-passe-3.md`](audit-2026-08-passe-3.md) — le premier des deux referme les
+quatre points ouverts de la passe initiale, dont le rapport n'est plus conservé.
 
 ---
 
