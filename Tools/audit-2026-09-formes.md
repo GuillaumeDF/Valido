@@ -943,3 +943,55 @@ méthode de calcul ou un objet absent de sa propre image — les trois formes qu
 §3 (`49f761c8…`). Les 21 autres flags des trois compteurs sur ce domaine sont confirmés à la
 lecture.
 
+### Arrêt & stationnement (17 cartes)
+
+Trois cartes illustrées sur dix-sept. Un contrôle structurel antérieur à cette lecture avait
+compté deux de ces trois comme des « pictos isolés » (voir `progress.md`, prédiction reprise
+dans le dispatch de cette tâche). La lecture carte par carte, et surtout le code source des
+trois scènes (`Tools/Scenes/ScenesCirculation.swift`, lignes 964-1045), donnent un résultat
+inverse : les deux scènes de ligne jaune sont accompagnées, **par construction**, d'une
+« même voiture » que le commentaire du code dit explicitement destinée à écarter la lecture
+« photo isolée contre schéma » — « Les deux sont donc dessinées, du même point de vue et avec
+la même voiture, et seule l'interruption les sépare » — et la scène en épi place « votre
+voiture » circulant le long de trois places réellement occupées, pour que « les voitures
+disent du stationnement, les places vides disent en épi ». Aucune des trois n'est donc conçue
+comme un objet de signalisation seul : la forme abandonnée par OBS-16 (panneau isolé + question
+de sens) ne s'y retrouve pas. Le « non » du domaine vient d'un mécanisme entièrement différent,
+plus bas dans le tableau.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `0a4e98c4605ec20320f13dec75f7bb9c` | semi-situé — marquage vu en contexte de rue et de trottoir, votre voiture dans la scène (code source) | règle (portée : arrêt et stationnement, pas le seul stationnement) | absolu correct contre des restrictions inventées (livraison, encombrants) | oui | l'alt-text nomme une rue et un trottoir, comme les marquages « oui » de `Panneaux & marquage` (« Chaussée à double sens… ») ; le code de la scène confirme une voiture dessinée exprès pour ne pas être « photo isolée » |
+| `639297cf3f0f433daf035978fa8ddfe5` | semi-situé — marquage vu en contexte de rue, votre voiture y circule le long de trois places réellement occupées (code source) | règle (catégorie de stationnement imposée) | trois catégories voisines (bataille/créneau/double file) | oui | scène réelle et habitée, pas un pictogramme abstrait — même précédent que les marquages « oui » de `Panneaux & marquage` |
+| `a2673bae092f3eaf438b40910de6fbd4` | semi-situé — marquage vu en contexte de rue et de trottoir, votre voiture dans la scène (code source), jumelle de `0a4e98c4` | règle (portée : stationnement seul, pas l'arrêt) | restriction fausse (heures de livraison) | oui | même précédent que sa jumelle continue |
+| `37fe1af42b8d811198bdecd01768828c` | non situé, générique | règle (condition : masque de visibilité) | lieux plausibles mais faux (parking mal éclairé, domicile) | oui | condition générale suivie d'une règle, accord avec le compteur |
+| `37fe1af42b8d811b96fdf80a7a546c1e` | non situé, générique (« on ») | règle (côté de stationnement) | inversion gauche/droite | oui | rappel réglementaire standard |
+| `37fe1af42b8d812cad07c40f6c51598c` | non situé — comparaison entre deux notions juridiques, pas une règle ou une scène unique | règle (nature comparative) | quatre options isolant chacune un critère | **non** | aucune des 24 questions du spécimen n'a cette forme : comparer deux notions plutôt que d'interroger une règle ou une scène unique, exactement le mécanisme de `cac0f9db162887802d4fb15ba97d768f` (`Vitesse`, « Entre une zone 30 et une zone de rencontre, la différence porte sur : »), déjà jugée non pour ce motif |
+| `37fe1af42b8d8134ad4be3c7e29328f1` | non situé, générique | règle (qualification : très gênant) | absolus trompeurs (avertissement, tolérance nocturne) | oui | qualification juridique, même forme que « Conduire après usage de stupéfiants est : » (`Alcool & stupéfiants`) |
+| `37fe1af42b8d8148bc29ede5a0015edd` | non situé — condition (hors agglomération), pas un moment | faire (se placer hors chaussée) | fausses bonnes pratiques (feux de détresse, double file) | oui | condition générale suivie d'une règle, accord avec le compteur |
+| `37fe1af42b8d8166847cf95009550b0a` | non situé, générique | règle (obligation d'affichage du disque) | fausses modalités (application, horodateur) | oui | c'est la carte que la spec cite elle-même en §3 comme exemple de règle générale à ne pas confondre avec une scène (« En zone bleue, vous devez : ») — confirmé ici : condition générale, pas un instant vécu |
+| `37fe1af42b8d8181a057c984708f0042` | non situé, générique | règle (chiffre-règle : montant) | montants réels voisins (90/135/375 €) | oui | chiffre-règle standard |
+| `37fe1af42b8d81d793bcc927205f9d79` | non situé, générique | règle (qualification : très gênant) | dérogations fausses (horaire, tolérance) | oui | qualification juridique, forme standard |
+| `37fe1af42b8d81e2b806fb6055602586` | non situé — procédure générale (« avant de »), pas un moment précis | faire (clignotant, angles morts, céder le passage) | fausses bonnes pratiques (klaxon, sans contrôle) | oui | procédure générale plutôt qu'un instant vécu, même famille que les cartes-condition déjà rencontrées (`9f0fe6e809948a327c918ac0b5987cf9`, `4ade42a7e2c69ec43159940235d08c5f`, `Distances & freinage`) — accord avec le compteur |
+| `37fe1af42b8d81e9b314fcb5ac447202` | non situé, générique | règle (chiffre-règle : durée) | valeurs voisines (1 mois/24 h) | oui | chiffre-règle standard |
+| `5139c357024d2a17c499b104d7a01d81` | non situé, générique | règle (chiffre-règle/qualification : périodicité) | rythmes plausibles mais faux (hebdomadaire, quotidien) | oui | chiffre-règle standard |
+| `ab50f861852232a60c2b4f29fed21b97` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (portée : qui), pas action | restrictions fausses (conducteur seul, passager seul) | oui | « vise » est hors du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; l'objet réel est bien une définition de portée, un verbe de plus à ajouter à ceux déjà recensés (« constitue », « consiste à », « a lieu », « suffisent ») |
+| `c5d4d52f1aaa89b811c8b17847338968` | non situé, générique | règle (chiffre-règle : montant) | montant voisin réel (borne de recharge, 35 €) | oui | chiffre-règle standard |
+| `e6d0b1101f0ac46d63199b5485d17c61` | non situé, générique | règle (chiffre-règle : distance) | valeurs voisines (2/10 m) | oui | chiffre-règle standard |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** un contrôle antérieur au
+chantier avait classé deux des trois illustrations de ce domaine comme des pictogrammes
+isolés, en anticipation de ce lot. Le code source des scènes dit l'inverse de son propre aveu
+— les trois commentaires cités ci-dessus décrivent un choix délibéré d'y placer un véhicule
+(le vôtre, et pour l'épi trois autres) précisément pour ne pas rejouer la forme « photo
+isolée ». Aucune des trois cartes ne correspond donc à la forme qu'OBS-16 dit abandonnée. Le
+seul « non » du domaine vient d'ailleurs : `37fe1af42b8d812cad07c40f6c51598c` compare deux
+notions juridiques (arrêt, stationnement) plutôt que de tester une règle ou une scène unique
+— structurellement identique à `cac0f9db…` (`Vitesse`), déjà jugée non pour ce motif, et sans
+lien avec l'illustration. Une nouvelle carte échappe au lexique de `forme/definitionnel`
+(`ab50f861…`, « vise »), qui rejoint la liste déjà ouverte par les domaines précédents.
+
+**Ce que les compteurs ont signalé à tort :** rien au-delà du désaccord lexical déjà nommé
+ci-dessus (`ab50f861…`) ; les autres flags des trois compteurs sur ce domaine sont confirmés à
+la lecture.
+
