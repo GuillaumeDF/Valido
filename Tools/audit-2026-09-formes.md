@@ -518,3 +518,56 @@ répertoriés en §3 (les cartes citant « puis-je », « vous dépassez », « 
 pas » restent correctement non-situées sur l'axe Ancrage — seul l'axe Personne y voit une
 première ou deuxième personne, ce que `forme/impersonnel` ne flagge d'ailleurs pas pour
 elles).
+
+### Distances & freinage (21 cartes)
+
+Domaine sans aucune carte illustrée (0/21) : le levier principal du lot 1 — pictogramme isolé
+contre OBS-16 — est structurellement indisponible ici. La quasi-totalité du contenu est un
+fait physique de sécurité (temps de réaction, distance de freinage, adhérence) que OBS-7
+range explicitement dans « conséquence ou mécanisme », une des trois catégories que porte le
+paragraphe de réponse du spécimen sur 24 questions.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `37fe1af42b8d8104b119f947eb9e296d` | non situé, générique | règle (mécanisme : distance parcourue pendant le temps de réaction) | seuil chiffré (14 m) proche d'un distracteur qui en est la moitié (7 m) | oui | fait physique de sécurité retenu par la Sécurité routière — mécanisme attesté par OBS-7, pas une définition de signe ni une scène |
+| `37fe1af42b8d811f9954e63cf1aa9ffa` | non situé, générique | procédé de calcul mental (un facteur multiplicateur), pas une règle de circulation | seuil chiffré, valeurs voisines (2/3/5/10) | non | aucune des 24 questions du spécimen n'a cette forme : OBS-7 classe les 24 paragraphes de réponse en décision, conséquence ou mécanisme, jamais en méthode de calcul mnémotechnique — cette carte teste l'astuce de calcul elle-même, pas le fait de sécurité qu'elle sert à retrouver |
+| `37fe1af42b8d812c9bb4e393d72d6df0` | non situé, générique | règle (mécanisme : la loi du carré de la vitesse) | seuil chiffré (×4) proche de distracteurs (×2, ×3, ×8) | oui | même famille que la carte précédente, mais énonce directement la relation physique plutôt qu'une méthode pour la retrouver — mécanisme attesté par OBS-7 |
+| `37fe1af42b8d812db558cb9e19e11709` | non situé, générique | règle (chiffre-règle : seuil légal, R412-12) | seuil chiffré (2 s) proche de distracteurs (1/3/4 s) | oui | rappel de seuil légal, forme standard de rappel chiffré |
+| `37fe1af42b8d815a8de7c20835afd6ac` | non situé, générique | règle (mécanisme : conversion secondes → mètres à vitesse donnée) | seuil chiffré (72 m) proche d'un distracteur qui confond avec la distance d'arrêt complète (130 m, environ le double) | oui | fait physique dérivé d'une règle légale, mécanisme attesté par OBS-7 |
+| `37fe1af42b8d817eb292c10d8effbad4` | non situé, générique | règle (mécanisme : composition réaction + freinage) | quatre options isolant chacune un facteur (réaction seule, formule au carré, freinage seul, la somme correcte) | oui | décomposition d'un mécanisme de sécurité, contenu attesté par OBS-7 (« conséquence ou mécanisme ») — à la différence de `cac0f9db…` (`Vitesse`), ce n'est pas la comparaison de deux dispositifs distincts, mais la décomposition d'un seul |
+| `37fe1af42b8d81e48a72e74c9a2454a2` | non situé — condition météo (« sur sol mouillé »), pas une scène précise | règle (mécanisme : effet de l'eau sur l'adhérence) | faux-ami (croire que l'ABS compense l'adhérence, ou que l'eau refroidit les freins) | oui | condition générale suivie d'un effet, même construction que les cartes chiffre-règle conditionnées par la météo dans `Vitesse` |
+| `37fe1af42b8d81e7a041ff53b8ef69c2` | non situé, générique | règle (barème : amende, points, suspension possible) | seuil de gravité (contravention simple contre peine complémentaire non automatique) | oui | contenu de sanction standard, correctement repéré par `forme/definitionnel` (« est sanctionné par ») |
+| `37fe1af42b8d81e98af3c07ec3728454` | non situé, générique | règle (mécanisme : moyenne retenue par la Sécurité routière) | seuil chiffré (1 s) proche de distracteurs (0,5/2/3 s) | oui | fait physique de sécurité, mécanisme attesté par OBS-7 |
+| `37fe1af42b8d81ef84ffe4578802422a` | non situé — « au volant » générique, pas une scène (cas déjà exclu en §3) | règle (conséquence : effet sur le temps de réaction) | faux-ami (croire que seul le freinage est allongé, ou que la prudence compense) | oui | rappel de conséquence, contenu attesté par OBS-7 (« conséquence »), accord avec le compteur sur l'ancrage |
+| `8ddd0cebb28376040af43feb6f52c098` | non situé, générique | règle (mécanisme : pourquoi la loi choisit les secondes plutôt que les mètres) | faux-ami (croire qu'un seuil en mètres serait plus simple à contrôler) | oui | justifie un choix de rédaction de la règle, mais le contenu testé reste le mécanisme lui-même (la distance croît avec la vitesse), attesté par OBS-7 — à la différence de la carte 2, ce n'est pas une méthode de calcul mais l'explication d'un mécanisme |
+| `f376d218b64a41796d6efebc8ad0bb2d` | non situé, générique (catégorie de véhicules : poids lourds hors agglomération) | règle (chiffre-règle : plancher en mètres, R412-12 II) | seuil chiffré (50 m) proche de distracteurs (7 m, une longueur de semi-remorque) | oui | rappel de seuil légal pour un cas particulier, forme standard |
+| `9f0fe6e809948a327c918ac0b5987cf9` | non situé — condition d'équipement (« sur un véhicule à ABS »), pas une scène | faire (technique : maintenir la pression) | faux-ami (pomper la pédale, technique pré-ABS) | oui | décision technique de conduite, forme attestée par OBS-7 (13/24 = décision) |
+| `4ade42a7e2c69ec43159940235d08c5f` | non situé — condition de conduite (« en aquaplanage »), pas une scène | faire (réaction : lever le pied) | faux-ami (freiner fort, braquer, accélérer — trois réflexes dangereux) | oui | décision face à un aléa de conduite, forme de décision attestée par OBS-7 |
+| `a225e45864e11748d6175d67476529d0` | **désaccord avec le compteur `forme/hors-situation`** — situé (scène : insertion sur autoroute depuis une bretelle) | faire (céder le passage) | faux-ami (croire l'autoroute prioritaire, ou pouvoir s'arrêter sur la bretelle) | oui | scène de conduite précise (« en vous insérant… vous »), manquée par le compteur car le verbe est un gérondif (« insérant »), absent des sept verbes listés |
+| `aad60a7453493cc6716b731af7579ebc` | non situé, générique | règle (barème : contravention légère, sans point) | faux-ami (confondre avec la sanction, bien plus lourde, de la circulation sur BAU — jumelle de la carte suivante) | oui | contenu de sanction, forme standard |
+| `a4f04a8078a925fbc8c5df10f063e065` | non situé, générique | règle (barème : infraction lourde, 135 € et 3 points) | faux-ami (confondre avec le simple arrêt sur BAU, bien plus léger) | oui | jumelle de la carte précédente, même mécanisme de contraste |
+| `0e85e6a79127a2bae73abcc119e278bd` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (qualification pénale : délit contre contravention) | seuil de gravité (récidive dans l'année suivant une condamnation définitive → délit), condition temporelle précise | oui | « constitue » est hors du lexique du compteur (est/sont/sert à/signifie/indique/impose/doit être/permet de) ; l'objet réel est une qualification juridique, même mécanisme de lexique que les 13 cartes de barème identifiées en §3, mais sur un mot différent |
+| `22e6420e179103f65f7935f717521189` | **désaccord avec le compteur `forme/hors-situation`** — situé (scène : sortie de tunnel par vent latéral) | faire (technique : ralentir avant la sortie) | faux-ami (accélérer pour « passer vite » la zone exposée) | oui | scène de conduite précise (« vous sortez… vous »), manquée par le compteur car « sortez » est absent des sept verbes listés — même angle mort que la carte `a225e458…` |
+| `36d598b80e93b695b2994fce6172eb50` | non situé — condition météo (« chaussée enneigée ou verglacée »), pas un moment précis | faire (technique : espacer, sans geste brusque) | faux-ami (croire que des pneus hiver suffisent à eux seuls) | oui | condition générale plutôt qu'un moment — accord avec le compteur, à la différence des deux cartes précédentes où un verbe à la 2e personne situe un instant |
+| `2362d0ebc53cb6de0732afe1747e9b58` | non situé, générique | règle (repère au sol pour une distance déjà fixée par la loi) | seuil chiffré (deux bandes) proche de distracteurs (une, trois bandes, un vide) | oui | rappel d'un repère pratique d'enseignement, distinct de la règle elle-même (l'explication le dit : « un repère d'enseignement… pas une règle du code ») |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** ce domaine est le premier du
+chantier sans aucune carte illustrée (0/21) — le ressort principal du lot 1 (pictogramme
+isolé contre OBS-16) ne peut donc mécaniquement produire aucun « non » ici, et il n'en
+produit aucun : le seul « non » du domaine (`37fe1af42b811f99…`) vient d'un mécanisme
+entièrement différent — une astuce de calcul mental, jamais un pictogramme — justifié par la
+taxonomie même d'OBS-7 (décision/conséquence/mécanisme), qui ne prévoit aucune case pour une
+méthode de calcul. Deux scènes réelles (`a225e458…`, `22e6420e…`) sont manquées par
+`forme/hors-situation` sur un mécanisme déjà connu (le verbe qui situe la scène n'est pas
+dans les sept listés par le compteur — ici un gérondif et un verbe de sortie, ni l'un ni
+l'autre déjà cité en §3) : ce sont deux instances nouvelles du même angle mort, propres à ce
+domaine. Une carte (`0e85e6a7…`) échappe à `forme/definitionnel` sur un mot différent des 13
+cartes de barème déjà recensées en §3 — « constitue » plutôt que « fait perdre »/« entraîne
+un retrait de » — ce qui montre que le lexique du compteur est étroit au-delà du seul angle
+mort du barème par points.
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter aux faux positifs déjà
+répertoriés en §3 sur ce domaine ; les trois désaccords ci-dessus sont des cartes que le
+compteur classe *hors situation* ou *non définitionnelles* alors qu'elles le sont, jamais
+l'inverse.
+
