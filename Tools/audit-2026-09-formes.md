@@ -622,3 +622,61 @@ chantier.
 répertoriés en §3 sur ce domaine ; les trois désaccords ci-dessus sont des cartes que le
 compteur classe *non définitionnelles* alors qu'elles le sont, jamais l'inverse.
 
+### Feux (19 cartes)
+
+Le lot 1 anticipait ce domaine comme le plus riche en « Ce feu / Ce signal » + pictogramme
+isolé après `Panneaux & marquage`. Les trois occurrences de « Ce signal » sur l'ensemble des
+255 cartes (vérifié par recherche exacte sur `questions.json`) sont bien toutes dans ce
+domaine, mais une seule des trois cartes illustrées est épargnée, et pas au titre de
+l'illustration en général : au titre de ce que son image montre.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `37fe1af42b8d81038eabdcd0f319857c` | non situé, générique | règle (obligation d'usage, R412-10) | faux-ami (croire que le clignotant n'est utile qu'en présence d'un autre usager visible) | oui | rappel de règle générale, forme standard |
+| `37fe1af42b8d8118ab59f3f1a651bb26` | image isolée — l'alt-text ne décrit que le signal (« vu de face »), aucune route, aucun contexte | règle (signification du signal) | absolu (passage prioritaire) contre une règle nuancée (passage sous réserve de la priorité) | non | image isolée + question de sens (« signifie ») — exactement la forme qu'OBS-16 nomme abandonnée par la réforme ; première des trois cartes « Ce signal » du domaine |
+| `37fe1af42b8d81659d11e27049af398e` | non situé, générique | **désaccord avec le compteur `forme/definitionnel`** — règle (barème : 4 points) | seuil chiffré (4) proche de distracteurs (1/2/6) | oui | carte de barème par points de ce domaine, l'une des 13 recensées en §3 comme échappant au lexique du compteur (« fait perdre » hors du lexique) |
+| `37fe1af42b8d8189a735d41a796aafb6` | **désaccord avec le compteur `forme/hors-situation`** — situé (moment précis : « à un feu vert »), pas une règle générale | faire (passer sous condition) | absolu (priorité absolue sur les piétons), faux-ami (croire qu'il faut accélérer pour dégager) | oui | moment précis + « vous » elliptique, manqué par le compteur car « à un feu vert » n'est ni un « ce/cette » ni l'un des sept verbes listés — même famille qu'un « À l'approche de… vous devez » déjà rescapé en §3 |
+| `37fe1af42b8d8193887bfe48eab17d43` | non situé — condition (nuit, visibilité réduite), pas une scène | règle (obligation conditionnée) | faux-ami (croire l'obligation limitée à l'autoroute ou au jour) | oui | condition suivie d'une règle, même construction que les cartes météo de `Vitesse`, accord avec le compteur |
+| `37fe1af42b8d81adbe05ccc6da87aef7` | non situé, générique | règle (fonction d'un dispositif, R416-18) | faux-ami (remerciement, autorisation de stationner) | oui | connaissance réglementaire d'équipement, forme standard |
+| `37fe1af42b8d81b1b37feb613e893fbf` | non situé — condition météo, pas une scène | règle (conditions d'usage, R416-7) | faux-ami (forte pluie seule, sans neige ni brouillard) | oui | condition météo suivie d'une règle, accord avec le compteur |
+| `37fe1af42b8d81c8af99ca09e3710b01` | **désaccord avec le compteur `forme/hors-situation`** — situé, déjà documenté en §3 comme l'un des cinq exemples trouvés par recherche ciblée | faire (passer en feux de croisement) | faux-ami (garder les feux de route, croyant que la distance suffit) | oui | scène de croisement nocturne déjà confirmée situé en §3 |
+| `37fe1af42b8d81df975dea92682dad6c` | semi-situé — l'alt-text montre la route et la voie ferrée, pas seulement le signal isolé, à la différence des deux autres cartes « Ce signal » | règle (arrêt absolu imposé par le signal) | absolu correct (« train visible ou non ») contre un faux-ami de priorité à droite | oui | contrairement aux deux autres cartes « Ce signal » du domaine (jaune clignotant seul, flèche seule sur fond neutre), l'image place le signal dans son contexte réel — route coupée par une voie ferrée — plus proche de la mise en situation que la réforme revendique |
+| `37fe1af42b8d81fc9bbbee0a1767bba6` | **désaccord avec le compteur `forme/hors-situation`** — situé (moment précis : « au feu jaune fixe, vous devez ») | faire (s'arrêter, sauf danger) | absolu nuancé (l'exception de sécurité) contre un distracteur qui traite le jaune comme le vert | oui | même angle mort que `37fe1af42b8d8189a…` : « devez » n'est pas dans les sept verbes listés par le compteur |
+| `0ac1e53ac8978390a5725830ebcff433` | non situé, générique | règle (hiérarchie : le panneau prime, indépendant du feu) | faux-ami (croire le feu prioritaire sur le panneau) | oui | rappel de hiérarchie, même forme que les cartes de hiérarchie de `Priorités & intersections`, accord avec le compteur |
+| `1782eca179c97b4c0294cb40b4938c5c` | image isolée — l'alt-text ne décrit que le boîtier et ses lampes, aucune route, aucun contexte | règle (portée de l'autorisation : direction et prudence) | faux-ami (croire l'autorisation totale, ou confondre avec un stop) | non | image isolée + question de sens (« autorise à ») — exactement la forme qu'OBS-16 nomme abandonnée, troisième carte « Ce signal » du domaine |
+| `fc0333a5ae17dd22f31bbbe63d0e8824` | non situé, générique (configuration collective, pas un « vous ») | règle (portée : qui est concerné dans la file) | contre-intuitif (l'obligation ne pèse que sur le dernier véhicule) | oui | contenu réglementaire précis, correctement repéré par le compteur (R416-18) |
+| `acaf8b468f86cd92d2b61f93637ff9dd` | non situé, générique — « devant » y a un sens spatial/structurel (le repère par défaut), pas un moment vécu ; **faux positif du compteur `forme/hors-situation`**, qui ne le flague pas à cause du seul mot « devant » | règle (repère par défaut, R412-30) | faux-ami (confondre avec le repère du stop non marqué, 5 m) | oui | rappel de repère légal, généraliste malgré le mot « devant » qui satisfait à tort le motif déictique du compteur |
+| `362d572a8e9eb2d2940513b207d2e448` | situé — scène complète (« vous roulez… derrière »), correctement repérée par le compteur | faire (passer en feux de croisement) | contre-intuitif (l'éblouissement vient du rétroviseur du véhicule suivi, pas seulement de face) | oui | carte modèle : scène, décision, sans aucun désaccord avec les compteurs |
+| `6012289234e0766392ac505dbfdbd3ae` | non situé — condition météo, pas une scène | règle (cas d'usage autorisés, R416-7) | faux-ami (limiter à un seul cas parmi les trois) | oui | condition météo suivie d'une règle, accord avec le compteur |
+| `d5505e2b6bdcdeb78eecbec2a2a2a724` | **désaccord avec le compteur `forme/hors-situation`** — situé (moment précis : arrêté de nuit sans éclairage public) | règle (ce qu'il faut montrer, R416-12) | faux-ami (confondre avec les feux de détresse ou l'antibrouillard arrière) | oui | scène nocturne précise avec « vous devez », manquée par le compteur (« montrer » hors des sept verbes listés) |
+| `a3b1d0cf8c4fde31d009c3924754bfba` | non situé — événement précis à la 3ᵉ personne (« un véhicule »), pas « vous » dans l'énoncé | faire (réaction : ralentir, fixer le bord droit) | faux-ami (l'appel de phares, tentant mais aveuglant en plus) | oui | événement concret décrit à la 3ᵉ personne, la décision elle-même n'apparaît que dans les options — accord avec le compteur, même famille que les cartes analogues de `Priorités & intersections` |
+| `1f62ee2f0d02611c04ed79a57b73412a` | **désaccord avec le compteur `forme/hors-situation`** — situé (incident précis : extinction des feux de croisement) | faire (réaction : quitter la chaussée, signaler) | faux-ami (rouler aux feux de détresse, qui n'éclairent rien) | oui | incident vécu à l'instant (« vos deux feux… s'éteignent »), manqué par le compteur car « vos » n'est pas un motif déictique couvert |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** l'avertissement du lot 1 se
+vérifie en partie seulement. Les trois occurrences de « Ce signal » de tout le corpus (255
+cartes, vérifié par recherche exacte) sont bien concentrées dans ce domaine, et deux des
+trois (`37fe1af42b8d8118ab…`, `1782eca179…`) sont bien la forme qu'OBS-16 nomme abandonnée :
+leur alt-text ne décrit que le boîtier du signal, sans route ni contexte, exactement comme
+les treize panneaux isolés de `Panneaux & marquage`. Mais la troisième (`37fe1af42b8d81df9…`,
+le passage à niveau) échappe à ce verdict pour une raison vérifiable et non discrétionnaire :
+son alt-text place le signal dans une scène — une route coupée par une voie ferrée — alors
+que les deux autres ne montrent que le boîtier lumineux seul. C'est le même test que celui qui
+distinguait déjà, dans `Panneaux & marquage`, les deux panneaux « oui » (`9eb85068…`,
+`dce501d4…`, tous deux vus depuis le poste de conduite ou dans une scène de carrefour) des
+treize panneaux « non » (disque ou losange seuls) : la présence d'un environnement dans
+l'image, pas la présence d'une image tout court. Par ailleurs, ce domaine est riche en scènes
+à « vous + verbe non listé » que le compteur manque : cinq cartes (`37fe1af42b8d8189a…`,
+`37fe1af42b8d81c8af…` déjà connue de §3, `37fe1af42b8d81fc9b…`, `d5505e2b…`, `1f62ee2f…`)
+décrivent un moment précis vécu par le candidat sur des verbes ou des tournures absents des
+sept listés par `DEICTIQUE` (devez, montrer, vos + verbe pronominal, un lieu bref comme « à un
+feu vert ») — quatre de ces cinq sont des instances nouvelles, non répertoriées dans
+l'échantillon de six déjà cité en §3.
+
+**Ce que les compteurs ont signalé à tort :** `acaf8b468f86cd92d2b61f93637ff9dd` n'est PAS
+flaggé `forme/hors-situation` alors qu'il n'est pas situé à la lecture — le mot « devant » y a
+un sens spatial et structurel (le repère par défaut de l'arrêt), pas un moment vécu, et
+satisfait pourtant le motif déictique du compteur. C'est le premier faux positif de ce
+compteur rencontré dans ce chantier sur son propre motif (les faux positifs précédents
+touchaient `forme/seule-ponctuee`, jamais `forme/hors-situation` lui-même) : une confirmation
+concrète de la réserve déjà écrite en §3, où « devant » figure parmi les motifs susceptibles
+de sur-déclencher.
