@@ -762,3 +762,61 @@ dehors du levier pictogramme dans les domaines déjà lus.
 **Ce que les compteurs ont signalé à tort :** rien à ajouter aux quatre désaccords déjà
 nommés ci-dessus dans le tableau.
 
+### Premiers secours (18 cartes)
+
+Seul domaine du chantier dont les sources ne sont pas juridiques — Croix-Rouge, ERC, INRS
+plutôt que Légifrance — et le spécimen porte une unique question de ce thème, Q10 (« Gestes
+de premier secours », réponses A, C). Sans accès à l'énoncé littéral de Q10 ni à ses options,
+la seule chose que le corpus permet de comparer est le registre du paragraphe de réponse : Q10
+est à la première personne comme 21 des 24 questions (OBS-1), ce qui n'est pas un trait
+distinctif du domaine — le changement de nature des sources ne dit rien sur la forme (§1 : le
+registre ne fonde jamais un verdict). Sur la forme elle-même, en revanche, ce domaine est le
+seul du chantier à faire apparaître une structure d'options que le spécimen ne peut pas
+justifier : deux cartes proposent quatre permutations d'une même liste de trois gestes plutôt
+que quatre faits distincts — la réponse à la question posée par la tâche sur ce point.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `1ef7d3ed540293c212d9c304ffb297f5` | non situé — condition (« face à »), pas un moment | faire (décision : premier geste) | gestes populaires mais faux (corps gras, glace, percer les cloques) | oui | décision de premier secours, forme attestée par OBS-7 (décision), correctement repérée par le compteur définitionnel |
+| `37fe1af42b8d810ca665ffa0e4b32ab7` | non situé, générique | règle (chiffre-règle : numéro d'urgence) | confusion avec d'autres numéros à trois chiffres (115/119/197) | oui | fait chiffré simple, forme standard de rappel |
+| `37fe1af42b8d8122b00cdea4e4368822` | non situé, générique | règle (chiffre-règle : numéro d'urgence) | confusion entre numéros d'urgence (15/17/18/112) | oui | même famille que la carte précédente, forme standard |
+| `37fe1af42b8d81418280fb4ce8ce85d2` | non situé — condition générale (« en cas de »), pas un moment | faire (décision : comprimer) | gestes contre-productifs (donner à boire, surélever la tête, attendre sans agir) | oui | décision de premier secours, condition générale, accord avec le compteur |
+| `37fe1af42b8d8175a7fccbffc2d6bcfa` | non situé, générique | règle (condition : danger immédiat) | options plausibles (sur demande, pour le confort, secouriste présent) qui ne suffisent pas | oui | règle conditionnelle standard, forme attestée |
+| `37fe1af42b8d817b9035c1079ede5c00` | non situé, générique | règle (chiffre-règle : distance, 30 m) | emplacements absurdes (coffre, toit, devant le véhicule) contre la distance réelle | oui | chiffre-règle standard |
+| `37fe1af42b8d817bb145f7084044c24e` | non situé — condition générale récurrente (« lorsque »), pas un moment précis — accord avec le compteur | faire (décision : quoi indiquer) | fausse pertinence (immatriculation des véhicules) contre l'information réellement utile | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur, à la différence de `5fe77bbd…` plus bas |
+| `37fe1af42b8d81a092bee8d2faab6224` | non situé — événement décrit à la 3ᵉ personne générique, pas « vous » | règle (consigne : ne pas retirer) | contre-intuitif (on pourrait croire qu'il faut dégager les voies aériennes, vrai seulement si la victime ne respire plus) | oui | consigne de premier secours à la 3ᵉ personne générique, accord avec le compteur, même famille que les cartes analogues déjà lues (`Priorités & intersections`, `Feux`) |
+| `37fe1af42b8d81b592ede04857b093b4` | non situé, générique | faire (décision : position latérale de sécurité) | positions plausibles mais dangereuses (semi-assise, sur le dos, assise) | oui | décision de premier secours standard, forme attestée |
+| `37fe1af42b8d81f1b1cdfef31d2461b8` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Protéger/Alerter/Secourir) | quatre permutations d'une même liste, un contraste par ordre seul | non | aucune des 24 questions du spécimen n'a cette forme : OBS-7 classe les 24 paragraphes de réponse en décision, conséquence ou mécanisme, jamais en réordonnancement d'une liste fixe — une structure d'options sans équivalent dans le spécimen |
+| `37fe1af42b8d81f7a214d5130ad370f4` | non situé — condition/procédure générale (« pour »), pas un moment précis — accord avec le compteur | faire (décision : baliser) | fausse bonne action (déplacer les victimes, photographier) contre le balisage réel | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur |
+| `7d456e77187812e3a27ca828062d7938` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Alerter/Masser/Défibriller) | quatre permutations d'une même liste, un contraste par ordre seul | non | même motif que `37fe1af42b8d81f1b1cdfef31d2461b8` — aucune des 24 questions du spécimen n'a cette forme (OBS-7), options structurées en permutations d'une liste fixe |
+| `b9e656cbd3507444669c24c85777cb54` | non situé, générique | règle (qui peut l'utiliser) | restrictions plausibles mais fausses (secouriste PSC1 seulement, sous instruction du 15) | oui | règle d'usage attestée, forme standard |
+| `5fe77bbd3af80ab119da8b5a2686b39c` | **désaccord avec le compteur `forme/hors-situation`** — situé (scène précise et singulière : seul, victime consciente et coincée), déjà documenté en §3 comme l'un des trois cas trouvés par une relecture indépendante | faire (décision : alerter et rester) | fausse bonne action (dégager la victime) contre la réalité (geste technique réservé aux secours) | oui | scène précise et singulière, confirmée située en §3 |
+| `fb24f6323a07a07c776d55163d42e028` | non situé, générique | règle (chiffre-règle : 100 à 120 compressions/min) | valeurs voisines qui se chevauchent (60-80/140-160/35-55) | oui | chiffre-règle standard, mécanisme attesté par OBS-7 |
+| `82a9e65c1cf2ff4a1a1a944ab59c59f9` | non situé, générique | règle (chiffre-règle : 5 à 6 cm) | valeurs voisines (1-2/3-4/8-10 cm) | oui | chiffre-règle standard, mécanisme attesté |
+| `d724a3c3121fafd733552c7d2ba1f5aa` | non situé — 3ᵉ personne générique (« le sauveteur ») | règle (chiffre-règle : rapport 30/2) | grille de quatre couples de valeurs (30/2, 15/2, 30/5, 15/5) | oui | chiffre-règle standard, condition explicite, accord avec le compteur |
+| `5e2dbc048917ecebcccbc8d54888acb3` | non situé — sujet impersonnel (« on ») | faire (décision : position) | positions plausibles mais physiologiquement inadaptées (PLS, assise, ventre) | oui | décision de premier secours, forme standard |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** les deux cartes de
+réordonnancement (`37fe1af42b8d81f1b1cdfef31d2461b8`, `7d456e77187812e3a27ca828062d7938`) ne
+sont signalées par aucun compteur comme structurellement particulières — `forme/definitionnel`
+les flague toutes les deux, ce qui est juste sur le plan lexical (leurs prompts finissent par
+« est :») mais ne dit rien de la structure de leurs options. C'est la lecture carte par carte
+qui les distingue : leurs quatre options recyclent exactement les mêmes mots dans un ordre
+différent, une construction qu'aucune des trois catégories d'OBS-7 (décision, conséquence,
+mécanisme) ne prévoit, et que le spécimen — borné aux paragraphes de réponse, jamais aux
+options elles-mêmes — ne peut pas attester. Par ailleurs, `5fe77bbd3af80ab119da8b5a2686b39c`
+confirme, sur un troisième domaine, le faux négatif de `forme/hors-situation` déjà documenté
+en §3 (scène singulière, « premier sur un accident, seul… », manquée car aucun verbe listé ne
+la couvre) ; deux autres cartes à « vous » (`…alertez les secours`, `…protéger une zone
+d'accident`) auraient pu sembler du même type mais s'en distinguent à la lecture : ce sont des
+procédures générales (« lorsque »/« pour »), pas des instants narrés — accord avec le
+compteur, à la différence de `5fe77bbd…`.
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter au faux négatif de
+`forme/hors-situation` déjà nommé en §3 (`5fe77bbd3af80ab119da8b5a2686b39c`, confirmé ici sur
+un troisième domaine). Les 7 cartes flaggées `forme/definitionnel` (numéro d'urgence ×2,
+victime à ne déplacer que sous condition, position latérale de sécurité, les deux cartes de
+réordonnancement, premier geste face à une brûlure) sont bien de forme définitionnelle à la
+lecture — le compteur ne se trompe pas sur son propre motif lexical, même quand la carte est
+par ailleurs jugée « non » pour une raison structurelle qu'il ne mesure pas.
+
