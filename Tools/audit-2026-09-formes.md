@@ -369,6 +369,24 @@ prompt est impersonnel, donc inadmissible » ferait dire au corpus plus qu'il ne
 exactement ce que §1 interdit. `forme/impersonnel` (199/255 cartes) reste donc, ici comme
 dans les lectures à venir, un **descripteur**, jamais un critère d'admissibilité.
 
+**Ce que le critère n'a jamais pu tester non plus : la forme des options.** OBS-4 le dit dès
+la strate 1 : « le PDF ne montre ni l'énoncé ni les propositions elles-mêmes » — le nombre
+même de propositions (quatre, A à D) y est déduit, jamais observé. Un verdict qui reposerait
+sur « aucune des 24 questions du spécimen n'a cette structure d'options » ferait donc
+l'inverse exact de ce que le critère autorise : conclure d'un silence plutôt que d'une forme
+absente — un corpus qui ne montre aucune proposition ne peut ni l'attester ni la réfuter. Une
+première lecture de `Premiers secours` (tâche 13) l'a fait sur deux cartes dont les quatre
+options réordonnent une même liste de trois gestes (Protéger/Alerter/Secourir,
+Alerter/Masser/Défibriller) — corrigé en `oui` (Ruling 22, 2026-09-06) : la structure reste
+la plus singulière relevée sur les 190 cartes lues à ce stade, mais son inadmissibilité ne
+peut pas s'établir contre un corpus qui ne montre aucune proposition.
+
+Ce n'est pas un oubli de la lecture : c'est une limite du corpus, la seconde après le
+registre. La première (ci-dessus) porte sur le `prompt` — mesurable, mais distinct de
+l'énoncé littéral du spécimen ; celle-ci porte sur les options — ni mesurables, ni même
+observées. Ensemble, elles disent ce que le critère ne pourra jamais trancher : le registre
+du prompt, et la forme des propositions.
+
 ### Panneaux & marquage (27 cartes)
 
 | id | ancrage | objet | piège | se poserait à l'examen ? | motif |
@@ -770,10 +788,13 @@ de premier secours », réponses A, C). Sans accès à l'énoncé littéral de Q
 la seule chose que le corpus permet de comparer est le registre du paragraphe de réponse : Q10
 est à la première personne comme 21 des 24 questions (OBS-1), ce qui n'est pas un trait
 distinctif du domaine — le changement de nature des sources ne dit rien sur la forme (§1 : le
-registre ne fonde jamais un verdict). Sur la forme elle-même, en revanche, ce domaine est le
-seul du chantier à faire apparaître une structure d'options que le spécimen ne peut pas
-justifier : deux cartes proposent quatre permutations d'une même liste de trois gestes plutôt
-que quatre faits distincts — la réponse à la question posée par la tâche sur ce point.
+registre ne fonde jamais un verdict). Sur la forme elle-même, ce domaine fait apparaître la
+structure la plus singulière relevée dans ce chantier — deux cartes dont les quatre options
+réordonnent une même liste de trois gestes plutôt que d'opposer quatre faits distincts — mais
+le corpus ne montre jamais les options d'une question du spécimen (OBS-4) : il ne peut donc ni
+attester ni réfuter cette structure, et les deux cartes restent `oui` (Ruling 22, voir le
+blind-spot ajouté en tête de section 4). C'est une observation, pas un verdict : le domaine ne
+diffère pas de forme sur cet axe, faute d'un corpus capable d'en juger.
 
 | id | ancrage | objet | piège | se poserait à l'examen ? | motif |
 |---|---|---|---|---|---|
@@ -786,9 +807,9 @@ que quatre faits distincts — la réponse à la question posée par la tâche s
 | `37fe1af42b8d817bb145f7084044c24e` | non situé — condition générale récurrente (« lorsque »), pas un moment précis — accord avec le compteur | faire (décision : quoi indiquer) | fausse pertinence (immatriculation des véhicules) contre l'information réellement utile | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur, à la différence de `5fe77bbd…` plus bas |
 | `37fe1af42b8d81a092bee8d2faab6224` | non situé — événement décrit à la 3ᵉ personne générique, pas « vous » | règle (consigne : ne pas retirer) | contre-intuitif (on pourrait croire qu'il faut dégager les voies aériennes, vrai seulement si la victime ne respire plus) | oui | consigne de premier secours à la 3ᵉ personne générique, accord avec le compteur, même famille que les cartes analogues déjà lues (`Priorités & intersections`, `Feux`) |
 | `37fe1af42b8d81b592ede04857b093b4` | non situé, générique | faire (décision : position latérale de sécurité) | positions plausibles mais dangereuses (semi-assise, sur le dos, assise) | oui | décision de premier secours standard, forme attestée |
-| `37fe1af42b8d81f1b1cdfef31d2461b8` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Protéger/Alerter/Secourir) | quatre permutations d'une même liste, un contraste par ordre seul | non | aucune des 24 questions du spécimen n'a cette forme : OBS-7 classe les 24 paragraphes de réponse en décision, conséquence ou mécanisme, jamais en réordonnancement d'une liste fixe — une structure d'options sans équivalent dans le spécimen |
+| `37fe1af42b8d81f1b1cdfef31d2461b8` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Protéger/Alerter/Secourir) | quatre permutations d'une même liste, un contraste par ordre seul | oui | forme inhabituelle — la plus singulière relevée dans ce chantier — mais requalifiée en oui (Ruling 22) : OBS-4 dit que le PDF ne montre aucune proposition, donc le corpus ne peut ni attester ni réfuter une structure d'options ; « aucune des 24 questions n'a cette forme » aurait été un argument tiré du silence, pas d'une forme absente |
 | `37fe1af42b8d81f7a214d5130ad370f4` | non situé — condition/procédure générale (« pour »), pas un moment précis — accord avec le compteur | faire (décision : baliser) | fausse bonne action (déplacer les victimes, photographier) contre le balisage réel | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur |
-| `7d456e77187812e3a27ca828062d7938` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Alerter/Masser/Défibriller) | quatre permutations d'une même liste, un contraste par ordre seul | non | même motif que `37fe1af42b8d81f1b1cdfef31d2461b8` — aucune des 24 questions du spécimen n'a cette forme (OBS-7), options structurées en permutations d'une liste fixe |
+| `7d456e77187812e3a27ca828062d7938` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Alerter/Masser/Défibriller) | quatre permutations d'une même liste, un contraste par ordre seul | oui | même motif que `37fe1af42b8d81f1b1cdfef31d2461b8` — forme inhabituelle mais requalifiée en oui (Ruling 22) : le corpus ne montre aucune proposition (OBS-4), il ne peut donc pas établir l'absence de cette structure d'options |
 | `b9e656cbd3507444669c24c85777cb54` | non situé, générique | règle (qui peut l'utiliser) | restrictions plausibles mais fausses (secouriste PSC1 seulement, sous instruction du 15) | oui | règle d'usage attestée, forme standard |
 | `5fe77bbd3af80ab119da8b5a2686b39c` | **désaccord avec le compteur `forme/hors-situation`** — situé (scène précise et singulière : seul, victime consciente et coincée), déjà documenté en §3 comme l'un des trois cas trouvés par une relecture indépendante | faire (décision : alerter et rester) | fausse bonne action (dégager la victime) contre la réalité (geste technique réservé aux secours) | oui | scène précise et singulière, confirmée située en §3 |
 | `fb24f6323a07a07c776d55163d42e028` | non situé, générique | règle (chiffre-règle : 100 à 120 compressions/min) | valeurs voisines qui se chevauchent (60-80/140-160/35-55) | oui | chiffre-règle standard, mécanisme attesté par OBS-7 |
@@ -803,22 +824,26 @@ les flague toutes les deux, ce qui est juste sur le plan lexical (leurs prompts 
 « est :») mais ne dit rien de la structure de leurs options. C'est la lecture carte par carte
 qui les distingue : leurs quatre options recyclent exactement les mêmes mots dans un ordre
 différent, une construction qu'aucune des trois catégories d'OBS-7 (décision, conséquence,
-mécanisme) ne prévoit, et que le spécimen — borné aux paragraphes de réponse, jamais aux
-options elles-mêmes — ne peut pas attester. Par ailleurs, `5fe77bbd3af80ab119da8b5a2686b39c`
-confirme, sur un troisième domaine, le faux négatif de `forme/hors-situation` déjà documenté
-en §3 (scène singulière, « premier sur un accident, seul… », manquée car aucun verbe listé ne
-la couvre) ; deux autres cartes à « vous » (`…alertez les secours`, `…protéger une zone
-d'accident`) auraient pu sembler du même type mais s'en distinguent à la lecture : ce sont des
-procédures générales (« lorsque »/« pour »), pas des instants narrés — accord avec le
-compteur, à la différence de `5fe77bbd…`.
+mécanisme) ne prévoit. La première version de cette lecture en avait conclu un « non » —
+« aucune des 24 questions du spécimen n'a cette forme » — mais c'était tirer une conclusion
+d'un silence : le spécimen ne montre jamais ses propres options (OBS-4), donc rien dans ce
+corpus ne peut établir qu'une structure d'options y est absente. Corrigé en `oui` (Ruling 22,
+2026-09-06) ; le nouveau blind-spot en tête de section 4 porte cette limite pour les lectures
+à venir. Par ailleurs, `5fe77bbd3af80ab119da8b5a2686b39c` confirme, sur un troisième domaine,
+le faux négatif de `forme/hors-situation` déjà documenté en §3 (scène singulière, « premier
+sur un accident, seul… », manquée car aucun verbe listé ne la couvre) ; deux autres cartes à
+« vous » (`…alertez les secours`, `…protéger une zone d'accident`) auraient pu sembler du même
+type mais s'en distinguent à la lecture : ce sont des procédures générales (« lorsque »/
+« pour »), pas des instants narrés — accord avec le compteur, à la différence de `5fe77bbd…`.
 
 **Ce que les compteurs ont signalé à tort :** rien à ajouter au faux négatif de
 `forme/hors-situation` déjà nommé en §3 (`5fe77bbd3af80ab119da8b5a2686b39c`, confirmé ici sur
 un troisième domaine). Les 7 cartes flaggées `forme/definitionnel` (numéro d'urgence ×2,
 victime à ne déplacer que sous condition, position latérale de sécurité, les deux cartes de
 réordonnancement, premier geste face à une brûlure) sont bien de forme définitionnelle à la
-lecture — le compteur ne se trompe pas sur son propre motif lexical, même quand la carte est
-par ailleurs jugée « non » pour une raison structurelle qu'il ne mesure pas.
+lecture, y compris les deux cartes de réordonnancement — le compteur ne se trompe pas sur son
+propre motif lexical ; ce qu'il ne mesure pas (la structure des options) n'est pas non plus ce
+que le corpus permet de trancher.
 
 ### Alcool & stupéfiants (18 cartes)
 
