@@ -896,3 +896,50 @@ complète et normale, pas un défaut de forme ; comme déjà noté pour `Priorit
 intersections`, le compteur mesure l'absence de ponctuation interne chez les distracteurs, pas
 une brièveté suspecte de la bonne réponse. Rien à ajouter au faux positif de
 `forme/hors-situation` déjà nommé ci-dessus.
+
+### Usagers & partage de la route (18 cartes)
+
+Quatre cartes illustrées sur dix-huit, et aucune n'est un pictogramme isolé : les quatre
+scènes (feu + sas cycliste, dépassement d'un cycliste, angle mort d'un poids lourd, bus à
+l'arrêt) montrent toutes un véhicule ou un usager placé dans un contexte de conduite, jamais
+un panneau ou un signal seul sur fond neutre — vérifié à la fois sur l'alt-text et sur le
+code source des scènes (`Tools/Scenes/ScenesCirculation.swift`, fonctions `rueBordeeDeDeuxTrottoirs`/`chausseeADoubleSens` plutôt que la scène de panneau isolé de `ScenesPanneaux.swift`). Aucun autre domaine de ce lot ne recoupe le
+sujet du spécimen sur un thème aussi net (usagers vulnérables, Q2/Q9/Q11), mais le sujet
+n'y est jamais confondu avec la forme.
+
+| id | ancrage | objet | piège | se poserait à l'examen ? | motif |
+|---|---|---|---|---|---|
+| `39fa27d59e28817c42382c5f4f4e2fc0` | situé — scène de feu et de sas cycliste, vue depuis le poste de conduite | faire (où arrêter le véhicule) | deux lignes d'arrêt proches, confusion sur celle qui vaut pour les véhicules motorisés | oui | scène réelle de conduite (feu + marquage), pas un pictogramme isolé — exactement la forme qu'OBS-16 dit visée par la réforme |
+| `9b774739866a136e7c2a9bd69b2f417d` | situé — scène de dépassement d'un cycliste, distance à tenir | faire (respecter la distance) | seuil chiffré précis (1 m/1,5 m) proche de distracteurs voisins | oui | scène concrète où le chiffre-règle est la réponse même, même forme que les cartes autoroutières de `Vitesse` déjà jugées oui |
+| `c29b2e7d758f0d17e790fa40f6e83313` | semi-situé — vue de dessus des zones d'angle mort, votre voiture placée dans la plus large | faire (se laisser distancer) | option qui rapproche encore du poids lourd, contre-intuitive | oui | scène réelle (position relative au camion), pas un pictogramme abstrait — même précédent que `2c0a147d9ba6e61b52c7639089b6f118` (`Mécanique & environnement`), vue non depuis le poste de conduite mais scène concrète |
+| `f6ef205dcb2d32c5f30ca6ee69a673c8` | situé — scène de bus à l'arrêt, clignotants allumés | faire (ralentir, laisser reprendre la file) | absolu trompeur (« il vous cède le passage ») | oui | scène de conduite complète et décision claire — forme exemplaire au sens d'OBS-16 |
+| `058434ed65eee628aefe05ac54ff92d1` | non situé, générique | règle (chiffre-règle : rayon de 50 m) | seuil chiffré proche de distracteurs (10/20/100 m) | oui | chiffre-règle standard, accord avec le compteur |
+| `0b13aed9a8d54d809ec67944c7033775` | non situé, générique | règle (portée d'une interdiction) | absolu trompeur (« interdite partout ») contre une exception réelle | oui | qualification juridique attestée, même forme que « Conduire après usage de stupéfiants est : » (`Alcool & stupéfiants`, jugée oui) |
+| `45d84549ac552870982bf1315f9a8151` | non situé, générique | règle (où circuler) | absolu trompeur (« n'importe quelle route ») | oui | rappel réglementaire standard, accord avec le compteur |
+| `49f761c8ac8bd10ed3bf685b1b112f6c` | **désaccord avec le compteur `forme/hors-situation`** — situé (dépassement d'un autocar scolaire qui fait descendre des enfants), déjà documenté en §3 comme l'un des cinq exemples trouvés par recherche ciblée | faire (réduire l'allure) | absolu trompeur (« la voie étant libre ») | oui | scène de conduite réelle, confirmée en §3 |
+| `5f426e8e0d2326304689478d90b749fc` | non situé, générique | règle (qualification : règle du code depuis 2025, pas une expérimentation) | ancien statut expérimental recyclé en distracteur | oui | qualification juridique, forme standard ; la date figure dans une option, pas dans l'énoncé — à la différence de `337bfcb4d034b62de5fe0d77ca0cb0a0` (`Vitesse`, jugée partiel pour une datation « dans l'énoncé même »), aucun artefact de datation dans le prompt ici |
+| `7c2284d4cc7f32e90ce8926470fd656a` | non situé, générique (3ᵉ personne, « un enfant ») | règle (condition d'âge) | seuil d'âge proche de distracteurs (douze/dix-huit ans) | oui | connaissance réglementaire, accord avec le compteur |
+| `82b915c28f76ff1314ecc8cbc927f9b3` | non situé, générique | règle (portée : qui, où) | restriction fausse (âge du passager, lieu) | oui | rappel d'obligation, forme standard |
+| `9eed1fe645eb99123b9a86e348b55f99` | non situé, générique | règle (portée : quels véhicules) | seuil de tonnage proche (12 t) | oui | rappel réglementaire standard |
+| `a6fb8c0684dce67923a3207ee19171c9` | non situé, générique | règle (chiffre-règle : deux plafonds) | valeurs voisines (30/50/70 km/h) | oui | chiffre-règle standard, même famille que les cartes de `Vitesse` |
+| `b7b38d7ae1faf0dd593a1a2446b59ee6` | non situé, générique (3ᵉ personne, « un piéton ») | règle (position : gauche/droite) | absolu trompeur (jour/nuit inversés) | oui | connaissance réglementaire standard |
+| `bf6922c59ca8a1e934e50b69699af54e` | non situé, générique | règle (portée : qui, âge) | seuil d'âge proche (douze ans) | oui | rappel d'obligation, forme standard |
+| `d3f45f8d29cf6fb411382286877af9ca` | non situé, générique | règle (chiffre-règle : âge minimal) | valeurs voisines (12/16/18 ans) | oui | la règle testée est un chiffre — forme définitionnelle appropriée, comme l'anticipe la consigne |
+| `e6f52409aaec9cc7d19ca28837113023` | non situé, générique (3ᵉ personne, « celui qui pousse ») | règle (position : gauche/droite) | absolu trompeur (« où il veut ») | oui | connaissance réglementaire standard |
+| `fe6c39082afe1716a7cfe42d968635a8` | non situé, générique | règle (chiffre-règle : vitesse par construction) | valeurs voisines (20/30/45 km/h) | oui | la règle testée est un chiffre — forme définitionnelle appropriée |
+
+**Ce que la lecture a vu et que les compteurs n'ont pas vu :** les quatre illustrations de ce
+domaine sont, sans exception, des scènes construites autour d'un véhicule ou d'un usager en
+mouvement — jamais un objet de signalisation seul. Vérifié au niveau du code des scènes, pas
+seulement de l'alt-text : `angle-mort-poids-lourd`, `bus-quittant-arret`, `sas-cycliste-feu`
+et `depassement-cycliste-distance` appellent toutes une fonction de rue ou de chaussée
+(`rueBordeeDeDeuxTrottoirs`, `chausseeADoubleSens`-like), jamais la scène de panneau isolé de
+`ScenesPanneaux.swift`. Un seul désaccord, déjà connu de §3 (`49f761c8…`, l'autocar
+scolaire). Aucune carte du domaine ne repose sur une comparaison de deux dispositifs, une
+méthode de calcul ou un objet absent de sa propre image — les trois formes qui produisent un
+« non » ailleurs dans ce chantier en dehors du seul levier pictogramme.
+
+**Ce que les compteurs ont signalé à tort :** rien à ajouter au faux positif déjà documenté en
+§3 (`49f761c8…`). Les 21 autres flags des trois compteurs sur ce domaine sont confirmés à la
+lecture.
+
