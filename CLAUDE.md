@@ -56,7 +56,10 @@ Trois compteurs de forme sont nés le 2026-09-06 avec le diagnostic
 **informatifs**, comme `longueur/plus-longue`, et ne rejoignent pas les compteurs devant
 rester vides : ils mesurent l'écart de forme avec l'épreuve réelle, pas un défaut. Les
 faire baisser pour eux-mêmes est un contresens — sur une carte de signalisation, un énoncé
-impersonnel est souvent la forme juste. Leurs valeurs de départ sont dans le §3 du rapport.
+impersonnel est souvent la forme juste. Leurs valeurs de départ sont dans le §3 du rapport ;
+sa section « Ce que l'outillage ne voit pas » et sa recommandation chiffrée (§4, les 255
+cartes lues à la main, 230 `oui` / 3 `partiel` / 22 `non`) sont l'entrée de toute décision de
+réécriture — ne pas la rejouer de mémoire, la relire.
 
 **Les deux chiffres qui ont bougé à la passe 3 sont voulus, ce ne sont pas des dérives.**
 `longueur/plus-longue` **97 → 76** : tout le mouvement est côté `code` (34 → 13), obtenu en

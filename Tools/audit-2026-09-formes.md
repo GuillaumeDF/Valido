@@ -238,7 +238,9 @@ reste ci-dessus, dans « Ce que ce corpus ne peut pas dire » :
 - **Format** — réduit au nombre de **réponses correctes acceptées** ; la **longueur** des
   propositions sort de la grille (OBS-3, OBS-9).
 - **Piège** — **retiré** (OBS-14).
-- **Poids** — **retiré**, et `couverture/poids` ne sera pas écrit (raison ci-dessus).
+- **Poids** — **retiré**, et `couverture/poids` ne sera pas écrit (raison ci-dessus, dans
+  « Ce que ce corpus ne peut pas dire » : `couverture/poids` n'est pas établissable depuis ce
+  corpus).
 
 ## 2. La grille
 
@@ -308,7 +310,7 @@ baisser pour eux-mêmes viderait les cartes, ce que la passe 3 a appris à ses d
 | compteur | effectif sur 255 | faux positifs relevés | ce qu'il mesure vraiment |
 |---|---|---|---|
 | `forme/impersonnel` | 199 | 0 relevé — recherché sur « on doit/peut », « doit-on », « tu/nous/ton/ta/tes » et l'élision `j’` (apostrophe courbe) dans les 199 cartes flaggées : aucune occurrence. | L'absence de marqueur de première ou deuxième personne (vous/votre/vos/je/mon/ma/mes/j') dans `prompt` — un test de présence, sans ambiguïté sur ce lexique-là. Le critère « ni verbe à l'impératif en tête » de la spec §3 a été abandonné en cours de tâche 3 sans motif écrit ; vérifié après coup, aucun `prompt` des 255 cartes `code` n'ouvre sur un impératif nu — l'abandon ne change donc rien sur la banque actuelle, mais serait à rouvrir si une future carte s'écrivait « Ralentissez dès que : ». |
-| `forme/hors-situation` | 200 | **4-6 % estimés**, pas un compte exhaustif. Ma recherche ciblée (`vous croisez`, `vous doublez`, `à l'approche de` + « vous devez », `face à`) en avait trouvé 5/200 (2,5 %) : `De nuit hors agglomération, vous croisez un véhicule…`, `Vous croisez une voie de tramway…`, `Vous doublez un autocar qui fait descendre des enfants…`, `À l'approche d'un carrefour à sens giratoire…, vous devez :`, `Face à un motard accidenté qui respire, son casque :`. Une relecture indépendante, sur un échantillon distinct, en trouve davantage — trois cartes que ma propre recherche n'avait pas prises : `Premier sur un accident, seul, face à une victime consciente et coincée, vous devez :`, `Un véhicule s'apprête à vous dépasser. Vous devez :`, `Un feu de circulation et un panneau de priorité se contredisent. Lequel suivez-vous ?`. Ni l'une ni l'autre lecture n'est exhaustive sur les 200 : le chiffre est une estimation à méthode déclarée (deux échantillons, pas un dépouillement complet), pas une précision. **Le trou de couverture qui explique l'écart** : une scène posée en prose, sans démonstratif ni verbe de déplacement, échappe au motif — et aucun élargissement lexical ne la rattrape sans marquer comme situées des règles générales qui ne le sont pas (« En zone bleue, vous devez : » serait, à tort, marquée comme située si `devez` rejoignait la liste de verbes — c'est une règle générale, pas une scène ; et ce que `Lequel suivez-vous ?` situe, c'est « se contredisent », une scène posée en prose, pas l'inversion interrogative). Des tournures voisines examinées et **écartées** du décompte, parce qu'elles ne sont pas des scènes malgré une tournure proche : `Si vous doublez votre vitesse…` (relation numérique, pas une scène), `Vous dépassez de 30 km/h…` (excès chiffré, pas un dépassement), `Tenir son téléphone en main au volant…` / `La fatigue ou l'usage du téléphone au volant…` (« au volant » générique), `À l'approche d'une intersection, le dépassement :` / `…d'un passage pour piétons, dépasser est :` (règle générale, pas une scène précise). **Ce que le compteur anchre réellement, mesuré deux fois indépendamment** : il coïncide avec « la carte n'a pas d'illustration » sur 249 des 255 cartes (97,6 %) — le test déictique n'en repêche que 6 sur les 206 cartes sans illustration, dont 2 sur un « ces »/« ce » anaphorique plutôt qu'un déictique de scène (`Parmi ces effets, lequel est causé par l'alcool au volant ?`, `Après une infraction ayant entraîné le retrait d'1 point, ce point est récupéré :`). Côté illustré, 44 des 49 cartes matcheraient `DEICTIQUE` même sans l'exemption d'image, et 26 d'entre elles le font sur un pointeur vers l'image elle-même (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3). **La conséquence, à écrire parce qu'elle est le point** : le compteur classe comme ancrée exactement la forme dont OBS-16 dit que la réforme de 2016 l'a abandonnée (« le seul panneau et la connaissance de sa signification »). Il ne peut donc **ni** servir de cible à une réécriture **ni** être corrigé en élargissant `DEICTIQUE` — il faudrait au contraire le *restreindre*, ce qui déplacerait une ligne de base publiée aujourd'hui même (200) et retenue parmi les huit compteurs que ce chantier ne doit pas faire bouger. Sans cette dernière clause, un lecteur ultérieur conclut « il suffit d'élargir le motif » ; la mesure dit l'inverse. | La part de cartes Valido sans mise en situation explicite (`ce/cette/cet/ces` + nom, `ici/devant/derrière`, ou `vous` + un verbe de sept listés) et sans illustration — **un diagnostic interne à Valido, comparé à aucun taux de l'épreuve réelle** (aucun n'est mesurable depuis ce corpus, cf. §1). Ne jamais relire ce chiffre comme une cible. |
+| `forme/hors-situation` | 200 | **4-6 % estimés**, pas un compte exhaustif. Ma recherche ciblée (`vous croisez`, `vous doublez`, `à l'approche de` + « vous devez », `face à`) en avait trouvé 4/200 (2 %) : `De nuit hors agglomération, vous croisez un véhicule…`, `Vous croisez une voie de tramway…`, `Vous doublez un autocar qui fait descendre des enfants…`, `À l'approche d'un carrefour à sens giratoire…, vous devez :`. Un cinquième candidat matchait le motif de recherche « face à » sans porter de « vous » — `Face à un motard accidenté qui respire, son casque :` — mais la lecture à la main de `Premiers secours` (tâche 13) le reclasse : c'est un événement à la 3ᵉ personne générique (« son casque », pas « votre casque »), de la même famille que les autres cartes à 3ᵉ personne générique jugées non situées ailleurs dans ce chantier (`e0f68dd1…` en `Priorités & intersections`, `a3b1d0cf…` en `Feux`) — retiré de cette liste, le compteur ayant raison sur cette carte. Une relecture indépendante, sur un échantillon distinct, en trouve davantage — trois cartes que ma propre recherche n'avait pas prises : `Premier sur un accident, seul, face à une victime consciente et coincée, vous devez :`, `Un véhicule s'apprête à vous dépasser. Vous devez :`, `Un feu de circulation et un panneau de priorité se contredisent. Lequel suivez-vous ?`. Ni l'une ni l'autre lecture n'est exhaustive sur les 200 : le chiffre est une estimation à méthode déclarée (deux échantillons, pas un dépouillement complet), pas une précision. **Le trou de couverture qui explique l'écart** : une scène posée en prose, sans démonstratif ni verbe de déplacement, échappe au motif — et aucun élargissement lexical ne la rattrape sans marquer comme situées des règles générales qui ne le sont pas (« En zone bleue, vous devez : » serait, à tort, marquée comme située si `devez` rejoignait la liste de verbes — c'est une règle générale, pas une scène ; et ce que `Lequel suivez-vous ?` situe, c'est « se contredisent », une scène posée en prose, pas l'inversion interrogative). Des tournures voisines examinées et **écartées** du décompte, parce qu'elles ne sont pas des scènes malgré une tournure proche : `Si vous doublez votre vitesse…` (relation numérique, pas une scène), `Vous dépassez de 30 km/h…` (excès chiffré, pas un dépassement), `Tenir son téléphone en main au volant…` / `La fatigue ou l'usage du téléphone au volant…` (« au volant » générique), `À l'approche d'une intersection, le dépassement :` / `…d'un passage pour piétons, dépasser est :` (règle générale, pas une scène précise). **Ce que le compteur anchre réellement, mesuré deux fois indépendamment** : il coïncide avec « la carte n'a pas d'illustration » sur 249 des 255 cartes (97,6 %) — le test déictique n'en repêche que 6 sur les 206 cartes sans illustration, dont 2 sur un « ces »/« ce » anaphorique plutôt qu'un déictique de scène (`Parmi ces effets, lequel est causé par l'alcool au volant ?`, `Après une infraction ayant entraîné le retrait d'1 point, ce point est récupéré :`). Côté illustré, 44 des 49 cartes matcheraient `DEICTIQUE` même sans l'exemption d'image, et 26 d'entre elles le font sur un pointeur vers l'image elle-même (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3). **La conséquence, à écrire parce qu'elle est le point** : le compteur classe comme ancrée exactement la forme dont OBS-16 dit que la réforme de 2016 l'a abandonnée (« le seul panneau et la connaissance de sa signification »). Il ne peut donc **ni** servir de cible à une réécriture **ni** être corrigé en élargissant `DEICTIQUE` — il faudrait au contraire le *restreindre*, ce qui déplacerait une ligne de base publiée aujourd'hui même (200) et retenue parmi les huit compteurs que ce chantier ne doit pas faire bouger. Sans cette dernière clause, un lecteur ultérieur conclut « il suffit d'élargir le motif » ; la mesure dit l'inverse. | La part de cartes Valido sans mise en situation explicite (`ce/cette/cet/ces` + nom, `ici/devant/derrière`, ou `vous` + un verbe de sept listés) et sans illustration — **un diagnostic interne à Valido, comparé à aucun taux de l'épreuve réelle** (aucun n'est mesurable depuis ce corpus, cf. §1). Ne jamais relire ce chiffre comme une cible. |
 | `forme/definitionnel` | 94 | 2 sur 94 (2,1 %) — trouvés en vérifiant, pour chaque carte flaggée, si le motif `DEFINITION` matche encore dans la dernière proposition avant le « : » (et non dans une phrase antérieure sans rapport) : `La circulation est arrêtée juste au-delà d'un passage à niveau. Vous :` (la question posée est « que faites-vous », pas une définition — le « est » vient d'une phrase de mise en situation) et `La circulation est figée en files sur toutes les voies. Rouler plus vite qu'une file voisine :` (même mécanisme, question elliptique sans copule propre). | Un `prompt` `code` qui se termine par « : » et contient un verbe de définition/obligation (est/sont/sert à/signifie/indique/impose/doit être/permet de) — proxy lexical de l'axe Objet (« ce que la règle dit » plutôt que « ce que je dois faire »). **Angle mort transversal, mesuré une fois pour toutes** : 13 des 255 cartes `code` (5,1 %) portent un prompt de barème par points, et les 13 sont manquées par ce compteur — vérifié carte par carte contre `questions.json` et contre la liste des 94 prompts flaggés (aucun des 13 n'y figure). Réparties sur **sept** domaines, pas six comme une première estimation non vérifiée l'aurait dit : `Permis & sanctions` ×3 (téléphone en main, défaut de ceinture, cumul d'infractions), `Vitesse` ×4, `Priorités & intersections` ×2, et une carte chacun dans `Feux`, `Alcool & stupéfiants`, `Panneaux & marquage` (`3cb86b6e…`) et `Tunnels & passages à niveau`. La cause : le lexique (est/sont/sert à/signifie/indique/impose/doit être/permet de) ne contient ni « fait perdre », ni « entraîne un retrait de », ni « coûte » — et « Combien de points perdez-vous ? » échappe en plus au test du « : » final, puisqu'elle se termine par un point d'interrogation. Consigné une fois ici pour que les tableaux des dix domaines restants le citent plutôt que de le redécouvrir un par un. |
 
 Reproduire : `python3 Tools/audit.py | grep -E '^### forme/'`.
@@ -685,7 +687,7 @@ l'illustration en général : au titre de ce que son image montre.
 | `37fe1af42b8d8193887bfe48eab17d43` | non situé — condition (nuit, visibilité réduite), pas une scène | règle (obligation conditionnée) | faux-ami (croire l'obligation limitée à l'autoroute ou au jour) | oui | condition suivie d'une règle, même construction que les cartes météo de `Vitesse`, accord avec le compteur |
 | `37fe1af42b8d81adbe05ccc6da87aef7` | non situé, générique | règle (fonction d'un dispositif, R416-18) | faux-ami (remerciement, autorisation de stationner) | oui | connaissance réglementaire d'équipement, forme standard |
 | `37fe1af42b8d81b1b37feb613e893fbf` | non situé — condition météo, pas une scène | règle (conditions d'usage, R416-7) | faux-ami (forte pluie seule, sans neige ni brouillard) | oui | condition météo suivie d'une règle, accord avec le compteur |
-| `37fe1af42b8d81c8af99ca09e3710b01` | **désaccord avec le compteur `forme/hors-situation`** — situé, déjà documenté en §3 comme l'un des cinq exemples trouvés par recherche ciblée | faire (passer en feux de croisement) | faux-ami (garder les feux de route, croyant que la distance suffit) | oui | scène de croisement nocturne déjà confirmée situé en §3 |
+| `37fe1af42b8d81c8af99ca09e3710b01` | **désaccord avec le compteur `forme/hors-situation`** — situé, déjà documenté en §3 comme l'un des quatre exemples trouvés par recherche ciblée | faire (passer en feux de croisement) | faux-ami (garder les feux de route, croyant que la distance suffit) | oui | scène de croisement nocturne déjà confirmée situé en §3 |
 | `37fe1af42b8d81df975dea92682dad6c` | semi-situé — l'alt-text montre la route et la voie ferrée, pas seulement le signal isolé, à la différence des deux autres cartes « Ce signal » | règle (arrêt absolu imposé par le signal) | absolu correct (« train visible ou non ») contre un faux-ami de priorité à droite | oui | contrairement aux deux autres cartes « Ce signal » du domaine (jaune clignotant seul, flèche seule sur fond neutre), l'image place le signal dans son contexte réel — route coupée par une voie ferrée — plus proche de la mise en situation que la réforme revendique |
 | `37fe1af42b8d81fc9bbbee0a1767bba6` | **désaccord avec le compteur `forme/hors-situation`** — situé (moment précis : « au feu jaune fixe, vous devez ») | faire (s'arrêter, sauf danger) | absolu nuancé (l'exception de sécurité) contre un distracteur qui traite le jaune comme le vert | oui | même angle mort que `37fe1af42b8d8189a…` : « devez » n'est pas dans les sept verbes listés par le compteur |
 | `0ac1e53ac8978390a5725830ebcff433` | non situé, générique | règle (hiérarchie : le panneau prime, indépendant du feu) | faux-ami (croire le feu prioritaire sur le panneau) | oui | rappel de hiérarchie, même forme que les cartes de hiérarchie de `Priorités & intersections`, accord avec le compteur |
@@ -805,7 +807,7 @@ diffère pas de forme sur cet axe, faute d'un corpus capable d'en juger.
 | `37fe1af42b8d8175a7fccbffc2d6bcfa` | non situé, générique | règle (condition : danger immédiat) | options plausibles (sur demande, pour le confort, secouriste présent) qui ne suffisent pas | oui | règle conditionnelle standard, forme attestée |
 | `37fe1af42b8d817b9035c1079ede5c00` | non situé, générique | règle (chiffre-règle : distance, 30 m) | emplacements absurdes (coffre, toit, devant le véhicule) contre la distance réelle | oui | chiffre-règle standard |
 | `37fe1af42b8d817bb145f7084044c24e` | non situé — condition générale récurrente (« lorsque »), pas un moment précis — accord avec le compteur | faire (décision : quoi indiquer) | fausse pertinence (immatriculation des véhicules) contre l'information réellement utile | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur, à la différence de `5fe77bbd…` plus bas |
-| `37fe1af42b8d81a092bee8d2faab6224` | non situé — événement décrit à la 3ᵉ personne générique, pas « vous » | règle (consigne : ne pas retirer) | contre-intuitif (on pourrait croire qu'il faut dégager les voies aériennes, vrai seulement si la victime ne respire plus) | oui | consigne de premier secours à la 3ᵉ personne générique, accord avec le compteur, même famille que les cartes analogues déjà lues (`Priorités & intersections`, `Feux`) |
+| `37fe1af42b8d81a092bee8d2faab6224` | non situé — événement décrit à la 3ᵉ personne générique, pas « vous » | règle (consigne : ne pas retirer) | contre-intuitif (on pourrait croire qu'il faut dégager les voies aériennes, vrai seulement si la victime ne respire plus) | oui | consigne de premier secours à la 3ᵉ personne générique, accord avec le compteur, même famille que les cartes analogues déjà lues (`Priorités & intersections`, `Feux`) — §3 la citait à tort parmi les cartes situées trouvées par recherche ciblée sur « face à » ; corrigé ici, cette lecture-ci l'emporte (aucun « vous » dans le prompt, contrairement aux quatre autres candidats de cette liste) |
 | `37fe1af42b8d81b592ede04857b093b4` | non situé, générique | faire (décision : position latérale de sécurité) | positions plausibles mais dangereuses (semi-assise, sur le dos, assise) | oui | décision de premier secours standard, forme attestée |
 | `37fe1af42b8d81f1b1cdfef31d2461b8` | non situé, générique | **forme de réordonnancement** — les quatre options sont les quatre mêmes permutations de trois mots (Protéger/Alerter/Secourir) | quatre permutations d'une même liste, un contraste par ordre seul | oui | forme inhabituelle — la plus singulière relevée dans ce chantier — mais requalifiée en oui (Ruling 22) : OBS-4 dit que le PDF ne montre aucune proposition, donc le corpus ne peut ni attester ni réfuter une structure d'options ; « aucune des 24 questions n'a cette forme » aurait été un argument tiré du silence, pas d'une forme absente |
 | `37fe1af42b8d81f7a214d5130ad370f4` | non situé — condition/procédure générale (« pour »), pas un moment précis — accord avec le compteur | faire (décision : baliser) | fausse bonne action (déplacer les victimes, photographier) contre le balisage réel | oui | décision de premier secours, condition générale plutôt qu'un moment vécu — accord avec le compteur |
@@ -916,7 +918,7 @@ n'y est jamais confondu avec la forme.
 | `058434ed65eee628aefe05ac54ff92d1` | non situé, générique | règle (chiffre-règle : rayon de 50 m) | seuil chiffré proche de distracteurs (10/20/100 m) | oui | chiffre-règle standard, accord avec le compteur |
 | `0b13aed9a8d54d809ec67944c7033775` | non situé, générique | règle (portée d'une interdiction) | absolu trompeur (« interdite partout ») contre une exception réelle | oui | qualification juridique attestée, même forme que « Conduire après usage de stupéfiants est : » (`Alcool & stupéfiants`, jugée oui) |
 | `45d84549ac552870982bf1315f9a8151` | non situé, générique | règle (où circuler) | absolu trompeur (« n'importe quelle route ») | oui | rappel réglementaire standard, accord avec le compteur |
-| `49f761c8ac8bd10ed3bf685b1b112f6c` | **désaccord avec le compteur `forme/hors-situation`** — situé (dépassement d'un autocar scolaire qui fait descendre des enfants), déjà documenté en §3 comme l'un des cinq exemples trouvés par recherche ciblée | faire (réduire l'allure) | absolu trompeur (« la voie étant libre ») | oui | scène de conduite réelle, confirmée en §3 |
+| `49f761c8ac8bd10ed3bf685b1b112f6c` | **désaccord avec le compteur `forme/hors-situation`** — situé (dépassement d'un autocar scolaire qui fait descendre des enfants), déjà documenté en §3 comme l'un des quatre exemples trouvés par recherche ciblée | faire (réduire l'allure) | absolu trompeur (« la voie étant libre ») | oui | scène de conduite réelle, confirmée en §3 |
 | `5f426e8e0d2326304689478d90b749fc` | non situé, générique | règle (qualification : règle du code depuis 2025, pas une expérimentation) | ancien statut expérimental recyclé en distracteur | oui | qualification juridique, forme standard ; la date figure dans une option, pas dans l'énoncé — à la différence de `337bfcb4d034b62de5fe0d77ca0cb0a0` (`Vitesse`, jugée partiel pour une datation « dans l'énoncé même »), aucun artefact de datation dans le prompt ici |
 | `7c2284d4cc7f32e90ce8926470fd656a` | non situé, générique (3ᵉ personne, « un enfant ») | règle (condition d'âge) | seuil d'âge proche de distracteurs (douze/dix-huit ans) | oui | connaissance réglementaire, accord avec le compteur |
 | `82b915c28f76ff1314ecc8cbc927f9b3` | non situé, générique | règle (portée : qui, où) | restriction fausse (âge du passager, lieu) | oui | rappel d'obligation, forme standard |
@@ -1084,3 +1086,112 @@ pour une future relecture de la ligne `forme/hors-situation` en §3.
 
 **Ce que les compteurs ont signalé à tort :** rien au-delà des deux désaccords déjà nommés
 ci-dessus.
+
+## Ce que l'outillage ne voit pas
+
+Six angles morts, chacun déjà établi plus haut dans ce rapport — cette section ne fait que
+les rassembler pour la passe qui suivra, à l'image de ce que les rapports de passe 2 et 3
+ont laissé de plus utile aux passes suivantes.
+
+| n° | l'angle mort | ligne d'outil, si elle existe |
+|---|---|---|
+| 1 | Le registre du prompt (1ʳᵉ/2ᵉ personne contre impersonnel) n'a jamais été testable comme critère d'admissibilité : aucune strate du corpus ne porte l'énoncé littéral d'une question du spécimen — OBS-1/OBS-2 mesurent le paragraphe de réponse et le commentaire pédagogique qui le suit, tous deux explicitement distincts de « la question telle qu'elle est lue par le candidat » (§1, en tête). Conclure « ce prompt est impersonnel, donc inadmissible » ferait dire au corpus plus qu'il ne peut établir (§4, tête de section). | `audit.py:145` (`forme/impersonnel`, 199/255) — un **descripteur**, jamais un critère ; aucun corpus disponible ne peut le faire devenir l'un. |
+| 2 | La forme des options (nombre, longueur, réordonnancement d'une même liste de mots) n'est pas davantage testable : OBS-4 le dit dès la strate 1 — le PDF spécimen ne montre ni l'énoncé ni les quatre propositions elles-mêmes. Un verdict qui s'appuierait sur leur absence conclurait d'un silence, pas d'une forme réfutée (Ruling 22, deux cartes de `Premiers secours` requalifiées en `oui` pour ce motif). | aucune, et il ne peut pas y en avoir tant que la banque officielle n'est pas publique. |
+| 3 | La conception d'une scène illustrée ne se lit que dans le code source de la scène, jamais dans `questions.json` ni dans un compteur. `Tools/Scenes/ScenesCirculation.swift` dit de deux scènes d'`Arrêt & stationnement` qu'elles sont dessinées « du même point de vue et avec la même voiture » pour ne pas rejouer « photo contre schéma » (l. 971) ; il dit de la balise de `passage-a-niveau-balises` l'inverse de lui-même — vue « de face et seule, comme les quatorze panneaux du dossier » (l. 1463-1466). Une lecture qui s'arrête à `questions.json` ou à l'`alt` jugera mal une carte illustrée. | aucune — c'est un commentaire de code, pas une donnée mesurable depuis les cartes elles-mêmes. |
+| 4 | `forme/hors-situation` ne mesure pas ce qu'il nomme : il coïncide avec « la carte n'a pas d'illustration » sur 249/255 cartes, son test déictique ne repêche que 6 des 206 cartes non illustrées, et il classe comme « ancrées » 26 des 44 cartes illustrées qui matcheraient de toute façon le motif sur un simple pointeur nu vers l'image (« ce panneau » ×18, « ce marquage » ×5, « ce signal » ×3) — exactement la forme qu'OBS-16 dit abandonnée par la réforme. Il ne peut ni servir de cible à une réécriture, ni être élargi (il classerait encore plus de panneaux isolés comme ancrés), ni resserré (déplacerait la ligne de base publiée, 200). | `audit.py:146-147` (motif `DEICTIQUE`, l. 43) — déjà quantifié en §3, deux fois indépendamment. |
+| 5 | `forme/definitionnel` manque structurellement 13 cartes de barème par points, réparties sur sept domaines : son lexique fixe ne contient ni « fait perdre », ni « entraîne un retrait de », ni « coûte », ni « constitue », ni « consiste à », ni « vise », et « Combien de points perdez-vous ? » échappe en plus au test du « : » final. | `audit.py:148-149` (motif `DEFINITION`, l. 47) — déjà quantifié en §3. |
+| 6 | `d4b4abfd51499d4ab343bbb613acc7ad` (`Tunnels & passages à niveau`, « La circulation est arrêtée juste au-delà d'un passage à niveau. Vous : ») est un faux négatif de `forme/hors-situation` non catalogué en §3 : une scène réelle, manquée faute de motif déictique — une huitième instance du même angle mort que les sept déjà listées (4 par recherche ciblée, 3 par relecture indépendante), trouvée en lisant le domaine plutôt que par une recherche de mots-clés. | `audit.py:146-147`, même motif que la ligne 4 — un cas non catalogué, pas un mécanisme nouveau. |
+
+**Un septième angle mort, mais interne à ce rapport plutôt qu'au corpus.** La première
+version de §3 citait `37fe1af42b8d81a092bee8d2faab6224` (« Face à un motard accidenté qui
+respire, son casque : ») parmi les cartes situées trouvées par une recherche ciblée sur le
+mot « face à » — un mot qui matche aussi bien une scène adressée au candidat qu'un fait
+relaté à la 3ᵉ personne. Cette carte ne porte pourtant aucun « vous », à la différence des
+quatre autres candidats de la même liste, et la lecture à la main de `Premiers secours`
+(tâche 13) l'avait déjà classée non située, en accord avec le compteur — un désaccord entre
+§3 et §4 sur la même carte, jamais résolu avant cette tâche. Résolu en faveur de la lecture
+de `Premiers secours` : c'est le seul des deux verdicts qui applique la même règle partout
+ailleurs dans ce chantier (un événement à la 3ᵉ personne générique sans « vous » est non
+situé — `e0f68dd1…` en `Priorités & intersections`, `a3b1d0cf…` en `Feux`). §3 porte
+maintenant 4 exemples, pas 5 ; le verdict `oui` de la carte ne dépendait d'aucun des deux.
+
+## Recommandation
+
+Sur les 255 cartes lues, **25** s'écartent de la forme de l'épreuve sur au moins un axe — les
+22 `non` et les 3 `partiel` du §4 — dont **20** sur l'ancrage (panneau ou signal isolé plutôt
+qu'une scène, ou catégorie générique plutôt qu'un signal précis), **4** sur l'objet
+(comparaison de deux notions, méthode de calcul mental, abstraction hiérarchique sans cas
+concret — trois formes sans équivalent dans les 24 questions du spécimen) et **1** sur un
+artefact de datation étranger au style du spécimen (`337bfcb4…`, « Depuis fin 2025 » dans le
+prompt même). **Zéro** carte n'a été jugée sur le piège : l'axe est décrit dans les 255
+lignes du §4, jamais jugé, faute d'un témoin postérieur à la réforme du 2 mai 2016 (OBS-14 et
+OBS-15 datent tous deux d'avant cette date).
+
+Par ordre de rendement décroissant :
+
+1. **Ancrage — panneau ou signal isolé** (18 cartes en `non` : 13 dans `Panneaux &
+   marquage`, 2 dans `Feux`, 2 dans `Vitesse`, 1 dans `Tunnels & passages à niveau` ; plus 2
+   cartes en `partiel`, toutes deux dans `Panneaux & marquage`, pour une catégorie générique
+   plutôt qu'un signal précis — 20 au total, 65 % concentrées dans un seul domaine). C'est la
+   forme qu'OBS-16 nomme explicitement abandonnée par la réforme de 2016 (« le seul panneau
+   et la connaissance de sa signification » contre « le visuel met le candidat en situation
+   réelle de conduite »), et c'est le seul défaut qui se prête à un batch : les 20 cartes
+   partagent le même geste correctif — remplacer l'image isolée par une scène de conduite,
+   comme le code des scènes le fait déjà pour `Arrêt & stationnement` et `Usagers & partage
+   de la route` (§4, note sur `ScenesCirculation.swift`). **Ce que ça coûte** : une nouvelle
+   fonction de scène par carte dans `Tools/Scenes/`, son rendu PNG clair/sombre @2x/@3x via
+   `./Tools/render-scenes.sh`, un `alt` réécrit (≥ 40 caractères, budget de hauteur 70/50/220),
+   sa ligne dans `images.md`, et le contrôle de niveaux de gris avant de commiter chaque PNG —
+   un dessin individuel par carte, pas un script. Pour 20 cartes concentrées aux deux tiers
+   dans un seul domaine déjà identifié, c'est le lot qui rapporte le plus de `non` corrigés
+   par heure de travail, mais ce n'est jamais un remplacement de texte seul : sans nouvelle
+   scène, réécrire seulement le `prompt` ne change rien à ce qu'OBS-16 reproche à la forme.
+2. **Objet — forme sans équivalent dans le spécimen** (4 cartes : `cac0f9db…` et
+   `37fe1af42b8d812cad07c40f6c51598c`, comparaison de deux dispositifs ou notions ;
+   `37fe1af42b8d811f9954e63cf1aa9ffa`, méthode de calcul mental ; `37fe1af42b8d817da9…`,
+   abstraction hiérarchique sans cas concret). **Ce que ça coûte** : une réécriture de
+   structure par carte, bon marché — pas d'image à produire — mais non batchable : les
+   quatre défauts sont distincts entre eux, chacun demande sa propre relecture plutôt qu'un
+   geste répété.
+3. **Artefact de datation** (1 carte, `337bfcb4d034b62de5fe0d77ca0cb0a0`). **Ce que ça
+   coûte** : retirer « Depuis fin 2025 » du prompt — la fraîcheur reste tracée dans
+   `sources.md`, pas besoin de la répéter dans l'énoncé. Coût quasi nul, gain marginal.
+
+**Ce qu'il ne faut pas faire :** ne pas toucher aux 199 cartes `forme/impersonnel` — le
+corpus ne mesure jamais l'énoncé littéral du spécimen (§1), seulement son paragraphe de
+réponse ; le registre reste un descripteur, jamais un critère, et rien ici ne permet
+d'affirmer qu'un prompt impersonnel serait refusé à l'examen. Ne pas élargir ni resserrer
+`forme/hors-situation` : l'élargir ne resterait pas neutre sur les cartes déjà illustrées : 26 des 44 qui
+matchent déjà le motif le font via un simple pointeur nu vers l'image (« ce panneau », etc.)
+— la forme même que la réforme abandonne — si bien qu'élargir encore le lexique ne ferait
+que classer plus de panneaux isolés comme ancrés, dans le mauvais sens. Le resserrer
+déplacerait la ligne de base publiée (200) ; le compteur reste un diagnostic interne, jamais
+une cible. Ne pas faire baisser `expl/paraphrase-litterale` (20) pour lui-même : la passe 3
+l'a déjà appris à ses dépens sur ce même compteur, et rien dans cette passe ne le remet en
+cause. Et ne jamais fonder une réécriture sur le piège : sa seule attestation dans ce
+corpus (OBS-14, OBS-15) précède de plusieurs années la réforme que ce dossier prend lui-même
+pour référence — s'en servir reviendrait à recommander un retour vers la forme que l'épreuve
+a précisément quittée, pas à s'en rapprocher.
+
+**Coût estimé de l'ensemble, et ce qui reste inconnu.** Environ 20 scènes à dessiner (lot 1),
+4 réécritures de structure ponctuelles (lot 2), une suppression de deux mots (lot 3) — 25
+cartes sur 255, moins d'une sur dix, dont 90 % du volume déjà localisé dans un seul domaine.
+Ce que ce chiffrage ne couvre pas : aucun compteur ne peut vérifier le résultat du lot 1 —
+`forme/hors-situation` ne distingue pas une scène située d'un pointeur nu vers l'image (§3),
+donc confirmer qu'une carte réécrite a bien quitté la forme abandonnée demandera la même
+lecture à la main que celle qui a produit ce rapport, pas une commande d'audit ; et le corpus
+ne permet toujours pas de dire à quel taux la vraie banque teste cette forme aujourd'hui,
+seulement qu'elle déclare l'avoir abandonnée (OBS-16, une déclaration qualitative, jamais un
+ratio — §1, §2).
+
+**Ce que cette passe peut conclure, et ce qu'elle ne peut pas.** Elle ne peut pas conclure
+que les 199 prompts impersonnels devraient être réécrits — le corpus ne l'a jamais permis
+(`forme/impersonnel` reste un descripteur, §1 et §4). Elle peut conclure qu'un ensemble
+précis, nommé et dénombrable de 20 cartes reprend une forme que la source officielle dit
+elle-même avoir abandonnée, concentré aux deux tiers dans un seul domaine déjà identifié. Ce
+sont deux recommandations très différentes, et les confondre déferait l'exercice même de
+cette passe : mesurer avant de corriger, et ne corriger que ce que la mesure a effectivement
+établi. Sur les 255 cartes lues, 230 (90 %) n'appellent aucune réécriture sur aucun des trois
+axes retenus — le résultat le plus net de ce chantier n'est pas la liste des cartes à
+reprendre, c'est que la très grande majorité du corpus est déjà proche de la forme de
+l'épreuve réelle, telle que ce corpus restreint permet de la connaître.
