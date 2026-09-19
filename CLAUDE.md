@@ -145,7 +145,7 @@ est compilé sans toucher au `.pbxproj`.
 ## Le contenu est du code
 
 `Valido/Resources/questions.json` **est** la source — pas de génération, on édite le fichier.
-448 questions (255 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
+463 questions (270 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
 de page Notion, soit `sha256("valido-v2:" + prompt)[:32]` — le préfixe est dans l'entrée du
 hachage, pas dans l'identifiant. **Un `id` livré est immuable** : la progression est indexée
 dessus. Les options sont mélangées à chaque présentation (**donc aucune référence de lettre
