@@ -131,3 +131,20 @@ import UIKit
     let illustrées = bank.questions.filter { $0.illustration != nil }
     #expect(illustrées.count >= 44)
 }
+
+/// Le registre des notions distingue la carte qui **énonce** une règle (`fondation`) de
+/// celle qui l'**exerce** sur un cas (`application`), et `Tools/audit.py` refuse une
+/// notion qui n'a aucune fondation. Ce contrôle-là vit dans l'outillage, donc hors du
+/// livré : rien n'empêchait une notion de perdre sa seule fondation entre deux passes
+/// d'audit. Le test ferme la boucle sur le produit compilé — toute notion présente dans
+/// la banque a au moins une carte qui la fonde.
+///
+/// Il ne dit pas *laquelle* des classes d'une famille est énoncée : le compteur est par
+/// notion, et une seule fondation suffit à le taire (voir `Tools/notions.md`, « Ce que le
+/// domaine pilote a montré »). C'est la notion à zéro fondation qu'il attrape.
+@Test func chaqueNotionAAuMoinsUneFondation() throws {
+    let bank = try QuestionBank.bundled()
+    let notions = Set(bank.questions.compactMap(\.notion))
+    let fondées = Set(bank.questions.filter { $0.role == .fondation }.compactMap(\.notion))
+    #expect(notions.subtracting(fondées).sorted() == [])
+}
