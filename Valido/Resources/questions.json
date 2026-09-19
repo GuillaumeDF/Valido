@@ -58,6 +58,7 @@
     "difficulty": "facile",
     "explanation": "La couronne rouge est la marque de la défense, et elle joue là où on la lit : ce qui est défendu l'est pour celui qui passe devant le panneau, il n'a rien à anticiper. Et « ici » n'est pas « au panneau seulement » : l'interdiction y commence, elle ne s'y arrête pas.",
     "id": "37fe1af42b8d81059d80e8954b36ed7f",
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -77,6 +78,7 @@
       }
     ],
     "prompt": "Un panneau rond à bord rouge indique :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -656,6 +658,7 @@
     "difficulty": "moyen",
     "explanation": "Elle sépare deux sens qui pourraient se croiser : l'article R412-19 interdit donc le franchissement comme le chevauchement, et ne réserve qu'une exception, le chevauchement pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé.",
     "id": "37fe1af42b8d8141b1d0e3ca0b855119",
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -675,6 +678,7 @@
       }
     ],
     "prompt": "Une ligne continue au centre de la chaussée :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1011,6 +1015,7 @@
     "difficulty": "facile",
     "explanation": "Le rond prescrit ; sans liseré rouge, le fond bleu en fait une obligation — direction imposée, voie réservée, vitesse minimale. Un même bleu cerné de rouge n'oblige plus : c'est l'anneau qui décide, pas le centre.",
     "id": "37fe1af42b8d81699c2ffbefd648d9a3",
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -1030,6 +1035,7 @@
       }
     ],
     "prompt": "Un panneau rond à fond bleu, sans liseré rouge, indique :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1069,6 +1075,7 @@
       "alt": "Trois flèches blanches peintes dans l'axe, à cheval sur une ligne discontinue, s'infléchissant vers la droite ; au-delà, la ligne devient continue.",
       "asset": "marquage-fleches-rabattement"
     },
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -1088,6 +1095,7 @@
       }
     ],
     "prompt": "Ce marquage vous impose :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1100,6 +1108,7 @@
       "alt": "Disque à fond bleu bordé d'un listel blanc, portant une flèche blanche dirigée vers le haut.",
       "asset": "panneau-b21b-tout-droit"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -1119,6 +1128,7 @@
       }
     ],
     "prompt": "Ce panneau vous impose :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1185,6 +1195,7 @@
       "alt": "Panneau carré à fond bleu, bordé d'un listel blanc, portant la lettre P en blanc au centre.",
       "asset": "panneau-c1a-parking"
     },
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -1204,6 +1215,7 @@
       }
     ],
     "prompt": "Ce panneau donne :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1756,6 +1768,7 @@
       "alt": "Chaussée à double sens ; au centre, une ligne continue doublée d'une ligne discontinue, cette dernière se trouvant du côté de votre voie.",
       "asset": "marquage-ligne-mixte"
     },
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -1775,6 +1788,7 @@
       }
     ],
     "prompt": "Sur ce marquage, le dépassement vous est :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -1841,6 +1855,7 @@
       "alt": "Triangle à fond blanc bordé de rouge, portant une chaussée qui s'infléchit vers la droite.",
       "asset": "panneau-a1a-virage"
     },
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -1860,6 +1875,7 @@
       }
     ],
     "prompt": "Ce panneau indique :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -2169,6 +2185,7 @@
       "alt": "Chaussée à double sens ; au milieu, une bande couverte de traits blancs obliques, encadrée de deux lignes continues.",
       "asset": "marquage-zebra"
     },
+    "notion": "marquage/zones",
     "options": [
       {
         "id": "A",
@@ -2188,6 +2205,7 @@
       }
     ],
     "prompt": "Ce marquage au sol :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -2632,6 +2650,7 @@
     "difficulty": "facile",
     "explanation": "Elle sépare les deux sens sans les cloisonner : la voie d'en face reste disponible, à condition qu'elle soit libre et le reste assez longtemps. Plus les traits s'allongent et se rapprochent, plus un danger ou une continue approche.",
     "id": "37fe1af42b8d81f8a2f3f8bd2afc9d2d",
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -2651,6 +2670,7 @@
       }
     ],
     "prompt": "Une ligne discontinue (axiale) :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7236,6 +7256,7 @@
     "difficulty": "moyen",
     "explanation": "Chevaucher laisse le véhicule en partie dans sa voie, franchir l'en fait sortir entièrement : de là 1 point contre 3. L'amende, elle, ne les distingue pas — même contravention de quatrième classe.",
     "id": "3cb86b6e4c489d919a495408021f062a",
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -7255,6 +7276,7 @@
       }
     ],
     "prompt": "Rouler à cheval sur une ligne continue, sans la franchir, fait perdre :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7267,6 +7289,7 @@
       "alt": "Panneau octogonal à fond rouge portant l'inscription STOP en lettres blanches, cerné d'un mince listel blanc.",
       "asset": "panneau-ab4-stop"
     },
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -7286,6 +7309,7 @@
       }
     ],
     "prompt": "Ce panneau impose :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7294,6 +7318,7 @@
     "difficulty": "moyen",
     "explanation": "C'est la ligne de rive : elle marque la limite de la chaussée, pas une voie de circulation. Sur autoroute, l'espace qu'elle borde est la bande d'arrêt d'urgence, où l'on ne s'arrête que par nécessité ; ailleurs, c'est l'accotement.",
     "id": "5a4e6a38ad3e1153f807ec5e0e6ba40e",
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -7313,6 +7338,7 @@
       }
     ],
     "prompt": "Une ligne discontinue tracée le long du bord de la chaussée délimite :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7325,6 +7351,7 @@
       "alt": "Disque à fond blanc cerné d'un filet noir et barré d'une oblique noire montant vers la droite, sans aucun chiffre.",
       "asset": "panneau-b31-fin-interdictions"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -7344,6 +7371,7 @@
       }
     ],
     "prompt": "Ce panneau ne lève jamais :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -7352,6 +7380,7 @@
     "difficulty": "costaud",
     "explanation": "Dépasser suppose d'aller chercher la voie d'en face : c'est le franchissement qui est défendu, l'interdiction de dépasser n'en est que la conséquence. Le motif n'y change rien — se ranger ou tourner ne rouvre pas la ligne.",
     "id": "1a0a5812ff8659ba24b3b4c750e469e5",
+    "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
@@ -7371,6 +7400,7 @@
       }
     ],
     "prompt": "Une ligne mixte associe une continue et une discontinue : la partie continue placée de votre côté vous interdit :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8421,6 +8451,7 @@
       "alt": "Croisement à quatre branches ; un triangle rouge pointe en bas et une ligne discontinue à traits larges barrent votre voie d'approche.",
       "asset": "carrefour-cedez-le-passage"
     },
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -8440,6 +8471,7 @@
       }
     ],
     "prompt": "Ici, avant de vous engager, vous devez :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8514,6 +8546,7 @@
       "alt": "Vue depuis le poste de conduite, sur une route de campagne à deux voies ; un panneau triangulaire à bord rouge portant trois flèches disposées en anneau est planté sur l'accotement de droite.",
       "asset": "panneau-giratoire-vue-conducteur"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -8533,6 +8566,7 @@
       }
     ],
     "prompt": "À sa hauteur, ce panneau :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8897,6 +8931,7 @@
       "alt": "Triangle à fond blanc bordé de rouge portant un point d'exclamation, complété par une plaque rectangulaire blanche où se lit CARRIÈRE.",
       "asset": "panneau-a14-panonceau"
     },
+    "notion": "panneaux/panonceaux",
     "options": [
       {
         "id": "A",
@@ -8916,6 +8951,7 @@
       }
     ],
     "prompt": "La plaque sous ce panneau :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8928,6 +8964,7 @@
       "alt": "Triangle à fond blanc bordé de rouge portant la silhouette d'un piéton qui marche sur des bandes de passage.",
       "asset": "panneau-a13b-passage-pietons"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -8947,6 +8984,7 @@
       }
     ],
     "prompt": "Ce panneau prescrit :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8955,6 +8993,7 @@
     "difficulty": "moyen",
     "explanation": "Le chantier modifie la réalité du terrain que le panneau permanent décrivait : le principe de cohérence impose donc de le masquer provisoirement. Une fois les travaux finis et le masque retiré, le permanent retrouve toute son autorité.",
     "id": "f12ee5bea85947a13d387f574e817337",
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -8974,6 +9013,7 @@
       }
     ],
     "prompt": "Quand un panneau de chantier contredit un panneau permanent, le conducteur :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -8986,6 +9026,7 @@
       "alt": "Chaussée à deux voies ; à droite, une aire pavée d'un damier de carreaux rouges et blancs deux fois plus longs que larges.",
       "asset": "marquage-damier-detresse"
     },
+    "notion": "marquage/zones",
     "options": [
       {
         "id": "A",
@@ -9005,6 +9046,7 @@
       }
     ],
     "prompt": "Ce marquage annonce :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9017,6 +9059,7 @@
       "alt": "Disque à fond bleu à couronne rouge, barré d'une seule oblique rouge qui descend vers la droite.",
       "asset": "panneau-b6a1-stationnement-interdit"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -9036,6 +9079,7 @@
       }
     ],
     "prompt": "Ce panneau interdit :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9048,6 +9092,7 @@
       "alt": "Disque à fond bleu à couronne rouge, barré de deux obliques rouges qui se croisent en son centre.",
       "asset": "panneau-b6d-arret-interdit"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -9067,6 +9112,7 @@
       }
     ],
     "prompt": "Sous ce panneau, vous ne pouvez pas :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9079,6 +9125,7 @@
       "alt": "Disque à fond rouge bordé d'un listel blanc, portant une large barre blanche horizontale et rien d'autre.",
       "asset": "panneau-b1-sens-interdit"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -9098,6 +9145,7 @@
       }
     ],
     "prompt": "Ce panneau signifie :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9110,6 +9158,7 @@
       "alt": "Disque à fond blanc à couronne rouge, portant deux voitures vues de dos côte à côte, celle de gauche en avant.",
       "asset": "panneau-b3-interdiction-depasser"
     },
+    "notion": "panneaux/portee",
     "options": [
       {
         "id": "A",
@@ -9129,6 +9178,7 @@
       }
     ],
     "prompt": "Malgré ce panneau, vous pouvez encore doubler :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9141,6 +9191,7 @@
       "alt": "Carré blanc posé sur la pointe, portant un losange jaune barré d'une large oblique noire.",
       "asset": "panneau-ab7-fin-priorite"
     },
+    "notion": "panneaux/panonceaux",
     "options": [
       {
         "id": "A",
@@ -9160,6 +9211,7 @@
       }
     ],
     "prompt": "Sous ce panneau, un panonceau donnerait :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },
@@ -9172,6 +9224,7 @@
       "alt": "Panneau carré à fond bleu à listel blanc, portant la silhouette blanche d'une bicyclette vue de profil.",
       "asset": "panneau-c113-voie-velo"
     },
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -9191,6 +9244,7 @@
       }
     ],
     "prompt": "Ce panneau, pour un cycliste :",
+    "role": "application",
     "subject": "code",
     "topic": "Panneaux & marquage"
   },

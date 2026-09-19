@@ -15,3 +15,35 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 
 | notion | topics concernés | fondations | applications | verdict |
 |---|---|---:|---:|---|
+| `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
+| `marquage/zones` | `Panneaux & marquage` | 0 | 2 | à compléter |
+| `panneaux/formes` | `Panneaux & marquage` | 2 | 5 | couvert |
+| `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
+| `panneaux/portee` | `Panneaux & marquage` | 0 | 9 | à compléter |
+
+## Ce que le domaine pilote a montré
+
+`Panneaux & marquage` a été annoté le premier, ses 27 cartes lues une par une. Quatre
+constats qui servent aux douze domaines suivants, et au lot de fondations à écrire :
+
+- **« couvert » ne veut pas dire « fondé ».** `panneaux/formes` porte deux fondations — le
+  rond à bord rouge et le rond à fond bleu — et le contrôle se tait. Mais le **triangle**
+  (danger), le **carré** (indication) et l'**octogone** (stop) sont exercés par cinq cartes
+  sans qu'aucune ne les énonce. Le compteur est par notion, pas par membre de la famille :
+  il ne peut pas voir ce trou-là, et c'est la lecture à la main qui le nomme.
+- **`panneaux/portee` est le plus gros manque du domaine** : neuf cartes exercent l'étendue
+  d'une prescription — où elle commence, jusqu'où elle court, ce qu'elle couvre — et aucune
+  ne dit la règle. C'est le premier candidat du lot de fondations, à égalité avec les formes.
+- **`panneaux/panonceaux` et `marquage/zones`** (hachures, damier de voie de détresse) ont
+  deux applications chacun et pas une ligne qui dise ce qu'est un panonceau, ni ce qu'une
+  surface peinte réserve. Deux familles que le balayage de la spec n'avait pas vues.
+- **`panneaux/couleurs` n'a aucune carte.** Pas une seule du domaine ne prend la couleur
+  comme axe indépendant de la forme ; les deux fondations existantes la traitent à
+  l'intérieur d'une silhouette. La notion n'entre donc pas encore dans ce tableau.
+
+`marquage/lignes` est l'inverse exact : quatre de ses cinq membres sont **énoncés** en
+toutes lettres (continue axiale, discontinue axiale, discontinue de rive, mixte), sans image
+et sans cas. Ce sont quatre fondations, pas une — c'est la forme de la carte qui décide, et
+elle est ici celle de l'exemple de la spec (« Un panneau triangulaire à bord rouge
+annonce : »). Le domaine était bien en panne d'ordre et non de contenu : le boost portera
+sur les quatre, ce qui est exactement ce qui les rapproche.
