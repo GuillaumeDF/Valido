@@ -61,6 +61,49 @@ recopier : *cette notion est-elle une famille dont je teste les membres ?* Si ou
 faut une fondation. Le tableau ci-dessus est le résultat d'un premier passage, pas une
 liste close — §6 en fait un travail d'annotation systématique.
 
+### Quatre domaines absents depuis le départ
+
+Le balayage ci-dessus a un défaut qu'il ne peut pas corriger seul : **il parcourt les
+treize `topic` qui existent, donc il ne peut pas révéler un domaine absent depuis
+l'origine.** La question a été reposée contre la source, en relisant intégralement le
+spécimen officiel (`reponsesquestionspermisauto_v1604.pdf`, texte extrait le 2026-09-19) et
+en cherchant chacun de ses sujets dans les 255 cartes.
+
+**La cause de l'angle mort est structurelle, et elle est dans l'outillage.**
+[`couverture.md`](../../../Tools/couverture.md) est bâti sur les **onze thèmes de
+communication** de la Sécurité routière, qui sont une taxonomie de *règles* (signalisation,
+priorités, stationnement…). Le spécimen étiquette ses propres questions avec **quatorze
+libellés** qui sont une taxonomie de *compétences* (« Capacité de perception et
+d'évaluation », « Nouvelles technologies », « Connaître les principaux organes du
+véhicule »). Les deux grilles ne se recoupent pas — le rapport de septembre l'avait relevé
+(OBS-6) sans en tirer cette conséquence. Un sujet qui n'a pas de bac dans la première
+grille ne peut **jamais** être signalé comme manquant : le registre de couverture était
+aveugle à ces domaines par construction, pas par négligence.
+
+| domaine | part du spécimen | état dans Valido |
+|---|---|---|
+| **Perception, attention, prise d'information** | **6 des 24 (25 %)** — le libellé le plus fréquent du lot (Q1, Q5, Q8, Q13, Q15, Q18) : vision en tunnel qui se rétrécit avec la vitesse, balayage du regard et contrôle des rétroviseurs, limites du traitement de l'information | le **mécanisme** est absent. Les trois cartes qui coïncident avec une règle chiffrée existent (2 secondes, traits de rive, vitesses jeune conducteur) ; rien sur la perception elle-même |
+| **Nouvelles technologies / ADAS** | 2 des 24 (Q12 eCall, Q24 AFU couplé à l'ABS) | `eCall`, `AFU`, régulateur, limiteur, maintien de voie : **aucune occurrence** dans les 255 cartes |
+| **Boîte automatique et véhicule électrique** | 1 des 24 (Q6, position P et frein de stationnement), rattaché explicitement par le PDF au « développement du marché des véhicules électriques » | **aucune occurrence** |
+| **Instruments du tableau de bord** | Q23 — compte-tours, régime moteur, choix du rapport | les **témoins** rouge et orange sont couverts, les **instruments** ne le sont pas |
+
+Deux absences isolées s'y ajoutent, moins structurantes : le **refus d'obtempérer** (Q7 —
+3 750 €, 6 points, 3 mois d'emprisonnement) et le **rôle des radars** (Q20).
+
+**Ces domaines relèvent du même défaut que le reste de la spec, pas d'un autre.** « Les
+aides à la conduite » est une taxonomie exemplaire — la Sécurité routière en publie la
+liste, [dix-huit systèmes nommés](https://www.securite-routiere.gouv.fr/chacun-son-mode-de-deplacement/dangers-de-la-route-en-voiture/equipement-de-la-voiture/adas),
+rangés en quatre familles (contrôle longitudinal, contrôle latéral, alerte, stationnement).
+Y entrer par une carte sur l'AFU sans avoir énoncé la famille rejouerait exactement l'erreur
+des panneaux. Ces quatre domaines arrivent donc avec leur fondation d'emblée, ce qui est le
+seul avantage d'un contenu qu'on écrit au lieu de le rattraper.
+
+Le domaine ADAS est par ailleurs le seul du lot dont la source est **hors du droit** :
+`securite-routiere.gouv.fr` est dans `DOMAINES_FAIT` mais y est de rang 3 — il corrobore et
+explique, jamais seul sur un chiffre (`Tools/questions.md` §5). Les cartes ADAS peuvent donc
+s'appuyer sur cette page pour la **description** d'un système, mais toute valeur chiffrée
+qu'elles porteraient demande une source de rang 1.
+
 **Deux pannes distinctes, deux remèdes distincts.** Les deux domaines cités à l'ouverture
 tombent d'ailleurs de part et d'autre de cette frontière, et c'est ce qui structure toute la
 suite :
@@ -293,7 +336,24 @@ La moitié la plus lourde, et celle qu'aucun code ne remplace.
    `relire.py`, les tests. Les fondations de `permis/qualification` et
    `stationnement/gradation` portent des montants et des retraits de points : elles sont
    `datée` dans `sources.md`, avec une source de `DOMAINES_FAIT` et sa date de relevé.
-3. **Ne rien réécrire d'autre.** Les 17 cartes « Ce panneau indique : » sont de bonnes
+3. **Ouvrir les quatre domaines absents**, chacun avec sa fondation d'emblée. Ils demandent
+   un `topic` neuf ou l'extension d'un existant, et une ligne dans `couverture.md` sur son
+   nouvel axe (§8) :
+
+   | notion | fondation | applications à écrire |
+   |---|---|---|
+   | `vehicule/aides-conduite` | les quatre familles d'ADAS : contrôle longitudinal, contrôle latéral, alerte, aide au stationnement | AFU couplé à l'ABS, régulateur contre limiteur, alerte d'angle mort, eCall |
+   | `vehicule/transmission` | ce que la boîte automatique change pour le conducteur | position P et frein de stationnement, frein moteur sur une automatique |
+   | `vehicule/tableau-de-bord` | témoins **et** instruments — l'axe existe à moitié, les témoins sont déjà fondés | compte-tours et régime, jauge, indicateur de température |
+   | `perception/prise-information` | comment se construit la prise d'information : ce que l'œil et l'attention ne peuvent pas faire en même temps | vision en tunnel et vitesse, balayage du regard et rétroviseurs, angle mort du conducteur |
+
+   `perception/prise-information` est le plus gros morceau et le moins naturel à écrire en
+   QCM — c'est un mécanisme, pas une règle, donc sans chiffre à demander. C'est aussi le
+   quart du spécimen officiel. Il se traitera en dernier et, sur ce domaine précisément, les
+   éditeurs de `DOMAINES_FORME` sont l'appoint le plus légitime du registre : ils savent
+   comment l'examen pose une question de perception, ce qu'aucun texte officiel n'écrit.
+
+4. **Ne rien réécrire d'autre.** Les 17 cartes « Ce panneau indique : » sont de bonnes
    cartes d'application ; elles ne deviennent un problème que sans fondation en amont. Cette
    passe n'ouvre pas le lot de réécriture des 25 cartes du diagnostic de septembre, qui est
    un autre chantier avec son propre coût (20 scènes à dessiner).
@@ -324,6 +384,12 @@ dans cette spec ne touche à la fenêtre de cartes ni au retrait par l'arrière 
 - `Valido/Resources/questions.json` — `notion` + `role` sur 255 cartes, plus les fondations
   neuves.
 - `Tools/notions.md` — le registre.
+- `Tools/couverture.md` — **un second axe**. La carte actuelle rattache chaque `topic` à
+  l'un des onze thèmes de communication ; elle gagne une seconde table rattachant chaque
+  `topic` aux **quatorze libellés de compétence du spécimen officiel**. C'est la seule
+  correction qui empêche l'angle mort de se reformer : sans bac « perception » ni bac
+  « nouvelles technologies », rien ne signalera jamais leur absence, et le prochain
+  balayage des `topic` existants sera aussi circulaire que le premier.
 - `Tools/audit.py` — les deux clés dans `schema/cle-hors-schema`, les trois contrôles
   `notions/`.
 - `ValidoTests/` — les cinq tests du §5, plus les contrôles de `BundledContentTests`.
@@ -380,5 +446,19 @@ l'acquisition pour retirer des cartes du vivier — ce serait transformer un aff
 de révision.
 
 **Le chantier de contenu est plus gros que le chantier de code.** 255 cartes à lire et
-affecter, une trentaine à écrire. Le code tient en cinq fichiers ; l'annotation est le
-chemin critique, et c'est elle qu'il faut découper dans le plan.
+affecter, une trentaine à écrire, plus les quatre domaines neufs du §6.3. Le code tient en
+cinq fichiers ; l'annotation est le chemin critique, et c'est elle qu'il faut découper dans
+le plan.
+
+**Une dette découverte au passage, hors périmètre de cette spec.** L'arrêté du 29 avril 2024
+portant cahier des charges des épreuves théoriques a été **abrogé le 1er mai 2026** par
+l'[arrêté du 16 avril 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053974673),
+article 18 (vérifié le 2026-09-19). Le rapport
+[`audit-2026-09-formes.md`](../../../Tools/audit-2026-09-formes.md) le cite comme « en
+vigueur » à sa strate 2, quatre mois après son abrogation : **OBS-8** (40 diapositives,
+45 minutes) et **OBS-9** (« une combinaison de 0 à 4 lettres ») reposent donc sur un texte
+abrogé, et l'arrêté de 2026 ne reprend pas le programme — il ne traite que des agréments et
+de l'organisation matérielle. Le seuil de 35 sur 40 n'est pas concerné : il vient de
+l'arrêté du 20 avril 2012, article 2-I-B, qui n'a pas bougé. Ces deux observations sont à
+re-sourcer, mais rien dans la présente spec ne s'appuie dessus — elle est notée ici pour ne
+pas se perdre, pas pour être traitée dans ce chantier.
