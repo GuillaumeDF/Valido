@@ -96,6 +96,8 @@ constats qui servent aux douze domaines suivants, et au lot de fondations à éc
 - **`panneaux/panonceaux` et `marquage/zones`** (hachures, damier de voie de détresse) ont
   deux applications chacun et pas une ligne qui dise ce qu'est un panonceau, ni ce qu'une
   surface peinte réserve. Deux familles que le balayage de la spec n'avait pas vues.
+  *(Comptes du 2026-09-19 : les douze domaines leur ont ajouté des membres — trois cartes
+  pour les panonceaux, quatre pour les zones. Le manque de fondation, lui, est intact.)*
 - **`panneaux/couleurs` n'a aucune carte.** Pas une seule du domaine ne prend la couleur
   comme axe indépendant de la forme ; les deux fondations existantes la traitent à
   l'intérieur d'une silhouette. La notion n'entre donc pas encore dans ce tableau.
@@ -106,3 +108,49 @@ et sans cas. Ce sont quatre fondations, pas une — c'est la forme de la carte q
 elle est ici celle de l'exemple de la spec (« Un panneau triangulaire à bord rouge
 annonce : »). Le domaine était bien en panne d'ordre et non de contenu : le boost portera
 sur les quatre, ce qui est exactement ce qui les rapproche.
+
+## Ce que les douze autres domaines ont montré (2026-09-19)
+
+Les 226 cartes restantes ont été lues une par une, domaine par domaine. Le registre passe
+de 5 à **57 notions**, et les 255 cartes `code` en portent toutes une.
+
+**La règle de partage tenue sur les 226.** Une `fondation` a un énoncé **abstrait** — pas
+d'image, pas de scène, pas de « vous » placé dans une situation — **et** sa bonne réponse
+énonce la règle d'une classe **sur l'axe propre de la famille**. Tout le reste est une
+`application` : la carte a besoin d'une entrée particulière (une image, une scène, une
+vitesse, un panneau) ou elle croise l'axe de la famille avec un autre. C'est la règle qui
+sépare « En agglomération, la vitesse maximale par défaut » (fondation : l'axe de
+`vitesse/limites-par-route` *est* le type de route) de « Jeune conducteur en période
+probatoire : quelle vitesse maximale sur autoroute ? » (application : l'axe de
+`vitesse/probatoire` est le régime du novice, et la carte le croise avec un type de route).
+
+**Un chiffre attaché à une infraction n'est pas une fondation.** Les cartes de barème
+(« … fait perdre : 3 points ») et de qualification (« … est puni de : deux ans et 4 500 € »)
+nomment bien une classe, mais ce qu'elles en donnent est une **conséquence**, pas une règle
+de conduite, et la structure de l'échelle — les paliers de retrait, la frontière
+contravention / délit — n'est énoncée par aucun énoncé de la banque. `permis/bareme` (7),
+`permis/qualification` (7), `vitesse/sanctions` (4) et `stationnement/gradation` (5) sont
+donc **entièrement en applications**. Ce sont quatre fondations à écrire, pas quatre
+annotations à corriger.
+
+**Trois prévisions du balayage ne survivent pas à la lecture**, et c'est la leçon du pilote
+rejouée : avant de déclarer une famille non fondée, il faut lire ses cartes, pas la spec.
+`vitesse/intemperies` est fondée (« Par brouillard, avec une visibilité inférieure à 50
+mètres, la vitesse est limitée à : ») ; `feux/eclairage-vehicule` l'est **cinq fois** (le
+clignotant, les codes, les antibrouillard avant et arrière, les détresses — chacun nomme un
+feu et donne sa règle) ; et `permis/qualification` n'est pas la famille des catégories de
+permis mais celle de la **nature** de l'infraction, six cartes de ce domaine plus le grand
+excès de vitesse.
+
+**Deux familles nées de la lecture**, absentes du balayage : `signalisation/hierarchie`
+(agent > temporaire > feu > panneau > marquage : six cartes, quatre `topic`, deux fondations
+dont l'une vivait dans `Panneaux & marquage` et l'autre dans `Priorités & intersections`) et
+`mecanique/entretien` (niveaux, contrôle technique, déchets dangereux). `securite/retenue`
+élargit la `securite/retenue-enfants` attendue : les dispenses de ceinture et les deux
+cartes de siège enfant sont le même bloc R412-1 à R412-3.
+
+**Vingt-deux notions portent moins de quatre cartes distinctes** et ne peuvent donc pas être
+acquises (`SchedulerConfig.masteryStreak` = 4). Sur celles qui portent déjà une fondation,
+cette fondation sera **boostée indéfiniment** : c'est le défaut symétrique de la notion non
+fondée, et il n'a pas de sortie d'outil. Le cas extrême est `environnement/critair`, **une
+seule carte**, qui est une fondation. La liste complète est dans le rapport de la tâche 7.
