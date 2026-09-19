@@ -16,12 +16,19 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | notion | topics concernés | fondations | applications | verdict |
 |---|---|---:|---:|---|
 | `croisement/regles` | `Priorités & intersections` | 0 | 1 | à compléter |
-| `distances/adherence` | `Distances & freinage` | 1 | 3 | couvert |
+| `distances/adherence` | `Distances & freinage`, `Mécanique & environnement` | 1 | 4 | couvert |
 | `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
 | `distances/composition-arret` | `Distances & freinage` | 4 | 2 | couvert |
 | `distances/intervalle` | `Distances & freinage` | 2 | 3 | couvert |
+| `environnement/critair` | `Mécanique & environnement` | 1 | 0 | couvert |
+| `environnement/ecoconduite` | `Mécanique & environnement` | 1 | 1 | couvert |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections` | 0 | 3 | à compléter |
+| `mecanique/chargement` | `Mécanique & environnement` | 1 | 1 | couvert |
+| `mecanique/entretien` | `Mécanique & environnement` | 3 | 0 | couvert |
+| `mecanique/equipements-obligatoires` | `Mécanique & environnement` | 1 | 1 | couvert |
+| `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
+| `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
@@ -30,6 +37,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections` | 2 | 4 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
+| `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `signalisation/hierarchie` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 3 | couvert |
 | `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
 | `usagers/cyclistes` | `Priorités & intersections` | 0 | 1 | à compléter |

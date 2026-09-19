@@ -170,6 +170,7 @@
     "difficulty": "moyen",
     "explanation": "C'est une petite barrette moulée au fond des rainures, qui affleure la bande de roulement une fois le seuil légal atteint : en dessous, l'eau ne s'évacue plus assez vite entre la gomme et la route. Arrivée à son niveau, il n'y a plus de marge : le pneu est à changer.",
     "id": "37fe1af42b8d81139920e49f3f7b6b59",
+    "notion": "mecanique/pneus",
     "options": [
       {
         "id": "A",
@@ -189,6 +190,7 @@
       }
     ],
     "prompt": "Le témoin d'usure d'un pneu indique :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -338,6 +340,7 @@
     "difficulty": "facile",
     "explanation": "Rouge signale une anomalie grave — huile, freins, température moteur — qui peut endommager le véhicule ou mettre en danger tout de suite. On s'arrête dès que la sécurité le permet : sur autoroute, cela veut dire gagner la bande d'arrêt d'urgence, pas s'arrêter sur une voie de circulation.",
     "id": "37fe1af42b8d81209e09c493195df716",
+    "notion": "mecanique/temoins",
     "options": [
       {
         "id": "A",
@@ -357,6 +360,7 @@
       }
     ],
     "prompt": "Un témoin rouge allumé au tableau de bord signifie :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -419,6 +423,7 @@
     "difficulty": "moyen",
     "explanation": "Le classement de R318-2 tient à la motorisation, à la norme d'émission applicable et à la date de première immatriculation. C'est lui que lisent les restrictions d'une zone à faibles émissions, dont le périmètre relève d'un arrêté local.",
     "id": "37fe1af42b8d8123abc0da9b2b7a51e0",
+    "notion": "environnement/critair",
     "options": [
       {
         "id": "A",
@@ -438,6 +443,7 @@
       }
     ],
     "prompt": "La vignette Crit'Air sert à :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -699,6 +705,7 @@
     "difficulty": "facile",
     "explanation": "Ces deux équipements servent le même but : rendre visibles le véhicule immobilisé et son conducteur avant qu'un autre ne les percute — le gilet doit d'ailleurs être revêtu, pas seulement présent, dès qu'on descend sur la chaussée. Extincteur, trousse de secours et éthylotest n'y figurent pas.",
     "id": "37fe1af42b8d814289adf64bd5b05d0e",
+    "notion": "mecanique/equipements-obligatoires",
     "options": [
       {
         "id": "A",
@@ -718,6 +725,7 @@
       }
     ],
     "prompt": "Les équipements de sécurité obligatoires à bord d'une voiture sont :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -753,6 +761,7 @@
     "difficulty": "costaud",
     "explanation": "Le moteur, entraîné par les roues, dissipe l'énergie que les freins auraient dû absorber : c'est ce qui évite l'échauffement des disques et la perte d'efficacité. Au point mort, on perd ce frein moteur ; contact coupé, on perd en plus l'assistance de direction.",
     "id": "37fe1af42b8d814ba731d0f9dafb6945",
+    "notion": "distances/adherence",
     "options": [
       {
         "id": "A",
@@ -772,6 +781,7 @@
       }
     ],
     "prompt": "Sur une longue descente, pour ne pas surchauffer les freins, il vaut mieux :",
+    "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -809,6 +819,7 @@
     "difficulty": "facile",
     "explanation": "Trois touchent directement à la sécurité — refroidissement, freins, visibilité — et aucun n'a de jauge sous les yeux du conducteur comme le carburant : on les vérifie soi-même, régulièrement. La pression des pneus, les plaquettes ou une courroie se surveillent aussi, mais ce ne sont pas des niveaux : on ne les complète pas, on les remplace.",
     "id": "37fe1af42b8d8158a15ac34f4b0e4be9",
+    "notion": "mecanique/entretien",
     "options": [
       {
         "id": "A",
@@ -828,6 +839,7 @@
       }
     ],
     "prompt": "Parmi les niveaux à surveiller régulièrement sur sa voiture :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -1980,6 +1992,7 @@
     "difficulty": "facile",
     "explanation": "Orange signale une anomalie à surveiller — un niveau bas, un capteur en défaut — sans danger immédiat : on peut continuer prudemment jusqu'au prochain contrôle. Si le même témoin se met à clignoter, en revanche, l'anomalie s'aggrave et il vaut mieux s'arrêter dès que possible.",
     "id": "37fe1af42b8d81b99c05ef1ffdacc30e",
+    "notion": "mecanique/temoins",
     "options": [
       {
         "id": "A",
@@ -1999,6 +2012,7 @@
       }
     ],
     "prompt": "Un témoin orange (ambre) au tableau de bord signale :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -2063,6 +2077,7 @@
     "difficulty": "facile",
     "explanation": "Anticiper les ralentissements et garder un régime moteur modéré réduit la consommation et l'usure, le moteur restant dans sa plage la plus efficace — sauf s'il tombe trop bas pour la charge, ce qui le force au lieu de l'économiser. Vitres ouvertes ou climatisation : le compromis dépend trop de la vitesse pour être une règle d'éco-conduite fiable, à la différence de l'anticipation, qui réduit la consommation en toute circonstance.",
     "id": "37fe1af42b8d81c89e88db8c08ca8514",
+    "notion": "environnement/ecoconduite",
     "options": [
       {
         "id": "A",
@@ -2082,6 +2097,7 @@
       }
     ],
     "prompt": "L'éco-conduite consiste notamment à :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -2316,6 +2332,7 @@
     "difficulty": "moyen",
     "explanation": "En dessous de cette profondeur, les rainures n'évacuent plus assez l'eau et le pneu aquaplane plus facilement : c'est une question de sécurité, pas seulement de conformité au contrôle technique.",
     "id": "37fe1af42b8d81deaec0cb8830fa0b25",
+    "notion": "mecanique/pneus",
     "options": [
       {
         "id": "A",
@@ -2335,6 +2352,7 @@
       }
     ],
     "prompt": "La profondeur minimale légale des sculptures d'un pneu est de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -2652,6 +2670,7 @@
     "difficulty": "moyen",
     "explanation": "L'air chauffe en roulant et sa pression monte : mesurée à chaud, elle paraît correcte alors que le pneu est sous-gonflé. D'où le contrôle avant de partir, ou une correction de +0,3 bar si on ne peut pas faire autrement.",
     "id": "37fe1af42b8d81f4b915cd58b951d9e4",
+    "notion": "mecanique/pneus",
     "options": [
       {
         "id": "A",
@@ -2671,6 +2690,7 @@
       }
     ],
     "prompt": "La pression des pneus doit être vérifiée :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10348,6 +10368,7 @@
     "difficulty": "facile",
     "explanation": "Quatre ans, puis tous les deux ans : c'est le rythme fixé par R323-22 pour les véhicules légers. Un résultat défavorable pour défaillance majeure ouvre deux mois pour la contre-visite.",
     "id": "cc10180c491d12311f76fc1d4d98ff45",
+    "notion": "mecanique/entretien",
     "options": [
       {
         "id": "A",
@@ -10367,6 +10388,7 @@
       }
     ],
     "prompt": "Le premier contrôle technique d'une voiture neuve a lieu :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10375,6 +10397,7 @@
     "difficulty": "moyen",
     "explanation": "D314-8 laisse le choix : des dispositifs antidérapants dans le coffre pour deux roues motrices, ou des pneus marqués du symbole alpin sur deux roues de chaque essieu. Quelles communes sont concernées, en revanche, dépend d'un arrêté préfectoral.",
     "id": "4477774964dae6e5d1bac49b5a37f3a8",
+    "notion": "mecanique/pneus",
     "options": [
       {
         "id": "A",
@@ -10394,6 +10417,7 @@
       }
     ],
     "prompt": "En période hivernale, dans une commune soumise à l'obligation :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10402,6 +10426,7 @@
     "difficulty": "costaud",
     "explanation": "R412-1 dresse une liste fermée : morphologie inadaptée, certificat médical, intervention d'urgence, taxi en service, et en agglomération les services publics et les livraisons de porte à porte. La grossesse n'y est pas — il y faut un certificat.",
     "id": "8e64074daad0e4a72e0fea2da9bac8eb",
+    "notion": "securite/retenue",
     "options": [
       {
         "id": "A",
@@ -10421,6 +10446,7 @@
       }
     ],
     "prompt": "Le port de la ceinture n'est pas obligatoire :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10429,6 +10455,7 @@
     "difficulty": "facile",
     "explanation": "R412-2 II fixe dix ans, avec un dispositif adapté à la morphologie et au poids : il retient l'enfant bien mieux qu'une ceinture seule en cas de choc. Un seuil en centimètres circule beaucoup ; le code retient un âge, sauf enfant déjà adapté à la ceinture, muni d'un certificat médical, ou transporté en taxi ou en transport en commun.",
     "id": "089e9b57f57bbb155f81da3ec492082f",
+    "notion": "securite/retenue",
     "options": [
       {
         "id": "A",
@@ -10448,6 +10475,7 @@
       }
     ],
     "prompt": "Un système homologué de retenue est exigé pour tout enfant :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10456,6 +10484,7 @@
     "difficulty": "moyen",
     "explanation": "Dos à la route, la tête se trouve juste devant le coussin gonflable : R412-3 n'admet cette place à l'avant que si l'airbag est désactivé. À l'arrière, la question ne se pose pas.",
     "id": "eac980f55eb23bfd3b1612f506fb81a3",
+    "notion": "securite/retenue",
     "options": [
       {
         "id": "A",
@@ -10475,6 +10504,7 @@
       }
     ],
     "prompt": "Un siège enfant dos à la route, à une place avant :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10483,6 +10513,7 @@
     "difficulty": "moyen",
     "explanation": "Le gilet sert au moment où l'on ouvre la portière sur une voie où l'on va être à pied : R416-19 le veut à portée de main, pas dans le coffre — qui s'ouvre après, souvent du mauvais côté — ni sous une banquette qu'il faudrait soulever pour l'atteindre.",
     "id": "6c9b9395e9090cd97a7fc4062b7162fc",
+    "notion": "mecanique/equipements-obligatoires",
     "options": [
       {
         "id": "A",
@@ -10502,6 +10533,7 @@
       }
     ],
     "prompt": "En circulation, le gilet de haute visibilité doit se trouver :",
+    "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10514,6 +10546,7 @@
       "alt": "Voiture vue de côté, roulant vers la droite ; de longues planches sanglées sur le toit débordent loin derrière elle.",
       "asset": "chargement-depassement-arriere"
     },
+    "notion": "mecanique/chargement",
     "options": [
       {
         "id": "A",
@@ -10533,6 +10566,7 @@
       }
     ],
     "prompt": "Ce chargement :",
+    "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10541,6 +10575,7 @@
     "difficulty": "costaud",
     "explanation": "R221-4 garde dans cette catégorie l'attelage dont les deux PTAC additionnés n'excèdent pas 4 250 kg ; au-delà, il faut le permis BE. Entre 3 500 et 4 250 kg avec une remorque de plus de 750 kg, une formation s'y ajoute.",
     "id": "173c63baae24d7e7db9e2961bebd033f",
+    "notion": "mecanique/chargement",
     "options": [
       {
         "id": "A",
@@ -10560,6 +10595,7 @@
       }
     ],
     "prompt": "Voiture plus remorque : la catégorie B couvre l'ensemble jusqu'à :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10568,6 +10604,7 @@
     "difficulty": "facile",
     "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : une galerie chargée casse l'écoulement au-dessus du pavillon, et la traînée croît avec le carré de la vitesse — bien plus qu'avec le poids ajouté. Vide, elle coûte encore, mais moins.",
     "id": "526d6b502e05eefba3f2066af4c2ab8d",
+    "notion": "environnement/ecoconduite",
     "options": [
       {
         "id": "A",
@@ -10587,6 +10624,7 @@
       }
     ],
     "prompt": "Une galerie de toit chargée, sur autoroute :",
+    "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
@@ -10595,6 +10633,7 @@
     "difficulty": "facile",
     "explanation": "Huile noire et batterie au plomb sont des déchets dangereux ; L541-2 du code de l'environnement confie leur gestion à qui les détient, à charge de les remettre à quelqu'un d'autorisé à les prendre en charge — la déchèterie ou le garage, à la différence du tri sélectif ordinaire ou d'un ferrailleur non agréé. Un professionnel, lui, relève d'un régime séparé (R543-3).",
     "id": "204454d0e329d40811d4317fabf2ddfa",
+    "notion": "mecanique/entretien",
     "options": [
       {
         "id": "A",
@@ -10614,6 +10653,7 @@
       }
     ],
     "prompt": "Une huile de vidange et une batterie usagée :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },
