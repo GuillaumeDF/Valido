@@ -791,7 +791,7 @@
     "difficulty": "costaud",
     "explanation": "Le moteur, entraîné par les roues, dissipe l'énergie que les freins auraient dû absorber : c'est ce qui évite l'échauffement des disques et la perte d'efficacité. Au point mort, on perd ce frein moteur ; contact coupé, on perd en plus l'assistance de direction.",
     "id": "37fe1af42b8d814ba731d0f9dafb6945",
-    "notion": "distances/adherence",
+    "notion": "distances/composition-arret",
     "options": [
       {
         "id": "A",
@@ -7691,7 +7691,7 @@
       }
     ],
     "prompt": "L'éthylotest antidémarrage est un dispositif qui :",
-    "role": "fondation",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -10767,7 +10767,7 @@
       }
     ],
     "prompt": "Voiture plus remorque : la catégorie B couvre l'ensemble jusqu'à :",
-    "role": "fondation",
+    "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
   },

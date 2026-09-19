@@ -17,14 +17,14 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 |---|---|---:|---:|---|
 | `alcool/depistage` | `Alcool & stupéfiants` | 1 | 2 | couvert |
 | `alcool/metabolisme` | `Alcool & stupéfiants` | 4 | 0 | couvert |
-| `alcool/sanctions` | `Alcool & stupéfiants` | 1 | 3 | couvert |
+| `alcool/sanctions` | `Alcool & stupéfiants` | 0 | 4 | à compléter |
 | `alcool/seuils` | `Alcool & stupéfiants` | 3 | 1 | couvert |
 | `croisement/regles` | `Croisement & dépassement`, `Priorités & intersections` | 1 | 2 | couvert |
 | `depassement/interdictions` | `Croisement & dépassement` | 5 | 1 | couvert |
 | `depassement/manoeuvre` | `Croisement & dépassement` | 5 | 2 | couvert |
-| `distances/adherence` | `Distances & freinage`, `Mécanique & environnement` | 1 | 4 | couvert |
+| `distances/adherence` | `Distances & freinage` | 1 | 3 | couvert |
 | `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
-| `distances/composition-arret` | `Distances & freinage` | 4 | 2 | couvert |
+| `distances/composition-arret` | `Distances & freinage`, `Mécanique & environnement` | 4 | 3 | couvert |
 | `distances/intervalle` | `Distances & freinage` | 2 | 3 | couvert |
 | `environnement/critair` | `Mécanique & environnement` | 1 | 0 | couvert |
 | `environnement/ecoconduite` | `Mécanique & environnement` | 1 | 1 | couvert |
@@ -32,7 +32,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `feux/signaux-tricolores` | `Feux` | 2 | 3 | couvert |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections`, `Usagers & partage de la route` | 0 | 4 | à compléter |
-| `mecanique/chargement` | `Mécanique & environnement` | 1 | 1 | couvert |
+| `mecanique/chargement` | `Mécanique & environnement` | 0 | 2 | à compléter |
 | `mecanique/entretien` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `mecanique/equipements-obligatoires` | `Mécanique & environnement`, `Premiers secours` | 1 | 2 | couvert |
 | `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
