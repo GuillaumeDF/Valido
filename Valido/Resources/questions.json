@@ -1112,7 +1112,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème monte par paliers : aucun point sous 5 km/h, 1 de 5 à 20, 2 de 20 à 30, puis 3 de 30 à 40 — parce que le risque de collision grave et la distance de freinage croissent avec l'écart.",
+    "explanation": "Trois points : c'est le troisième cran du retrait, et le premier où le code ouvre un stage de sensibilisation que le tribunal peut imposer. À cette allure, la distance de freinage et la violence du choc ont déjà beaucoup monté.",
     "id": "37fe1af42b8d816b8bf5d51c4f78466c",
     "notion": "vitesse/sanctions",
     "options": [
@@ -1443,7 +1443,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le franchissement de ce seuil fait changer l'infraction de nature : on quitte l'amende forfaitaire pour un juge, avec trois ans d'emprisonnement et 9 000 € encourus, contre deux ans et 4 500 € dans le barème qu'on lit encore partout. Le retrait de points, lui, reste de six.",
+    "explanation": "Le franchissement de ce seuil fait changer l'infraction de nature : on quitte l'amende forfaitaire pour un juge, avec trois ans d'emprisonnement et 9 000 € encourus, contre deux ans et 4 500 € dans le barème qu'on lit encore partout.",
     "id": "37fe1af42b8d817e8e2feffa6987ba00",
     "notion": "alcool/seuils",
     "options": [
@@ -1472,7 +1472,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le barème frappe l'alcool au maximum possible pour une contravention : 6 points, la moitié du capital, d'un seul coup. Au-delà de 0,8 g/L on change de nature d'infraction et on passe au délit, sans que le retrait augmente pour autant.",
+    "explanation": "Le barème frappe l'alcool au maximum possible pour une contravention : 6 points, la moitié du capital, d'un seul coup. Le même contrôle permet d'immobiliser le véhicule sur place : la sanction n'attend pas le tribunal.",
     "id": "37fe1af42b8d817e9b93c2546ad30ec9",
     "notion": "alcool/sanctions",
     "options": [
@@ -2234,7 +2234,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses abaissées, 110 km/h au lieu de 130 sur autoroute. L'élève conducteur y est soumis comme le titulaire probatoire, et l'oublier est une contravention de deuxième classe.",
+    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses abaissées, 110 km/h au lieu de 130 sur autoroute. L'oublier est une contravention de deuxième classe.",
     "id": "37fe1af42b8d81d09328df58d56a4dc6",
     "notion": "permis/probatoire",
     "options": [
@@ -7255,7 +7255,7 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Le risque de collision grave croît avec l'écart, et le barème suit : quatre points, dernier palier du régime contraventionnel. À partir de 30 km/h de dépassement, le juge peut y ajouter une suspension du permis et un stage obligatoire, qui restent à sa main — rien de tout cela n'est automatique.",
+    "explanation": "Quatre points : c'est le dernier palier du régime contraventionnel. À partir de 30 km/h de dépassement, le juge peut y ajouter une suspension du permis et un stage obligatoire, qui restent à sa main — rien de tout cela n'est automatique.",
     "id": "04182c9bbdeb305e21532f9c6913a2a2",
     "notion": "vitesse/sanctions",
     "options": [
@@ -13230,5 +13230,179 @@
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "moyen",
+    "explanation": "La frontière se lit sur la peine encourue, jamais sur le dommage causé : une contravention ne peut porter qu'une amende — 1 500 € au plus, même à la cinquième classe — et des peines privatives ou restrictives de droits ; le délit, lui, ouvre la privation de liberté et change de juridiction. Tout le reste se retrouve des deux côtés : les points, la suspension du permis, l'inscription au casier dès la cinquième classe.",
+    "id": "bcae6d813bdc2950e9e24215533e9c69",
+    "notion": "permis/qualification",
+    "options": [
+      {
+        "id": "A",
+        "text": "seul le délit fait perdre des points au permis"
+      },
+      {
+        "id": "B",
+        "text": "seul le délit est inscrit au casier judiciaire"
+      },
+      {
+        "id": "C",
+        "text": "seul le délit peut être puni d'emprisonnement"
+      },
+      {
+        "id": "D",
+        "text": "seul le délit permet de suspendre le permis"
+      }
+    ],
+    "prompt": "Entre une contravention et un délit routier :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "costaud",
+    "explanation": "Le code n'écrit pas ce retrait en points mais en fraction du capital, et il la fixe une fois pour toutes : tous les délits routiers emportent la même. La gravité se mesure ailleurs — en mois de prison, en euros, en annulation du titre —, jamais sur le permis. Pour une contravention, la loi ne pose qu'un plafond et laisse chaque article dire combien : c'est pourquoi deux infractions à la même amende ne coûtent pas forcément les mêmes points.",
+    "id": "32c91d7c55b64e58f68c053c703bd156",
+    "notion": "permis/bareme",
+    "options": [
+      {
+        "id": "A",
+        "text": "coûtent exactement le même nombre de points"
+      },
+      {
+        "id": "B",
+        "text": "coûtent des points en proportion de la peine"
+      },
+      {
+        "id": "C",
+        "text": "coûtent le double d'une contravention voisine"
+      },
+      {
+        "id": "D",
+        "text": "coûtent des points si le tribunal le décide"
+      }
+    ],
+    "prompt": "Sur le permis, deux délits routiers de gravité différente :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Permis & sanctions"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "150 là où l'on peut faire 130, ou 70 là où l'on peut faire 50 : c'est le même excès, et il coûte les mêmes points. Ce qui se mesure est l'écart, jamais le chiffre lu au compteur ; les paliers se comptent ensuite de dix en dix au-delà de vingt km/h de dépassement. La route, elle, ne joue que sur le montant de l'amende.",
+    "id": "b3c82837e20dddfcc1a3184b6459d135",
+    "notion": "vitesse/sanctions",
+    "options": [
+      {
+        "id": "A",
+        "text": "la vitesse atteinte, par paliers de dix km/h"
+      },
+      {
+        "id": "B",
+        "text": "le rapport entre la vitesse atteinte et la limite"
+      },
+      {
+        "id": "C",
+        "text": "la catégorie de route où l'excès a été relevé"
+      },
+      {
+        "id": "D",
+        "text": "l'écart avec la vitesse autorisée, par paliers"
+      }
+    ],
+    "prompt": "Dans le barème des excès de vitesse, le nombre de points retirés suit :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Trois des quatre degrés se paient en argent seulement : le code y voit une gêne, pas un risque. Le dangereux est le seul rangé du côté de l'accident — il ôte aux autres la vue dont ils ont besoin — et le seul qui touche au permis, de trois points. C'est aussi le seul qu'on juge sur ce qu'il fait courir, les trois autres se lisant sur la place prise ou sur le temps passé.",
+    "id": "3497bb89bf8cdc46c64c017956b4cf16",
+    "notion": "stationnement/gradation",
+    "options": [
+      {
+        "id": "A",
+        "text": "le gênant, qui embarrasse la circulation des autres"
+      },
+      {
+        "id": "B",
+        "text": "le dangereux, qui expose les autres usagers à un choc"
+      },
+      {
+        "id": "C",
+        "text": "le très gênant, qui prend une place réservée à d'autres"
+      },
+      {
+        "id": "D",
+        "text": "l'abusif, qui s'installe sur la voie et n'en repart plus"
+      }
+    ],
+    "prompt": "Des quatre degrés du stationnement interdit, le seul qui coûte des points est :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Arrêt & stationnement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Le régime suit l'expérience, pas le titre : l'article R413-5 l'ouvre à tout élève conducteur, avant même l'examen, et le referme au terme du délai probatoire. Celui qui apprend roule déjà sous les trois mêmes plafonds que celui qui vient de réussir. Ni l'âge du conducteur ni son solde de points n'entrent dans la règle, et aucun panneau ne la rappelle : c'est au conducteur de la connaître.",
+    "id": "77f544828087ec1c8354b69b126cc6bf",
+    "notion": "vitesse/probatoire",
+    "options": [
+      {
+        "id": "A",
+        "text": "dès l'apprentissage, et pendant tout le délai probatoire"
+      },
+      {
+        "id": "B",
+        "text": "dès l'obtention du permis, et pendant la première année"
+      },
+      {
+        "id": "C",
+        "text": "dès l'obtention du permis, tant que le capital n'est pas plein"
+      },
+      {
+        "id": "D",
+        "text": "à tout conducteur qui n'a pas encore vingt et un ans"
+      }
+    ],
+    "prompt": "Les vitesses maximales abaissées du conducteur novice s'imposent :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Vitesse"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Le code fixe ce retrait à un niveau unique et s'y tient d'un bout à l'autre de l'échelle : le conducteur contrôlé juste au-dessus du seuil et celui qui le triple perdent autant de points. Ce que le taux commande, c'est la nature de la poursuite et les peines qui s'ajoutent — dès le premier seuil, une suspension du permis jusqu'à trois ans est encourue —, jamais le compte du permis.",
+    "id": "f35f84a5abe51dd403edc0a08d849d98",
+    "notion": "alcool/sanctions",
+    "options": [
+      {
+        "id": "A",
+        "text": "croît avec le taux mesuré, tranche par tranche"
+      },
+      {
+        "id": "B",
+        "text": "reste le même sur toute l'échelle des taux"
+      },
+      {
+        "id": "C",
+        "text": "double en cas de récidive dans les cinq ans"
+      },
+      {
+        "id": "D",
+        "text": "est fixé par le tribunal, au vu du taux relevé"
+      }
+    ],
+    "prompt": "Le nombre de points retirés pour une alcoolémie au volant :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Alcool & stupéfiants"
   }
 ]

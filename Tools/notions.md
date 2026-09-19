@@ -17,7 +17,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 |---|---|---:|---:|---|
 | `alcool/depistage` | `Alcool & stupéfiants` | 1 | 2 | couvert |
 | `alcool/metabolisme` | `Alcool & stupéfiants` | 4 | 0 | couvert |
-| `alcool/sanctions` | `Alcool & stupéfiants` | 0 | 4 | à compléter |
+| `alcool/sanctions` | `Alcool & stupéfiants` | 1 | 4 | couvert |
 | `alcool/seuils` | `Alcool & stupéfiants` | 3 | 1 | couvert |
 | `croisement/regles` | `Croisement & dépassement`, `Priorités & intersections` | 1 | 2 | couvert |
 | `depassement/interdictions` | `Croisement & dépassement` | 5 | 1 | couvert |
@@ -40,10 +40,10 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 6 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage`, `Tunnels & passages à niveau` | 1 | 3 | couvert |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 1 | 9 | couvert |
-| `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections`, `Tunnels & passages à niveau` | 0 | 7 | à compléter |
+| `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections`, `Tunnels & passages à niveau` | 1 | 7 | couvert |
 | `permis/capital-points` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/probatoire` | `Permis & sanctions` | 4 | 0 | couvert |
-| `permis/qualification` | `Permis & sanctions`, `Vitesse` | 0 | 7 | à compléter |
+| `permis/qualification` | `Permis & sanctions`, `Vitesse` | 1 | 7 | couvert |
 | `permis/recuperation` | `Permis & sanctions` | 3 | 0 | couvert |
 | `pn/franchissement` | `Tunnels & passages à niveau` | 3 | 1 | couvert |
 | `pn/signalisation` | `Feux`, `Tunnels & passages à niveau` | 2 | 2 | couvert |
@@ -56,7 +56,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `signalisation/hierarchie` | `Feux`, `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 4 | couvert |
 | `stationnement/arret-vs-stationnement` | `Arrêt & stationnement`, `Panneaux & marquage` | 1 | 3 | couvert |
-| `stationnement/gradation` | `Arrêt & stationnement` | 0 | 5 | à compléter |
+| `stationnement/gradation` | `Arrêt & stationnement` | 1 | 5 | couvert |
 | `stationnement/interdictions` | `Arrêt & stationnement` | 4 | 1 | couvert |
 | `stationnement/regles-locales` | `Arrêt & stationnement` | 2 | 0 | couvert |
 | `stups/regime` | `Alcool & stupéfiants` | 1 | 2 | couvert |
@@ -70,8 +70,8 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `usagers/vulnerables` | `Arrêt & stationnement`, `Usagers & partage de la route` | 1 | 2 | couvert |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
 | `vitesse/limites-par-route` | `Vitesse` | 5 | 2 | couvert |
-| `vitesse/probatoire` | `Vitesse` | 0 | 3 | à compléter |
-| `vitesse/sanctions` | `Vitesse` | 0 | 4 | à compléter |
+| `vitesse/probatoire` | `Vitesse` | 1 | 3 | couvert |
+| `vitesse/sanctions` | `Vitesse` | 1 | 4 | couvert |
 
 ## Ce que le domaine pilote a montré
 
@@ -180,3 +180,34 @@ cette seule raison — l'explication de `distances/bau`, qui comparait la gravit
 et de la circulation sur la bande (c'est la réponse de ses deux applications), et celle de
 `panneaux/formes` sur le triangle, qui donnait la distance d'implantation (c'est la carte
 illustrée qui la porte).
+
+## Les six fondations chiffrées (2026-09-19)
+
+Les six notions que la section précédente laissait ouvertes sont fondées, et
+`notions/sans-fondation` tombe à **0**. Toutes les six portent une ligne `datée` dans
+[`sources.md`](sources.md), relevée le 2026-09-19 sur `legifrance.gouv.fr` : L223-2 et
+R413-14, R417-9, R413-5, R234-1 et L234-1 pour le code de la route, 131-12 et 131-13 du
+code pénal pour la frontière contravention / délit. Le rang 2
+(`securite-routiere.gouv.fr`) n'a servi nulle part : sur ces six sujets, il n'aurait rien
+ajouté qu'un article consolidé ne dise mieux.
+
+**Le partage qui a décidé de chaque carte.** Une fondation chiffrée n'est pas la carte qui
+donne le chiffre : c'est celle qui énonce **l'arithmétique du barème**, là où ses
+applications en donnent une valeur. `permis/bareme` dit que le code écrit le retrait en
+fraction du capital et le fixe uniformément pour les délits (L223-2 I et II) sans jamais
+écrire « six » ; `vitesse/sanctions` dit que le retrait se gradue sur l'**écart** et sur
+rien d'autre, sans reprendre un seul palier ; `alcool/sanctions` dit que ce même retrait ne
+se gradue **pas** avec le taux ; `stationnement/gradation` dit lequel des quatre degrés
+touche au permis, sans reprendre ni les 35 € ni les 135 € ni les sept jours ;
+`vitesse/probatoire` dit à qui et pendant combien de temps le régime s'applique, les trois
+plafonds appartenant à ses applications ; `permis/qualification` dit ce qui sépare
+l'amende de la prison. **Dans les six cas, la valeur que la carte n'écrit pas est la bonne
+réponse d'une application existante** — c'est le critère qui a tranché, et chaque ligne de
+registre nomme les cartes concernées.
+
+**Cinq explications de cartes anciennes ont dû être coupées.** Écrire la règle rend
+livrante l'explication qui la disait en passant, et le sens de la fuite est celui que
+`relire.py` ne regarde pas : l'ancienne carte livre la **neuve**. Les cinq coupes sont
+faites du côté qui ne porte pas la réponse de la carte coupée, et elles sont détaillées
+dans le rapport de la tâche 8b-2. Deux d'entre elles referment en passant une fuite
+**antérieure** entre deux cartes anciennes.
