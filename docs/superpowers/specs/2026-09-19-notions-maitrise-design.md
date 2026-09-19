@@ -29,8 +29,41 @@ STOP et le triangle pointe en bas existent bien, mais comme cartes de `Priorité
 intersections` : la banque est classée par **usage**, jamais par **système**, si bien que la
 grammaire de la signalisation n'est réunie sur aucun axe.
 
-**Deux pannes distinctes, deux remèdes distincts.** La lecture des deux domaines cités par
-l'utilisateur le montre nettement, et c'est ce qui structure toute la suite :
+**Le défaut a une signature, et elle n'est pas propre aux panneaux.** Les exemples donnés à
+l'ouverture — panneaux, priorités, lignes — n'étaient pas exhaustifs, et les prendre pour
+cible aurait produit un correctif local à un défaut général. Les 255 cartes `code` ont donc
+été relues, les treize domaines, et le critère qui ressort est net :
+
+> **Quand un domaine est une taxonomie, Valido teste les membres un par un et n'énonce
+> jamais la famille. Quand c'est une procédure ou une grandeur, la fondation existe déjà.**
+
+Les six taxonomies sans fondation, relevées sur l'ensemble du corpus :
+
+| domaine | la famille jamais énoncée | applications qui en dépendent |
+|---|---|---:|
+| `Panneaux & marquage` | les formes et les couleurs — 2 familles énoncées sur 5 | 17 |
+| `Feux` | les feux du véhicule : croisement, route, brouillard avant et arrière, détresse, position | 6 |
+| `Permis & sanctions` | **contravention contre délit**, la distinction qui structure tout le domaine | ~6 |
+| `Arrêt & stationnement` | gênant / très gênant / dangereux / abusif, et leur barème | 4 |
+| `Vitesse` | la règle d'abattement par intempérie, et les limites de la période probatoire | 6 |
+| `Usagers & partage de la route` | « usager vulnérable » comme catégorie | 5 |
+
+Et le contre-exemple, qui est ce qui rend le critère utilisable plutôt qu'anecdotique —
+quatre domaines portent **déjà** leur fondation, et rien n'y est à écrire : `Distances &
+freinage` (« La distance d'arrêt d'un véhicule se compose de : »), `Premiers secours`
+(« Face à un accident, la règle de conduite à suivre est : », soit protéger / alerter /
+secourir), `Mécanique & environnement` (témoin rouge contre témoin orange, deux cartes qui
+énoncent le système) et `Arrêt & stationnement` sur son autre axe (« L'arrêt se distingue du
+stationnement par : »).
+
+Le critère se lit donc comme un test à appliquer à chaque notion, pas comme une liste à
+recopier : *cette notion est-elle une famille dont je teste les membres ?* Si oui, il lui
+faut une fondation. Le tableau ci-dessus est le résultat d'un premier passage, pas une
+liste close — §6 en fait un travail d'annotation systématique.
+
+**Deux pannes distinctes, deux remèdes distincts.** Les deux domaines cités à l'ouverture
+tombent d'ailleurs de part et d'autre de cette frontière, et c'est ce qui structure toute la
+suite :
 
 - **La grammaire des panneaux est en panne de contenu.** Deux cartes sur cinq familles.
   Aucun ordre de service ne peut servir une carte qui n'existe pas.
@@ -61,12 +94,12 @@ premières cartes prévisibles et ferait frotter la fenêtre anti-répétition d
 notions qui ne comptent que cinq ou six cartes. L'imprévisibilité est une décision de
 produit du README ; elle prime.
 
-**3. La maîtrise ne se reperd jamais.** Le README écarte explicitement la série
-quotidienne : « le jour où elle casse, on abandonne l'app ; la rétention repose sur
-l'imprévisibilité, pas sur la culpabilité. » Une notion acquise est **l'inverse exact d'une
-série** — elle ne peut que monter, et aucune faute ne la retire. Elle ne contredit donc pas
-cette décision, elle la complète : `ComboEngine` porte la monnaie qui tombe, la maîtrise
-porte celle qui reste.
+**3. La maîtrise ne se reperd jamais.** Une progression qui se casse punit l'absence au
+lieu de récompenser le travail déjà fait, et le jour où elle casse on referme l'app. Une
+notion acquise est **l'inverse exact d'une série** : elle ne peut que monter, aucune faute
+ne la retire. `ComboEngine` porte la monnaie qui tombe, la maîtrise porte celle qui reste —
+deux mises de natures opposées, et c'est voulu. (Le projet avait déjà écarté la série
+quotidienne pour ce motif ; c'est un précédent qui converge, pas la raison.)
 
 **4. Le tirage continue d'être piloté par les fautes.** Acquérir une notion ne la retire pas
 du vivier. `weight()` garde `failureRate` et le plancher de 0,05 : une notion acquise qu'on
@@ -239,11 +272,27 @@ La moitié la plus lourde, et celle qu'aucun code ne remplace.
    domaine, sur le modèle des treize lectures du §4 de `audit-2026-09-formes.md`. Il
    produit le registre `notions.md` en même temps que l'affectation — les deux ne peuvent
    pas être écrits l'un sans l'autre.
-2. **Écrire les fondations manquantes.** Au minimum celles dont l'absence est déjà
-   constatée : triangle à bord rouge = danger, carré ou rectangle à fond bleu = indication,
-   octogone = stop, et la couleur comme axe indépendant de la forme. Chaque carte neuve
-   passe par le protocole complet de `Tools/questions.md` — 7 règles de distracteur, 9
-   pièges de forme, `sources.md`, `couverture.md`, puis `audit.py`, `relire.py`, les tests.
+2. **Écrire les fondations manquantes, sur les treize domaines.** Le balayage du §1 en a
+   déjà nommé six ; l'annotation de l'étape 1 en révélera d'autres, puisqu'elle applique le
+   même test à chaque notion plutôt qu'aux seuls domaines déjà lus sous cet angle. Le socle
+   connu à ce stade :
+
+   | notion | la fondation à écrire |
+   |---|---|
+   | `panneaux/formes` | triangle à bord rouge = danger ; carré ou rectangle = indication ; octogone = stop ; triangle pointe en bas = cédez le passage |
+   | `panneaux/couleurs` | la couleur comme axe **indépendant** de la forme : bord rouge = interdiction, fond bleu = obligation ou indication selon la forme, fond jaune = temporaire |
+   | `feux/eclairage-vehicule` | la famille des feux et le rôle de chacun — six cartes l'exercent, aucune ne l'énonce |
+   | `permis/qualification` | contravention contre délit : ce qui les sépare, et ce que chacune emporte |
+   | `stationnement/gradation` | les quatre niveaux — gênant, très gênant, dangereux, abusif — et leur barème |
+   | `vitesse/intemperies` | la règle d'abattement elle-même, plutôt que ses trois cas |
+   | `vitesse/probatoire` | les limites abaissées comme système, plutôt que ses trois cas |
+   | `usagers/vulnerables` | ce qui fait un usager vulnérable, et ce que ça impose au conducteur |
+
+   Chaque carte neuve passe par le protocole complet de `Tools/questions.md` — 7 règles de
+   distracteur, 9 pièges de forme, `sources.md`, `couverture.md`, puis `audit.py`,
+   `relire.py`, les tests. Les fondations de `permis/qualification` et
+   `stationnement/gradation` portent des montants et des retraits de points : elles sont
+   `datée` dans `sources.md`, avec une source de `DOMAINES_FAIT` et sa date de relevé.
 3. **Ne rien réécrire d'autre.** Les 17 cartes « Ce panneau indique : » sont de bonnes
    cartes d'application ; elles ne deviennent un problème que sans fondation en amont. Cette
    passe n'ouvre pas le lot de réécriture des 25 cartes du diagnostic de septembre, qui est
@@ -278,8 +327,13 @@ dans cette spec ne touche à la fenêtre de cartes ni au retrait par l'arrière 
 - `Tools/audit.py` — les deux clés dans `schema/cle-hors-schema`, les trois contrôles
   `notions/`.
 - `ValidoTests/` — les cinq tests du §5, plus les contrôles de `BundledContentTests`.
-- `README.md` et `CLAUDE.md` — la sixième décision structurante, et les **neuf** nombres de
-  `SchedulerConfig` au lieu de sept.
+- `CLAUDE.md` — les **neuf** nombres de `SchedulerConfig` au lieu de sept, le registre
+  `notions.md` à côté de `sources.md` et `couverture.md`, les trois compteurs `notions/`
+  dans la liste de ceux qui doivent rester vides.
+- `README.md` — le volume de questions, et rien d'autre. **Le pourquoi de cette boucle va
+  dans les commentaires des types concernés** (`CardScheduler`, `ProgressSnapshot`,
+  `ComboEngine`), au format daté déjà en usage dans le dépôt — pas en règle normative dans
+  le README, qui décrit le projet et ne le contraint pas.
 
 ### Critères d'acceptation
 
