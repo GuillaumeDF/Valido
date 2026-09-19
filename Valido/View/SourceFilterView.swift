@@ -1,8 +1,7 @@
 import SwiftUI
 
-/// La seule surface de réglage de l'app. Ouverte depuis le libellé du thème, donc sans
-/// ajouter un seul pixel de chrome au feed — la spec interdit tout menu et toute décision
-/// avant de réviser.
+/// La seule surface de réglage, ouverte depuis le libellé du thème : pas un pixel de
+/// chrome ajouté au feed.
 struct SourceFilterView: View {
     let selection: SourceSelection
     let count: (Subject) -> Int
@@ -47,7 +46,6 @@ struct SourceFilterView: View {
         .presentationDetents([.height(280)])
     }
 
-    /// Le nom affiché est de la présentation, pas du modèle — `Subject` reste un tag brut.
     private static func label(_ subject: Subject) -> String {
         switch subject {
         case .code: "Code de la route"

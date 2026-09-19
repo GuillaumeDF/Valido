@@ -1,8 +1,5 @@
-/// Les sources de questions activées. Tout est coché par défaut.
-///
-/// L'invariant « jamais vide » vit ici et non dans l'interface : un vivier vide ne
-/// laisserait rien à tirer au scheduler, et c'est le genre de garde qu'on oublie de
-/// remettre quand on refait l'écran. Décocher la dernière source est donc un no-op.
+/// L'invariant « jamais vide » vit ici et non dans l'interface : c'est le genre de garde
+/// qu'on oublie de remettre en refaisant l'écran. Décocher la dernière source est un no-op.
 nonisolated struct SourceSelection: Codable, Sendable, Equatable {
     private(set) var subjects: Set<Subject>
 

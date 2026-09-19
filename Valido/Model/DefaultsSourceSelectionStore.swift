@@ -1,10 +1,8 @@
 import Foundation
 
-/// `UserDefaults` plutôt qu'un fichier JSON : c'est une préférence, pas de la progression.
-///
-/// `load()` ne lance jamais, comme `FileProgressStore.load()` et pour la même raison —
-/// perdre une préférence se reclique en deux secondes, bloquer l'app sur une valeur
-/// illisible ne se pardonne pas. Une valeur absente ou corrompue rend « tout coché ».
+/// `UserDefaults` plutôt qu'un fichier : c'est une préférence, pas de la progression.
+/// `load()` ne lance jamais — une valeur illisible rend « tout coché » plutôt que de
+/// bloquer l'app.
 nonisolated struct DefaultsSourceSelectionStore: SourceSelectionStore, @unchecked Sendable {
     static let key = "valido.sourceSelection"
 

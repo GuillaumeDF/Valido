@@ -21,13 +21,9 @@ nonisolated struct Option: Identifiable, Codable, Sendable, Hashable {
     }
 }
 
-/// L'image d'une question ETG **porte l'énoncé** : sans elle, « qui passe en premier ? »
-/// n'a pas de sens. D'où `alt`, qui n'est pas du confort — c'est l'énoncé lui-même pour
-/// qui n'accède pas à l'image. Une illustration sans `alt` rend la question injouable au
-/// lecteur d'écran, donc la banque la rejette.
+/// L'image **porte** l'énoncé — « qui passe en premier ? » n'a pas de sens sans elle — donc
+/// `alt` n'est pas du confort : c'est l'énoncé pour qui n'y accède pas.
 nonisolated struct Illustration: Codable, Sendable, Hashable {
-    /// Nom d'un imageset du catalogue d'assets. Toujours local : aucune image ne se
-    /// télécharge, l'app n'ouvre pas de connexion.
     let asset: String
     let alt: String
 

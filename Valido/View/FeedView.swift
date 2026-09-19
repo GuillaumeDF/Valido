@@ -6,20 +6,14 @@ struct FeedView: View {
     @State private var position: Int?
     @State private var filtrantLesSources = false
 
-    /// Hauteur laissée visible du bord supérieur de la carte suivante, pour que rien en bas
-    /// de l'écran ne suggère que le flux s'arrête là. Volontairement petit : c'est un indice,
-    /// pas un aperçu du contenu (qui gâcherait la surprise de la matière suivante).
+    /// Assez pour qu'on sente une suite, trop peu pour lire quoi que ce soit : un aperçu
+    /// du contenu gâcherait la surprise de la matière suivante.
     private static let peekHeight: CGFloat = 28
 
-    /// Aucune avance programmatique.
-    ///
-    /// Jusqu'au 2026-08-23, une bonne réponse déclenchait un `scrollTo` différé de 400 ms, ce
-    /// qui demandait un `ScrollViewReader`, une `Task` annulable, une cible en attente et une
-    /// détection de relance périmée dans `onChange(of: position)`. Le verdict est désormais
-    /// symétrique : le mémo s'affiche dans les deux cas et c'est le balayage de l'utilisateur
-    /// qui fait avancer, pour qu'il ait le temps de lire. Toute cette machinerie a donc disparu
-    /// — avec, au passage, les trois défauts qui vivaient dedans : le gel du feed, la relance
-    /// périmée qui ramenait une carte en arrière, et la course entre annulation et réveil.
+    /// Aucune avance programmatique : le verdict est symétrique et c'est le balayage qui
+    /// fait avancer, pour qu'on ait le temps de lire. L'auto-avance retirée le 2026-08-23
+    /// emportait un `ScrollViewReader`, une `Task` annulable et une détection de relance
+    /// périmée — ne pas les réintroduire.
     var body: some View {
         ScrollView(.vertical) {
             LazyVStack(spacing: 0) {
@@ -29,9 +23,8 @@ struct FeedView: View {
             }
             .scrollTargetLayout()
         }
-        // `.viewAligned` cale sur chaque item quelle que soit sa taille. `.paging` paginerait
-        // par multiples de la hauteur du conteneur, ce qui désaligne le calage quand les items
-        // sont plus courts que lui — c'est le cas ici à cause de `peekHeight`.
+        // Pas `.paging` : il pagine par multiples de la hauteur du conteneur, donc désaligne
+        // le calage dès que les items sont plus courts — ce que `peekHeight` garantit.
         .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
         .scrollPosition(id: $position)
         .ignoresSafeArea(edges: .bottom)
@@ -56,8 +49,7 @@ struct FeedView: View {
         }
     }
 
-    /// Extraite du `ForEach` : inline, l'expression du corps devenait assez grosse pour que
-    /// le vérificateur de types de Swift abandonne ("unable to type-check in reasonable time").
+    /// Extraite du `ForEach` : inline, le vérificateur de types abandonne.
     @ViewBuilder
     private func row(_ card: Card, at index: Int) -> some View {
         switch card {
