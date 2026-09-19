@@ -22,9 +22,9 @@ import Testing
 
 @Test func répondreAgrègeLesTentatives() {
     var snapshot = ProgressSnapshot()
-    snapshot.recordAnswer("q1", correct: false)
-    snapshot.recordAnswer("q1", correct: true)
-    snapshot.recordAnswer("q1", correct: true)
+    snapshot.recordAnswer("q1", correct: false, notion: nil, masteryStreak: 0)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
     let stats = snapshot.stats(for: "q1")
     #expect(stats.attempts == 3)
     #expect(stats.failures == 1)
@@ -33,7 +33,7 @@ import Testing
 
 @Test func répondreNeTouchePasAuCompteurDeService() {
     var snapshot = ProgressSnapshot()
-    snapshot.recordAnswer("q1", correct: true)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
     #expect(snapshot.serveIndex == 0)
 }
 
@@ -45,7 +45,7 @@ import Testing
     let store = FileProgressStore(url: url)
     var snapshot = ProgressSnapshot()
     snapshot.recordServe("q1")
-    snapshot.recordAnswer("q1", correct: false)
+    snapshot.recordAnswer("q1", correct: false, notion: nil, masteryStreak: 0)
     try store.save(snapshot)
 
     let rechargé = FileProgressStore(url: url).load()
@@ -74,4 +74,55 @@ import Testing
     snapshot.recordServe("q1")
     try store.save(snapshot)
     #expect(store.load() == snapshot)
+}
+
+@Test func laSérieNeCompteQueDesCartesDistinctes() {
+    var progress = ProgressSnapshot()
+    for _ in 0..<4 {
+        progress.recordAnswer("q1", correct: true, notion: "panneaux/formes", masteryStreak: 4)
+    }
+    #expect(progress.estAcquise("panneaux/formes") == false)
+}
+
+@Test func quatreCartesDistinctesAcquièrentLaNotion() {
+    var progress = ProgressSnapshot()
+    for i in 1...4 {
+        progress.recordAnswer("q\(i)", correct: true, notion: "panneaux/formes", masteryStreak: 4)
+    }
+    #expect(progress.estAcquise("panneaux/formes"))
+}
+
+@Test func uneFauteRemetLaSérieÀZéro() {
+    var progress = ProgressSnapshot()
+    for i in 1...3 {
+        progress.recordAnswer("q\(i)", correct: true, notion: "marquage/lignes", masteryStreak: 4)
+    }
+    progress.recordAnswer("q4", correct: false, notion: "marquage/lignes", masteryStreak: 4)
+    progress.recordAnswer("q5", correct: true, notion: "marquage/lignes", masteryStreak: 4)
+    #expect(progress.estAcquise("marquage/lignes") == false)
+}
+
+@Test func uneFauteNeRetirePasUneNotionAcquise() {
+    var progress = ProgressSnapshot()
+    for i in 1...4 {
+        progress.recordAnswer("q\(i)", correct: true, notion: "marquage/lignes", masteryStreak: 4)
+    }
+    progress.recordAnswer("q5", correct: false, notion: "marquage/lignes", masteryStreak: 4)
+    #expect(progress.estAcquise("marquage/lignes"))
+}
+
+@Test func uneNotionNulleEstTraitéeCommeAcquise() {
+    let progress = ProgressSnapshot()
+    #expect(progress.estAcquise(nil))
+}
+
+@Test func uneProgressionÉcriteAvantLesNotionsSeDécodeEncore() throws {
+    let ancien = """
+    {"serveIndex":42,"stats":{"q1":{"attempts":3,"failures":1,"lastServeIndex":40}}}
+    """.data(using: .utf8)!
+
+    let progress = try JSONDecoder().decode(ProgressSnapshot.self, from: ancien)
+    #expect(progress.serveIndex == 42)
+    #expect(progress.stats(for: "q1").attempts == 3)
+    #expect(progress.notions.isEmpty)
 }

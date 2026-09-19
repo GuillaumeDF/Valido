@@ -17,7 +17,7 @@ Une seule boucle : un `ScrollView` paginé, une carte plein écran, alimentée �
 du bas. Pas de menu, pas d'écran d'accueil, pas d'écran de fin de session — un « bravo,
 terminé ! » est une porte de sortie.
 
-**448 questions** embarquées dans le bundle : 255 sur le code de la route, 193 sur
+**464 questions** embarquées dans le bundle : 271 sur le code de la route, 193 sur
 Swift/iOS. Aucun réseau, aucun compte, aucun secret dans l'app.
 
 **Quarante-neuf** de ces questions ont leur énoncé **dans une image** — carrefour, panneau,
@@ -38,14 +38,16 @@ Valido/
   Model/       20 types, tous `nonisolated` — QuestionBank, CardScheduler,
                ComboEngine, ProgressStore, SchedulerConfig, Illustration…
   ViewModel/   FeedViewModel, @MainActor
-  View/        FeedView, QuestionCardView, ComboBadge, ContentErrorView
+  View/        FeedView, QuestionCardView, ComboBadge, ContentErrorView, NotionBadge,
+               SourceFilterView
   Resources/   questions.json
   Assets.xcassets/Scenes/   51 imagesets : 49 schémas dessinés, 2 photos
-ValidoTests/   64 tests (Swift Testing)
+ValidoTests/   82 tests (Swift Testing)
 Tools/         guide de rédaction, rendu des schémas, audit, provenance des images,
-               registre de fraîcheur, carte de couverture du référentiel
+               registre de fraîcheur, carte de couverture du référentiel, registre
+               des notions
 design/logo/   render-icon.swift, le rendu de l'icône
-docs/          les trois specs de design
+docs/          les cinq specs de design
 ```
 
 La cible compile avec `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor`, ce qui isolerait aussi
@@ -59,16 +61,17 @@ disque est compilé sans toucher au `.pbxproj`.
 ## Lancer et tester
 
 ```bash
-DEVELOPER_DIR=/Applications/Xcode-26.3.0.app xcodebuild test \
+DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcodebuild test \
   -project Valido.xcodeproj -scheme Valido \
-  -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+  -destination 'platform=iOS Simulator,id=66921B37-1805-4988-AB69-B51A94490BC0'
 ```
 
-Un échec sur `Application failed preflight checks` / `Busy` sans qu'aucun test n'ait
-tourné est un simulateur coincé, pas une régression : le démarrer d'abord
-(`xcrun simctl boot 'iPhone 17 Pro'`, `DEVELOPER_DIR` compris) ou changer de device. Et ne
-juger que la ligne `✔ Test run with N test(s)` : un `** TEST SUCCEEDED **` sans elle ne
-prouve rien.
+Un échec sur `Application failed preflight checks` / `Busy` sans qu'aucun test n'ait tourné
+est un simulateur coincé, pas une régression : le démarrer d'abord avec le même
+`DEVELOPER_DIR` et cet UDID (`xcrun simctl boot 66921B37-1805-4988-AB69-B51A94490BC0`) —
+viser l'UDID, jamais le nom, trois runtimes déclarant chacun un `iPhone 17 Pro` et un seul
+satisfaisant la cible 26.2. Et ne juger que la ligne `✔ Test run with N test(s)` : un
+`** TEST SUCCEEDED **` sans elle ne prouve rien.
 
 `CardScheduler` reste la pièce la plus testée, et elle est écrite pour ça — répartition
 70/30 sur 1000 tirages à graine fixe, fenêtre anti-répétition, question jamais vue qui
@@ -101,7 +104,7 @@ le fichier, on repasse les contrôles, on lance les tests.
   forme : ce qui sépare une carte de Valido d'une question de l'épreuve réelle, chiffré
   carte par carte, et ce qu'il faudrait réécrire.
 
-Les 255 questions de code de la route se périment : le droit bouge. La première passe
+Les 271 questions de code de la route se périment : le droit bouge. La première passe
 d'août 2026 a trouvé trois questions aux chiffres faux, dont une qui l'était depuis trois
 jours.
 
@@ -130,9 +133,9 @@ liseré blanc, et les options désignent les autres par leur provenance, pas par
 
 ## Limite connue
 
-448 questions ne font toujours pas un feed infini : à 30 questions par session, la banque
-est consommée en une quinzaine. Deux passes de contenu l'ont portée de 250 à 448 sans
-changer cet ordre de grandeur — écrire à la main ne rattrape pas un feed. La v1 répond à
+464 questions ne font toujours pas un feed infini : à 30 questions par session, la banque
+est consommée en une quinzaine. Plusieurs passes de contenu l'ont fait grossir sans changer
+cet ordre de grandeur — écrire à la main ne rattrape pas un feed. La v1 répond à
 une seule question — la boucle tient-elle sur moi ? Si elle tient, le chantier suivant
 n'est pas une fonctionnalité, c'est la génération de questions depuis les pages de cours,
 qui alimentera le même `questions.json`.

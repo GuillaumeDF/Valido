@@ -13,6 +13,10 @@ nonisolated struct SchedulerConfig: Sendable, Equatable {
     var baseFailureWeight: Double
     /// Amplitude ajoutée au poids d'échec par le taux de faute.
     var failureSpan: Double
+    /// Facteur appliqué à une carte `fondation` dont la notion n'est pas acquise.
+    var foundationBoost: Double
+    /// Bonnes réponses sur des cartes distinctes exigées pour acquérir une notion.
+    var masteryStreak: Int
 
     init(
         weightedShare: Double = 0.7,
@@ -21,7 +25,9 @@ nonisolated struct SchedulerConfig: Sendable, Equatable {
         recencyFloor: Double = 0.05,
         unseenFailureWeight: Double = 3.0,
         baseFailureWeight: Double = 0.3,
-        failureSpan: Double = 2.7
+        failureSpan: Double = 2.7,
+        foundationBoost: Double = 4.0,
+        masteryStreak: Int = 4
     ) {
         self.weightedShare = weightedShare
         self.recentWindow = recentWindow
@@ -30,5 +36,7 @@ nonisolated struct SchedulerConfig: Sendable, Equatable {
         self.unseenFailureWeight = unseenFailureWeight
         self.baseFailureWeight = baseFailureWeight
         self.failureSpan = failureSpan
+        self.foundationBoost = foundationBoost
+        self.masteryStreak = masteryStreak
     }
 }

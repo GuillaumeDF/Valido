@@ -6,7 +6,9 @@ enum Fixtures {
         id: String,
         subject: Subject = .code,
         topic: String = "Vitesse",
-        difficulty: Difficulty = .facile
+        difficulty: Difficulty = .facile,
+        notion: String? = nil,
+        role: Role? = nil
     ) -> Question {
         Question(
             id: id,
@@ -21,7 +23,9 @@ enum Fixtures {
                 Option(id: "D", text: "d"),
             ],
             correctID: "B",
-            explanation: "Explication \(id)"
+            explanation: "Explication \(id)",
+            notion: notion,
+            role: role
         )
     }
 

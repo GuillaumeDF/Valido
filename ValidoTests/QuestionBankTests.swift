@@ -128,3 +128,42 @@ import Testing
         try QuestionBank(questions: [q])
     }
 }
+
+@Test func uneCarteSansNotionSeDécodeEncore() throws {
+    let json = """
+    [{"id":"a1","subject":"code","topic":"Vitesse","difficulty":"facile",
+      "prompt":"Énoncé","options":[{"id":"A","text":"a"},{"id":"B","text":"b"},
+      {"id":"C","text":"c"},{"id":"D","text":"d"}],
+      "correctID":"B","explanation":"Explication"}]
+    """.data(using: .utf8)!
+
+    let questions = try JSONDecoder().decode([Question].self, from: json)
+    #expect(questions[0].notion == nil)
+    #expect(questions[0].role == nil)
+}
+
+@Test func uneCarteAnnotéePorteSaNotionEtSonRôle() throws {
+    let json = """
+    [{"id":"a2","subject":"code","topic":"Panneaux & marquage","difficulty":"facile",
+      "prompt":"Énoncé","options":[{"id":"A","text":"a"},{"id":"B","text":"b"},
+      {"id":"C","text":"c"},{"id":"D","text":"d"}],
+      "correctID":"B","explanation":"Explication",
+      "notion":"panneaux/formes","role":"fondation"}]
+    """.data(using: .utf8)!
+
+    let questions = try JSONDecoder().decode([Question].self, from: json)
+    #expect(questions[0].notion == "panneaux/formes")
+    #expect(questions[0].role == .fondation)
+}
+
+@Test func laBanqueCompteLesCartesParNotion() throws {
+    let bank = try QuestionBank(questions: [
+        Fixtures.question(id: "a", notion: "x/y", role: .fondation),
+        Fixtures.question(id: "b", notion: "x/y", role: .application),
+        Fixtures.question(id: "c", notion: "z/w", role: .fondation),
+    ])
+    #expect(bank.count(notion: "x/y") == 2)
+    #expect(bank.count(notion: "z/w") == 1)
+    #expect(bank.count(notion: "inconnue") == 0)
+    #expect(bank.count(notion: nil) == 0)
+}

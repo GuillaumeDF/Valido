@@ -44,9 +44,12 @@ Deux pièges d'outillage, tous deux silencieux :
 ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plus-longue`
 (76, informatif, le seuil dur est `plus-10`), `expl/paraphrase-litterale` (20),
 `forme/seule-ponctuee` (14) et deux faux positifs connus (`lettre/reference` 1,
-`forme/markdown` 1). Doivent rester **vides** : `schema/`, `couverture/`, `source/`,
-`fuite/`, `image/`, `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que
-si une option porte un backtick, son zéro ne prouve rien sur un lot sans code span.
+`forme/markdown` 1) ; reconfirmée au 2026-09-19 sur 464 questions, ces cinq chiffres n'ont
+pas bougé — les seize fondations ajoutées par le chantier des notions n'ont pesé sur aucun
+d'eux. Doivent rester **vides** : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
+`longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que si une option porte
+un backtick, son zéro ne prouve rien sur un lot sans code span — et, depuis le 2026-09-19,
+`notions/non-declaree`, `notions/sans-fondation` et `notions/carte-orpheline`.
 Depuis le 2026-09-06, `source/` recouvre aussi `source/editeur-non-corrobore` : la liste
 blanche est scindée en `DOMAINES_FAIT` (autorité sur un chiffre) et `DOMAINES_FORME` (les
 éditeurs d'ETG, admis pour la forme des questions), et une ligne `datée` qui ne citerait
@@ -65,6 +68,15 @@ impersonnel est souvent la forme juste. Leurs valeurs de départ sont dans le §
 sa section « Ce que l'outillage ne voit pas » et sa recommandation chiffrée (§4, les 255
 cartes lues à la main, 230 `oui` / 3 `partiel` / 22 `non`) sont l'entrée de toute décision de
 réécriture — ne pas la rejouer de mémoire, la relire.
+
+**Ces trois compteurs ont encore bougé avec le chantier des notions, et c'est voulu, pas une
+dérive.** Mesuré au 2026-09-19 sur 464 questions : `forme/impersonnel` **199 → 215**,
+`forme/hors-situation` **200 → 216**, `forme/definitionnel` **94 → 98**. Les seize cartes
+`fondation` qui portent l'axe notion expliquent la totalité du mouvement : une fondation
+énonce un système, elle est par construction un énoncé abstrait, sans mise en scène et sans
+« vous » — exactement ce que ces deux premiers compteurs mesurent. Chaque future fondation
+les fera monter d'une unité chacun. Ils restent informatifs ; les faire baisser voudrait dire
+écrire des fondations qui n'énoncent rien.
 
 **Les deux chiffres qui ont bougé à la passe 3 sont voulus, ce ne sont pas des dérives.**
 `longueur/plus-longue` **97 → 76** : tout le mouvement est côté `code` (34 → 13), obtenu en
@@ -99,8 +111,12 @@ longtemps » se mesure en cartes servies. À graine fixe (`ValidoTests/SeededRNG
 entrée donne toujours la même sortie ; c'est ce qui rend la répartition 70/30 testable sur
 1000 tirages. Ne pas introduire d'horloge ni de `random()` implicite dans cette chaîne.
 
-**Les sept nombres réglables** (part pondérée 0,7 ; fenêtre anti-répétition 25 ; horizon 60 ;
-plancher 0,05…) vivent tous dans `SchedulerConfig`, jamais en dur ailleurs.
+**Les neuf nombres réglables** (part pondérée 0,7 ; fenêtre anti-répétition 25 ; horizon 60 ;
+plancher 0,05 ; `foundationBoost` 4,0 — le facteur appliqué à une carte `fondation` dont la
+notion n'est pas encore acquise ; `masteryStreak` 4 — le nombre de bonnes réponses sur des
+cartes distinctes qu'il faut pour acquérir une notion, plafonné au nombre de cartes de la
+notion elle-même, si bien qu'une notion à deux cartes s'acquiert en deux…) vivent tous dans
+`SchedulerConfig`, jamais en dur ailleurs.
 
 **`FeedViewModel.cards` ne fait que croître.** Rogner par l'avant produisait un saut visible
 du `ScrollView` ; c'est la paresse du `LazyVStack` qui rend le flux infini, pas la brièveté
@@ -129,18 +145,21 @@ est compilé sans toucher au `.pbxproj`.
 ## Le contenu est du code
 
 `Valido/Resources/questions.json` **est** la source — pas de génération, on édite le fichier.
-448 questions (255 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
+464 questions (271 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
 de page Notion, soit `sha256("valido-v2:" + prompt)[:32]` — le préfixe est dans l'entrée du
 hachage, pas dans l'identifiant. **Un `id` livré est immuable** : la progression est indexée
 dessus. Les options sont mélangées à chaque présentation (**donc aucune référence de lettre
 nulle part**, ni dans une option ni dans une explication).
 
-Deux registres, tous deux imposés par `audit.py` :
+Trois registres, tous trois imposés par `audit.py` :
 
 - `Tools/sources.md` — la **fraîcheur** : une ligne par question `code`, déclarée `stable` ou
   `datée`, une `datée` portant l'URL d'un domaine de la liste blanche et sa date de relevé.
 - `Tools/couverture.md` — la **couverture** : une ligne par couple (thématique ETG, `topic`).
   Un `topic` `code` qui n'y figure pas est refusé.
+- `Tools/notions.md` — les **notions** : une ligne par notion, l'axe plus fin que `topic`
+  porté par les 271 cartes `code`. `audit.py` refuse une notion absente du registre, une
+  carte `code` sans notion, et une notion sans carte `fondation`.
 
 Avant toute édition de questions, lire [`Tools/questions.md`](Tools/questions.md) : 7 règles
 de distracteur, 9 pièges de forme, fraîcheur juridique (§5, sources officielles imposées),

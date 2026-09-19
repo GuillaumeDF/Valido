@@ -92,8 +92,8 @@ except OSError:
 
 # Le registre est surchargeable pour que la règle de corroboration ci-dessous se vérifie
 # sur un cas d'essai : sans ça elle n'est qu'une phrase dans un guide.
-SOURCES_MD = os.environ.get('VALIDO_SOURCES_MD') or os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), 'sources.md')
+ICI = os.path.dirname(os.path.abspath(__file__))
+SOURCES_MD = os.environ.get('VALIDO_SOURCES_MD') or os.path.join(ICI, 'sources.md')
 # Deux listes, et la frontière entre les deux est le cœur du registre.
 # `DOMAINES_FAIT` : seule autorité sur un chiffre. Élargie en août 2026 aux institutions
 # européennes et académiques, faute de source gouvernementale chiffrée sur les gestes de
@@ -115,6 +115,13 @@ try:
 except OSError:
     REGISTRE = {}
 
+NOTIONS_MD = os.environ.get('VALIDO_NOTIONS_MD') or os.path.join(ICI, 'notions.md')
+LIGNE_NOTION = re.compile(r'^\|\s*`([a-z0-9/-]+)`\s*\|', re.M)
+try:
+    NOTIONS_DECLAREES = set(LIGNE_NOTION.findall(open(NOTIONS_MD).read()))
+except OSError:
+    NOTIONS_DECLAREES = set()
+
 findings = collections.defaultdict(list)
 def flag(kind, q, detail):
     findings[kind].append((q['subject'], q['topic'], q['id'], q['prompt'][:70], detail))
@@ -131,12 +138,19 @@ for q in QS:
     if len({o['text'] for o in q['options']}) != 4: flag('schema/doublon-option', q, '')
     if q['correctID'] not in ids: flag('schema/correctID', q, q['correctID'])
     if not expl.strip(): flag('schema/expl-vide', q, '')
-    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration'}:
+    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration','notion','role'}:
         flag('schema/cle-hors-schema', q, sorted(set(q)))
 
     # --- couverture ---
     if q['subject'] == 'code' and TOPICS_DECLARES and q['topic'] not in TOPICS_DECLARES:
         flag('couverture/topic-non-rattache', q, q['topic'])
+
+    # --- notions ---
+    if q['subject'] == 'code' and q.get('notion') and NOTIONS_DECLAREES:
+        if q['notion'] not in NOTIONS_DECLAREES:
+            flag('notions/non-declaree', q, q['notion'])
+    if q['subject'] == 'code' and not q.get('notion'):
+        flag('notions/carte-orpheline', q, 'aucune notion')
 
     # --- forme ETG (informatifs, cf. le rapport du 2026-09) ---
     if q['subject'] == 'code':
@@ -273,7 +287,12 @@ for q in QS:
 
 orphelines = sorted(set(REGISTRE) - {q['id'] for q in QS if q['subject'] == 'code'})
 
-order = ['schema/', 'couverture/', 'source/', 'lettre/', 'forme/', 'longueur/', 'fuite/', 'expl/', 'image/']
+fondations = {q['notion'] for q in QS if q.get('role') == 'fondation' and q.get('notion')}
+notions_utilisées = {q['notion'] for q in QS if q.get('notion')}
+for n in sorted(notions_utilisées - fondations):
+    findings['notions/sans-fondation'].append(('—', '—', '—', n, 'aucune carte fondation'))
+
+order = ['schema/', 'couverture/', 'notions/', 'source/', 'lettre/', 'forme/', 'longueur/', 'fuite/', 'expl/', 'image/']
 print(f"== {len(QS)} questions ==\n")
 for k in sorted(findings, key=lambda k: (order.index(next(p for p in order if k.startswith(p))), k)):
     v = findings[k]

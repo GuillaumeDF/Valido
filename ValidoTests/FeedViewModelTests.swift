@@ -167,6 +167,59 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
 }
 
 @MainActor
+@Test func répondreJusteFaitProgresserLaNotion() throws {
+    let annotées = (1...4).map { i in
+        Question(
+            id: "f\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: .fondation
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: annotées),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    #expect(model.notionsAcquises == 0)
+
+    var index = 0
+    while model.notionsAcquises == 0 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+
+    #expect(model.notionsAcquises == 1)
+}
+
+@MainActor
+@Test func uneSeuleBonneRéponseNAcquiertPasLaNotion() throws {
+    let annotées = (1...4).map { i in
+        Question(
+            id: "f\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: .fondation
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: annotées),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    model.ensureCards(currentIndex: 0)
+    _ = model.answer("B", at: 0)
+
+    // `masteryStreak` vaut 4 : une seule carte ne peut pas suffire.
+    #expect(model.notionsAcquises == 0)
+}
+
+@MainActor
 @Test func flushÉcritLeResteEtRéinitialiseLeCompteur() throws {
     let store = CountingProgressStore()
     let model = try modèle(store: store)
@@ -185,4 +238,110 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
     // La réponse suivante complète le lot de `saveEvery` et déclenche la deuxième écriture.
     try répondreÀDesCartesDistinctes(model, from: reste + FeedViewModel.saveEvery - 1, count: 1)
     #expect(store.saveCount == 2)
+}
+
+@MainActor
+@Test func uneNotionÀDeuxCartesSAcquiertEnDeuxRéponses() throws {
+    let deux = (1...2).map { i in
+        Question(
+            id: "n\(i)", subject: .code, topic: "Mécanique & environnement", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "environnement/critair", role: i == 1 ? .fondation : .application
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: deux),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    var index = 0
+    while model.notionsAcquises == 0 && index < 20 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    #expect(model.notionsAcquises == 1)
+}
+
+@MainActor
+@Test func surUneNotionFournieLeSeuilResteÀQuatre() throws {
+    let dix = (1...10).map { i in
+        Question(
+            id: "p\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: i == 1 ? .fondation : .application
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: dix),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+
+    var distinctes = Set<String>()
+    var index = 0
+    while distinctes.count < 3 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        if let carte = model.card(at: index)?.presented { distinctes.insert(carte.id) }
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    // Trois cartes distinctes : sous le seuil de quatre, rien n'est acquis.
+    #expect(model.notionsAcquises == 0)
+
+    while distinctes.count < 4 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        if let carte = model.card(at: index)?.presented { distinctes.insert(carte.id) }
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    // La quatrième distincte l'acquiert : le seuil vaut bien min(4, 10) = 4, ni 10 ni le vivier.
+    #expect(model.notionsAcquises == 1)
+}
+
+@MainActor
+@Test func leCompteurDeNotionsSuitLaSélection() throws {
+    let codes = (1...4).map {
+        Fixtures.question(id: "c\($0)", subject: .code, topic: "Panneaux & marquage",
+                          notion: "panneaux/formes", role: $0 == 1 ? .fondation : .application)
+    }
+    let swifts = (1...4).map { Fixtures.question(id: "s\($0)", subject: .swift, topic: "Langage") }
+
+    let selectionStore = InMemorySourceSelectionStore()
+    var codeSeul = SourceSelection()
+    codeSeul.toggle(.swift)
+    try selectionStore.save(codeSeul)
+
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: codes + swifts),
+        store: InMemoryProgressStore(),
+        selectionStore: selectionStore,
+        scheduler: CardScheduler(),
+        rng: SeededRNG(seed: 4)
+    )
+    model.start()
+
+    var index = 0
+    while model.notionsAcquises == 0 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    #expect(model.notionsTotal == 1)
+    #expect(model.notionsAcquises == 1)
+
+    var swiftSeul = SourceSelection()
+    swiftSeul.toggle(.code)
+    model.apply(swiftSeul, currentIndex: index)
+
+    // Plus aucune carte à notion n'est servie : le total annoncé était celui de la banque
+    // entière, donc inatteignable sous cette sélection.
+    #expect(model.notionsTotal == 0)
+    #expect(model.notionsAcquises == 0)
 }

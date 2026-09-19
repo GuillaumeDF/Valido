@@ -102,6 +102,44 @@ est un jugement de classement, pas une équivalence directe : aucun des onze th�
 explicitement « vitesse », « barème de points » ou « alcool ». Le détail de ce jugement, et
 les réserves qui vont avec, sont dans le rapport de la tâche 1 — pas ici.
 
+## Second axe : les libellés de compétence du spécimen
+
+La table ci-dessus classe les treize `topic` sur les onze thèmes de communication de la
+Sécurité routière, une taxonomie de **règles** (signalisation, priorités, stationnement…).
+Le spécimen officiel de l'épreuve (`reponsesquestionspermisauto_v1604.pdf`, lu intégralement
+le 2026-09-19) étiquette ses 24 questions avec **quatorze libellés** qui sont une taxonomie
+de **compétences** — perception, conscience du risque, connaissance de la réglementation —
+et qui ne se déduisent pas de la première grille. Un domaine sans bac dans la table du haut
+ne peut jamais être signalé manquant : c'est exactement ce qui a laissé quatre compétences
+invisibles depuis l'origine (voir `docs/superpowers/specs/2026-09-19-notions-maitrise-design.md`,
+§1, « Quatre domaines absents depuis le départ »). Cette seconde table les rend visibles ;
+leur écriture est un plan séparé.
+
+| libellé de compétence (spécimen) | topic Valido | verdict |
+|---|---|---|
+| Conscience des risques liés aux usagers vulnérables | `Usagers & partage de la route` | couvert |
+| Conscience des risques liés à la conduite de nuit | `Feux` | couvert |
+| Connaissance de la réglementation | `Panneaux & marquage` | couvert |
+| Sensibilisation aux conséquences des infractions au code de la route | `Permis & sanctions` | couvert |
+| Gestes de premier secours | `Premiers secours` | couvert |
+| Conscience des risques en franchissant les intersections | `Priorités & intersections` | couvert |
+| Conduite écologique et respectueuse de l'environnement | `Mécanique & environnement` | couvert |
+| Conscience des risques liés à la vitesse | `Vitesse` | couvert |
+| Connaissance de la règle et prise en compte des usagers vulnérables | `Arrêt & stationnement` | couvert |
+| Connaître les principaux organes du véhicule | `Mécanique & environnement` | couvert |
+| Perception, attention, prise d'information | — | absent |
+| Nouvelles technologies / ADAS (aides à la conduite) | — | absent |
+| Boîte automatique et véhicule électrique | — | absent |
+| Instruments du tableau de bord | — | absent |
+
+Les dix premières lignes ne prétendent pas épuiser la compétence qu'elles nomment — le
+spécimen en tire des cas précis (un piéton entre deux voitures, une distance de sécurité en
+secondes) quand la banque Valido couvre la règle sous forme de familles ; c'est un verdict de
+présence, pas d'équivalence. Quatre `topic` (`Alcool & stupéfiants`, `Croisement &
+dépassement`, `Distances & freinage`, `Tunnels & passages à niveau`) n'apparaissent dans
+aucune ligne : le spécimen, sur ses 24 questions, ne porte aucun libellé qui leur corresponde
+directement — ils restent couverts par la première table, sur l'axe des règles.
+
 ## Topics à créer (thématiques `absent`)
 
 Trois thématiques n'avaient aucun topic `code` chez elles. Ces noms ont été **arrêtés ici** :

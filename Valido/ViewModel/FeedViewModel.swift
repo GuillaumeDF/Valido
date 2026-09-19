@@ -63,7 +63,13 @@ final class FeedViewModel {
         answered.insert(index)
 
         combo.answer(correct: correct)
-        progress.recordAnswer(presented.id, correct: correct)
+        let notion = presented.question.notion
+        progress.recordAnswer(
+            presented.id,
+            correct: correct,
+            notion: notion,
+            masteryStreak: min(scheduler.config.masteryStreak, bank.count(notion: notion))
+        )
         unsavedAnswers += 1
         if unsavedAnswers >= Self.saveEvery { flush() }
 
@@ -87,6 +93,18 @@ final class FeedViewModel {
 
     func count(of subject: Subject) -> Int {
         bank.questions.count { $0.subject == subject }
+    }
+
+    var notionsAcquises: Int {
+        notionsServies.count { progress.estAcquise($0) }
+    }
+
+    var notionsTotal: Int {
+        notionsServies.count
+    }
+
+    private var notionsServies: Set<String> {
+        Set(bank.questions.filter { selection.includes($0.subject) }.compactMap(\.notion))
     }
 
     func flush() {
