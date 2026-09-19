@@ -26,42 +26,10 @@ n'illustre pas, elle énonce.
 
 ## Les décisions qui structurent le reste
 
-Elles sont détaillées dans [`docs/superpowers/specs/2026-08-22-valido-design.md`](docs/superpowers/specs/2026-08-22-valido-design.md).
-Les cinq qui expliquent le plus de code :
-
-**Verdict symétrique, aucune avance programmatique.** Juste ou faux, l'explication
-s'ouvre, et c'est le balayage qui fait avancer. La spec prévoyait l'inverse — auto-avance
-après 400 ms sur une bonne réponse — et cette asymétrie a été retirée le 2026-08-23 avec
-les trois défauts qui vivaient dedans : gel du feed, relance périmée qui ramenait une
-carte en arrière, course entre annulation et réveil. On apprend maintenant sur toute la
-banque, pas seulement sur ce qu'on rate. La mise reste réelle : perdre un ×12 est la
-punition de la faute, l'interruption n'était pas la seule sanction.
-
-**Pas de série quotidienne.** Écartée volontairement : le jour où elle casse, on abandonne
-l'app. La rétention repose sur l'imprévisibilité, pas sur la culpabilité.
-
-**Le scheduler ne cache rien.** `nextCard(bank:progress:recent:rng:)` — ni horloge cachée,
-ni aléatoire caché. Et pas de `Date()` : un compteur monotone `serveIndex` sert d'horloge,
-donc « il y a longtemps » se mesure en cartes vues. À graine fixe, la même entrée donne
-toujours la même sortie, et le 70/30 se teste au lieu de s'espérer.
-
-**Un quota d'aléatoire garanti.** 70 % des tirages sont pondérés par la faiblesse
-(taux de faute × ancienneté), 30 % sont uniformes et sans condition. C'est ce tiers qui
-empêche l'algorithme de devenir lisible. Les 25 dernières cartes sont exclues des deux
-tirages, sans quoi le hasard ressort la même question deux cartes plus loin et l'illusion
-d'infini casse. Une question maîtrisée voit son poids tomber presque à zéro **sans jamais
-disparaître** — plancher à 0,05.
-
-**Le bandeau d'image cède, le texte jamais.** Une question illustrée montre son image en
-haut de carte — jusqu'à 38 % de la hauteur avant réponse, 18 % après, l'image ayant fait
-son travail dès que le verdict est là. Mais ces fractions sont des plafonds : aucun texte
-de la carte n'est compressible (voir les `fixedSize` de `QuestionCardView`), donc quand
-l'énoncé, les quatre options et l'explication réclament la place, c'est l'image qui
-recule. Sur la carte la plus chargée elle descend à 8 %. La contrainte remonte donc dans
-la rédaction — une question illustrée se tient courte — et pas dans le layout.
-
-Les sept nombres qu'on voudra bricoler après trois jours d'usage vivent tous dans
-[`SchedulerConfig`](Valido/Model/SchedulerConfig.swift).
+Elles ne sont pas listées ici : chacune vit en commentaire sur le type qu'elle explique, au
+plus près du code qu'elle contraint — `CardScheduler` pour le tirage, `ComboEngine` pour la
+mise, `FeedView` et `QuestionCardView` pour la boucle et le bandeau d'image. Les specs de
+design sont sous [`docs/superpowers/specs/`](docs/superpowers/specs/).
 
 ## Structure
 
@@ -133,16 +101,9 @@ le fichier, on repasse les contrôles, on lance les tests.
   forme : ce qui sépare une carte de Valido d'une question de l'épreuve réelle, chiffré
   carte par carte, et ce qu'il faudrait réécrire.
 
-Ce qui décide de la qualité du feed : **un distracteur manifestement faux rend la question
-gratuite**, gonfle le combo et rend le feed ennuyeux — exactement le mode d'échec que ce
-projet existe pour éviter. Et la bonne réponse ne doit jamais être la plus longue des
-quatre : c'est l'indice le plus fiable de tout QCM. Les options sont mélangées à chaque
-présentation, donc aucune référence de lettre nulle part.
-
 Les 255 questions de code de la route se périment : le droit bouge. La première passe
 d'août 2026 a trouvé trois questions aux chiffres faux, dont une qui l'était depuis trois
-jours ; la seconde a relevé chacune de ces questions contre le texte en vigueur et laissé
-la trace dans `sources.md`. Le §5 du guide dit quoi revérifier, où, et comment citer.
+jours.
 
 ## Les images
 
@@ -165,10 +126,7 @@ sait pas faire : la vue conducteur. Une seule sert encore — l'autre a cédé l
 dessin, plus lisible sur la bande qui survit au rétrécissement du bandeau.
 
 Aucune information ne repose sur la couleur seule : le véhicule du candidat porte un
-liseré blanc, et les options désignent les autres **par leur provenance**, pas par leur
-teinte. Et ça se mesure plutôt que ça ne s'affirme — les niveaux de gris des zones qui
-portent la réponse sont relevés avant qu'un PNG n'entre dans le dépôt, parce qu'une scène
-peut respecter la règle en intention et l'inverser en fait.
+liseré blanc, et les options désignent les autres par leur provenance, pas par leur teinte.
 
 ## Limite connue
 

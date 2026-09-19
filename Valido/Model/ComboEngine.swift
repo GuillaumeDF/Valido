@@ -9,6 +9,10 @@
 ///
 /// La mise reste réelle : perdre un ×12 est la punition d'une faute, l'interruption n'était
 /// pas la seule sanction.
+///
+/// Pas de série quotidienne, et c'est un refus : une série qui compte les jours punit
+/// l'absence, et le jour où elle casse on referme l'app. Le combo se joue dans la session,
+/// jamais sur le calendrier.
 nonisolated struct ComboEngine: Sendable, Equatable {
     private(set) var multiplier: Int = 0
 

@@ -1,5 +1,8 @@
 import Foundation
 
+/// La part uniforme (`1 - weightedShare`) est inconditionnelle : c'est elle qui empêche le
+/// tirage de devenir devinable, et un feed dont on prévoit la carte suivante cesse d'en
+/// être un. Même raison pour `recencyFloor`, qui garde une question maîtrisée tirable.
 nonisolated struct CardScheduler: Sendable {
     let config: SchedulerConfig
 

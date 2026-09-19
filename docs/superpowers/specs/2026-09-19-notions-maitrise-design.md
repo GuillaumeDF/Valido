@@ -396,10 +396,12 @@ dans cette spec ne touche à la fenêtre de cartes ni au retrait par l'arrière 
 - `CLAUDE.md` — les **neuf** nombres de `SchedulerConfig` au lieu de sept, le registre
   `notions.md` à côté de `sources.md` et `couverture.md`, les trois compteurs `notions/`
   dans la liste de ceux qui doivent rester vides.
-- `README.md` — le volume de questions, et rien d'autre. **Le pourquoi de cette boucle va
-  dans les commentaires des types concernés** (`CardScheduler`, `ProgressSnapshot`,
-  `ComboEngine`), au format daté déjà en usage dans le dépôt — pas en règle normative dans
-  le README, qui décrit le projet et ne le contraint pas.
+- `README.md` — le volume de questions, et rien d'autre. Le README décrit le projet, il ne
+  le contraint pas. **Le pourquoi de cette boucle vit dans cette spec**, pas en règle
+  normative dans le README ni en commentaire de code : un commentaire ne se justifie que
+  là où le code ne suffit pas à comprendre — typiquement une intention qui ne s'y lit pas,
+  comme le refus d'un mécanisme. Le boost et la maîtrise se lisent dans leurs types ; ils
+  n'ont rien à commenter.
 
 ### Critères d'acceptation
 
