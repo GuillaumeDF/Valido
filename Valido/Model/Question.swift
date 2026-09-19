@@ -21,8 +21,6 @@ nonisolated struct Option: Identifiable, Codable, Sendable, Hashable {
     }
 }
 
-/// L'image **porte** l'énoncé — « qui passe en premier ? » n'a pas de sens sans elle — donc
-/// `alt` n'est pas du confort : c'est l'énoncé pour qui n'y accède pas.
 nonisolated struct Illustration: Codable, Sendable, Hashable {
     let asset: String
     let alt: String

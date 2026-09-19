@@ -1,8 +1,5 @@
 import Foundation
 
-/// `UserDefaults` plutôt qu'un fichier : c'est une préférence, pas de la progression.
-/// `load()` ne lance jamais — une valeur illisible rend « tout coché » plutôt que de
-/// bloquer l'app.
 nonisolated struct DefaultsSourceSelectionStore: SourceSelectionStore, @unchecked Sendable {
     static let key = "valido.sourceSelection"
 

@@ -5,10 +5,7 @@ import SwiftUI
 struct ComboBadge: View {
     let combo: ComboEngine
 
-    /// Au-dessus du p90 mesuré en simulation (×14), pour qu'une session voie la montée
-    /// plutôt qu'un plafond déjà atteint.
     private static let rampCeiling = 20
-    /// Au-delà, la flamme pulse — un battement, distinct de l'interpolation continue.
     private static let secondBeat = 15
 
     private var progress: Double {

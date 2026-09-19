@@ -184,10 +184,11 @@ polarité inversée.
 Commentaires, documentation et noms de tests en **français** ; types, API et messages de
 commit en anglais (des variables locales françaises existent dans le modèle, c'est assumé).
 
-**Pas de commentaire, sauf si le code ne suffit pas à comprendre.** Un commentaire qui
-paraphrase la ligne d'en dessous la duplique et se périme tout seul : `weightedShare = 0.7`
-n'a pas besoin qu'on écrive « 0,7 des tirages sont pondérés ». Ce qui reste légitime, et
-qui est tout ce que le dépôt garde :
+**Pas de commentaire, sauf si le code ne suffit pas à comprendre.** La règle se teste, et
+elle se teste en supprimant : si le code se comprend sans, le commentaire part — on ne le
+raccourcit pas, on ne le reformule pas. `weightedShare = 0.7` n'a pas besoin qu'on écrive
+« 0,7 des tirages sont pondérés ». Trois cas seulement y survivent, et c'est tout ce que le
+dépôt garde (56 lignes sur les 1 000 de `Valido/`) :
 
 - **une absence** — un mécanisme refusé ou retiré ne se lit jamais dans le code. L'auto-avance
   supprimée le 2026-08-23 (`FeedView`), la série quotidienne refusée (`ComboEngine`), le

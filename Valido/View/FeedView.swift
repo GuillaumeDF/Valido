@@ -6,8 +6,6 @@ struct FeedView: View {
     @State private var position: Int?
     @State private var filtrantLesSources = false
 
-    /// Assez pour qu'on sente une suite, trop peu pour lire quoi que ce soit : un aperçu
-    /// du contenu gâcherait la surprise de la matière suivante.
     private static let peekHeight: CGFloat = 28
 
     /// Aucune avance programmatique : le verdict est symétrique et c'est le balayage qui

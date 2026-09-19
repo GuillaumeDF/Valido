@@ -70,8 +70,6 @@ final class FeedViewModel {
         return correct
     }
 
-    /// Les cartes déjà préparées peuvent venir d'une source qu'on vient de décocher, d'où
-    /// le retrait — par l'**arrière** seulement, qui ne déplace rien à l'écran.
     func apply(_ newSelection: SourceSelection, currentIndex: Int) {
         guard newSelection != selection else { return }
         selection = newSelection
@@ -96,8 +94,6 @@ final class FeedViewModel {
         unsavedAnswers = 0
     }
 
-    /// L'index est absolu dans le flux : `cards` n'étant jamais rogné par l'avant,
-    /// `cards[0]` reste la première carte servie et il n'y a aucun décalage à corriger.
     func card(at index: Int) -> Card? {
         guard cards.indices.contains(index) else { return nil }
         return cards[index]

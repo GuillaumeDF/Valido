@@ -1,5 +1,3 @@
-/// L'invariant « jamais vide » vit ici et non dans l'interface : c'est le genre de garde
-/// qu'on oublie de remettre en refaisant l'écran. Décocher la dernière source est un no-op.
 nonisolated struct SourceSelection: Codable, Sendable, Equatable {
     private(set) var subjects: Set<Subject>
 

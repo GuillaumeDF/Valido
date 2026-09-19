@@ -1,7 +1,5 @@
 import SwiftUI
 
-/// La seule surface de réglage, ouverte depuis le libellé du thème : pas un pixel de
-/// chrome ajouté au feed.
 struct SourceFilterView: View {
     let selection: SourceSelection
     let count: (Subject) -> Int

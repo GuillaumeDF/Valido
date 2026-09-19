@@ -4,7 +4,6 @@ struct QuestionCardView: View {
     let presented: PresentedQuestion
     let combo: ComboEngine
     let onAnswer: (Option.ID) -> Bool
-    /// Sans affordance visuelle, délibérément : ce serait le premier pixel de chrome.
     let onTopicTap: () -> Void
 
     @State private var chosenID: Option.ID?
@@ -31,9 +30,6 @@ struct QuestionCardView: View {
             .shadow(color: .black.opacity(0.08), radius: 16, y: 6)
     }
 
-    /// `hauteurMax` et non une hauteur : à fraction ferme, la quatrième option d'une carte
-    /// chargée passait sous le bord. Aucun texte n'étant compressible, c'est l'image qui
-    /// cède — le `VStack` sert `contenu` à sa taille idéale, le bandeau prend le reste.
     @ViewBuilder
     private var silhouette: some View {
         if let illustration = presented.question.illustration {
@@ -46,8 +42,6 @@ struct QuestionCardView: View {
             }
         } else {
             VStack(spacing: 0) {
-                // Centre les cibles de tap : collées au sommet, elles sont hors de portée
-                // du pouce sur un téléphone tenu en main.
                 Spacer(minLength: 0)
                 contenu
                 Spacer(minLength: 0)
@@ -56,8 +50,6 @@ struct QuestionCardView: View {
         }
     }
 
-    /// L'`alt` **est** l'énoncé pour qui n'accède pas à l'image, pas une description.
-    ///
     /// Le cadre d'abord, l'image en `overlay` : dans l'ordre inverse, `clipped()` rogne le
     /// dessin mais pas la taille de mise en page, donc une image 4:3 réclame `h × 1,33` de
     /// largeur et pousse tout le `VStack` hors de la carte. `Color.clear` n'a pas d'aspect
@@ -75,9 +67,6 @@ struct QuestionCardView: View {
             .accessibilityAddTraits(.isImage)
     }
 
-    /// Des plafonds, pas des hauteurs (cf. `silhouette`) : sur la carte la plus chargée,
-    /// l'après-verdict tombe à 8 %. L'image rétrécit une fois le verdict rendu, elle a
-    /// fait son travail et l'explication réclame la place.
     private func hauteurDuBandeau(carte hauteur: CGFloat) -> CGFloat {
         hauteur * (wasCorrect == nil ? 0.38 : 0.18)
     }
