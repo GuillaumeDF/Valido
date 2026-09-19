@@ -498,9 +498,9 @@ Trois règles de conduite :
 **Citer un article en entier n'est pas la fin du contrôle.** Une fondation affirmant que
 tous les délits routiers coûtent la même fraction du permis a été livrée puis retirée :
 `L223-2 I` était cité intégralement, sans sa dérogation `L235-1 IV` (trois quarts au lieu
-de la moitié pour un cumul alcool-stupéfiants) — déjà présente dans `sources.md`, quatre-vingts
-lignes plus haut, sur la ligne d'une autre carte. Une dérogation fait partie de l'article
-qu'elle modifie ; la vérification ne s'arrête pas au corps du texte.
+de la moitié pour un cumul alcool-stupéfiants) — déjà présente dans `sources.md`, sur la
+ligne d'une autre carte. Une dérogation fait partie de l'article qu'elle modifie ; la
+vérification ne s'arrête pas au corps du texte.
 
 Le relevé des sources déjà consultées, et la liste des points laissés ouverts, sont dans
 [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) et dans
