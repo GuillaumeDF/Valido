@@ -13234,7 +13234,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "La frontière se lit sur la peine encourue, jamais sur le dommage causé : une contravention ne peut porter qu'une amende — 1 500 € au plus, même à la cinquième classe — et des peines privatives ou restrictives de droits ; le délit, lui, ouvre la privation de liberté et change de juridiction. Tout le reste se retrouve des deux côtés : les points, la suspension du permis, l'inscription au casier dès la cinquième classe.",
+    "explanation": "La frontière se lit sur la peine encourue, jamais sur le dommage causé : la loi définit la contravention par une amende qui n'excède pas 3 000 €, à quoi elle n'ajoute que des peines privatives ou restrictives de droits ; le délit, lui, ouvre la privation de liberté et change de juridiction. Tout le reste se retrouve des deux côtés : les points, la suspension du permis, l'inscription au casier dès la cinquième classe.",
     "id": "bcae6d813bdc2950e9e24215533e9c69",
     "notion": "permis/qualification",
     "options": [
@@ -13262,29 +13262,29 @@
   },
   {
     "correctID": "A",
-    "difficulty": "costaud",
-    "explanation": "Le code n'écrit pas ce retrait en points mais en fraction du capital, et il la fixe une fois pour toutes : tous les délits routiers emportent la même. La gravité se mesure ailleurs — en mois de prison, en euros, en annulation du titre —, jamais sur le permis. Pour une contravention, la loi ne pose qu'un plafond et laisse chaque article dire combien : c'est pourquoi deux infractions à la même amende ne coûtent pas forcément les mêmes points.",
-    "id": "32c91d7c55b64e58f68c053c703bd156",
+    "difficulty": "moyen",
+    "explanation": "Le code ne tient pas de table générale : chaque article d'infraction porte sa propre clause de réduction, et c'est elle qu'il faut lire. D'où ce que le barème a de déroutant — deux contraventions de la même classe, au même tarif d'amende, ne retirent pas forcément le même nombre de points. La loi n'intervient qu'en haut, pour poser un plafond qu'aucun article ne peut dépasser ; le retrait, lui, tombe de plein droit, sans que personne ait à le prononcer. Pour un délit, à l'inverse, c'est la loi elle-même qui fixe la fraction du capital, et elle est la même pour tous sauf dérogation expresse.",
+    "id": "20f1d3295186b1602505ceb7aa6a1b63",
     "notion": "permis/bareme",
     "options": [
       {
         "id": "A",
-        "text": "coûtent exactement le même nombre de points"
+        "text": "est fixé par l'article qui définit l'infraction"
       },
       {
         "id": "B",
-        "text": "coûtent des points en proportion de la peine"
+        "text": "est fixé par la classe de la contravention"
       },
       {
         "id": "C",
-        "text": "coûtent le double d'une contravention voisine"
+        "text": "est fixé par la gravité du dommage causé"
       },
       {
         "id": "D",
-        "text": "coûtent des points si le tribunal le décide"
+        "text": "est fixé par le juge, infraction par infraction"
       }
     ],
-    "prompt": "Sur le permis, deux délits routiers de gravité différente :",
+    "prompt": "Pour une contravention, le nombre de points retirés :",
     "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
