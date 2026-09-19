@@ -149,6 +149,8 @@ for q in QS:
     if q['subject'] == 'code' and q.get('notion') and NOTIONS_DECLAREES:
         if q['notion'] not in NOTIONS_DECLAREES:
             flag('notions/non-declaree', q, q['notion'])
+    if q['subject'] == 'code' and not q.get('notion'):
+        flag('notions/carte-orpheline', q, 'aucune notion')
 
     # --- forme ETG (informatifs, cf. le rapport du 2026-09) ---
     if q['subject'] == 'code':

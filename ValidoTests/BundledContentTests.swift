@@ -19,6 +19,12 @@ import UIKit
     #expect(swift.count >= 183)
 }
 
+@Test func chaqueCarteCodePorteUneNotionEtUnRôle() throws {
+    let bank = try QuestionBank.bundled()
+    let nues = bank.questions.filter { $0.subject == .code && ($0.notion == nil || $0.role == nil) }
+    #expect(nues.map(\.id) == [])
+}
+
 @Test func aucuneExplicationNeCommenceParUneLettreDeRéponse() throws {
     let bank = try QuestionBank.bundled()
     let motif = try Regex("^[A-D]\\s*[—–\\-.)]")
