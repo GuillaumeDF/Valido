@@ -196,6 +196,30 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
 }
 
 @MainActor
+@Test func uneSeuleBonneRéponseNAcquiertPasLaNotion() throws {
+    let annotées = (1...4).map { i in
+        Question(
+            id: "f\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: .fondation
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: annotées),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    model.ensureCards(currentIndex: 0)
+    _ = model.answer("B", at: 0)
+
+    // `masteryStreak` vaut 4 : une seule carte ne peut pas suffire.
+    #expect(model.notionsAcquises == 0)
+}
+
+@MainActor
 @Test func flushÉcritLeResteEtRéinitialiseLeCompteur() throws {
     let store = CountingProgressStore()
     let model = try modèle(store: store)
