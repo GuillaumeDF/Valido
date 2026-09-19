@@ -19,7 +19,9 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `alcool/metabolisme` | `Alcool & stupéfiants` | 4 | 0 | couvert |
 | `alcool/sanctions` | `Alcool & stupéfiants` | 1 | 3 | couvert |
 | `alcool/seuils` | `Alcool & stupéfiants` | 3 | 1 | couvert |
-| `croisement/regles` | `Priorités & intersections` | 0 | 1 | à compléter |
+| `croisement/regles` | `Croisement & dépassement`, `Priorités & intersections` | 1 | 2 | couvert |
+| `depassement/interdictions` | `Croisement & dépassement` | 5 | 1 | couvert |
+| `depassement/manoeuvre` | `Croisement & dépassement` | 5 | 2 | couvert |
 | `distances/adherence` | `Distances & freinage`, `Mécanique & environnement` | 1 | 4 | couvert |
 | `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
 | `distances/composition-arret` | `Distances & freinage` | 4 | 2 | couvert |
