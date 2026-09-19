@@ -422,9 +422,7 @@ dans cette spec ne touche à la fenêtre de cartes ni au retrait par l'arrière 
 Les `id` livrés. Le partage 70/30 et les sept nombres existants. La fenêtre de 25, l'horizon
 de 60, le plancher de 0,05. L'absence de `Date()` et de réseau. `FeedViewModel.cards` qui ne
 fait que croître. Le verdict symétrique et l'absence d'auto-avance. L'absence de série
-quotidienne. Le mono-réponse — l'écart au multi-réponse de l'épreuve est réel et mesuré
-(14 des 24 questions du spécimen), mais c'est un autre chantier et il ne se mélange pas à
-celui-ci.
+quotidienne. Le mono-réponse.
 
 ## 10. Risques
 
@@ -450,15 +448,12 @@ affecter, une trentaine à écrire, plus les quatre domaines neufs du §6.3. Le 
 cinq fichiers ; l'annotation est le chemin critique, et c'est elle qu'il faut découper dans
 le plan.
 
-**Une dette découverte au passage, hors périmètre de cette spec.** L'arrêté du 29 avril 2024
-portant cahier des charges des épreuves théoriques a été **abrogé le 1er mai 2026** par
-l'[arrêté du 16 avril 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053974673),
-article 18 (vérifié le 2026-09-19). Le rapport
-[`audit-2026-09-formes.md`](../../../Tools/audit-2026-09-formes.md) le cite comme « en
-vigueur » à sa strate 2, quatre mois après son abrogation : **OBS-8** (40 diapositives,
-45 minutes) et **OBS-9** (« une combinaison de 0 à 4 lettres ») reposent donc sur un texte
-abrogé, et l'arrêté de 2026 ne reprend pas le programme — il ne traite que des agréments et
-de l'organisation matérielle. Le seuil de 35 sur 40 n'est pas concerné : il vient de
-l'arrêté du 20 avril 2012, article 2-I-B, qui n'a pas bougé. Ces deux observations sont à
-re-sourcer, mais rien dans la présente spec ne s'appuie dessus — elle est notée ici pour ne
-pas se perdre, pas pour être traitée dans ce chantier.
+**Le risque de dérive de périmètre, et la borne qui le tient.** Le spécimen officiel sert
+dans cette spec à une seule chose : établir **ce qu'il vaut la peine de savoir**, et où la
+banque a des trous. Il ne sert jamais de modèle de *format*. Les conditions de passage —
+nombre de diapositives, durée, combinaison de lettres, nombre de bonnes réponses par
+question — sont hors sujet : **le but de Valido est d'apprendre, pas de reproduire les
+conditions de l'épreuve.** C'est ce qui écarte d'emblée le multi-réponse, le chronomètre et
+un mode examen, et ce qui dispense de suivre la validité des textes qui régissent
+l'organisation de l'épreuve. Une passe ultérieure qui voudrait rouvrir l'un des trois doit
+le justifier par l'apprentissage, jamais par la conformité.
