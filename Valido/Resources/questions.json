@@ -4,6 +4,7 @@
     "difficulty": "facile",
     "explanation": "R412-10 impose d'avertir de son intention avant tout changement de direction ou de voie — tourner, dépasser, se rabattre, se garer — même sans personne en vue, car un piéton ou un cycliste peut être là sans qu'on l'ait remarqué. Le clignotant annonce la manoeuvre, il ne l'autorise pas : il ne crée aucune priorité.",
     "id": "37fe1af42b8d81038eabdcd0f319857c",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -23,6 +24,7 @@
       }
     ],
     "prompt": "Le clignotant doit être utilisé :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -203,6 +205,7 @@
       "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, cerclée de traits de clignotement ; celles du haut et du bas restent éteintes.",
       "asset": "feu-jaune-clignotant"
     },
+    "notion": "feux/signaux-tricolores",
     "options": [
       {
         "id": "A",
@@ -222,6 +225,7 @@
       }
     ],
     "prompt": "Ce signal tricolore, jaune clignotant, signifie :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -995,6 +999,7 @@
     "difficulty": "moyen",
     "explanation": "R412-30 impose l'arrêt absolu au feu rouge ; le franchir est sanctionné comme un refus de priorité ou un stop non marqué, au même niveau que tout ce qui crée un conflit de trajectoire en intersection. S'y ajoutent 135 € d'amende.",
     "id": "37fe1af42b8d81659d11e27049af398e",
+    "notion": "permis/bareme",
     "options": [
       {
         "id": "A",
@@ -1014,6 +1019,7 @@
       }
     ],
     "prompt": "Franchir un feu rouge fixe fait perdre :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -1569,6 +1575,7 @@
     "difficulty": "facile",
     "explanation": "Le feu vert autorise le passage, mais seulement si l'intersection est déjà dégagée : s'engager pour se retrouver bloqué au milieu empêcherait le passage des véhicules des voies transversales. Exception rare : un transport exceptionnel engagé sur ces voies reste prioritaire, même au vert.",
     "id": "37fe1af42b8d8189a735d41a796aafb6",
+    "notion": "feux/signaux-tricolores",
     "options": [
       {
         "id": "A",
@@ -1588,6 +1595,7 @@
       }
     ],
     "prompt": "À un feu vert, vous :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -1654,6 +1662,7 @@
     "difficulty": "facile",
     "explanation": "Le code impose les codes la nuit (R416-4) et dès que le temps réduit la visibilité — pluie, brouillard, neige (R416-6). Exception : en agglomération, sur une chaussée assez éclairée, les voitures peuvent garder leurs feux de position ; les motos restent tenues aux codes.",
     "id": "37fe1af42b8d8193887bfe48eab17d43",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -1673,6 +1682,7 @@
       }
     ],
     "prompt": "Les feux de croisement (codes) sont obligatoires :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -1737,6 +1747,7 @@
     "difficulty": "facile",
     "explanation": "L'article R416-18 impose les feux de détresse à qui roule momentanément à allure fortement réduite, pour avertir les autres usagers qu'il risque de surprendre — bouchon soudain, panne, accident. Ce n'est ni un remerciement ni une autorisation de stationner.",
     "id": "37fe1af42b8d81adbe05ccc6da87aef7",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -1756,6 +1767,7 @@
       }
     ],
     "prompt": "Les feux de détresse (warning) servent à :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -1764,6 +1776,7 @@
     "difficulty": "costaud",
     "explanation": "L'article R416-7 ne les autorise qu'en cas de brouillard ou de chute de neige : hors de ces deux cas, ils éblouissent les conducteurs qui suivent sans rien apporter à votre visibilité. On les éteint dès que la cause cesse, pour ne pas gêner inutilement.",
     "id": "37fe1af42b8d81b1b37feb613e893fbf",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -1783,6 +1796,7 @@
       }
     ],
     "prompt": "Les feux arrière antibrouillard s'utilisent :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -2106,6 +2120,7 @@
     "difficulty": "facile",
     "explanation": "L'article R416-6 impose les feux de croisement dès qu'on s'apprête à croiser un véhicule, pour ne pas éblouir son conducteur avec des feux de route bien plus puissants et orientés vers l'avant.",
     "id": "37fe1af42b8d81c8af99ca09e3710b01",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -2125,6 +2140,7 @@
       }
     ],
     "prompt": "De nuit hors agglomération, vous croisez un véhicule alors que vous êtes en plein phares :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -2365,6 +2381,7 @@
       "alt": "Une route coupée par une voie ferrée à deux rails ; au bord de la route, avant les rails, un feu circulaire unique est allumé et cerclé de traits de clignotement.",
       "asset": "passage-niveau-feu-rouge-clignotant"
     },
+    "notion": "pn/signalisation",
     "options": [
       {
         "id": "A",
@@ -2384,6 +2401,7 @@
       }
     ],
     "prompt": "Ce signal rouge clignotant vous impose :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -2813,6 +2831,7 @@
     "difficulty": "facile",
     "explanation": "L'article R412-31 impose de marquer l'arrêt devant le jaune fixe ; la seule exception est le conducteur qui, à l'allumage du feu, ne peut plus s'arrêter dans des conditions de sécurité suffisantes.",
     "id": "37fe1af42b8d81fc9bbbee0a1767bba6",
+    "notion": "feux/signaux-tricolores",
     "options": [
       {
         "id": "A",
@@ -2832,6 +2851,7 @@
       }
     ],
     "prompt": "Au feu jaune (orange) fixe, vous devez :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9632,6 +9652,7 @@
     "difficulty": "moyen",
     "explanation": "Le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place. Un panneau de priorité garde une valeur permanente, que les feux fonctionnent ou non, et c'est lui qui tranche avant la priorité à droite.",
     "id": "0ac1e53ac8978390a5725830ebcff433",
+    "notion": "signalisation/hierarchie",
     "options": [
       {
         "id": "A",
@@ -9651,6 +9672,7 @@
       }
     ],
     "prompt": "À une intersection tenue par un feu jaune clignotant, un cédez-le-passage :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9663,6 +9685,7 @@
       "alt": "Deux caissons sur le même support : celui de gauche a trois lampes dont seule celle du haut est allumée ; celui de droite n'en a qu'une, allumée, cerclée de traits de clignotement, et marquée d'une flèche vers la droite.",
       "asset": "feu-fleche-clignotante"
     },
+    "notion": "feux/signaux-tricolores",
     "options": [
       {
         "id": "A",
@@ -9682,6 +9705,7 @@
       }
     ],
     "prompt": "Ce signal d'anticipation, flèche jaune clignotante, autorise à :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9690,6 +9714,7 @@
     "difficulty": "moyen",
     "explanation": "L'article R416-18 oblige à prévenir aux feux de détresse quand on roule momentanément à allure fortement réduite. En file ininterrompue, l'obligation ne pèse que sur le dernier : c'est lui que les suivants risquent de surprendre.",
     "id": "fc0333a5ae17dd22f31bbbe63d0e8824",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9709,6 +9734,7 @@
       }
     ],
     "prompt": "Dans une file de véhicules à allure fortement réduite, les feux de détresse s'imposent :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9717,6 +9743,7 @@
     "difficulty": "costaud",
     "explanation": "L'article R412-30 fixe deux repères par défaut, seulement quand aucune ligne d'arrêt n'est peinte : avant le passage pour piétons s'il précède le feu, pour ne pas l'empiéter, et sinon à l'aplomb du feu, où il reste visible depuis le point d'arrêt. Une ligne peinte prime toujours sur ces repères.",
     "id": "acaf8b468f86cd92d2b61f93637ff9dd",
+    "notion": "feux/signaux-tricolores",
     "options": [
       {
         "id": "A",
@@ -9736,6 +9763,7 @@
       }
     ],
     "prompt": "Devant un feu rouge sans ligne d'arrêt peinte au sol, l'arrêt se fait :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9744,6 +9772,7 @@
     "difficulty": "moyen",
     "explanation": "L'éblouissement ne vient pas que d'en face : le rétroviseur du véhicule suivi renvoie le faisceau. L'article R416-6 impose donc les feux de croisement dès qu'on suit à faible distance, le seul répit étant le dépassement lui-même.",
     "id": "362d572a8e9eb2d2940513b207d2e448",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9763,6 +9792,7 @@
       }
     ],
     "prompt": "De nuit, vous roulez en feux de route derrière un véhicule à faible distance :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9771,6 +9801,7 @@
     "difficulty": "moyen",
     "explanation": "L'article R416-7 autorise ces feux avant dans trois cas : brouillard, chute de neige, et aussi forte pluie. Leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue.",
     "id": "6012289234e0766392ac505dbfdbd3ae",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9790,6 +9821,7 @@
       }
     ],
     "prompt": "Les feux avant de brouillard peuvent remplacer les feux de croisement :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9798,6 +9830,7 @@
     "difficulty": "moyen",
     "explanation": "L'article R416-12 demande, à l'arrêt comme en stationnement, les feux de position à l'avant et les feux rouges avec l'éclairage de plaque à l'arrière. En agglomération, une chaussée assez éclairée dispense de tout signalement.",
     "id": "d5505e2b6bdcdeb78eecbec2a2a2a724",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9817,6 +9850,7 @@
       }
     ],
     "prompt": "De nuit, à l'arrêt sur une chaussée sans éclairage public, vous devez montrer, à l'avant et à l'arrière :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9825,6 +9859,7 @@
     "difficulty": "moyen",
     "explanation": "Un seul feu peut être une moto comme une voiture dont un feu a grillé : sa largeur réelle est inconnue, et son axe aussi. On réduit l'allure et on garde le regard sur la rive droite, hors du faisceau.",
     "id": "a3b1d0cf8c4fde31d009c3924754bfba",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9844,6 +9879,7 @@
       }
     ],
     "prompt": "De nuit, un véhicule arrive en face avec un seul feu allumé :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },
@@ -9852,6 +9888,7 @@
     "difficulty": "costaud",
     "explanation": "R416-11 sanctionne, par une amende de quatrième classe et quatre points retirés de plein droit, le fait de circuler de nuit sans éclairage ni signalisation en un lieu dépourvu d'éclairage public : il faut donc quitter la chaussée et signaler le véhicule sans attendre. Un véhicule éteint y devient invisible pour qui arrive à vitesse — les feux de détresse, qui n'éclairent rien, ne suffisent pas. Cette sanction précise ne vaut qu'en l'absence d'éclairage public ; ailleurs, la même panne ne relève pas de cet article.",
     "id": "1f62ee2f0d02611c04ed79a57b73412a",
+    "notion": "feux/eclairage-vehicule",
     "options": [
       {
         "id": "A",
@@ -9871,6 +9908,7 @@
       }
     ],
     "prompt": "De nuit, hors agglomération, vos deux feux de croisement s'éteignent :",
+    "role": "application",
     "subject": "code",
     "topic": "Feux"
   },

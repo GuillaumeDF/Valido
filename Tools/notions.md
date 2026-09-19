@@ -22,6 +22,8 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `distances/intervalle` | `Distances & freinage` | 2 | 3 | couvert |
 | `environnement/critair` | `Mécanique & environnement` | 1 | 0 | couvert |
 | `environnement/ecoconduite` | `Mécanique & environnement` | 1 | 1 | couvert |
+| `feux/eclairage-vehicule` | `Feux` | 5 | 6 | couvert |
+| `feux/signaux-tricolores` | `Feux` | 2 | 3 | couvert |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections` | 0 | 3 | à compléter |
 | `mecanique/chargement` | `Mécanique & environnement` | 1 | 1 | couvert |
@@ -32,13 +34,14 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
-| `permis/bareme` | `Distances & freinage`, `Priorités & intersections` | 0 | 3 | à compléter |
+| `permis/bareme` | `Distances & freinage`, `Feux`, `Priorités & intersections` | 0 | 4 | à compléter |
 | `permis/qualification` | `Vitesse` | 0 | 1 | à compléter |
+| `pn/signalisation` | `Feux` | 0 | 1 | à compléter |
 | `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections` | 2 | 4 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
 | `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
-| `signalisation/hierarchie` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 3 | couvert |
+| `signalisation/hierarchie` | `Feux`, `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 4 | couvert |
 | `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
 | `usagers/cyclistes` | `Priorités & intersections` | 0 | 1 | à compléter |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
