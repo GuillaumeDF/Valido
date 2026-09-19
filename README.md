@@ -17,7 +17,7 @@ Une seule boucle : un `ScrollView` paginé, une carte plein écran, alimentée �
 du bas. Pas de menu, pas d'écran d'accueil, pas d'écran de fin de session — un « bravo,
 terminé ! » est une porte de sortie.
 
-**448 questions** embarquées dans le bundle : 255 sur le code de la route, 193 sur
+**463 questions** embarquées dans le bundle : 270 sur le code de la route, 193 sur
 Swift/iOS. Aucun réseau, aucun compte, aucun secret dans l'app.
 
 **Quarante-neuf** de ces questions ont leur énoncé **dans une image** — carrefour, panneau,
@@ -130,7 +130,7 @@ liseré blanc, et les options désignent les autres par leur provenance, pas par
 
 ## Limite connue
 
-448 questions ne font toujours pas un feed infini : à 30 questions par session, la banque
+463 questions ne font toujours pas un feed infini : à 30 questions par session, la banque
 est consommée en une quinzaine. Deux passes de contenu l'ont portée de 250 à 448 sans
 changer cet ordre de grandeur — écrire à la main ne rattrape pas un feed. La v1 répond à
 une seule question — la boucle tient-elle sur moi ? Si elle tient, le chantier suivant

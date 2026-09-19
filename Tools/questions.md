@@ -267,6 +267,14 @@ bonnes réponses, donc allonger une option de deux mots l'y retire sans qu'aucun
 n'ait bougé — c'est ce qui l'a fait passer de 85 à 84 le 2026-08-31, quand une bonne réponse
 de `Feux` a gagné un adverbe pour réparer un déséquilibre de longueur.
 
+**La question qui ferme une fuite avant qu'on la trouve.** Après avoir écrit une carte qui
+énonce une règle, la bonne question n'est pas « ma carte fuit-elle ? » mais « quelle carte
+existante ma carte vient-elle de rendre fuyante ? » — `--fuites` ne regarde jamais dans ce
+sens-là, seulement depuis la carte neuve vers les anciennes. Le balayage qui les trouve se
+fait à la main, sur les quasi-doublons à un mot plein d'écart. Trois fuites de ce genre ont
+été livrées avant d'être fermées dans une passe suivante, faute d'avoir posé la question
+dans le bon sens.
+
 Le script couvre :
 
 - identifiants uniques et non vides ;
@@ -486,6 +494,13 @@ Trois règles de conduite :
 3. **Recycler l'ancienne valeur en distracteur.** « 4 500 € et 2 ans de prison » était
    la bonne réponse jusqu'en août 2026 ; c'est maintenant le meilleur distracteur de la
    question, parce que c'est exactement ce qu'un candidat aura lu ailleurs.
+
+**Citer un article en entier n'est pas la fin du contrôle.** Une fondation affirmant que
+tous les délits routiers coûtent la même fraction du permis a été livrée puis retirée :
+`L223-2 I` était cité intégralement, sans sa dérogation `L235-1 IV` (trois quarts au lieu
+de la moitié pour un cumul alcool-stupéfiants) — déjà présente dans `sources.md`, quatre-vingts
+lignes plus haut, sur la ligne d'une autre carte. Une dérogation fait partie de l'article
+qu'elle modifie ; la vérification ne s'arrête pas au corps du texte.
 
 Le relevé des sources déjà consultées, et la liste des points laissés ouverts, sont dans
 [`audit-2026-08-passe-2.md`](audit-2026-08-passe-2.md) et dans
