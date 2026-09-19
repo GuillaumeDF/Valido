@@ -63,7 +63,12 @@ final class FeedViewModel {
         answered.insert(index)
 
         combo.answer(correct: correct)
-        progress.recordAnswer(presented.id, correct: correct)
+        progress.recordAnswer(
+            presented.id,
+            correct: correct,
+            notion: presented.question.notion,
+            masteryStreak: scheduler.config.masteryStreak
+        )
         unsavedAnswers += 1
         if unsavedAnswers >= Self.saveEvery { flush() }
 
@@ -87,6 +92,10 @@ final class FeedViewModel {
 
     func count(of subject: Subject) -> Int {
         bank.questions.count { $0.subject == subject }
+    }
+
+    var notionsAcquises: Int {
+        progress.notions.values.count { $0.acquise }
     }
 
     func flush() {

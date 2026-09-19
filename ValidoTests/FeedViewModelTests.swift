@@ -167,6 +167,35 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
 }
 
 @MainActor
+@Test func répondreJusteFaitProgresserLaNotion() throws {
+    let annotées = (1...4).map { i in
+        Question(
+            id: "f\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: .fondation
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: annotées),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    #expect(model.notionsAcquises == 0)
+
+    var index = 0
+    while model.notionsAcquises == 0 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+
+    #expect(model.notionsAcquises == 1)
+}
+
+@MainActor
 @Test func flushÉcritLeResteEtRéinitialiseLeCompteur() throws {
     let store = CountingProgressStore()
     let model = try modèle(store: store)
