@@ -16,17 +16,22 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | notion | topics concernés | fondations | applications | verdict |
 |---|---|---:|---:|---|
 | `croisement/regles` | `Priorités & intersections` | 0 | 1 | à compléter |
+| `distances/adherence` | `Distances & freinage` | 1 | 3 | couvert |
+| `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
+| `distances/composition-arret` | `Distances & freinage` | 4 | 2 | couvert |
+| `distances/intervalle` | `Distances & freinage` | 2 | 3 | couvert |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections` | 0 | 3 | à compléter |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
-| `permis/bareme` | `Priorités & intersections` | 0 | 2 | à compléter |
+| `permis/bareme` | `Distances & freinage`, `Priorités & intersections` | 0 | 3 | à compléter |
 | `permis/qualification` | `Vitesse` | 0 | 1 | à compléter |
-| `priorite/cas-particuliers` | `Priorités & intersections` | 2 | 3 | couvert |
+| `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections` | 2 | 4 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
 | `signalisation/hierarchie` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 3 | couvert |
+| `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
 | `usagers/cyclistes` | `Priorités & intersections` | 0 | 1 | à compléter |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
 | `vitesse/limites-par-route` | `Vitesse` | 5 | 2 | couvert |
