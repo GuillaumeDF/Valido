@@ -304,3 +304,44 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
     // La quatrième distincte l'acquiert : le seuil vaut bien min(4, 10) = 4, ni 10 ni le vivier.
     #expect(model.notionsAcquises == 1)
 }
+
+@MainActor
+@Test func leCompteurDeNotionsSuitLaSélection() throws {
+    let codes = (1...4).map {
+        Fixtures.question(id: "c\($0)", subject: .code, topic: "Panneaux & marquage",
+                          notion: "panneaux/formes", role: $0 == 1 ? .fondation : .application)
+    }
+    let swifts = (1...4).map { Fixtures.question(id: "s\($0)", subject: .swift, topic: "Langage") }
+
+    let selectionStore = InMemorySourceSelectionStore()
+    var codeSeul = SourceSelection()
+    codeSeul.toggle(.swift)
+    try selectionStore.save(codeSeul)
+
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: codes + swifts),
+        store: InMemoryProgressStore(),
+        selectionStore: selectionStore,
+        scheduler: CardScheduler(),
+        rng: SeededRNG(seed: 4)
+    )
+    model.start()
+
+    var index = 0
+    while model.notionsAcquises == 0 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    #expect(model.notionsTotal == 1)
+    #expect(model.notionsAcquises == 1)
+
+    var swiftSeul = SourceSelection()
+    swiftSeul.toggle(.code)
+    model.apply(swiftSeul, currentIndex: index)
+
+    // Plus aucune carte à notion n'est servie : le total annoncé était celui de la banque
+    // entière, donc inatteignable sous cette sélection.
+    #expect(model.notionsTotal == 0)
+    #expect(model.notionsAcquises == 0)
+}

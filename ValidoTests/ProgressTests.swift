@@ -22,9 +22,9 @@ import Testing
 
 @Test func répondreAgrègeLesTentatives() {
     var snapshot = ProgressSnapshot()
-    snapshot.recordAnswer("q1", correct: false)
-    snapshot.recordAnswer("q1", correct: true)
-    snapshot.recordAnswer("q1", correct: true)
+    snapshot.recordAnswer("q1", correct: false, notion: nil, masteryStreak: 0)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
     let stats = snapshot.stats(for: "q1")
     #expect(stats.attempts == 3)
     #expect(stats.failures == 1)
@@ -33,7 +33,7 @@ import Testing
 
 @Test func répondreNeTouchePasAuCompteurDeService() {
     var snapshot = ProgressSnapshot()
-    snapshot.recordAnswer("q1", correct: true)
+    snapshot.recordAnswer("q1", correct: true, notion: nil, masteryStreak: 0)
     #expect(snapshot.serveIndex == 0)
 }
 
@@ -45,7 +45,7 @@ import Testing
     let store = FileProgressStore(url: url)
     var snapshot = ProgressSnapshot()
     snapshot.recordServe("q1")
-    snapshot.recordAnswer("q1", correct: false)
+    snapshot.recordAnswer("q1", correct: false, notion: nil, masteryStreak: 0)
     try store.save(snapshot)
 
     let rechargé = FileProgressStore(url: url).load()

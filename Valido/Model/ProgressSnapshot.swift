@@ -44,8 +44,8 @@ nonisolated struct ProgressSnapshot: Codable, Sendable, Equatable {
     mutating func recordAnswer(
         _ id: Question.ID,
         correct: Bool,
-        notion: String? = nil,
-        masteryStreak: Int = 0
+        notion: String?,
+        masteryStreak: Int
     ) {
         var entry = stats(for: id)
         entry.attempts += 1

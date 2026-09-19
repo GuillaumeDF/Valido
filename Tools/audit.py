@@ -115,7 +115,7 @@ try:
 except OSError:
     REGISTRE = {}
 
-NOTIONS_MD = os.environ.get('VALIDO_NOTIONS_MD', os.path.join(ICI, 'notions.md'))
+NOTIONS_MD = os.environ.get('VALIDO_NOTIONS_MD') or os.path.join(ICI, 'notions.md')
 LIGNE_NOTION = re.compile(r'^\|\s*`([a-z0-9/-]+)`\s*\|', re.M)
 try:
     NOTIONS_DECLAREES = set(LIGNE_NOTION.findall(open(NOTIONS_MD).read()))

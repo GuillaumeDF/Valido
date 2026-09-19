@@ -96,11 +96,15 @@ final class FeedViewModel {
     }
 
     var notionsAcquises: Int {
-        progress.notions.values.count { $0.acquise }
+        notionsServies.count { progress.estAcquise($0) }
     }
 
     var notionsTotal: Int {
-        Set(bank.questions.compactMap(\.notion)).count
+        notionsServies.count
+    }
+
+    private var notionsServies: Set<String> {
+        Set(bank.questions.filter { selection.includes($0.subject) }.compactMap(\.notion))
     }
 
     func flush() {
