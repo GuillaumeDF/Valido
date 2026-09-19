@@ -12969,5 +12969,266 @@
     "sourceURL": "https://developer.apple.com/documentation/alarmkit/scheduling-an-alarm-with-alarmkit",
     "subject": "swift",
     "topic": "Frameworks iOS"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Un panneau ne parle qu'à ceux qui sont passés devant lui : au carrefour suivant arrivent des conducteurs qui ne l'ont pas vu, et la règle tombe pour tout le monde. La prolonger demande de la répéter après le croisement, ou de l'inscrire dans une zone. Un panonceau d'étendue et un panneau de fin la raccourcissent ou l'allongent : ils aménagent le principe, ils ne le remplacent pas.",
+    "id": "03041783e81ea879ebb18f4c75170754",
+    "notion": "panneaux/portee",
+    "options": [
+      {
+        "id": "A",
+        "text": "du panneau jusqu'au seul panneau de fin correspondant"
+      },
+      {
+        "id": "B",
+        "text": "du panneau jusqu'à la prochaine intersection"
+      },
+      {
+        "id": "C",
+        "text": "du panneau jusqu'au prochain panneau, quel qu'il soit"
+      },
+      {
+        "id": "D",
+        "text": "du panneau jusqu'à la sortie de l'agglomération"
+      }
+    ],
+    "prompt": "Une prescription signalée par un panneau s'applique :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Panneau et panonceau forment un ensemble indivisible : la plaque ne vaut rien seule, mais ce qu'elle ajoute — une distance, une étendue, un horaire, une catégorie d'usagers, la nature d'un danger — s'impose au même titre que le signal qu'elle complète. Elle se lit donc toujours avec lui, jamais à sa place, et on la trouve sous toutes les familles de panneaux.",
+    "id": "5abe2f7853853a6744f3a71425a0ba6e",
+    "notion": "panneaux/panonceaux",
+    "options": [
+      {
+        "id": "A",
+        "text": "porte une prescription propre, distincte du panneau"
+      },
+      {
+        "id": "B",
+        "text": "ne se rencontre que sous les panneaux de danger"
+      },
+      {
+        "id": "C",
+        "text": "précise à qui, où et quand le panneau s'applique"
+      },
+      {
+        "id": "D",
+        "text": "renseigne à titre indicatif, sans rien d'obligatoire"
+      }
+    ],
+    "prompt": "Le panonceau placé sous un panneau :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Un trait se lit comme une frontière : la question qu'il pose est de savoir si on le franchit. Une surface peinte pose l'autre question — celle de ce qu'on fait dedans. Elle est soustraite au trafic, roue posée ou véhicule immobile, et reste donc vide quand la file d'à côté est pleine : ce n'est pas de la chaussée perdue, c'est la marge où l'on se rabat et par où passent ceux qui viennent aider.",
+    "id": "5f7e9145e72fe9c4830097af9e849196",
+    "notion": "marquage/zones",
+    "options": [
+      {
+        "id": "A",
+        "text": "interdit d'en franchir le bord, l'intérieur restant libre"
+      },
+      {
+        "id": "B",
+        "text": "interdit d'y stationner, la circulation restant permise"
+      },
+      {
+        "id": "C",
+        "text": "n'interdit rien, il guide vers la bonne voie"
+      },
+      {
+        "id": "D",
+        "text": "interdit de l'occuper, en roulant comme à l'arrêt"
+      }
+    ],
+    "prompt": "Un marquage au sol qui couvre une surface, et non un trait :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "moyen",
+    "explanation": "Piéton, cycliste, deux-roues, enfant ou personne âgée : ce qui les réunit n'est pas leur allure mais l'absence de carrosserie — le choc qu'une tôle encaisse pour un automobiliste, leur corps le prend entier. Le code en tire un devoir de comportement et non un droit de passage : la prudence s'impose aussi là où c'est vous qui avez la priorité, et elle se juge sur la marge que vous leur laissez.",
+    "id": "7c6550dacc9ce723eb41948197f09c36",
+    "notion": "usagers/vulnerables",
+    "options": [
+      {
+        "id": "A",
+        "text": "une prudence accrue qui s'ajoute aux règles communes"
+      },
+      {
+        "id": "B",
+        "text": "une priorité de passage en tout point de la chaussée"
+      },
+      {
+        "id": "C",
+        "text": "une vitesse réduite de moitié à leur approche"
+      },
+      {
+        "id": "D",
+        "text": "une obligation d'arrêt dès qu'ils longent la chaussée"
+      }
+    ],
+    "prompt": "Le code impose au conducteur, envers les usagers les plus vulnérables :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Usagers & partage de la route"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "moyen",
+    "explanation": "Un tunnel n'a ni bas-côté ni ciel : la fumée y reste et prend de l'avance sur un piéton. D'où la suite imposée — prévenir ceux qui suivent, dégager la chaussée vers un refuge, partir à pied vers la sortie balisée, le moteur arrêté et les clés laissées pour qu'on puisse déplacer la voiture. L'alerte se donne à un poste d'appel de l'ouvrage, qui dit aux sauveteurs où vous êtes ; un téléphone personnel ne le dit pas.",
+    "id": "b6cc363d20428d0bbb70572f63bde309",
+    "notion": "tunnel/incident",
+    "options": [
+      {
+        "id": "A",
+        "text": "couper le moteur et attendre à côté de son véhicule"
+      },
+      {
+        "id": "B",
+        "text": "se signaler, se ranger, puis rejoindre une issue à pied"
+      },
+      {
+        "id": "C",
+        "text": "se ranger, rester à bord, puis attendre les secours"
+      },
+      {
+        "id": "D",
+        "text": "alerter par son mobile, puis évaluer si l'on peut repartir"
+      }
+    ],
+    "prompt": "En cas d'incident dans un tunnel, l'ordre des gestes est :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Tunnels & passages à niveau"
+  },
+  {
+    "correctID": "C",
+    "difficulty": "facile",
+    "explanation": "Une autoroute n'a pas d'accotement : cette bande est la seule marge où un véhicule qui ne roule plus cesse d'être un obstacle, et le seul couloir par lequel les secours remontent une file immobilisée. L'emprunter pour gagner du temps, c'est fermer ce couloir à ceux qui viennent aider ; s'y ranger sans y être contraint revient à prendre la place du prochain qui n'aura pas le choix.",
+    "id": "08b7562be330c0d493caca2b9e722309",
+    "notion": "distances/bau",
+    "options": [
+      {
+        "id": "A",
+        "text": "au dépassement des véhicules lents en côte"
+      },
+      {
+        "id": "B",
+        "text": "à l'arrêt de confort, le temps d'une courte pause"
+      },
+      {
+        "id": "C",
+        "text": "aux immobilisations subies et au passage des secours"
+      },
+      {
+        "id": "D",
+        "text": "à l'insertion des véhicules venant d'une bretelle d'accès"
+      }
+    ],
+    "prompt": "La bande d'arrêt d'urgence sert :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Distances & freinage"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "moyen",
+    "explanation": "Deux bornes commandent le domaine et elles sont posées d'avance : ce qu'un chargement peut dépasser du gabarit, et la masse qu'un attelage peut atteindre sans changer de catégorie de permis. Ni un arrimage soigné, ni un drapeau rouge, ni un moteur capable de tirer davantage n'en dispensent — ils s'y ajoutent. Et c'est le conducteur qui en répond, même s'il n'a pas chargé lui-même.",
+    "id": "f931572f57519e2153658c1434ed6338",
+    "notion": "mecanique/chargement",
+    "options": [
+      {
+        "id": "A",
+        "text": "à la solidité de l'arrimage, qui décide du reste"
+      },
+      {
+        "id": "B",
+        "text": "à la puissance du moteur, qui fixe ce qu'on peut tirer"
+      },
+      {
+        "id": "C",
+        "text": "à la signalisation du débord, qui en tient lieu"
+      },
+      {
+        "id": "D",
+        "text": "à des limites fixées d'avance, dimensions et masse"
+      }
+    ],
+    "prompt": "Le chargement d'un véhicule obéit d'abord :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Mécanique & environnement"
+  },
+  {
+    "correctID": "A",
+    "difficulty": "facile",
+    "explanation": "Le triangle prévient, il n'ordonne rien : sa pointe en haut et sa bande rouge disent qu'un risque approche, pas qu'une règle change. C'est pourquoi il est planté en amont du risque et non à son droit — hors agglomération beaucoup plus loin qu'en ville : averti, on aborde le passage délicat à la bonne allure. Le triangle pointe en bas est d'une autre famille : celui-là prescrit.",
+    "id": "f5ffb14807d9fd8b2a0a58151791b2d4",
+    "notion": "panneaux/formes",
+    "options": [
+      {
+        "id": "A",
+        "text": "Un danger, situé plus loin sur la route"
+      },
+      {
+        "id": "B",
+        "text": "Une interdiction, qui commence au panneau"
+      },
+      {
+        "id": "C",
+        "text": "Un ordre à suivre dès le panneau dépassé"
+      },
+      {
+        "id": "D",
+        "text": "Une indication, sans rien d'obligatoire"
+      }
+    ],
+    "prompt": "Un panneau triangulaire à bord rouge annonce :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
+  },
+  {
+    "correctID": "B",
+    "difficulty": "facile",
+    "explanation": "La silhouette trie avant le pictogramme, et elle se lit de bien plus loin : le rond prescrit, le triangle prévient, le carré renseigne — services, directions, régimes de voie. Un carré n'impose donc rien par lui-même ; ce qu'il signale peut être soumis à des règles, mais elles viennent d'ailleurs. L'instruction écrit « généralement » carrés : le repère est solide, il n'est pas absolu, puisque les prescriptions de zone se posent elles aussi sur un carré.",
+    "id": "2113eaf703eec8a91ce135e3e96d8082",
+    "notion": "panneaux/formes",
+    "options": [
+      {
+        "id": "A",
+        "text": "Une mise en garde contre un danger proche"
+      },
+      {
+        "id": "B",
+        "text": "Un renseignement sans force obligatoire"
+      },
+      {
+        "id": "C",
+        "text": "Une interdiction qui joue dès sa hauteur"
+      },
+      {
+        "id": "D",
+        "text": "Un ordre à exécuter au carrefour suivant"
+      }
+    ],
+    "prompt": "Un panneau de forme carrée ou rectangulaire porte :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
   }
 ]

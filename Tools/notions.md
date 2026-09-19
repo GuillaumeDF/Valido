@@ -23,7 +23,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `depassement/interdictions` | `Croisement & dépassement` | 5 | 1 | couvert |
 | `depassement/manoeuvre` | `Croisement & dépassement` | 5 | 2 | couvert |
 | `distances/adherence` | `Distances & freinage` | 1 | 3 | couvert |
-| `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
+| `distances/bau` | `Distances & freinage` | 1 | 2 | couvert |
 | `distances/composition-arret` | `Distances & freinage`, `Mécanique & environnement` | 4 | 3 | couvert |
 | `distances/intervalle` | `Distances & freinage` | 2 | 3 | couvert |
 | `environnement/critair` | `Mécanique & environnement` | 1 | 0 | couvert |
@@ -31,15 +31,15 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `feux/eclairage-vehicule` | `Feux` | 5 | 6 | couvert |
 | `feux/signaux-tricolores` | `Feux` | 2 | 3 | couvert |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
-| `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections`, `Usagers & partage de la route` | 0 | 4 | à compléter |
-| `mecanique/chargement` | `Mécanique & environnement` | 0 | 2 | à compléter |
+| `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections`, `Usagers & partage de la route` | 1 | 4 | couvert |
+| `mecanique/chargement` | `Mécanique & environnement` | 1 | 2 | couvert |
 | `mecanique/entretien` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `mecanique/equipements-obligatoires` | `Mécanique & environnement`, `Premiers secours` | 1 | 2 | couvert |
 | `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
 | `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
-| `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
-| `panneaux/panonceaux` | `Panneaux & marquage`, `Tunnels & passages à niveau` | 0 | 3 | à compléter |
-| `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 9 | à compléter |
+| `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 6 | 7 | couvert |
+| `panneaux/panonceaux` | `Panneaux & marquage`, `Tunnels & passages à niveau` | 1 | 3 | couvert |
+| `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 1 | 9 | couvert |
 | `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections`, `Tunnels & passages à niveau` | 0 | 7 | à compléter |
 | `permis/capital-points` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/probatoire` | `Permis & sanctions` | 4 | 0 | couvert |
@@ -61,13 +61,13 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `stationnement/regles-locales` | `Arrêt & stationnement` | 2 | 0 | couvert |
 | `stups/regime` | `Alcool & stupéfiants` | 1 | 2 | couvert |
 | `tunnel/conduite` | `Distances & freinage`, `Tunnels & passages à niveau` | 4 | 2 | couvert |
-| `tunnel/incident` | `Tunnels & passages à niveau` | 0 | 2 | à compléter |
+| `tunnel/incident` | `Tunnels & passages à niveau` | 1 | 2 | couvert |
 | `usagers/angles-morts` | `Usagers & partage de la route` | 1 | 1 | couvert |
 | `usagers/cyclistes` | `Priorités & intersections`, `Usagers & partage de la route` | 2 | 2 | couvert |
 | `usagers/deux-roues-motorises` | `Usagers & partage de la route` | 3 | 0 | couvert |
 | `usagers/edpm` | `Usagers & partage de la route` | 4 | 0 | couvert |
 | `usagers/pietons` | `Usagers & partage de la route` | 2 | 1 | couvert |
-| `usagers/vulnerables` | `Arrêt & stationnement`, `Usagers & partage de la route` | 0 | 2 | à compléter |
+| `usagers/vulnerables` | `Arrêt & stationnement`, `Usagers & partage de la route` | 1 | 2 | couvert |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
 | `vitesse/limites-par-route` | `Vitesse` | 5 | 2 | couvert |
 | `vitesse/probatoire` | `Vitesse` | 0 | 3 | à compléter |
@@ -154,3 +154,29 @@ acquises (`SchedulerConfig.masteryStreak` = 4). Sur celles qui portent déjà un
 cette fondation sera **boostée indéfiniment** : c'est le défaut symétrique de la notion non
 fondée, et il n'a pas de sortie d'outil. Le cas extrême est `environnement/critair`, **une
 seule carte**, qui est une fondation. La liste complète est dans le rapport de la tâche 7.
+
+## Les neuf fondations sans chiffre (2026-09-19)
+
+Sept notions sont sorties de `notions/sans-fondation` — `panneaux/portee`,
+`panneaux/panonceaux`, `marquage/zones`, `usagers/vulnerables`, `tunnel/incident`,
+`distances/bau`, `mecanique/chargement` — et `panneaux/formes` a gagné les **deux membres
+de famille** que le compteur ne pouvait pas voir : le **triangle à bord rouge** (danger) et
+le **carré ou rectangle** (indication), exercés par sept applications sans qu'aucune carte
+les énonce. C'est le constat du domaine pilote, vérifié : le compteur se tait dès la
+première fondation, quelle que soit la classe qu'elle énonce.
+
+**Toutes les neuf sont `stable`.** Le partage est celui du brief : une fondation qui aurait
+besoin d'un chiffre pour être vraie — barème, amende, seuil, vitesse, durée — n'est pas
+écrite ici. C'est pourquoi les six notions restantes (`alcool/sanctions`, `permis/bareme`,
+`permis/qualification`, `stationnement/gradation`, `vitesse/probatoire`,
+`vitesse/sanctions`) sont exactement celles dont la règle **est** une échelle chiffrée :
+leurs fondations sont `datée`, et elles se relèvent contre `DOMAINES_FAIT` avant d'être
+écrites.
+
+Ce que ces neuf cartes ont demandé, et qu'aucun contrôle ne mesure : chacune énonce la
+règle que ses applications exercent déjà, donc chacune peut **livrer** une réponse voisine.
+Le tri s'est fait à la main, carte contre carte, et deux formulations ont été changées pour
+cette seule raison — l'explication de `distances/bau`, qui comparait la gravité de l'arrêt
+et de la circulation sur la bande (c'est la réponse de ses deux applications), et celle de
+`panneaux/formes` sur le triangle, qui donnait la distance d'implantation (c'est la carte
+illustrée qui la porte).
