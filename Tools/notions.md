@@ -37,6 +37,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `mecanique/equipements-obligatoires` | `Mécanique & environnement`, `Premiers secours` | 1 | 2 | couvert |
 | `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
 | `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
+| `panneaux/couleurs` | `Panneaux & marquage` | 1 | 0 | couvert |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 6 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage`, `Tunnels & passages à niveau` | 1 | 3 | couvert |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 1 | 9 | couvert |
@@ -98,9 +99,11 @@ constats qui servent aux douze domaines suivants, et au lot de fondations à éc
   surface peinte réserve. Deux familles que le balayage de la spec n'avait pas vues.
   *(Comptes du 2026-09-19 : les douze domaines leur ont ajouté des membres — trois cartes
   pour les panonceaux, quatre pour les zones. Le manque de fondation, lui, est intact.)*
-- **`panneaux/couleurs` n'a aucune carte.** Pas une seule du domaine ne prend la couleur
-  comme axe indépendant de la forme ; les deux fondations existantes la traitent à
-  l'intérieur d'une silhouette. La notion n'entre donc pas encore dans ce tableau.
+- **`panneaux/couleurs` n'avait aucune carte.** Pas une seule du domaine ne prenait la
+  couleur comme axe indépendant de la forme ; les fondations de `panneaux/formes` la
+  traitent à l'intérieur d'une silhouette. *(Refermé le 2026-09-19 : la notion entre dans
+  le tableau ci-dessus avec sa fondation, `6f086316`, sur le fond jaune — voir « La
+  fondation de couleur » plus bas.)*
 
 `marquage/lignes` est l'inverse exact : quatre de ses cinq membres sont **énoncés** en
 toutes lettres (continue axiale, discontinue axiale, discontinue de rive, mixte), sans image
@@ -112,7 +115,9 @@ sur les quatre, ce qui est exactement ce qui les rapproche.
 ## Ce que les douze autres domaines ont montré (2026-09-19)
 
 Les 226 cartes restantes ont été lues une par une, domaine par domaine. Le registre passe
-de 5 à **57 notions**, et les 255 cartes `code` en portent toutes une.
+de 5 à **57 notions**, et les 255 cartes `code` en portent toutes une. *(Comptes de cette
+étape-là : le registre en tient 58 depuis `panneaux/couleurs`, et 271 cartes `code` en
+portent une.)*
 
 **La règle de partage tenue sur les 226.** Une `fondation` a un énoncé **abstrait** — pas
 d'image, pas de scène, pas de « vous » placé dans une situation — **et** sa bonne réponse
@@ -149,11 +154,14 @@ dont l'une vivait dans `Panneaux & marquage` et l'autre dans `Priorités & inter
 élargit la `securite/retenue-enfants` attendue : les dispenses de ceinture et les deux
 cartes de siège enfant sont le même bloc R412-1 à R412-3.
 
-**Vingt-deux notions portent moins de quatre cartes distinctes** et ne peuvent donc pas être
-acquises (`SchedulerConfig.masteryStreak` = 4). Sur celles qui portent déjà une fondation,
-cette fondation sera **boostée indéfiniment** : c'est le défaut symétrique de la notion non
-fondée, et il n'a pas de sortie d'outil. Le cas extrême est `environnement/critair`, **une
-seule carte**, qui est une fondation. La liste complète est dans le rapport de la tâche 7.
+**Vingt et une notions portent moins de quatre cartes distinctes, et ce n'est plus un
+défaut.** Depuis le commit `a3b917b`, le seuil d'acquisition vaut
+`min(masteryStreak, cartes de la notion)` (`FeedViewModel.swift:71`) : une notion mince
+s'acquiert en autant de bonnes réponses qu'elle a de cartes, et sa fondation cesse alors
+d'être boostée comme celle de n'importe quelle notion acquise. `environnement/critair`,
+**une seule carte**, s'acquiert en une réponse. Le rapport de la tâche 7 en donne la liste
+telle qu'elle était alors — vingt-deux, avant que les quinze fondations neuves n'en fassent
+passer deux au-dessus de quatre et que `panneaux/couleurs` n'y entre à son tour.
 
 ## Les neuf fondations sans chiffre (2026-09-19)
 
@@ -211,3 +219,34 @@ livrante l'explication qui la disait en passant, et le sens de la fuite est celu
 faites du côté qui ne porte pas la réponse de la carte coupée, et elles sont détaillées
 dans le rapport de la tâche 8b-2. Deux d'entre elles referment en passant une fuite
 **antérieure** entre deux cartes anciennes.
+
+## La fondation de couleur (2026-09-19)
+
+`panneaux/couleurs` était nommée au §1 de la spec et listée au §6.2 parmi les fondations à
+écrire ; elle n'a jamais été écrite, et **aucun compteur ne pouvait le dire** :
+`notions/sans-fondation` compare les notions **portées par une carte** à celles qui ont une
+fondation, donc une notion absente du JSON lui est invisible par construction. C'est
+l'angle mort symétrique de celui du domaine pilote — là, le compteur ne voyait pas *quelle*
+classe était énoncée ; ici, il ne voit pas la famille qui n'a aucune carte du tout. La
+sortie qui l'aurait attrapé n'existe pas : il faudrait comparer le registre au texte d'une
+spec.
+
+**La carte ne peut pas énoncer les trois couleurs, et c'est la contrainte qui l'a
+dessinée.** Les six fondations de `panneaux/formes` possèdent déjà la grille
+couleur × silhouette : le bord rouge y vaut interdiction, le fond bleu obligation, et ces
+deux affirmations *sont* leur bonne réponse. Une fondation de couleur qui les redirait
+livrerait deux cartes d'un coup — exactement la faute que cette branche a livrée deux fois
+avant de la refermer. Reste l'axe que la grille ne touche pas : le **jaune**, qui ne dit
+rien de la nature du message et tout de sa durée. C'est le seul endroit où la couleur se lit
+vraiment indépendamment de la forme, puisqu'un triangle jaune reste un triangle. La carte
+dit donc cela, et rien d'autre ; son explication nomme l'exception (le losange, permanent)
+sans dire ce qu'elle signifie, et se tait sur la primauté du temporaire, qui appartient à
+`signalisation/hierarchie`.
+
+**La notion vit avec sa seule fondation, et c'est le choix le mieux fondé.** Une seule carte
+du lot se décide vraiment sur une couleur — `07ef459de55adcb501694169428ffd72`, le disque à
+liseré rouge portant 70, dont les quatre options ne se départagent que par l'anneau. La
+déplacer ici lui donnerait une fondation qui ne l'enseigne pas (le jaune n'explique pas le
+rouge), alors que `panneaux/formes` la fonde réellement par sa carte du rond à bord rouge.
+Elle reste donc où elle est, et `panneaux/couleurs` compte une carte : au seuil
+`min(masteryStreak, cartes)`, elle s'acquiert en une réponse.

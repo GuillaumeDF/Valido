@@ -13404,5 +13404,34 @@
     "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
+  },
+  {
+    "correctID": "D",
+    "difficulty": "facile",
+    "explanation": "La couleur se lit indépendamment de la silhouette : le triangle, le carré et la flèche gardent le sens que leur donne leur forme, et le fond jaune ajoute seulement que ce panneau n'était pas là le mois dernier et n'y sera plus le mois prochain. Un seul panneau jaune reste à demeure, le losange.",
+    "id": "6f086316c1ff1dfa49dce303862e2bc1",
+    "notion": "panneaux/couleurs",
+    "options": [
+      {
+        "id": "A",
+        "text": "une signalisation qui interdit l'arrêt le long du trottoir"
+      },
+      {
+        "id": "B",
+        "text": "une signalisation qui ne s'adresse qu'aux poids lourds"
+      },
+      {
+        "id": "C",
+        "text": "une signalisation qui ne joue que de nuit ou par brouillard"
+      },
+      {
+        "id": "D",
+        "text": "une signalisation qui ne dure que le temps des travaux"
+      }
+    ],
+    "prompt": "Le fond jaune d'un panneau en fait :",
+    "role": "fondation",
+    "subject": "code",
+    "topic": "Panneaux & marquage"
   }
 ]

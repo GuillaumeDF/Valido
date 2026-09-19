@@ -44,8 +44,8 @@ Deux pièges d'outillage, tous deux silencieux :
 ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plus-longue`
 (76, informatif, le seuil dur est `plus-10`), `expl/paraphrase-litterale` (20),
 `forme/seule-ponctuee` (14) et deux faux positifs connus (`lettre/reference` 1,
-`forme/markdown` 1) ; reconfirmée au 2026-09-19 sur 463 questions, ces cinq chiffres n'ont
-pas bougé — les quinze fondations ajoutées par le chantier des notions n'ont pesé sur aucun
+`forme/markdown` 1) ; reconfirmée au 2026-09-19 sur 464 questions, ces cinq chiffres n'ont
+pas bougé — les seize fondations ajoutées par le chantier des notions n'ont pesé sur aucun
 d'eux. Doivent rester **vides** : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
 `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que si une option porte
 un backtick, son zéro ne prouve rien sur un lot sans code span — et, depuis le 2026-09-19,
@@ -70,8 +70,8 @@ cartes lues à la main, 230 `oui` / 3 `partiel` / 22 `non`) sont l'entrée de to
 réécriture — ne pas la rejouer de mémoire, la relire.
 
 **Ces trois compteurs ont encore bougé avec le chantier des notions, et c'est voulu, pas une
-dérive.** Mesuré au 2026-09-19 sur 463 questions : `forme/impersonnel` **199 → 214**,
-`forme/hors-situation` **200 → 215**, `forme/definitionnel` **94 → 98**. Les quinze cartes
+dérive.** Mesuré au 2026-09-19 sur 464 questions : `forme/impersonnel` **199 → 215**,
+`forme/hors-situation` **200 → 216**, `forme/definitionnel` **94 → 98**. Les seize cartes
 `fondation` qui portent l'axe notion expliquent la totalité du mouvement : une fondation
 énonce un système, elle est par construction un énoncé abstrait, sans mise en scène et sans
 « vous » — exactement ce que ces deux premiers compteurs mesurent. Chaque future fondation
@@ -145,7 +145,7 @@ est compilé sans toucher au `.pbxproj`.
 ## Le contenu est du code
 
 `Valido/Resources/questions.json` **est** la source — pas de génération, on édite le fichier.
-463 questions (270 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
+464 questions (271 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
 de page Notion, soit `sha256("valido-v2:" + prompt)[:32]` — le préfixe est dans l'entrée du
 hachage, pas dans l'identifiant. **Un `id` livré est immuable** : la progression est indexée
 dessus. Les options sont mélangées à chaque présentation (**donc aucune référence de lettre
@@ -158,7 +158,7 @@ Trois registres, tous trois imposés par `audit.py` :
 - `Tools/couverture.md` — la **couverture** : une ligne par couple (thématique ETG, `topic`).
   Un `topic` `code` qui n'y figure pas est refusé.
 - `Tools/notions.md` — les **notions** : une ligne par notion, l'axe plus fin que `topic`
-  porté par les 270 cartes `code`. `audit.py` refuse une notion absente du registre, une
+  porté par les 271 cartes `code`. `audit.py` refuse une notion absente du registre, une
   carte `code` sans notion, et une notion sans carte `fondation`.
 
 Avant toute édition de questions, lire [`Tools/questions.md`](Tools/questions.md) : 7 règles
