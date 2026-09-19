@@ -120,6 +120,7 @@
     "difficulty": "moyen",
     "explanation": "Contrairement à l'alcool, la loi ne fixe aucun seuil : la seule présence du produit dans l'organisme constitue le délit, même longtemps après la consommation et même sans effet perceptible — mais il faut qu'une analyse sanguine ou salivaire le confirme, un simple soupçon ne suffit pas.",
     "id": "37fe1af42b8d810ea54ddbcc64f356fa",
+    "notion": "stups/regime",
     "options": [
       {
         "id": "A",
@@ -139,6 +140,7 @@
       }
     ],
     "prompt": "Conduire après usage de stupéfiants est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -236,6 +238,7 @@
     "difficulty": "facile",
     "explanation": "Le seuil est fixé en concentration sanguine ; l'éthylotest, lui, mesure l'air expiré, où l'équivalent est 0,25 mg/L. Deux chiffres pour une même limite — et deux ou trois verres pour la franchir.",
     "id": "37fe1af42b8d8118b6d3f82929eabdca",
+    "notion": "alcool/seuils",
     "options": [
       {
         "id": "A",
@@ -255,6 +258,7 @@
       }
     ],
     "prompt": "Pour un permis classique, le taux d'alcool maximal autorisé est de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -290,6 +294,7 @@
     "difficulty": "costaud",
     "explanation": "L'élimination est lente et régulière : le foie met environ une heure et demie à venir à bout d'un seul verre standard, et ce rythme ne s'accélère pas avec la quantité — trois verres ne s'éliminent pas plus vite, ils prennent trois fois plus de temps. C'est pourquoi trois verres pris à minuit peuvent laisser un taux positif au petit matin.",
     "id": "37fe1af42b8d811eae7dfa1a08ee0f64",
+    "notion": "alcool/metabolisme",
     "options": [
       {
         "id": "A",
@@ -309,6 +314,7 @@
       }
     ],
     "prompt": "L'alcool dans le sang s'élimine à un rythme d'environ :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -375,6 +381,7 @@
     "difficulty": "facile",
     "explanation": "Un verre servi dans un bar, quelle que soit la boisson, tient dans les mêmes dix grammes d'alcool pur : 25 cl à 5 degrés, 10 cl à 12 degrés. L'organisme met environ une heure et demie à en venir à bout, ce qui met le seuil légal à portée de deux ou trois verres.",
     "id": "37fe1af42b8d81218099fdc3bcfd24c9",
+    "notion": "alcool/metabolisme",
     "options": [
       {
         "id": "A",
@@ -394,6 +401,7 @@
       }
     ],
     "prompt": "Un verre d'alcool standard servi dans un bar fait monter le taux d'environ :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -1425,6 +1433,7 @@
     "difficulty": "moyen",
     "explanation": "Le franchissement de ce seuil fait changer l'infraction de nature : on quitte l'amende forfaitaire pour un juge, avec trois ans d'emprisonnement et 9 000 € encourus, contre deux ans et 4 500 € dans le barème qu'on lit encore partout. Le retrait de points, lui, reste de six.",
     "id": "37fe1af42b8d817e8e2feffa6987ba00",
+    "notion": "alcool/seuils",
     "options": [
       {
         "id": "A",
@@ -1444,6 +1453,7 @@
       }
     ],
     "prompt": "À partir de 0,8 g/L de sang, conduire est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -1452,6 +1462,7 @@
     "difficulty": "moyen",
     "explanation": "Le barème frappe l'alcool au maximum possible pour une contravention : 6 points, la moitié du capital, d'un seul coup. Au-delà de 0,8 g/L on change de nature d'infraction et on passe au délit, sans que le retrait augmente pour autant.",
     "id": "37fe1af42b8d817e9b93c2546ad30ec9",
+    "notion": "alcool/sanctions",
     "options": [
       {
         "id": "A",
@@ -1471,6 +1482,7 @@
       }
     ],
     "prompt": "Conduire avec un taux entre 0,5 et 0,8 g/L fait perdre :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -1825,6 +1837,7 @@
     "difficulty": "moyen",
     "explanation": "L'article L235-1, dans sa version en vigueur depuis le 20 août 2026, punit de trois ans d'emprisonnement et 9 000 € d'amende la conduite après usage de stupéfiants, sans exiger le moindre seuil de dose : la seule trace suffit. L'alcoolémie délictuelle est punie au même niveau ; ce qui aggrave encore la peine, c'est le cumul des deux.",
     "id": "37fe1af42b8d81b38194dba0c15484b4",
+    "notion": "stups/regime",
     "options": [
       {
         "id": "A",
@@ -1844,6 +1857,7 @@
       }
     ],
     "prompt": "La conduite sous stupéfiants expose à une peine pouvant aller jusqu'à :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -1885,6 +1899,7 @@
     "difficulty": "facile",
     "explanation": "Les conséquences sur la conduite s'observent dès le premier verre ; à partir du seuil légal de 0,5 g/L elles sont tenues pour établies : champ visuel rétréci, relief et distances mal appréciés, sensibilité accrue à l'éblouissement. Aucune ne se compense par la volonté de rester vigilant.",
     "id": "37fe1af42b8d81b3b1a2f0bc28c23b22",
+    "notion": "alcool/metabolisme",
     "options": [
       {
         "id": "A",
@@ -1904,6 +1919,7 @@
       }
     ],
     "prompt": "Parmi ces effets, lequel est causé par l'alcool au volant ?",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -2177,6 +2193,7 @@
     "difficulty": "facile",
     "explanation": "Le seuil probatoire n'est pas nul : il est fixé à 0,20 g/L, sous l'effet d'un seul verre standard. Il s'applique pendant toute la période probatoire, pas seulement la première année.",
     "id": "37fe1af42b8d81cf8791f73464a2f801",
+    "notion": "alcool/seuils",
     "options": [
       {
         "id": "A",
@@ -2196,6 +2213,7 @@
       }
     ],
     "prompt": "Pour un conducteur en permis probatoire, le taux d'alcool maximal est de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -2699,6 +2717,7 @@
     "difficulty": "facile",
     "explanation": "L'alcool est éliminé par le foie à un rythme fixe, que rien d'extérieur n'accélère : café, douche ou repas modifient la sensation d'ébriété, pas le taux mesuré par l'éthylomètre.",
     "id": "37fe1af42b8d81f2a662e1b1284f99b9",
+    "notion": "alcool/metabolisme",
     "options": [
       {
         "id": "A",
@@ -2718,6 +2737,7 @@
       }
     ],
     "prompt": "Pour éliminer l'alcool plus rapidement, il faut :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -7573,6 +7593,7 @@
     "difficulty": "moyen",
     "explanation": "Le refus est une infraction autonome, et le législateur l'a calée sur ce qu'elle permet d'éviter : sans cela, refuser serait toujours plus avantageux que souffler. Depuis la loi du 18 août 2026, refus et délit d'alcoolémie encourent la même peine principale — trois ans et 9 000 € — et le même retrait de six points ; seules les peines complémentaires restent différentes, la suspension du permis plafonnée à trois ans pour le refus contre cinq ans pour le délit.",
     "id": "749552ac121e0cd77beff969300b8ef9",
+    "notion": "alcool/depistage",
     "options": [
       {
         "id": "A",
@@ -7592,6 +7613,7 @@
       }
     ],
     "prompt": "Refuser de se soumettre au dépistage d'alcoolémie est :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -7600,6 +7622,7 @@
     "difficulty": "costaud",
     "explanation": "L'article L235-1 traite le cumul comme une aggravation autonome : les peines passent de trois ans et 9 000 € à cinq ans et 15 000 €, et la confiscation du véhicule devient obligatoire, la juridiction devant motiver spécialement pour y renoncer. Les deux produits combinent leurs effets sur la vigilance au lieu de s'annuler.",
     "id": "e13df5a7d4151bdeca7a9f914c90cf4e",
+    "notion": "stups/regime",
     "options": [
       {
         "id": "A",
@@ -7619,6 +7642,7 @@
       }
     ],
     "prompt": "Conduire sous l'emprise de l'alcool et de stupéfiants expose à :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -7627,6 +7651,7 @@
     "difficulty": "facile",
     "explanation": "Le dispositif bloque le démarreur ; il n'arrête pas un moteur déjà lancé. La juridiction peut l'imposer jusqu'à cinq ans pour le délit, trois ans pour la contravention ; prononcée en même temps qu'une suspension ou une annulation du permis, cette interdiction ne s'applique qu'à l'issue de cette peine — le condamné ne conduit donc pas pendant la suspension, il retrouve ensuite un permis limité à l'éthylotest antidémarrage. Passer outre est un délit distinct.",
     "id": "ef26cca38b9d1abc6fb0b13d76247f35",
+    "notion": "alcool/sanctions",
     "options": [
       {
         "id": "A",
@@ -7646,6 +7671,7 @@
       }
     ],
     "prompt": "L'éthylotest antidémarrage est un dispositif qui :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -7654,6 +7680,7 @@
     "difficulty": "moyen",
     "explanation": "Un permis probatoire n'a pas le même plafond qu'un permis définitif, et le sien vaut pendant toute la période probatoire, quel que soit l'âge : à 0,4 g/L l'infraction est déjà constituée alors qu'un conducteur confirmé serait encore en règle. Elle reste une contravention — le délit, lui, ne commence qu'à 0,8 g/L.",
     "id": "526ffb51f8bc0ed95490405ddc0dfc0f",
+    "notion": "alcool/seuils",
     "options": [
       {
         "id": "A",
@@ -7673,6 +7700,7 @@
       }
     ],
     "prompt": "Un conducteur en permis probatoire contrôlé à 0,4 g/L de sang :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -9463,6 +9491,7 @@
     "difficulty": "moyen",
     "explanation": "Au-delà de 0,8 g/L l'infraction est un délit, et son plafond a été relevé : c'est l'ancien barème, resté dans presque tous les manuels, qui donne deux ans et 4 500 €. La peine de cinq ans, elle, est réservée au cumul avec des stupéfiants.",
     "id": "5720fa6a7cd62743982f88a4f3fa5dd2",
+    "notion": "alcool/sanctions",
     "options": [
       {
         "id": "A",
@@ -9482,6 +9511,7 @@
       }
     ],
     "prompt": "Conduire avec 0,9 g/L d'alcool dans le sang expose au maximum à :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -9490,6 +9520,7 @@
     "difficulty": "moyen",
     "explanation": "Depuis la loi du 18 août 2026, le refus d'un dépistage de stupéfiants encourt la même peine que celui de l'alcoolémie : trois ans d'emprisonnement, 9 000 € d'amende, et la moitié du nombre maximal de points. L'ancien couple de deux ans et 4 500 € reste le repère qu'on lit encore dans les manuels ; le cumul avec l'alcool, lui, est une infraction distincte.",
     "id": "92f3fe40dd9c28ff0010261e74ae6ebe",
+    "notion": "alcool/depistage",
     "options": [
       {
         "id": "A",
@@ -9509,6 +9540,7 @@
       }
     ],
     "prompt": "Refuser de se soumettre à un dépistage de stupéfiants expose à une peine pouvant aller jusqu'à :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -9517,6 +9549,7 @@
     "difficulty": "costaud",
     "explanation": "Le code distingue deux régimes : dès qu'un accident a fait un blessé, les forces de l'ordre doivent soumettre le conducteur aux épreuves, sans avoir à justifier d'un soupçon — la gravité de l'enjeu ne laisse pas le temps d'attendre un signe visible. Pour tout autre accident, elles le peuvent sans y être tenues : c'est pourquoi un accrochage sans blessé ne donne pas systématiquement lieu à un contrôle.",
     "id": "22603ebb1d645f3273bc07e98ab0eb23",
+    "notion": "alcool/depistage",
     "options": [
       {
         "id": "A",
@@ -9536,6 +9569,7 @@
       }
     ],
     "prompt": "Après un accident ayant causé un dommage corporel, le dépistage d'alcoolémie est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },
@@ -9544,6 +9578,7 @@
     "difficulty": "costaud",
     "explanation": "La responsabilité civile est obligatoire : elle joue pour les tiers quoi qu'ait fait l'assuré, et c'est ce qui rend l'idée d'une assurance « annulée » fausse. Ce que l'assureur écarte, ce sont les garanties qui protégeaient le conducteur lui-même. Il peut en outre majorer la prime de 150 % pour cette seule infraction — 400 % ne s'applique qu'en cas d'infractions multiples — et résilier le contrat, mais seulement avec un mois de préavis.",
     "id": "bda97dae02fa9e085f5f6ba0827a4f7b",
+    "notion": "alcool/sanctions",
     "options": [
       {
         "id": "A",
@@ -9563,6 +9598,7 @@
       }
     ],
     "prompt": "Après un accident causé sous l'emprise de l'alcool, l'assureur :",
+    "role": "application",
     "subject": "code",
     "topic": "Alcool & stupéfiants"
   },

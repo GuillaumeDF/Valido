@@ -15,6 +15,10 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 
 | notion | topics concernés | fondations | applications | verdict |
 |---|---|---:|---:|---|
+| `alcool/depistage` | `Alcool & stupéfiants` | 1 | 2 | couvert |
+| `alcool/metabolisme` | `Alcool & stupéfiants` | 4 | 0 | couvert |
+| `alcool/sanctions` | `Alcool & stupéfiants` | 1 | 3 | couvert |
+| `alcool/seuils` | `Alcool & stupéfiants` | 3 | 1 | couvert |
 | `croisement/regles` | `Priorités & intersections` | 0 | 1 | à compléter |
 | `distances/adherence` | `Distances & freinage`, `Mécanique & environnement` | 1 | 4 | couvert |
 | `distances/bau` | `Distances & freinage` | 0 | 2 | à compléter |
@@ -48,6 +52,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `secours/protection-alerte-secours` | `Premiers secours` | 3 | 1 | couvert |
 | `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `signalisation/hierarchie` | `Feux`, `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 4 | couvert |
+| `stups/regime` | `Alcool & stupéfiants` | 1 | 2 | couvert |
 | `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
 | `usagers/cyclistes` | `Priorités & intersections` | 0 | 1 | à compléter |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
