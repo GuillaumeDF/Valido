@@ -17,7 +17,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 |---|---|---:|---:|---|
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage` | 0 | 2 | à compléter |
-| `panneaux/formes` | `Panneaux & marquage` | 2 | 5 | couvert |
+| `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections` | 4 | 5 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage` | 0 | 9 | à compléter |
 
@@ -26,11 +26,15 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 `Panneaux & marquage` a été annoté le premier, ses 27 cartes lues une par une. Quatre
 constats qui servent aux douze domaines suivants, et au lot de fondations à écrire :
 
-- **« couvert » ne veut pas dire « fondé ».** `panneaux/formes` porte deux fondations — le
-  rond à bord rouge et le rond à fond bleu — et le contrôle se tait. Mais le **triangle**
-  (danger), le **carré** (indication) et l'**octogone** (stop) sont exercés par cinq cartes
-  sans qu'aucune ne les énonce. Le compteur est par notion, pas par membre de la famille :
-  il ne peut pas voir ce trou-là, et c'est la lecture à la main qui le nomme.
+- **« couvert » ne veut pas dire « fondé ».** `panneaux/formes` porte quatre fondations —
+  le rond à bord rouge, le rond à fond bleu, l'octogone et le triangle pointe en bas, ces
+  deux derniers vivant dans `Priorités & intersections` — et le contrôle se tait. Mais le
+  **triangle à bord rouge** (danger) et le **carré ou rectangle** (indication) sont exercés
+  sans qu'aucune carte ne les énonce. Le compteur est par notion, pas par membre de la
+  famille : il resterait muet même si les quatre classes manquaient. C'est la lecture à la
+  main qui nomme ce trou-là, et **chercher hors du `topic`** : deux des quatre fondations
+  ont été trouvées dans un autre domaine, et une notion transversale ne s'annote pas
+  domaine par domaine sans balayer les `topic` voisins.
 - **`panneaux/portee` est le plus gros manque du domaine** : neuf cartes exercent l'étendue
   d'une prescription — où elle commence, jusqu'où elle court, ce qu'elle couvre — et aucune
   ne dit la règle. C'est le premier candidat du lot de fondations, à égalité avec les formes.

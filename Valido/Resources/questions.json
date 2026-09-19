@@ -934,6 +934,7 @@
     "difficulty": "moyen",
     "explanation": "Le triangle impose de céder le passage, pas de s'arrêter : l'arrêt n'est qu'un moyen, dû seulement si un véhicule approche. Contrairement au STOP, s'arrêter sans que personne n'arrive n'a ici aucune utilité légale.",
     "id": "37fe1af42b8d8161be32fe2fe9808fff",
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -953,6 +954,7 @@
       }
     ],
     "prompt": "Le panneau « Cédez le passage » (triangle pointe en bas) impose :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
   },
@@ -1965,6 +1967,7 @@
     "difficulty": "facile",
     "explanation": "Le STOP est le seul panneau qui impose l'immobilisation, roues bloquées à la ligne, avant même de regarder : c'est ce qui le distingue du « Cédez le passage », où l'arrêt n'est requis que si quelqu'un arrive. Ne pas le marquer coûte 4 points.",
     "id": "37fe1af42b8d81bd9426eabc80ab4a05",
+    "notion": "panneaux/formes",
     "options": [
       {
         "id": "A",
@@ -1984,6 +1987,7 @@
       }
     ],
     "prompt": "Le panneau STOP (octogone rouge) impose :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
   },
