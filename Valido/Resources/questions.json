@@ -1265,7 +1265,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "La silhouette se reconnaît de plus loin que le pictogramme : c'est elle qui trie d'abord — carré pour renseigner, rond pour prescrire. L'instruction dit « généralement » carrés : repère fiable, pas garantie absolue.",
+    "explanation": "La silhouette se reconnaît de plus loin que le pictogramme : c'est elle qui trie, avant même qu'on lise ce qu'elle porte. L'instruction dit « généralement » carrés : repère fiable, pas garantie absolue.",
     "id": "37fe1af42b8d817881dee3d999a911c3",
     "illustration": {
       "alt": "Panneau carré à fond bleu, bordé d'un listel blanc, portant la lettre P en blanc au centre.",
@@ -1969,7 +1969,7 @@
   {
     "correctID": "D",
     "difficulty": "facile",
-    "explanation": "Le triangle à liseré rouge annonce un danger : prévenu de loin, on aborde le point signalé à la bonne allure. La distance n'est pas fixe — 100 à 200 m hors agglomération, sensiblement moins en agglomération.",
+    "explanation": "Prévenu de loin, on aborde le point signalé à la bonne allure : c'est tout ce que ce panneau demande. La distance n'est pas fixe — 100 à 200 m hors agglomération, sensiblement moins en agglomération.",
     "id": "37fe1af42b8d81b5aa9fc685af3ba92f",
     "illustration": {
       "alt": "Triangle à fond blanc bordé de rouge, portant une chaussée qui s'infléchit vers la droite.",
@@ -9313,7 +9313,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau : un panneau ne parle qu'aux usagers de son côté. Il cesse à la première intersection : au-delà, un conducteur a pu arriver sans l'avoir vu.",
+    "explanation": "Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau : un panneau ne parle qu'aux usagers de son côté. S'immobiliser un instant, conducteur au volant, reste possible sous ce disque.",
     "id": "1658abbc16db4667fec7211f8c9b0f93",
     "illustration": {
       "alt": "Disque à fond bleu à couronne rouge, barré d'une seule oblique rouge qui descend vers la droite.",
@@ -13008,7 +13008,7 @@
     "options": [
       {
         "id": "A",
-        "text": "porte une prescription propre, distincte du panneau"
+        "text": "porte parfois une prescription propre, distincte du panneau"
       },
       {
         "id": "B",
@@ -13052,7 +13052,7 @@
         "text": "interdit de l'occuper, en roulant comme à l'arrêt"
       }
     ],
-    "prompt": "Un marquage au sol qui couvre une surface, et non un trait :",
+    "prompt": "Une surface hachurée ou couverte de chevrons, et non un trait :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
@@ -13074,7 +13074,7 @@
       },
       {
         "id": "C",
-        "text": "une vitesse réduite de moitié à leur approche"
+        "text": "une attention particulière, laissée à son appréciation"
       },
       {
         "id": "D",
@@ -13128,7 +13128,7 @@
       },
       {
         "id": "B",
-        "text": "à l'arrêt de confort, le temps d'une courte pause"
+        "text": "à toute immobilisation, qu'elle soit choisie ou subie"
       },
       {
         "id": "C",
@@ -13153,19 +13153,19 @@
     "options": [
       {
         "id": "A",
-        "text": "à la solidité de l'arrimage, qui décide du reste"
+        "text": "à la solidité de l'arrimage, qui suffit le plus souvent"
       },
       {
         "id": "B",
-        "text": "à la puissance du moteur, qui fixe ce qu'on peut tirer"
+        "text": "à la puissance du moteur, qui décide de ce qu'on peut tirer"
       },
       {
         "id": "C",
-        "text": "à la signalisation du débord, qui en tient lieu"
+        "text": "à la signalisation du débord, qui remplace la limite"
       },
       {
         "id": "D",
-        "text": "à des limites fixées d'avance, dimensions et masse"
+        "text": "à des limites fixées d'avance, qui visent gabarit et masse"
       }
     ],
     "prompt": "Le chargement d'un véhicule obéit d'abord :",
@@ -13176,8 +13176,8 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le triangle prévient, il n'ordonne rien : sa pointe en haut et sa bande rouge disent qu'un risque approche, pas qu'une règle change. C'est pourquoi il est planté en amont du risque et non à son droit — hors agglomération beaucoup plus loin qu'en ville : averti, on aborde le passage délicat à la bonne allure. Le triangle pointe en bas est d'une autre famille : celui-là prescrit.",
-    "id": "f5ffb14807d9fd8b2a0a58151791b2d4",
+    "explanation": "Le triangle prévient, il n'ordonne rien : la bande rouge dit qu'un risque approche, pas qu'une règle change. C'est pourquoi il est planté en amont du risque et non à son droit — hors agglomération beaucoup plus loin qu'en ville : averti, on aborde le passage délicat à la bonne allure. Pointe en bas, le même triangle change de famille : celui-là prescrit.",
+    "id": "899646535894ff92314de8bbb12f769a",
     "notion": "panneaux/formes",
     "options": [
       {
@@ -13197,7 +13197,7 @@
         "text": "Une indication, sans rien d'obligatoire"
       }
     ],
-    "prompt": "Un panneau triangulaire à bord rouge annonce :",
+    "prompt": "Un panneau triangulaire à bord rouge, pointe en haut, annonce :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
