@@ -18,15 +18,20 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `croisement/regles` | `Priorités & intersections` | 0 | 1 | à compléter |
 | `marquage/lignes` | `Panneaux & marquage` | 4 | 3 | couvert |
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections` | 0 | 3 | à compléter |
-| `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections` | 4 | 6 | couvert |
+| `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
-| `panneaux/portee` | `Panneaux & marquage` | 0 | 8 | à compléter |
+| `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
 | `permis/bareme` | `Priorités & intersections` | 0 | 2 | à compléter |
+| `permis/qualification` | `Vitesse` | 0 | 1 | à compléter |
 | `priorite/cas-particuliers` | `Priorités & intersections` | 2 | 3 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
-| `signalisation/hierarchie` | `Panneaux & marquage`, `Priorités & intersections` | 2 | 2 | couvert |
+| `signalisation/hierarchie` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 3 | couvert |
 | `usagers/cyclistes` | `Priorités & intersections` | 0 | 1 | à compléter |
+| `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
+| `vitesse/limites-par-route` | `Vitesse` | 5 | 2 | couvert |
+| `vitesse/probatoire` | `Vitesse` | 0 | 3 | à compléter |
+| `vitesse/sanctions` | `Vitesse` | 0 | 4 | à compléter |
 
 ## Ce que le domaine pilote a montré
 
