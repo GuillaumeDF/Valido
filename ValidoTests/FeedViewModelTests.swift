@@ -239,3 +239,55 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
     try répondreÀDesCartesDistinctes(model, from: reste + FeedViewModel.saveEvery - 1, count: 1)
     #expect(store.saveCount == 2)
 }
+
+@MainActor
+@Test func uneNotionÀDeuxCartesSAcquiertEnDeuxRéponses() throws {
+    let deux = (1...2).map { i in
+        Question(
+            id: "n\(i)", subject: .code, topic: "Mécanique & environnement", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "environnement/critair", role: i == 1 ? .fondation : .application
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: deux),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    var index = 0
+    while model.notionsAcquises == 0 && index < 20 {
+        model.ensureCards(currentIndex: index)
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    #expect(model.notionsAcquises == 1)
+}
+
+@MainActor
+@Test func uneNotionFournieGardeLeSeuilPlein() throws {
+    let dix = (1...10).map { i in
+        Question(
+            id: "p\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+            prompt: "Énoncé \(i)",
+            options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                      Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+            correctID: "B", explanation: "Explication",
+            notion: "panneaux/formes", role: i == 1 ? .fondation : .application
+        )
+    }
+    let model = FeedViewModel(
+        bank: try QuestionBank(questions: dix),
+        store: InMemoryProgressStore()
+    )
+    model.start()
+    model.ensureCards(currentIndex: 0)
+    _ = model.answer("B", at: 0)
+    model.ensureCards(currentIndex: 1)
+    _ = model.answer("B", at: 1)
+
+    // Deux cartes distinctes sur une notion qui en compte dix : le seuil reste 4.
+    #expect(model.notionsAcquises == 0)
+}

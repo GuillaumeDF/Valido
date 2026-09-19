@@ -49,4 +49,9 @@ nonisolated struct QuestionBank: Sendable {
     var count: Int { questions.count }
 
     func question(id: Question.ID) -> Question? { byID[id] }
+
+    func count(notion: String?) -> Int {
+        guard let notion else { return 0 }
+        return questions.count { $0.notion == notion }
+    }
 }

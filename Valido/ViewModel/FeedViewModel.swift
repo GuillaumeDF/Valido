@@ -63,11 +63,12 @@ final class FeedViewModel {
         answered.insert(index)
 
         combo.answer(correct: correct)
+        let notion = presented.question.notion
         progress.recordAnswer(
             presented.id,
             correct: correct,
-            notion: presented.question.notion,
-            masteryStreak: scheduler.config.masteryStreak
+            notion: notion,
+            masteryStreak: min(scheduler.config.masteryStreak, bank.count(notion: notion))
         )
         unsavedAnswers += 1
         if unsavedAnswers >= Self.saveEvery { flush() }

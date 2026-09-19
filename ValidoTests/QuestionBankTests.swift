@@ -155,3 +155,15 @@ import Testing
     #expect(questions[0].notion == "panneaux/formes")
     #expect(questions[0].role == .fondation)
 }
+
+@Test func laBanqueCompteLesCartesParNotion() throws {
+    let bank = try QuestionBank(questions: [
+        Fixtures.question(id: "a", notion: "x/y", role: .fondation),
+        Fixtures.question(id: "b", notion: "x/y", role: .application),
+        Fixtures.question(id: "c", notion: "z/w", role: .fondation),
+    ])
+    #expect(bank.count(notion: "x/y") == 2)
+    #expect(bank.count(notion: "z/w") == 1)
+    #expect(bank.count(notion: "inconnue") == 0)
+    #expect(bank.count(notion: nil) == 0)
+}
