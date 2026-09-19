@@ -143,6 +143,57 @@ import Testing
     #expect(tiragesFaible > 200)
 }
 
+@Test func uneFondationNonAcquiseSortPlusSouventQueSesApplications() throws {
+    var questions = [Fixtures.question(id: "f1", topic: "Panneaux & marquage")]
+    questions += (1...9).map { Fixtures.question(id: "a\($0)", topic: "Panneaux & marquage") }
+    let annotées = questions.enumerated().map { i, q in
+        Question(
+            id: q.id, subject: q.subject, topic: q.topic, difficulty: q.difficulty,
+            prompt: q.prompt, options: q.options, correctID: q.correctID,
+            explanation: q.explanation,
+            notion: "panneaux/formes", role: i == 0 ? .fondation : .application
+        )
+    }
+    let bank = try QuestionBank(questions: annotées)
+    let scheduler = CardScheduler()
+    var rng = SeededRNG(seed: 3)
+    var fondations = 0
+
+    for _ in 0..<1000 {
+        let tiré = scheduler.next(bank: bank, progress: ProgressSnapshot(), recent: [], rng: &rng)
+        if tiré.draw == .weighted && tiré.card.id == "f1" { fondations += 1 }
+    }
+
+    // Une carte sur dix, mais boostée : nettement au-dessus du dixième des ~700 pondérés.
+    #expect(fondations > 150)
+}
+
+@Test func uneNotionAcquiseNeSortPasDuVivier() throws {
+    let fondation = Question(
+        id: "f1", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
+        prompt: "Énoncé", options: [Option(id: "A", text: "a"), Option(id: "B", text: "b"),
+                                    Option(id: "C", text: "c"), Option(id: "D", text: "d")],
+        correctID: "B", explanation: "Explication",
+        notion: "panneaux/formes", role: .fondation
+    )
+    let bank = try QuestionBank(questions: [fondation])
+    var progress = ProgressSnapshot()
+    progress.notions["panneaux/formes"] = NotionProgress(cartesDeLaSérie: ["f1"], acquise: true)
+
+    let scheduler = CardScheduler()
+    #expect(scheduler.boost(for: fondation, progress: progress) == 1.0)
+
+    var rng = SeededRNG(seed: 5)
+    let tiré = scheduler.next(bank: bank, progress: progress, recent: [], rng: &rng)
+    #expect(tiré.card.id == "f1")
+}
+
+@Test func uneCarteSansNotionNEstJamaisBoostée() throws {
+    let scheduler = CardScheduler()
+    let nue = Fixtures.question(id: "q1")
+    #expect(scheduler.boost(for: nue, progress: ProgressSnapshot()) == 1.0)
+}
+
 @Test func leMélangePréserveLesOptions() throws {
     let bank = try Fixtures.bank(count: 1)
     let scheduler = CardScheduler()

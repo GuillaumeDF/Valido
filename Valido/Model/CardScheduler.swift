@@ -46,6 +46,11 @@ nonisolated struct CardScheduler: Sendable {
         return échec * ancienneté
     }
 
+    func boost(for question: Question, progress: ProgressSnapshot) -> Double {
+        guard question.role == .fondation, !progress.estAcquise(question.notion) else { return 1.0 }
+        return config.foundationBoost
+    }
+
     /// Restreint aux sources activées, puis retire les `recentWindow` dernières cartes
     /// servies. Si plus rien n'est éligible — vivier plus petit que la fenêtre — la fenêtre
     /// est tronquée par son extrémité la plus ancienne jusqu'à ce qu'un tirage redevienne
@@ -76,7 +81,7 @@ nonisolated struct CardScheduler: Sendable {
         progress: ProgressSnapshot,
         rng: inout some RandomNumberGenerator
     ) -> Question {
-        let poids = pool.map { weight(for: $0.id, progress: progress) }
+        let poids = pool.map { weight(for: $0.id, progress: progress) * boost(for: $0, progress: progress) }
         let total = poids.reduce(0, +)
 
         guard total > 0 else { return pool.randomElement(using: &rng)! }
