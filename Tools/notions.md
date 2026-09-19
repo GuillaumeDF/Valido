@@ -28,7 +28,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `marquage/zones` | `Panneaux & marquage`, `Priorités & intersections` | 0 | 3 | à compléter |
 | `mecanique/chargement` | `Mécanique & environnement` | 1 | 1 | couvert |
 | `mecanique/entretien` | `Mécanique & environnement` | 3 | 0 | couvert |
-| `mecanique/equipements-obligatoires` | `Mécanique & environnement` | 1 | 1 | couvert |
+| `mecanique/equipements-obligatoires` | `Mécanique & environnement`, `Premiers secours` | 1 | 2 | couvert |
 | `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
 | `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
@@ -43,6 +43,9 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections` | 2 | 4 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
+| `secours/alerte` | `Premiers secours` | 3 | 0 | couvert |
+| `secours/gestes` | `Premiers secours` | 5 | 5 | couvert |
+| `secours/protection-alerte-secours` | `Premiers secours` | 3 | 1 | couvert |
 | `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `signalisation/hierarchie` | `Feux`, `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 4 | couvert |
 | `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |

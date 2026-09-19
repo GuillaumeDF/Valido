@@ -91,6 +91,7 @@
     "difficulty": "facile",
     "explanation": "Le 112 est le numéro d'urgence commun à toute l'Union européenne, utilisable dans tous ses pays, et l'appel d'urgence passe même quand le forfait est épuisé ou l'abonnement résilié. Les autres numéros à trois chiffres sont français et thématiques : 115 pour les personnes sans abri, 119 pour l'enfance en danger, 197 pour l'alerte attentat.",
     "id": "37fe1af42b8d810ca665ffa0e4b32ab7",
+    "notion": "secours/alerte",
     "options": [
       {
         "id": "A",
@@ -110,6 +111,7 @@
       }
     ],
     "prompt": "Le numéro d'appel d'urgence européen est le :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -400,6 +402,7 @@
     "difficulty": "facile",
     "explanation": "Le 18 est le numéro dédié aux services d'incendie et de secours : il aboutit directement au centre opérationnel des pompiers, aussi bien pour un incendie que pour un accident de la route. Le 15 est le SAMU, le 17 la police ou la gendarmerie ; le quatrième numéro sert de standard européen commun, sans être propre aux pompiers.",
     "id": "37fe1af42b8d8122b00cdea4e4368822",
+    "notion": "secours/alerte",
     "options": [
       {
         "id": "A",
@@ -419,6 +422,7 @@
       }
     ],
     "prompt": "Le numéro des sapeurs-pompiers est le :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -655,6 +659,7 @@
     "difficulty": "facile",
     "explanation": "La compression directe et maintenue est le seul geste qui réduise le débit de l'hémorragie en attendant les secours. Relâcher pour regarder la plaie annule l'effet.",
     "id": "37fe1af42b8d81418280fb4ce8ce85d2",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -674,6 +679,7 @@
       }
     ],
     "prompt": "En cas d'hémorragie abondante, il faut :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -1212,6 +1218,7 @@
     "difficulty": "moyen",
     "explanation": "Le seul motif qui autorise à déplacer une victime est un danger immédiat qu'elle ne peut pas éviter sur place, comme un début d'incendie : ni le confort, ni le froid, ni sa propre demande, ni la présence d'un secouriste diplômé ne suffisent. En dehors de ce cas, on la protège où elle est et on attend les secours, qui sauront la mobiliser sans risque.",
     "id": "37fe1af42b8d8175a7fccbffc2d6bcfa",
+    "notion": "secours/protection-alerte-secours",
     "options": [
       {
         "id": "A",
@@ -1231,6 +1238,7 @@
       }
     ],
     "prompt": "Une victime ne doit être déplacée que :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -1330,6 +1338,7 @@
     "difficulty": "costaud",
     "explanation": "Le triangle avertit les véhicules qui arrivent avant qu'ils n'atteignent l'obstacle : l'arrêté du 30 septembre 2008 fixe la distance à 30 mètres environ, et davantage si nécessaire. Il ne s'impose pas quand le poser exposerait manifestement la vie du conducteur.",
     "id": "37fe1af42b8d817b9035c1079ede5c00",
+    "notion": "mecanique/equipements-obligatoires",
     "options": [
       {
         "id": "A",
@@ -1349,6 +1358,7 @@
       }
     ],
     "prompt": "Le triangle de présignalisation se place :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -1357,6 +1367,7 @@
     "difficulty": "facile",
     "explanation": "Décrire où l'on se trouve, combien de personnes sont touchées et comment elles vont permet aux secours d'envoyer des moyens adaptés dès le départ. La Croix-Rouge ajoute qu'il faut ensuite répondre aux questions posées par les secours ou par le médecin.",
     "id": "37fe1af42b8d817bb145f7084044c24e",
+    "notion": "secours/alerte",
     "options": [
       {
         "id": "A",
@@ -1376,6 +1387,7 @@
       }
     ],
     "prompt": "Lorsque vous alertez les secours, vous devez indiquer :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -1726,6 +1738,7 @@
     "difficulty": "moyen",
     "explanation": "Tant que le motard respire, on ne touche pas à son casque : l'ERC recommande, face à un traumatisme majeur, de ne pas bouger la victime et d'envisager une lésion du rachis cervical — l'ôter revient à manipuler la tête. S'il ne respire plus, en revanche, il faut le retirer pour dégager les voies aériennes et pratiquer le massage et le bouche-à-bouche.",
     "id": "37fe1af42b8d81a092bee8d2faab6224",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -1745,6 +1758,7 @@
       }
     ],
     "prompt": "Face à un motard accidenté qui respire, son casque :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -1898,6 +1912,7 @@
     "difficulty": "moyen",
     "explanation": "Sur le dos, la langue et d'éventuels vomissements obstruent les voies aériennes d'une personne inconsciente. Couchée sur le côté, la bouche devient le point bas et se vide d'elle-même.",
     "id": "37fe1af42b8d81b592ede04857b093b4",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -1917,6 +1932,7 @@
       }
     ],
     "prompt": "Une victime inconsciente qui respire doit être mise :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -2654,6 +2670,7 @@
     "difficulty": "facile",
     "explanation": "L'ordre n'est pas arbitraire : protéger d'abord évite le suraccident qui ferait de vous une victime de plus, et alerter avant de secourir déclenche les moyens pendant que vous agissez.",
     "id": "37fe1af42b8d81f1b1cdfef31d2461b8",
+    "notion": "secours/protection-alerte-secours",
     "options": [
       {
         "id": "A",
@@ -2673,6 +2690,7 @@
       }
     ],
     "prompt": "Face à un accident, la règle de conduite à suivre est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -2737,6 +2755,7 @@
     "difficulty": "facile",
     "explanation": "Le gilet, les feux de détresse et le triangle rendent la zone visible avant que d'autres véhicules n'y arrivent : c'est ce balisage qui protège, pas le fait de s'exposer sur la chaussée pour faire signe aux voitures. « Pour les mettre à l'abri » n'est pas non plus un motif suffisant : ce n'est pas un danger immédiat.",
     "id": "37fe1af42b8d81f7a214d5130ad370f4",
+    "notion": "secours/protection-alerte-secours",
     "options": [
       {
         "id": "A",
@@ -2756,6 +2775,7 @@
       }
     ],
     "prompt": "Pour protéger une zone d'accident, vous devez :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -7777,6 +7797,7 @@
     "difficulty": "moyen",
     "explanation": "Alerter d'abord, parce que c'est l'appel qui déclenche l'arrivée des secours et du défibrillateur. Masser ensuite sans attendre, jusqu'à l'arrivée de l'appareil. Défibriller dès que possible : chaque minute de retard avant la défibrillation fait chuter les chances de survie d'environ 10 %.",
     "id": "7d456e77187812e3a27ca828062d7938",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -7796,6 +7817,7 @@
       }
     ],
     "prompt": "Face à une victime inconsciente qui ne respire plus, l'ordre des gestes est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -7804,6 +7826,7 @@
     "difficulty": "facile",
     "explanation": "Le code de la santé publique autorise toute personne à utiliser un défibrillateur automatisé externe, même sans formation. L'appareil, de son côté, analyse lui-même le rythme cardiaque et ne délivre un choc que s'il est nécessaire : il ne peut pas nuire à une victime qui n'en a pas besoin.",
     "id": "b9e656cbd3507444669c24c85777cb54",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -7823,6 +7846,7 @@
       }
     ],
     "prompt": "Un défibrillateur automatisé externe peut être utilisé :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -7831,6 +7855,7 @@
     "difficulty": "moyen",
     "explanation": "Dégager une victime coincée n'est pas à la portée d'un témoin seul, et la bouger sans nécessité risque d'aggraver une lésion du rachis cervical que rien ne signale de l'extérieur — c'est exactement le risque que l'ERC signale face à un traumatisme majeur. La désincarcération est un geste technique, réservé aux secours et à leur matériel : protéger, alerter, puis rester en contact jusqu'à leur arrivée.",
     "id": "5fe77bbd3af80ab119da8b5a2686b39c",
+    "notion": "secours/protection-alerte-secours",
     "options": [
       {
         "id": "A",
@@ -7850,6 +7875,7 @@
       }
     ],
     "prompt": "Premier sur un accident, seul, face à une victime consciente et coincée, vous devez :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -10738,6 +10764,7 @@
     "difficulty": "moyen",
     "explanation": "L'ERC retient une plage de 100 à 120 compressions par minute ; la Croix-Rouge n'en garde que la borne basse, 100, pour simplifier l'apprentissage. En dessous, la fréquence ne fait plus circuler assez de sang ; au-delà de 120, la poitrine n'a plus le temps de reprendre sa position entre deux appuis, ce qui empêche le sang de revenir vers le cœur.",
     "id": "fb24f6323a07a07c776d55163d42e028",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -10757,6 +10784,7 @@
       }
     ],
     "prompt": "Le massage cardiaque s'effectue à une cadence de :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -10765,6 +10793,7 @@
     "difficulty": "costaud",
     "explanation": "L'ERC borne la plage des deux côtés : au moins 5 cm, pas plus de 6. Sous 5, la compression n'assure plus la perfusion du cerveau et des organes que le massage doit maintenir. Et la profondeur ne décide pas seule : l'ERC met sur le même plan la position des mains, la cadence et le relâchement — entre deux appuis, il faut laisser la poitrine reprendre sa position initiale pour que le sang revienne vers le cœur.",
     "id": "82a9e65c1cf2ff4a1a1a944ab59c59f9",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -10784,6 +10813,7 @@
       }
     ],
     "prompt": "Sur un adulte, chaque compression thoracique enfonce le sternum de :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -10792,6 +10822,7 @@
     "difficulty": "moyen",
     "explanation": "Refroidir à l'eau tempérée, entre 15 et 25 degrés, limite l'extension de la lésion — la Croix-Rouge ne mentionne jamais la glace, bien plus froide que cette plage. Il faut arroser au moins dix minutes, vingt idéalement chez l'adulte, mais dix au maximum chez l'enfant, dont le risque d'hypothermie est plus élevé. Percer les cloques supprime une barrière naturelle contre l'infection ; appliquer un corps gras retient la chaleur, retarde la cicatrisation et favorise l'infection.",
     "id": "1ef7d3ed540293c212d9c304ffb297f5",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -10811,6 +10842,7 @@
       }
     ],
     "prompt": "Le premier geste face à une brûlure est de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -10819,6 +10851,7 @@
     "difficulty": "costaud",
     "explanation": "30 compressions et 2 insufflations : c'est le rapport que retiennent l'ERC et la Croix-Rouge quand le sauveteur accepte de faire du bouche-à-bouche. Chaque pause pour souffler interrompt la perfusion, ce que l'ERC signale comme un risque à limiter ; celui qui ne s'en sent pas capable peut comprimer seul, sans interruption — les recommandations jugent que cela reste une bonne chance de survie pour la victime, plutôt qu'une raison de ne rien faire.",
     "id": "d724a3c3121fafd733552c7d2ba1f5aa",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -10838,6 +10871,7 @@
       }
     ],
     "prompt": "Quand le sauveteur pratique aussi le bouche-à-bouche, il alterne :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
@@ -10846,6 +10880,7 @@
     "difficulty": "costaud",
     "explanation": "Sur un matelas ou une banquette, la poitrine s'enfonce avec le support et l'appui perd sa profondeur utile ; une chaussée fait un bien meilleur plan dur. Sur le côté, impossible de comprimer verticalement le sternum : cette position ne convient qu'à une victime qui respire déjà, pas à un massage.",
     "id": "5e2dbc048917ecebcccbc8d54888acb3",
+    "notion": "secours/gestes",
     "options": [
       {
         "id": "A",
@@ -10865,6 +10900,7 @@
       }
     ],
     "prompt": "Pour masser une victime en arrêt cardiaque, on l'installe :",
+    "role": "application",
     "subject": "code",
     "topic": "Premiers secours"
   },
