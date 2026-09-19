@@ -131,7 +131,7 @@ for q in QS:
     if len({o['text'] for o in q['options']}) != 4: flag('schema/doublon-option', q, '')
     if q['correctID'] not in ids: flag('schema/correctID', q, q['correctID'])
     if not expl.strip(): flag('schema/expl-vide', q, '')
-    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration'}:
+    if set(q) - {'id','subject','topic','difficulty','prompt','options','correctID','explanation','sourceURL','illustration','notion','role'}:
         flag('schema/cle-hors-schema', q, sorted(set(q)))
 
     # --- couverture ---

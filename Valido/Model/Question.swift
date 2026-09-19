@@ -11,6 +11,11 @@ nonisolated enum Difficulty: String, Codable, Sendable, CaseIterable {
     case costaud
 }
 
+nonisolated enum Role: String, Codable, Sendable {
+    case fondation
+    case application
+}
+
 nonisolated struct Option: Identifiable, Codable, Sendable, Hashable {
     let id: String   // la lettre d'origine Notion : "A", "B", "C", "D"
     let text: String
@@ -42,6 +47,8 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
     let explanation: String
     let sourceURL: URL?
     let illustration: Illustration?
+    let notion: String?
+    let role: Role?
 
     init(
         id: String,
@@ -53,7 +60,9 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
         correctID: Option.ID,
         explanation: String,
         sourceURL: URL? = nil,
-        illustration: Illustration? = nil
+        illustration: Illustration? = nil,
+        notion: String? = nil,
+        role: Role? = nil
     ) {
         self.id = id
         self.subject = subject
@@ -65,6 +74,8 @@ nonisolated struct Question: Identifiable, Codable, Sendable, Hashable {
         self.explanation = explanation
         self.sourceURL = sourceURL
         self.illustration = illustration
+        self.notion = notion
+        self.role = role
     }
 
     func isCorrect(_ optionID: Option.ID) -> Bool {
