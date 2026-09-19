@@ -149,6 +149,7 @@
     "difficulty": "moyen",
     "explanation": "Ce qui rend un stationnement dangereux, c'est le masque de visibilité qu'il crée : virage, sommet de côte, intersection, passage à niveau. Un stationnement seulement gênant, lui, ne coûte aucun point.",
     "id": "37fe1af42b8d811198bdecd01768828c",
+    "notion": "stationnement/gradation",
     "options": [
       {
         "id": "A",
@@ -168,6 +169,7 @@
       }
     ],
     "prompt": "Le stationnement dangereux (135 € et 3 points) se rencontre notamment :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -267,6 +269,7 @@
     "difficulty": "facile",
     "explanation": "Sur une chaussée à double sens, stationner à gauche placerait le conducteur du mauvais côté au moment de sortir, face au trafic. Les deux côtés ne sont permis qu'en sens unique.",
     "id": "37fe1af42b8d811b96fdf80a7a546c1e",
+    "notion": "stationnement/interdictions",
     "options": [
       {
         "id": "A",
@@ -286,6 +289,7 @@
       }
     ],
     "prompt": "En agglomération, sur une chaussée à double sens, on stationne :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -526,6 +530,7 @@
     "difficulty": "facile",
     "explanation": "R110-2 : l'arrêt dure le temps de monter, descendre, charger ou décharger, conducteur aux commandes ou à proximité ; le reste est stationnement. R417-12 et R417-3 ne visent que le stationnement ; R417-9, 10 et 11 visent aussi l'arrêt — la distinction se juge aux faits, pas à l'intention.",
     "id": "37fe1af42b8d812cad07c40f6c51598c",
+    "notion": "stationnement/arret-vs-stationnement",
     "options": [
       {
         "id": "A",
@@ -545,6 +550,7 @@
       }
     ],
     "prompt": "L'arrêt se distingue du stationnement par :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -640,6 +646,7 @@
     "difficulty": "facile",
     "explanation": "Le passage piéton oblige le piéton à sortir de sa zone protégée : l'arrêt y est puni comme le stationnement, pas seulement une immobilisation prolongée. R417-5 punit aussi l'empiètement, mais en deuxième classe — c'est la qualification très gênante, plus sévère, qui l'emporte.",
     "id": "37fe1af42b8d8134ad4be3c7e29328f1",
+    "notion": "stationnement/gradation",
     "options": [
       {
         "id": "A",
@@ -659,6 +666,7 @@
       }
     ],
     "prompt": "Stationner sur un passage piéton est :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -754,6 +762,7 @@
     "difficulty": "moyen",
     "explanation": "R417-4 impose de se placer hors de la chaussée « autant que possible » : hors agglomération la vitesse est plus élevée, un véhicule resté sur la voie surprend. Sans accotement, on serre le bord au maximum — l'obligation est de moyen, non de résultat.",
     "id": "37fe1af42b8d8148bc29ede5a0015edd",
+    "notion": "stationnement/interdictions",
     "options": [
       {
         "id": "A",
@@ -773,6 +782,7 @@
       }
     ],
     "prompt": "Hors agglomération, pour vous arrêter vous devez de préférence :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -1046,6 +1056,7 @@
     "difficulty": "facile",
     "explanation": "Le disque porte l'heure d'arrivée et son modèle est fixé au niveau national ; la durée gratuite, elle, dépend de l'arrêté municipal qui institue la zone — une heure et demie n'est qu'un usage répandu.",
     "id": "37fe1af42b8d8166847cf95009550b0a",
+    "notion": "stationnement/regles-locales",
     "options": [
       {
         "id": "A",
@@ -1065,6 +1076,7 @@
       }
     ],
     "prompt": "En zone bleue, vous devez :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -1520,6 +1532,7 @@
     "difficulty": "costaud",
     "explanation": "Le code distingue deux niveaux : gênant, 2e classe, soit 35 € d'amende forfaitaire, sans retrait de point ; très gênant, 4e classe, 135 €, pour le trottoir (voiture), les passages piétons, l'emplacement carte mobilité inclusion et les voies réservées.",
     "id": "37fe1af42b8d8181a057c984708f0042",
+    "notion": "stationnement/gradation",
     "options": [
       {
         "id": "A",
@@ -1539,6 +1552,7 @@
       }
     ],
     "prompt": "Un stationnement gênant (non « très gênant ») est sanctionné par une amende de :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -2371,6 +2385,7 @@
     "difficulty": "moyen",
     "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. Le code range donc l'infraction parmi les stationnements très gênants, à 135 € ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
     "id": "37fe1af42b8d81d793bcc927205f9d79",
+    "notion": "stationnement/gradation",
     "options": [
       {
         "id": "A",
@@ -2390,6 +2405,7 @@
       }
     ],
     "prompt": "S'arrêter ou stationner sur une voie réservée aux bus est :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -2460,6 +2476,7 @@
     "difficulty": "facile",
     "explanation": "R417-8 impose de prendre « les précautions utiles pour prévenir tout risque d'accident » : clignotant et angles morts en sont l'application. En débouchant sur la chaussée (R415-11), vous n'êtes pas prioritaire — la priorité va à qui circule déjà.",
     "id": "37fe1af42b8d81e2b806fb6055602586",
+    "notion": "priorite/cas-particuliers",
     "options": [
       {
         "id": "A",
@@ -2479,6 +2496,7 @@
       }
     ],
     "prompt": "Avant de quitter votre place de stationnement, vous devez :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -2574,6 +2592,7 @@
     "difficulty": "costaud",
     "explanation": "Au-delà de sept jours sans déplacement, le véhicule est réputé abusif sur la voie publique ou ses dépendances, même sur un emplacement autorisé et gratuit ; un arrêté local peut raccourcir ce délai. La fourrière suppose un conducteur absent ou qui refuse d'obtempérer à l'injonction d'un agent.",
     "id": "37fe1af42b8d81e9b314fcb5ac447202",
+    "notion": "stationnement/interdictions",
     "options": [
       {
         "id": "A",
@@ -2593,6 +2612,7 @@
       }
     ],
     "prompt": "Le stationnement est considéré comme abusif au-delà de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -8795,6 +8815,7 @@
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir court un trait jaune, continu et sans la moindre interruption.",
       "asset": "stationnement-ligne-jaune-continue"
     },
+    "notion": "stationnement/arret-vs-stationnement",
     "options": [
       {
         "id": "A",
@@ -8814,6 +8835,7 @@
       }
     ],
     "prompt": "Ce marquage interdit :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -9330,7 +9352,7 @@
       "alt": "Disque à fond bleu à couronne rouge, barré de deux obliques rouges qui se croisent en son centre.",
       "asset": "panneau-b6d-arret-interdit"
     },
-    "notion": "panneaux/portee",
+    "notion": "stationnement/arret-vs-stationnement",
     "options": [
       {
         "id": "A",
@@ -10021,6 +10043,7 @@
       "alt": "Vue de dessus d'une rue : sur la face supérieure de la bordure du trottoir, un trait jaune tracé en tirets réguliers, coupé d'intervalles nets.",
       "asset": "stationnement-ligne-jaune-discontinue"
     },
+    "notion": "stationnement/arret-vs-stationnement",
     "options": [
       {
         "id": "A",
@@ -10040,6 +10063,7 @@
       }
     ],
     "prompt": "Le long de ce trottoir, le marquage interdit :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -10052,6 +10076,7 @@
       "alt": "Vue de dessus d'une rue : des places bordées de traits blancs obliques longent le trottoir, et trois voitures y sont rangées en biais.",
       "asset": "stationnement-en-epi"
     },
+    "notion": "stationnement/interdictions",
     "options": [
       {
         "id": "A",
@@ -10071,6 +10096,7 @@
       }
     ],
     "prompt": "Ces emplacements imposent un stationnement :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -10079,6 +10105,7 @@
     "difficulty": "costaud",
     "explanation": "Le code impose cette périodicité (1er-15 impair, 16-fin pair) et l'heure du changement (20 h 30 - 21 h) : elle répartit l'usage de la voie, souvent pour le nettoyage. Elle n'existe que si un maire l'a instituée — rien ne l'impose par défaut, c'est la signalisation qui le dit.",
     "id": "5139c357024d2a17c499b104d7a01d81",
+    "notion": "stationnement/regles-locales",
     "options": [
       {
         "id": "A",
@@ -10098,6 +10125,7 @@
       }
     ],
     "prompt": "Le stationnement unilatéral alterné institué par un maire est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -10106,6 +10134,7 @@
     "difficulty": "moyen",
     "explanation": "Une lance branchée sur une bouche masquée par un pare-chocs coûte des minutes aux pompiers : quatrième classe. La borne de recharge, elle, n'est que gênante, deuxième classe — rapprocher les deux emplacements est le piège.",
     "id": "c5d4d52f1aaa89b811c8b17847338968",
+    "notion": "stationnement/gradation",
     "options": [
       {
         "id": "A",
@@ -10125,6 +10154,7 @@
       }
     ],
     "prompt": "Devant une bouche d'incendie, la sanction de stationnement est :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -10133,6 +10163,7 @@
     "difficulty": "moyen",
     "explanation": "Le texte vise « tout occupant » car une portière ouverte sans regarder peut faucher un cycliste ou un piéton qui longe le véhicule : le passager arrière qui ouvre ainsi commet lui-même la contravention, de première classe, 11 €. Ce montant ne dit rien des suites d'un accident, qui relèvent d'autres textes.",
     "id": "ab50f861852232a60c2b4f29fed21b97",
+    "notion": "usagers/vulnerables",
     "options": [
       {
         "id": "A",
@@ -10152,6 +10183,7 @@
       }
     ],
     "prompt": "L'interdiction d'ouvrir une portière dangereusement vise :",
+    "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },
@@ -10160,6 +10192,7 @@
     "difficulty": "costaud",
     "explanation": "Cinq mètres de vide, c'est ce qu'il faut pour qu'un enfant engagé sur le passage soit vu à temps. La règle ne joue qu'en amont, dans le sens de la circulation, et cède devant un emplacement tracé à cet effet.",
     "id": "e6d0b1101f0ac46d63199b5485d17c61",
+    "notion": "stationnement/interdictions",
     "options": [
       {
         "id": "A",
@@ -10179,6 +10212,7 @@
       }
     ],
     "prompt": "Aux abords d'un passage piéton, l'arrêt et le stationnement sont interdits sur :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
   },

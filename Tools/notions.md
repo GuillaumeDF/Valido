@@ -37,14 +37,14 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
-| `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
+| `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 9 | à compléter |
 | `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections` | 0 | 6 | à compléter |
 | `permis/capital-points` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/probatoire` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/qualification` | `Permis & sanctions`, `Vitesse` | 0 | 7 | à compléter |
 | `permis/recuperation` | `Permis & sanctions` | 3 | 0 | couvert |
 | `pn/signalisation` | `Feux` | 0 | 1 | à compléter |
-| `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections`, `Usagers & partage de la route` | 2 | 5 | couvert |
+| `priorite/cas-particuliers` | `Arrêt & stationnement`, `Distances & freinage`, `Priorités & intersections`, `Usagers & partage de la route` | 2 | 6 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
 | `secours/alerte` | `Premiers secours` | 3 | 0 | couvert |
@@ -52,6 +52,10 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `secours/protection-alerte-secours` | `Premiers secours` | 3 | 1 | couvert |
 | `securite/retenue` | `Mécanique & environnement` | 3 | 0 | couvert |
 | `signalisation/hierarchie` | `Feux`, `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 2 | 4 | couvert |
+| `stationnement/arret-vs-stationnement` | `Arrêt & stationnement`, `Panneaux & marquage` | 1 | 3 | couvert |
+| `stationnement/gradation` | `Arrêt & stationnement` | 0 | 5 | à compléter |
+| `stationnement/interdictions` | `Arrêt & stationnement` | 4 | 1 | couvert |
+| `stationnement/regles-locales` | `Arrêt & stationnement` | 2 | 0 | couvert |
 | `stups/regime` | `Alcool & stupéfiants` | 1 | 2 | couvert |
 | `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
 | `usagers/angles-morts` | `Usagers & partage de la route` | 1 | 1 | couvert |
@@ -59,7 +63,7 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `usagers/deux-roues-motorises` | `Usagers & partage de la route` | 3 | 0 | couvert |
 | `usagers/edpm` | `Usagers & partage de la route` | 4 | 0 | couvert |
 | `usagers/pietons` | `Usagers & partage de la route` | 2 | 1 | couvert |
-| `usagers/vulnerables` | `Usagers & partage de la route` | 0 | 1 | à compléter |
+| `usagers/vulnerables` | `Arrêt & stationnement`, `Usagers & partage de la route` | 0 | 2 | à compléter |
 | `vitesse/intemperies` | `Vitesse` | 1 | 2 | couvert |
 | `vitesse/limites-par-route` | `Vitesse` | 5 | 2 | couvert |
 | `vitesse/probatoire` | `Vitesse` | 0 | 3 | à compléter |
