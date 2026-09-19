@@ -599,6 +599,7 @@
     "difficulty": "facile",
     "explanation": "Le barème range le téléphone au même niveau que la ceinture ou les distances de sécurité, avec 135 € d'amende. Ce qui est visé n'est pas la conversation mais la main occupée et le regard qui quitte la route.",
     "id": "37fe1af42b8d8132a22dde248e277c2b",
+    "notion": "permis/bareme",
     "options": [
       {
         "id": "A",
@@ -618,6 +619,7 @@
       }
     ],
     "prompt": "Tenir son téléphone en main au volant fait perdre :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -852,6 +854,7 @@
     "difficulty": "moyen",
     "explanation": "Le stage ne remet pas le compteur à zéro : il crédite au plus quatre points, sans jamais dépasser le plafond du titulaire, et ne se rejoue qu'une fois par an — sinon il suffirait de l'enchaîner pour effacer tout un dossier. Facultatif pour la plupart des conducteurs, il devient obligatoire pour un titulaire du permis probatoire ayant perdu trois points ou plus lors d'une même infraction.",
     "id": "37fe1af42b8d8158b3dbf9883bf83560",
+    "notion": "permis/recuperation",
     "options": [
       {
         "id": "A",
@@ -871,6 +874,7 @@
       }
     ],
     "prompt": "Un stage de sensibilisation à la sécurité routière permet de récupérer :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -1179,6 +1183,7 @@
     "difficulty": "facile",
     "explanation": "Le capital est volontairement réduit pendant la période probatoire, pour que la moindre série d'infractions ait une conséquence visible. Il monte ensuite de 2 points par an — 3 en conduite accompagnée — jusqu'à 12.",
     "id": "37fe1af42b8d8174b45bd538ca3a9483",
+    "notion": "permis/probatoire",
     "options": [
       {
         "id": "A",
@@ -1198,6 +1203,7 @@
       }
     ],
     "prompt": "Au début du permis probatoire, le capital de points est de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -1952,6 +1958,7 @@
     "difficulty": "costaud",
     "explanation": "Avoir déjà roulé des milliers de kilomètres encadré par un accompagnateur, avant même l'examen, vaut une progression plus rapide : le capital initial de six points gagne trois points par an en conduite accompagnée, contre deux sans elle — mais seulement si aucune infraction n'a fait perdre de points depuis le début du probatoire, un seul retrait suffisant à geler la majoration. Il atteint douze en deux ans (6 → 9 → 12), quand il faut trois ans (6 → 8 → 10 → 12) sans cet apprentissage : le délai probatoire lui-même passe de trois ans à deux.",
     "id": "37fe1af42b8d81b6a955d17c158afb3c",
+    "notion": "permis/probatoire",
     "options": [
       {
         "id": "A",
@@ -1971,6 +1978,7 @@
       }
     ],
     "prompt": "Sans aucune infraction, un permis probatoire en conduite accompagnée atteint 12 points en :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -1979,6 +1987,7 @@
     "difficulty": "facile",
     "explanation": "Non attachée, une personne heurte le pare-brise ou le tableau de bord au moindre choc, ou est éjectée du véhicule : c'est ce que la ceinture empêche. Le barème range ce manquement au même niveau que le téléphone tenu en main, avec le même retrait de trois points, et le conducteur répond en plus des passagers de moins de 18 ans mal attachés. L'obligation connaît des dispenses : certificat médical d'exemption, taxi en service, livraison porte à porte en agglomération, ou intervention d'un véhicule prioritaire.",
     "id": "37fe1af42b8d81b7acdacd2079297f09",
+    "notion": "permis/bareme",
     "options": [
       {
         "id": "A",
@@ -1998,6 +2007,7 @@
       }
     ],
     "prompt": "Ne pas porter la ceinture de sécurité coûte :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -2064,6 +2074,7 @@
     "difficulty": "moyen",
     "explanation": "L'apprentissage anticipé ayant déjà exposé le candidat à des milliers de kilomètres encadrés, le législateur raccourcit d'un an la surveillance : deux ans au lieu de trois. Une formation complémentaire suivie après l'examen retire encore une année — six mois seulement quand la conduite accompagnée a déjà joué.",
     "id": "37fe1af42b8d81c593b3e0a4cb5bb76d",
+    "notion": "permis/probatoire",
     "options": [
       {
         "id": "A",
@@ -2083,6 +2094,7 @@
       }
     ],
     "prompt": "La période probatoire dure :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -2176,6 +2188,7 @@
     "difficulty": "facile",
     "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses abaissées, 110 km/h au lieu de 130 sur autoroute. L'élève conducteur y est soumis comme le titulaire probatoire, et l'oublier est une contravention de deuxième classe.",
     "id": "37fe1af42b8d81d09328df58d56a4dc6",
+    "notion": "permis/probatoire",
     "options": [
       {
         "id": "A",
@@ -2195,6 +2208,7 @@
       }
     ],
     "prompt": "Le disque « A » (jeune conducteur) doit être apposé :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -2232,6 +2246,7 @@
     "difficulty": "costaud",
     "explanation": "Le code réserve un délai court au cas le plus léger : un seul point perdu revient au bout de six mois. Dès que le dossier compte davantage, les délais s'allongent nettement. Et le compte ne part pas du jour de l'infraction : il court de la date où la sanction est acquise — amende forfaitaire payée, titre exécutoire émis ou condamnation devenue définitive.",
     "id": "37fe1af42b8d81d29ceac642002e46d1",
+    "notion": "permis/recuperation",
     "options": [
       {
         "id": "A",
@@ -2251,6 +2266,7 @@
       }
     ],
     "prompt": "Après une infraction ayant entraîné le retrait d'1 point, ce point est récupéré :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -2551,6 +2567,7 @@
     "difficulty": "facile",
     "explanation": "Le permis perd sa validité de plein droit et son titulaire reçoit l'injonction de le remettre au préfet : le délai de six mois avant d'en obtenir un nouveau court de cette remise, pas de la notification. Il passe à un an si le capital retombe à zéro dans les cinq ans, et un examen médical et psychotechnique, aux frais de l'intéressé, s'ajoute dans tous les cas.",
     "id": "37fe1af42b8d81ecb163c6b59334b160",
+    "notion": "permis/capital-points",
     "options": [
       {
         "id": "A",
@@ -2570,6 +2587,7 @@
       }
     ],
     "prompt": "Lorsque le solde de points atteint zéro, le permis est :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -2578,6 +2596,7 @@
     "difficulty": "facile",
     "explanation": "Le plafond de douze correspond au capital d'un conducteur qui a prouvé, tout au long du probatoire, qu'il ne perdait pas de points : il ne s'atteint jamais d'un coup. Pendant cette période, le permis part à six et grimpe par paliers annuels — huit, dix, douze — au fil des années sans infraction ; c'est pourquoi 6, 8 et 10 sont de vraies valeurs, mais seulement intermédiaires. Un stage ne peut créditer au-delà du plafond du moment : sur un permis déjà à douze, il ne sert donc à rien.",
     "id": "37fe1af42b8d81ed800ecde73e28760a",
+    "notion": "permis/capital-points",
     "options": [
       {
         "id": "A",
@@ -2597,6 +2616,7 @@
       }
     ],
     "prompt": "Un permis classique compte au maximum :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -7641,6 +7661,7 @@
     "difficulty": "costaud",
     "explanation": "La loi du 9 juillet 2025 n'a pas créé une peine, elle a créé une qualification : le conducteur qui tue sans que l'une des dix circonstances de l'article 221-18 soit réunie reste jugé pour homicide involontaire, cinq ans et 75 000 €. La première circonstance — alcool, stupéfiants, excès de 30 km/h ou plus, téléphone tenu en main, délit de fuite, défaut de permis — fait basculer les faits dans l'homicide routier ; à partir de deux, la peine double presque, dix ans et 150 000 €.",
     "id": "3e99bcc374a5538e9af609b3038f08ad",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -7660,6 +7681,7 @@
       }
     ],
     "prompt": "L'homicide routier, retenu dès une seule circonstance comme l'alcool, est puni de :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -7668,6 +7690,7 @@
     "difficulty": "moyen",
     "explanation": "L'article R223-2 plafonne le cumul à 8 points, soit les deux tiers du capital : un contrôle unique ne peut pas invalider un permis intact. Le plafond ne joue que pour des faits simultanés, pas pour des infractions commises à des dates différentes.",
     "id": "666bb472f111a4f4634a0e30abdf180a",
+    "notion": "permis/capital-points",
     "options": [
       {
         "id": "A",
@@ -7687,6 +7710,7 @@
       }
     ],
     "prompt": "Plusieurs infractions commises en même temps entraînent au maximum le retrait de :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -7695,6 +7719,7 @@
     "difficulty": "moyen",
     "explanation": "Le délai dépend de la gravité de ce qui figure au dossier : deux ans quand il ne contient que des contraventions des trois premières classes, trois ans dès qu'une contravention de quatrième ou cinquième classe ou un délit y apparaît. Une nouvelle infraction fait repartir le compteur.",
     "id": "2b6972fab03433e709d73ccc5a949ac9",
+    "notion": "permis/recuperation",
     "options": [
       {
         "id": "A",
@@ -7714,6 +7739,7 @@
       }
     ],
     "prompt": "Pour retrouver 12 points sans passer par un stage, il faut rester sans infraction pendant :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -7722,6 +7748,7 @@
     "difficulty": "facile",
     "explanation": "Il n'y a pas de points à retirer sur un permis qui n'existe pas : le code passe donc directement au délit de l'article L221-2, puni d'un an d'emprisonnement et de 15 000 euros d'amende. En pratique la plupart des dossiers s'éteignent par une amende forfaitaire de 800 € que ce même article prévoit ; la prison, l'interdiction de conduire jusqu'à cinq ans, le stage de sensibilisation et la confiscation du véhicule restent à la main du tribunal.",
     "id": "2d45cedf9b3d349027d751f7aa672d6a",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -7741,6 +7768,7 @@
       }
     ],
     "prompt": "Conduire sans avoir jamais obtenu le permis est :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -9517,6 +9545,7 @@
     "difficulty": "moyen",
     "explanation": "La rétention est une mesure d'urgence, pas une sanction : elle ne vaut que le temps laissé au préfet pour se prononcer. L'article L224-2 fixe ce délai à soixante-douze heures, porté à cent vingt heures quand des vérifications d'alcoolémie ou de stupéfiants ont été faites ; faute de décision dans les temps, le titre est rendu à son titulaire, sans que cela éteigne les poursuites.",
     "id": "aa44507977673661e72b2c2ba6a6d885",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -9536,6 +9565,7 @@
       }
     ],
     "prompt": "Après avoir retenu sur-le-champ le permis d'un conducteur, le préfet dispose, pour le suspendre ou le rendre, d'un délai de :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -9544,6 +9574,7 @@
     "difficulty": "moyen",
     "explanation": "C'est une mesure d'urgence, prise avant tout jugement, donc bornée dans le temps : l'article L224-2 laisse au préfet six mois au plus. Ce plafond monte à un an pour les faits les plus graves — accident mortel ou corporel, refus d'obtempérer, alcool, stupéfiants, refus de se soumettre aux vérifications — et double lorsque le conducteur est un professionnel chargé du transport de personnes. La décision définitive, elle, revient au tribunal.",
     "id": "f405372595dbaf85bf875adaf5ac20a4",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -9563,6 +9594,7 @@
       }
     ],
     "prompt": "La suspension du permis prononcée par le préfet ne peut en principe excéder :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -9571,6 +9603,7 @@
     "difficulty": "moyen",
     "explanation": "Un permis suspendu n'est pas seulement inutilisable : reprendre le volant fait passer du terrain administratif au terrain pénal. L'article L224-16 fait de cette reprise un délit à part entière, puni de deux ans d'emprisonnement et 4 500 euros d'amende ; la moitié du capital part en plus de plein droit, soit six points, et le tribunal peut annuler le titre avec interdiction d'en demander un nouveau pendant trois ans.",
     "id": "0be9d147f1eba292ca2556f4dd19e51a",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -9590,6 +9623,7 @@
       }
     ],
     "prompt": "Conduire après la notification d'une suspension du permis est puni de :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -9598,6 +9632,7 @@
     "difficulty": "moyen",
     "explanation": "Ce qui est réprimé n'est pas une faute de conduite isolée mais un comportement : l'article L236-1 vise la répétition intentionnelle de manœuvres dangereuses. La loi du 18 août 2026 a doublé la peine de base, qui était d'un an et 15 000 €, et ouvert l'extinction des poursuites par une amende forfaitaire de 800 €. Commis en réunion, les faits montent à trois ans et 45 000 €.",
     "id": "302262003495b5750d28f00caeae3b6b",
+    "notion": "permis/qualification",
     "options": [
       {
         "id": "A",
@@ -9617,6 +9652,7 @@
       }
     ],
     "prompt": "Un rodéo motorisé commis seul, sans autre infraction, est puni de :",
+    "role": "application",
     "subject": "code",
     "topic": "Permis & sanctions"
   },
@@ -9625,6 +9661,7 @@
     "difficulty": "costaud",
     "explanation": "Le permis à points suit le conducteur, pas le document : l'article L223-10 affecte un capital à tout titulaire d'un titre étranger qui roule ici, et il se vide comme un autre. La France ne peut pas annuler un document qu'elle n'a pas délivré, alors elle ferme son territoire ; au terme de l'année, un nouveau capital est affecté.",
     "id": "bc949f3e3918b2e407b638892b47b540",
+    "notion": "permis/capital-points",
     "options": [
       {
         "id": "A",
@@ -9644,6 +9681,7 @@
       }
     ],
     "prompt": "Un conducteur titulaire d'un permis délivré à l'étranger qui perd tous ses points :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Permis & sanctions"
   },

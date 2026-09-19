@@ -34,8 +34,11 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
 | `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 10 | à compléter |
-| `permis/bareme` | `Distances & freinage`, `Feux`, `Priorités & intersections` | 0 | 4 | à compléter |
-| `permis/qualification` | `Vitesse` | 0 | 1 | à compléter |
+| `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections` | 0 | 6 | à compléter |
+| `permis/capital-points` | `Permis & sanctions` | 4 | 0 | couvert |
+| `permis/probatoire` | `Permis & sanctions` | 4 | 0 | couvert |
+| `permis/qualification` | `Permis & sanctions`, `Vitesse` | 0 | 7 | à compléter |
+| `permis/recuperation` | `Permis & sanctions` | 3 | 0 | couvert |
 | `pn/signalisation` | `Feux` | 0 | 1 | à compléter |
 | `priorite/cas-particuliers` | `Distances & freinage`, `Priorités & intersections` | 2 | 4 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
