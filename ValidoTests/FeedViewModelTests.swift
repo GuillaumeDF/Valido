@@ -267,7 +267,7 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
 }
 
 @MainActor
-@Test func uneNotionFournieGardeLeSeuilPlein() throws {
+@Test func surUneNotionFournieLeSeuilResteÀQuatre() throws {
     let dix = (1...10).map { i in
         Question(
             id: "p\(i)", subject: .code, topic: "Panneaux & marquage", difficulty: .facile,
@@ -283,11 +283,24 @@ private func répondreÀDesCartesDistinctes(_ model: FeedViewModel, from start: 
         store: InMemoryProgressStore()
     )
     model.start()
-    model.ensureCards(currentIndex: 0)
-    _ = model.answer("B", at: 0)
-    model.ensureCards(currentIndex: 1)
-    _ = model.answer("B", at: 1)
 
-    // Deux cartes distinctes sur une notion qui en compte dix : le seuil reste 4.
+    var distinctes = Set<String>()
+    var index = 0
+    while distinctes.count < 3 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        if let carte = model.card(at: index)?.presented { distinctes.insert(carte.id) }
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    // Trois cartes distinctes : sous le seuil de quatre, rien n'est acquis.
     #expect(model.notionsAcquises == 0)
+
+    while distinctes.count < 4 && index < 40 {
+        model.ensureCards(currentIndex: index)
+        if let carte = model.card(at: index)?.presented { distinctes.insert(carte.id) }
+        _ = model.answer("B", at: index)
+        index += 1
+    }
+    // La quatrième distincte l'acquiert : le seuil vaut bien min(4, 10) = 4, ni 10 ni le vivier.
+    #expect(model.notionsAcquises == 1)
 }
