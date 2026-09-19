@@ -38,14 +38,15 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `mecanique/pneus` | `Mécanique & environnement` | 4 | 0 | couvert |
 | `mecanique/temoins` | `Mécanique & environnement` | 2 | 0 | couvert |
 | `panneaux/formes` | `Panneaux & marquage`, `Priorités & intersections`, `Vitesse` | 4 | 7 | couvert |
-| `panneaux/panonceaux` | `Panneaux & marquage` | 0 | 2 | à compléter |
+| `panneaux/panonceaux` | `Panneaux & marquage`, `Tunnels & passages à niveau` | 0 | 3 | à compléter |
 | `panneaux/portee` | `Panneaux & marquage`, `Vitesse` | 0 | 9 | à compléter |
-| `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections` | 0 | 6 | à compléter |
+| `permis/bareme` | `Distances & freinage`, `Feux`, `Permis & sanctions`, `Priorités & intersections`, `Tunnels & passages à niveau` | 0 | 7 | à compléter |
 | `permis/capital-points` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/probatoire` | `Permis & sanctions` | 4 | 0 | couvert |
 | `permis/qualification` | `Permis & sanctions`, `Vitesse` | 0 | 7 | à compléter |
 | `permis/recuperation` | `Permis & sanctions` | 3 | 0 | couvert |
-| `pn/signalisation` | `Feux` | 0 | 1 | à compléter |
+| `pn/franchissement` | `Tunnels & passages à niveau` | 3 | 1 | couvert |
+| `pn/signalisation` | `Feux`, `Tunnels & passages à niveau` | 2 | 2 | couvert |
 | `priorite/cas-particuliers` | `Arrêt & stationnement`, `Distances & freinage`, `Priorités & intersections`, `Usagers & partage de la route` | 2 | 6 | couvert |
 | `priorite/giratoire` | `Priorités & intersections` | 1 | 3 | couvert |
 | `priorite/regimes` | `Priorités & intersections` | 2 | 4 | couvert |
@@ -59,7 +60,8 @@ Surchargeable par `VALIDO_NOTIONS_MD`, ce qui sert à vérifier une règle sur u
 | `stationnement/interdictions` | `Arrêt & stationnement` | 4 | 1 | couvert |
 | `stationnement/regles-locales` | `Arrêt & stationnement` | 2 | 0 | couvert |
 | `stups/regime` | `Alcool & stupéfiants` | 1 | 2 | couvert |
-| `tunnel/conduite` | `Distances & freinage` | 0 | 2 | à compléter |
+| `tunnel/conduite` | `Distances & freinage`, `Tunnels & passages à niveau` | 4 | 2 | couvert |
+| `tunnel/incident` | `Tunnels & passages à niveau` | 0 | 2 | à compléter |
 | `usagers/angles-morts` | `Usagers & partage de la route` | 1 | 1 | couvert |
 | `usagers/cyclistes` | `Priorités & intersections`, `Usagers & partage de la route` | 2 | 2 | couvert |
 | `usagers/deux-roues-motorises` | `Usagers & partage de la route` | 3 | 0 | couvert |

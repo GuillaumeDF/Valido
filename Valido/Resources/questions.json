@@ -11968,6 +11968,7 @@
     "difficulty": "facile",
     "explanation": "Le code range le tunnel avec les ponts, les passages souterrains et le dessous des passages supérieurs : l'arrêt comme le stationnement y gênent la circulation, sauf décision contraire de l'autorité de police. Une chaussée de tunnel n'a ni accotement ni échappatoire, et un véhicule laissé dessus devient l'obstacle.",
     "id": "5ae4a8d7800141787ada8a389ff74fc1",
+    "notion": "tunnel/conduite",
     "options": [
       {
         "id": "A",
@@ -11987,6 +11988,7 @@
       }
     ],
     "prompt": "Dans un tunnel, s'arrêter le long de la chaussée :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -11995,6 +11997,7 @@
     "difficulty": "costaud",
     "explanation": "L'article R412-12 pose deux secondes partout, puis réserve un cas : sur un ouvrage dont l'exploitation présente des risques particuliers, l'autorité investie du pouvoir de police peut imposer davantage. Aucun chiffre national ne s'attache au tunnel — c'est la signalisation de l'ouvrage qui dit l'intervalle à tenir, et elle se lit à l'entrée.",
     "id": "a88bdac8ef012091a9b0a43b209c3b1b",
+    "notion": "tunnel/conduite",
     "options": [
       {
         "id": "A",
@@ -12014,6 +12017,7 @@
       }
     ],
     "prompt": "Dans un tunnel, l'intervalle de sécurité entre deux véhicules :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12026,6 +12030,7 @@
       "alt": "Deux voies dans un tunnel, entre deux parois pleines ; à droite, la paroi se creuse d'un renfoncement assez large pour un véhicule, marqué d'un poste d'appel.",
       "asset": "tunnel-arret-urgence"
     },
+    "notion": "tunnel/incident",
     "options": [
       {
         "id": "A",
@@ -12045,6 +12050,7 @@
       }
     ],
     "prompt": "Votre moteur cale ici. Vous devez d'abord :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12053,6 +12059,7 @@
     "difficulty": "moyen",
     "explanation": "Rester à bord ou revenir sur ses pas revient à laisser la fumée vous rejoindre, elle qui tue avant les flammes. La priorité est de couper le moteur et de sortir avec tous les passagers vers l'issue de secours la plus proche. On alerte par les téléphones de secours de l'ouvrage, jamais depuis un mobile personnel, qui ne permet pas de vous localiser.",
     "id": "7148c3a8be7130501aa3da1644986ebb",
+    "notion": "tunnel/incident",
     "options": [
       {
         "id": "A",
@@ -12072,6 +12079,7 @@
       }
     ],
     "prompt": "Un véhicule prend feu devant vous dans un tunnel. Vous devez d'abord :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12080,6 +12088,7 @@
     "difficulty": "facile",
     "explanation": "Un panonceau ne redit jamais le panneau qu'il accompagne, il en précise la portée : ici, la longueur du tunnel qui reste à parcourir sous l'entrée signalée. Cette indication n'existe que là où l'entrée elle-même doit l'être — un tunnel trop court pour l'exiger n'en porte pas.",
     "id": "3a06288bf73bb5254b83a371ae55a854",
+    "notion": "panneaux/panonceaux",
     "options": [
       {
         "id": "A",
@@ -12099,6 +12108,7 @@
       }
     ],
     "prompt": "À l'entrée d'un tunnel, le panonceau sous le panneau indique :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12107,6 +12117,7 @@
     "difficulty": "facile",
     "explanation": "Le panneau d'entrée de tunnel porte lui-même la prescription : l'allumage des feux de croisement y est obligatoire, de jour comme de nuit. Le motif tient à l'œil, qui met plusieurs secondes à passer du plein jour à la pénombre : ce qui compte pendant ces secondes-là n'est pas de voir mais d'être vu, et des feux de position, faits pour signaler un véhicule à l'arrêt, se voient trop tard. Cette obligation vaut jusqu'au panneau de sortie, le C112, qui la termine.",
     "id": "bda520451eb11447c3921f8a358742f1",
+    "notion": "tunnel/conduite",
     "options": [
       {
         "id": "A",
@@ -12126,6 +12137,7 @@
       }
     ],
     "prompt": "De jour, à l'entrée d'un tunnel éclairé, vos feux de croisement :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12138,6 +12150,7 @@
       "alt": "Une plaque blanche haute et étroite, plantée sur son support, barrée d'une seule bande rouge oblique qui descend vers la gauche.",
       "asset": "passage-a-niveau-balises"
     },
+    "notion": "pn/signalisation",
     "options": [
       {
         "id": "A",
@@ -12157,6 +12170,7 @@
       }
     ],
     "prompt": "Cette balise vous annonce :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12165,6 +12179,7 @@
     "difficulty": "moyen",
     "explanation": "Le texte vise trois états et non un seul : fermées, en cours de fermeture, en cours d'ouverture. Une demi-barrière qui remonte peut redescendre aussitôt si un second convoi est annoncé, ce qui arrive sur les lignes à plusieurs voies — mais c'est le mouvement de la barrière qui interdit, jamais le nombre de voies ferrées. Barrières relevées et immobiles, en revanche, le passage redevient libre.",
     "id": "763ae1f8c7040ecb170a4ed33f09505a",
+    "notion": "pn/franchissement",
     "options": [
       {
         "id": "A",
@@ -12184,6 +12199,7 @@
       }
     ],
     "prompt": "Le franchissement d'un passage à niveau est interdit :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12192,6 +12208,7 @@
     "difficulty": "facile",
     "explanation": "Sans barrière, sans demi-barrière et sans signal lumineux, le code ne demande pas l'arrêt mais la certitude : on ne s'engage qu'après s'être assuré qu'aucun convoi n'approche. L'arrêt obligatoire existe, mais il tient à un panneau posé là par arrêté du préfet, jamais à l'absence de barrière.",
     "id": "d3af170839b4cf693c8bcba1a1e5c45a",
+    "notion": "pn/franchissement",
     "options": [
       {
         "id": "A",
@@ -12211,6 +12228,7 @@
       }
     ],
     "prompt": "À un passage à niveau sans barrière ni feu, vous :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12219,6 +12237,7 @@
     "difficulty": "facile",
     "explanation": "Aucun conducteur ne doit s'engager sur un passage à niveau si son véhicule risque d'y rester immobilisé, que ce soit à cause d'une file arrêtée devant lui ou de son propre gabarit. Un train ne peut ni s'arrêter court ni se déporter : un véhicule resté sur les rails deviendrait un obstacle qu'il percuterait sans pouvoir l'éviter. La règle ne demande pas de juger le risque : elle demande d'attendre la place.",
     "id": "d4b4abfd51499d4ab343bbb613acc7ad",
+    "notion": "pn/franchissement",
     "options": [
       {
         "id": "A",
@@ -12238,6 +12257,7 @@
       }
     ],
     "prompt": "La circulation est arrêtée juste au-delà d'un passage à niveau. Vous :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12250,6 +12270,7 @@
       "alt": "Votre voiture est sur les rails, deux bras rouge et blanc baissés devant elle et deux derrière, barrant toute la largeur de la chaussée.",
       "asset": "passage-a-niveau-immobilise"
     },
+    "notion": "pn/franchissement",
     "options": [
       {
         "id": "A",
@@ -12269,6 +12290,7 @@
       }
     ],
     "prompt": "Les demi-barrières viennent de s'abaisser. Vous :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12277,6 +12299,7 @@
     "difficulty": "moyen",
     "explanation": "Depuis 2020, en dessous d'un certain trafic, chaque traversée automatique porte soit un téléphone d'alerte, soit une pancarte donnant ce numéro et posée de part et d'autre des rails ; au-delà, deux postes téléphoniques la remplacent. C'est par là qu'on signale un obstacle sur la voie ou une installation en dérangement : l'exploitant ferroviaire est le seul à pouvoir faire arrêter les convois.",
     "id": "8a6af9d26330dc0f3bfd95d9bf0d7b81",
+    "notion": "pn/signalisation",
     "options": [
       {
         "id": "A",
@@ -12296,6 +12319,7 @@
       }
     ],
     "prompt": "Sur un passage à niveau automatique, une pancarte porte :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12304,6 +12328,7 @@
     "difficulty": "costaud",
     "explanation": "Les feux s'allument vingt secondes au moins avant l'arrivée du train : l'annonce est calée sur le convoi, pas sur ce que le conducteur aperçoit. Quand ils se mettent à clignoter, le train est encore loin, et les demi-barrières ne descendent que quelques secondes plus tard — passer « avant les barrières » revient donc à passer devant un train déjà lancé.",
     "id": "c084813ff73eacb15dc526232c288610",
+    "notion": "pn/signalisation",
     "options": [
       {
         "id": "A",
@@ -12323,6 +12348,7 @@
       }
     ],
     "prompt": "Les feux rouges clignotants d'un passage à niveau automatique s'allument :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12331,6 +12357,7 @@
     "difficulty": "costaud",
     "explanation": "Franchir irrégulièrement un passage à niveau est une contravention de la quatrième classe : quatre points retirés d'emblée. Peu d'infractions ajoutent en plus la possibilité d'une suspension du permis — jusqu'à trois ans — et l'obligation d'un stage de sensibilisation, ce qui mesure la gravité que le code attache au risque ferroviaire.",
     "id": "1fe6ef49aad916e076477274c75c3550",
+    "notion": "permis/bareme",
     "options": [
       {
         "id": "A",
@@ -12350,6 +12377,7 @@
       }
     ],
     "prompt": "Franchir irrégulièrement un passage à niveau fait perdre :",
+    "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
@@ -12358,6 +12386,7 @@
     "difficulty": "moyen",
     "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions que le panneau de sortie vient clore : l'interdiction de faire demi-tour en fait partie. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
     "id": "5c11020dc34bf45d56cf8438dd8ad79e",
+    "notion": "tunnel/conduite",
     "options": [
       {
         "id": "A",
@@ -12377,6 +12406,7 @@
       }
     ],
     "prompt": "Le panneau qui signale l'entrée d'un tunnel interdit notamment :",
+    "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
   },
