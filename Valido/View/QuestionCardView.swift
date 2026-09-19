@@ -3,6 +3,8 @@ import SwiftUI
 struct QuestionCardView: View {
     let presented: PresentedQuestion
     let combo: ComboEngine
+    let notionsAcquises: Int
+    let notionsTotal: Int
     let onAnswer: (Option.ID) -> Bool
     let onTopicTap: () -> Void
 
@@ -81,6 +83,7 @@ struct QuestionCardView: View {
                 }
                 .buttonStyle(.plain)
                 Spacer()
+                NotionBadge(acquises: notionsAcquises, total: notionsTotal)
                 ComboBadge(combo: combo)
             }
 

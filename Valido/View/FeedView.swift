@@ -55,6 +55,8 @@ struct FeedView: View {
             QuestionCardView(
                 presented: presented,
                 combo: model.combo,
+                notionsAcquises: model.notionsAcquises,
+                notionsTotal: model.notionsTotal,
                 onAnswer: { model.answer($0, at: index) },
                 onTopicTap: { filtrantLesSources = true }
             )

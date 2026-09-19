@@ -99,6 +99,10 @@ final class FeedViewModel {
         progress.notions.values.count { $0.acquise }
     }
 
+    var notionsTotal: Int {
+        Set(bank.questions.compactMap(\.notion)).count
+    }
+
     func flush() {
         try? store.save(progress)
         unsavedAnswers = 0
