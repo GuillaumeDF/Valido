@@ -31,8 +31,11 @@ constats qui servent aux douze domaines suivants, et au lot de fondations à éc
   deux derniers vivant dans `Priorités & intersections` — et le contrôle se tait. Mais le
   **triangle à bord rouge** (danger) et le **carré ou rectangle** (indication) sont exercés
   sans qu'aucune carte ne les énonce. Le compteur est par notion, pas par membre de la
-  famille : il resterait muet même si les quatre classes manquaient. C'est la lecture à la
-  main qui nomme ce trou-là, et **chercher hors du `topic`** : deux des quatre fondations
+  famille : **une seule fondation suffit à le faire taire, quelle que soit la classe qu'elle
+  énonce** — une famille à moitié enseignée passe donc « couvert ». Il attrape bien la notion
+  à **zéro** fondation, et c'est déjà beaucoup ; ce qu'il ne voit pas, c'est *laquelle* des
+  six classes est énoncée. Seule la lecture à la main voit qu'il manque le triangle à bord
+  rouge et le carré, et elle doit **chercher hors du `topic`** : deux des quatre fondations
   ont été trouvées dans un autre domaine, et une notion transversale ne s'annote pas
   domaine par domaine sans balayer les `topic` voisins.
 - **`panneaux/portee` est le plus gros manque du domaine** : neuf cartes exercent l'étendue
