@@ -162,10 +162,10 @@ let scenesPanneaux: [(String, Scene)] = [
         panneauArretEtStationnementInterdits(ctx, at: pt, rayon: r, p)
     }),
 
-    // 8. B21b : direction obligatoire tout droit à la prochaine intersection.
-    ("panneau-b21b-tout-droit", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauDirectionObligatoire(ctx, at: pt, rayon: r, p)
-    }),
+    // 8. `panneau-b21b-tout-droit` a existé ici, disque et flèche dessinés. Remplacée par
+    //    une photographie Commons le 2026-09-22 (tâche 2 du chantier illustrations) : la
+    //    flèche dessinée était une aiguille fine, là où la vraie est large et trapézoïdale.
+    //    Voir `Tools/photo-panneau.py` et `Tools/images.md` pour le protocole et la source.
 
     // 9. B31 : fin de toutes les interdictions. Aucun rouge, aucun chiffre — c'est
     //    l'absence qui fait le sens, et elle se voit en noir et blanc.

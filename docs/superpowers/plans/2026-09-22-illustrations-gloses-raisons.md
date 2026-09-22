@@ -665,10 +665,17 @@ liste : c'est le travail du step 4.
 
 - [ ] **Step 3: Sourcer les douze photographies**
 
-Pour chacun des douze panneaux, appliquer le protocole de la tâche 2, steps 2 à 4 :
-catégorie Commons `Category:<code> (road sign, France)`, quatre critères, téléchargement,
-`photo-panneau.py`, relevé de luminance dans les deux modes, ligne dans `images.md` avec
-auteur, licence, URL, date et résolution d'origine.
+Pour chacun des douze panneaux, appliquer les huit points du protocole (spec §4, rodés en
+tâche 2) : catégorie Commons `Category:<code> (road sign, France)`, quatre critères,
+téléchargement, `photo-panneau.py`, relevé de luminance dans les deux modes, ligne dans
+`images.md` avec auteur, licence, URL, date et résolution d'origine, puis **retrait de la
+scène** du tableau `scenesPanneaux` et de sa fonction de dessin si plus rien ne l'appelle.
+
+Ce dernier point n'est pas de l'hygiène : `Tools/Scenes/main.swift` parcourt le tableau sans
+condition et réécrit `Contents.json` plus quatre PNG pour chaque scène inscrite. Un panneau
+photographié qui garde sa scène voit sa photographie effacée au prochain
+`./Tools/render-scenes.sh`. Le vérifier explicitement : lancer le script, puis `git status`
+sur chaque imageset photographique — JPEG et `Contents.json` intacts, aucun PNG reparu.
 
 Un panneau dont la catégorie n'offre aucune photographie à 1 152 px **garde son dessin** :
 supprimer son imageset n'est pas une option, et sa meilleure résolution trouvée se note pour
@@ -818,7 +825,7 @@ Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
 
 - [ ] **Step 1: Sourcer les photographies de panneau**
 
-Protocole de la tâche 2, steps 2 à 4, pour AB4 (STOP), AB3a (cédez le passage), AB6 et AB7
+Protocole photographique de la spec (§4, les huit points), rodé en tâche 2 — sans oublier le point 8, **retirer la scène** du tableau de `Tools/Scenes/` et la fonction de dessin devenue orpheline, sinon `render-scenes.sh` réécrit la photo par le dessin, pour AB4 (STOP), AB3a (cédez le passage), AB6 et AB7
 (losange jaune et losange barré) et M12 (panonceau cycliste). Catégories :
 `Category:AB4 (road sign, France)`, `Category:AB3a (road sign, France)`,
 `Category:AB6 (road sign, France)`, `Category:AB7 (road sign, France)`,
@@ -1032,7 +1039,7 @@ l'affirmation, elle, ne bouge pas.
 - [ ] **Step 2: Reprendre les trois panneaux de vitesse en photographie**
 
 `panneau-b14-limitation`, `panneau-b33-fin-limitation` et `panneau-b30-zone-30` sont
-dessinés dans `ScenesCirculation.swift`. Protocole de la tâche 2, steps 2 à 4, catégories
+dessinés dans `ScenesCirculation.swift`. Protocole photographique de la spec (§4, les huit points), rodé en tâche 2 — sans oublier le point 8, **retirer la scène** du tableau de `Tools/Scenes/` et la fonction de dessin devenue orpheline, sinon `render-scenes.sh` réécrit la photo par le dessin, catégories
 `Category:B14 (road sign, France)` (1 451 fichiers), `Category:B33 (road sign, France)`,
 `Category:B30 (road sign, France)`. Le B30 est dessiné **carré** alors que l'art. 45 de la
 4e partie de l'IISR le veut rectangulaire : le défaut est connu, et la photographie le
@@ -1407,7 +1414,7 @@ Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
 
 - [ ] **Step 1: Sourcer les deux panneaux**
 
-Protocole de la tâche 2, steps 2 à 4. `Category:C111 (road sign, France)` pour le panneau
+Protocole photographique de la spec (§4, les huit points), rodé en tâche 2 — sans oublier le point 8, **retirer la scène** du tableau de `Tools/Scenes/` et la fonction de dessin devenue orpheline, sinon `render-scenes.sh` réécrit la photo par le dessin. `Category:C111 (road sign, France)` pour le panneau
 d'entrée de tunnel, et la catégorie du panonceau M9 associé. Les deux cartes du lot A
 deviennent « Ce panneau interdit notamment : » et « Ce panonceau indique : », l'objet
 passant dans l'image.

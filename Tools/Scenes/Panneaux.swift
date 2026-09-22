@@ -734,19 +734,6 @@ private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
     ctx.restoreGState()
 }
 
-/// B21b, direction obligatoire à la prochaine intersection : tout droit (4e partie,
-/// art. 65, A). Les panneaux d'obligation sont « à fond bleu, listel et symbole blancs »
-/// (art. 47), et celui-ci est un panneau **avancé** : l'obligation joue au carrefour
-/// suivant, pas à la hauteur du panneau. Le B21-1, lui, est un panneau de position et
-/// impose de tourner à droite *avant* le panneau.
-func panneauDirectionObligatoire(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
-                                 _ p: Palette) {
-    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.vous,
-            listel: p.panneauFond, epaisseurListel: max(rayon * 0.06, 1.0))
-    fleche(ctx, [CGPoint(x: pt.x, y: pt.y + rayon * 0.52),
-                 CGPoint(x: pt.x, y: pt.y - rayon * 0.46)], couleur: p.panneauFond)
-}
-
 /// B31, fin de toutes les interdictions précédemment signalées (4e partie, art. 68-1) :
 /// le disque des « fin de », sans aucun nombre. C'est le seul disque sans une once de
 /// rouge, et c'est aussi ce qui le distingue du losange barré AB7, qui ne touche qu'à la

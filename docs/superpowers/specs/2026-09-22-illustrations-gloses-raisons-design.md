@@ -188,7 +188,15 @@ Protocole, par panneau :
    exception qu'on ne reconduit pas ;
 6. mesurer les niveaux de gris, dans les deux modes, avant commit ;
 7. écrire la ligne dans `images.md` — asset, source, auteur, licence, date de relevé,
-   résolution d'origine.
+   résolution d'origine ;
+8. **retirer la scène du tableau de `Tools/Scenes/`**, et la fonction de dessin qu'elle
+   employait si plus aucune autre scène ne l'appelle. Sans ce retrait, le prochain
+   `./Tools/render-scenes.sh` régénère le dessin, réécrit `Contents.json` vers des PNG et
+   **efface la photographie** — aucun test, aucun compteur ne le verrait. Le dépôt porte
+   déjà le précédent : ni `panneau-giratoire-vue-conducteur` ni `ligne-jaune-continue` n'a
+   gardé sa scène. La preuve du retrait : lancer `./Tools/render-scenes.sh`, puis constater
+   par `git status` que les JPEG et le `Contents.json` de l'imageset sont intacts et
+   qu'aucun PNG n'y a reparu.
 
 Un panneau sans photographie de résolution suffisante **garde son dessin**. Le rapport le
 nomme, avec la meilleure résolution trouvée.
