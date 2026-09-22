@@ -5,6 +5,11 @@ Rec. 709 — `Y = 0,2126 R + 0,7152 G + 0,0722 B` — jamais Rec. 601 : c'est la
 convention de tous les relevés de `images.md`, et les deux formules divergent de
 vingt points sur un rouge de panneau.
 
+`--zone X,Y,COTE` prend `X,Y` pour le **coin haut-gauche** du carré mesuré, pas
+pour son centre — la convention de `PIL.Image.crop`/`getpixel`, pas une addition
+de ce script. Pour centrer une zone de côté C sur un point (Cx, Cy), passer
+`Cx - C/2, Cy - C/2, C`.
+
     uv run --with pillow Tools/luminance.py image.png --point 251,138 --zone 100,100,30
 """
 import argparse
@@ -35,7 +40,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("image")
     ap.add_argument("--point", action="append", default=[], metavar="X,Y")
-    ap.add_argument("--zone", action="append", default=[], metavar="X,Y,COTE")
+    ap.add_argument("--zone", action="append", default=[],
+                    metavar="X,Y,COTE (X,Y = coin haut-gauche)")
     args = ap.parse_args()
 
     im = Image.open(args.image)
@@ -46,8 +52,8 @@ def main():
     for spec in args.zone:
         x, y, cote = (int(v) for v in spec.split(","))
         moyenne, mini, maxi = zone(im, x, y, cote)
-        print(f"  zone {x},{y} ({cote}×{cote}) : moyenne {moyenne:.1f}, "
-              f"min {mini:.1f}, max {maxi:.1f}")
+        print(f"  zone {x},{y} → {x + cote},{y + cote} ({cote}×{cote}) : "
+              f"moyenne {moyenne:.1f}, min {mini:.1f}, max {maxi:.1f}")
 
 
 if __name__ == "__main__":

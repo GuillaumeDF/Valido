@@ -35,6 +35,19 @@ class Luminance(unittest.TestCase):
         im = Image.new("RGBA", (2, 2), (255, 0, 0, 128))
         self.assertAlmostEqual(point(im, 0, 0), 54.213, places=3)
 
+    def testXYDeZoneEstLeCoinHautGaucheEtNonLeCentre(self):
+        # Un seul quadrant blanc, les trois autres noirs : une zone dont X,Y
+        # est le centre du blanc mordrait sur les quadrants noirs (moyenne
+        # < 255), alors qu'une zone dont X,Y est son coin haut-gauche tombe
+        # entièrement dedans (moyenne = 255).
+        im = Image.new("RGB", (4, 4), (0, 0, 0))
+        for x in range(2, 4):
+            for y in range(2, 4):
+                im.putpixel((x, y), (255, 255, 255))
+        moyenne, mini, maxi = zone(im, 2, 2, 2)
+        self.assertAlmostEqual(moyenne, 255.0, places=3)
+        self.assertAlmostEqual(mini, 255.0, places=3)
+
 
 if __name__ == "__main__":
     unittest.main()
