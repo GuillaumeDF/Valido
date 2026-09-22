@@ -105,9 +105,15 @@ Le M12 paie son budget par le seul transfert, et il perd en chemin « créé par
 artefact étranger à la forme de l'épreuve. Ce n'est pas une coïncidence : ce qui sort de
 l'explication est ce que l'image montre ou ce qui ne s'y joue pas.
 
-**Trois cartes se corrigent sans dessiner quoi que ce soit.** `panneau-ab4-stop`,
-`panneau-ab7-fin-priorite` et `marquage-zebra` existent dans le catalogue et ne sont posés
-sur aucune des cartes qui les décrivent en mots.
+**Aucun asset ne sert deux cartes, et ce n'était pas acquis.** La première version de cette
+spec annonçait trois cartes corrigeables sans rien dessiner, `panneau-ab4-stop`,
+`panneau-ab7-fin-priorite` et `marquage-zebra` étant déjà au catalogue. Vérification faite,
+les trois servent **déjà** une carte — `443e4299ccb3ff71669f8df6669b8bf4` (« Ce panneau
+impose : »), `7d44f7dd303fce58716234cba54480b1` et `37fe1af42b8d81d68a70da4a7305f6c1`
+(« Ce marquage au sol : »). Poser la même image sur la carte voisine rendrait les deux
+indiscernables au fil, et sur `marquage/zones` les deux cartes de la notion porteraient le
+même dessin. **Chaque carte décrite en mots reçoit donc sa propre image — un cadrage ou un
+cas distinct — ou reste en texte.**
 
 ## 2. Le budget, et le garde-fou
 
@@ -176,8 +182,8 @@ Protocole, par panneau :
 3. relever licence et auteur ; refuser tout ce qui n'est ni domaine public ni CC ;
 4. recadrer en 4:3 centré sur le panneau, sortir @2x et @3x en JPEG qualité 82, comme les
    deux photographies déjà livrées ;
-5. **dériver la variante sombre** par `sips` à exposition réduite, pour que la discipline
-   clair/sombre du catalogue tienne. La photo du giratoire, seule photographie livrée
+5. **dériver la variante sombre** à exposition réduite — Pillow sous `uv`, `sips` n'ayant
+   aucune option de luminosité — pour que la discipline clair/sombre du catalogue tienne. La photo du giratoire, seule photographie livrée
    aujourd'hui, n'en a pas : elle sert le même JPEG dans les deux modes, et c'est une
    exception qu'on ne reconduit pas ;
 6. mesurer les niveaux de gris, dans les deux modes, avant commit ;
@@ -235,7 +241,7 @@ Arrêt & stationnement (4), Usagers & partage (4), Tunnels & passages (4),
 Distances & freinage (2), Mécanique & environnement (1), Permis & sanctions (1).
 
 Panneaux & marquage passe en premier : il porte quatre des treize captures, les trois
-cartes illustrables sans rien dessiner, et c'est sur lui que le protocole photographique du
+cartes dont l'asset existe déjà mais sert une voisine, et c'est sur lui que le protocole photographique du
 §4 se rode — sourcing, recadrage, variante sombre, relevé — avant que les dix autres
 domaines en dépendent. Treize des seize panneaux déjà dessinés y sont portés ; les trois
 autres (`b14`, `b30`, `b33`) viennent avec le domaine `Vitesse`.

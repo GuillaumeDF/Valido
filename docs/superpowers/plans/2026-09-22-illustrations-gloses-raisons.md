@@ -564,7 +564,7 @@ DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcodebuild test \
 ```
 
 Attendu : aucun compteur `image/`, `schema/`, `fuite/` ; les compteurs informatifs à leur
-ligne de base ou expliqués ; `✔ Test run with 64 test(s)` ou plus.
+ligne de base ou expliqués ; `✔ Test run with 84 test(s)` — 83 avant la tâche 1, 84 après. La ligne « 64 tests » de `CLAUDE.md` est périmée et se corrige en tâche 14.
 
 - [ ] **Step 10: Commit**
 
@@ -690,8 +690,12 @@ Carte par carte, dans l'ordre du tableau ci-dessus, en appliquant les quatre cor
 4. **Raison.** Lire les 33 cartes du domaine, pas seulement les treize : une bonne réponse
    qui surprend porte la raison de la règle, pas seulement son énoncé.
 
-`5f7e9145…` (les chevrons) pointe `marquage-zebra`, qui existe déjà ; son explication passe
-de 397 à 220 au plus, et si la raison n'y survit pas, la carte reste en texte.
+`5f7e9145…` (les chevrons) **ne peut pas** pointer `marquage-zebra` :
+`37fe1af42b8d81d68a70da4a7305f6c1` l'utilise déjà, sur la même notion `marquage/zones`, et
+la question voisine (« Ce marquage au sol : ») deviendrait indiscernable. Soit la carte
+reçoit une scène distincte — une zone de chevrons où un véhicule est arrêté, puisque c'est
+l'arrêt qu'elle interroge —, soit elle reste en texte. Son explication passe de 397 à 220
+au plus, et si la raison n'y survit pas, c'est le texte qui gagne.
 
 - [ ] **Step 5: Écrire les deux règles neuves dans `Tools/questions.md`**
 
@@ -757,7 +761,7 @@ DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcodebuild test \
   | grep -E "✔|✘|Test run with"
 ```
 
-Attendu : `✔ Test run with N test(s)` avec N ≥ 65, aucun `✘`. Un échec de
+Attendu : `✔ Test run with 84 test(s)`, aucun `✘`. Un échec de
 `BundledContentTests` **se corrige dans les données, jamais dans le test** — sauf le seuil
 d'illustrées, qui se relève en tâche 14.
 
@@ -819,7 +823,11 @@ Protocole de la tâche 2, steps 2 à 4, pour AB4 (STOP), AB3a (cédez le passage
 `Category:AB4 (road sign, France)`, `Category:AB3a (road sign, France)`,
 `Category:AB6 (road sign, France)`, `Category:AB7 (road sign, France)`,
 `Category:M12 (road sign, France)`. `panneau-ab4-stop` et `panneau-ab7-fin-priorite`
-existent déjà en dessin : leur imageset est **remplacé**, pas dupliqué.
+existent déjà en dessin et **servent déjà d'autres cartes** (`443e4299…` et `7d44f7dd…`) :
+leur imageset passe en photographie, ce qui corrige ces deux cartes-là du même coup, mais
+les cartes du tableau ci-dessus (`37fe1af42b8d81bd9426…`, `37fe1af42b8d8184beb9…`) reçoivent
+**chacune leur propre** photographie — un autre cadrage, un autre exemplaire — ou restent en
+texte. Aucun asset ne sert deux cartes.
 
 - [ ] **Step 2: Dessiner les scènes de configuration manquantes**
 
@@ -1029,6 +1037,13 @@ dessinés dans `ScenesCirculation.swift`. Protocole de la tâche 2, steps 2 à 4
 `Category:B30 (road sign, France)`. Le B30 est dessiné **carré** alors que l'art. 45 de la
 4e partie de l'IISR le veut rectangulaire : le défaut est connu, et la photographie le
 corrige d'office.
+
+Ces trois panneaux-là ne servent **qu'à leur propre scène isolée** : une fois leur imageset
+passé en photographie, `panneauLimitation`, `panneauFinDeLimitation` et `panneauZone30`
+n'ont plus d'appelant. Les supprimer de `Tools/Scenes/Panneaux.swift` avec leurs scènes,
+dans le même commit. La règle vaut partout : **une fonction de dessin ne se supprime que
+lorsque plus aucune scène ne l'appelle.** `panneauStop`, `panneauCedez` et
+`panneauRoutePrioritaire` restent — les scènes de carrefour les réutilisent.
 
 - [ ] **Step 3: Dessiner les scènes de configuration de chaussée**
 
