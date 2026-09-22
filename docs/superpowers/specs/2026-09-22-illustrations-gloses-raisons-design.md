@@ -186,12 +186,24 @@ Protocole, par panneau :
    aucune option de luminosité — pour que la discipline clair/sombre du catalogue tienne. La photo du giratoire, seule photographie livrée
    aujourd'hui, n'en a pas : elle sert le même JPEG dans les deux modes, et c'est une
    exception qu'on ne reconduit pas ;
-6. mesurer les niveaux de gris, dans les deux modes, avant commit — **deux écarts, pas
-   un** : le champ du panneau contre le fond voisin (peut-on trouver le panneau), et le
-   pictogramme contre le champ du panneau (peut-on le lire). Chacun d'au moins 25 points.
-   Mesurer « le centre du panneau contre le fond » est un contresens sur toute une famille
-   de panneaux : le piéton de l'A13b, les voitures du B3 et la bicyclette du C113 sont
-   **noirs par construction**, et les comparer à du feuillage sombre ne mesure rien ;
+6. mesurer les niveaux de gris, dans les deux modes, avant commit — **deux écarts, chacun
+   d'au moins 25 points** :
+
+   - le **listel** du panneau — sa structure de bord la plus claire, ou la bande
+     extérieure à défaut de listel — contre le fond qui **touche** le panneau, à son pire
+     endroit. Pas un coin du cadre : un coin peut être en pleine lumière pendant qu'une
+     tache collée au panneau est à l'ombre. Échantillonner plusieurs points le long de la
+     silhouette, le plus sombre et le plus clair ;
+   - le **pictogramme** contre le champ du panneau.
+
+   Deux erreurs de mesure ont été commises avant d'arriver là, et elles valent d'être
+   écrites. Mesurer *le centre* contre le fond est un contresens : sur tout un pan de la
+   signalisation le centre est le pictogramme, noir par construction — le piéton de l'A13b,
+   les voitures du B3, la bicyclette du C113. Mesurer *le champ* contre le fond en est un
+   autre : un champ bleu et du feuillage sont deux choses sombres, et entre les deux il y a
+   toujours le listel. C'est lui qui porte la forme, et l'IISR l'impose pour cette
+   raison — un panneau de danger est « entouré par une bande rouge bordée elle-même par un
+   listel blanc » (2e partie, art. 23) ;
 7. écrire la ligne dans `images.md` — asset, source, auteur, licence, date de relevé,
    résolution d'origine ;
 8. **retirer la scène du tableau de `Tools/Scenes/`**, et la fonction de dessin qu'elle
