@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 import Testing
 import UIKit
@@ -147,4 +148,16 @@ import UIKit
     let notions = Set(bank.questions.compactMap(\.notion))
     let fondées = Set(bank.questions.filter { $0.role == .fondation }.compactMap(\.notion))
     #expect(notions.subtracting(fondées).sorted() == [])
+}
+
+/// Un `id` est la clé de la progression : le renommer efface silencieusement ce qu'un
+/// utilisateur a déjà répondu. Comme `id` se calcule depuis le `prompt`, une passe qui
+/// réécrit des énoncés est exactement l'occasion de le recalculer par réflexe. Cette
+/// empreinte est là pour que ce réflexe échoue bruyamment.
+@Test func lesIdentifiantsLivrésSontStables() throws {
+    let bank = try QuestionBank.bundled()
+    let ids = bank.questions.map(\.id).sorted()
+    #expect(ids.count == 464)
+    let empreinte = SHA256.hash(data: Data(ids.joined(separator: "\n").utf8))
+    #expect(empreinte.map { String(format: "%02x", $0) }.joined() == "82f5a0a535fb59a84b22fc9fff82a9726c1e5a3d69f55693957d0d667f088874")
 }
