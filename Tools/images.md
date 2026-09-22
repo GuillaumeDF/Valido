@@ -42,7 +42,6 @@ dessine une fois, pas une fois par scène.
 | `panneau-b3-interdiction-depasser` | B3 seul, deux voitures vues de dos dans un disque à couronne rouge | maison, aucune source tierce |
 | `panneau-b6a1-stationnement-interdit` | B6a1 seul, disque bleu à couronne rouge et **une** oblique | maison, aucune source tierce |
 | `panneau-b6d-arret-interdit` | B6d seul, le même disque à **deux** obliques croisées | maison, aucune source tierce |
-| `panneau-b21b-tout-droit` | B21b seul, disque bleu à listel blanc et flèche verticale | maison, aucune source tierce |
 | `panneau-b31-fin-interdictions` | B31 seul, disque blanc à filet noir barré d'une oblique, sans chiffre | maison, aucune source tierce |
 | `panneau-ab4-stop` | AB4 seul, octogone rouge à listel blanc portant STOP | maison, aucune source tierce |
 | `panneau-ab7-fin-priorite` | AB7 seul, losange jaune barré dans un carré blanc posé sur la pointe | maison, aucune source tierce |
@@ -794,16 +793,19 @@ attente d'emploi : il ne resservira pas.
 
 ## Photographies
 
-Recadrées en 4:3 puis sorties en @2x/@3x (`sips`), JPEG qualité 82. Le recadrage garde
-l'élément décisif dans la bande centrale, celle qui survit au rétrécissement du bandeau
-à 18 % (voir `QuestionCardView.hauteurDuBandeau`).
+Recadrées en 4:3 puis sorties en @2x/@3x, JPEG qualité 82 — `sips` pour les deux premières,
+`Tools/photo-panneau.py` (Pillow) à partir du B21b, qui dérive aussi la variante sombre que
+`sips` ne sait pas produire. Le recadrage garde l'élément décisif dans la bande centrale,
+celle qui survit au rétrécissement du bandeau à 18 % (voir
+`QuestionCardView.hauteurDuBandeau`).
 
-| asset | source | auteur | licence | relevé le |
-|---|---|---|---|---|
-| `panneau-giratoire-vue-conducteur` | [Commons — Panneau AB25 sur la D 183](https://commons.wikimedia.org/wiki/File:Panneau_AB25_sur_la_D_183.jpg) (2024-09-21) | Marc Mongenet | CC BY-SA 4.0 | 2026-08-23 |
-| `ligne-jaune-continue` | [Commons — Marquage stationnement et arrêt interdits](https://commons.wikimedia.org/wiki/File:Marquage_stationnement_et_arr%C3%AAt_interdits_2013-11-17.JPG) (2013-11-17) | Tabl-trai | CC BY-SA 3.0 | 2026-08-23 |
+| asset | source | auteur | licence | relevé le | résolution d'origine |
+|---|---|---|---|---|---|
+| `panneau-giratoire-vue-conducteur` | [Commons — Panneau AB25 sur la D 183](https://commons.wikimedia.org/wiki/File:Panneau_AB25_sur_la_D_183.jpg) (2024-09-21) | Marc Mongenet | CC BY-SA 4.0 | 2026-08-23 | 5472 × 3648 |
+| `ligne-jaune-continue` | [Commons — Marquage stationnement et arrêt interdits](https://commons.wikimedia.org/wiki/File:Marquage_stationnement_et_arr%C3%AAt_interdits_2013-11-17.JPG) (2013-11-17) | Tabl-trai | CC BY-SA 3.0 | 2026-08-23 | 2800 × 900 |
+| `panneau-b21b-tout-droit` | [Commons — Les Pilles, panneau B21b](https://commons.wikimedia.org/wiki/File:Les_Pilles,_panneau_B21b.jpg) (2017-08-11) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
 
-Ces deux-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
+Ces trois-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.
@@ -811,8 +813,9 @@ apparaître dans l'app, pas seulement ici.
 ## Ajouter une image
 
 1. Schéma : ajouter la scène dans `Tools/Scenes/`, relancer `./Tools/render-scenes.sh`.
-   Photo : télécharger la source, recadrer en 4:3, sortir @2x/@3x dans un
-   `<asset>.imageset` avec son `Contents.json`.
-2. Ajouter la ligne ici — asset, source, auteur, licence, date de relevé.
+   Photo : `uv run --with pillow Tools/photo-panneau.py <source> <asset> --centre X,Y
+   --largeur W`, qui recadre en 4:3, sort @2x/@3x et dérive la variante sombre.
+2. Ajouter la ligne ici — asset, source, auteur, licence, date de relevé, résolution
+   d'origine.
 3. Poser l'`illustration` sur la question dans `questions.json` (`asset` + `alt`).
 4. `python3 Tools/audit.py`, puis les tests.

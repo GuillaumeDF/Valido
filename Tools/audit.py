@@ -80,6 +80,17 @@ try:
 except OSError:
     RECENSES = set()
 
+# Une ligne de la section « Photographies » porte cinq colonnes : asset, source, auteur,
+# licence, date. Sans auteur ni licence, l'image n'est ni re-sourçable ni diffusable, et le
+# contrôle de provenance seul ne le voit pas — il ne teste que le nom.
+PHOTOS, LICENCES = set(), {}
+for ligne in open(IMAGES_MD, encoding='utf-8'):
+    cellules = [c.strip() for c in ligne.split('|')]
+    if len(cellules) >= 7 and cellules[1].startswith('`') and 'commons.wikimedia.org' in ligne:
+        nom = cellules[1].strip('`')
+        PHOTOS.add(nom)
+        LICENCES[nom] = bool(cellules[3]) and bool(cellules[4])
+
 COUVERTURE_MD = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'couverture.md')
 # La carte de couverture : une ligne par couple (thématique ETG, topic). Un `topic` `code`
 # absent de cette colonne est soit une faute de frappe, soit un pan de contenu hors
@@ -176,6 +187,20 @@ for q in QS:
             flag('image/imageset-absent', q, f'{asset}.imageset')
         elif asset not in RECENSES:
             flag('image/provenance-absente', q, f'{asset} manque dans {IMAGES_MD}')
+        else:
+            dossier = os.path.join(SCENES, asset + '.imageset')
+            fichiers = set(os.listdir(dossier))
+            # Un imageset photographique sert un JPEG ; un schéma, quatre PNG. Les deux
+            # doivent porter leurs deux échelles et leur variante sombre : une échelle
+            # manquante se résout quand même, en rééchantillonnant — l'app affiche flou
+            # sans que rien n'échoue.
+            for echelle in ('@2x', '@3x'):
+                if not any(echelle in f for f in fichiers):
+                    flag('image/echelle-manquante', q, f'{asset} : {echelle}')
+            if not any(f.startswith('sombre') for f in fichiers):
+                flag('image/variante-sombre-absente', q, asset)
+            if asset in PHOTOS and not LICENCES.get(asset):
+                flag('image/licence-absente', q, f'{asset} : ni auteur ni licence dans images.md')
         # `alt` porte l'énoncé pour qui n'accède pas à l'image : trois mots ne suffisent
         # pas. Seuil aligné sur celui de l'explication.
         if len(alt.strip()) < 40: flag('image/alt-trop-court', q, alt)
