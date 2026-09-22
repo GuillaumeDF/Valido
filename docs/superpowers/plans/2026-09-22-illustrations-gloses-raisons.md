@@ -56,6 +56,34 @@ restent des schémas CoreGraphics.
   Doivent rester **absents de la sortie** : `schema/`, `couverture/`, `source/`, `fuite/`,
   `image/`, `longueur/plus-10`, `forme/backtick-isole`, `notions/non-declaree`,
   `notions/sans-fondation`, `notions/carte-orpheline`.
+- **`./Tools/render-scenes.sh` salit quarante PNG sans rien changer.** Sur cette machine
+  (Xcode-27 seulement, alors que les PNG livrés ont été rendus sous Xcode-26.3), ImageIO
+  ré-encode différemment : dix imagesets sans rapport avec la tâche ressortent modifiés,
+  **pixel pour pixel identiques**. Après chaque `render-scenes.sh`, vérifier l'identité
+  visuelle puis rendre ces fichiers-là, sinon le diff de la tâche devient illisible :
+
+  ```bash
+  cd /Users/guillaume/Developer/Swift/Valido
+  uv run --with pillow python -c "
+import subprocess, sys
+from PIL import Image, ImageChops
+sales = subprocess.run(['git','diff','--name-only','--','Valido/Assets.xcassets'],
+                       capture_output=True, text=True).stdout.split()
+identiques = []
+for f in sales:
+    if not f.endswith('.png'): continue
+    avant = subprocess.run(['git','show',f'HEAD:{f}'], capture_output=True).stdout
+    open('/tmp/avant.png','wb').write(avant)
+    if ImageChops.difference(Image.open('/tmp/avant.png').convert('RGB'),
+                             Image.open(f).convert('RGB')).getbbox() is None:
+        identiques.append(f)
+print('\n'.join(identiques))
+" > /tmp/reencodes.txt
+  [ -s /tmp/reencodes.txt ] && xargs git checkout -- < /tmp/reencodes.txt
+  git status --porcelain -- Valido/Assets.xcassets
+  ```
+
+  Ce qui reste modifié après ça est un vrai changement de pixel, et se relève en luminance.
 - **Le simulateur se démarre à la main**, et on vise l'UDID, jamais le nom :
 
   ```bash
