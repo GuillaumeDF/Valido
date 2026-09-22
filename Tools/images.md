@@ -827,11 +827,27 @@ désormais entièrement photographique. `panneau-ab7-fin-priorite` vient d'une s
 orientation EXIF 8 (comme le B1) : le fichier brut, un paysage 4000×3000, a d'abord été
 réécrit bit à bit avec `PIL.ImageOps.exif_transpose` avant tout centre de recadrage.
 `panneau-c1a-parking` est le premier asset de ce fichier à ne pas venir de Marc Mongenet :
-Chabe01, un contributeur différent, mais la même licence CC BY-SA 4.0. Les deux panneaux
-bleus (C1a, C113) ont demandé un recadrage plus large que le plancher de `photo-panneau.py`
-pour écarter un arrière-plan dont la luminance, dans un cas comme dans l'autre, était trop
-proche de celle du champ bleu pour passer les deux écarts au plancher de 1152 px — voir le
-rapport de tâche 3A-3 pour le détail des deux relevés.
+Chabe01, un contributeur différent, mais la même licence CC BY-SA 4.0. Lui seul a demandé un
+recadrage plus large que le plancher de `photo-panneau.py`, la source étant un cliché pris de
+très près — voir le rapport de tâche 3A-3 pour le recadrage retenu.
+
+`panneau-ab7-fin-priorite` est une exception mesurée, pas un oubli : son sommet droit touche
+un talus broussailleux en plein soleil, presque aussi clair que le listel à contre-jour à cet
+endroit précis (14,7 clair / 9,1 sombre, sous le plancher de 25 en sombre), quand les trois
+autres sommets et le pictogramme passent tous largement (29,8 à 92 en sombre). Cinq sources
+Commons de repli ont été essayées (Douvaine, Brugheas, Bernin ×2, Marcigny) et chacune portait
+un défaut au moins aussi grave — panonceau collé, balise de chantier, mât à cinq panneaux,
+prise de vue en contre-plongée — donc celle-ci est restée, en connaissance de cause (rapport
+de tâche 3A-3, fix round 1).
+
+`panneau-c113-voie-velo` reste au plancher de `photo-panneau.py` et n'occupe qu'environ 16 %
+de la largeur du bandeau, là où le reste du dossier avoisine la moitié : c'est la taille du
+panneau dans la seule photo qui passe le double écart, pas un choix de cadrage. Deux sources
+cadrées plus près ont été essayées et écartées, chiffres à l'appui — Arcachon (34 % du cadre)
+oppose le listel à un ciel laiteux qui tombe à 24,5 clair / 15,2 sombre, sous le plancher des
+deux côtés ; Bellerive (25 %) oppose le listel (195,2) à un mur crépi clair qui le dépasse
+(211,1), un écart négatif. Un panneau plus grand mais illisible en niveaux de gris n'aurait
+rien réglé (rapport de tâche 3A-3, fix round 1).
 
 Ces quinze-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
