@@ -562,57 +562,6 @@ private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
     ctx.restoreGState()
 }
 
-/// AB7, fin du caractère prioritaire d'une route (3e partie, art. 42-3, B) : le carré posé
-/// sur la pointe de l'AB6, barré. Le panneau « sans panonceau de distance annonce la perte
-/// de priorité au prochain carrefour ». La 3e partie ne porte pas d'article de couleurs :
-/// le losange jaune vient de l'AB6 déjà dessiné dans ce fichier, la barre du symbole
-/// n'a pas de planche relevée (cf. `Tools/images.md`).
-func panneauFinPriorite(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneau(ctx, forme: .losange, at: pt, rayon: rayon, fond: p.panneauFond)
-    panneau(ctx, forme: .losange, at: pt, rayon: rayon * 0.59, fond: p.panneauJaune)
-    // La barre est écrêtée par le losange extérieur, pas par un disque : elle doit longer
-    // la forme du panneau.
-    ctx.saveGState()
-    ctx.addPath(cheminLosange(at: pt, rayon: rayon * 0.93))
-    ctx.clip()
-    ctx.setStrokeColor(encre(p))
-    ctx.setLineWidth(rayon * 0.15)
-    ctx.setLineCap(.butt)
-    ctx.beginPath()
-    ctx.move(to: CGPoint(x: pt.x - rayon, y: pt.y + rayon))
-    ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y - rayon))
-    ctx.strokePath()
-    ctx.restoreGState()
-}
-
-private func cheminLosange(at pt: CGPoint, rayon r: Double) -> CGPath {
-    let path = CGMutablePath()
-    path.addLines(between: [CGPoint(x: pt.x, y: pt.y - r), CGPoint(x: pt.x + r, y: pt.y),
-                            CGPoint(x: pt.x, y: pt.y + r), CGPoint(x: pt.x - r, y: pt.y)])
-    path.closeSubpath()
-    return path
-}
-
-/// C1a, lieu aménagé pour le stationnement (5e partie, art. 70). « Les panneaux de type C
-/// sont généralement de forme carrée » (art. 69-1), et cette forme est tout le sujet de la
-/// question qu'il illustre : un **carré** renseigne, un **disque** prescrit (4e partie,
-/// art. 45). Un daltonien lit la différence sans voir une seule couleur.
-func panneauParking(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneau(ctx, forme: .carre, at: pt, rayon: rayon, fond: p.vous,
-            listel: p.panneauFond, epaisseurListel: max(rayon * 0.055, 1.0))
-    texte(ctx, "P", centre: pt, taille: rayon * 1.05, couleur: p.panneauFond)
-}
-
-/// C113, voie conseillée et réservée aux cyclistes (5e partie, art. 75-3). Panneau
-/// d'**indication** : il réserve la voie sans obliger le cycliste à la prendre. La piste
-/// ou bande *obligatoire* relève de la prescription et se signale par un panneau rond
-/// (art. 66 de la 4e partie) — c'est la paire que la question fait travailler.
-func panneauVoieVelo(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneau(ctx, forme: .carre, at: pt, rayon: rayon, fond: p.vous,
-            listel: p.panneauFond, epaisseurListel: max(rayon * 0.055, 1.0))
-    silhouetteVelo(ctx, at: pt, largeur: rayon * 1.10, p.panneauFond)
-}
-
 /// Une bicyclette vue de profil : deux roues, un cadre en triangle, un guidon, une selle.
 /// Le pictogramme réglementaire est plus fin ; à 90 points de haut, ces six traits sont ce
 /// qui reste lisible.

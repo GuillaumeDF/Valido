@@ -35,10 +35,6 @@ dessine une fois, pas une fois par scène.
 | `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
 | `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
 | `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière ; rive droite en **T4** (traits longs, vides courts) le long de la bande d'arrêt d'urgence, délimitation de voies en **T1** (vides longs, traits courts) | maison, aucune source tierce |
-| `panneau-ab4-stop` | AB4 seul, octogone rouge à listel blanc portant STOP | maison, aucune source tierce |
-| `panneau-ab7-fin-priorite` | AB7 seul, losange jaune barré dans un carré blanc posé sur la pointe | maison, aucune source tierce |
-| `panneau-c1a-parking` | C1a seul, carré bleu à listel blanc portant un P | maison, aucune source tierce |
-| `panneau-c113-voie-velo` | C113 seul, carré bleu portant une bicyclette de profil | maison, aucune source tierce |
 | `marquage-ligne-mixte` | ligne continue doublée d'une discontinue, la discontinue du côté du candidat | maison, aucune source tierce |
 | `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà ; le candidat démarre dans la voie qui se termine, pas déjà dans celle désignée | maison, aucune source tierce |
 | `marquage-zebra` | zone non circulable en chevrons au milieu de la chaussée, encadrée de deux continues | maison, aucune source tierce |
@@ -813,6 +809,10 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-a13b-passage-pietons` | [Commons — N85 panneau A13b à Quet-en-Beaumont](https://commons.wikimedia.org/wiki/File:N85_panneau_A13b_%C3%A0_Quet-en-Beaumont.jpg) (2017-09-27) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
 | `panneau-a14-panonceau` | [Commons — Panneau A14 M9z carrière](https://commons.wikimedia.org/wiki/File:Panneau_A14_M9z_carri%C3%A8re.jpg) (2016-08-27) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3000 × 2248 |
 | `panneau-b31-fin-interdictions` | [Commons — D311 panneau B31](https://commons.wikimedia.org/wiki/File:D311_panneau_B31.jpg) (2019-08-03) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3808 × 2856 |
+| `panneau-ab4-stop` | [Commons — Loisin panneau AB4](https://commons.wikimedia.org/wiki/File:Loisin_panneau_AB4.jpg) (2017-04-14) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-ab7-fin-priorite` | [Commons — Annemasse AB7](https://commons.wikimedia.org/wiki/File:Annemasse_AB7.jpg) (2016-08-01) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3000 × 4000 |
+| `panneau-c1a-parking` | [Commons — Panneau C1a Parking Auberge St Cyr Menthon 1](https://commons.wikimedia.org/wiki/File:Panneau_C1a_Parking_Auberge_St_Cyr_Menthon_1.jpg) (2019-09-21) | Chabe01 | CC BY-SA 4.0 | 2026-09-22 | 5184 × 3456 |
+| `panneau-c113-voie-velo` | [Commons — D311 panneau C113](https://commons.wikimedia.org/wiki/File:D311_panneau_C113.jpg) (2019-08-03) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3384 × 2538 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -821,7 +821,19 @@ bruts déjà à l'endroit). Pour l'A14, le fichier retenu porte lui-même le pan
 « CARRIÈRE » — le même mot que la scène dessinée qu'il remplace, sans que ç'ait été un
 critère de choix : c'était le meilleur candidat de la catégorie Commons de toute façon.
 
-Ces onze-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
+Le dernier lot (AB4, AB7, C1a, C113, tâche 3A-3) referme le domaine : les quatre derniers
+panneaux dessinés en CoreGraphics passent en photographie, et `Panneaux & marquage` est
+désormais entièrement photographique. `panneau-ab7-fin-priorite` vient d'une source en
+orientation EXIF 8 (comme le B1) : le fichier brut, un paysage 4000×3000, a d'abord été
+réécrit bit à bit avec `PIL.ImageOps.exif_transpose` avant tout centre de recadrage.
+`panneau-c1a-parking` est le premier asset de ce fichier à ne pas venir de Marc Mongenet :
+Chabe01, un contributeur différent, mais la même licence CC BY-SA 4.0. Les deux panneaux
+bleus (C1a, C113) ont demandé un recadrage plus large que le plancher de `photo-panneau.py`
+pour écarter un arrière-plan dont la luminance, dans un cas comme dans l'autre, était trop
+proche de celle du champ bleu pour passer les deux écarts au plancher de 1152 px — voir le
+rapport de tâche 3A-3 pour le détail des deux relevés.
+
+Ces quinze-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.

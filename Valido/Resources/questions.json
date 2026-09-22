@@ -1268,7 +1268,7 @@
     "explanation": "La silhouette se reconnaît de plus loin que le pictogramme : c'est elle qui trie, avant même qu'on lise ce qu'elle porte. L'instruction dit « généralement » carrés : repère fiable, pas garantie absolue.",
     "id": "37fe1af42b8d817881dee3d999a911c3",
     "illustration": {
-      "alt": "Panneau carré à fond bleu, bordé d'un listel blanc, portant la lettre P en blanc au centre.",
+      "alt": "Photographie d'un carré bleu cerclé de blanc, portant la lettre P en blanc, devant un ciel clair et le toit d'une maison.",
       "asset": "panneau-c1a-parking"
     },
     "notion": "panneaux/formes",
@@ -7490,7 +7490,7 @@
     "explanation": "L'arrêt reste obligatoire quelle que soit la circulation, pour retirer au conducteur le soin de juger si un véhicule arrive à temps. Il ne dispense pas, pour autant, de céder ensuite le passage à qui a la priorité.",
     "id": "443e4299ccb3ff71669f8df6669b8bf4",
     "illustration": {
-      "alt": "Panneau octogonal à fond rouge portant l'inscription STOP en lettres blanches, cerné d'un mince listel blanc.",
+      "alt": "Photographie d'un octogone rouge cerclé de blanc, portant l'inscription STOP, dressé contre un ciel dégagé, une cheminée et un toit visibles à sa base.",
       "asset": "panneau-ab4-stop"
     },
     "notion": "panneaux/formes",
@@ -9448,7 +9448,7 @@
     "explanation": "Ce que ce panneau change se produit plus loin, pas à sa hauteur : le seul renseignement qui puisse s'y ajouter est l'endroit. Un panonceau le chiffre en mètres ou en kilomètres ; à défaut, le repère n'est pas chiffré.",
     "id": "7d44f7dd303fce58716234cba54480b1",
     "illustration": {
-      "alt": "Carré blanc posé sur la pointe, portant un losange jaune barré d'une large oblique noire.",
+      "alt": "Photographie d'un losange blanc cerclé de noir, montrant un motif jaune coupé d'une large diagonale noire, planté devant une falaise boisée.",
       "asset": "panneau-ab7-fin-priorite"
     },
     "notion": "panneaux/panonceaux",
@@ -9481,7 +9481,7 @@
     "explanation": "Un cycliste peut préférer une autre partie de la chaussée, par exemple pour tourner ou doubler un autre cycle : ce panneau ne l'en empêche pas. La piste ou bande rendue obligatoire relève, elle, de la prescription.",
     "id": "ede6968609d285b22494f57032c53e2f",
     "illustration": {
-      "alt": "Panneau carré à fond bleu à listel blanc, portant la silhouette blanche d'une bicyclette vue de profil.",
+      "alt": "Photographie d'un carré bleu cerclé de blanc, montrant la silhouette blanche d'une bicyclette vue de profil, plantée devant un talus broussailleux.",
       "asset": "panneau-c113-voie-velo"
     },
     "notion": "panneaux/formes",

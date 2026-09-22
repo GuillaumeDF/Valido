@@ -154,34 +154,26 @@ let scenesPanneaux: [(String, Scene)] = [
 
     // MARK: Panneaux d'intersection (type AB)
 
-    // 10. AB4 : l'octogone, seul de son espèce. Le mot STOP y est écrit, donc la question
-    //     ne peut pas porter sur son nom : elle porte sur ce qu'il impose.
-    ("panneau-ab4-stop", scenePanneau(.octogone) { ctx, pt, r, p in
-        panneauStop(ctx, at: pt, rayon: r, p)
-    }),
+    // 10. `panneau-ab4-stop` a existé ici, octogone et STOP dessinés. Remplacée par une
+    //     photographie Commons le 2026-09-22 (tâche 3A-3 du chantier illustrations). Voir
+    //     `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 11. AB7 : fin du caractère prioritaire. Le pendant du B31 pour la priorité, et la
-    //     confusion que la question fait travailler : deux panneaux barrés, deux portées
-    //     différentes.
-    ("panneau-ab7-fin-priorite", scenePanneau(.losange) { ctx, pt, r, p in
-        panneauFinPriorite(ctx, at: pt, rayon: r, p)
-    }),
+    // 11. `panneau-ab7-fin-priorite` a existé ici, losange barré dessiné. Remplacée par
+    //     une photographie Commons le 2026-09-22 (tâche 3A-3) : le losange jaune et sa
+    //     barre noire y sont ceux du panneau réglementaire, pas la simplification dessinée.
+    //     Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
     // MARK: Panneaux d'indication (type C) — carré
 
-    // 12. C1a : le carré. La question ne porte pas sur le parking mais sur la forme —
-    //     un carré renseigne là où un disque prescrit — et un carré se reconnaît sans
-    //     distinguer une seule couleur.
-    ("panneau-c1a-parking", scenePanneau(.carre) { ctx, pt, r, p in
-        panneauParking(ctx, at: pt, rayon: r, p)
-    }),
+    // 12. `panneau-c1a-parking` a existé ici, carré bleu et P dessinés. Remplacée par une
+    //     photographie Commons le 2026-09-22 (tâche 3A-3). Voir `Tools/photo-panneau.py`
+    //     et `Tools/images.md`.
 
-    // 13. C113 : voie conseillée et réservée aux cyclistes. Carré, donc indication : la
-    //     voie est réservée sans que le cycliste soit obligé de la prendre. La piste
-    //     obligatoire, elle, est ronde.
-    ("panneau-c113-voie-velo", scenePanneau(.carre) { ctx, pt, r, p in
-        panneauVoieVelo(ctx, at: pt, rayon: r, p)
-    }),
+    // 13. `panneau-c113-voie-velo` a existé ici, carré bleu et bicyclette dessinés.
+    //     Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-3) : le vélo
+    //     dessiné était les six traits de `silhouetteVelo`, là où la vraie bicyclette du
+    //     panneau est un pictogramme plein. Voir `Tools/photo-panneau.py` et
+    //     `Tools/images.md`.
 
     // MARK: Marquage
 
