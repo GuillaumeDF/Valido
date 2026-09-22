@@ -186,7 +186,12 @@ Protocole, par panneau :
    aucune option de luminosité — pour que la discipline clair/sombre du catalogue tienne. La photo du giratoire, seule photographie livrée
    aujourd'hui, n'en a pas : elle sert le même JPEG dans les deux modes, et c'est une
    exception qu'on ne reconduit pas ;
-6. mesurer les niveaux de gris, dans les deux modes, avant commit ;
+6. mesurer les niveaux de gris, dans les deux modes, avant commit — **deux écarts, pas
+   un** : le champ du panneau contre le fond voisin (peut-on trouver le panneau), et le
+   pictogramme contre le champ du panneau (peut-on le lire). Chacun d'au moins 25 points.
+   Mesurer « le centre du panneau contre le fond » est un contresens sur toute une famille
+   de panneaux : le piéton de l'A13b, les voitures du B3 et la bicyclette du C113 sont
+   **noirs par construction**, et les comparer à du feuillage sombre ne mesure rien ;
 7. écrire la ligne dans `images.md` — asset, source, auteur, licence, date de relevé,
    résolution d'origine ;
 8. **retirer la scène du tableau de `Tools/Scenes/`**, et la fonction de dessin qu'elle
