@@ -35,10 +35,6 @@ dessine une fois, pas une fois par scène.
 | `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
 | `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
 | `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière ; rive droite en **T4** (traits longs, vides courts) le long de la bande d'arrêt d'urgence, délimitation de voies en **T1** (vides longs, traits courts) | maison, aucune source tierce |
-| `panneau-a1a-virage` | A1a seul, triangle de danger portant une chaussée qui s'infléchit à droite | maison, aucune source tierce |
-| `panneau-a13b-passage-pietons` | A13b seul, piéton marchant sur les bandes d'un passage | maison, aucune source tierce |
-| `panneau-a14-panonceau` | A14 « autres dangers » et son panonceau M9 portant CARRIÈRE | maison, aucune source tierce |
-| `panneau-b31-fin-interdictions` | B31 seul, disque blanc à filet noir barré d'une oblique, sans chiffre | maison, aucune source tierce |
 | `panneau-ab4-stop` | AB4 seul, octogone rouge à listel blanc portant STOP | maison, aucune source tierce |
 | `panneau-ab7-fin-priorite` | AB7 seul, losange jaune barré dans un carré blanc posé sur la pointe | maison, aucune source tierce |
 | `panneau-c1a-parking` | C1a seul, carré bleu à listel blanc portant un P | maison, aucune source tierce |
@@ -813,8 +809,19 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-b3-interdiction-depasser` | [Commons — A43 Panneau B3 panonceaux M4f M4x M1](https://commons.wikimedia.org/wiki/File:A43_Panneau_B3_panonceaux_M4f_M4x_M1.jpg) (2016-08-20) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 2248 × 2248 |
 | `panneau-b6a1-stationnement-interdit` | [Commons — Malagny Panneau B6a1 panonceau M8d bis](https://commons.wikimedia.org/wiki/File:Malagny_Panneau_B6a1_panonceau_M8d_bis.jpg) (2018-06-26) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
 | `panneau-b6d-arret-interdit` | [Commons — A75 Millau Panneau B6d](https://commons.wikimedia.org/wiki/File:A75_Millau_Panneau_B6d.jpg) (2019-08-10) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-a1a-virage` | [Commons — Cranves-Sales panneau A1a](https://commons.wikimedia.org/wiki/File:Cranves-Sales_panneau_A1a.jpg) (2018-04-10) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-a13b-passage-pietons` | [Commons — N85 panneau A13b à Quet-en-Beaumont](https://commons.wikimedia.org/wiki/File:N85_panneau_A13b_%C3%A0_Quet-en-Beaumont.jpg) (2017-09-27) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-a14-panonceau` | [Commons — Panneau A14 M9z carrière](https://commons.wikimedia.org/wiki/File:Panneau_A14_M9z_carri%C3%A8re.jpg) (2016-08-27) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3000 × 2248 |
+| `panneau-b31-fin-interdictions` | [Commons — D311 panneau B31](https://commons.wikimedia.org/wiki/File:D311_panneau_B31.jpg) (2019-08-03) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3808 × 2856 |
 
-Ces sept-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
+Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
+aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
+sources n'a le piège d'orientation EXIF du B1 (les quatre sont en orientation 1, pixels
+bruts déjà à l'endroit). Pour l'A14, le fichier retenu porte lui-même le panonceau M9z
+« CARRIÈRE » — le même mot que la scène dessinée qu'il remplace, sans que ç'ait été un
+critère de choix : c'était le meilleur candidat de la catégorie Commons de toute façon.
+
+Ces onze-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.

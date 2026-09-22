@@ -542,89 +542,6 @@ func panneauDeDanger(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palet
             listel: p.panneauFond, epaisseurListel: max(rayon * 0.045, 0.9))
 }
 
-/// A14, autres dangers (2e partie, art. 41) : le panneau qu'on emploie « lorsqu'il
-/// n'existe pas de symbole spécifique » pour le danger à signaler. Son point d'exclamation
-/// ne dit donc rien de plus que « danger » — c'est le panonceau M9 qui le nomme, et
-/// l'article 41 demande de l'ajouter « autant que possible ».
-func panneauAutresDangers(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
-    // Le point d'exclamation, dessiné et non composé : la barre et le point ont besoin
-    // d'un rapport de taille stable d'une échelle de rendu à l'autre, ce qu'une fonte ne
-    // garantit pas. Le triangle équilatéral est plus étroit en haut qu'en bas : le
-    // symbole est donc décalé vers le bas, là où il y a de la place.
-    let e = rayon * 0.14
-    ctx.setFillColor(encre(p))
-    ctx.fill(CGRect(x: pt.x - e / 2, y: pt.y - rayon * 0.22, width: e, height: rayon * 0.44))
-    ctx.fillEllipse(in: CGRect(x: pt.x - e / 2, y: pt.y + rayon * 0.32, width: e, height: e))
-}
-
-/// A1a, virage à droite (2e partie, art. 27, B : « une courbe unique est signalée par un
-/// panneau A1a ou A1b, suivant qu'elle est à droite ou à gauche »).
-func panneauVirage(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
-    // Une chaussée qui part vers le haut puis s'infléchit à droite : trois segments
-    // suffisent, et le coude doit rester visible à petite taille.
-    ctx.setStrokeColor(encre(p))
-    ctx.setLineWidth(rayon * 0.17)
-    ctx.setLineCap(.butt)
-    ctx.setLineJoin(.round)
-    ctx.beginPath()
-    ctx.move(to: CGPoint(x: pt.x - rayon * 0.14, y: pt.y + rayon * 0.38))
-    ctx.addLine(to: CGPoint(x: pt.x - rayon * 0.14, y: pt.y + rayon * 0.04))
-    ctx.addQuadCurve(to: CGPoint(x: pt.x + rayon * 0.30, y: pt.y - rayon * 0.24),
-                     control: CGPoint(x: pt.x - rayon * 0.14, y: pt.y - rayon * 0.20))
-    ctx.strokePath()
-}
-
-/// A13b, passage pour piétons (2e partie, art. 40) : **signalisation avancée** du passage,
-/// jamais sa position — celle-ci est tenue par le marquage au sol (art. 118 de la 7e
-/// partie). C'est tout l'intérêt de la question qu'il illustre : un triangle annonce, il
-/// ne prescrit pas.
-///
-/// Le pictogramme tient au-dessus de +0,41 rayon et non de +0,5 : le côté inférieur du
-/// triangle est à +0,5 rayon, mais la bande rouge et le listel en mangent encore 0,09.
-func panneauPassagePietons(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    panneauDeDanger(ctx, at: pt, rayon: rayon, p)
-    // Les bandes du passage, en perspective écrasée — la plus large en bas, la plus proche.
-    // Ce sont elles qui distinguent ce pictogramme de celui d'un simple piéton (A13a,
-    // endroit fréquenté par les enfants).
-    ctx.setFillColor(encre(p))
-    for (demi, y) in [(0.30, 0.36), (0.235, 0.275), (0.17, 0.19)] {
-        ctx.fill(CGRect(x: pt.x - rayon * demi, y: pt.y + rayon * (y - 0.028),
-                        width: rayon * demi * 2, height: rayon * 0.056))
-    }
-    silhouettePieton(ctx, at: CGPoint(x: pt.x, y: pt.y - rayon * 0.10),
-                     hauteur: rayon * 0.56, encre(p))
-}
-
-/// Une silhouette de piéton : tête, tronc, deux jambes écartées, un bras. Réduite à cinq
-/// traits — à 90 points de haut, un dessin fidèle devient une tache.
-private func silhouettePieton(_ ctx: CGContext, at pt: CGPoint, hauteur h: Double,
-                              _ encre: CGColor) {
-    let t = h * 0.13
-    ctx.setStrokeColor(encre)
-    ctx.setFillColor(encre)
-    ctx.setLineWidth(t)
-    ctx.setLineCap(.round)
-    // Tête
-    ctx.fillEllipse(in: CGRect(x: pt.x - t, y: pt.y - h * 0.50, width: t * 2, height: t * 2))
-    // Tronc
-    ctx.beginPath()
-    ctx.move(to: CGPoint(x: pt.x, y: pt.y - h * 0.24))
-    ctx.addLine(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
-    ctx.strokePath()
-    // Jambes, l'une en avant : c'est ce qui fait lire une marche plutôt qu'une station
-    ctx.beginPath()
-    ctx.move(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
-    ctx.addLine(to: CGPoint(x: pt.x - h * 0.16, y: pt.y + h * 0.40))
-    ctx.move(to: CGPoint(x: pt.x, y: pt.y + h * 0.06))
-    ctx.addLine(to: CGPoint(x: pt.x + h * 0.18, y: pt.y + h * 0.38))
-    // Bras
-    ctx.move(to: CGPoint(x: pt.x, y: pt.y - h * 0.18))
-    ctx.addLine(to: CGPoint(x: pt.x + h * 0.20, y: pt.y - h * 0.02))
-    ctx.strokePath()
-}
-
 /// Une barre oblique tracée **dans** le disque, donc écrêtée par lui : posée sans `clip`
 /// elle dépasserait du panneau, ce qui n'existe sur aucun panneau réglementaire.
 private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
@@ -643,16 +560,6 @@ private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
     ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y + (montante ? -rayon : rayon)))
     ctx.strokePath()
     ctx.restoreGState()
-}
-
-/// B31, fin de toutes les interdictions précédemment signalées (4e partie, art. 68-1) :
-/// le disque des « fin de », sans aucun nombre. C'est le seul disque sans une once de
-/// rouge, et c'est aussi ce qui le distingue du losange barré AB7, qui ne touche qu'à la
-/// priorité. Il ne lève pas ce qui découle d'un texte général — être en agglomération,
-/// par exemple (art. 68-1).
-func panneauFinDInterdictions(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
-                              _ p: Palette) {
-    disqueDeFin(ctx, at: pt, rayon: rayon, p)
 }
 
 /// AB7, fin du caractère prioritaire d'une route (3e partie, art. 42-3, B) : le carré posé

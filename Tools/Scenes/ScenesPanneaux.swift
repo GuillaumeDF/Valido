@@ -108,32 +108,19 @@ let scenesPanneaux: [(String, Scene)] = [
 
     // MARK: Panneaux de danger (type A) — triangle, bande rouge, listel blanc
 
-    // 1. A1a : le virage. Le triangle et sa courbe disent tous deux la même chose — un
-    //    danger annoncé en amont — et c'est la forme, non la teinte, qui porte la réponse.
-    ("panneau-a1a-virage", scenePanneau(.triangle) { ctx, pt, r, p in
-        panneauVirage(ctx, at: pt, rayon: r, p)
-    }),
+    // 1. `panneau-a1a-virage` a existé ici, triangle et courbe dessinés. Remplacée par
+    //    une photographie Commons le 2026-09-22 (tâche 3A-2 du chantier illustrations).
+    //    Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 2. A13b : passage pour piétons. Panneau **avancé** (2e partie, art. 40) : la
-    //    question porte précisément sur le fait qu'il ne prescrit rien à sa hauteur.
-    ("panneau-a13b-passage-pietons", scenePanneau(.triangle) { ctx, pt, r, p in
-        panneauPassagePietons(ctx, at: pt, rayon: r, p)
-    }),
+    // 2. `panneau-a13b-passage-pietons` a existé ici, triangle et silhouette de piéton
+    //    dessinés. Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-2) : le
+    //    piéton dessiné était une silhouette à cinq traits, là où le vrai pictogramme est
+    //    une figure pleine. Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 3. A14 et son panonceau. L'assemblage est plus haut qu'un panneau seul : la gamme
-    //    descend donc à 90 et le centre remonte de 3 unités, pour que la pointe du
-    //    triangle et le bas de la plaque tiennent tous deux dans la bande de 110 qui
-    //    survit au recadrage. Sans le panonceau la question n'aurait pas d'objet — c'est
-    //    lui qui nomme le danger que le point d'exclamation laisse ouvert.
-    ("panneau-a14-panonceau", { ctx, p in
-        fond(ctx, p)
-        let r = rayonPourGamme(.triangle, 90)
-        let pt = CGPoint(x: cx, y: cy - 3)
-        panneauAutresDangers(ctx, at: pt, rayon: r, p)
-        let l = r * sqrt(3.0), h = r * 0.50
-        panonceau(ctx, "CARRIÈRE",
-                  at: CGRect(x: pt.x - l / 2, y: pt.y + r * 0.62, width: l, height: h), p)
-    }),
+    // 3. `panneau-a14-panonceau` a existé ici, triangle, point d'exclamation et panonceau
+    //    « CARRIÈRE » dessinés. Remplacée par une photographie Commons le 2026-09-22
+    //    (tâche 3A-2), qui porte le même texte de panonceau. Voir `Tools/photo-panneau.py`
+    //    et `Tools/images.md`.
 
     // MARK: Panneaux de prescription (type B) — disque
 
@@ -161,11 +148,9 @@ let scenesPanneaux: [(String, Scene)] = [
     //    flèche dessinée était une aiguille fine, là où la vraie est large et trapézoïdale.
     //    Voir `Tools/photo-panneau.py` et `Tools/images.md` pour le protocole et la source.
 
-    // 9. B31 : fin de toutes les interdictions. Aucun rouge, aucun chiffre — c'est
-    //    l'absence qui fait le sens, et elle se voit en noir et blanc.
-    ("panneau-b31-fin-interdictions", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauFinDInterdictions(ctx, at: pt, rayon: r, p)
-    }),
+    // 9. `panneau-b31-fin-interdictions` a existé ici, disque et oblique dessinés.
+    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-2). Voir
+    //    `Tools/photo-panneau.py` et `Tools/images.md`.
 
     // MARK: Panneaux d'intersection (type AB)
 

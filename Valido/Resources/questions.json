@@ -1972,7 +1972,7 @@
     "explanation": "Prévenu de loin, on aborde le point signalé à la bonne allure : c'est tout ce que ce panneau demande. La distance n'est pas fixe — 100 à 200 m hors agglomération, sensiblement moins en agglomération.",
     "id": "37fe1af42b8d81b5aa9fc685af3ba92f",
     "illustration": {
-      "alt": "Triangle à fond blanc bordé de rouge, portant une chaussée qui s'infléchit vers la droite.",
+      "alt": "Photographie d'un triangle blanc cerclé de rouge, montrant une chaussée qui s'incurve vers la droite, fixé devant une haie sombre et un poteau électrique.",
       "asset": "panneau-a1a-virage"
     },
     "notion": "panneaux/formes",
@@ -7552,7 +7552,7 @@
     "explanation": "Ce disque ferme d'un coup les interdictions qu'un panneau avait imposées à la circulation : c'est sa raison d'être, éviter autant de panneaux de fin que d'interdictions posées. Ce que le code impose sans panneau reste.",
     "id": "11d37be22fd315668cb2930373e95c80",
     "illustration": {
-      "alt": "Disque à fond blanc cerné d'un filet noir et barré d'une oblique noire montant vers la droite, sans aucun chiffre.",
+      "alt": "Photographie d'un disque blanc cerclé d'un filet noir, barré d'une oblique montant vers la droite, sans aucun chiffre, contre un talus de pierre et de végétation.",
       "asset": "panneau-b31-fin-interdictions"
     },
     "notion": "panneaux/portee",
@@ -9188,7 +9188,7 @@
     "explanation": "Un panonceau ne prescrit rien : il précise. Le point d'exclamation ne sert qu'aux dangers sans symbole propre, et l'instruction demande de le compléter par un panonceau qui nomme le danger.",
     "id": "ee11b58d97d21d637c3ec38c7181fa87",
     "illustration": {
-      "alt": "Triangle à fond blanc bordé de rouge portant un point d'exclamation, complété par une plaque rectangulaire blanche où se lit CARRIÈRE.",
+      "alt": "Photographie d'un triangle blanc cerclé de rouge portant un point d'exclamation, surmontant une plaque blanche où se lit CARRIÈRE, contre un mur de pierre sèche.",
       "asset": "panneau-a14-panonceau"
     },
     "notion": "panneaux/panonceaux",
@@ -9221,7 +9221,7 @@
     "explanation": "Le passage est déjà tracé au sol : planté à sa hauteur, ce panneau n'ajouterait rien, et il n'y est jamais implanté. En amont, il prévient. Sans marquage au sol, il n'y a pas de passage — le panneau seul n'en crée pas.",
     "id": "89bea09b482974f37e7dd7d35aba23f5",
     "illustration": {
-      "alt": "Triangle à fond blanc bordé de rouge portant la silhouette d'un piéton qui marche sur des bandes de passage.",
+      "alt": "Photographie d'un triangle blanc cerclé de rouge, montrant la silhouette d'un piéton qui marche sur un passage clouté, devant les vestiges d'une ferme en pierre.",
       "asset": "panneau-a13b-passage-pietons"
     },
     "notion": "panneaux/portee",
