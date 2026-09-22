@@ -38,10 +38,6 @@ dessine une fois, pas une fois par scène.
 | `panneau-a1a-virage` | A1a seul, triangle de danger portant une chaussée qui s'infléchit à droite | maison, aucune source tierce |
 | `panneau-a13b-passage-pietons` | A13b seul, piéton marchant sur les bandes d'un passage | maison, aucune source tierce |
 | `panneau-a14-panonceau` | A14 « autres dangers » et son panonceau M9 portant CARRIÈRE | maison, aucune source tierce |
-| `panneau-b1-sens-interdit` | B1 seul, disque à fond rouge et barre blanche horizontale | maison, aucune source tierce |
-| `panneau-b3-interdiction-depasser` | B3 seul, deux voitures vues de dos dans un disque à couronne rouge | maison, aucune source tierce |
-| `panneau-b6a1-stationnement-interdit` | B6a1 seul, disque bleu à couronne rouge et **une** oblique | maison, aucune source tierce |
-| `panneau-b6d-arret-interdit` | B6d seul, le même disque à **deux** obliques croisées | maison, aucune source tierce |
 | `panneau-b31-fin-interdictions` | B31 seul, disque blanc à filet noir barré d'une oblique, sans chiffre | maison, aucune source tierce |
 | `panneau-ab4-stop` | AB4 seul, octogone rouge à listel blanc portant STOP | maison, aucune source tierce |
 | `panneau-ab7-fin-priorite` | AB7 seul, losange jaune barré dans un carré blanc posé sur la pointe | maison, aucune source tierce |
@@ -799,13 +795,26 @@ Recadrées en 4:3 puis sorties en @2x/@3x, JPEG qualité 82 — `sips` pour les 
 celle qui survit au rétrécissement du bandeau à 18 % (voir
 `QuestionCardView.hauteurDuBandeau`).
 
+Les quatre panneaux d'interdiction (B1, B3, B6a1, B6d) viennent tous du même contributeur
+que le B21b, Marc Mongenet, qui documente systématiquement la signalisation française sur
+Commons. `panneau-b1-sens-interdit` provient d'un JPEG livré en orientation EXIF pivotée
+(le fichier brut est un paysage 4000×3000, à pivoter 90° pour retrouver le portrait
+3000×4000 que Commons affiche) : `photo-panneau.py` ne lit que les pixels bruts et ignore
+l'EXIF, donc cette source a d'abord été réécrite bit à bit avec `PIL.ImageOps.exif_transpose`
+avant tout centre de recadrage, sans quoi le panneau livré aurait tourné de 90°. Les trois
+autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l'endroit).
+
 | asset | source | auteur | licence | relevé le | résolution d'origine |
 |---|---|---|---|---|---|
 | `panneau-giratoire-vue-conducteur` | [Commons — Panneau AB25 sur la D 183](https://commons.wikimedia.org/wiki/File:Panneau_AB25_sur_la_D_183.jpg) (2024-09-21) | Marc Mongenet | CC BY-SA 4.0 | 2026-08-23 | 5472 × 3648 |
 | `ligne-jaune-continue` | [Commons — Marquage stationnement et arrêt interdits](https://commons.wikimedia.org/wiki/File:Marquage_stationnement_et_arr%C3%AAt_interdits_2013-11-17.JPG) (2013-11-17) | Tabl-trai | CC BY-SA 3.0 | 2026-08-23 | 2800 × 900 |
 | `panneau-b21b-tout-droit` | [Commons — Les Pilles, panneau B21b](https://commons.wikimedia.org/wiki/File:Les_Pilles,_panneau_B21b.jpg) (2017-08-11) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-b1-sens-interdit` | [Commons — Panneau B1 panonceau M9v1](https://commons.wikimedia.org/wiki/File:Panneau_B1_panonceau_M9v1.jpg) (2019-03-24) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3000 × 4000 |
+| `panneau-b3-interdiction-depasser` | [Commons — A43 Panneau B3 panonceaux M4f M4x M1](https://commons.wikimedia.org/wiki/File:A43_Panneau_B3_panonceaux_M4f_M4x_M1.jpg) (2016-08-20) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 2248 × 2248 |
+| `panneau-b6a1-stationnement-interdit` | [Commons — Malagny Panneau B6a1 panonceau M8d bis](https://commons.wikimedia.org/wiki/File:Malagny_Panneau_B6a1_panonceau_M8d_bis.jpg) (2018-06-26) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
+| `panneau-b6d-arret-interdit` | [Commons — A75 Millau Panneau B6d](https://commons.wikimedia.org/wiki/File:A75_Millau_Panneau_B6d.jpg) (2019-08-10) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 4000 × 3000 |
 
-Ces trois-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
+Ces sept-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.

@@ -137,30 +137,24 @@ let scenesPanneaux: [(String, Scene)] = [
 
     // MARK: Panneaux de prescription (type B) — disque
 
-    // 4. B1 : le seul panneau d'interdiction à fond rouge, et le seul dont la couronne ne
-    //    porte rien (4e partie, art. 47). C'est la barre blanche en travers qui le nomme.
-    ("panneau-b1-sens-interdit", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauSensInterdit(ctx, at: pt, rayon: r, p)
-    }),
+    // 4. `panneau-b1-sens-interdit` a existé ici, disque rouge et barre blanche dessinés.
+    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1 du chantier
+    //    illustrations). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 5. B3 : interdiction de dépasser. Les deux voitures sont côte à côte et décalées —
-    //    un dépassement en cours — et se distinguent par leur position et leur cerne, pas
-    //    par leur teinte.
-    ("panneau-b3-interdiction-depasser", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauInterdictionDepasser(ctx, at: pt, rayon: r, p)
-    }),
+    // 5. `panneau-b3-interdiction-depasser` a existé ici, disque et deux voitures dessinés.
+    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1) : les voitures
+    //    dessinées étaient des blocs sans roues ni pare-brise. Voir `Tools/photo-panneau.py`
+    //    et `Tools/images.md`.
 
-    // 6. B6a1 : stationnement interdit, **une** oblique.
-    ("panneau-b6a1-stationnement-interdit", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauStationnementInterdit(ctx, at: pt, rayon: r, p)
-    }),
+    // 6. `panneau-b6a1-stationnement-interdit` a existé ici, disque bleu et une oblique
+    //    dessinés. Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1). Voir
+    //    `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 7. B6d : arrêt et stationnement interdits, **deux** obliques croisées. La paire 6/7
-    //    est volontairement identique à une barre près : c'est cette barre que la question
-    //    fait travailler, et c'est un compte, pas une couleur.
-    ("panneau-b6d-arret-interdit", scenePanneau(.disque) { ctx, pt, r, p in
-        panneauArretEtStationnementInterdits(ctx, at: pt, rayon: r, p)
-    }),
+    // 7. `panneau-b6d-arret-interdit` a existé ici, le même disque à deux obliques
+    //    croisées dessinées. Remplacée par une photographie Commons le 2026-09-22
+    //    (tâche 3A-1) : la paire 6/7 reste distinguée par le même compte d'obliques, choisi
+    //    sans ambiguïté sur les deux photographies. Voir `Tools/photo-panneau.py` et
+    //    `Tools/images.md`.
 
     // 8. `panneau-b21b-tout-droit` a existé ici, disque et flèche dessinés. Remplacée par
     //    une photographie Commons le 2026-09-22 (tâche 2 du chantier illustrations) : la

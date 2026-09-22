@@ -9316,7 +9316,7 @@
     "explanation": "Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau : un panneau ne parle qu'aux usagers de son côté. S'immobiliser un instant, conducteur au volant, reste possible sous ce disque.",
     "id": "1658abbc16db4667fec7211f8c9b0f93",
     "illustration": {
-      "alt": "Disque à fond bleu à couronne rouge, barré d'une seule oblique rouge qui descend vers la droite.",
+      "alt": "Photographie d'un disque bleu cerclé de rouge, barré d'une oblique rouge unique, fixé devant une haie et un toit de tuiles.",
       "asset": "panneau-b6a1-stationnement-interdit"
     },
     "notion": "panneaux/portee",
@@ -9349,7 +9349,7 @@
     "explanation": "Interdire l'arrêt interdit du même coup le stationnement : là où une immobilisation brève gêne déjà, une immobilisation longue gêne plus encore. L'inverse ne vaut pas : viser le seul stationnement laisse l'arrêt libre.",
     "id": "1509ad94aea7c6f82355f3362b10a8e1",
     "illustration": {
-      "alt": "Disque à fond bleu à couronne rouge, barré de deux obliques rouges qui se croisent en son centre.",
+      "alt": "Photographie d'un disque bleu cerclé de rouge, barré de deux obliques rouges qui se croisent, planté au bord d'une route sous un ciel dégagé.",
       "asset": "panneau-b6d-arret-interdit"
     },
     "notion": "stationnement/arret-vs-stationnement",
@@ -9382,7 +9382,7 @@
     "explanation": "La chaussée reste ouverte : c'est le sens qui est fermé, et elle s'emprunte par l'autre extrémité. Le panneau est planté face à ceux qui la remonteraient, et à eux seuls — il marque ce bout-là, jamais l'autre.",
     "id": "8a1026edb35c31c37ab6df7b29851ef2",
     "illustration": {
-      "alt": "Disque à fond rouge bordé d'un listel blanc, portant une large barre blanche horizontale et rien d'autre.",
+      "alt": "Photographie d'un disque rouge cerclé de blanc, barré d'une large bande blanche horizontale, fixé sur un poteau devant des branchages.",
       "asset": "panneau-b1-sens-interdit"
     },
     "notion": "panneaux/portee",
@@ -9415,7 +9415,7 @@
     "explanation": "L'interdiction vise tous les véhicules à moteur, sauf les deux-roues sans side-car : étroits, ils se dépassent sans aller chercher la voie d'en face. Attelé d'un side-car, le même deux-roues y retombe.",
     "id": "9e65525bbce6a6491d37bbf6f180c04c",
     "illustration": {
-      "alt": "Disque à fond blanc à couronne rouge, portant deux voitures vues de dos côte à côte, celle de gauche en avant.",
+      "alt": "Photographie d'un disque blanc cerclé de rouge, montrant deux voitures superposées en angle, plantée au bord d'une route de montagne.",
       "asset": "panneau-b3-interdiction-depasser"
     },
     "notion": "panneaux/portee",
