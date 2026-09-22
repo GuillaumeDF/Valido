@@ -79,16 +79,15 @@ Quatre arbitrages sont pris et ne se rouvrent pas dans cette passe.
    chantiers ferait réécrire 46 explications deux ou trois fois et rejouerait quatre fois
    la relecture anti-fuite à la main — celle qui a trouvé 44 fuites sur la branche
    précédente là où `relire.py` n'en avait trouvé aucune.
-3. **Le registre reste le dessin.** Aucune photographie nouvelle : ni sourcing Commons, ni
-   licence à porter, ni conformité au marquage français invérifiable sur vignette. La
-   géométrie continue de se relever sur l'IISR, et `Tools/Scenes/Panneaux.swift` reste le
-   seul endroit où un panneau se dessine.
+3. **Un panneau se photographie, un marquage et une configuration se dessinent.** C'est la
+   ligne de partage de la passe, et elle vaut pour la suite du dépôt (§4).
 4. **Aucun `id` ne se recalcule.** Soixante-et-un énoncés changent ; `id` vaut
    `sha256("valido-v2:" + prompt)[:32]` **au moment de la création**, pas après. La
    progression est indexée dessus.
 
-Reste ouvert, et tranché sur une mesure au §4 : si les seize panneaux déjà dessinés passent
-d'un cadrage isolé à un cadrage situé.
+Reste ouvert : combien des seize panneaux existants trouvent une photographie de
+résolution suffisante. Un panneau qui n'en trouve pas garde son dessin, et le rapport le
+nomme.
 
 ## 1. Le transfert : l'énoncé cède à l'image ce qu'elle porte
 
@@ -141,48 +140,62 @@ instances côte à côte, ou pas du tout.** `Panneaux.swift` les dessine déjà 
 scène ne coûte que son assemblage. Si les trois instances ne tiennent pas lisiblement dans
 la bande centrale, la carte reste en texte.
 
-## 4. Chantier 0 : le registre situé, sous mesure préalable
+## 4. Les panneaux passent en photographie
 
-Deux captures posent la même question — « pourquoi dessiner un panneau approximatif » sur
-le B21b isolé, « enfin une vraie illustration » sur la photo du giratoire. L'écart entre
-les deux n'est pas dessin contre photo : c'est **isolé contre situé**. La photo montre un
-panneau planté sur l'accotement d'une route qu'on voit arriver ; le dessin montre un disque
-sur un fond uni.
+Le défaut que la capture #10 nomme se localise précisément : **le contour des panneaux est
+relevé sur l'IISR, leur intérieur est fait à l'œil.** Le disque, le triangle, le listel et
+la largeur de couronne sont normés ; la flèche du B21b est une aiguille à tête minuscule là
+où la vraie est large et trapue, le piéton de l'A13b un bonhomme bâton à tête ronde, les
+deux voitures du B3 des blocs sans roue ni pare-brise, et le bleu un cyan plutôt que le bleu
+réglementaire. Trois fonctions de `Panneaux.swift` concentrent l'essentiel —
+`silhouettePieton`, `silhouetteVoiture`, `silhouetteVelo` — mais les flèches et les teintes
+dérivent partout.
 
-**Ce cadrage isolé est une décision documentée, pas un oubli.** Le commentaire d'ouverture
-de `ScenesPanneaux.swift` la porte et la motive : « le panneau est le sujet, seul sur le
-fond neutre. Un décor de route ne survivrait pas au recadrage et entrerait en concurrence
-avec le liseré, le listel et le pictogramme, qui sont précisément ce qu'il faut lire. »
-L'objection est physique : au verdict, le bandeau tombe à 18 % et seule une bande d'environ
-110 unités autour du centre vertical survit.
+**La ligne de partage, et elle vaut au-delà de cette passe : un panneau se photographie, un
+marquage et une configuration se dessinent.** Un panneau porte un pictogramme normalisé
+qu'aucun redessin à la main n'atteint, et c'est exactement là que le dessin dérive. Un
+marquage est de la géométrie — largeur, modulation, inclinaison — que le dessin rend
+exactement, et que `marquage-zebra` a d'ailleurs corrigée contre la planche officielle. Une
+configuration de voies n'existe sur aucune photographie.
 
-Elle ne se contourne pas à l'argument. Elle se mesure.
+**Faisabilité vérifiée avant d'écrire ceci.** Commons tient une catégorie par numéro de
+panneau — `Category:<code> (road sign, France)` — et les seize existent : 76 fichiers pour
+le B3, 98 pour l'A13b, 1 451 pour le B14. On y trouve des prises de vue de face où le
+panneau est le sujet, certaines en domaine public, les autres en CC BY-SA — la classe de
+licence que `images.md` déclare déjà diffusable avec attribution.
 
-**Étape de mesure, avant toute migration.** Dessiner `scenePanneauEnSituation` et rendre le
-seul `panneau-b21b-tout-droit` dans les deux cadrages. Le panneau y occupe la bande
-centrale ; le ciel et la chaussée sont les bandes qui se font recadrer. Puis relever, sur
-les PNG @2x et @3x, en clair et en sombre :
+**Le tri se fait sur la résolution, pas sur l'existence.** Le meilleur gros plan d'A13b
+trouvé fait 480 × 640 ; un bandeau @3x réclame environ 1 100 px de large après recadrage
+4:3. C'est ce critère qui décidera combien des seize passent.
 
-- la hauteur du panneau en unités, isolé et situé ;
-- ce qui reste visible dans la bande de 110 unités, donc au verdict ;
-- l'écart de luminance entre le liseré et son fond, dans les deux cadrages — la
-  concurrence que le commentaire annonce se lit là, ou nulle part.
+Protocole, par panneau :
 
-**Critère de décision, écrit avant la mesure :** le situé est adopté si le panneau perd au
-plus 15 % de sa hauteur et si l'écart de luminance liseré/fond ne perd pas plus de 10
-points. Sinon le cadrage isolé est conservé, le commentaire de `ScenesPanneaux.swift` est
-confirmé plutôt que réécrit, et les captures qui le visaient reçoivent pour réponse la
-mesure.
+1. ouvrir `Category:<code> (road sign, France)` ;
+2. retenir une photographie de face, panneau sujet principal, **au moins 1 100 px sur le
+   grand côté du recadrage 4:3** ;
+3. relever licence et auteur ; refuser tout ce qui n'est ni domaine public ni CC ;
+4. recadrer en 4:3 centré sur le panneau, sortir @2x et @3x en JPEG qualité 82, comme les
+   deux photographies déjà livrées ;
+5. **dériver la variante sombre** par `sips` à exposition réduite, pour que la discipline
+   clair/sombre du catalogue tienne. La photo du giratoire, seule photographie livrée
+   aujourd'hui, n'en a pas : elle sert le même JPEG dans les deux modes, et c'est une
+   exception qu'on ne reconduit pas ;
+6. mesurer les niveaux de gris, dans les deux modes, avant commit ;
+7. écrire la ligne dans `images.md` — asset, source, auteur, licence, date de relevé,
+   résolution d'origine.
 
-Si le situé est adopté, il s'applique aux **seize** scènes de panneau existantes
-(treize dans `ScenesPanneaux.swift`, trois dans `ScenesCirculation.swift`) autant qu'aux
-nouvelles : deux registres coexistants seraient exactement le défaut que
-[`Tools/images.md`](../../../Tools/images.md) nomme à propos des deux lignes jaunes — un
-registre visuel qui finit corrélé à une réponse. Coût : 64 PNG regénérés, les niveaux de
-gris remesurés, seize `alt` réécrits, les lignes de `images.md` mises à jour.
+Un panneau sans photographie de résolution suffisante **garde son dessin**. Le rapport le
+nomme, avec la meilleure résolution trouvée.
 
-Les quatre scènes de marquage (`marquage-ligne-mixte`, `-fleches-rabattement`, `-zebra`,
-`-damier-detresse`) ne sont pas concernées : elles portent déjà une chaussée.
+**Ce qui reste dessiné, et pourquoi ce n'est pas le défaut que `images.md` redoute.** Les
+panneaux plantés dans les scènes composites (`carrefour-stop`, `carrefour-route-prioritaire`,
+`carrefour-cedez-le-passage`, les scènes de vitesse) restent en CoreGraphics : on ne
+compose pas une photographie dans une vue de dessus. Le risque nommé à propos des deux
+lignes jaunes — un registre visuel corrélé à une réponse — ne mord pas ici, parce que le
+registre suivra le **type de carte** et non la réponse : photographie pour « reconnaître ce
+panneau », dessin pour « qui passe en premier ». Savoir qu'on est devant une question de
+reconnaissance ne livre aucune bonne réponse. À vérifier tout de même domaine par domaine,
+comme le §7 l'impose.
 
 ## 5. Les gloses
 
@@ -222,8 +235,10 @@ Arrêt & stationnement (4), Usagers & partage (4), Tunnels & passages (4),
 Distances & freinage (2), Mécanique & environnement (1), Permis & sanctions (1).
 
 Panneaux & marquage passe en premier : il porte quatre des treize captures, les trois
-cartes illustrables sans dessin, et c'est lui qui valide ou casse le §4 avant que les dix
-autres domaines en dépendent.
+cartes illustrables sans rien dessiner, et c'est sur lui que le protocole photographique du
+§4 se rode — sourcing, recadrage, variante sombre, relevé — avant que les dix autres
+domaines en dépendent. Treize des seize panneaux déjà dessinés y sont portés ; les trois
+autres (`b14`, `b30`, `b33`) viennent avec le domaine `Vitesse`.
 
 Chaque domaine est une unité complète — image, glose, longueur et raison sur chacune de ses
 cartes, en une seule écriture — et se clôt sur :
@@ -240,9 +255,12 @@ cartes, en une seule écriture — et se clôt sur :
 ## 8. Le livrable
 
 - `Valido/Resources/questions.json` — jusqu'à 61 cartes modifiées, aucun `id` touché ;
-- `Tools/Scenes/` — `scenePanneauEnSituation` si le §4 l'adopte, plus les scènes neuves ;
-- `Valido/Assets.xcassets/Scenes/` — les imagesets correspondants, quatre PNG chacun ;
-- `Tools/images.md` — une ligne par asset neuf, et les descriptions revues si le §4 passe ;
+- `Tools/Scenes/` — les scènes neuves de marquage et de configuration ; `Panneaux.swift`
+  ne gagne aucun panneau nouveau ;
+- `Valido/Assets.xcassets/Scenes/` — imagesets dessinés (quatre PNG) et photographiques
+  (quatre JPEG, clair et sombre en @2x/@3x) ;
+- `Tools/images.md` — une ligne par asset neuf ; la section « Photographies » gagne une
+  colonne de résolution d'origine et devient la plus fournie du fichier ;
 - `Tools/sources.md` — la ligne d'une carte dont l'affirmation change ; un énoncé raccourci
   sans changement d'affirmation ne touche pas au registre ;
 - `Tools/questions.md` — la règle de glose (§5) et la règle de famille (§3) ;
@@ -262,7 +280,9 @@ cartes, en une seule écriture — et se clôt sur :
   `leBudgetDeHauteurDesQuestionsIllustréesEstTenu`.
 - Aucun `id` de `questions.json` n'a changé : diff des seuls `id` vide.
 - Chaque asset neuf a sa ligne dans `images.md` et son relevé de niveaux de gris dans le
-  rapport.
+  rapport, **variante sombre comprise**.
+- Chaque photographie retenue porte auteur, licence et résolution d'origine ; aucune n'est
+  sous licence non libre.
 - Les 64 tests passent, `✔ Test run with N test(s)` lu et reporté.
 - Le rapport nomme chaque carte écartée du chantier par le garde-fou du §2.
 
@@ -283,9 +303,19 @@ cartes, en une seule écriture — et se clôt sur :
 garde-fou du §2 est sa seule protection : en cas de doute, la carte reste en texte. Une
 carte illustrée mais amputée est pire que la carte d'aujourd'hui.
 
-**Le registre situé se corrèle à une réponse.** Traité par le tout-ou-rien du §4 : soit les
-seize existantes migrent, soit aucune ne migre. En plus, vérifier par domaine qu'aucune
-paire de cartes à réponse opposée ne se distingue par son registre visuel.
+**Deux registres cohabitent : photographie sur les cartes de panneau, dessin partout
+ailleurs.** Argumenté au §4 — le registre suivra le type de carte, pas la réponse. La
+vérification reste due, domaine par domaine : aucune paire de cartes à réponse opposée ne
+doit se distinguer par son registre.
+
+**La résolution disponible sur Commons décide du périmètre réel.** Le nombre de panneaux
+qui passent en photographie n'est pas connu avant le tri ; celui qui n'en trouve pas garde
+son dessin, et l'app portera donc des panneaux des deux sortes. C'est le prix de la
+fidélité, et il se constate carte par carte plutôt qu'il ne se décide à l'avance.
+
+**Le mode sombre d'une photographie est dérivé, pas photographié.** Baisser l'exposition
+déplace tous les niveaux de gris : le contrôle d'accessibilité se refait sur la variante
+sombre, pas seulement sur la claire.
 
 **Une carte de famille illustrée par trois instances enseigne les trois instances.** Le
 §3 le borne à la lisibilité ; si les trois signaux deviennent la question, la carte
