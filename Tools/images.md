@@ -834,7 +834,7 @@ très près — voir le rapport de tâche 3A-3 pour le recadrage retenu.
 `panneau-ab7-fin-priorite` est une exception mesurée, pas un oubli : son sommet droit touche
 un talus broussailleux en plein soleil, presque aussi clair que le listel à contre-jour à cet
 endroit précis (14,7 clair / 9,1 sombre, sous le plancher de 25 en sombre), quand les trois
-autres sommets et le pictogramme passent tous largement (29,8 à 92 en sombre). Cinq sources
+autres sommets et le pictogramme passent tous largement (29,8 à 69,5 en sombre). Cinq sources
 Commons de repli ont été essayées (Douvaine, Brugheas, Bernin ×2, Marcigny) et chacune portait
 un défaut au moins aussi grave — panonceau collé, balise de chantier, mât à cinq panneaux,
 prise de vue en contre-plongée — donc celle-ci est restée, en connaissance de cause (rapport
