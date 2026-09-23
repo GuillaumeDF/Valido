@@ -56,16 +56,19 @@ restent des schémas CoreGraphics.
   Doivent rester **absents de la sortie** : `schema/`, `couverture/`, `source/`, `fuite/`,
   `image/`, `longueur/plus-10`, `forme/backtick-isole`, `notions/non-declaree`,
   `notions/sans-fondation`, `notions/carte-orpheline`.
-- **Après `./Tools/render-scenes.sh`, ne commiter que les imagesets de sa propre tâche.**
-  Mesuré le 2026-09-22 sur un arbre propre : le script est **déterministe**, il ne salit
-  rien. Trois implémenteurs ont pourtant vu une quarantaine de PNG ressortir modifiés en
-  cours de tâche, et leurs verdicts se contredisent — l'un les a trouvés identiques au
-  pixel, l'autre non. Aucun de ces fichiers n'a atteint un commit, et c'est la seule chose
-  qui compte : **tout imageset qui n'est pas celui de la tâche se rend**, quel que soit le
-  verdict pixel, par `git checkout --` sur les fichiers **modifiés** (`git diff
-  --name-status | grep '^M'`, jamais `--name-only`, qui ressusciterait aussi les PNG que la
-  tâche vient légitimement de supprimer). Un PNG qui reste modifié après ça mérite qu'on
-  regarde pourquoi, pas qu'on l'écrase.
+- **`./Tools/render-scenes.sh` ne tourne pas sans `DEVELOPER_DIR` sur cette machine.** Il
+  vise par défaut `/Applications/Xcode-26.3.0.app`, qui n'est pas installé : `swiftc` échoue,
+  `set -e` sort en code 1, et **rien n'est rendu**. Le lancer toujours par
+  `DEVELOPER_DIR=/Applications/Xcode-27.0.0.app ./Tools/render-scenes.sh`, et **vérifier le
+  code de retour**. Une contrainte antérieure de ce plan affirmait le script « déterministe,
+  il ne salit rien » : elle reposait sur un rendu qui n'avait pas eu lieu, la sortie d'erreur
+  ayant été jetée. Elle est retirée.
+
+  Les PNG livrés avant ce chantier ont été rendus sous Xcode 26.3 ; sous Xcode 27, certaines
+  scènes ressortent différentes — courbes et texte surtout, jusqu'à 198 sur 255 sur
+  `rond-point-insertion`. Tout imageset que la tâche ne vise pas et qui ressort modifié se
+  rend par `git checkout --` sur les fichiers **modifiés** (`git diff --name-status | grep
+  '^M'`, jamais `--name-only`).
 - **Le simulateur se démarre à la main**, et on vise l'UDID, jamais le nom :
 
   ```bash
