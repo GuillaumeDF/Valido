@@ -702,8 +702,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Elle sépare deux sens qui pourraient se croiser : l'article R412-19 interdit donc le franchissement comme le chevauchement, et ne réserve qu'une exception, le chevauchement pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé.",
+    "explanation": "Elle sépare deux sens qui pourraient se croiser : l'article R412-19 interdit le franchissement et le chevauchement, sauf pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé.",
     "id": "37fe1af42b8d8141b1d0e3ca0b855119",
+    "illustration": {
+      "alt": "Chaussée à double sens bordée de deux lignes continues ; au centre, une troisième continue sépare les deux sens.",
+      "asset": "marquage-ligne-continue-axiale"
+    },
     "notion": "marquage/lignes",
     "options": [
       {
@@ -723,7 +727,7 @@
         "text": "Peut être franchie pour dépasser un véhicule lent"
       }
     ],
-    "prompt": "Une ligne continue au centre de la chaussée :",
+    "prompt": "Ce marquage :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
@@ -2822,28 +2826,32 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Elle sépare les deux sens sans les cloisonner : la voie d'en face reste disponible, à condition qu'elle soit libre et le reste assez longtemps. Plus les traits s'allongent et se rapprochent, plus un danger ou une continue approche.",
+    "explanation": "Elle sépare les deux sens sans les cloisonner : la voie d'en face reste disponible, si elle est libre assez longtemps. Plus les traits s'allongent et se rapprochent, plus une continue approche.",
     "id": "37fe1af42b8d81f8a2f3f8bd2afc9d2d",
+    "illustration": {
+      "alt": "Chaussée à double sens ; dans l'axe, de courts traits blancs séparés par de longs intervalles.",
+      "asset": "marquage-ligne-discontinue-axiale"
+    },
     "notion": "marquage/lignes",
     "options": [
       {
         "id": "A",
-        "text": "Autorise le franchissement pour dépasser ou changer de voie"
+        "text": "Autorise à dépasser ou à changer de voie"
       },
       {
         "id": "B",
-        "text": "Signale un arrêt obligatoire au prochain carrefour rencontré"
+        "text": "Signale une intersection proche, sans interdire"
       },
       {
         "id": "C",
-        "text": "Interdit tout stationnement le long de cette chaussée"
+        "text": "Délimite un couloir réservé aux bus"
       },
       {
         "id": "D",
-        "text": "Interdit le dépassement sur toute cette portion"
+        "text": "Interdit tout arrêt le long de cette portion"
       }
     ],
-    "prompt": "Une ligne discontinue (axiale) :",
+    "prompt": "Cette ligne :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
@@ -7520,8 +7528,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "C'est la ligne de rive : elle marque la limite de la chaussée, pas une voie de circulation. Sur autoroute, l'espace qu'elle borde est la bande d'arrêt d'urgence, où l'on ne s'arrête que par nécessité ; ailleurs, c'est l'accotement.",
+    "explanation": "C'est la ligne de rive : elle marque la limite de la chaussée, pas une voie de circulation. Sur autoroute, l'espace qu'elle borde est la bande d'arrêt d'urgence ; ailleurs, c'est l'accotement.",
     "id": "5a4e6a38ad3e1153f807ec5e0e6ba40e",
+    "illustration": {
+      "alt": "Chaussée à double sens, axe continu ; le long du bord droit, une ligne discontinue à traits rapprochés remplace le trait continu.",
+      "asset": "marquage-ligne-discontinue-rive"
+    },
     "notion": "marquage/lignes",
     "options": [
       {
@@ -7541,7 +7553,7 @@
         "text": "Un couloir réservé aux cycles"
       }
     ],
-    "prompt": "Une ligne discontinue tracée le long du bord de la chaussée délimite :",
+    "prompt": "Cette ligne délimite :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
@@ -13031,17 +13043,21 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "Un trait se lit comme une frontière : la question qu'il pose est de savoir si on le franchit. Une surface peinte pose l'autre question — celle de ce qu'on fait dedans. Elle est soustraite au trafic, roue posée ou véhicule immobile, et reste donc vide quand la file d'à côté est pleine : ce n'est pas de la chaussée perdue, c'est la marge où l'on se rabat et par où passent ceux qui viennent aider.",
+    "explanation": "Une surface peinte pose la question de l'occupation, pas du franchissement : interdite roue posée ou véhicule à l'arrêt. Elle reste vide si la file voisine est pleine — la marge où se rabattre, où passent les secours.",
     "id": "5f7e9145e72fe9c4830097af9e849196",
+    "illustration": {
+      "alt": "Chaussée à double sens ; au milieu, une bande à hachures obliques encadrée de deux continues, où un véhicule est arrêté.",
+      "asset": "marquage-zebra-vehicule-arrete"
+    },
     "notion": "marquage/zones",
     "options": [
       {
         "id": "A",
-        "text": "interdit d'en franchir le bord, l'intérieur restant libre"
+        "text": "interdit seulement d'en franchir le bord"
       },
       {
         "id": "B",
-        "text": "interdit d'y stationner, la circulation restant permise"
+        "text": "interdit le stationnement, pas la circulation"
       },
       {
         "id": "C",
@@ -13052,7 +13068,7 @@
         "text": "interdit de l'occuper, en roulant comme à l'arrêt"
       }
     ],
-    "prompt": "Une surface hachurée ou couverte de chevrons, et non un trait :",
+    "prompt": "Cette zone :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
