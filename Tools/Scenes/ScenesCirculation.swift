@@ -1480,6 +1480,12 @@ let scenesCirculation: [(String, Scene)] = [
     //     allumé. La question porte sur qui doit les allumer — le dernier de la file —, et la
     //     scène se garde d'y répondre : le véhicule du candidat n'est ni en tête ni en queue,
     //     il occupe la place centrale, comme n'importe lequel des trois qui l'encadrent.
+    //
+    //     Les quatre véhicules de décor portent le contour sombre déjà posé sur
+    //     `croisement-chaussee-etroite` (et, sans paramètre, sur `busVuDeDessus` et
+    //     `poidsLourdVuDeDessus`) : `tiers` (98,6 en clair) ne se sépare de `chaussee`
+    //     (74,3) que d'environ 25 points, une marge trop courte pour une caisse posée seule
+    //     sur la route. Le candidat garde son liseré habituel, déjà loin au-dessus du seuil.
     ("file-ralentie", { ctx, p in
         fond(ctx, p)
         chausseeVerticale(ctx, p)
@@ -1487,7 +1493,7 @@ let scenesCirculation: [(String, Scene)] = [
         let couleurs: [CGColor] = [p.autre, p.tiers, p.vous, p.autre, p.tiers]
         for (i, couleur) in couleurs.enumerated() {
             voiture(ctx, x: voieVous, y: 42 + Double(i) * 46, cap: .nord, couleur: couleur,
-                    liseree: i == 2, p)
+                    liseree: i == 2, contour: i == 2 ? nil : traitSombre, p)
         }
     }),
 ]

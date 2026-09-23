@@ -68,7 +68,7 @@ dessine une fois, pas une fois par scène.
 | `sortie-de-parking` | un accès privé identique, le candidat en sortant pour rejoindre la chaussée où circule un autre véhicule | maison, aucune source tierce |
 | `feu-jaune-fixe` | le **même** tricolore que `feu-jaune-clignotant`, lampe du milieu **allumée** et non clignotante | maison, aucune source tierce |
 | `carrefour-feu-jaune-cedez` | même croisement que `carrefour-feu-contre-panneau`, feu en **jaune clignotant** et un **Cédez le passage** à la place du STOP | maison, aucune source tierce |
-| `file-ralentie` | vue de dessus : cinq véhicules en file rapprochée, allure réduite, **aucun** feu de détresse allumé, le candidat en position centrale | maison, aucune source tierce |
+| `file-ralentie` | vue de dessus : cinq véhicules en file rapprochée, allure réduite, **aucun** feu de détresse allumé, le candidat en position centrale, les quatre autres au contour sombre | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
@@ -119,16 +119,56 @@ file ». La scène pose donc cinq véhicules en file — deux devant, deux derri
 candidat exactement au centre, à égalité de position avec n'importe lequel des trois qui
 l'encadrent : sa place dans la file ne dit rien de plus que « il y a une file ».
 
+**Fix round 1 — les deux véhicules `tiers` frôlaient le seuil.** Le rapport initial de cette
+tâche n'avait mesuré que le véhicule du candidat ; la revue a mesuré les quatre autres et
+trouvé, sur le rendu d'alors (sans contour), 25,46 points d'écart en clair entre `p.tiers`
+(232,89,78) et `p.chaussee` (92,93,98) sur les véhicules 2 et 5 — au-dessus du seuil de 25,
+mais de moins d'un demi-point, sur une caisse posée seule sur la route. `Tools/images.md`
+porte déjà ce constat exact pour `croisement-chaussee-etroite` (25,5 points, section « Les
+trois scènes de tunnel… », plus haut : « le constat qui avait déjà valu un contour au bus et
+au poids lourd de la tâche 15 »), et `voiture()` porte depuis cette tâche un paramètre
+`contour` prévu pour ce cas précis. Les quatre véhicules de décor de `file-ralentie` (`autre`
+×2, `tiers` ×2) reçoivent donc `contour: traitSombre` — le même mécanisme, appliqué sans en
+introduire un second ; le candidat garde son liseré habituel, déjà loin au-dessus du seuil
+sans aucun ajout.
+
+Un contour de 2 unités sur une caisse de 40 × 22 ne déplace pas la luminance moyenne d'une
+zone de mesure de 20 × 20 posée en son centre : la caisse `tiers` reste donc mesurée à 25,5
+en clair après comme avant l'ajout — le contour ne change rien à ce chiffre-là, il ajoute une
+**seconde** ligne de séparation, à 51,0 dans les deux modes (la même valeur fixe
+qu'à `croisement-chaussee-etroite`, indépendante de la teinte du véhicule qu'il cerne),
+vérifiée identique sur les véhicules 1 et 2. Contre la chaussée, ce contour mesure 42,1 points
+en clair et 24,1 en sombre — sous le seuil pris isolément en sombre, comme il l'était déjà
+dans le rapport de `croisement-chaussee-etroite` sans y avoir été signalé comme un défaut :
+ce n'est pas ce rapport-là qui porte la lecture, mais l'écart caisse/contour, 67,6 à 145,6
+points selon le véhicule et le mode (`tiers` en clair au plus bas, `autre` en sombre au plus
+haut) — une transition nette qu'aucune des deux teintes seules ne montrait.
+
+Seul `file-ralentie` a changé au rendu (`git status --porcelain -- Valido/Assets.xcassets`
+après `./Tools/render-scenes.sh`, `exit 0`) : ses quatre PNG, rien d'autre.
+
 **Relevés de luminance** (Rec. 709 sur les PNG `@3x` livrés) :
 
-| zone | clair | sombre | écart |
+| zone | clair | sombre | écart vs chaussée |
 |---|---:|---:|---:|
 | `feu-jaune-fixe` — lampe du milieu allumée | 205,6 | 215,5 | — |
 | `feu-jaune-fixe` — boîtier | 93,1 | 75,1 | **112,5 / 140,4** |
 | `carrefour-feu-jaune-cedez` — panneau (Cédez, fond blanc) | 255,0 | 245,3 | — |
 | `carrefour-feu-jaune-cedez` — chaussée | 93,1 | 75,1 | **161,9 / 170,2** |
-| `file-ralentie` — véhicule du candidat | 128,6 | 128,6 | — |
-| `file-ralentie` — chaussée | 93,1 | 75,1 | **35,5 / 53,5** |
+| `file-ralentie` — chaussée | 93,1 | 75,1 | — |
+| `file-ralentie` — véhicule 1 (`autre`), caisse | 180,0 | 196,6 | **86,9 / 121,5** |
+| `file-ralentie` — véhicule 2 (`tiers`), caisse | 118,6 | 154,1 | **25,5 / 79,0** |
+| `file-ralentie` — véhicule 3 (candidat, `vous`), caisse | 128,6 | 128,6 | **35,5 / 53,5** |
+| `file-ralentie` — véhicule 4 (`autre`), caisse | 180,0 | 196,6 | **86,9 / 121,5** |
+| `file-ralentie` — véhicule 5 (`tiers`), caisse | 118,6 | 154,1 | **25,5 / 79,0** |
+| `file-ralentie` — contour sombre (véhicules 1, 2, 4, 5 ; identique sur les quatre) | 51,0 | 51,0 | **42,1 / 24,1** |
+
+Les cinq véhicules sont dans l'ordre de la file (tête en 1, queue en 5) ; le candidat, en
+position 3, est le seul sans contour, avec son liseré habituel. Toutes les valeurs de caisse
+dépassent 25 points dans au moins un mode ; en clair, `tiers` reste à 25,5 sur la caisse
+seule (inchangé par le contour, qui ne touche pas le centre de la caisse), et c'est le
+contour qui lui ajoute une seconde séparation, lisible à 51,0 contre la caisse (67,6 en
+clair, 103,1 en sombre) comme contre la chaussée (42,1 / 24,1).
 
 Toutes les valeurs dépassent 25 points, dans les deux modes.
 
