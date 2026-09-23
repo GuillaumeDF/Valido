@@ -66,6 +66,9 @@ dessine une fois, pas une fois par scène.
 | `feu-jaune-fixe` | le **même** tricolore que `feu-jaune-clignotant`, lampe du milieu **allumée** et non clignotante | maison, aucune source tierce |
 | `carrefour-feu-jaune-cedez` | même croisement que `carrefour-feu-contre-panneau`, feu en **jaune clignotant** et un **Cédez le passage** à la place du STOP | maison, aucune source tierce |
 | `file-ralentie` | vue de dessus : cinq véhicules en file rapprochée, allure réduite, **aucun** feu de détresse allumé, le candidat en position centrale, les quatre autres au contour sombre | maison, aucune source tierce |
+| `route-double-sens` | vue de dessus : une voie par sens, séparées par un axe **discontinu T1** ; le candidat dans sa voie, aucun panneau | maison, aucune source tierce |
+| `route-deux-voies-par-sens` | la **même** voie de candidat, une seconde voie de son sens ajoutée à sa gauche (T1 les délimite), séparée d'une voie inverse unique par une **continue** | maison, aucune source tierce |
+| `route-chaussees-separees` | les deux voies du candidat inchangées, la voie inverse en gagne une seconde, les deux chaussées séparées par un **terre-plein central** bordé de continues | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
@@ -1359,6 +1362,91 @@ en moyenne (écart 169,6 / 104,9). Un arbre touche presque l'angle bas-gauche ar
 panneau mais ne le touche pas (vérifié à l'œil) ; le bas du panneau donne sur son propre
 poteau et sa ferrure de fixation, jamais mesurés comme un fond dans ce dossier — ni ici.
 Aucun défaut de luminance à documenter sur ce candidat.
+
+### Les trois types de route hors agglomération (tâche 6B, 2026-09-23)
+
+Trois fondations de `Vitesse` décrivaient en mots, sur 99 à 109 caractères, une
+configuration de chaussée dont la vitesse par défaut dépend entièrement : une voie par sens
+(`37fe1af42b8d817994d5f81863c7e6ae`, 80 km/h), deux voies dans le sens du candidat sans
+terre-plein (`f7370daabea929065f6b2586ca3eea91`, 90 km/h), deux chaussées séparées par un
+terre-plein central (`fed604fe7c4b8b3b96adc066a7902138`, 110 km/h). Aucune carte n'a été
+touchée par cette tâche — une tâche ultérieure les pose.
+
+**Une famille, une fonction.** `sceneRoute(_:)` (`Tools/Scenes/ScenesPanneaux.swift`), sur le
+modèle direct de `sceneLigne` : la configuration en paramètre, `ligneT1` et `ligneContinue`
+réutilisées telles quelles, aucun corps de scène recopié. Échelle et largeur de voie : celles
+de `depassement-ligne-discontinue` (`ScenesCirculation.swift`) — 16 unités par mètre, voie de
+56 unités pour 3,50 m.
+
+**Ce que l'IISR a fourni.** Art. 113-1, B (modulation T1, « 3 m de trait, 10 m
+d'intervalle ») et art. 113-2 (« Ligne axiale ou de délimitation de voie en rase campagne » →
+T1), déjà relevés pour la tâche 3B-1 — le même T1 sert ici deux rôles distincts : axe séparant
+les deux sens dans la première scène, délimitation de voies du même sens dans les deux
+suivantes, posé au **même** `x` (`routeDroite - routeVoie`) dans les trois. Art. 114-4, B
+(« les lignes de délimitation de terre-plein central sont continues et de largeur 3u »),
+déjà relevé pour `autoroute-voie-de-gauche`, pour les deux continues qui bordent le
+terre-plein. **Ce que l'IISR ne fournit pas** : la largeur du terre-plein lui-même — une
+largeur de chaussée est un fait de conception routière, pas de signalisation — retenue à
+40 unités (2,5 m) pour rester lisible à cette échelle, sans prétendre relever une cote
+officielle. Aucune ligne de rive n'est dessinée : elle n'entre dans ce qu'aucune des trois
+cartes ne distingue, et en ajouter poserait une question de plus que l'énoncé ne pose pas —
+même raisonnement que l'axe absent de `croisement-chaussee-etroite`.
+
+**Comment la voie du candidat reste fixe.** Les trois configurations n'ont pas la même
+largeur de chaussée, donc pas le même cadrage possible à voiture et voie identiques partout.
+Le parti pris : la rive droite de la voie du candidat est une constante (`routeDroite = 328`),
+sa voie est toujours la voie la plus à droite, et la chaussée s'étend vers la **gauche** à
+mesure que la configuration se charge — jusqu'à deux voies de plus et un terre-plein pour la
+troisième. Tout ce qui est à droite de cette rive (la voie du candidat, sa voiture, le
+`sol` au-delà) est donc identique dans les trois scènes, pixel pour pixel ; c'est la chaussée,
+à gauche, qui varie et qui porte seule la différence de configuration.
+
+**La boîte de différence, vérifiée par différence pixel à pixel des PNG `@3x`** (identique
+dans les deux modes) :
+
+| paire | boîte des différences (px) | boîte (unités de scène) |
+|---|---|---|
+| `route-double-sens` / `route-deux-voies-par-sens` | `(480, 0)` → `(656, 900)` | `(160, 0)` → `(≈219, 300)` |
+| `route-deux-voies-par-sens` / `route-chaussees-separees` | `(192, 0)` → `(656, 900)` | `(64, 0)` → `(≈219, 300)` |
+| `route-double-sens` / `route-chaussees-separees` | `(192, 0)` → `(653, 900)` | `(64, 0)` → `(≈218, 300)` |
+
+Aucune des trois boîtes ne dépasse x ≈ 219 unités de scène (657 px), soit le bord droit de la
+ligne T1 commune aux trois (posée à x = 272, large de 5, donc jusqu'à x = 274,5 — la boîte
+s'arrête bien avant, à la continue ou au bord du terre-plein selon la paire, jamais à cette
+ligne partagée). Tout ce qui est à droite — la voie du candidat, la ligne T1 qui la borde à
+gauche, sa voiture, et le `sol` au-delà de la rive droite — est donc bit pour bit identique
+dans les trois scènes ; seule la chaussée à gauche de cette ligne, qui est précisément ce que
+les trois configurations distinguent, diffère.
+
+**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `Y = 0,2126 R + 0,7152 G +
+0,0722 B`), coordonnées en unités de scène (le pixel lu est 3× celles-ci) :
+
+| zone | x, y | clair | sombre |
+|---|---|---:|---:|
+| T1, au plein | 272, 7 | 255,0 | 234,3 |
+| T1, au vide (= chaussée) | 272, 40 | 93,1 | 75,1 |
+| chaussée témoin (voie du candidat) | 300, 250 | 93,1 | 75,1 |
+| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 |
+| terre-plein (`route-chaussees-separees` seule) | 196, 100 | 139,1 | 115,3 |
+| chaussée contre le terre-plein | 244, 100 | 93,1 | 75,1 |
+
+Le marquage se détache de la chaussée de **161,9 / 159,2** points (clair/sombre) — la même
+paire que sur toutes les scènes de marquage du dossier, puisque c'est la même chaussée et le
+même blanc. Le véhicule du candidat se détache de la chaussée de **35,5 / 53,5** points.
+
+**Le terre-plein, et pourquoi `ilot` ne convient pas.** Un premier essai posait le
+terre-plein en `p.ilot` — la couleur déjà réservée au terre-plein de
+`autoroute-voie-de-gauche` — et mesurait 219,0 en clair mais seulement **69,2 en sombre**,
+contre 75,1 pour la chaussée : un écart de 5,9 points, un ressaut invisible. C'est
+exactement le défaut déjà relevé sur `bordure` (`Repere.swift`) quand elle a remplacé `ilot`
+pour les scènes de stationnement (« en mode sombre elle mesure 54 en niveaux de gris contre
+58 pour la chaussée ») — et la solution est la même : `p.bordure`, qui se sépare de la
+chaussée de **46,0 / 40,2** points dans les deux modes (139,1 / 115,3 contre 93,1 / 75,1).
+Aucune couleur n'a été ajoutée à `Palette` ; c'est aussi la couleur la plus indiquée pour ce
+que le brief demande explicitement — que le terre-plein se distingue par sa luminance et non
+par une teinte verte.
+
+Toutes les valeurs dépassent 25 points, dans les deux modes.
 
 ## Ajouter une image
 

@@ -190,6 +190,105 @@ private func zoneChevrons(_ ctx: CGContext, _ p: Palette) {
     ctx.restoreGState()
 }
 
+// MARK: - Les trois types de route hors agglomération (tâche 6B)
+//
+// Trois fondations de `Vitesse` décrivent en mots une configuration de chaussée dont la
+// vitesse par défaut hors agglomération dépend entièrement : une voie par sens, deux voies
+// dans le sens du candidat sans terre-plein, ou deux chaussées séparées par un terre-plein
+// central. Ce qui les distingue est la chaussée et rien d'autre — même raisonnement que
+// `sceneLigne` plus haut pour les trois lignes de la tâche 3B-1 : une seule fonction, la
+// configuration en paramètre, `ligneT1` et `ligneContinue` réutilisées telles quelles.
+//
+// **La voie du candidat, sa voiture et tout ce qui est à sa droite restent au même point
+// dans les trois.** C'est elle qui reste fixe, à droite ; la chaussée s'étend vers la
+// gauche à mesure que la configuration se charge, jusqu'à deux voies de plus et un
+// terre-plein pour la troisième. Aucun panneau : la carte demande la limite par défaut, un
+// panneau y répondrait déjà.
+//
+// Échelle et largeur de voie : celles de `depassement-ligne-discontinue`
+// (`ScenesCirculation.swift`) — 16 unités par mètre, voie de 56 unités pour 3,50 m. Le T1,
+// posé au même `x` (`routeDroite - routeVoie`) dans les trois scènes, y joue deux rôles :
+// délimitation de voies du même sens (art. 114-2, C) dans les deux dernières, axe séparant
+// les deux sens (art. 114, en rase campagne) dans la première — la même modulation pour un
+// rôle différent, exactement ce que `ligneAxialeT1` de `ScenesCirculation.swift` fait déjà en
+// partageant son cycle avec `ligneT1` d'ici. Le terre-plein central est bordé de continues
+// des deux côtés, « de largeur 3u » (art. 114-4, B, déjà relevé pour
+// `autoroute-voie-de-gauche`) ; sa largeur elle-même — 40 unités, 2,5 m — n'est cotée par
+// aucun texte de signalisation, une largeur de chaussée étant un fait de conception routière
+// et non de l'IISR : retenue pour rester lisible à cette échelle. Aucune ligne de rive :
+// elle n'entre dans ce qu'aucune des trois cartes ne distingue, et en ajouter poserait une
+// question de plus que l'énoncé ne pose pas — même raisonnement que l'axe absent de
+// `croisement-chaussee-etroite`.
+
+private let routeVoie = 56.0
+/// Rive droite de la voie du candidat : fixe dans les trois scènes.
+private let routeDroite = 328.0
+private let routeTerrePlein = 40.0
+private let routeY = cy + 4.0
+
+private enum ConfigurationDeRoute { case uneVoieParSens, deuxVoiesParSens, chausseesSeparees }
+
+/// Le véhicule du candidat, à l'échelle de cette famille (16 unités par mètre) : même
+/// procédé que `voitureAgrandie` de `ScenesCirculation.swift`, dans un fichier différent — on
+/// agrandit le repère plutôt que d'ajouter une seconde géométrie de caisse.
+private func voitureRoute(_ ctx: CGContext, x: Double, y: Double, _ p: Palette) {
+    ctx.saveGState()
+    ctx.translateBy(x: x, y: y)
+    ctx.scaleBy(x: 1.25, y: 1.25)
+    voiture(ctx, x: 0, y: 0, cap: .nord, couleur: p.vous, liseree: true, p)
+    ctx.restoreGState()
+}
+
+private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
+    { ctx, p in
+        fond(ctx, p)
+        func poserVoie(_ gauche: Double) {
+            ctx.setFillColor(p.chaussee)
+            ctx.fill(CGRect(x: gauche, y: 0, width: routeVoie, height: H))
+        }
+        let voieCandidat = routeDroite - routeVoie
+        poserVoie(voieCandidat)
+
+        switch configuration {
+        case .uneVoieParSens:
+            poserVoie(voieCandidat - routeVoie)
+            ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
+
+        case .deuxVoiesParSens:
+            let secondeVoie = voieCandidat - routeVoie
+            poserVoie(secondeVoie)
+            poserVoie(secondeVoie - routeVoie)
+            ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
+            ligneContinue(ctx, x: secondeVoie, de: 0, a: H, largeur: 5, p)
+
+        case .chausseesSeparees:
+            let secondeVoie = voieCandidat - routeVoie
+            poserVoie(secondeVoie)
+            ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
+            let terrePleinDroite = secondeVoie
+            let terrePleinGauche = terrePleinDroite - routeTerrePlein
+            // `ilot`, déjà réservé au terre-plein de `autoroute-voie-de-gauche`, ne se
+            // sépare de `chaussee` que de 5,9 points en niveaux de gris en mode sombre
+            // (mesuré avant ce choix) — un ressaut invisible, le même défaut que celui
+            // relevé sur `bordure` (`Repere.swift`) quand elle a remplacé `ilot` pour les
+            // scènes de stationnement. `bordure` est prise ici pour la même raison : plus
+            // de 40 points de la chaussée dans les deux modes, et c'est elle qui porte déjà
+            // la mention « pas par le vert » ci-dessus.
+            ctx.setFillColor(p.bordure)
+            ctx.fill(CGRect(x: terrePleinGauche, y: 0,
+                            width: terrePleinDroite - terrePleinGauche, height: H))
+            ligneContinue(ctx, x: terrePleinDroite, de: 0, a: H, largeur: 3, p)
+            ligneContinue(ctx, x: terrePleinGauche, de: 0, a: H, largeur: 3, p)
+            let opposeeVoie1 = terrePleinGauche - routeVoie
+            poserVoie(opposeeVoie1)
+            ligneT1(ctx, x: opposeeVoie1, de: 0, a: H, largeur: 5, p)
+            poserVoie(opposeeVoie1 - routeVoie)
+        }
+
+        voitureRoute(ctx, x: voieCandidat + routeVoie / 2, y: routeY, p)
+    }
+}
+
 // MARK: - Les scènes
 
 let scenesPanneaux: [(String, Scene)] = [
@@ -385,4 +484,23 @@ let scenesPanneaux: [(String, Scene)] = [
         zoneChevrons(ctx, p)
         voiture(ctx, x: cx, y: cy, cap: .nord, couleur: p.vous, liseree: true, p)
     }),
+
+    // MARK: Route hors agglomération (tâche 6B)
+
+    // 22. Une voie par sens, séparées par une seule ligne axiale discontinue T1 (art. 114,
+    //     en rase campagne) : la route ordinaire, sans terre-plein ni seconde voie. 80 km/h
+    //     par défaut, la limite qui s'applique dès qu'aucune des deux autres configurations
+    //     n'est réunie.
+    ("route-double-sens", sceneRoute(.uneVoieParSens)),
+
+    // 23. La voie du candidat inchangée, une seconde voie de son sens ajoutée à sa gauche
+    //     (T1 la délimite, au même endroit que l'axe de la scène précédente), et une
+    //     continue sépare le tout de la voie inverse — restée unique : 90 km/h, sans
+    //     terre-plein.
+    ("route-deux-voies-par-sens", sceneRoute(.deuxVoiesParSens)),
+
+    // 24. Les deux voies du candidat de la scène précédente inchangées, mais la voie
+    //     inverse en gagne une seconde et les deux chaussées se séparent par un terre-plein
+    //     central bordé de continues des deux côtés (art. 114-4, B) : 110 km/h.
+    ("route-chaussees-separees", sceneRoute(.chausseesSeparees)),
 ]
