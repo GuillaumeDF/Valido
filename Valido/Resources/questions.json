@@ -2370,7 +2370,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "L'AB6 signale une route à caractère prioritaire sur cet axe, pas sur toute la zone : la priorité à droite cesse d'y jouer aux intersections traversées.",
+    "explanation": "L'AB6 rend une route prioritaire sur cet axe, pas sur toute la zone : la priorité à droite cesse d'y jouer aux intersections traversées.",
     "id": "37fe1af42b8d81d6aef7ff0b8d193d7f",
     "illustration": {
       "alt": "Panneau losange : cadre blanc à bordure noire, centre entièrement jaune uni, sans chiffre ni pictogramme, posé seul en bord de route.",
