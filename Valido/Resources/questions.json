@@ -8655,7 +8655,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Le losange jaune (AB6) désigne une route à caractère prioritaire sur cet axe, pas toute la zone : la priorité à droite y cesse aux intersections traversées. Même carrefour que sans le panneau, réponse inverse.",
+    "explanation": "Le losange jaune (AB6) rend la route prioritaire sur cet axe, pour ne pas l'interrompre à chaque carrefour secondaire : la priorité à droite y cesse aux intersections traversées. Sans lui, réponse inverse.",
     "id": "8e9464777a61dba3859e3ecc08f7327d",
     "illustration": {
       "alt": "Croisement à quatre branches ; un losange jaune sur fond blanc est planté à votre droite, sur votre voie d'approche, et un véhicule arrive de la voie transversale à votre droite.",
@@ -8688,7 +8688,7 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Le STOP impose l'immobilisation complète, à la ligne et non au niveau du poteau, même quand rien n'arrive. C'est exactement ce qui le sépare du cédez-le-passage, où seule la priorité est due.",
+    "explanation": "Le STOP impose l'immobilisation complète, à la ligne et non au niveau du poteau, même quand rien n'arrive : personne n'a à en décider seul. C'est ce qui le sépare du cédez-le-passage, où seule la priorité est due.",
     "id": "43dc08f7c9ebc00497a4022e24319683",
     "illustration": {
       "alt": "Croisement à quatre branches ; un panneau STOP et une ligne d'arrêt continue barrent votre voie d'approche, et un véhicule arrive de votre gauche.",
