@@ -39,6 +39,10 @@ dessine une fois, pas une fois par scène.
 | `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà ; le candidat démarre dans la voie qui se termine, pas déjà dans celle désignée | maison, aucune source tierce |
 | `marquage-zebra` | zone non circulable en chevrons au milieu de la chaussée, encadrée de deux continues | maison, aucune source tierce |
 | `marquage-damier-detresse` | damier rouge et blanc d'une voie de détresse, à droite de la chaussée | maison, aucune source tierce |
+| `marquage-ligne-continue-axiale` | chaussée à double sens, **une continue** dans l'axe, rien d'autre | maison, aucune source tierce |
+| `marquage-ligne-discontinue-axiale` | la **même** chaussée, la même vue, axe en **discontinue T1** | maison, aucune source tierce |
+| `marquage-ligne-discontinue-rive` | la **même** chaussée, la même vue, axe continu, et une **discontinue T2** le long de la rive droite délimitant l'accotement | maison, aucune source tierce |
+| `marquage-zebra-vehicule-arrete` | la zone de chevrons de `marquage-zebra`, avec un véhicule **arrêté dessus** | maison, aucune source tierce |
 | `feu-jaune-clignotant` | signal tricolore seul, la lampe du **milieu** allumée et cerclée de traits de clignotement | maison, aucune source tierce |
 | `feu-fleche-clignotante` | tricolore à lampe du **haut** allumée, et un signal d'anticipation à flèche droite clignotante sur le même support | maison, aucune source tierce |
 | `passage-niveau-feu-rouge-clignotant` | voie ferrée en travers de la chaussée, signal d'arrêt R24 à lentille **unique** allumée et clignotante | maison, aucune source tierce |
@@ -778,6 +782,76 @@ porter — la place (avant) et le sens (dos à la route) — sont passés dans l
 question, qui n'est plus illustrée. Contrairement aux deux orphelins de la section précédente
 (`giratoire-sortie-clignotant`, `ligne-jaune-continue`), ce n'est pas un dessin correct en
 attente d'emploi : il ne resservira pas.
+
+### Quatre scènes de marquage : trois lignes, un zébra occupé (tâche 3B-1, 2026-09-23)
+
+Un marquage se dessine, il ne se photographie pas — c'est la ligne de partage de tout le
+chantier des illustrations (les seize panneaux remplacés par une photographie l'ont été
+pour la raison inverse : un pictogramme normé, qu'aucun redessin n'atteint). Ces quatre
+scènes portent de la géométrie — largeur, modulation, inclinaison — qu'un dessin rend
+exactement.
+
+**Les trois premières sont identiques au trait près**, exactement pour la raison exposée
+plus haut à propos de la paire de lignes jaunes : si deux cartes d'une même notion se
+distinguaient par autre chose que ce qu'elles enseignent — le cadrage, la largeur de voie,
+la position d'une voiture —, c'est cet écart-là qu'on apprendrait, pas la règle. Les trois
+partagent donc `sceneLigne` (`Tools/Scenes/ScenesPanneaux.swift`), qui pose la même
+`chausseeDeMarquage` et ne fait varier que le marquage nommé en paramètre. Vérifié par
+différence pixel à pixel des PNG @3x :
+
+| paire | boîte des différences |
+|---|---|
+| `marquage-ligne-continue-axiale` / `marquage-ligne-discontinue-axiale` | x ∈ [592, 608], une bande verticale centrée sur l'axe |
+| `marquage-ligne-continue-axiale` / `marquage-ligne-discontinue-rive` | x ∈ [879, 888], une bande verticale centrée sur la rive droite |
+
+Aucune des deux boîtes ne couvre autre chose qu'une bande étroite : les deux scènes ne
+diffèrent qu'au marquage nommé, dans les deux modes.
+
+**La norme (IISR, 7e partie).** L'art. 113-1, B donne la modulation de chaque type — table
+relevée mot pour mot : T1 « 3 m de trait, 10 m d'intervalle », rapport plein/vide 1/3 ; T2
+« 3 m de trait, 3,5 m d'intervalle », rapport 1. L'art. 113-2 dit quel marquage reçoit
+quel type : « Ligne axiale ou de délimitation de voie en rase campagne (articles 114, 114-1
+et 114-2) » → T1 ; « Ligne de rive de chaussée (art. 114-4, A) » → T2. Et l'art. 114-4, A
+tranche le cas de la troisième scène mot pour mot : « Sur route, la ligne de rive est de
+type T2 et de largeur 3u » — en section courante, hors autoroute. L'autoroute, elle, marque
+sa bande d'arrêt d'urgence en **T4** et non en T2 (art. 114-4, B, déjà relevé plus haut à
+propos de `autoroute-voie-de-gauche`) : les deux rives ne portent pas la même modulation,
+et c'est le type de route qui décide laquelle s'applique. `ligneT1` et `ligneT2` dessinent
+15 unités de trait pour respectivement 65 et 32,5 unités de cycle — 15/50 = 0,3 et
+15/17,5 = 0,857, les deux rapports de la table à l'échelle déjà utilisée par `ligneAxialeT1`
+de `ScenesCirculation.swift` (5 unités par mètre).
+
+**La quatrième**, `marquage-zebra-vehicule-arrete`, réutilise la zone de chevrons de
+`marquage-zebra` — extraite dans `zoneChevrons`, revérifié après extraction : le PNG livré
+de `marquage-zebra` n'a pas bougé d'un octet — mais remplace la circulation de part et
+d'autre par un véhicule arrêté dessus, l'occupation que la carte interroge. Aucun asset ne
+sert deux cartes.
+
+Relevé de luminance (Rec. 709 sur les PNG @3x livrés, `Y = 0,2126 R + 0,7152 G + 0,0722 B`),
+coordonnées en unités de scène (le pixel lu est 3× celles-ci) :
+
+| zone | x, y | clair | sombre |
+|---|---|---|---|
+| `marquage-ligne-continue-axiale` — marquage | 200, 150 | 255,0 | 234,3 |
+| `marquage-ligne-continue-axiale` — chaussée | 150, 150 | 93,1 | 75,1 |
+| `marquage-ligne-discontinue-axiale` — T1, au plein | 200, 7 | 255,0 | 234,3 |
+| `marquage-ligne-discontinue-axiale` — T1, au vide | 200, 170 | 93,1 | 75,1 |
+| `marquage-ligne-discontinue-rive` — T2, au plein | 294, 5 | 255,0 | 234,3 |
+| `marquage-ligne-discontinue-rive` — T2, au vide | 294, 22 | 93,1 | 75,1 |
+| `marquage-zebra-vehicule-arrete` — trait blanc de la zone | 195, 4 | 255,0 | 234,3 |
+| `marquage-zebra-vehicule-arrete` — fond sombre de la zone | 200, 0 | 93,1 | 75,1 |
+| `marquage-zebra-vehicule-arrete` — véhicule (caisse) | 196, 150 | 128,6 | 128,6 |
+
+Le marquage se détache de la chaussée de 161,9 points en clair et 159,2 en sombre sur les
+trois premières scènes — la même paire de valeurs partout, puisque c'est la même chaussée.
+Sur la quatrième, le véhicule se détache des **deux** composantes de la zone qu'il occupe :
+de 126,4 (clair) et 105,7 (sombre) points contre le trait blanc, de 35,5 (clair) et 53,5
+(sombre) contre le fond sombre entre les chevrons. Une moyenne mêlant les deux composantes
+sur un carré aurait pu, par construction, retomber près de la teinte du véhicule sans que
+rien ne soit illisible — c'est pour ça que les deux composantes sont mesurées séparément
+plutôt qu'en une seule zone moyennée. Aucune des quatre scènes ne repose sur une teinte
+seule : la polarité (marquage clair sur chaussée sombre, véhicule à mi-chemin des deux mais
+à plus de 25 points de chacune) est identique dans les deux modes.
 
 ## Photographies
 

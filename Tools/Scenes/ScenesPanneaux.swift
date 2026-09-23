@@ -79,20 +79,6 @@ private func ligneContinue(_ ctx: CGContext, x: Double, de y0: Double, a y1: Dou
     ctx.fill(CGRect(x: x - largeur / 2, y: y0, width: largeur, height: y1 - y0))
 }
 
-/// Une ligne discontinue de type T3 : « à forte prédominance des pleins sur les vides »
-/// (7e partie, art. 113, A), modulation 3 m de trait pour 1,33 m d'intervalle. C'est elle
-/// qui annonce une ligne continue, et c'est aussi elle qui double la continue dans une
-/// ligne mixte.
-private func ligneT3(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
-                     largeur: Double, _ p: Palette) {
-    ctx.setFillColor(p.marquage)
-    var y = y0
-    while y < y1 {
-        ctx.fill(CGRect(x: x - largeur / 2, y: y, width: largeur, height: min(15, y1 - y)))
-        y += 27
-    }
-}
-
 /// Une flèche de rabattement peinte au sol. Rien à voir avec la flèche d'intention des
 /// scènes de carrefour : celle-ci est une **marque**, donc blanche, large, et couchée dans
 /// l'axe avant de s'infléchir vers la voie à emprunter. C'est la même primitive `fleche`,
@@ -100,6 +86,108 @@ private func ligneT3(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
 private func flecheDeRabattement(_ ctx: CGContext, x: Double, y: Double, _ p: Palette) {
     fleche(ctx, [CGPoint(x: x - 11, y: y + 18), CGPoint(x: x - 11, y: y + 1),
                  CGPoint(x: x + 10, y: y - 20)], couleur: p.marquage, epaisseur: 8)
+}
+
+/// Une ligne discontinue générique : un trait de 15 unités, répété tous les `cycle`
+/// unités. T1, T2 et T3 ne sont que trois valeurs de ce paramètre — les regrouper met les
+/// trois cycles côte à côte, ce qu'on relit contre la table de l'IISR, plutôt que trois
+/// corps de boucle recopiés qui ne diffèrent que d'une constante.
+private func ligneModulee(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
+                          largeur: Double, cycle: Double, _ p: Palette) {
+    ctx.setFillColor(p.marquage)
+    var y = y0
+    while y < y1 {
+        ctx.fill(CGRect(x: x - largeur / 2, y: y, width: largeur, height: min(15, y1 - y)))
+        y += cycle
+    }
+}
+
+/// Une ligne discontinue de type T3 : « à forte prédominance des pleins sur les vides »
+/// (7e partie, art. 113, A), modulation 3 m de trait pour 1,33 m d'intervalle. C'est elle
+/// qui annonce une ligne continue, et c'est aussi elle qui double la continue dans une
+/// ligne mixte.
+private func ligneT3(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
+                     largeur: Double, _ p: Palette) {
+    ligneModulee(ctx, x: x, de: y0, a: y1, largeur: largeur, cycle: 27, p)
+}
+
+/// Une ligne discontinue de type T1 : « 3 m de trait, 10 m d'intervalle », rapport
+/// plein/vide 1/3 (7e partie, art. 113-1, B) — la modulation de l'axe en rase campagne,
+/// hors point singulier (art. 113-2 ; art. 114, 114-1, 114-2). Les vides dominent, à
+/// l'inverse d'une T3 comme celle de `marquage-fleches-rabattement`, qui annonce une
+/// continue. Même cycle que `ligneAxialeT1` de `ScenesCirculation.swift` (15 et 65
+/// unités) : deux fichiers, la même norme.
+private func ligneT1(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
+                     largeur: Double, _ p: Palette) {
+    ligneModulee(ctx, x: x, de: y0, a: y1, largeur: largeur, cycle: 65, p)
+}
+
+/// Une ligne discontinue de type T2 : « 3 m de trait, 3,5 m d'intervalle » (7e partie,
+/// art. 113-1, B) — la modulation de la ligne de rive en section courante sur route, hors
+/// autoroute : « Sur route, la ligne de rive est de type T2 et de largeur 3u » (art. 114-4,
+/// A). L'autoroute marque sa bande d'arrêt d'urgence en T4, pas en T2 — voir
+/// `autoroute-voie-de-gauche` dans `images.md`. À la même échelle que `ligneT1` ci-dessus
+/// (5 unités par mètre), 3 m et 3,5 m valent 15 et 17,5 unités.
+private func ligneT2(_ ctx: CGContext, x: Double, de y0: Double, a y1: Double,
+                     largeur: Double, _ p: Palette) {
+    ligneModulee(ctx, x: x, de: y0, a: y1, largeur: largeur, cycle: 32.5, p)
+}
+
+/// Le marquage qui distingue les trois scènes de ligne ci-dessous : seul ce paramètre
+/// change d'une scène à l'autre, tout le reste — chaussée, cadrage, absence de véhicule —
+/// est partagé par `sceneLigne`. Cf. `images.md`, « La paire de lignes jaunes » : deux
+/// cartes d'une même notion qui se distinguent par autre chose que ce qu'elles enseignent
+/// font apprendre l'écart, pas la règle.
+private enum MarquageDeLigne { case continueAxiale, discontinueAxialeT1, discontinueRiveT2 }
+
+private func sceneLigne(_ marquage: MarquageDeLigne) -> Scene {
+    { ctx, p in
+        chausseeDeMarquage(ctx, p)
+        switch marquage {
+        case .continueAxiale:
+            ligneContinue(ctx, x: cx, de: 0, a: H, largeur: 5, p)
+        case .discontinueAxialeT1:
+            ligneT1(ctx, x: cx, de: 0, a: H, largeur: 5, p)
+        case .discontinueRiveT2:
+            ligneContinue(ctx, x: cx, de: 0, a: H, largeur: 5, p)
+            // La rive droite de `chausseeDeMarquage` est continue par défaut : on l'efface
+            // à la couleur de la chaussée avant d'y poser la T2, seul endroit où cette
+            // scène diffère des deux précédentes.
+            let riveDroite = bordDroitChaussee - 7 + 1.5
+            ctx.setFillColor(p.chaussee)
+            ctx.fill(CGRect(x: riveDroite - 1.5, y: 0, width: 3, height: H))
+            ligneT2(ctx, x: riveDroite, de: 0, a: H, largeur: 3, p)
+        }
+    }
+}
+
+/// La zone de chevrons, sans véhicule : partagée par les deux scènes qui la montrent, celle
+/// où l'on circule de part et d'autre et celle où un véhicule s'y arrête — c'est cette
+/// occupation-là que la seconde interroge, la zone qui la porte doit donc être la même.
+private func zoneChevrons(_ ctx: CGContext, _ p: Palette) {
+    chausseeDeMarquage(ctx, p)
+    let gauche = cx - 26.0, droite = cx + 26.0
+    ligneContinue(ctx, x: gauche, de: 0, a: H, largeur: 6, p)
+    ligneContinue(ctx, x: droite, de: 0, a: H, largeur: 6, p)
+    ctx.saveGState()
+    ctx.clip(to: CGRect(x: gauche + 5, y: 0, width: droite - gauche - 10, height: H))
+    ctx.setStrokeColor(p.marquage)
+    ctx.setLineWidth(4)
+    ctx.setLineCap(.butt)
+    var y = -60.0
+    while y < H + 120 {
+        ctx.beginPath()
+        ctx.move(to: CGPoint(x: gauche, y: y))
+        // Chaque bras : 26 unités en travers pour 52 dans l'axe — la même pente 2 pour 1
+        // que l'ancienne ligne unique, appliquée séparément à chaque moitié pour que les
+        // deux sens reçoivent chacun l'inclinaison qui les ramène vers leur propre axe, au
+        // lieu d'une seule pente valable pour un seul des deux (art. 117-2, A, 7e partie).
+        ctx.addLine(to: CGPoint(x: cx, y: y - 52))
+        ctx.addLine(to: CGPoint(x: droite, y: y))
+        ctx.strokePath()
+        y += 26
+    }
+    ctx.restoreGState()
 }
 
 // MARK: - Les scènes
@@ -226,29 +314,7 @@ let scenesPanneaux: [(String, Scene)] = [
     //     chevron est symétrique par rapport à l'axe de la zone (la bissectrice de
     //     l'article), une moitié par sens, chacune à la pente 2 pour 1 de la norme.
     ("marquage-zebra", { ctx, p in
-        chausseeDeMarquage(ctx, p)
-        let gauche = cx - 26.0, droite = cx + 26.0
-        ligneContinue(ctx, x: gauche, de: 0, a: H, largeur: 6, p)
-        ligneContinue(ctx, x: droite, de: 0, a: H, largeur: 6, p)
-        ctx.saveGState()
-        ctx.clip(to: CGRect(x: gauche + 5, y: 0, width: droite - gauche - 10, height: H))
-        ctx.setStrokeColor(p.marquage)
-        ctx.setLineWidth(4)
-        ctx.setLineCap(.butt)
-        var y = -60.0
-        while y < H + 120 {
-            ctx.beginPath()
-            ctx.move(to: CGPoint(x: gauche, y: y))
-            // Chaque bras : 26 unités en travers pour 52 dans l'axe — la même pente
-            // 2 pour 1 que l'ancienne ligne unique, appliquée séparément à chaque moitié
-            // pour que les deux sens reçoivent chacun l'inclinaison qui les ramène vers
-            // leur propre axe, au lieu d'une seule pente valable pour un seul des deux.
-            ctx.addLine(to: CGPoint(x: cx, y: y - 52))
-            ctx.addLine(to: CGPoint(x: droite, y: y))
-            ctx.strokePath()
-            y += 26
-        }
-        ctx.restoreGState()
+        zoneChevrons(ctx, p)
         voiture(ctx, x: voieDenFaceMarquage, y: cy - 26, cap: .sud, couleur: p.autre, p)
         voiture(ctx, x: voieVousMarquage, y: cy + 26, cap: .nord, couleur: p.vous,
                 liseree: true, p)
@@ -287,5 +353,36 @@ let scenesPanneaux: [(String, Scene)] = [
             }
         }
         voiture(ctx, x: 200, y: cy + 24, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 18-20. Une même chaussée, une même vue, trois marquages : c'est la paire de lignes
+    //        jaunes (voir `images.md`) élargie à trois — si deux cartes d'une même notion
+    //        se distinguaient par autre chose que le marquage, c'est cet écart-là qu'on
+    //        apprendrait, pas la règle. `sceneLigne` porte donc les trois à la fois ; seul
+    //        le paramètre change.
+
+    // 18. Continue seule dans l'axe : « Ligne axiale ou de délimitation des voies »,
+    //     continue, 2u (7e partie, art. 113-2, A.1). Aucun véhicule — la carte se limite
+    //     au trait, sans qu'une manœuvre vienne s'y ajouter.
+    ("marquage-ligne-continue-axiale", sceneLigne(.continueAxiale)),
+
+    // 19. La même chaussée, la même vue : seul l'axe passe en discontinue T1 (art. 113-2,
+    //     A.2 ; modulation à l'art. 113-1, B).
+    ("marquage-ligne-discontinue-axiale", sceneLigne(.discontinueAxialeT1)),
+
+    // 20. La même chaussée, la même vue : l'axe reste continu, et c'est la rive droite qui
+    //     passe en discontinue T2 — « Sur route, la ligne de rive est de type T2 et de
+    //     largeur 3u » en section courante (art. 114-4, A). Delimite l'accotement, pas un
+    //     sens de circulation : le candidat qui lirait ce trait comme un axe se tromperait
+    //     de question.
+    ("marquage-ligne-discontinue-rive", sceneLigne(.discontinueRiveT2)),
+
+    // 21. La zone de chevrons de la scène 16, avec un véhicule arrêté dessus au lieu de la
+    //     circulation de part et d'autre : c'est cette occupation-là que la carte interroge,
+    //     pas la géométrie du marquage, déjà posée par `marquage-zebra`. Asset distinct :
+    //     aucun des deux ne sert les deux cartes.
+    ("marquage-zebra-vehicule-arrete", { ctx, p in
+        zoneChevrons(ctx, p)
+        voiture(ctx, x: cx, y: cy, cap: .nord, couleur: p.vous, liseree: true, p)
     }),
 ]
