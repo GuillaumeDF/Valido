@@ -611,7 +611,7 @@
         "text": "Vous engager sans ralentir, en gardant votre file"
       }
     ],
-    "prompt": "À l'approche d'un carrefour à sens giratoire (« vous n'avez pas la priorité »), vous devez :",
+    "prompt": "À l'approche d'un carrefour à sens giratoire, vous devez :",
     "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -1596,7 +1596,7 @@
         "text": "Est prioritaire hors agglomération, jamais en ville"
       }
     ],
-    "prompt": "Un véhicule prioritaire (pompiers, SAMU) en intervention avec sirène et gyrophare :",
+    "prompt": "Un véhicule prioritaire en intervention avec sirène et gyrophare :",
     "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -1604,7 +1604,7 @@
   {
     "correctID": "C",
     "difficulty": "costaud",
-    "explanation": "Le losange jaune vous dispensait des règles ordinaires sur tout un itinéraire ; barré, il vous y remet dès l'intersection suivante — le plus souvent la priorité à droite.",
+    "explanation": "Le losange jaune vous dispensait des règles ordinaires sur tout un itinéraire ; barré, il annonce la fin de ce régime, pas ce qui le remplace — souvent la priorité à droite, mais un feu ou un panneau peut trancher autrement à cette intersection.",
     "id": "37fe1af42b8d8184beb9c6687c92ffb5",
     "notion": "priorite/regimes",
     "options": [
@@ -2126,7 +2126,7 @@
         "text": "De marquer un arrêt complet, puis de céder"
       }
     ],
-    "prompt": "Le panneau STOP (octogone rouge) impose :",
+    "prompt": "Le panneau STOP impose :",
     "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
