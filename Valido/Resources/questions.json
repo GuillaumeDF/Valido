@@ -1316,6 +1316,10 @@
     "difficulty": "moyen",
     "explanation": "80 km/h par défaut : sans séparateur central, un choc frontal reste possible, d'où la marge. Certains départements ont rétabli 90 km/h sur certaines sections : se fier aux panneaux plutôt qu'à la règle générale.",
     "id": "37fe1af42b8d817994d5f81863c7e6ae",
+    "illustration": {
+      "alt": "Vue de dessus : une voie dans chaque sens, séparées par une ligne blanche discontinue et sans aucun terre-plein ; en face, un véhicule roule vers vous, dans l'autre sens de circulation.",
+      "asset": "route-double-sens"
+    },
     "notion": "vitesse/limites-par-route",
     "options": [
       {
@@ -1335,7 +1339,7 @@
         "text": "90 km/h"
       }
     ],
-    "prompt": "Hors agglomération, sur une route à double sens sans séparateur central, la vitesse est limitée à :",
+    "prompt": "Hors agglomération, sur cette route, la vitesse est limitée à :",
     "role": "fondation",
     "subject": "code",
     "topic": "Vitesse"
@@ -7200,8 +7204,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "C'est le terre-plein central, et non le nombre de voies ni la largeur de la chaussée, qui autorise les 110 km/h : il supprime le risque de choc frontal. Sans lui, la vitesse dépend d'un autre critère — le nombre de voies affectées à votre sens.",
+    "explanation": "C'est le terre-plein central, et non le nombre de voies, qui autorise les 110 km/h : il supprime le risque de choc frontal. Sans lui, la vitesse dépend du nombre de voies affectées à votre sens.",
     "id": "fed604fe7c4b8b3b96adc066a7902138",
+    "illustration": {
+      "alt": "Vue de dessus : vos deux voies, puis un terre-plein central gris qui sépare complètement la chaussée opposée, où un véhicule roule vers vous dans la voie la plus à gauche.",
+      "asset": "route-chaussees-separees"
+    },
     "notion": "vitesse/limites-par-route",
     "options": [
       {
@@ -7221,7 +7229,7 @@
         "text": "130 km/h, comme sur autoroute"
       }
     ],
-    "prompt": "Hors agglomération, sur une route à chaussées séparées par un terre-plein central, la vitesse est limitée à :",
+    "prompt": "Hors agglomération, sur cette route, la vitesse est limitée à :",
     "role": "fondation",
     "subject": "code",
     "topic": "Vitesse"
@@ -8956,7 +8964,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Le carré rend la prescription zonale, pour ralentir tout un quartier : elle vaut dans les rues sécantes jusqu'au panneau qui la termine. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
+    "explanation": "Le rectangle rend la prescription zonale, pour ralentir tout un quartier : elle vaut dans les rues sécantes jusqu'au panneau qui la termine. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
     "id": "ed0e45e08fb4f47007934da587b5757c",
     "illustration": {
       "alt": "Photographie d'un rectangle blanc, plus haut que large, bordé de rouge : ZONE en haut, un disque à liseré rouge portant 30 en dessous, seul sur son poteau contre un ciel bleu et un arbre.",
@@ -9018,8 +9026,12 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90. Le terre-plein central, lui, ouvre les 110 ; sous la pluie, ces deux valeurs retombent respectivement à 80 et à 100.",
+    "explanation": "C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90 ; sous la pluie, ces deux valeurs retombent respectivement à 80 et à 100.",
     "id": "f7370daabea929065f6b2586ca3eea91",
+    "illustration": {
+      "alt": "Vue de dessus : votre voie et une seconde voie dans votre sens, séparées par une ligne discontinue ; une ligne continue interdit tout dépassement vers l'unique voie d'en face, où un véhicule vient vers vous.",
+      "asset": "route-deux-voies-par-sens"
+    },
     "notion": "vitesse/limites-par-route",
     "options": [
       {
@@ -9039,7 +9051,7 @@
         "text": "110 km/h"
       }
     ],
-    "prompt": "Hors agglomération, sur une chaussée à deux voies dans votre sens sans terre-plein central, la limite est :",
+    "prompt": "Hors agglomération, sur cette chaussée, la vitesse est limitée à :",
     "role": "fondation",
     "subject": "code",
     "topic": "Vitesse"
