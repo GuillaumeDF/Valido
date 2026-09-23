@@ -975,8 +975,12 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "Le feu est réglé pour la situation du moment, le panneau pour la configuration permanente : c'est le plus récent des deux qui l'emporte. Seul le jaune clignotant fait exception : il n'attribue lui-même aucune priorité et laisse justement les panneaux trancher.",
+    "explanation": "Le feu règle la situation du moment, le panneau la configuration permanente : le plus récent des deux l'emporte. Seule exception, le jaune clignotant, qui n'attribue aucune priorité et laisse les panneaux trancher.",
     "id": "37fe1af42b8d815f8684e4cc91d6950f",
+    "illustration": {
+      "alt": "Carrefour vu de dessus : sur votre approche, une lanterne tricolore plus loin a sa lampe du bas allumée — la position du vert — et un STOP est planté juste avant le croisement.",
+      "asset": "carrefour-feu-contre-panneau"
+    },
     "notion": "signalisation/hierarchie",
     "options": [
       {
@@ -996,7 +1000,7 @@
         "text": "La priorité à droite, à défaut"
       }
     ],
-    "prompt": "Un feu de circulation et un panneau de priorité se contredisent. Lequel suivez-vous ?",
+    "prompt": "Un feu et un panneau se contredisent. Lequel suivez-vous ?",
     "role": "application",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -1006,6 +1010,10 @@
     "difficulty": "moyen",
     "explanation": "Le triangle impose de céder le passage, pas de s'arrêter : l'arrêt n'est qu'un moyen, dû seulement si un véhicule approche. Contrairement au STOP, s'arrêter sans que personne n'arrive n'a ici aucune utilité légale.",
     "id": "37fe1af42b8d8161be32fe2fe9808fff",
+    "illustration": {
+      "alt": "Triangle à large bordure rouge, pointe vers le bas, intérieur blanc uni sans texte ni pictogramme, posé seul en bord de route.",
+      "asset": "panneau-ab3a-cedez-le-passage"
+    },
     "notion": "panneaux/formes",
     "options": [
       {
@@ -1025,7 +1033,7 @@
         "text": "D'accélérer pour dégager l'intersection"
       }
     ],
-    "prompt": "Le panneau « Cédez le passage » (triangle pointe en bas) impose :",
+    "prompt": "Ce panneau impose :",
     "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -2362,8 +2370,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le losange jaune (AB6) signale une route à caractère prioritaire sur cet axe, pas sur toute la zone : la priorité à droite cesse d'y jouer aux intersections traversées.",
+    "explanation": "L'AB6 signale une route à caractère prioritaire sur cet axe, pas sur toute la zone : la priorité à droite cesse d'y jouer aux intersections traversées.",
     "id": "37fe1af42b8d81d6aef7ff0b8d193d7f",
+    "illustration": {
+      "alt": "Panneau losange : cadre blanc à bordure noire, centre entièrement jaune uni, sans chiffre ni pictogramme, posé seul en bord de route.",
+      "asset": "panneau-ab6-route-prioritaire"
+    },
     "notion": "priorite/regimes",
     "options": [
       {
@@ -2383,7 +2395,7 @@
         "text": "Un danger sur la section qui suit"
       }
     ],
-    "prompt": "Le panneau losange jaune indique :",
+    "prompt": "Ce panneau indique :",
     "role": "fondation",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -2894,6 +2906,10 @@
     "difficulty": "facile",
     "explanation": "Le texte protège la traversée de la voie ferrée elle-même, intersection ou non : un tramway ne peut ni s'écarter ni s'arrêter court, sauf signalisation contraire.",
     "id": "37fe1af42b8d81fa9debeaf114b7bf77",
+    "illustration": {
+      "alt": "Chaussée à double sens croisée par des rails, sans aucune rue perpendiculaire ; un tramway rouge arrive de la gauche sur la voie ferrée.",
+      "asset": "tramway-hors-intersection"
+    },
     "notion": "priorite/cas-particuliers",
     "options": [
       {
@@ -2902,15 +2918,15 @@
       },
       {
         "id": "B",
-        "text": "Vous êtes prioritaire, un véhicule guidé restant prévisible"
+        "text": "Vous êtes prioritaire, car il reste prévisible"
       },
       {
         "id": "C",
-        "text": "Il garde la priorité ; la règle ne s'arrête pas aux carrefours"
+        "text": "Il garde la priorité, même hors carrefour"
       },
       {
         "id": "D",
-        "text": "Aucune règle ne s'impose hors d'un carrefour réglementé par des feux"
+        "text": "Aucune règle ne joue hors d'un carrefour à feux"
       }
     ],
     "prompt": "Vous croisez une voie de tramway, hors intersection :",
@@ -7354,8 +7370,12 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "La priorité à droite ne joue qu'entre voies de même nature. Celui qui débouche d'un parking, d'une station-service, d'un chemin de terre ou d'une propriété privée s'insère : il cède le passage, quelle que soit sa position.",
+    "explanation": "La priorité à droite ne joue qu'entre voies de même nature. Celui qui débouche d'un parking, d'une station-service, d'un chemin de terre ou d'une propriété privée s'insère : il cède le passage, quel que soit son côté.",
     "id": "e0f68dd1324f9a5ffaab945a3d59e197",
+    "illustration": {
+      "alt": "Voie principale à double sens : un véhicule quitte un accès étroit sur la gauche pour s'y engager, pendant qu'un autre véhicule circule déjà sur cette voie.",
+      "asset": "sortie-de-parking"
+    },
     "notion": "priorite/cas-particuliers",
     "options": [
       {
@@ -7383,17 +7403,21 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "C'est le panonceau M12, créé par l'arrêté du 12 janvier 2012. Il ne dispense de rien : il autorise le cycliste à passer sans s'arrêter dans la direction indiquée par la flèche, à condition de céder le passage aux piétons et aux véhicules de la voie croisée.",
+    "explanation": "Ce panonceau (M12) ne dispense de rien : il autorise le cycliste à franchir le feu rouge sans s'arrêter, dans le sens de la flèche, à condition de céder le passage aux piétons et aux véhicules de la voie croisée.",
     "id": "b433eefe7ea3ce149e6d6dd09e958a00",
+    "illustration": {
+      "alt": "Petit triangle à bord rouge, pictogramme de vélo et flèche jaune vers la droite, fixé au-dessus d'un feu tricolore, sur un poteau en bord de rue.",
+      "asset": "panonceau-m12-cyclistes"
+    },
     "notion": "usagers/cyclistes",
     "options": [
       {
         "id": "A",
-        "text": "Tous les usagers à tourner à droite après un arrêt au feu rouge"
+        "text": "Tous les usagers à tourner à droite après un arrêt"
       },
       {
         "id": "B",
-        "text": "Les bus à franchir le feu rouge sans marquer l'arrêt"
+        "text": "Les bus à franchir le rouge sans marquer l'arrêt"
       },
       {
         "id": "C",
@@ -7401,10 +7425,10 @@
       },
       {
         "id": "D",
-        "text": "Les cyclistes à franchir le feu rouge en cédant le passage"
+        "text": "Cyclistes à franchir le rouge en cédant le passage"
       }
     ],
-    "prompt": "Un panonceau triangulaire à liseré rouge sous un feu tricolore autorise :",
+    "prompt": "Ce panonceau autorise :",
     "role": "application",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -7443,6 +7467,10 @@
     "difficulty": "costaud",
     "explanation": "Le clignotant annonce une intention, il ne crée aucun droit. Traverser la voie opposée est une manœuvre : elle s'effectue en laissant passer ceux qui vont tout droit, y compris les deux-roues qui remontent la file.",
     "id": "09f18973aee39386ee42782f04d03ec2",
+    "illustration": {
+      "alt": "Route à double sens : vous amorcez un virage à gauche vers un accès étroit, pendant qu'un véhicule vient en face sur la voie que vous devez traverser.",
+      "asset": "tourne-a-gauche-hors-intersection"
+    },
     "notion": "priorite/cas-particuliers",
     "options": [
       {
@@ -9172,8 +9200,12 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "Un rond-point n'est un carrefour à sens giratoire que si la signalisation le dit : le triangle à trois flèches et un cédez-le-passage à chaque entrée. Sans eux, l'article R415-10 ne s'applique pas et la priorité à droite reprend, au bénéfice de qui entre.",
+    "explanation": "Un rond-point n'est un carrefour à sens giratoire que si la signalisation le dit : triangle à trois flèches, cédez-le-passage à chaque entrée. Sinon, R415-10 ne s'applique pas : la priorité va à l'entrant.",
     "id": "2daf8939fc85f5b288010cf545bb681d",
+    "illustration": {
+      "alt": "Giratoire à quatre branches ; votre entrée ne porte ni triangle ni flèche, et un véhicule est déjà engagé sur l'anneau, arrivant de votre gauche.",
+      "asset": "giratoire-sans-panneau"
+    },
     "notion": "priorite/giratoire",
     "options": [
       {
@@ -9186,14 +9218,14 @@
       },
       {
         "id": "C",
-        "text": "à celui qui a le premier atteint la chaussée annulaire"
+        "text": "à celui qui a le premier atteint l'anneau"
       },
       {
         "id": "D",
         "text": "à droite, donc aux véhicules qui s'y engagent"
       }
     ],
-    "prompt": "À un rond-point qu'aucun panneau n'annonce, la priorité est :",
+    "prompt": "À un carrefour qu'aucun panneau ne signale, la priorité est :",
     "role": "application",
     "subject": "code",
     "topic": "Priorités & intersections"
