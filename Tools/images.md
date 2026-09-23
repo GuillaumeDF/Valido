@@ -1109,7 +1109,7 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panonceau-m12-cyclistes` | [Commons — Feux tricolores Avenue Pépinière Fontenay Bois 1](https://commons.wikimedia.org/wiki/File:Feux_tricolores_Avenue_P%C3%A9pini%C3%A8re_Fontenay_Bois_1.jpg) (2019-11-09) | Chabe01 | CC BY-SA 4.0 | 2026-09-23 | 3024 × 4032 |
 | `panneau-b14-limitation` | [Commons — Panneau B14 70 à Arenthon](https://commons.wikimedia.org/wiki/File:Panneau_B14_70_%C3%A0_Arenthon.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
 | `panneau-b33-fin-limitation` | [Commons — Panneau B33 70 D903 Scientrier](https://commons.wikimedia.org/wiki/File:Panneau_B33_70_D903_Scientrier.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
-| `panneau-b30-zone-30` | [Commons — Avenue de Thiers (Abrest), entrée de zone 30](https://commons.wikimedia.org/wiki/File:Avenue_de_Thiers_(Abrest)_-_Entr%C3%A9e_de_zone_30,_direction_Vichy_2024-08-11.JPG) (2024-08-11) | Tabl-trai | CC BY-SA 4.0 / GFDL 1.2+ | 2026-09-23 | 2976 × 1984 |
+| `panneau-b30-zone-30` | [Commons — Zone 30 près gare Moulins](https://commons.wikimedia.org/wiki/File:Zone_30_pr%C3%A8s_gare_Moulins_2015-08-26.JPG) (2015-08-26) | Tabl-trai | CC BY-SA 3.0 | 2026-09-23 | 2816 × 2112 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -1318,30 +1318,47 @@ en haut (157,6 / 97,1, écart 65,4 / 40,6 — le point le plus faible, une branc
 laisse filtrer un peu de ciel), bottes de foin en bas (47,6 / 29,0, écart 154,0 / 95,6).
 Tous passent le plancher de 25, dans les deux modes.
 
-**`panneau-b30-zone-30`** vient de [Commons — Avenue de Thiers (Abrest), entrée de zone 30](https://commons.wikimedia.org/wiki/File:Avenue_de_Thiers_(Abrest)_-_Entr%C3%A9e_de_zone_30,_direction_Vichy_2024-08-11.JPG)
-(Tabl-trai, CC BY-SA 4.0 / GFDL 1.2+, 2024-08-11, 2976 × 1984) : le panneau, monté sur un
-poteau de bois devant un buisson vert, avec son panonceau « PRIORITÉ PIÉTONS » resté dans
-le cadre (informatif, aucun chiffre). **Il est bien rectangulaire** — le défaut du dessin
-carré, noté plus haut, est levé. Un premier candidat, `Panneau zone 30 St-Lys.jpg` (Kuremu
-Sakura, CC BY-SA 4.0, 2019-10-28, 3000 × 4000), plus grand dans le cadre et tout aussi net,
-a été écarté après mesure : son rouge, plus terne (un panneau visiblement plus ancien,
-fond craquelé), tombe sous 25 points d'écart contre son fond sur la moitié basse du bord
-gauche (herbe, jusqu'à −15 à −28 selon le point), sur une bande du bord droit (grillage,
-27 à 43), et au-dessus comme en dessous (le panneau municipal collé au-dessus, l'herbe en
-dessous, 13 à 20) — un défaut sur les quatre côtés, dans les deux modes. Sur l'Abrest
-retenu, champ contre pictogramme (points) : 216,1 clair / 133,7 sombre contre 33,8 / 20,4.
-Listel contre le bois du poteau, à un point propre du grain : 95,8 / 60,0 contre 32,2 / 19,0
-(écart 63,6 / 41,0) — mais le grain du bois porte aussi des nœuds sombres, et l'un d'eux,
-touchant directement le listel, ne mesure que 5,0 / 7,8 (écart 27,2 clair, **11,2 sombre,
-sous le plancher**) : un défaut localisé, comme le sommet de `panneau-ab7-fin-priorite` ou
-le point de `panneau-ab3a-cedez-le-passage` plus haut, gardé en connaissance de cause. Le
-feuillage à droite est dappled (soleil et ombre mêlés comme sur `panonceau-m12-cyclistes`) :
-un point propre (33,1 / 17,5 contre 56,0 / 34,9) ne dégage que 22,9 clair / 17,4 sombre,
-**sous le plancher dans les deux modes** — le pire point trouvé sur ce flanc, à côté de
-points nettement plus favorables ailleurs sur le même feuillage. Gardé : les deux candidats
-mesurés ont chacun un défaut, celui-ci corrige la forme sans ambiguïté et son défaut de
-luminance est localisé (un nœud, une poche de feuillage), pas réparti sur tout un côté
-comme sur le St-Lys écarté.
+**`panneau-b30-zone-30`** vient de [Commons — Zone 30 près gare Moulins](https://commons.wikimedia.org/wiki/File:Zone_30_pr%C3%A8s_gare_Moulins_2015-08-26.JPG)
+(Tabl-trai, CC BY-SA 3.0, 2015-08-26, 2816 × 2112) : le panneau, seul sur son poteau, sans
+aucun panonceau, contre un ciel bleu et un arbre — un magasin flouté tout en bas du cadre
+n'est pas assez nette pour se lire. **Il est bien rectangulaire** — le défaut du dessin
+carré, noté plus haut, est levé.
+
+Deux candidats antérieurs ont été écartés, pour deux raisons différentes.
+
+`Panneau zone 30 St-Lys.jpg` (Kuremu Sakura, CC BY-SA 4.0, 2019-10-28, 3000 × 4000), plus
+grand dans le cadre et tout aussi net, a été écarté après mesure de luminance : son rouge,
+plus terne (un panneau visiblement plus ancien, fond craquelé), tombe sous 25 points
+d'écart contre son fond sur la moitié basse du bord gauche (herbe, jusqu'à −15 à −28 selon
+le point), sur une bande du bord droit (grillage, 27 à 43), et au-dessus comme en dessous
+(le panneau municipal collé au-dessus, l'herbe en dessous, 13 à 20) — un défaut sur les
+quatre côtés, dans les deux modes.
+
+`Avenue de Thiers (Abrest), entrée de zone 30, direction Vichy 2024-08-11.JPG` (Tabl-trai,
+CC BY-SA 4.0 / GFDL 1.2+, 2976 × 1984), retenu puis retiré en revue : la photographie
+montrait bien un B30 rectangulaire, net, avec de bonnes marges de luminance (champ contre
+pictogramme 216,1 / 33,8 clair ; listel contre un point propre du grain de son poteau en
+bois, écart 63,6 / 41,0), mais son panonceau « PRIORITÉ PIÉTONS » restait dans le cadre,
+lisible dans les deux modes, directement sous le panneau — **et ce texte est la
+distractrice B de cette carte** (« une aire piétonne où le piéton reste prioritaire »), au
+mot près l'inverse de ce que `cac0f9db162887802d4fb15ba97d768f` enseigne sur la même notion
+(la zone 30 ne donne **pas** la priorité au piéton — c'est justement ce qui la distingue
+d'une zone de rencontre). Un décor n'est exempt que si aucune option ne s'appuie dessus ; un
+panonceau est du texte, jamais neutre par défaut. Un recadrage excluant le panonceau a été
+essayé et abandonné : sur la source, le bord bas du panneau et le haut du panonceau ne sont
+séparés que de 6 à 10 px (montage sans jeu), et le premier pixel net de texte
+(« PRIORITÉ ») commence à peu près là où finit le liseré rouge — couper là aurait rogné le
+panneau lui-même, pas seulement le panonceau. Aucun fichier de ce candidat n'a été commité ;
+il a été retiré avant la clôture de la tâche 6A (fix round 1).
+
+Sur le Moulins retenu, listel contre ciel : 81,8 / 55,1 clair/sombre contre 154,5 / 95,3 à
+gauche (écart 72,7 / 40,2), 82,4 / 55,0 contre 152,5 / 93,8 à droite (écart 70,1 / 38,8),
+93,1 / 54,7 contre 136,5 / 83,9 en haut (écart 43,4 / 29,2 — le point le plus faible, encore
+1,17× le plancher en sombre). Champ contre pictogramme : 242,6 / 149,8 contre 73,0 / 44,9
+en moyenne (écart 169,6 / 104,9). Un arbre touche presque l'angle bas-gauche arrondi du
+panneau mais ne le touche pas (vérifié à l'œil) ; le bas du panneau donne sur son propre
+poteau et sa ferrure de fixation, jamais mesurés comme un fond dans ce dossier — ni ici.
+Aucun défaut de luminance à documenter sur ce candidat.
 
 ## Ajouter une image
 
