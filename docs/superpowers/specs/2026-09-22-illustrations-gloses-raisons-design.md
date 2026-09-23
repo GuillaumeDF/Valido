@@ -218,6 +218,15 @@ Protocole, par panneau :
 Un panneau sans photographie de résolution suffisante **garde son dessin**. Le rapport le
 nomme, avec la meilleure résolution trouvée.
 
+**Le plancher porte sur ce que la carte interroge, pas sur tout ce qui entre dans le cadre.**
+Une photographie de rue tient rarement un seul objet : un panonceau de distance, un second
+panneau sur le même mât, un signal plus loin. Ces objets-là sont du décor, et un décor dont
+l'`alt` ne parle pas et sur lequel aucune option ne repose n'a pas à passer le plancher — il
+n'a rien à porter. Ce qui est exigé, c'est que **l'objet de la question** se détache. La
+distinction se déclare : le rapport nomme ce qui, dans le cadre, est mesuré et ce qui est
+décor, et `images.md` porte le chiffre de tout objet qui reste sous le plancher, décor
+compris. Sans cette ligne, « c'était du décor » deviendrait l'excuse de toute mesure ratée.
+
 **Ce qui reste dessiné, et pourquoi ce n'est pas le défaut que `images.md` redoute.** Les
 panneaux plantés dans les scènes composites (`carrefour-stop`, `carrefour-route-prioritaire`,
 `carrefour-cedez-le-passage`, les scènes de vitesse) restent en CoreGraphics : on ne
