@@ -227,7 +227,11 @@ for q in QS:
         FORMES = {'rond', 'ronde', 'triangulaire', 'triangle', 'octogone', 'octogonal',
                   'losange', 'carre', 'carree', 'rectangulaire', 'lisere', 'listel',
                   'hachuree', 'hachurees', 'chevrons', 'pointe', 'disque'}
-        décrits = FORMES & words(q['prompt'], n=4)
+        # « rond-point » est un type de carrefour, pas une forme : sans ce retrait, le
+        # tiret fait éclater le composé et `words()` isole « rond » comme si l'énoncé
+        # décrivait un panneau rond. Retiré avant tokenisation ; un « rond » seul, hors
+        # composé, continue de compter.
+        décrits = FORMES & words(re.sub(r'\brond-points?\b', '', q['prompt'], flags=re.I), n=4)
         if décrits:
             flag('image/enonce-decrit-l-objet', q, sorted(décrits))
 
