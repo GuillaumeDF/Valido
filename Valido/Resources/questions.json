@@ -2939,6 +2939,10 @@
     "difficulty": "facile",
     "explanation": "L'article R412-31 impose de marquer l'arrêt devant le jaune fixe ; la seule exception est le conducteur qui, à l'allumage du feu, ne peut plus s'arrêter dans des conditions de sécurité suffisantes.",
     "id": "37fe1af42b8d81fc9bbbee0a1767bba6",
+    "illustration": {
+      "alt": "Un signal tricolore vu de face : seule la lampe du milieu est allumée, en continu et sans trait de clignotement ; les deux autres restent éteintes.",
+      "asset": "feu-jaune-fixe"
+    },
     "notion": "feux/signaux-tricolores",
     "options": [
       {
@@ -2958,7 +2962,7 @@
         "text": "Vous arrêter, sauf si l'arrêt est dangereux"
       }
     ],
-    "prompt": "Au feu jaune (orange) fixe, vous devez :",
+    "prompt": "Au feu jaune fixe, vous devez :",
     "role": "fondation",
     "subject": "code",
     "topic": "Feux"
@@ -9824,8 +9828,12 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place. Un panneau de priorité garde une valeur permanente, que les feux fonctionnent ou non, et c'est lui qui tranche avant la priorité à droite.",
+    "explanation": "Le jaune clignotant ne règle plus rien : il retombe au rang d'un feu éteint, et c'est le panneau, permanent, qui reprend la main. Un feu allumé, lui, règle la priorité lui-même — plus récent que le panneau qu'il couvre.",
     "id": "0ac1e53ac8978390a5725830ebcff433",
+    "illustration": {
+      "alt": "Carrefour vu de dessus : sur votre approche, une lanterne tricolore plus loin a sa lampe du milieu allumée et cerclée de traits de clignotement — la position du jaune — et un cédez-le-passage est planté juste avant le croisement.",
+      "asset": "carrefour-feu-jaune-cedez"
+    },
     "notion": "signalisation/hierarchie",
     "options": [
       {
@@ -9845,7 +9853,7 @@
         "text": "impose en plus un arrêt avant la ligne d'effet"
       }
     ],
-    "prompt": "À une intersection tenue par un feu jaune clignotant, un cédez-le-passage :",
+    "prompt": "Ce cédez-le-passage :",
     "role": "application",
     "subject": "code",
     "topic": "Feux"
@@ -9886,8 +9894,12 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "L'article R416-18 oblige à prévenir aux feux de détresse quand on roule momentanément à allure fortement réduite. En file ininterrompue, l'obligation ne pèse que sur le dernier : c'est lui que les suivants risquent de surprendre.",
+    "explanation": "L'article R416-18 impose les feux de détresse dès l'allure fortement réduite. En file ininterrompue, seul le dernier les allume : c'est lui que les suivants risquent de surprendre.",
     "id": "fc0333a5ae17dd22f31bbbe63d0e8824",
+    "illustration": {
+      "alt": "Vue de dessus : cinq véhicules se suivent de très près sur une même voie, vous au centre ; aucun n'a ses feux de détresse allumés.",
+      "asset": "file-ralentie"
+    },
     "notion": "feux/eclairage-vehicule",
     "options": [
       {
@@ -9907,7 +9919,7 @@
         "text": "à tout conducteur de la file, sans exception"
       }
     ],
-    "prompt": "Dans une file de véhicules à allure fortement réduite, les feux de détresse s'imposent :",
+    "prompt": "Dans cette file ralentie, les feux de détresse s'imposent :",
     "role": "application",
     "subject": "code",
     "topic": "Feux"
