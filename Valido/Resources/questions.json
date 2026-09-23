@@ -60,8 +60,12 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "La couronne rouge est la marque de la défense, et elle joue là où on la lit : ce qui est défendu l'est pour celui qui passe devant le panneau, il n'a rien à anticiper. Et « ici » n'est pas « au panneau seulement » : l'interdiction y commence, elle ne s'y arrête pas.",
+    "explanation": "La couronne rouge marque la défense, et elle joue où on la lit : l'interdiction vaut pour qui passe devant le panneau, sans rien à anticiper. Et elle ne s'arrête pas au panneau : elle commence là et continue au-delà.",
     "id": "37fe1af42b8d81059d80e8954b36ed7f",
+    "illustration": {
+      "alt": "Quatre panneaux ronds cerclés de rouge, plantés côte à côte : deux limitations de vitesse, une interdiction de dépasser pour les poids lourds, un arrêt et stationnement interdits à fond bleu.",
+      "asset": "panneaux-ronds-bord-rouge"
+    },
     "notion": "panneaux/formes",
     "options": [
       {
@@ -81,7 +85,7 @@
         "text": "Une obligation, à exécuter aussitôt"
       }
     ],
-    "prompt": "Un panneau rond à bord rouge indique :",
+    "prompt": "Ce type de panneau indique :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"
@@ -13014,13 +13018,17 @@
   {
     "correctID": "C",
     "difficulty": "facile",
-    "explanation": "Panneau et panonceau forment un ensemble indivisible : la plaque ne vaut rien seule, mais ce qu'elle ajoute — une distance, une étendue, un horaire, une catégorie d'usagers, la nature d'un danger — s'impose au même titre que le signal qu'elle complète. Elle se lit donc toujours avec lui, jamais à sa place, et on la trouve sous toutes les familles de panneaux.",
+    "explanation": "Panneau et panonceau forment un ensemble indivisible : seule, la plaque ne vaut rien, mais ce qu'elle ajoute — une distance, un horaire, une catégorie d'usagers — s'impose au même titre que le signal complété.",
     "id": "5abe2f7853853a6744f3a71425a0ba6e",
+    "illustration": {
+      "alt": "Sous un panneau de sens interdit, trois panonceaux rectangulaires empilés : une remorque, un attelage voiture-caravane, puis « 800m ».",
+      "asset": "panonceaux-b1-thonon"
+    },
     "notion": "panneaux/panonceaux",
     "options": [
       {
         "id": "A",
-        "text": "porte parfois une prescription propre, distincte du panneau"
+        "text": "porte parfois sa propre prescription"
       },
       {
         "id": "B",
@@ -13032,10 +13040,10 @@
       },
       {
         "id": "D",
-        "text": "renseigne à titre indicatif, sans rien d'obligatoire"
+        "text": "renseigne à titre indicatif, sans rien imposer"
       }
     ],
-    "prompt": "Le panonceau placé sous un panneau :",
+    "prompt": "Le panonceau :",
     "role": "fondation",
     "subject": "code",
     "topic": "Panneaux & marquage"

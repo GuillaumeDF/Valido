@@ -887,6 +887,8 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-ab7-fin-priorite` | [Commons — Annemasse AB7](https://commons.wikimedia.org/wiki/File:Annemasse_AB7.jpg) (2016-08-01) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3000 × 4000 |
 | `panneau-c1a-parking` | [Commons — Panneau C1a Parking Auberge St Cyr Menthon 1](https://commons.wikimedia.org/wiki/File:Panneau_C1a_Parking_Auberge_St_Cyr_Menthon_1.jpg) (2019-09-21) | Chabe01 | CC BY-SA 4.0 | 2026-09-22 | 5184 × 3456 |
 | `panneau-c113-voie-velo` | [Commons — D311 panneau C113](https://commons.wikimedia.org/wiki/File:D311_panneau_C113.jpg) (2019-08-03) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3384 × 2538 |
+| `panneaux-ronds-bord-rouge` | [Commons — A51 tunnel d'Uriol, panneaux B3a B6d M2 C111 M9z B14 B17 M4m](https://commons.wikimedia.org/wiki/File:A51_tunnel_d%27Uriol_panneaux_B3a_B6d_M2_C111_M9z_B14_B17_M4m.jpg) (2017-08-05) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
+| `panonceaux-b1-thonon` | [Commons — Panneau B1 avec panonceaux M4w M4x M1 (01)](https://commons.wikimedia.org/wiki/File:Panneau_B1_avec_panonceaux_M4w_M4x_M1_01.jpg) (2022-04-15) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 3000 × 4000 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -927,6 +929,48 @@ Ces quinze-là passeraient une diffusion telles quelles : CC BY-SA demande l'att
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.
+
+### Les cartes de famille : un mât qui en porte plusieurs (tâche 3B-2)
+
+« Un panneau rond à bord rouge indique : » ne s'illustre pas avec un seul panneau : la règle
+du [§7](questions.md#7-les-questions-illustrées) exige trois instances de la famille côte à
+côte, faute de quoi la carte enseignerait l'exemplaire plutôt que la famille. Six familles ont
+été cherchées ; deux ont trouvé leur photographie, les quatre autres restent en texte.
+
+**`panneaux-ronds-bord-rouge`** vient de l'entrée du tunnel d'Uriol (A51, Isère) : sur un même
+site, un panneau à 200 m, une limitation à 70, une limitation à 110, une interdiction de
+dépasser pour les poids lourds et un arrêt-et-stationnement-interdit (disque **bleu**, pas
+blanc) — cinq discs cerclés de rouge, cinq pictogrammes différents, la dernière démontrant que
+le liseré décide, pas la couleur du centre. Le panneau bleu carré « Tunnel d'Uriol » et son
+panonceau de distance, plantés entre les postes, restent dans le cadre : ils ne sont d'aucune
+famille de ce lot, leur forme carrée les distingue sans ambiguïté, et les exclure aurait
+demandé un recadrage impossible (les trois postes ne s'alignent pas à la même hauteur).
+Relevé de luminance sur trois des cinq (`70`, l'interdiction poids lourds, l'arrêt-interdit) :
+écart listel/feuillage ≥ 43 en clair et ≥ 28 en sombre à leur point le plus faible, largement
+au-dessus du plancher de 25. Le disque `110`, plus proche de la roche du tunnel et donc à
+l'ombre, ne passe pas ce plancher sur une partie de son pourtour (jusqu'à 7,5 en sombre) : il
+reste dans le cadre à titre de contexte, mais la carte ne s'appuie pas sur lui — c'est un
+défaut connu, comme celui de `panneau-ab7-fin-priorite` plus haut, gardé après comparaison
+plutôt que caché.
+
+**`panonceaux-b1-thonon`** montre un B1 (chemin du Genevray, Thonon-les-Bains) portant trois
+panonceaux empilés — une remorque, un attelage voiture-caravane, une distance « 800m » — contre
+une haie de thuyas. Trois photographies du même mât ont été comparées (deux cadrages serrés sur
+le seul B1, un troisième montrant aussi un poteau voisin à deux disques rouges) ; la retenue est
+celle où les trois panonceaux sont les plus nets et où le B1 recadré laisse le moins de ciel
+autour du panonceau du haut, qui reste le point faible : son bord touche un ciel clair sur environ
+la moitié de sa hauteur, sous le plancher de 25 en sombre (7,5 au pire point), quand les deux
+panonceaux du bas, contre la haie, dépassent tous deux 45 dans les deux modes. Le cadre métallique
+de chaque panonceau, visible en gris, reste un repère de forme indépendant de la teinte.
+
+**Les quatre familles restées en texte, et ce qui a été cherché** : le disque bleu sans liseré
+rouge (obligation) et le triangle à bande rouge (danger) n'apparaissent jamais groupés par trois
+dans les 2 500 clichés de signalisation de Marc Mongenet passés en revue (recherche par motif de
+nom de fichier, deux codes ou plus de la même famille) — la France ne semble pas empiler ces
+familles-là comme elle empile les discs d'interdiction ou les panonceaux. Le carré d'indication en
+a trouvé deux candidats (`C12`+`C24a`, `C62`+`C64d`), mais jamais trois. Le fond jaune temporaire
+n'a trouvé que des paires de codes `AK` sur des mâts de chantier différents, jamais trois panneaux
+jaunes groupés sur un seul poste. Aucune des quatre n'a donc été forcée.
 
 ## Ajouter une image
 
