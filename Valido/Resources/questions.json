@@ -1741,7 +1741,7 @@
         "text": "Le jour seulement, pour être vu de loin"
       }
     ],
-    "prompt": "Les feux de croisement (codes) sont obligatoires :",
+    "prompt": "Les feux de croisement sont obligatoires :",
     "role": "fondation",
     "subject": "code",
     "topic": "Feux"
@@ -1828,7 +1828,7 @@
         "text": "Remercier un conducteur qui vous a laissé passer"
       }
     ],
-    "prompt": "Les feux de détresse (warning) servent à :",
+    "prompt": "Les feux de détresse servent à :",
     "role": "fondation",
     "subject": "code",
     "topic": "Feux"
@@ -9985,7 +9985,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "L'article R416-7 autorise ces feux avant dans trois cas : brouillard, chute de neige, et aussi forte pluie. Leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue.",
+    "explanation": "L'article R416-7 autorise ces feux avant dans trois cas : brouillard, chute de neige, et aussi forte pluie. Leur faisceau large et bas passe sous la couche de brouillard, là où les feux de croisement se reflètent dedans et gênent votre propre vue ; neige et pluie battante diffusent la lumière de la même façon.",
     "id": "6012289234e0766392ac505dbfdbd3ae",
     "notion": "feux/eclairage-vehicule",
     "options": [
@@ -10014,7 +10014,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "L'article R416-12 demande, à l'arrêt comme en stationnement, les feux de position à l'avant et les feux rouges avec l'éclairage de plaque à l'arrière. En agglomération, une chaussée assez éclairée dispense de tout signalement.",
+    "explanation": "L'article R416-12 demande, à l'arrêt comme en stationnement, les feux de position à l'avant et les feux rouges avec l'éclairage de plaque à l'arrière, pour qu'on distingue toujours son avant de son arrière dans le noir. En agglomération, une chaussée assez éclairée dispense de tout signalement.",
     "id": "d5505e2b6bdcdeb78eecbec2a2a2a724",
     "notion": "feux/eclairage-vehicule",
     "options": [
