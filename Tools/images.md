@@ -971,27 +971,60 @@ le mât de Bernin déjà écarté. Aucun candidat restant dans la catégorie Com
 sign, France)` (~75 fichiers, majoritairement des panneaux d'agglomération sans rapport,
 faux positifs de catégorie). 4C laissera cette carte-là en texte.
 
-`panonceau-m12-cyclistes` vient de l'avenue Pépinière à Fontenay-sous-Bois (Chabe01) : le
-panonceau M12 est monté au-dessus, pas en dessous, d'un feu bas à trois lentilles — l'inverse
-de l'agencement vu ailleurs dans la même série de ce photographe (M12 sous le feu bas, comme
-à Massy ou avenue Maréchal-Joffre). Le plancher de recadrage force à choisir entre les deux :
-inclure les trois lentilles aurait demandé une largeur de recadrage supérieure à la source
-elle-même (un sujet vertical dans un cadre 4:3 impose une largeur ≥ hauteur × 4/3, et la
-hauteur nécessaire pour trois lentilles dépasse 3000 px sur une source large de 3024 px après
-redressement EXIF). Le cadre retenu tient donc le panonceau et sa lentille la plus proche —
-pas nécessairement « la plus basse » au sens littéral, mais celle qui établit le lien visuel
-panonceau/feu que la carte demande. Écarts mesurés : listel contre ciel bleu (côté gauche),
-67 clair / 41 sombre — confortable ; listel contre le mât/l'ombre (côté droit, contre-jour),
-selon le point 32 à 50 clair / 20 à 31 sombre — à la limite du plancher, un flanc entier
-plutôt qu'un point, comme pour l'AB3a ci-dessus mais plus étendu. Deux autres candidats
-essayés : `Feux Tricolores & Panonceau M12f Avenue Nationale - Massy` (le bon agencement,
-panonceau sous le feu, mais son listel métallique gris se confond avec le bitume flou du
-fond, écart mesuré à environ 22 clair / 13,5 sombre — net échec, pas gardé) et `Panonceau M12
-Avenue Maréchal-Joffre` (feu bas rouge allumé, agencement correct, mais un flanc du listel en
-ombre contre un ciel voilé ne dépasse pas 21 à 25 sombre selon le point, un résultat sans
-marge). Les trois partagent le même trait : le listel d'un panonceau M12 est un cadre
-métallique mat, pas la sheeting rétroréfléchissante très blanche des panneaux de forme, donc
-son écart au fond ne bénéficie jamais de la marge large observée sur AB4, AB6 ou C1a.
+`panonceau-m12-cyclistes` vient de l'avenue Pépinière à Fontenay-sous-Bois (Chabe01).
+**Elle montre le panonceau monté au-dessus du feu, pas en dessous** — le montage le moins
+courant : l'agencement ordinaire, vu à Massy et avenue Maréchal-Joffre (même photographe),
+pose le panonceau sous le feu. Gardée quand même, faute de mieux : les deux candidats à
+l'agencement correct ont chacun un listel qui ne se détache pas de son fond, sur un flanc
+entier et pas un point isolé (chiffres ci-dessous) — pire que celui-ci, pas meilleur.
+
+Deux paires d'écart sont mesurées, sur l'image livrée (`clair@3x.jpg`, 1152 × 864, et
+`sombre@3x.jpg` qui en dérive) :
+
+- **Listel contre le fond qui le touche**, à son pire endroit. Côté gauche, contre un ciel
+  bleu franc : 219,5 (listel) contre 152,7 (ciel), écart **66,8 clair / 41,4 sombre** —
+  confortable. Côté droit, à contre-jour, contre des feuillages d'automne dépareillés (soleil
+  et ombre mêlés) : le listel lui-même s'assombrit sur ce flanc, à 124–163 selon le point, là
+  où il lit 200–220 ailleurs sur le même panneau ; comparé au fond qui le touche à cet
+  endroit, l'écart tombe à un point mesuré à **16 en sombre** — **sous le plancher de 25**,
+  sur un flanc entier plutôt qu'un point isolé comme le sommet de l'AB3a ci-dessus.
+- **Pictogramme (vélo + flèche, jaune) contre le champ blanc.** Mesuré directement sur
+  `sombre@3x.jpg` : les roues du vélo à 115–116, le champ blanc à 138 (zone propre à
+  660,140), soit un écart de **36,6 clair / 22,7 sombre** — **sous le plancher**, mais ce
+  n'est **pas un défaut photographique** : le jaune et le blanc d'un M12 sont fixés par la
+  réglementation, et leurs luminances Rec. 709 sont structurellement proches quelle que soit
+  la photo (ou même un dessin fidèle). **C'est une exception structurelle du panneau, pas de
+  ce cliché** : le M12 se reconnaît à sa forme (petit triangle pointe en bas, bord rouge) et
+  à sa position (sous — ou ici, au-dessus de — un feu), et son `alt` porte le pictogramme
+  pour qui n'accède pas à l'image. Aucun panonceau M12, photographié ou dessiné, ne passerait
+  ce plancher sur cette paire.
+
+**Deux candidats à l'agencement correct, réévalués sur le seul listel** (la paire pictogramme
+étant exemptée pour la raison structurelle ci-dessus, elle ne départage pas les candidats) :
+
+- `Feux Tricolores & Panonceau M12f Avenue Nationale - Massy` (Chabe01, CC BY-SA 4.0,
+  panonceau sous le feu bas) : listel métallique gris contre le bitume flou du fond, balayé
+  systématiquement sur les deux flancs (une centaine de lignes, zones de 8 à 12 px). Le pire
+  point mesuré donne un listel **plus sombre que le fond** (listel 134,4 contre fond 149,6,
+  soit un écart négatif) ; le meilleur point du balayage plafonne à 31,2 clair / 19,3 sombre.
+  Sur l'ensemble des deux flancs, aucun point ne dépasse 25 en sombre. Net échec, pas gardé —
+  généré une fois pour mesure (`eval-m12-massy`), supprimé avant tout commit.
+- `Panonceau M12 Avenue Maréchal-Joffre - Fontenay-sous-Bois (FR94) - 2020-09-08 - 1.jpg`
+  (Chabe01, CC BY-SA 4.0, feu bas rouge allumé, panonceau au-dessus — donc pas davantage
+  « sous son feu » que le candidat retenu, contrairement à une première lecture) : listel
+  contre un mât de béton à la texture inégale (traînées claires et sombres). Balayé de la
+  même façon : le flanc droit (contre une façade en pierre claire, ensoleillée) reste
+  quasiment nul à négatif sur toute sa hauteur mesurée (-14,3 à +1,6 clair selon le point) ;
+  le flanc gauche alterne des points proches de zéro et une plage à +60/+70 clair (38-44
+  sombre) selon la texture du béton à cet endroit précis — trop instable pour qualifier
+  « un point isolé ». Ni meilleur ni pire que Massy dans l'ensemble, pas gardé — généré une
+  fois pour mesure (`eval-m12-joffre`), supprimé avant tout commit.
+
+Les trois partagent le même trait : le listel d'un panonceau M12 est un cadre métallique mat,
+pas la sheeting rétroréfléchissante très blanche des panneaux de forme, donc son écart au
+fond ne bénéficie jamais de la marge large observée sur AB4, AB6 ou C1a — et le fond lui-même
+(rue, mât, feuillage) est plus proche en luminance d'un tel listel qu'un ciel ou un champ
+agricole ne le serait.
 
 ### Les cartes de famille : un mât qui en porte plusieurs (tâche 3B-2)
 
