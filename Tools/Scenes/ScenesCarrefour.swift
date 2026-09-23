@@ -26,6 +26,58 @@ private func giratoireNu(_ ctx: CGContext, _ p: Palette) {
     ctx.setLineDash(phase: 0, lengths: [])
 }
 
+/// Le giratoire d'insertion : un véhicule déjà engagé sur l'anneau, le candidat qui
+/// s'apprête à s'y engager. Partagé par `rond-point-insertion` et `giratoire-sans-panneau`
+/// (tâche 4B) : `panneau` est toute la différence entre les deux — avec lui, un
+/// cédez-le-passage donne la priorité au véhicule déjà sur l'anneau et sa flèche dit qu'il
+/// passe ; sans lui, c'est l'entrant qui aurait la priorité, et laisser la flèche
+/// répondrait à sa place. La scène sans panneau pose donc la question sans y répondre : ni
+/// panneau, ni flèche sur l'anneau — voir `Tools/images.md` pour la boîte de différence
+/// que ce choix ouvre.
+private func giratoireInsertion(_ ctx: CGContext, panneau: Bool, _ p: Palette) {
+    giratoireNu(ctx, p)
+    let r = rayonAnneau
+    if panneau {
+        panneauCedez(ctx, at: CGPoint(x: cx + voie + 26, y: cy + r + 18), p)
+    }
+    voiture(ctx, x: voieVous, y: cy + r + demiVoiture, cap: .nord, couleur: p.vous,
+            liseree: true, p)
+    // Déjà sur l'anneau, et c'est tout l'enjeu : on circule en France dans le sens
+    // antihoraire, donc le véhicule qui coupe la route du candidat arrive **par sa
+    // gauche**, à neuf heures, en descendant vers la branche sud.
+    voiture(ctx, x: cx - 52, y: cy - 6, cap: .sud, couleur: p.autre, p)
+    if panneau {
+        fleche(ctx, [CGPoint(x: cx - 52, y: cy + 20), CGPoint(x: cx - 34, y: cy + 46),
+                     CGPoint(x: cx - 6, y: cy + 56)], couleur: p.autre)
+    }
+}
+
+// MARK: - Le tramway et les accès privés, partagés par plusieurs scènes (tâche 4B)
+
+/// La rame de tramway en approche par la gauche du candidat, et sa flèche de mouvement.
+/// Posée à cheval sur l'axe de la chaussée : une plateforme de tramway occupe le milieu de
+/// la rue, pas une voie de circulation. Partagée par `carrefour-tramway` et
+/// `tramway-hors-intersection` — même rame, même côté, par cohérence visuelle entre les
+/// deux cartes plutôt que par nécessité : hors intersection, aucune priorité à droite ne
+/// rendrait un côté plus parlant que l'autre.
+private func tramwayEnApproche(_ ctx: CGContext, _ p: Palette) {
+    tramway(ctx, x: cx - voie - 46, y: cy, cap: .est, couleur: p.tiers, p)
+    fleche(ctx, [CGPoint(x: cx - voie + 8, y: cy), CGPoint(x: cx + voie + 4, y: cy)],
+           couleur: p.tiers)
+}
+
+/// Un accès privé étroit — parking, station-service, propriété — débouchant sur la
+/// chaussée en section courante : plus étroit qu'une voie, sans marquage, et qui ne
+/// rejoint le bord du cadre que d'un seul côté, pour ne pas se lire comme une rue
+/// perpendiculaire. Partagé par `tourne-a-gauche-hors-intersection` et
+/// `sortie-de-parking` : les deux cartes interrogent la même famille de règle — la
+/// priorité à droite ne joue qu'entre voies de même nature, un accès privé n'en est pas
+/// une.
+private func accesPrive(_ ctx: CGContext, y: Double, largeur: Double, _ p: Palette) {
+    ctx.setFillColor(p.chaussee)
+    ctx.fill(CGRect(x: 0, y: y - largeur / 2, width: cx - voie, height: largeur))
+}
+
 // MARK: - Le croisement en pente, vu de profil
 
 // Seule scène du dossier dessinée **de côté**, et ce n'est pas un caprice de cadrage :
@@ -112,19 +164,7 @@ let scenesCarrefour: [(String, Scene)] = [
     }),
 
     // 6. Insertion sur un giratoire, un véhicule déjà engagé sur l'anneau.
-    ("rond-point-insertion", { ctx, p in
-        giratoireNu(ctx, p)
-        let r = rayonAnneau
-        panneauCedez(ctx, at: CGPoint(x: cx + voie + 26, y: cy + r + 18), p)
-        voiture(ctx, x: voieVous, y: cy + r + demiVoiture, cap: .nord, couleur: p.vous,
-                liseree: true, p)
-        // Déjà sur l'anneau, et c'est tout l'enjeu : on circule en France dans le sens
-        // antihoraire, donc le véhicule qui coupe la route du candidat arrive **par sa
-        // gauche**, à neuf heures, en descendant vers la branche sud.
-        voiture(ctx, x: cx - 52, y: cy - 6, cap: .sud, couleur: p.autre, p)
-        fleche(ctx, [CGPoint(x: cx - 52, y: cy + 20), CGPoint(x: cx - 34, y: cy + 46),
-                     CGPoint(x: cx - 6, y: cy + 56)], couleur: p.autre)
-    }),
+    ("rond-point-insertion", { ctx, p in giratoireInsertion(ctx, panneau: true, p) }),
 
     // 7. Le même croisement que la scène 1, avec deux feux éteints. La paire dit ce que
     //    la question fait travailler : un feu hors service ne prescrit plus rien, et la
@@ -159,11 +199,7 @@ let scenesCarrefour: [(String, Scene)] = [
         voiture(ctx, x: voieVous, y: seuilSud, cap: .nord, couleur: p.vous, liseree: true, p)
         fleche(ctx, [CGPoint(x: voieVous, y: cy + voie - 6), CGPoint(x: voieVous, y: cy - voie + 8)],
                couleur: p.vous)
-        // La rame est posée sur les rails, à cheval sur l'axe de la chaussée : une
-        // plateforme de tramway occupe le milieu de la rue, pas une voie de circulation.
-        tramway(ctx, x: cx - voie - 46, y: cy, cap: .est, couleur: p.tiers, p)
-        fleche(ctx, [CGPoint(x: cx - voie + 8, y: cy), CGPoint(x: cx + voie + 4, y: cy)],
-               couleur: p.tiers)
+        tramwayEnApproche(ctx, p)
     }),
 
     // 9. Croisement difficile sur une forte déclivité, vu de profil. Le panneau A16 et son
@@ -239,5 +275,75 @@ let scenesCarrefour: [(String, Scene)] = [
         fleche(ctx, [CGPoint(x: cx + 53, y: cy + 8), CGPoint(x: cx + 49, y: cy - 23),
                      CGPoint(x: cx + 31, y: cy - 44), CGPoint(x: cx + voie / 2, y: cy - 76),
                      CGPoint(x: cx + voie / 2, y: cy - r - 26)], couleur: p.vous)
+    }),
+
+    // Les cinq scènes de configuration de la tâche 4B (2026-09-23).
+
+    // 11. Le même giratoire que la scène 6, sans le panneau — voir `giratoireInsertion`.
+    //     Sans signalisation, un giratoire relève de la priorité à droite ordinaire, et
+    //     c'est l'entrant qui passe : exactement l'inverse de la scène 6.
+    ("giratoire-sans-panneau", { ctx, p in giratoireInsertion(ctx, panneau: false, p) }),
+
+    // 12. La même règle que la scène 8 (`carrefour-tramway`), hors intersection : aucune
+    //     chaussée ne croise celle-ci, seuls les rails traversent une route à double sens
+    //     en section courante — voir `tramwayEnApproche`. La priorité du tramway ne tient
+    //     pas à un carrefour, et c'est ce que la carte interroge.
+    ("tramway-hors-intersection", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeVertical(ctx, p)
+        railsHorizontaux(ctx, p)
+        voiture(ctx, x: voieVous, y: seuilSud, cap: .nord, couleur: p.vous, liseree: true, p)
+        fleche(ctx, [CGPoint(x: voieVous, y: cy + voie - 6), CGPoint(x: voieVous, y: cy - voie + 8)],
+               couleur: p.vous)
+        tramwayEnApproche(ctx, p)
+    }),
+
+    // 13. Même croisement que la scène 1, feu du candidat allumé au **vert** — lampe du
+    //     bas, la position qui la distingue sans teinte — et, sur son approche, un STOP
+    //     qui ordonne l'inverse. Le feu, réglage le plus récent des deux, l'emporte sur le
+    //     panneau, réglage permanent — sauf jaune clignotant, qui n'attribue lui-même
+    //     aucune priorité et laisse justement les panneaux trancher.
+    ("carrefour-feu-contre-panneau", { ctx, p in
+        croisementNu(ctx, p)
+        feuTricolore(ctx, at: CGPoint(x: cx + voie + 20, y: cy - voie - 26),
+                     [.eteinte, .eteinte, .allumee], p)
+        panneauStop(ctx, at: CGPoint(x: cx + voie + 24, y: cy + voie + 22), p)
+        voiture(ctx, x: voieVous, y: seuilSud, cap: .nord, couleur: p.vous, liseree: true, p)
+        fleche(ctx, [CGPoint(x: voieVous, y: cy + voie - 6), CGPoint(x: voieVous, y: cy - voie + 8)],
+               couleur: p.vous)
+    }),
+
+    // 14. Un tourne-à-gauche vers un accès riverain, hors de toute intersection réglée —
+    //     voir `accesPrive`. Le candidat traverse la voie opposée pour l'atteindre, d'où le
+    //     véhicule qui vient en face : c'est à lui, et non à un vis-à-vis de carrefour,
+    //     qu'il doit céder le passage.
+    ("tourne-a-gauche-hors-intersection", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeVertical(ctx, p)
+        accesPrive(ctx, y: cy, largeur: 30, p)
+        voiture(ctx, x: voieVous, y: cy + 34, cap: .nord, couleur: p.vous, liseree: true, p)
+        fleche(ctx, [CGPoint(x: voieVous, y: cy + 14), CGPoint(x: voieVous, y: cy),
+                     CGPoint(x: cx - voie - 20, y: cy)], couleur: p.vous)
+        voiture(ctx, x: voieDenFace, y: cy - 70, cap: .sud, couleur: p.autre, p)
+        fleche(ctx, [CGPoint(x: voieDenFace, y: cy - 50), CGPoint(x: voieDenFace, y: cy - 20)],
+               couleur: p.autre)
+    }),
+
+    // 15. Le symétrique de la scène précédente : le candidat sort d'un accès identique
+    //     pour rejoindre la chaussée. La priorité à droite ne joue qu'entre voies de même
+    //     nature — la carte fondation de la règle que les scènes 14 et 15 partagent.
+    ("sortie-de-parking", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeVertical(ctx, p)
+        accesPrive(ctx, y: cy + 40, largeur: 30, p)
+        voiture(ctx, x: cx - voie - 34, y: cy + 40, cap: .est, couleur: p.vous, liseree: true, p)
+        fleche(ctx, [CGPoint(x: cx - voie - 10, y: cy + 40), CGPoint(x: voieDenFace, y: cy + 40)],
+               couleur: p.vous)
+        voiture(ctx, x: voieDenFace, y: cy - 70, cap: .sud, couleur: p.autre, p)
+        fleche(ctx, [CGPoint(x: voieDenFace, y: cy - 50), CGPoint(x: voieDenFace, y: cy - 6)],
+               couleur: p.autre)
     }),
 ]

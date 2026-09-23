@@ -61,6 +61,85 @@ dessine une fois, pas une fois par scène.
 | `tunnel-arret-urgence` | vue de dessus : deux voies entre deux piédroits pleins, **renfoncement** creusé dans le piédroit de droite (emplacement d'arrêt d'urgence) et poste d'appel au fond, la voiture du candidat en aval | maison, aucune source tierce |
 | `passage-a-niveau-immobilise` | vue de dessus : voie ferrée en travers, **quatre demi-barrières** abaissées barrant toute la largeur, la voiture du candidat prise sur les rails entre elles | maison, aucune source tierce |
 | `passage-a-niveau-balises` | balise **J10** vue de face, plaque blanche haute et étroite barrée d'**une seule** bande rouge oblique descendant vers la gauche | maison, aucune source tierce |
+| `giratoire-sans-panneau` | le **même** giratoire que `rond-point-insertion`, sans le panneau ni la flèche sur l'anneau | maison, aucune source tierce |
+| `carrefour-feu-contre-panneau` | croisement nu, feu du candidat au **vert** (lampe du bas), STOP sur son approche | maison, aucune source tierce |
+| `tramway-hors-intersection` | une chaussée à double sens croisée par des rails **en section courante**, aucune rue perpendiculaire | maison, aucune source tierce |
+| `tourne-a-gauche-hors-intersection` | tourne-à-gauche vers un accès privé étroit, hors de toute intersection réglée, véhicule venant en face | maison, aucune source tierce |
+| `sortie-de-parking` | un accès privé identique, le candidat en sortant pour rejoindre la chaussée où circule un autre véhicule | maison, aucune source tierce |
+
+### Les cinq scènes de configuration de « Priorités & intersections » (tâche 4B, 2026-09-23)
+
+Cinq scènes ajoutées à `Tools/Scenes/ScenesCarrefour.swift`, sans toucher à aucune carte
+existante. Trois fonctions partagées, pour que rien ne se recopie :
+
+- `giratoireInsertion(_:panneau:_:)` — extraite du corps de `rond-point-insertion` ; le
+  paramètre `panneau` est toute la différence entre elle et `giratoire-sans-panneau`.
+- `tramwayEnApproche(_:_:)` — extraite du corps de `carrefour-tramway` ; partagée telle
+  quelle par `tramway-hors-intersection`.
+- `accesPrive(_:y:largeur:_:)` — nouvelle, partagée par `tourne-a-gauche-hors-intersection`
+  et `sortie-de-parking`.
+
+Les deux extractions ont été vérifiées **byte-identiques** : `carrefour-tramway` retrouve
+ses quatre PNG à l'octet près après rendu (`cmp` sur les deux `@3x`). `rond-point-insertion`
+a d'abord semblé changer — même code, même flags — parce que ce poste n'a que
+`Xcode-27.0.0.app` installé, alors que `render-scenes.sh` réclame par défaut
+`Xcode-26.3.0.app` (absent ici) ; les quatre PNG livrés ont donc été rendus, à l'origine,
+sous un compilateur Swift différent. Isolé en rendant **l'ancien** code sous
+`DEVELOPER_DIR=Xcode-27.0.0.app` : il produit déjà un fichier différent du PNG livré (même
+boîte, même magnitude que ce que le nouveau code produit), et un second rendu du nouveau
+code, dans la même session, retombe **à l'octet près** sur ce que l'ancien code venait de
+produire. La différence est donc de compilateur, pas de code — c'est le même bruit,
+touchant exactement les mêmes sept imagesets (`carrefour-stop`, `croisement-en-pente`,
+`giratoire-sortie-clignotant`, `panneau-b14-limitation`, `panneau-b30-zone-30`,
+`panneau-b33-fin-limitation`, `rond-point-insertion`), déjà relevé et écarté par la tâche
+3B-1. Restaurés par `git checkout --` avant tout commit ; aucun n'est modifié dans cette
+tâche.
+
+**La paire du giratoire.** `rond-point-insertion` pose un `panneauCedez` sur l'entrée du
+candidat, qui donne la priorité au véhicule déjà sur l'anneau — sa flèche dit qu'il passe.
+Sans ce panneau, un giratoire relève de la priorité à droite ordinaire, et c'est l'entrant
+qui passerait : garder la flèche aurait dessiné la réponse inverse de la bonne. La scène
+sans panneau retire donc **les deux** — panneau et flèche — plutôt que de figer une flèche
+neutre : elle pose la question sans y répondre. Ce choix élargit la boîte de différence
+au-delà du seul panneau, et c'est mesuré plutôt que caché :
+
+Différence pixel à pixel des PNG `@3x` (identique dans les deux modes), décomposée en ses
+deux composantes disjointes — vérifié qu'aucun pixel ne diffère en dehors d'elles :
+
+| composante | boîte (px, `@3x`) | boîte (unités de scène) |
+|---|---|---|
+| flèche retirée (véhicule déjà sur l'anneau) | `(438, 504)` → `(588, 624)` | `(146, 168)` → `(196, 208)` |
+| panneau retiré (`panneauCedez`) | `(758, 691)` → `(850, 772)` | `(253, 230)` → `(283, 257)` |
+| reste de l'image | vide | — |
+
+**La paire du feu.** `carrefour-feu-contre-panneau` reprend `croisementNu`, comme
+`carrefour-feu-en-panne`. Le feu du candidat est planté au-delà du carrefour, sur son
+approche (`feuTricolore` avec `[.eteinte, .eteinte, .allumee]`, largeur par défaut) : seule
+la lampe du **bas** est allumée, au vert — la position, pas la teinte, qui la désigne selon
+l'arrêté du 24 novembre 1967. Un STOP (`panneauStop`), sur l'approche du candidat, ordonne
+l'inverse : c'est le conflit que la carte interroge, et le feu — réglage le plus récent —
+l'emporte sur le panneau, réglage permanent.
+
+**Relevés de luminance** (Rec. 709 sur les PNG `@3x` livrés) :
+
+| zone | clair | sombre | écart |
+|---|---:|---:|---:|
+| `giratoire-sans-panneau` — véhicule du candidat | 128,6 | 128,6 | — |
+| `giratoire-sans-panneau` — chaussée | 93,1 | 75,1 | **35,5 / 53,5** |
+| `carrefour-feu-contre-panneau` — lentille verte allumée | 166,7 | 170,7 | — |
+| `carrefour-feu-contre-panneau` — boîtier (chaussée) | 93,1 | 75,1 | **73,6 / 95,6** |
+| `carrefour-feu-contre-panneau` — STOP (bande rouge, relevé à quatre points du pourtour) | 86,0 | 115,1 | — |
+| `carrefour-feu-contre-panneau` — sol autour du STOP | 235,1 | 37,2 | **149,1 / 77,9** |
+| `tramway-hors-intersection` — rail | 255,0 | 234,3 | — |
+| `tramway-hors-intersection` — chaussée | 93,1 | 75,1 | **161,9 / 159,2** |
+| `tourne-a-gauche-hors-intersection` — véhicule du candidat | 128,6 | 128,6 | — |
+| `sortie-de-parking` — véhicule du candidat | 128,6 | 128,6 | — |
+| les deux — chaussée | 93,1 | 75,1 | **35,5 / 53,5** |
+
+Toutes les valeurs dépassent 25 points, dans les deux modes. Le centre du panneau (STOP,
+lettrage blanc) mesure à part — 255,0 clair / 245,3 sombre — et n'est pas la zone décisive :
+c'est la bande rouge qui distingue la forme du sol, le blanc du lettrage n'ajoutant qu'une
+lisibilité supplémentaire, non un contraste de reconnaissance.
 
 ### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
 
