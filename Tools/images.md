@@ -66,9 +66,9 @@ dessine une fois, pas une fois par scène.
 | `feu-jaune-fixe` | le **même** tricolore que `feu-jaune-clignotant`, lampe du milieu **allumée** et non clignotante | maison, aucune source tierce |
 | `carrefour-feu-jaune-cedez` | même croisement que `carrefour-feu-contre-panneau`, feu en **jaune clignotant** et un **Cédez le passage** à la place du STOP | maison, aucune source tierce |
 | `file-ralentie` | vue de dessus : cinq véhicules en file rapprochée, allure réduite, **aucun** feu de détresse allumé, le candidat en position centrale, les quatre autres au contour sombre | maison, aucune source tierce |
-| `route-double-sens` | vue de dessus : une voie par sens, séparées par un axe **discontinu T1** ; le candidat dans sa voie, aucun panneau | maison, aucune source tierce |
-| `route-deux-voies-par-sens` | la **même** voie de candidat, une seconde voie de son sens ajoutée à sa gauche (T1 les délimite), séparée d'une voie inverse unique par une **continue** | maison, aucune source tierce |
-| `route-chaussees-separees` | les deux voies du candidat inchangées, la voie inverse en gagne une seconde, les deux chaussées séparées par un **terre-plein central** bordé de continues | maison, aucune source tierce |
+| `route-double-sens` | vue de dessus : une voie par sens, séparées par un axe **discontinu T1** ; le candidat dans sa voie, un véhicule d'en face dans l'autre, aucun panneau | maison, aucune source tierce |
+| `route-deux-voies-par-sens` | la **même** voie de candidat, une seconde voie de son sens ajoutée à sa gauche (T1 les délimite), séparée d'une voie inverse unique — un véhicule s'y présente — par une **continue** | maison, aucune source tierce |
+| `route-chaussees-separees` | les deux voies du candidat inchangées, la voie inverse en gagne une seconde — un véhicule dans la plus à gauche —, les deux chaussées séparées par un **terre-plein central** bordé de continues | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
@@ -1406,17 +1406,20 @@ dans les deux modes) :
 
 | paire | boîte des différences (px) | boîte (unités de scène) |
 |---|---|---|
-| `route-double-sens` / `route-deux-voies-par-sens` | `(480, 0)` → `(656, 900)` | `(160, 0)` → `(≈219, 300)` |
+| `route-double-sens` / `route-deux-voies-par-sens` | `(480, 0)` → `(774, 900)` | `(160, 0)` → `(258, 300)` |
 | `route-deux-voies-par-sens` / `route-chaussees-separees` | `(192, 0)` → `(656, 900)` | `(64, 0)` → `(≈219, 300)` |
-| `route-double-sens` / `route-chaussees-separees` | `(192, 0)` → `(653, 900)` | `(64, 0)` → `(≈218, 300)` |
+| `route-double-sens` / `route-chaussees-separees` | `(192, 0)` → `(774, 900)` | `(64, 0)` → `(258, 300)` |
 
-Aucune des trois boîtes ne dépasse x ≈ 219 unités de scène (657 px), soit le bord droit de la
-ligne T1 commune aux trois (posée à x = 272, large de 5, donc jusqu'à x = 274,5 — la boîte
-s'arrête bien avant, à la continue ou au bord du terre-plein selon la paire, jamais à cette
-ligne partagée). Tout ce qui est à droite — la voie du candidat, la ligne T1 qui la borde à
-gauche, sa voiture, et le `sol` au-delà de la rive droite — est donc bit pour bit identique
-dans les trois scènes ; seule la chaussée à gauche de cette ligne, qui est précisément ce que
-les trois configurations distinguent, diffère.
+Deux des trois boîtes s'étendent maintenant jusqu'à x = 258 unités de scène (774 px) : c'est
+le véhicule d'en face de `route-double-sens`, dont la voie (centre x = 244) est la plus à
+droite des trois positions que prend ce véhicule selon la scène (voir plus bas). Ce nouveau
+bord reste **avant** la ligne T1 commune aux trois (posée à x = 272, large de 5, donc à
+partir de x = 269,5) — vérifié directement, en comparant le recadrage x ≥ 272 des trois PNG
+`@3x` à leur version d'avant ce véhicule (`git show HEAD:…`) : bbox de différence vide dans
+les six cas (trois scènes, deux modes). Tout ce qui est à droite de cette ligne — la voie du
+candidat, la ligne T1 elle-même, sa voiture, et le `sol` au-delà de la rive droite — reste
+donc bit pour bit identique dans les trois scènes ; seule la chaussée à gauche, qui porte le
+véhicule d'en face en plus de la configuration elle-même, diffère.
 
 **Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `Y = 0,2126 R + 0,7152 G +
 0,0722 B`), coordonnées en unités de scène (le pixel lu est 3× celles-ci) :
@@ -1429,10 +1432,16 @@ les trois configurations distinguent, diffère.
 | véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 |
 | terre-plein (`route-chaussees-separees` seule) | 196, 100 | 139,1 | 115,3 |
 | chaussée contre le terre-plein | 244, 100 | 93,1 | 75,1 |
+| véhicule d'en face, caisse (`route-double-sens`) | 244, 100 | 180,0 | 196,6 |
+| véhicule d'en face, caisse (`route-deux-voies-par-sens`) | 188, 100 | 180,0 | 196,6 |
+| véhicule d'en face, caisse (`route-chaussees-separees`) | 92, 100 | 180,0 | 196,6 |
+| chaussée témoin, sous chacun des trois véhicules d'en face | même x, y = 250 | 93,1 | 75,1 |
 
 Le marquage se détache de la chaussée de **161,9 / 159,2** points (clair/sombre) — la même
 paire que sur toutes les scènes de marquage du dossier, puisque c'est la même chaussée et le
-même blanc. Le véhicule du candidat se détache de la chaussée de **35,5 / 53,5** points.
+même blanc. Le véhicule du candidat se détache de la chaussée de **35,5 / 53,5** points ; le
+véhicule d'en face, de **86,9 / 121,5** points, identique aux trois positions qu'il occupe
+selon la scène (même teinte `p.autre`, même chaussée sous lui).
 
 **Le terre-plein, et pourquoi `ilot` ne convient pas.** Un premier essai posait le
 terre-plein en `p.ilot` — la couleur déjà réservée au terre-plein de
@@ -1447,6 +1456,38 @@ que le brief demande explicitement — que le terre-plein se distingue par sa lu
 par une teinte verte.
 
 Toutes les valeurs dépassent 25 points, dans les deux modes.
+
+**Fix round 1 (revue) : le sens de circulation n'était pas lisible sur une seule scène.**
+Rien, dans les trois scènes d'origine, ne montrait le sens de circulation. `ligneT1` trace la
+même modulation qu'elle sépare deux sens (`route-double-sens`) ou deux voies du même sens
+(`route-deux-voies-par-sens`, `route-chaussees-separees`) — c'est l'IISR qui le veut ainsi,
+pas un choix de dessin (art. 113-1, B et 113-2 citées plus haut, dans les deux cas). La revue
+a mesuré que le bloc à gauche de cette ligne, dans `route-double-sens`, est **bit pour bit
+identique** à la seconde voie du candidat dans `route-deux-voies-par-sens` — rien ne
+distinguait donc « une voie inverse » de « une seconde voie du même sens » sur la première
+scène prise seule. La largeur totale de la chaussée aurait pu sembler trancher, mais elle ne
+le fait qu'en comparant les trois scènes côte à côte, ce qu'un candidat ne fait jamais : une
+carte se lit seule.
+
+**La correction : un véhicule d'en face, cap sud, sans liseré, dans la voie la plus à
+gauche de chaque scène** — `p.autre`, la teinte déjà réservée aux véhicules tiers du
+dossier, hauteur `y = 100`, décalée de celle du candidat (`y = 154`) pour ne pas se lire
+comme un face-à-face, exactement comme `marquage-ligne-mixte` et `marquage-zebra` décalent
+déjà leurs deux véhicules opposés. Une seule fonction partagée avec le candidat
+(`voitureRoute`, paramétrée en `cap`/`couleur`/`liseree`) plutôt que deux corps de dessin
+recopiés. Sa position horizontale suit la voie la plus à gauche de chaque configuration —
+x = 244 (`route-double-sens`), 188 (`route-deux-voies-par-sens`), 92
+(`route-chaussees-separees`) — et c'est la seule chose qui varie d'une scène à l'autre ; sa
+hauteur, sa teinte et l'absence de liseré sont constantes. `p.autre` se détache de la
+chaussée de 86,9 points en clair et 121,5 en sombre (relevé ci-dessus, identique aux trois
+positions) — aucun contour n'était nécessaire, à la différence du traitement `tiers` de la
+tâche 5A.
+
+Vérifié après ce fix, par recadrage x ≥ 272 des six PNG `@3x` livrés contre leur version
+d'avant (`git show HEAD:…`) : bbox de différence vide dans les six cas — la voie du
+candidat, la ligne T1, sa voiture et le `sol` au-delà n'ont pas bougé d'un pixel. Seule la
+chaussée à gauche de cette ligne porte maintenant, en plus de la configuration, le véhicule
+d'en face qui la rend lisible sans les deux autres scènes sous les yeux.
 
 ## Ajouter une image
 

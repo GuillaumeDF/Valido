@@ -205,6 +205,14 @@ private func zoneChevrons(_ ctx: CGContext, _ p: Palette) {
 // terre-plein pour la troisième. Aucun panneau : la carte demande la limite par défaut, un
 // panneau y répondrait déjà.
 //
+// **Un véhicule d'en face, dans la voie la plus à gauche, toujours cap sud.** Sans lui,
+// rien ne dit dans quel sens on roule au-delà du T1 posé à `voieCandidat` : la même
+// modulation sépare deux sens dans la première scène et deux voies du même sens dans les
+// deux suivantes (c'est l'IISR, pas un choix de dessin — art. 114 et 114-2, C citées plus
+// bas), si bien que `route-double-sens`, vue seule, se lirait aussi bien comme
+// `route-deux-voies-par-sens`. Ce véhicule n'est pas du décor : à retirer, l'ambiguïté
+// revient. Fix round 1 (revue), 2026-09-23.
+//
 // Échelle et largeur de voie : celles de `depassement-ligne-discontinue`
 // (`ScenesCirculation.swift`) — 16 unités par mètre, voie de 56 unités pour 3,50 m. Le T1,
 // posé au même `x` (`routeDroite - routeVoie`) dans les trois scènes, y joue deux rôles :
@@ -225,17 +233,26 @@ private let routeVoie = 56.0
 private let routeDroite = 328.0
 private let routeTerrePlein = 40.0
 private let routeY = cy + 4.0
+/// Hauteur du véhicule d'en face : décalée de celle du candidat (`routeY`), comme
+/// `marquage-ligne-mixte` et `marquage-zebra` décalent déjà leurs deux voitures opposées —
+/// deux véhicules à la même hauteur, sur deux voies qui ne sont pas encore visiblement
+/// opposées dans la première scène, se liraient comme un face-à-face plutôt que comme une
+/// circulation ordinaire.
+private let routeYOpposee = 100.0
 
 private enum ConfigurationDeRoute { case uneVoieParSens, deuxVoiesParSens, chausseesSeparees }
 
-/// Le véhicule du candidat, à l'échelle de cette famille (16 unités par mètre) : même
-/// procédé que `voitureAgrandie` de `ScenesCirculation.swift`, dans un fichier différent — on
-/// agrandit le repère plutôt que d'ajouter une seconde géométrie de caisse.
-private func voitureRoute(_ ctx: CGContext, x: Double, y: Double, _ p: Palette) {
+/// Un véhicule à l'échelle de cette famille (16 unités par mètre) : même procédé que
+/// `voitureAgrandie` de `ScenesCirculation.swift`, dans un fichier différent — on agrandit
+/// le repère plutôt que d'ajouter une seconde géométrie de caisse. Partagée par le candidat
+/// et le véhicule d'en face plutôt que dupliquée : seuls `cap`, `couleur` et `liseree`
+/// changent d'un appel à l'autre.
+private func voitureRoute(_ ctx: CGContext, x: Double, y: Double, cap: Cap, couleur: CGColor,
+                          liseree: Bool, _ p: Palette) {
     ctx.saveGState()
     ctx.translateBy(x: x, y: y)
     ctx.scaleBy(x: 1.25, y: 1.25)
-    voiture(ctx, x: 0, y: 0, cap: .nord, couleur: p.vous, liseree: true, p)
+    voiture(ctx, x: 0, y: 0, cap: cap, couleur: couleur, liseree: liseree, p)
     ctx.restoreGState()
 }
 
@@ -249,17 +266,29 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
         let voieCandidat = routeDroite - routeVoie
         poserVoie(voieCandidat)
 
+        // Le véhicule d'en face : sans lui, le T1 posé à `voieCandidat` ne dit pas de quel
+        // côté on roule — la même modulation sépare deux sens ici et deux voies du même sens
+        // dans les deux scènes suivantes, et l'IISR ne donne aucun autre moyen de le
+        // distinguer sur le dessin d'une seule voie. Toujours dans la voie la **plus à
+        // gauche** de la chaussée, cap sud, sans liseré — seule sa position sur la chaussée
+        // change d'une scène à l'autre, jamais sa hauteur ni sa teinte.
+        let voieOpposeeLaPlusAGauche: Double
+
         switch configuration {
         case .uneVoieParSens:
-            poserVoie(voieCandidat - routeVoie)
+            let voieOpposee = voieCandidat - routeVoie
+            poserVoie(voieOpposee)
             ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
+            voieOpposeeLaPlusAGauche = voieOpposee
 
         case .deuxVoiesParSens:
             let secondeVoie = voieCandidat - routeVoie
+            let voieOpposee = secondeVoie - routeVoie
             poserVoie(secondeVoie)
-            poserVoie(secondeVoie - routeVoie)
+            poserVoie(voieOpposee)
             ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
             ligneContinue(ctx, x: secondeVoie, de: 0, a: H, largeur: 5, p)
+            voieOpposeeLaPlusAGauche = voieOpposee
 
         case .chausseesSeparees:
             let secondeVoie = voieCandidat - routeVoie
@@ -280,12 +309,17 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
             ligneContinue(ctx, x: terrePleinDroite, de: 0, a: H, largeur: 3, p)
             ligneContinue(ctx, x: terrePleinGauche, de: 0, a: H, largeur: 3, p)
             let opposeeVoie1 = terrePleinGauche - routeVoie
+            let opposeeVoie2 = opposeeVoie1 - routeVoie
             poserVoie(opposeeVoie1)
             ligneT1(ctx, x: opposeeVoie1, de: 0, a: H, largeur: 5, p)
-            poserVoie(opposeeVoie1 - routeVoie)
+            poserVoie(opposeeVoie2)
+            voieOpposeeLaPlusAGauche = opposeeVoie2
         }
 
-        voitureRoute(ctx, x: voieCandidat + routeVoie / 2, y: routeY, p)
+        voitureRoute(ctx, x: voieOpposeeLaPlusAGauche + routeVoie / 2, y: routeYOpposee,
+                    cap: .sud, couleur: p.autre, liseree: false, p)
+        voitureRoute(ctx, x: voieCandidat + routeVoie / 2, y: routeY,
+                    cap: .nord, couleur: p.vous, liseree: true, p)
     }
 }
 
