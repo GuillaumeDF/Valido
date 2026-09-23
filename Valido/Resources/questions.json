@@ -2840,19 +2840,19 @@
     "options": [
       {
         "id": "A",
-        "text": "Autorise à dépasser ou à changer de voie"
+        "text": "Autorise à la franchir pour dépasser ou changer"
       },
       {
         "id": "B",
-        "text": "Signale une intersection proche, sans interdire"
+        "text": "Impose un arrêt obligatoire au prochain carrefour"
       },
       {
         "id": "C",
-        "text": "Délimite un couloir réservé aux bus"
+        "text": "Interdit tout stationnement le long de la chaussée"
       },
       {
         "id": "D",
-        "text": "Interdit tout arrêt le long de cette portion"
+        "text": "Interdit le dépassement sur toute cette portion"
       }
     ],
     "prompt": "Cette ligne :",
@@ -13028,7 +13028,7 @@
     "options": [
       {
         "id": "A",
-        "text": "porte parfois sa propre prescription"
+        "text": "porte parfois une prescription propre et distincte"
       },
       {
         "id": "B",
@@ -13040,7 +13040,7 @@
       },
       {
         "id": "D",
-        "text": "renseigne à titre indicatif, sans rien imposer"
+        "text": "renseigne à titre purement indicatif, sans obliger"
       }
     ],
     "prompt": "Le panonceau :",
@@ -13061,11 +13061,11 @@
     "options": [
       {
         "id": "A",
-        "text": "interdit seulement d'en franchir le bord"
+        "text": "interdit d'en franchir le bord, l'intérieur libre"
       },
       {
         "id": "B",
-        "text": "interdit le stationnement, pas la circulation"
+        "text": "interdit d'y stationner, sans gêner la circulation"
       },
       {
         "id": "C",
