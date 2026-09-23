@@ -6,6 +6,6 @@
 # Les PNG ne s'éditent jamais à la main : on édite la scène, on relance ceci.
 set -e
 BIN="$(mktemp -d)/render-scenes"
-DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-26.3.0.app}" \
+DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-27.0.0.app}" \
   swiftc -O "$(dirname "$0")"/Scenes/*.swift -o "$BIN"
 exec "$BIN"
