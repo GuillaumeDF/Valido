@@ -927,11 +927,7 @@ let scenesCirculation: [(String, Scene)] = [
     //    en activité ou volontairement géré avec ce seul message », qui est le cas que
     //    rencontre un candidat. Le jaune clignotant *permanent*, lui, est en bas, à la
     //    place du vert (signal R11j) — l'IISR recommande d'ailleurs de l'éviter.
-    ("feu-jaune-clignotant", { ctx, p in
-        fond(ctx, p)
-        feuTricolore(ctx, at: CGPoint(x: cx, y: cy), largeur: 38,
-                     [.eteinte, .clignotante, .eteinte], p)
-    }),
+    ("feu-jaune-clignotant", { ctx, p in feuJauneSeul(ctx, .clignotante, p) }),
 
     // 6. Rouge fixe + flèche jaune clignotante : le signal d'anticipation R16. La
     //    combinaison entière est le sujet, d'où deux caissons côte à côte et rien
@@ -1472,7 +1468,37 @@ let scenesCirculation: [(String, Scene)] = [
         fond(ctx, p)
         baliseJ10(ctx, at: CGPoint(x: cx, y: cy), hauteur: 106, bandes: 1, p)
     }),
+
+    // Les scènes 28 et 29 (tâche 5A, 2026-09-23).
+
+    // 28. Le jaune fixe : le pendant de la scène 5 au trait près, via `feuJauneSeul` — seule
+    //     la lampe du milieu passe de clignotante à allumée, sans les traits rayonnants. La
+    //     paire enseigne la différence entre fixe et clignotant, donc rien d'autre ne varie.
+    ("feu-jaune-fixe", { ctx, p in feuJauneSeul(ctx, .allumee, p) }),
+
+    // 29. La file ralentie, vue de dessus : cinq véhicules rapprochés, aucun feu de détresse
+    //     allumé. La question porte sur qui doit les allumer — le dernier de la file —, et la
+    //     scène se garde d'y répondre : le véhicule du candidat n'est ni en tête ni en queue,
+    //     il occupe la place centrale, comme n'importe lequel des trois qui l'encadrent.
+    ("file-ralentie", { ctx, p in
+        fond(ctx, p)
+        chausseeVerticale(ctx, p)
+        axeVertical(ctx, p)
+        let couleurs: [CGColor] = [p.autre, p.tiers, p.vous, p.autre, p.tiers]
+        for (i, couleur) in couleurs.enumerated() {
+            voiture(ctx, x: voieVous, y: 42 + Double(i) * 46, cap: .nord, couleur: couleur,
+                    liseree: i == 2, p)
+        }
+    }),
 ]
+
+/// Le jaune seul, grand caisson, lampe du milieu dans l'état donné — clignotante (scène 5)
+/// ou fixe (scène 28). Extrait pour que les deux scènes ne partagent qu'un paramètre au lieu
+/// d'un bloc recopié ; `feu-jaune-clignotant` doit rester byte-identique après ce refactor.
+private func feuJauneSeul(_ ctx: CGContext, _ etatMilieu: Lentille, _ p: Palette) {
+    fond(ctx, p)
+    feuTricolore(ctx, at: CGPoint(x: cx, y: cy), largeur: 38, [.eteinte, etatMilieu, .eteinte], p)
+}
 
 /// L'axe médian de la chaussée, interrompu juste au-dessus et au-dessous des rails.
 /// `axeVertical` ménage un trou de la largeur d'un carrefour entier (± une demi-chaussée) :

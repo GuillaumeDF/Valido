@@ -78,6 +78,24 @@ private func accesPrive(_ ctx: CGContext, y: Double, largeur: Double, _ p: Palet
     ctx.fill(CGRect(x: 0, y: y - largeur / 2, width: cx - voie, height: largeur))
 }
 
+// MARK: - Le feu et le panneau qui se contredisent, partagé par deux scènes (tâche 5A)
+
+/// Le croisement nu de la scène 1, un tricolore planté au-delà du candidat et un second
+/// signal sur son approche. `feu` isole l'état des trois lentilles, `panneau` la fonction
+/// qui dessine le signal d'approche (`panneauStop` en scène 13, `panneauCedez` en scène 16) :
+/// c'est tout ce que les deux scènes font varier, au même point — la disposition, le
+/// véhicule et sa flèche restent ceux de la scène 1.
+private func carrefourFeuEtPanneau(_ ctx: CGContext, feu: [Lentille],
+                                    panneau: (CGContext, CGPoint, Palette) -> Void,
+                                    _ p: Palette) {
+    croisementNu(ctx, p)
+    feuTricolore(ctx, at: CGPoint(x: cx + voie + 20, y: cy - voie - 26), feu, p)
+    panneau(ctx, CGPoint(x: cx + voie + 24, y: cy + voie + 22), p)
+    voiture(ctx, x: voieVous, y: seuilSud, cap: .nord, couleur: p.vous, liseree: true, p)
+    fleche(ctx, [CGPoint(x: voieVous, y: cy + voie - 6), CGPoint(x: voieVous, y: cy - voie + 8)],
+           couleur: p.vous)
+}
+
 // MARK: - Le croisement en pente, vu de profil
 
 // Seule scène du dossier dessinée **de côté**, et ce n'est pas un caprice de cadrage :
@@ -305,13 +323,8 @@ let scenesCarrefour: [(String, Scene)] = [
     //     panneau, réglage permanent — sauf jaune clignotant, qui n'attribue lui-même
     //     aucune priorité et laisse justement les panneaux trancher.
     ("carrefour-feu-contre-panneau", { ctx, p in
-        croisementNu(ctx, p)
-        feuTricolore(ctx, at: CGPoint(x: cx + voie + 20, y: cy - voie - 26),
-                     [.eteinte, .eteinte, .allumee], p)
-        panneauStop(ctx, at: CGPoint(x: cx + voie + 24, y: cy + voie + 22), p)
-        voiture(ctx, x: voieVous, y: seuilSud, cap: .nord, couleur: p.vous, liseree: true, p)
-        fleche(ctx, [CGPoint(x: voieVous, y: cy + voie - 6), CGPoint(x: voieVous, y: cy - voie + 8)],
-               couleur: p.vous)
+        carrefourFeuEtPanneau(ctx, feu: [.eteinte, .eteinte, .allumee],
+                              panneau: { c, pt, pal in panneauStop(c, at: pt, pal) }, p)
     }),
 
     // 14. Un tourne-à-gauche vers un accès riverain, hors de toute intersection réglée —
@@ -345,5 +358,17 @@ let scenesCarrefour: [(String, Scene)] = [
         voiture(ctx, x: voieDenFace, y: cy - 70, cap: .sud, couleur: p.autre, p)
         fleche(ctx, [CGPoint(x: voieDenFace, y: cy - 50), CGPoint(x: voieDenFace, y: cy - 6)],
                couleur: p.autre)
+    }),
+
+    // La scène 16 (tâche 5A, 2026-09-23).
+
+    // 16. Le pendant de la scène 13 : même croisement, même véhicule, même flèche — voir
+    //     `carrefourFeuEtPanneau`. Deux différences, et deux seulement : le feu passe au
+    //     jaune clignotant (lampe du milieu, sans priorité propre) et le STOP devient un
+    //     cédez-le-passage. Un STOP y rendrait vraie l'option D de la carte (« impose en
+    //     plus un arrêt avant la ligne d'effet »), qui aurait alors deux bonnes réponses.
+    ("carrefour-feu-jaune-cedez", { ctx, p in
+        carrefourFeuEtPanneau(ctx, feu: [.eteinte, .clignotante, .eteinte],
+                              panneau: { c, pt, pal in panneauCedez(c, at: pt, pal) }, p)
     }),
 ]

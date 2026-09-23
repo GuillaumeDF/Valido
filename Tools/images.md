@@ -66,6 +66,71 @@ dessine une fois, pas une fois par scène.
 | `tramway-hors-intersection` | une chaussée à double sens croisée par des rails **en section courante**, aucune rue perpendiculaire | maison, aucune source tierce |
 | `tourne-a-gauche-hors-intersection` | tourne-à-gauche vers un accès privé étroit, hors de toute intersection réglée, véhicule venant en face | maison, aucune source tierce |
 | `sortie-de-parking` | un accès privé identique, le candidat en sortant pour rejoindre la chaussée où circule un autre véhicule | maison, aucune source tierce |
+| `feu-jaune-fixe` | le **même** tricolore que `feu-jaune-clignotant`, lampe du milieu **allumée** et non clignotante | maison, aucune source tierce |
+| `carrefour-feu-jaune-cedez` | même croisement que `carrefour-feu-contre-panneau`, feu en **jaune clignotant** et un **Cédez le passage** à la place du STOP | maison, aucune source tierce |
+| `file-ralentie` | vue de dessus : cinq véhicules en file rapprochée, allure réduite, **aucun** feu de détresse allumé, le candidat en position centrale | maison, aucune source tierce |
+
+### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
+
+Trois scènes ajoutées, aucune carte touchée (`Valido/Resources/questions.json` reste à
+`git diff --stat` vide tout au long de la tâche). Deux fonctions partagées, pour que rien ne
+se recopie :
+
+- **`feuJauneSeul(_:_:_:)`** (`ScenesCirculation.swift`) — extraite du corps de
+  `feu-jaune-clignotant` (scène 5) ; l'état de la lampe du milieu (`.clignotante` ou
+  `.allumee`) est le seul paramètre qui distingue `feu-jaune-fixe` (scène 28) de sa scène
+  sœur.
+- **`carrefourFeuEtPanneau(_:feu:panneau:_:)`** (`ScenesCarrefour.swift`) — extraite du
+  corps de `carrefour-feu-contre-panneau` (scène 13) ; `feu` porte l'état des trois lentilles,
+  `panneau` la fonction qui dessine le signal d'approche (`panneauStop` en scène 13,
+  `panneauCedez` en scène 16, `carrefour-feu-jaune-cedez`). Le croisement, le véhicule du
+  candidat et sa flèche restent ceux de la scène 1, au même point pour le feu et le panneau.
+
+**Byte-identité des deux scènes refactorées.** `feu-jaune-clignotant` et
+`carrefour-feu-contre-panneau` n'apparaissent dans aucune sortie de
+`git status --porcelain -- Valido/Assets.xcassets` après rendu : leurs huit PNG (deux
+imagesets, @2x/@3x, clair/sombre) sont revenus identiques à l'octet près.
+
+**`feu-jaune-fixe` — la paire au trait près.** Différence pixel à pixel des PNG `@3x`
+(identique dans les deux modes) : boîte `(495, 397)` → `(705, 503)`, soit 2 192 pixels
+(clair) / 2 190 (sombre) — encadrant strictement la lampe du milieu et ses abords, jamais le
+caisson ni les deux autres lentilles. C'est exactement ce que prédit `lentille()` : `.allumee`
+et `.clignotante` partagent le même remplissage, le même halo et le même reflet, et ne se
+séparent que par les six traits rayonnants que `.clignotante` ajoute après coup.
+
+**`carrefour-feu-jaune-cedez` — deux différences déclarées, pas une paire au trait près.**
+Différence pixel à pixel des PNG `@3x` (identique dans les deux modes), décomposée en ses
+deux composantes disjointes — vérifié qu'aucun pixel ne diffère en dehors d'elles :
+
+| composante | boîte (px, `@3x`) |
+|---|---|
+| feu (état des lentilles) | `(749, 227)` → `(823, 295)` |
+| panneau (STOP → Cédez) | `(752, 600)` → `(844, 694)` |
+| reste de l'image | vide |
+
+**`file-ralentie` — pourquoi la position du candidat ne désigne pas la réponse.** La carte
+demande *qui* doit allumer ses feux de détresse dans une file ralentie ; la bonne réponse est
+« le dernier véhicule de la file ». Une scène qui allumerait des feux de détresse répondrait à
+la question par le dessin plutôt que par la règle — d'où **aucun** feu de détresse allumé, sur
+aucun véhicule. Placer en plus le véhicule du candidat en tête aurait suggéré l'option « au
+conducteur de tête, qui voit le ralentissement » ; le placer en queue aurait dessiné la bonne
+réponse elle-même, puisque le candidat serait alors littéralement « le dernier véhicule de la
+file ». La scène pose donc cinq véhicules en file — deux devant, deux derrière — et loge le
+candidat exactement au centre, à égalité de position avec n'importe lequel des trois qui
+l'encadrent : sa place dans la file ne dit rien de plus que « il y a une file ».
+
+**Relevés de luminance** (Rec. 709 sur les PNG `@3x` livrés) :
+
+| zone | clair | sombre | écart |
+|---|---:|---:|---:|
+| `feu-jaune-fixe` — lampe du milieu allumée | 205,6 | 215,5 | — |
+| `feu-jaune-fixe` — boîtier | 93,1 | 75,1 | **112,5 / 140,4** |
+| `carrefour-feu-jaune-cedez` — panneau (Cédez, fond blanc) | 255,0 | 245,3 | — |
+| `carrefour-feu-jaune-cedez` — chaussée | 93,1 | 75,1 | **161,9 / 170,2** |
+| `file-ralentie` — véhicule du candidat | 128,6 | 128,6 | — |
+| `file-ralentie` — chaussée | 93,1 | 75,1 | **35,5 / 53,5** |
+
+Toutes les valeurs dépassent 25 points, dans les deux modes.
 
 ### Les cinq scènes de configuration de « Priorités & intersections » (tâche 4B, 2026-09-23)
 
