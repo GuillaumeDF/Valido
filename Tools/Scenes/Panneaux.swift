@@ -188,81 +188,6 @@ func panneauRoutePrioritaire(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
 /// de champ supplémentaire dans `Palette`, qui n'a pas besoin d'une deuxième nuance foncée.
 private func encre(_ p: Palette) -> CGColor { p.chaussee }
 
-/// Un nombre posé sur un panneau, avec ou sans halo de la couleur du panneau. Le halo
-/// n'est pas décoratif et ne sert qu'au B33 : l'oblique y passe **sous** les chiffres, et
-/// sans ce blanc de séparation le nombre et la barre fusionnent en une tache illisible.
-private func chiffres(_ ctx: CGContext, _ n: String, at pt: CGPoint, taille: Double,
-                      halo: Bool, _ p: Palette) {
-    if halo {
-        let d = max(taille * 0.07, 2.0)
-        for dx in [-d, 0, d] {
-            for dy in [-d, 0, d] where !(dx == 0 && dy == 0) {
-                texte(ctx, n, centre: CGPoint(x: pt.x + dx, y: pt.y + dy), taille: taille,
-                      couleur: p.panneauFond)
-            }
-        }
-    }
-    texte(ctx, n, centre: pt, taille: taille, couleur: encre(p))
-}
-
-/// B14, limitation de vitesse : disque à fond blanc, **large** liseré rouge, nombre au
-/// centre. L'épaisseur du liseré (0,29 rayon) est ce qui distingue à l'œil une
-/// interdiction d'un « fin de » — c'est la forme qui porte le sens, pas la couleur seule.
-/// Les chiffres tiennent à 1,0 rayon et non 0,84 comme sur le vrai panneau : Helvetica-Bold
-/// est bien plus large que la fonte réglementaire, et « 70 » y débordait sur le liseré.
-func panneauLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, rayon: Double,
-                       _ p: Palette) {
-    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.panneauFond,
-            bord: p.panneauRouge, epaisseurBord: rayon * 0.29)
-    chiffres(ctx, "\(valeur)", at: pt, taille: rayon * 1.0, halo: false, p)
-}
-
-/// Le disque des « fin de » : fond blanc, filet et barre noirs (4e partie, art. 47 :
-/// « Les panneaux de fin d'interdiction sont à fond blanc, symbole, inscription, listel
-/// et barre noirs »). Partagé par le B31 (fin de toutes les interdictions) et le B33 (fin
-/// de limitation de vitesse), qui ne diffèrent que par le nombre porté au centre.
-///
-/// Le filet est tracé **à l'intérieur** du disque blanc, pas à sa place : posé au bord, il
-/// disparaissait sur le fond sombre du mode nuit, et le panneau perdait le cerne qui le
-/// distingue d'une pastille blanche.
-private func disqueDeFin(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
-    let filet = max(rayon * 0.05, 1.5)
-    panneau(ctx, forme: .disque, at: pt, rayon: rayon, fond: p.panneauFond)
-    ctx.setStrokeColor(encre(p))
-    ctx.setLineWidth(filet)
-    let cerne = rayon - filet / 2
-    ctx.strokeEllipse(in: CGRect(x: pt.x - cerne, y: pt.y - cerne,
-                                 width: cerne * 2, height: cerne * 2))
-    obliqueDeBarre(ctx, at: pt, rayon: rayon * 0.95, montante: true, couleur: encre(p),
-                   epaisseur: rayon * 0.24)
-}
-
-/// B33, fin de limitation de vitesse (4e partie, art. 68-2) : le **même** disque que le
-/// B14, liseré réduit à un filet et barré d'une oblique montante. Le pendant exact du
-/// B14 — même géométrie, réponse inverse — et c'est la paire que le candidat confond
-/// réellement.
-func panneauFinDeLimitation(_ ctx: CGContext, _ valeur: Int, at pt: CGPoint, rayon: Double,
-                            _ p: Palette) {
-    disqueDeFin(ctx, at: pt, rayon: rayon, p)
-    chiffres(ctx, "\(valeur)", at: pt, taille: rayon * 1.0, halo: true, p)
-}
-
-/// B30, entrée d'une zone 30 : un carré à fond blanc bordé de rouge, le mot ZONE en haut
-/// et un disque de limitation en dessous. Le carré n'est pas un détail de style — c'est
-/// lui qui dit que la prescription est **zonale** : elle vaut pour tout le périmètre, rues
-/// sécantes comprises, là où un disque seul ne vaut que sur l'axe où il est planté.
-func panneauZone30(_ ctx: CGContext, at pt: CGPoint, demiCote: Double, _ p: Palette) {
-    // Le carré est inscrit dans son cercle circonscrit (demi-côté r/√2) depuis la
-    // correction du 2026-08-24 : on remonte donc du demi-côté voulu au rayon par √2.
-    let rayonCarre = demiCote * sqrt(2.0)
-    panneau(ctx, forme: .carre, at: pt, rayon: rayonCarre, fond: p.panneauFond,
-            bord: p.panneauRouge, epaisseurBord: rayonCarre * 0.055)
-    texte(ctx, "ZONE", centre: CGPoint(x: pt.x, y: pt.y - demiCote * 0.60),
-          taille: demiCote * 0.42, couleur: encre(p))
-    panneauLimitation(ctx, 30, at: CGPoint(x: pt.x, y: pt.y + demiCote * 0.28),
-                      rayon: demiCote * 0.60, p)
-}
-
 // MARK: - Feux et panneaux de danger
 
 /// Boîtier d'un feu tricolore, planté au bord de la chaussée : trois lentilles alignées
@@ -540,26 +465,6 @@ func panneauDeDanger(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palet
     panneau(ctx, forme: .triangle, at: pt, rayon: rayon, fond: p.panneauFond,
             bord: p.panneauRouge, epaisseurBord: rayon * 0.13,
             listel: p.panneauFond, epaisseurListel: max(rayon * 0.045, 0.9))
-}
-
-/// Une barre oblique tracée **dans** le disque, donc écrêtée par lui : posée sans `clip`
-/// elle dépasserait du panneau, ce qui n'existe sur aucun panneau réglementaire.
-private func obliqueDeBarre(_ ctx: CGContext, at pt: CGPoint, rayon: Double,
-                            montante: Bool, couleur: CGColor,
-                            epaisseur: Double? = nil) {
-    ctx.saveGState()
-    ctx.addEllipse(in: CGRect(x: pt.x - rayon, y: pt.y - rayon,
-                              width: rayon * 2, height: rayon * 2))
-    ctx.clip()
-    ctx.setStrokeColor(couleur)
-    ctx.setLineWidth(epaisseur ?? rayon * 0.22)
-    ctx.setLineCap(.butt)
-    ctx.beginPath()
-    // Repère en y vers le bas : « montante vers la droite » part du plus grand y.
-    ctx.move(to: CGPoint(x: pt.x - rayon, y: pt.y + (montante ? rayon : -rayon)))
-    ctx.addLine(to: CGPoint(x: pt.x + rayon, y: pt.y + (montante ? -rayon : rayon)))
-    ctx.strokePath()
-    ctx.restoreGState()
 }
 
 /// Une bicyclette vue de profil : deux roues, un cadre en triangle, un guidon, une selle.

@@ -868,28 +868,19 @@ private func baliseJ10(_ ctx: CGContext, at pt: CGPoint, hauteur: Double, bandes
 
 let scenesCirculation: [(String, Scene)] = [
 
-    // 1. B14 : le disque à large liseré rouge. « Ce panneau impose : » n'a aucun sens sans
-    //    l'image — c'est la définition d'une question illustrée.
-    ("panneau-b14-limitation", { ctx, p in
-        fond(ctx, p)
-        panneauLimitation(ctx, 70, at: CGPoint(x: cx, y: cy), rayon: rayonPanneau, p)
-    }),
+    // 1. `panneau-b14-limitation` a existé ici, disque à large liseré rouge dessiné.
+    //    Remplacée par une photographie Commons le 2026-09-23 (tâche 6A du chantier
+    //    illustrations). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 2. B33 : même disque, même nombre, liseré réduit à un filet et oblique en travers.
-    //    La paire 1/2 est volontairement identique à un détail près : c'est ce détail que
-    //    la question fait travailler, et la réponse est l'inverse exacte.
-    ("panneau-b33-fin-limitation", { ctx, p in
-        fond(ctx, p)
-        panneauFinDeLimitation(ctx, 70, at: CGPoint(x: cx, y: cy), rayon: rayonPanneau, p)
-    }),
+    // 2. `panneau-b33-fin-limitation` a existé ici, même disque, liseré réduit à un filet
+    //    et oblique en travers, dessinés. Remplacée par une photographie Commons le
+    //    2026-09-23 (tâche 6A). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
 
-    // 3. B30 : le carré change tout. Il fait de la limitation une prescription zonale,
-    //    valable rues sécantes comprises — c'est la confusion que la question vise, et
-    //    elle ne se voit qu'en comparant la forme du panneau, pas son nombre.
-    ("panneau-b30-zone-30", { ctx, p in
-        fond(ctx, p)
-        panneauZone30(ctx, at: CGPoint(x: cx, y: cy), demiCote: 50, p)
-    }),
+    // 3. `panneau-b30-zone-30` a existé ici, un carré dessiné là où l'art. 45 de la 4e
+    //    partie de l'IISR veut un rectangle 700 × 900 mm — défaut connu, noté dans
+    //    `Tools/images.md` depuis le 2026-08-23. Remplacée par une photographie Commons le
+    //    2026-09-23 (tâche 6A), qui corrige la forme. Voir `Tools/photo-panneau.py` et
+    //    `Tools/images.md`.
 
     // 4. Voie la plus à gauche d'une autoroute. Le véhicule du candidat longe la
     //    glissière centrale : c'est cette position — et elle seule — qui déclenche la

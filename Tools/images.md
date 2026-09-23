@@ -31,9 +31,6 @@ dessine une fois, pas une fois par scène.
 | `carrefour-tramway` | voie ferrée en travers, tramway venant de la gauche | maison, aucune source tierce |
 | `croisement-en-pente` | **vue de profil** : deux véhicules face à face sur une forte pente | maison, aucune source tierce |
 | `giratoire-sortie-clignotant` | anneau, trajectoire de sortie une branche plus loin | maison, aucune source tierce |
-| `panneau-b14-limitation` | B14 seul, disque à large liseré rouge portant 70 | maison, aucune source tierce |
-| `panneau-b33-fin-limitation` | B33 seul, même disque barré d'une oblique montante | maison, aucune source tierce |
-| `panneau-b30-zone-30` | B30 seul, carré bordé de rouge, ZONE et disque 30 | maison, aucune source tierce |
 | `autoroute-voie-de-gauche` | trois voies d'un même sens, candidat le long de la glissière ; rive droite en **T4** (traits longs, vides courts) le long de la bande d'arrêt d'urgence, délimitation de voies en **T1** (vides longs, traits courts) | maison, aucune source tierce |
 | `marquage-ligne-mixte` | ligne continue doublée d'une discontinue, la discontinue du côté du candidat | maison, aucune source tierce |
 | `marquage-fleches-rabattement` | trois flèches de rabattement à cheval sur une ligne d'annonce, continue au-delà ; le candidat démarre dans la voie qui se termine, pas déjà dans celle désignée | maison, aucune source tierce |
@@ -900,11 +897,13 @@ photographies plutôt qu'une paire de schémas, c'est la moitié du travail déj
 illustre désormais `02f7d6a65856887348bfe8653bb90c6e` (usage du clignotant droit avant de
 quitter l'anneau), la question que la revue antérieure attendait.
 
-Un défaut connu, hors périmètre de la passe sur les panneaux : le **B30** de
-`panneau-b30-zone-30` est dessiné carré, alors que l'art. 45 de la 4e partie place le B14
-« dans un **rectangle** pour les zones 30 » et que l'art. 5-3 lui donne 700 × 900 mm en
-gamme normale. Le carré porte quand même le point de la question — une prescription
-zonale, pas ponctuelle — mais la forme est fausse.
+**Le défaut du B30 dessiné en carré, noté ici depuis le 2026-08-23, est levé depuis le
+2026-09-23 (tâche 6A) :** l'art. 45 de la 4e partie place le B30 « dans un **rectangle**
+pour les zones 30 » et l'art. 5-3 lui donne 700 × 900 mm en gamme normale ; le carré
+portait quand même le point de la question — une prescription zonale, pas ponctuelle —
+mais la forme était fausse. `panneau-b30-zone-30` est maintenant une photographie
+(section Photographies, plus bas), et le panneau retenu y est bien rectangulaire, plus
+haut que large.
 
 `croisement-en-pente` est la seule scène **de profil** et non vue de dessus. Ce n'est pas
 un écart de style : une pente ne se voit pas en vue aérienne, et c'est le sens de la
@@ -915,7 +914,9 @@ Le B14, le B33 et le B30 avaient été redessinés d'après la planche de la pag
 technique « la zone 30 »](https://www.securite-routiere.gouv.fr/sites/default/files/2019-02/guide_techn_fiche4_technique_zone30_cle29ec98.pdf)
 publié par la Sécurité routière (relevé le 2026-08-23), faute de mieux : Cloudflare rendait
 alors le téléchargement des parties de l'IISR inaccessible. L'IISR relevée depuis (voir
-plus haut) les confirme, et corrige la forme du B30.
+plus haut) les confirme, et corrige la forme du B30. Les trois dessins sont retirés depuis
+le 2026-09-23 (tâche 6A) : ce paragraphe reste pour l'historique de la forme, pas pour un
+code qui n'existe plus.
 
 ### Une vue de profil : le chargement (2026-08-25)
 
@@ -1106,6 +1107,9 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-ab3a-cedez-le-passage` | [Commons — Panneau 1 AB3a RD183-907 Borly](https://commons.wikimedia.org/wiki/File:Panneau_1_AB3a_RD183-907_Borly.jpg) (2018-01-25) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
 | `panneau-ab6-route-prioritaire` | [Commons — Panneau AB6 Route Mâcon St Cyr Menthon 1](https://commons.wikimedia.org/wiki/File:Panneau_AB6_Route_M%C3%A2con_St_Cyr_Menthon_1.jpg) (2019-09-29) | Chabe01 | CC BY-SA 4.0 | 2026-09-23 | 5184 × 3456 |
 | `panonceau-m12-cyclistes` | [Commons — Feux tricolores Avenue Pépinière Fontenay Bois 1](https://commons.wikimedia.org/wiki/File:Feux_tricolores_Avenue_P%C3%A9pini%C3%A8re_Fontenay_Bois_1.jpg) (2019-11-09) | Chabe01 | CC BY-SA 4.0 | 2026-09-23 | 3024 × 4032 |
+| `panneau-b14-limitation` | [Commons — Panneau B14 70 à Arenthon](https://commons.wikimedia.org/wiki/File:Panneau_B14_70_%C3%A0_Arenthon.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
+| `panneau-b33-fin-limitation` | [Commons — Panneau B33 70 D903 Scientrier](https://commons.wikimedia.org/wiki/File:Panneau_B33_70_D903_Scientrier.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
+| `panneau-b30-zone-30` | [Commons — Avenue de Thiers (Abrest), entrée de zone 30](https://commons.wikimedia.org/wiki/File:Avenue_de_Thiers_(Abrest)_-_Entr%C3%A9e_de_zone_30,_direction_Vichy_2024-08-11.JPG) (2024-08-11) | Tabl-trai | CC BY-SA 4.0 / GFDL 1.2+ | 2026-09-23 | 2976 × 1984 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -1281,6 +1285,63 @@ familles-là comme elle empile les discs d'interdiction ou les panonceaux. Le ca
 a trouvé deux candidats (`C12`+`C24a`, `C62`+`C64d`), mais jamais trois. Le fond jaune temporaire
 n'a trouvé que des paires de codes `AK` sur des mâts de chantier différents, jamais trois panneaux
 jaunes groupés sur un seul poste. Aucune des quatre n'a donc été forcée.
+
+### Les trois derniers panneaux dessinés : la vitesse (tâche 6A, 2026-09-23)
+
+`panneau-b14-limitation`, `panneau-b33-fin-limitation` et `panneau-b30-zone-30` referment
+la liste des panneaux **isolés** dessinés en CoreGraphics : les scènes qui restent sous
+`Tools/Scenes/` composent toutes un carrefour, un giratoire ou un marquage, jamais un
+panneau seul.
+
+**`panneau-b14-limitation`** vient de [Commons — Panneau B14 70 à Arenthon](https://commons.wikimedia.org/wiki/File:Panneau_B14_70_%C3%A0_Arenthon.jpg)
+(Marc Mongenet, CC BY-SA 4.0, 2019-09-28, 4000 × 3000) : disque seul sur son poteau,
+contre un ciel nuageux et une lisière boisée en contrebas. Un premier essai sur
+`Panneau B14 70 D903 Scientrier.jpg` (même auteur, même route, même jour) — disque isolé
+contre une haie de conifères — a été mesuré puis écarté : le rouge du liseré (L ≈ 30 en
+clair, un rouge nettement plus sombre que sur l'Arenthon retenu) tombe trop près de la
+luminance de plusieurs poches d'ombre du feuillage tout autour du disque — huit points sur
+vingt-quatre échantillonnés à 15° d'intervalle sous 25 points d'écart (jusqu'à 1,4 point à
+330°, en zones 20×20) — un défaut réparti sur une bonne moitié du pourtour, pas un point
+isolé. Sur l'Arenthon retenu, listel contre ciel (zones 20×20) : 30,0 clair / 18,1 sombre
+contre 244,8 / 151,0 à gauche, 29,4 / 18,0 contre 222,5 / 137,7 à droite — un écart énorme
+des deux côtés. Champ contre pictogramme : 138,6 / 85,3 contre 13,1 / 7,9.
+
+**`panneau-b33-fin-limitation`** vient de [Commons — Panneau B33 70 D903 Scientrier](https://commons.wikimedia.org/wiki/File:Panneau_B33_70_D903_Scientrier.jpg)
+(Marc Mongenet, CC BY-SA 4.0, 2019-09-28, 4000 × 3000) — la même route que le B14 écarté
+ci-dessus, douze minutes plus tard sur l'appareil, mais ce disque-ci n'a pas de liseré
+rouge (fond blanc, filet et oblique noirs, 4e partie art. 47) : cadré contre des branches,
+un pan de ciel et des bottes de foin, il n'a pas le défaut du B14 du même site. Champ
+contre pictogramme (zones 20×20) : 220,1 clair / 136,0 sombre contre 55,8 / 33,9. Champ
+contre le fond qui le touche, à son pire endroit relevé : feuillage à gauche (131,9 / 81,6,
+écart 88,2 / 54,4), collines embrumées à droite (113,4 / 69,9, écart 106,7 / 66,1), branche
+en haut (157,6 / 97,1, écart 65,4 / 40,6 — le point le plus faible, une branche sèche qui
+laisse filtrer un peu de ciel), bottes de foin en bas (47,6 / 29,0, écart 154,0 / 95,6).
+Tous passent le plancher de 25, dans les deux modes.
+
+**`panneau-b30-zone-30`** vient de [Commons — Avenue de Thiers (Abrest), entrée de zone 30](https://commons.wikimedia.org/wiki/File:Avenue_de_Thiers_(Abrest)_-_Entr%C3%A9e_de_zone_30,_direction_Vichy_2024-08-11.JPG)
+(Tabl-trai, CC BY-SA 4.0 / GFDL 1.2+, 2024-08-11, 2976 × 1984) : le panneau, monté sur un
+poteau de bois devant un buisson vert, avec son panonceau « PRIORITÉ PIÉTONS » resté dans
+le cadre (informatif, aucun chiffre). **Il est bien rectangulaire** — le défaut du dessin
+carré, noté plus haut, est levé. Un premier candidat, `Panneau zone 30 St-Lys.jpg` (Kuremu
+Sakura, CC BY-SA 4.0, 2019-10-28, 3000 × 4000), plus grand dans le cadre et tout aussi net,
+a été écarté après mesure : son rouge, plus terne (un panneau visiblement plus ancien,
+fond craquelé), tombe sous 25 points d'écart contre son fond sur la moitié basse du bord
+gauche (herbe, jusqu'à −15 à −28 selon le point), sur une bande du bord droit (grillage,
+27 à 43), et au-dessus comme en dessous (le panneau municipal collé au-dessus, l'herbe en
+dessous, 13 à 20) — un défaut sur les quatre côtés, dans les deux modes. Sur l'Abrest
+retenu, champ contre pictogramme (points) : 216,1 clair / 133,7 sombre contre 33,8 / 20,4.
+Listel contre le bois du poteau, à un point propre du grain : 95,8 / 60,0 contre 32,2 / 19,0
+(écart 63,6 / 41,0) — mais le grain du bois porte aussi des nœuds sombres, et l'un d'eux,
+touchant directement le listel, ne mesure que 5,0 / 7,8 (écart 27,2 clair, **11,2 sombre,
+sous le plancher**) : un défaut localisé, comme le sommet de `panneau-ab7-fin-priorite` ou
+le point de `panneau-ab3a-cedez-le-passage` plus haut, gardé en connaissance de cause. Le
+feuillage à droite est dappled (soleil et ombre mêlés comme sur `panonceau-m12-cyclistes`) :
+un point propre (33,1 / 17,5 contre 56,0 / 34,9) ne dégage que 22,9 clair / 17,4 sombre,
+**sous le plancher dans les deux modes** — le pire point trouvé sur ce flanc, à côté de
+points nettement plus favorables ailleurs sur le même feuillage. Gardé : les deux candidats
+mesurés ont chacun un défaut, celui-ci corrige la forme sans ambiguïté et son défaut de
+luminance est localisé (un nœud, une poche de feuillage), pas réparti sur tout un côté
+comme sur le St-Lys écarté.
 
 ## Ajouter une image
 

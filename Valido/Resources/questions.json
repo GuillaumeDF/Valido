@@ -8893,7 +8893,7 @@
     "explanation": "Le liseré rouge classe ce panneau parmi les interdictions, pas les conseils : c'est un plafond, pas un minimum. Il ne s'étend qu'à l'axe où il est planté — les rues qui le croisent gardent leur propre limite.",
     "id": "07ef459de55adcb501694169428ffd72",
     "illustration": {
-      "alt": "Disque à fond blanc bordé d'un large liseré rouge, portant le nombre 70 en sombre au centre.",
+      "alt": "Photographie d'un disque blanc cerclé d'un large liseré rouge, portant 70 en sombre au centre, contre un ciel nuageux et une lisière boisée.",
       "asset": "panneau-b14-limitation"
     },
     "notion": "panneaux/formes",
@@ -8926,7 +8926,7 @@
     "explanation": "Un « fin de » perd le liseré rouge et gagne l'oblique. Ce qui reprend n'est pas la vitesse qu'on veut, mais la limite générale du type de route. Lever toutes les interdictions d'un coup demande un panneau sans chiffre.",
     "id": "3adc294978b6ac1f640c45e121a0e4f5",
     "illustration": {
-      "alt": "Disque à fond blanc cerclé d'un filet sombre, portant 70 barré d'une large oblique qui monte vers la droite.",
+      "alt": "Photographie d'un disque blanc cerclé d'un filet sombre, barré d'un 70 par une large oblique montante, sous des branches et devant des bottes de foin.",
       "asset": "panneau-b33-fin-limitation"
     },
     "notion": "panneaux/portee",
@@ -8959,7 +8959,7 @@
     "explanation": "Le carré rend la prescription zonale, pour ralentir tout un quartier : elle vaut dans les rues sécantes jusqu'au panneau qui la termine. Un disque ne vaut que sur son axe et se répète à chaque carrefour.",
     "id": "ed0e45e08fb4f47007934da587b5757c",
     "illustration": {
-      "alt": "Panneau carré à fond blanc bordé de rouge : le mot ZONE en haut, et sous lui un disque à liseré rouge portant 30.",
+      "alt": "Photographie d'un rectangle blanc, plus haut que large, bordé de rouge : ZONE en haut, un disque à liseré rouge portant 30 en dessous, contre un poteau de bois et un buisson vert.",
       "asset": "panneau-b30-zone-30"
     },
     "notion": "panneaux/portee",
