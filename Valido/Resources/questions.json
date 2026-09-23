@@ -9173,6 +9173,10 @@
     "difficulty": "facile",
     "explanation": "Le clignotant renseigne celui qui attend à la branche où vous allez ressortir. Mis trop tôt, il fait démarrer celui qui attend à la branche précédente, persuadé que vous lui laissez la place.",
     "id": "02f7d6a65856887348bfe8653bb90c6e",
+    "illustration": {
+      "alt": "Giratoire à quatre branches ; vous êtes déjà engagé sur l'anneau, une flèche bleue traçant votre trajectoire au-delà de la sortie la plus proche.",
+      "asset": "giratoire-sortie-clignotant"
+    },
     "notion": "priorite/giratoire",
     "options": [
       {

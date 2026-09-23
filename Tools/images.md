@@ -791,9 +791,9 @@ raison de symétrie exposée plus haut. Elle est conservée, ligne de provenance
 c'est une image correcte, correctement sourcée, et le jour où le dossier voudra une paire de
 photographies plutôt qu'une paire de schémas, c'est la moitié du travail déjà faite.
 
-`giratoire-sortie-clignotant` reste **orphelin** : dessiné et correct, il n'est référencé
-par aucune question depuis qu'une revue antérieure a retiré son illustration décorative.
-Conservé tel quel pour qu'une tâche future le retrouve et lui trouve une question.
+`giratoire-sortie-clignotant` n'est plus orphelin depuis la tâche 4C (2026-09-23) : il
+illustre désormais `02f7d6a65856887348bfe8653bb90c6e` (usage du clignotant droit avant de
+quitter l'anneau), la question que la revue antérieure attendait.
 
 Un défaut connu, hors périmètre de la passe sur les panneaux : le **B30** de
 `panneau-b30-zone-30` est dessiné carré, alors que l'art. 45 de la 4e partie place le B14
