@@ -13200,7 +13200,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le triangle prévient, il n'ordonne rien : la bande rouge dit qu'un risque approche, pas qu'une règle change. C'est pourquoi il est planté en amont du risque et non à son droit — hors agglomération beaucoup plus loin qu'en ville : averti, on aborde le passage délicat à la bonne allure. Pointe en bas, le même triangle change de famille : celui-là prescrit.",
+    "explanation": "Le triangle prévient, il n'ordonne rien : la bande rouge dit qu'un risque approche, pas qu'une règle change. Il est donc planté avant le risque, jamais à son endroit — prévenir une fois dessus ne laisserait plus le temps de réagir. Pointe en bas, le même triangle change de famille : celui-là prescrit.",
     "id": "899646535894ff92314de8bbb12f769a",
     "notion": "panneaux/formes",
     "options": [
