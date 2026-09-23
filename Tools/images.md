@@ -81,19 +81,27 @@ existante. Trois fonctions partagées, pour que rien ne se recopie :
 
 Les deux extractions ont été vérifiées **byte-identiques** : `carrefour-tramway` retrouve
 ses quatre PNG à l'octet près après rendu (`cmp` sur les deux `@3x`). `rond-point-insertion`
-a d'abord semblé changer — même code, même flags — parce que ce poste n'a que
-`Xcode-27.0.0.app` installé, alors que `render-scenes.sh` réclame par défaut
-`Xcode-26.3.0.app` (absent ici) ; les quatre PNG livrés ont donc été rendus, à l'origine,
-sous un compilateur Swift différent. Isolé en rendant **l'ancien** code sous
-`DEVELOPER_DIR=Xcode-27.0.0.app` : il produit déjà un fichier différent du PNG livré (même
-boîte, même magnitude que ce que le nouveau code produit), et un second rendu du nouveau
-code, dans la même session, retombe **à l'octet près** sur ce que l'ancien code venait de
-produire. La différence est donc de compilateur, pas de code — c'est le même bruit,
-touchant exactement les mêmes sept imagesets (`carrefour-stop`, `croisement-en-pente`,
-`giratoire-sortie-clignotant`, `panneau-b14-limitation`, `panneau-b30-zone-30`,
-`panneau-b33-fin-limitation`, `rond-point-insertion`), déjà relevé et écarté par la tâche
-3B-1. Restaurés par `git checkout --` avant tout commit ; aucun n'est modifié dans cette
-tâche.
+a d'abord semblé changer — même code, même flags — parce que `render-scenes.sh` réclamait
+par défaut `Xcode-26.3.0.app`, absent de ce poste, qui n'a que `Xcode-27.0.0.app` : les PNG
+livrés avant la tâche 4B avaient donc été rendus sous un compilateur Swift différent de
+celui que quiconque peut faire tourner ici. Isolé pendant la tâche en rendant l'ancien code
+sous `DEVELOPER_DIR=Xcode-27.0.0.app` : il produisait déjà un fichier différent du PNG
+livré (même boîte, même magnitude que ce que le nouveau code produisait), et un second
+rendu du nouveau code, dans la même session, retombait à l'octet près sur ce que l'ancien
+code venait de produire — la différence tenait au compilateur, pas au code. C'était le
+même bruit que celui déjà relevé et écarté par la tâche 3B-1, sur exactement les mêmes sept
+imagesets (`carrefour-stop`, `croisement-en-pente`, `giratoire-sortie-clignotant`,
+`panneau-b14-limitation`, `panneau-b30-zone-30`, `panneau-b33-fin-limitation`,
+`rond-point-insertion`).
+
+**Corrigé à la racine au fix round 1 de la tâche 4B** (2026-09-23), plutôt que recontourné
+scène par scène : `render-scenes.sh` défaut désormais sur `Xcode-27.0.0.app`, le seul
+installé ici, et l'intégralité du dépôt a été **rerendue** sous ce compilateur — ces mêmes
+sept imagesets, 28 PNG, aucun changement de contenu — puis un second passage du script sur
+l'arbre propre confirme `git status --porcelain -- Valido/Assets.xcassets` vide : le rendu
+est désormais déterministe sur ce poste. `rond-point-insertion` et `giratoire-sans-panneau`
+sont donc, depuis, rendus par le **même** compilateur, et la boîte de différence ci-dessous
+est mesurée sur les fichiers réellement livrés — pas sur un rendu de session parallèle.
 
 **La paire du giratoire.** `rond-point-insertion` pose un `panneauCedez` sur l'entrée du
 candidat, qui donne la priorité au véhicule déjà sur l'anneau — sa flèche dit qu'il passe.
@@ -140,6 +148,28 @@ Toutes les valeurs dépassent 25 points, dans les deux modes. Le centre du panne
 lettrage blanc) mesure à part — 255,0 clair / 245,3 sombre — et n'est pas la zone décisive :
 c'est la bande rouge qui distingue la forme du sol, le blanc du lettrage n'ajoutant qu'une
 lisibilité supplémentaire, non un contraste de reconnaissance.
+
+**Re-vérifié après le rebaseline** (fix round 1, sur l'arbre rerendu et déterministe) :
+
+- la paire du giratoire ci-dessus, remesurée : boîte identique (`(438, 504)` → `(850, 772)`,
+  décomposée dans les deux mêmes composantes, rien d'autre) ;
+- `stationnement-ligne-jaune-continue` / `-discontinue` : 9 504 pixels diffèrent, bande
+  x ∈ [251,3 ; 258,3] — inchangé (ces deux imagesets n'étaient pas de ceux que le
+  compilateur faisait bouger) ;
+- les trois lignes de la tâche 3B-1 (`marquage-ligne-continue-axiale` et ses deux
+  variantes) : mêmes boîtes qu'au rapport de cette tâche, `(592, 45)` → `(608, 900)` et
+  `(879, 45)` → `(888, 878)` — inchangées ;
+- relevé de luminance sur cinq points déjà chiffrés ci-dessus et plus haut (marquage plein
+  d'une continue, T1 au plein et au vide, T2 au plein et au vide, trait jaune plein et
+  bordure nue d'une ligne de stationnement) : chaque valeur retombe **à la décimale** sur
+  celle déjà publiée, dans les deux modes ;
+- test direct sur un des sept imagesets que le compilateur faisait bouger
+  (`panneau-b14-limitation`) : le centre du disque (255,0 / 245,3) et sa bande rouge
+  (86,0 / 115,1) sont **identiques à l'octet** entre le PNG d'avant rebaseline
+  (`Xcode-26.3`, extrait par `git show`) et celui d'après (`Xcode-27`) ; toute la
+  différence entre les deux rendus tient dans une boîte `(540, 411)` → `(682, 490)`, autour
+  du texte du panneau — l'antialiasing d'un glyphe, jamais une figure mesurée sur un
+  remplissage plein.
 
 ### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
 
