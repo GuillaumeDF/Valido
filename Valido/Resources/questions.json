@@ -1720,7 +1720,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le code impose les codes la nuit (R416-4) et dès que le temps réduit la visibilité — pluie, brouillard, neige (R416-6). Exception : en agglomération, sur une chaussée assez éclairée, les voitures peuvent garder leurs feux de position ; les motos restent tenues aux codes.",
+    "explanation": "Le code impose les feux de croisement la nuit (R416-4) et dès que le temps réduit la visibilité — pluie, brouillard, neige (R416-6). Exception : en agglomération, sur une chaussée assez éclairée, les voitures peuvent garder leurs feux de position ; les motos restent tenues aux feux de croisement.",
     "id": "37fe1af42b8d8193887bfe48eab17d43",
     "notion": "feux/eclairage-vehicule",
     "options": [
