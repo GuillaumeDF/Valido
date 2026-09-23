@@ -146,6 +146,22 @@ instances côte à côte, ou pas du tout.** `Panneaux.swift` les dessine déjà 
 scène ne coûte que son assemblage. Si les trois instances ne tiennent pas lisiblement dans
 la bande centrale, la carte reste en texte.
 
+### Une fondation illustrée ne devient jamais la jumelle d'une application
+
+`CLAUDE.md` pose qu'une carte `fondation` « énonce un système, elle est par construction un
+énoncé abstrait, sans mise en scène ». Avant ce chantier, aucune des 136 fondations n'était
+illustrée. Six le sont désormais, toutes posées en tâche 3B-2 — dont celle des hachures, que
+l'usage avait signalée précisément parce qu'elle n'avait pas d'image.
+
+La demande explicite sur ces cartes l'emporte sur une doctrine écrite avant elle, et une image
+n'est pas une mise en scène tant qu'elle montre **l'objet** ou **la famille**. Ce que la
+doctrine protégeait se dit plus précisément : **une fondation ne s'illustre pas si l'image la
+rend indiscernable d'une carte `application` de la même notion** — même objet montré nu, et le
+transfert de l'énoncé aboutissant au même texte. Le cas qui l'établit : la fondation STOP de
+`Priorités & intersections`, illustrée, deviendrait « Ce panneau impose : » sur une photo de
+STOP, soit mot pour mot `443e4299ccb3ff71669f8df6669b8bf4`. Une telle fondation reste en texte ;
+seule sa glose descriptive part.
+
 ## 4. Les panneaux passent en photographie
 
 Le défaut que la capture #10 nomme se localise précisément : **le contour des panneaux est
