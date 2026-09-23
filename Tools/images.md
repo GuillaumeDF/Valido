@@ -889,6 +889,9 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-c113-voie-velo` | [Commons — D311 panneau C113](https://commons.wikimedia.org/wiki/File:D311_panneau_C113.jpg) (2019-08-03) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-22 | 3384 × 2538 |
 | `panneaux-ronds-bord-rouge` | [Commons — A51 tunnel d'Uriol, panneaux B3a B6d M2 C111 M9z B14 B17 M4m](https://commons.wikimedia.org/wiki/File:A51_tunnel_d%27Uriol_panneaux_B3a_B6d_M2_C111_M9z_B14_B17_M4m.jpg) (2017-08-05) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
 | `panonceaux-b1-thonon` | [Commons — Panneau B1 avec panonceaux M4w M4x M1 (01)](https://commons.wikimedia.org/wiki/File:Panneau_B1_avec_panonceaux_M4w_M4x_M1_01.jpg) (2022-04-15) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 3000 × 4000 |
+| `panneau-ab3a-cedez-le-passage` | [Commons — Panneau 1 AB3a RD183-907 Borly](https://commons.wikimedia.org/wiki/File:Panneau_1_AB3a_RD183-907_Borly.jpg) (2018-01-25) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
+| `panneau-ab6-route-prioritaire` | [Commons — Panneau AB6 Route Mâcon St Cyr Menthon 1](https://commons.wikimedia.org/wiki/File:Panneau_AB6_Route_M%C3%A2con_St_Cyr_Menthon_1.jpg) (2019-09-29) | Chabe01 | CC BY-SA 4.0 | 2026-09-23 | 5184 × 3456 |
+| `panonceau-m12-cyclistes` | [Commons — Feux tricolores Avenue Pépinière Fontenay Bois 1](https://commons.wikimedia.org/wiki/File:Feux_tricolores_Avenue_P%C3%A9pini%C3%A8re_Fontenay_Bois_1.jpg) (2019-11-09) | Chabe01 | CC BY-SA 4.0 | 2026-09-23 | 3024 × 4032 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -929,6 +932,66 @@ Ces quinze-là passeraient une diffusion telles quelles : CC BY-SA demande l'att
 (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.
+
+Le lot suivant (AB3a, AB6, un second AB7, M12, tâche 4A) ouvre le second domaine,
+`Priorités & intersections`. Il ne pose aucune carte : les quatre imagesets sont neufs,
+préparés pour une tâche ultérieure (4C) qui réécrira les cartes correspondantes.
+
+`panneau-ab3a-cedez-le-passage` vient de Borly (RD183-907, Marc Mongenet) : le triangle
+s'y détache sur des conifères sombres plutôt que sur le ciel, ce qui donne un écart large sur
+presque tout le pourtour (listel contre feuillage ≥ 75 en clair des deux côtés, ≥ 90 en
+sombre) — sauf en un point du sommet haut, où un reflet de soleil flou à travers les branches
+(visible à l'écran, pas un défaut de mesure) fait chuter l'écart à environ 32 en clair, soit
+≈ 20 en sombre : sous le plancher, comme le sommet droit de `panneau-ab7-fin-priorite` plus
+haut. La cause est la même — un flou de mise au point qui éclaircit localement le fond juste
+derrière le listel — et la conclusion est la même : gardé en connaissance de cause, un point
+sur tout le pourtour, pas une arête entière. Un premier candidat (Chemin Romagne, St Cyr
+Menthon) a été écarté : son triangle est propre mais posé devant un ciel clair sans aucun
+relief, listel contre ciel n'y dépasse pas quelques points d'écart (essai non conservé). Le
+pictogramme n'existe pas sur une AB3a ; la paire mesurée à sa place est la bordure rouge
+contre le champ blanc intérieur, large (146 clair / 90 sombre).
+
+`panneau-ab6-route-prioritaire` vient de la Route de Mâcon à St Cyr Menthon (Chabe01, même
+site que `panneau-c1a-parking`) : listel contre ciel bleu franc, 75 clair / 46 sombre ;
+champ contre le losange jaune, 50 clair / 31 sombre. Les deux passent confortablement.
+
+Le second AB7 demandé (« un autre exemplaire » que `panneau-ab7-fin-priorite`, pour ne pas
+faire servir un même cliché à deux cartes) n'a pas été créé. Cinq candidats supplémentaires
+ont été essayés en plus des cinq déjà écartés par la tâche 3A-3 : `Panneaux AB5 AB7 Rue
+Chenale Marcigny 4.jpg` (isolé, de face, mais son pictogramme jaune ne se détache du champ
+blanc qu'à 31 points en clair, 19 en sombre — sous le plancher, et pas un point isolé, le
+défaut porte sur les deux blocs jaunes) ; `Fin de route prioritaire (Brugheas)` recadré au
+plus près du plancher (1152 px) montre inévitablement les balises de chantier et le
+panonceau rayé déjà écartés par la tâche 3A-3 ; `D269 Menthon-St-Bernard.jpg` ne montre en
+réalité aucun AB7 (juste une borne et une plaque directionnelle D269, faux positif de
+catégorie) ; `D1075`/`D1085 (Isère)` sont des scènes à plusieurs panneaux (E43, EB10, J11,
+M1, J13, D42b, SU2), non isolées, et sous le plancher en résolution ; `Loupes panneau -
+2015a.jpg` porte l'AB7 juste au-dessus de deux plaques de lieu-dit collées sans espace, comme
+le mât de Bernin déjà écarté. Aucun candidat restant dans la catégorie Commons `AB7 (road
+sign, France)` (~75 fichiers, majoritairement des panneaux d'agglomération sans rapport,
+faux positifs de catégorie). 4C laissera cette carte-là en texte.
+
+`panonceau-m12-cyclistes` vient de l'avenue Pépinière à Fontenay-sous-Bois (Chabe01) : le
+panonceau M12 est monté au-dessus, pas en dessous, d'un feu bas à trois lentilles — l'inverse
+de l'agencement vu ailleurs dans la même série de ce photographe (M12 sous le feu bas, comme
+à Massy ou avenue Maréchal-Joffre). Le plancher de recadrage force à choisir entre les deux :
+inclure les trois lentilles aurait demandé une largeur de recadrage supérieure à la source
+elle-même (un sujet vertical dans un cadre 4:3 impose une largeur ≥ hauteur × 4/3, et la
+hauteur nécessaire pour trois lentilles dépasse 3000 px sur une source large de 3024 px après
+redressement EXIF). Le cadre retenu tient donc le panonceau et sa lentille la plus proche —
+pas nécessairement « la plus basse » au sens littéral, mais celle qui établit le lien visuel
+panonceau/feu que la carte demande. Écarts mesurés : listel contre ciel bleu (côté gauche),
+67 clair / 41 sombre — confortable ; listel contre le mât/l'ombre (côté droit, contre-jour),
+selon le point 32 à 50 clair / 20 à 31 sombre — à la limite du plancher, un flanc entier
+plutôt qu'un point, comme pour l'AB3a ci-dessus mais plus étendu. Deux autres candidats
+essayés : `Feux Tricolores & Panonceau M12f Avenue Nationale - Massy` (le bon agencement,
+panonceau sous le feu, mais son listel métallique gris se confond avec le bitume flou du
+fond, écart mesuré à environ 22 clair / 13,5 sombre — net échec, pas gardé) et `Panonceau M12
+Avenue Maréchal-Joffre` (feu bas rouge allumé, agencement correct, mais un flanc du listel en
+ombre contre un ciel voilé ne dépasse pas 21 à 25 sombre selon le point, un résultat sans
+marge). Les trois partagent le même trait : le listel d'un panonceau M12 est un cadre
+métallique mat, pas la sheeting rétroréfléchissante très blanche des panneaux de forme, donc
+son écart au fond ne bénéficie jamais de la marge large observée sur AB4, AB6 ou C1a.
 
 ### Les cartes de famille : un mât qui en porte plusieurs (tâche 3B-2)
 
