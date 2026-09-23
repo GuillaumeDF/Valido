@@ -220,6 +220,16 @@ for q in QS:
         # « carrefour » dans les deux est parfois inévitable.
         commun = words(q['prompt']) & words(alt)
         if len(commun) >= 3: flag('image/enonce-redit-la-scene', q, sorted(commun))
+        # Une fois l'image posée, décrire la forme de ce qu'elle montre rend la carte
+        # soluble sans regarder. Les couleurs n'entrent pas dans cette liste : sur une
+        # carte de feu, « jaune clignotant » est la question, pas la description d'un objet
+        # que l'image rendrait superflue.
+        FORMES = {'rond', 'ronde', 'triangulaire', 'triangle', 'octogone', 'octogonal',
+                  'losange', 'carre', 'carree', 'rectangulaire', 'lisere', 'listel',
+                  'hachuree', 'hachurees', 'chevrons', 'pointe', 'disque'}
+        décrits = FORMES & words(q['prompt'], n=4)
+        if décrits:
+            flag('image/enonce-decrit-l-objet', q, sorted(décrits))
 
     # --- résidus markdown / méta-options ---
     for label, txt in [('explanation', expl), ('prompt', q['prompt'])] + [(f"opt{o['id']}", o['text']) for o in q['options']]:
