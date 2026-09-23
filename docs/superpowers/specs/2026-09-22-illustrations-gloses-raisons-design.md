@@ -243,6 +243,16 @@ distinction se déclare : le rapport nomme ce qui, dans le cadre, est mesuré et
 décor, et `images.md` porte le chiffre de tout objet qui reste sous le plancher, décor
 compris. Sans cette ligne, « c'était du décor » deviendrait l'excuse de toute mesure ratée.
 
+**Et un décor qui porte du sens n'est jamais neutre par défaut.** L'exemption ne vaut que pour
+un objet **sur lequel aucune option ne repose** — ni celles de la carte, ni celles des cartes de
+sa notion. Un panonceau est du texte : il se lit contre ces options avant d'être déclaré décor.
+Le cas qui l'établit : un premier cliché du B30 portait sous le panneau un panonceau « PRIORITÉ
+PIÉTONS », classé en décor faute de chiffre. Or la carte du B30 a pour distracteur « une aire
+piétonne où le piéton reste prioritaire », et une carte voisine enseigne que la priorité au
+piéton est précisément ce qui sépare la zone de rencontre de la zone 30. L'image poussait vers la
+mauvaise réponse et contredisait sa voisine, sans que l'`alt` en dise un mot — un lecteur voyant
+et un lecteur d'écran ne jouaient plus la même carte.
+
 **Ce qui reste dessiné, et pourquoi ce n'est pas le défaut que `images.md` redoute.** Les
 panneaux plantés dans les scènes composites (`carrefour-stop`, `carrefour-route-prioritaire`,
 `carrefour-cedez-le-passage`, les scènes de vitesse) restent en CoreGraphics : on ne
