@@ -63,6 +63,15 @@ se termine par `:` — ou par `?` pour une vraie question fermée.
 | Que garantit `Sendable` ? | `Sendable` garantit : |
 | `weak` vs `unowned` : lequel choisir ? | Entre `weak` et `unowned` : |
 
+### Une glose n'explique qu'un mot que l'app n'a jamais introduit
+
+Et elle nomme ce que le candidat verrait, pas un synonyme. Trois formes à refuser : la glose
+qui décrit l'objet — « (octogone rouge) », « (triangle pointe en bas) » — et que l'image rend
+inutile ; la glose qui traduit le terme officiel en argot — « (codes) », « (warning) » —
+alors que c'est le terme officiel qu'on apprend ; et la glose qui redit l'évident au lieu de
+porter ce qui manque, comme « — entre deux files de véhicules — » sur une carte qui ne dit
+nulle part qu'elle parle d'un deux-roues motorisé.
+
 ### La bonne option : condenser, sans appauvrir
 
 Une réponse en prose complète serait trois fois plus longue que les distracteurs, et
@@ -574,6 +583,14 @@ la bordure du trottoir interdit : » se répond sans regarder — l'énoncé a d
 bon énoncé est « Ce marquage interdit : », et c'est l'image qui dit lequel.
 `audit.py` signale trois mots pleins communs entre `prompt` et `alt` ; la sortie demande
 un tri à la main, « carrefour » des deux côtés étant parfois inévitable.
+
+### Une carte de famille montre la famille, ou rien
+
+« Un panneau rond à bord rouge indique : » ne s'illustre pas avec un B1 : on apprendrait le
+B1. Elle s'illustre avec trois instances de la famille côte à côte — un mât qui en porte
+plusieurs, ce qui se photographie —, ou elle reste en texte. Si les trois signaux ne tiennent
+pas lisiblement dans la bande centrale, celle qui survit au bandeau réduit à 18 %, c'est le
+texte qui gagne.
 
 ### Le budget de hauteur, qui est la vraie contrainte
 
