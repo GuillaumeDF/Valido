@@ -52,7 +52,7 @@
         "text": "42 m"
       }
     ],
-    "prompt": "À 50 km/h, la distance parcourue pendant le temps de réaction (1 s) est d'environ :",
+    "prompt": "À 50 km/h, la distance parcourue pendant le temps de réaction est d'environ :",
     "role": "application",
     "subject": "code",
     "topic": "Distances & freinage"
