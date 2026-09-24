@@ -11897,7 +11897,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "R414-11 interdit tout dépassement aux intersections de routes, sauf quand la priorité revient à qui double : les autres véhicules doivent déjà lui laisser le passage, ou l'intersection est réglée par des feux ou par un agent. C'est le dépassement d'un deux-roues qui échappe à l'interdiction depuis le texte, pas le dépassement par un deux-roues.",
+    "explanation": "R414-11 interdit tout dépassement aux intersections : un véhicule peut en déboucher au moment où vous seriez sur la voie d'en face, sans l'avoir vu venir — sauf si la priorité est à qui double (les autres doivent déjà céder), ou si l'intersection est réglée par des feux ou un agent. C'est le dépassement d'un deux-roues qui échappe à l'interdiction depuis le texte, pas le dépassement par un deux-roues.",
     "id": "f5a12ba77751310fe9a210a3b787286a",
     "notion": "depassement/interdictions",
     "options": [
