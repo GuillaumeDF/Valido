@@ -454,19 +454,26 @@ private func busVuDeDessus(_ ctx: CGContext, x: Double, y: Double, longueur: Dou
     }
 }
 
-/// Un deux-roues motorisé vu de dessus, entre deux files de voitures. Il ne doit pas se
-/// lire comme un vélo : `cyclisteVuDeDessus` n'est qu'un trait et un guidon, celui-ci porte
-/// une carrosserie pleine — carénage et selle d'un seul tenant — et un phare avant clair,
-/// comme le pare-brise d'une voiture signale son poste de conduite. Il est **en niveaux de
-/// gris**, seul véhicule sans teinte de `Palette`, et porte malgré tout le liseré blanc que
-/// `voiture(liseree:)` réserve ailleurs au véhicule du candidat : sur `inter-files`, c'est
-/// lui le sujet de la carte, et aucune voiture n'est celle du candidat.
+/// Un deux-roues motorisé vu de dessus, entre deux files de voitures. Deux traits le
+/// distinguent d'une voiture : un corps **étroit** (larg. 10, contre 27,5 pour une voiture à
+/// cette échelle) plutôt qu'une carrosserie pleine largeur, et un **guidon transversal qui
+/// dépasse largement du corps de chaque côté** — aucune carrosserie n'a cette silhouette en
+/// « + ». Il se distingue à son tour d'un vélo : `cyclisteVuDeDessus` n'est qu'un trait de 5
+/// unités (un cadre ajouré) surmonté d'un buste, celui-ci porte un corps **plein** (un
+/// réservoir-selle) deux fois plus large que ce trait, et un **pilote** — épaules puis
+/// casque rond — dans une teinte distincte du corps de la machine, pas seulement un buste
+/// sur un cadre. Il reste **en niveaux de gris**, seul véhicule sans teinte de `Palette`, et
+/// porte malgré tout le liseré blanc que `voiture(liseree:)` réserve ailleurs au véhicule du
+/// candidat : sur `inter-files`, c'est lui le sujet de la carte, et aucune voiture n'est
+/// celle du candidat.
 private let grisDeuxRoues = CGColor(gray: 0.10, alpha: 1)
+private let grisPilote = CGColor(gray: 0.45, alpha: 1)
+private let clairGuidon = CGColor(gray: 0.65, alpha: 1)
 private func deuxRouesMotoriseVuDeDessus(_ ctx: CGContext, x: Double, y: Double, _ p: Palette) {
-    let long = 32.0, larg = 12.0
+    let long = 26.0, larg = 10.0
     let corps = CGPath(roundedRect: CGRect(x: x - larg / 2, y: y - long / 2,
                                            width: larg, height: long),
-                       cornerWidth: 5, cornerHeight: 5, transform: nil)
+                       cornerWidth: 4, cornerHeight: 4, transform: nil)
     ctx.setFillColor(grisDeuxRoues)
     ctx.addPath(corps)
     ctx.fillPath()
@@ -474,10 +481,31 @@ private func deuxRouesMotoriseVuDeDessus(_ ctx: CGContext, x: Double, y: Double,
     ctx.setLineWidth(2.5)
     ctx.addPath(corps)
     ctx.strokePath()
-    // Le phare avant : même convention que le pare-brise de `voiture`, et le seul indice
-    // qui distingue à cette échelle un deux-roues motorisé d'un vélo.
-    ctx.setFillColor(CGColor(gray: 1, alpha: 0.6))
-    ctx.fill(CGRect(x: x - 3.5, y: y - long / 2 + 4, width: 7, height: 5))
+    // Le guidon : une barre transversale de 20 unités, deux fois la largeur du corps (10),
+    // qui dépasse donc de 5 unités de chaque côté — le trait qui dit « moto » et non
+    // « voiture étroite ». `lineCap: .round` lui donne des embouts, comme des poignées.
+    ctx.setStrokeColor(clairGuidon)
+    ctx.setLineWidth(3)
+    ctx.setLineCap(.round)
+    ctx.beginPath()
+    ctx.move(to: CGPoint(x: x - 10, y: y - long / 2 + 4))
+    ctx.addLine(to: CGPoint(x: x + 10, y: y - long / 2 + 4))
+    ctx.strokePath()
+    // Les épaules du pilote : plus larges que le corps de la machine (12 contre 10), dans
+    // une teinte qui lui est propre — c'est elle qui sépare visuellement le pilote de sa
+    // machine, pas seulement leur position relative.
+    ctx.setFillColor(grisPilote)
+    ctx.fillEllipse(in: CGRect(x: x - 6, y: y - long / 2 + 6, width: 12, height: 10))
+    // Le casque : rond et clair, comme la tête d'un piéton ou d'un cycliste, cerné d'un
+    // filet sombre. Dessiné après le guidon et les épaules : il en couvre le centre, si
+    // bien que le guidon ne reste visible que sur ses deux dépassements latéraux — la tête
+    // du pilote est devant lui, comme sur une vraie moto vue de dessus.
+    let casque = CGRect(x: x - 4, y: y - long / 2 + 2, width: 8, height: 8)
+    ctx.setFillColor(CGColor(gray: 0.93, alpha: 1))
+    ctx.fillEllipse(in: casque)
+    ctx.setStrokeColor(CGColor(gray: 0.14, alpha: 1))
+    ctx.setLineWidth(1.2)
+    ctx.strokeEllipse(in: casque)
 }
 
 /// Un indicateur de changement de direction **allumé et clignotant**, vu de dessus. Les
