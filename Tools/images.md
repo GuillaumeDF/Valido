@@ -1534,13 +1534,43 @@ la chaussée de la même voie) :
 | T1 entre voie centrale et voie opposée, au plein | 216, 7 | 255,0 | 234,3 | 161,9 | 159,2 |
 | véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 | 35,5 | 53,5 |
 | véhicule lent (`p.tiers`), caisse | 300, 90 | 118,6 | 154,1 | 25,5 | 79,0 |
-| véhicule d'en face (`p.autre`), caisse | 188, 100 | 180,0 | 196,6 | 86,9 | 121,5 |
+| véhicule d'en face (`p.autre`), caisse | 188, 30 | 180,0 | 196,6 | 86,8 | 121,4 |
 
 Le T1 candidat/voie centrale (`x = 272`) reprend le code déjà mesuré à la tâche 6B (255,0 /
 93,1 clair, 234,3 / 75,1 sombre) : même position, même code, non re-listé. Toutes les
 valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le plus serré
 (25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
 véhicule, hors pare-brise.
+
+**Fix round 1 (revue) : le véhicule d'en face chevauchait le véhicule lent.** Posé à
+`routeYOpposee` (100, la constante partagée par toute la famille depuis la tâche 6B), il
+tombait à 10 unités de scène à peine du véhicule lent (`vehiculeLentY` = 90) : côte à côte
+plutôt que « loin devant », un chevauchement mesuré à 120 px sur les PNG `@3x` livrés (lent
+y 195–344, en face y 225–374 avant ce fix). La correction ajoute `routeYOpposeeLointaine`
+(30), propre à `.troisVoiesDoubleSens` via une variable locale (`opposeeY`) qui vaut
+`routeYOpposee` par défaut — les trois autres configurations n'y touchent pas, vérifié par
+somme de contrôle SHA-256 des douze PNG (`clair`/`sombre` × `@2x`/`@3x` × trois scènes) :
+identiques avant et après ce fix. Après rendu, `git status --porcelain --
+Valido/Assets.xcassets` ne montrait que les quatre PNG de `route-trois-voies-double-sens`.
+
+Nouvelles boîtes englobantes, relevées pixel par pixel sur les PNG `@3x` (identiques dans
+les deux modes, seule la teinte change) :
+
+| véhicule | bbox avant ce fix (px) | bbox après ce fix (px) |
+|---|---|---|
+| d'en face (`p.autre`) | x 522–605, y 225–374 | x 522–605, **y 15–164** |
+| lent (`p.tiers`) | x 858–941, y 195–344 | x 858–941, y 195–344 (inchangé) |
+
+Écart vertical entre les deux véhicules : 30 px de chaussée pure entre les deux boîtes
+(165 à 194), là où les deux boîtes se recouvraient sur 120 px (225 à 344) avant ce fix. Le
+véhicule d'en face vient buter à 15 px du bord haut du cadre (900 px de haut à `@3x`) —
+proche du bord, sans le dépasser.
+
+Luminance du véhicule d'en face **à sa nouvelle position** (mêmes teintes, seule la
+coordonnée change, donc l'écart contre la chaussée ne bouge qu'à l'arrondi) : 86,8 point en
+clair, 121,4 en sombre — contre 86,9 / 121,5 à l'ancienne position, la chaussée témoin
+étant rigoureusement la même teinte sur toute la voie. Toujours largement au-dessus du
+plancher de 25.
 
 ## Ajouter une image
 
