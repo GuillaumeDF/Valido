@@ -12203,7 +12203,7 @@
         "text": "le nombre d'issues de secours prévues"
       }
     ],
-    "prompt": "Ce panonceau indique :",
+    "prompt": "Le panonceau sous ce panneau indique :",
     "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"

@@ -1622,11 +1622,17 @@ n'est pas un panneau et ne bouge pas.
 
 **`panneau-c111-tunnel`** vient de l'extrémité ouest du tunnel des Sorderettes, en Maurienne
 (Florian Pépellin, CC BY-SA 4.0, mai 2025). Le cadre retenu porte, en plus du C111, la plaque
-nommant l'ouvrage au-dessus et son panonceau de longueur (« 372 m ») avec une borne
-kilométrique en dessous — aucun panneau de prescription (vitesse, hauteur, interdiction) n'y
-figure, et aucune option de la carte (changement de voie, dépassement, demi-tour, remorque
-attelée) ne porte sur un nom de tunnel ou une longueur : la plaque et le panonceau y sont un
-décor neutre, gardé faute de mieux. **Aucun poteau isolé, ne portant que le seul C111, n'a
+nommant l'ouvrage au-dessus et son panonceau de longueur (« 372 m ») en dessous, puis, plus bas
+et à l'écart du mât, une borne orange d'appel d'urgence (repère « 181 », pictogramme
+combiné téléphonique et « S.O.S. ») — aucun panneau de prescription (vitesse, hauteur,
+interdiction) ne figure dans le cadre, et aucune option de la carte (changement de voie,
+dépassement, demi-tour, remorque attelée) ni d'aucune carte de la notion `tunnel/conduite`
+ne porte sur un nom de tunnel, une longueur ou un numéro d'appel : la plaque, le panonceau et
+la borne y sont un décor neutre, gardé faute de mieux. Relevé au pire point trouvé le long de
+son propre contour, la borne contre le feuillage qui la touche : 219,8 clair / 136,7 sombre
+contre 155,5 clair / 97,1 sombre à la tache la plus claire du feuillage voisin, soit un écart
+de 64,3 clair / 39,6 sombre — **au-dessus** du plancher de 25 dans les deux modes, donc pas de
+chiffre sous 25 à consigner pour cet objet-là. **Aucun poteau isolé, ne portant que le seul C111, n'a
 passé le double écart** : `Entrée Est Tunnel Bois Clair Berzé Châtel 1.jpg` et `…2.jpg`
 (Chabe01, CC BY-SA 4.0) opposent le listel à un talus mêlant feuillage ensoleillé et paroi
 claire — l'écart tombe à 3,5 clair / 2,4 sombre à un endroit de la bordure gauche et devient
