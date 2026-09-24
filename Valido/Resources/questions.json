@@ -151,7 +151,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Ce qui rend un stationnement dangereux, c'est le masque de visibilité qu'il crée : virage, sommet de côte, intersection, passage à niveau. Un stationnement seulement gênant, lui, ne coûte aucun point.",
+    "explanation": "Ce qui rend un stationnement dangereux, c'est le masque de visibilité qu'il crée : virage, sommet de côte, intersection, passage à niveau. Un stationnement seulement gênant, lui, ne bloque la vue de personne.",
     "id": "37fe1af42b8d811198bdecd01768828c",
     "notion": "stationnement/gradation",
     "options": [
@@ -172,7 +172,7 @@
         "text": "Devant son propre domicile, sur la chaussée"
       }
     ],
-    "prompt": "Le stationnement dangereux (135 € et 3 points) se rencontre notamment :",
+    "prompt": "Le stationnement dangereux se rencontre notamment :",
     "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
@@ -1554,7 +1554,7 @@
   {
     "correctID": "A",
     "difficulty": "costaud",
-    "explanation": "Le code distingue deux niveaux : gênant, 2e classe, soit 35 € d'amende forfaitaire, sans retrait de point ; très gênant, 4e classe, 135 €, pour le trottoir (voiture), les passages piétons, l'emplacement carte mobilité inclusion et les voies réservées.",
+    "explanation": "Le code distingue deux niveaux : gênant, 2e classe, soit 35 € d'amende forfaitaire, sans retrait de point ; très gênant, 4e classe, 135 €, pour le trottoir (voiture) ou l'emplacement carte mobilité inclusion.",
     "id": "37fe1af42b8d8181a057c984708f0042",
     "notion": "stationnement/gradation",
     "options": [
@@ -1575,7 +1575,7 @@
         "text": "375 €"
       }
     ],
-    "prompt": "Un stationnement gênant (non « très gênant ») est sanctionné par une amende de :",
+    "prompt": "Un stationnement gênant est sanctionné par une amende de :",
     "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
@@ -10230,7 +10230,7 @@
       },
       {
         "id": "C",
-        "text": "de 135 €, plus trois points comme un stationnement dangereux"
+        "text": "de 135 €, avec un retrait de trois points sur le permis"
       },
       {
         "id": "D",
