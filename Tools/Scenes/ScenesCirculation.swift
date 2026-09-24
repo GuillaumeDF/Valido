@@ -454,6 +454,32 @@ private func busVuDeDessus(_ ctx: CGContext, x: Double, y: Double, longueur: Dou
     }
 }
 
+/// Un deux-roues motorisé vu de dessus, entre deux files de voitures. Il ne doit pas se
+/// lire comme un vélo : `cyclisteVuDeDessus` n'est qu'un trait et un guidon, celui-ci porte
+/// une carrosserie pleine — carénage et selle d'un seul tenant — et un phare avant clair,
+/// comme le pare-brise d'une voiture signale son poste de conduite. Il est **en niveaux de
+/// gris**, seul véhicule sans teinte de `Palette`, et porte malgré tout le liseré blanc que
+/// `voiture(liseree:)` réserve ailleurs au véhicule du candidat : sur `inter-files`, c'est
+/// lui le sujet de la carte, et aucune voiture n'est celle du candidat.
+private let grisDeuxRoues = CGColor(gray: 0.10, alpha: 1)
+private func deuxRouesMotoriseVuDeDessus(_ ctx: CGContext, x: Double, y: Double, _ p: Palette) {
+    let long = 32.0, larg = 12.0
+    let corps = CGPath(roundedRect: CGRect(x: x - larg / 2, y: y - long / 2,
+                                           width: larg, height: long),
+                       cornerWidth: 5, cornerHeight: 5, transform: nil)
+    ctx.setFillColor(grisDeuxRoues)
+    ctx.addPath(corps)
+    ctx.fillPath()
+    ctx.setStrokeColor(p.marquage)
+    ctx.setLineWidth(2.5)
+    ctx.addPath(corps)
+    ctx.strokePath()
+    // Le phare avant : même convention que le pare-brise de `voiture`, et le seul indice
+    // qui distingue à cette échelle un deux-roues motorisé d'un vélo.
+    ctx.setFillColor(CGColor(gray: 1, alpha: 0.6))
+    ctx.fill(CGRect(x: x - 3.5, y: y - long / 2 + 4, width: 7, height: 5))
+}
+
 /// Un indicateur de changement de direction **allumé et clignotant**, vu de dessus. Les
 /// traits rayonnants sont la même convention que sur `lentille` : dans tout le dossier, des
 /// traits qui partent d'une source veulent dire « ça clignote ». Le disque est en
@@ -1532,7 +1558,50 @@ let scenesCirculation: [(String, Scene)] = [
         voiture(ctx, x: (busGeneraleGauche + busSeparateurX) / 2, y: 180, cap: .nord,
                 couleur: p.vous, liseree: true, p)
     }),
+
+    // MARK: - Usagers & partage de la route (tâche 9, 2026-09-24)
+
+    // 32. L'inter-files, posé sans répondre à la question qu'il illustre : la carte porte
+    //     sur le statut juridique de la pratique, que l'image ne peut pas donner. Elle
+    //     montre seulement ce que « inter-files » désigne — un deux-roues motorisé qui
+    //     roule entre deux files de voitures, à la même hauteur qu'une voiture de chaque
+    //     côté, serré entre les deux.
+    //
+    //     Chaussée de 112 unités, deux voies de 56 (même largeur que les deux scènes de
+    //     dépassement, `depGauche`/`depDroite`, mais une géométrie propre : les voies y
+    //     vont dans le même sens, pas en sens opposés). Le séparateur central reprend
+    //     `ligneAxialeT1`, déjà partagée par un axe médian de sens opposés et une
+    //     délimitation de voies du même sens (voir `sceneRoute` de `ScenesPanneaux.swift`) :
+    //     la même modulation norme les deux rôles.
+    //
+    //     Les deux files **avancent** : aucun véhicule à l'arrêt, aucun feu de détresse.
+    //     La carte voisine `a6fb8c06` interroge le plafond de 50 km/h que R412-11-3 réserve
+    //     aux files qui avancent (30 seulement si l'une d'elles est immobile), et cette
+    //     scène ne doit trancher ni l'un ni l'autre.
+    ("inter-files", { ctx, p in
+        fond(ctx, p)
+        ctx.setFillColor(p.chaussee)
+        ctx.fill(CGRect(x: interGauche, y: 0, width: interDroite - interGauche, height: H))
+        ctx.setFillColor(p.marquage)
+        ctx.fill(CGRect(x: interGauche + 1.5, y: 0, width: 3, height: H))
+        ctx.fill(CGRect(x: interDroite - 4.5, y: 0, width: 3, height: H))
+        ligneAxialeT1(ctx, x: interSepare, p)
+        for y in [55.0, 150.0, 245.0] {
+            voitureAgrandie(ctx, x: interVoieGauche, y: y, cap: .nord, facteur: interEchelle,
+                            couleur: p.autre, p)
+            voitureAgrandie(ctx, x: interVoieDroite, y: y, cap: .nord, facteur: interEchelle,
+                            couleur: p.autre, p)
+        }
+        deuxRouesMotoriseVuDeDessus(ctx, x: interSepare, y: 150, p)
+    }),
 ]
+
+/// Géométrie d'`inter-files` : même largeur de chaussée et même échelle (16 unités par
+/// mètre) que les deux scènes de dépassement ci-dessus, sans en partager les constantes —
+/// les deux voies y vont dans le même sens, ce que `depGauche`/`depDroite` ne décrivent pas.
+private let interGauche = 144.0, interDroite = 256.0, interSepare = 200.0
+private let interVoieGauche = 172.0, interVoieDroite = 228.0
+private let interEchelle = 1.25
 
 /// Géométrie de la voie de bus : mêmes bornes (152, 200, 248) que l'axe et les deux
 /// trottoirs de `stationnement-double-sens` juste au-dessus — la chaussée de base est la

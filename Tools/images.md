@@ -72,6 +72,7 @@ dessine une fois, pas une fois par scène.
 | `route-trois-voies-double-sens` | la **même** voie de candidat, un véhicule lent devant lui dans sa voie, une voie centrale vide délimitée des deux côtés par un **T1** (pas une continue), un véhicule d'en face loin devant dans la voie la plus à gauche, restée vide près du candidat | maison, aucune source tierce |
 | `stationnement-double-sens` | vue de dessus : chaussée à double sens, une voie par sens, trottoirs et bordures des **deux** côtés ; le candidat dans sa voie, un véhicule d'en face dans l'autre, **aucun véhicule garé** | maison, aucune source tierce |
 | `stationnement-voie-bus` | vue de dessus : chaussée à deux voies, la voie de droite réservée aux bus — séparée de la voie générale par une **T3** et marquée « BUS » au sol —, **vide** ; le candidat dans la voie générale | maison, aucune source tierce |
+| `inter-files` | vue de dessus : chaussée à deux voies du même sens, une file de voitures qui avancent dans chacune, un deux-roues motorisé roulant entre les deux, **en niveaux de gris** | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
