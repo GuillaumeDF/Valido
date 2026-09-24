@@ -12178,8 +12178,12 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Un panonceau ne redit jamais le panneau qu'il accompagne, il en précise la portée : ici, la longueur du tunnel qui reste à parcourir sous l'entrée signalée. Cette indication n'existe que là où l'entrée elle-même doit l'être — un tunnel trop court pour l'exiger n'en porte pas.",
+    "explanation": "Un panonceau ne redit jamais le panneau accompagné, il en précise la portée : ici, la longueur restant à parcourir. Cette indication n'existe que là où l'entrée doit l'être — un tunnel trop court n'en porte pas.",
     "id": "3a06288bf73bb5254b83a371ae55a854",
+    "illustration": {
+      "alt": "Photographie d'un panneau carré bleu à tunnel blanc, une plaque nommant l'ouvrage au-dessus et un panonceau blanc « 1 183 m » encadré de deux flèches en dessous, devant un talus très boisé.",
+      "asset": "panonceau-tunnel-longueur"
+    },
     "notion": "panneaux/panonceaux",
     "options": [
       {
@@ -12199,7 +12203,7 @@
         "text": "le nombre d'issues de secours prévues"
       }
     ],
-    "prompt": "À l'entrée d'un tunnel, le panonceau sous le panneau indique :",
+    "prompt": "Ce panonceau indique :",
     "role": "application",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
@@ -12476,8 +12480,12 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le panneau d'entrée de tunnel n'annonce pas seulement un lieu, il édicte des prescriptions que le panneau de sortie vient clore : l'interdiction de faire demi-tour en fait partie. Faire demi-tour dans un tube sans accotement, c'est se présenter de face à tout ce qui arrive, au seul endroit d'où personne ne peut s'écarter.",
+    "explanation": "Le panneau d'entrée édicte des prescriptions, closes par celui de sortie : l'interdiction de faire demi-tour en fait partie. Sans accotement, un demi-tour y présente de face tout ce qui arrive, sans pouvoir s'écarter.",
     "id": "5c11020dc34bf45d56cf8438dd8ad79e",
+    "illustration": {
+      "alt": "Photographie d'un panneau carré bleu à listel blanc montrant un tunnel en arc de pierres claires, dressé devant la roche et la végétation à l'entrée d'un tunnel routier.",
+      "asset": "panneau-c111-tunnel"
+    },
     "notion": "tunnel/conduite",
     "options": [
       {
@@ -12497,7 +12505,7 @@
         "text": "d'y circuler avec une remorque attelée"
       }
     ],
-    "prompt": "Le panneau qui signale l'entrée d'un tunnel interdit notamment :",
+    "prompt": "Ce panneau interdit notamment :",
     "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
