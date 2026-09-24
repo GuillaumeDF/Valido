@@ -1117,6 +1117,8 @@ autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l
 | `panneau-b14-limitation` | [Commons — Panneau B14 70 à Arenthon](https://commons.wikimedia.org/wiki/File:Panneau_B14_70_%C3%A0_Arenthon.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
 | `panneau-b33-fin-limitation` | [Commons — Panneau B33 70 D903 Scientrier](https://commons.wikimedia.org/wiki/File:Panneau_B33_70_D903_Scientrier.jpg) (2019-09-28) | Marc Mongenet | CC BY-SA 4.0 | 2026-09-23 | 4000 × 3000 |
 | `panneau-b30-zone-30` | [Commons — Zone 30 près gare Moulins](https://commons.wikimedia.org/wiki/File:Zone_30_pr%C3%A8s_gare_Moulins_2015-08-26.JPG) (2015-08-26) | Tabl-trai | CC BY-SA 3.0 | 2026-09-23 | 2816 × 2112 |
+| `panneau-c111-tunnel` | [Commons — Extrémité Ouest Tunnel des Sorderettes en Maurienne](https://commons.wikimedia.org/wiki/File:Extr%C3%A9mit%C3%A9_Ouest_Tunnel_des_Sorderettes_en_Maurienne_%28mai_2025%29.JPG) (mai 2025) | Florian Pépellin | CC BY-SA 4.0 | 2026-09-24 | 3108 × 2360 |
+| `panonceau-tunnel-longueur` | [Commons — Autoroute A43, La Maurienne, IMG 5854](https://commons.wikimedia.org/wiki/File:Autoroute_A43_-_La_Maurienne_-_2012-07-16_-_IMG_5854.jpg) (2012-07-16) | Poudou99 | CC BY 3.0 | 2026-09-24 | 5184 × 3456 |
 
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
@@ -1610,6 +1612,55 @@ en zone plutôt qu'en point (comme les zones hachurées du dossier) : le minimum
 (93,1 / 75,1) est la chaussée nue entre les lettres, son maximum (255,0 / 234,3) une pleine
 épaisseur de trait blanc — c'est ce maximum qu'il faut lire contre la chaussée témoin, pas
 la moyenne, qui mélange les deux.
+
+### Le C111 et son panonceau de longueur (tâche 10, 2026-09-24)
+
+Les deux premières photographies de `Tunnels & passages à niveau` : le C111 seul et le même
+panneau accompagné de son panonceau de longueur. Aucune scène dessinée ne portait de C111
+avant ce lot — `grep -rn tunnel Tools/Scenes/` ne trouve que `tunnel-arret-urgence`, qui
+n'est pas un panneau et ne bouge pas.
+
+**`panneau-c111-tunnel`** vient de l'extrémité ouest du tunnel des Sorderettes, en Maurienne
+(Florian Pépellin, CC BY-SA 4.0, mai 2025). Le cadre retenu porte, en plus du C111, la plaque
+nommant l'ouvrage au-dessus et son panonceau de longueur (« 372 m ») avec une borne
+kilométrique en dessous — aucun panneau de prescription (vitesse, hauteur, interdiction) n'y
+figure, et aucune option de la carte (changement de voie, dépassement, demi-tour, remorque
+attelée) ne porte sur un nom de tunnel ou une longueur : la plaque et le panonceau y sont un
+décor neutre, gardé faute de mieux. **Aucun poteau isolé, ne portant que le seul C111, n'a
+passé le double écart** : `Entrée Est Tunnel Bois Clair Berzé Châtel 1.jpg` et `…2.jpg`
+(Chabe01, CC BY-SA 4.0) opposent le listel à un talus mêlant feuillage ensoleillé et paroi
+claire — l'écart tombe à 3,5 clair / 2,4 sombre à un endroit de la bordure gauche et devient
+**négatif** (-15,8 clair / -9,9 sombre) à un autre, la roche claire y dépassant le listel.
+Aucun recadrage ne change ce que le poteau touche réellement ; élargir le cadre ne fait que
+montrer plus de la même paroi. Relevés sur le cliché retenu, aux pires points trouvés le long
+de la silhouette (Rec. 709, `luminance.py`) :
+
+| zone | clair | sombre | écart clair | écart sombre |
+|---|---:|---:|---:|---:|
+| listel (arche, bord gauche) contre végétation | 168,6 / 104,9 | 104,0 / 64,5 | 63,7 | 39,5 |
+| listel (arche, bord droit) contre végétation | 233 / 153 | 144 / 87 | 80 | 57 |
+| plaque de nom, bord haut, contre végétation | 224 / ≤107 | — | ≥117 | — |
+| pictogramme contre champ | 225,3 / 95,4 | 139,3 / 59,0 | 129,9 | 80,3 |
+
+**`panonceau-tunnel-longueur`** vient du tunnel « Les Hurtières », sur l'A43 en Maurienne
+(Poudou99, CC BY 3.0, 2012-07-16 — premier asset de ce fichier qui ne vient ni de Marc
+Mongenet, ni de Chabe01, ni de Florian Pépellin). **Un cliché distinct** de celui du C111
+ci-dessus : un autre tunnel, un autre photographe. Le panonceau M2 (IISR 5e partie, art. 75-2,
+1 : « Il est complété par un panonceau M2 indiquant la longueur de l'ouvrage », voir
+`Tools/sources.md` ligne `3a06288b`) porte « 1 183 m », lisible dans les deux modes ; aucun
+panneau de hauteur ni de vitesse n'entre dans le cadre — les deux distracteurs B et C de la
+carte. Là non plus aucun poteau isolé ne s'est trouvé : la plaque nommant le tunnel reste
+donc dans le cadre, décor neutre pour les mêmes raisons que ci-dessus.
+
+| zone | clair | sombre | écart clair | écart sombre |
+|---|---:|---:|---:|---:|
+| listel (arche, bord gauche) contre végétation | 185,6 / 91,6 | 114,8 / 56,4 | 94,0 | 58,4 |
+| listel (arche, bord droit) contre végétation | 184,4 / 67,9 | 113,8 / 41,3 | 116,5 | 72,5 |
+| listel (panonceau de longueur, bord gauche) contre végétation | 186,6 / 127,0 | 115,2 / 78,1 | 59,6 | 37,1 |
+| pictogramme contre champ | 176,6 / 85,4 | 109,3 / 52,8 | 91,2 | 56,5 |
+
+Les deux images demandent l'attribution CC BY-SA / CC BY (ce tableau la porte) ; un recadrage
+est une œuvre dérivée, donc le partage à l'identique s'appliquerait à une diffusion de l'app.
 
 ## Ajouter une image
 
