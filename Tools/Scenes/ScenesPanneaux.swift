@@ -240,7 +240,14 @@ private let routeY = cy + 4.0
 /// circulation ordinaire.
 private let routeYOpposee = 100.0
 
-private enum ConfigurationDeRoute { case uneVoieParSens, deuxVoiesParSens, chausseesSeparees }
+private enum ConfigurationDeRoute {
+    case uneVoieParSens, deuxVoiesParSens, chausseesSeparees
+    // Tâche 7 : la chaussée à double sens de trois voies de `depassement/manoeuvre`, dont
+    // la voie centrale est réservée au dépassement — pas affectée à un sens comme la
+    // seconde voie de `deuxVoiesParSens`. Voir `sceneRoute` : seule cette configuration pose
+    // un second T1 là où les trois autres posent une continue ou rien.
+    case troisVoiesDoubleSens
+}
 
 /// Un véhicule à l'échelle de cette famille (16 unités par mètre) : même procédé que
 /// `voitureAgrandie` de `ScenesCirculation.swift`, dans un fichier différent — on agrandit
@@ -273,6 +280,10 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
         // gauche** de la chaussée, cap sud, sans liseré — seule sa position sur la chaussée
         // change d'une scène à l'autre, jamais sa hauteur ni sa teinte.
         let voieOpposeeLaPlusAGauche: Double
+        // Un véhicule lent, dans la voie du candidat : seule `troisVoiesDoubleSens` en pose
+        // un, pour la même raison que le véhicule d'en face — c'est lui qui pose la
+        // situation de dépassement, sans lui la voie centrale vide ne motive rien.
+        var vehiculeLentY: Double?
 
         switch configuration {
         case .uneVoieParSens:
@@ -314,12 +325,35 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
             ligneT1(ctx, x: opposeeVoie1, de: 0, a: H, largeur: 5, p)
             poserVoie(opposeeVoie2)
             voieOpposeeLaPlusAGauche = opposeeVoie2
+
+        case .troisVoiesDoubleSens:
+            // R414-8 : qui dépasse ne peut pas emprunter la voie la plus à gauche d'une
+            // chaussée à double sens de plus de deux voies — elle revient à ceux qui
+            // viennent en face. La voie centrale est donc réservée au dépassement, jamais
+            // affectée à un sens : art. 114-1 de la 7e partie de l'IISR la borde de deux T1
+            // (« comprises dans le tiers central de la chaussée »), pas d'une continue comme
+            // `deuxVoiesParSens`, où la seconde voie appartient au candidat.
+            let voieMilieu = voieCandidat - routeVoie
+            let voieOpposee = voieMilieu - routeVoie
+            poserVoie(voieMilieu)
+            poserVoie(voieOpposee)
+            ligneT1(ctx, x: voieCandidat, de: 0, a: H, largeur: 5, p)
+            ligneT1(ctx, x: voieMilieu, de: 0, a: H, largeur: 5, p)
+            voieOpposeeLaPlusAGauche = voieOpposee
+            vehiculeLentY = 90
         }
 
         voitureRoute(ctx, x: voieOpposeeLaPlusAGauche + routeVoie / 2, y: routeYOpposee,
                     cap: .sud, couleur: p.autre, liseree: false, p)
         voitureRoute(ctx, x: voieCandidat + routeVoie / 2, y: routeY,
                     cap: .nord, couleur: p.vous, liseree: true, p)
+        // Devant le candidat, dans sa voie : sans lui rien n'appelle à dépasser, et la voie
+        // centrale vide resterait un fait sans question. `p.tiers` (déjà le troisième
+        // véhicule de `croisement-chaussee-etroite`) le distingue du véhicule d'en face.
+        if let vehiculeLentY {
+            voitureRoute(ctx, x: voieCandidat + routeVoie / 2, y: vehiculeLentY,
+                        cap: .nord, couleur: p.tiers, liseree: false, p)
+        }
     }
 }
 
@@ -537,4 +571,15 @@ let scenesPanneaux: [(String, Scene)] = [
     //     inverse en gagne une seconde et les deux chaussées se séparent par un terre-plein
     //     central bordé de continues des deux côtés (art. 114-4, B) : 110 km/h.
     ("route-chaussees-separees", sceneRoute(.chausseesSeparees)),
+
+    // MARK: Croisement & dépassement (tâche 7)
+
+    // 25. La chaussée à double sens de trois voies de `depassement/manoeuvre` : la voie du
+    //     candidat inchangée, un véhicule lent devant lui qui pose la situation, la voie
+    //     centrale libre jusqu'à elle, puis un véhicule d'en face loin devant dans la voie
+    //     la plus à gauche — restée vide près du candidat, pour que « prenez la voie de
+    //     gauche, la plus dégagée » reste un distracteur tentant. Voir `sceneRoute`, cas
+    //     `.troisVoiesDoubleSens`, pour la marque à deux T1 qui distingue cette voie
+    //     centrale réservée d'une seconde voie affectée à un sens.
+    ("route-trois-voies-double-sens", sceneRoute(.troisVoiesDoubleSens)),
 ]

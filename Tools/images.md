@@ -69,6 +69,7 @@ dessine une fois, pas une fois par scène.
 | `route-double-sens` | vue de dessus : une voie par sens, séparées par un axe **discontinu T1** ; le candidat dans sa voie, un véhicule d'en face dans l'autre, aucun panneau | maison, aucune source tierce |
 | `route-deux-voies-par-sens` | la **même** voie de candidat, une seconde voie de son sens ajoutée à sa gauche (T1 les délimite), séparée d'une voie inverse unique — un véhicule s'y présente — par une **continue** | maison, aucune source tierce |
 | `route-chaussees-separees` | les deux voies du candidat inchangées, la voie inverse en gagne une seconde — un véhicule dans la plus à gauche —, les deux chaussées séparées par un **terre-plein central** bordé de continues | maison, aucune source tierce |
+| `route-trois-voies-double-sens` | la **même** voie de candidat, un véhicule lent devant lui dans sa voie, une voie centrale vide délimitée des deux côtés par un **T1** (pas une continue), un véhicule d'en face loin devant dans la voie la plus à gauche, restée vide près du candidat | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
@@ -1488,6 +1489,58 @@ d'avant (`git show HEAD:…`) : bbox de différence vide dans les six cas — la
 candidat, la ligne T1, sa voiture et le `sol` au-delà n'ont pas bougé d'un pixel. Seule la
 chaussée à gauche de cette ligne porte maintenant, en plus de la configuration, le véhicule
 d'en face qui la rend lisible sans les deux autres scènes sous les yeux.
+
+### La chaussée à trois voies de `Croisement & dépassement` (tâche 7, 2026-09-24)
+
+Une quatrième configuration ajoutée à `ConfigurationDeRoute` (`ScenesPanneaux.swift`),
+`.troisVoiesDoubleSens`, plutôt qu'une nouvelle fonction : elle réutilise `sceneRoute`, la
+voie du candidat fixe et `voitureRoute` de la tâche 6B. Après rendu,
+`git status --porcelain -- Valido/Assets.xcassets` ne montre que l'imageset neuf — les
+trois scènes de la tâche 6B ressortent bit pour bit identiques.
+
+**Ce que R414-8 impose au marquage.** L'article interdit à qui dépasse d'emprunter la voie
+la plus à gauche d'une chaussée à double sens de plus de deux voies, ce qui la laisse à ceux
+qui viennent en face. L'IISR 7e partie, art. 114-1 (« Routes à trois voies de rase
+campagne »), en tire la marque : « Les lignes discontinues sont de type T1 et de largeur 2u.
+Elles sont comprises dans le tiers central de la chaussée. » — donc **deux T1**, un de
+chaque côté de la voie centrale, jamais une continue : à la différence de
+`route-deux-voies-par-sens`, où la seconde voie est affectée en permanence au candidat, la
+voie centrale d'une route à trois voies ne l'est à aucun sens, elle sert au dépassement des
+deux côtés. C'est cette continue-là, plus qu'un simple T1 de plus, qui aurait fait de la
+scène une redite de `route-deux-voies-par-sens` avec un véhicule en moins.
+
+**Deux véhicules ajoutés au véhicule d'en face déjà partagé par la famille**, tous deux
+`voitureRoute`, aucune géométrie recopiée :
+
+- **Un véhicule lent dans la voie du candidat** (`p.tiers`, sans liseré, cap nord, devant
+  lui) — sans lui, la voie centrale vide ne motiverait aucun dépassement, la scène ne
+  poserait pas de question. `p.tiers` est déjà la teinte du troisième véhicule de
+  `croisement-chaussee-etroite` ; aucune couleur n'a été ajoutée à `Palette`.
+- **Le véhicule d'en face partagé (`p.autre`)**, dans la voie la plus à gauche — **loin
+  devant**, et surtout **absente à hauteur du candidat** : sans ce vide, le distracteur
+  « prenez la voie de gauche, la plus dégagée » ne serait plus défendable, et la carte ne
+  testerait plus la règle mais l'évidence d'un véhicule visible. La voie centrale reste elle
+  aussi vide sur toute sa longueur — aucun véhicule n'y roule ni n'y est arrêté.
+
+Ces deux choix (voie de gauche vide près du candidat, voie centrale vide) sont ceux du
+brief de la tâche 7 ; une tâche future qui ajouterait un véhicule à l'un ou l'autre endroit
+retirerait au distracteur A sa raison d'être tentant.
+
+**Relevés de luminance** (Rec. 709, PNG `@3x`, coordonnées en unités de scène, écart contre
+la chaussée de la même voie) :
+
+| zone | x, y | clair | sombre | écart clair | écart sombre |
+|---|---|---:|---:|---:|---:|
+| T1 entre voie centrale et voie opposée, au plein | 216, 7 | 255,0 | 234,3 | 161,9 | 159,2 |
+| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 | 35,5 | 53,5 |
+| véhicule lent (`p.tiers`), caisse | 300, 90 | 118,6 | 154,1 | 25,5 | 79,0 |
+| véhicule d'en face (`p.autre`), caisse | 188, 100 | 180,0 | 196,6 | 86,9 | 121,5 |
+
+Le T1 candidat/voie centrale (`x = 272`) reprend le code déjà mesuré à la tâche 6B (255,0 /
+93,1 clair, 234,3 / 75,1 sombre) : même position, même code, non re-listé. Toutes les
+valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le plus serré
+(25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
+véhicule, hors pare-brise.
 
 ## Ajouter une image
 
