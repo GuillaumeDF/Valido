@@ -239,11 +239,6 @@ private let routeY = cy + 4.0
 /// opposées dans la première scène, se liraient comme un face-à-face plutôt que comme une
 /// circulation ordinaire.
 private let routeYOpposee = 100.0
-/// Pour `.troisVoiesDoubleSens` seule : à `routeYOpposee`, le véhicule d'en face chevauchait
-/// le véhicule lent de 120 px à @3x (`vehiculeLentY` = 90, à 10 unités de scène à peine) —
-/// côte à côte, pas « loin devant » comme la carte l'exige. Renvoyé près du haut du cadre,
-/// sans le couper (fix round 1, revue). Les trois autres configurations restent sur
-/// `routeYOpposee`, inchangé.
 private let routeYOpposeeLointaine = 30.0
 
 private enum ConfigurationDeRoute {
