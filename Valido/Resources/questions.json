@@ -11926,8 +11926,12 @@
   {
     "correctID": "D",
     "difficulty": "moyen",
-    "explanation": "R414-8 interdit à qui dépasse d'emprunter la voie la plus à gauche d'une chaussée à double sens de plus de deux voies, ce qui revient à la laisser à ceux qui viennent en face : s'y engager pour doubler, c'est rouler sur leur voie. La voie centrale est celle du dépassement.",
+    "explanation": "R414-8 interdit à qui dépasse d'emprunter la voie la plus à gauche d'une chaussée à double sens de plus de deux voies : elle revient à ceux qui viennent en face, s'y engager pour doubler, c'est rouler sur leur voie.",
     "id": "99824d4de286434d85174502e05ea59d",
+    "illustration": {
+      "alt": "Chaussée à double sens de trois voies : un véhicule roule lentement devant vous dans votre voie, la voie du milieu est libre, et un véhicule arrive en face, loin, dans la voie de gauche.",
+      "asset": "route-trois-voies-double-sens"
+    },
     "notion": "depassement/manoeuvre",
     "options": [
       {
@@ -11940,14 +11944,14 @@
       },
       {
         "id": "C",
-        "text": "prenez la voie du milieu, en finissant par la gauche"
+        "text": "prenez la voie du milieu, en finissant à gauche"
       },
       {
         "id": "D",
         "text": "prenez la voie du milieu, pas celle de gauche"
       }
     ],
-    "prompt": "Sur une chaussée à double sens de trois voies, pour dépasser :",
+    "prompt": "Sur cette route, pour dépasser :",
     "role": "fondation",
     "subject": "code",
     "topic": "Croisement & dépassement"
