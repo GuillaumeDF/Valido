@@ -14,7 +14,7 @@ fichier ne porte que ce qui sert à travailler dans le dépôt.
 # L'UDID, jamais le nom — trois runtimes déclarent un « iPhone 17 Pro » (voir plus bas).
 DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcrun simctl boot 66921B37-1805-4988-AB69-B51A94490BC0
 
-# Toute la suite (64 tests, Swift Testing)
+# Toute la suite (84 tests, Swift Testing)
 DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcodebuild test \
   -project Valido.xcodeproj -scheme Valido \
   -destination 'platform=iOS Simulator,id=66921B37-1805-4988-AB69-B51A94490BC0'
@@ -46,7 +46,8 @@ ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plu
 `forme/seule-ponctuee` (14) et deux faux positifs connus (`lettre/reference` 1,
 `forme/markdown` 1) ; reconfirmée au 2026-09-19 sur 464 questions, ces cinq chiffres n'ont
 pas bougé — les seize fondations ajoutées par le chantier des notions n'ont pesé sur aucun
-d'eux. Doivent rester **vides** : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
+d'eux ; au 2026-09-24, après le chantier des illustrations, toujours les mêmes. Doivent
+rester **vides** : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
 `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que si une option porte
 un backtick, son zéro ne prouve rien sur un lot sans code span — et, depuis le 2026-09-19,
 `notions/non-declaree`, `notions/sans-fondation` et `notions/carte-orpheline`.
@@ -77,6 +78,13 @@ dérive.** Mesuré au 2026-09-19 sur 464 questions : `forme/impersonnel` **199 �
 « vous » — exactement ce que ces deux premiers compteurs mesurent. Chaque future fondation
 les fera monter d'une unité chacun. Ils restent informatifs ; les faire baisser voudrait dire
 écrire des fondations qui n'énoncent rien.
+
+**`forme/hors-situation` 216 → 189 au 2026-09-24, voulu lui aussi.** Le compteur ignore toute
+carte illustrée : les vingt-sept cartes qui ont reçu une image dans le chantier des
+illustrations en sortent, aucune n'y entre. Une fondation illustrée ne le fait donc pas
+monter. `forme/impersonnel` **215 → 216** : un énoncé raccourci a perdu son « votre ».
+`forme/definitionnel` reste à 98. Le détail carte par carte est dans
+[`Tools/audit-2026-09-illustrations.md`](Tools/audit-2026-09-illustrations.md), §1 et §5.
 
 **Les deux chiffres qui ont bougé à la passe 3 sont voulus, ce ne sont pas des dérives.**
 `longueur/plus-longue` **97 → 76** : tout le mouvement est côté `code` (34 → 13), obtenu en
@@ -145,7 +153,7 @@ est compilé sans toucher au `.pbxproj`.
 ## Le contenu est du code
 
 `Valido/Resources/questions.json` **est** la source — pas de génération, on édite le fichier.
-464 questions (271 `code`, 193 `swift`), dont **49 illustrées**. L'`id` est soit un ancien id
+464 questions (271 `code`, 193 `swift`), dont **76 illustrées**. L'`id` est soit un ancien id
 de page Notion, soit `sha256("valido-v2:" + prompt)[:32]` — le préfixe est dans l'entrée du
 hachage, pas dans l'identifiant. **Un `id` livré est immuable** : la progression est indexée
 dessus. Les options sont mélangées à chaque présentation (**donc aucune référence de lettre
@@ -182,7 +190,7 @@ l'outil. Depuis cette revue, `--fuites` **nomme** les bonnes réponses qu'il n'a
 c'est cette liste-là qu'on grep à la main.
 
 `ValidoTests/BundledContentTests.swift` verrouille le livré : volume ≥ 425, ≥ 242 `code` et
-≥ 183 `swift`, **≥ 44 illustrées**, aucune lettre de réponse en tête d'option ou
+≥ 183 `swift`, **≥ 68 illustrées**, aucune lettre de réponse en tête d'option ou
 d'explication, équilibre de longueur (la bonne réponse ne dépasse pas de 10 caractères la
 deuxième plus longue), résolution de chaque asset dans le bundle, `alt` ≥ 40 caractères, et
 le budget de hauteur des illustrées (70 / 50 / 220 caractères). Les seuils de volume sont à
@@ -190,11 +198,15 @@ le budget de hauteur des illustrées (70 / 50 / 220 caractères). Les seuils de 
 dans le test.**
 
 Images : un seul champ `Illustration { asset, alt }`. L'`alt` **est** l'énoncé pour qui
-n'accède pas à l'image. Deux origines — 49 schémas générés par `./Tools/render-scenes.sh`
-(scènes sous `Tools/Scenes/`, on édite la scène, jamais les PNG ; un panneau se dessine une
-seule fois, dans `Tools/Scenes/Panneaux.swift`) et deux photos Wikimedia, dont une seule
-sert encore. Tout asset doit avoir sa ligne dans [`Tools/images.md`](Tools/images.md), sinon
-`audit.py` le refuse. Aucune information ne repose sur la couleur seule — et ça **se mesure**
+n'accède pas à l'image. **Un panneau se photographie, un marquage et une configuration se
+dessinent** : un pictogramme normé ne se redessine pas à la main, une géométrie de voies
+n'existe sur aucune photo. Deux origines — 52 schémas générés par `./Tools/render-scenes.sh`
+(scènes sous `Tools/Scenes/`, on édite la scène, jamais les PNG ; un panneau planté dans une
+scène se dessine une seule fois, dans `Tools/Scenes/Panneaux.swift`) et 25 photographies
+Commons, préparées par `Tools/photo-panneau.py`. Une seule ne sert aucune carte, et c'est la
+seule sans variante sombre : `ligne-jaune-continue`, orpheline depuis avant ce chantier. Tout
+asset doit avoir sa ligne dans [`Tools/images.md`](Tools/images.md), sinon `audit.py` le
+refuse. Aucune information ne repose sur la couleur seule — et ça **se mesure**
 en niveaux de gris avant de commiter un PNG, la bonne intention ayant déjà produit une
 polarité inversée.
 

@@ -125,12 +125,12 @@ import UIKit
 /// d'août 2026 laissait huit questions illustrées sur 310, et rien n'empêchait ce nombre
 /// de retomber à zéro sans qu'aucun test ne bronche — les trois tests d'image ci-dessus
 /// vérifient chacun ce qu'une illustration *doit* respecter, aucun ne vérifie qu'il en
-/// reste. Seuil à 90 % des 49 livrées, plus bas que les 95 % des seuils de volume : une
+/// reste. Seuil à 90 % des 76 livrées, plus bas que les 95 % des seuils de volume : une
 /// question illustrée se retire plus facilement qu'elle ne s'écrit.
 @Test func laBanqueGardeSonVolumeIllustré() throws {
     let bank = try QuestionBank.bundled()
     let illustrées = bank.questions.filter { $0.illustration != nil }
-    #expect(illustrées.count >= 44)
+    #expect(illustrées.count >= 68)
 }
 
 /// Le registre des notions distingue la carte qui **énonce** une règle (`fondation`) de

@@ -10,7 +10,7 @@ clés triées, UTF-8.
 json.dump(questions, f, ensure_ascii=False, indent=2, sort_keys=True)
 ```
 
-État courant : **448 questions** — 255 `code`, 193 `swift`. **Quarante-neuf** portent une
+État courant : **464 questions** — 271 `code`, 193 `swift`. **Soixante-seize** portent une
 image (voir le [§7](#7-les-questions-illustrées)). La couverture du référentiel ETG, thématique
 par thématique, est dans [`couverture.md`](couverture.md) ; la fraîcheur de chaque question
 `code`, dans [`sources.md`](sources.md).
