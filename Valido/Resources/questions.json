@@ -2105,7 +2105,7 @@
         "text": "Une simple information de confort"
       }
     ],
-    "prompt": "Un témoin orange (ambre) au tableau de bord signale :",
+    "prompt": "Un témoin orange au tableau de bord signale :",
     "role": "fondation",
     "subject": "code",
     "topic": "Mécanique & environnement"
@@ -10680,7 +10680,7 @@
   {
     "correctID": "D",
     "difficulty": "costaud",
-    "explanation": "R412-1 dresse une liste fermée : morphologie inadaptée, certificat médical, intervention d'urgence, taxi en service, et en agglomération les services publics et les livraisons de porte à porte. La grossesse n'y est pas — il y faut un certificat.",
+    "explanation": "R412-1 dresse une liste fermée : morphologie inadaptée, certificat médical, intervention d'urgence, taxi en service, et en agglomération les services publics et les livraisons de porte à porte. La grossesse n'y est pas — il y faut un certificat. Le code ne motive pas cette liste : la dérogation professionnelle vient du droit européen — la directive 91/671/CEE, modifiée par la directive 2003/20/CE du 8 avril 2003 (art. 6), autorise les États à y déroger « pour permettre l'exercice efficace de certaines activités professionnelles » ; le ministère de l'Intérieur l'a confirmé pour les taxis en service dans sa réponse du 20 mars 2018 à la question écrite n° 4994.",
     "id": "8e64074daad0e4a72e0fea2da9bac8eb",
     "notion": "securite/retenue",
     "options": [
@@ -10858,7 +10858,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : une galerie chargée casse l'écoulement au-dessus du pavillon, et la traînée croît avec le carré de la vitesse — bien plus qu'avec le poids ajouté. Vide, elle coûte encore, mais moins.",
+    "explanation": "À vitesse d'autoroute, l'essentiel du carburant sert à écarter l'air : des barres chargées cassent l'écoulement au-dessus du toit, et la traînée croît avec le carré de la vitesse — bien plus qu'avec le poids ajouté. Vides, elles coûtent encore, mais moins.",
     "id": "526d6b502e05eefba3f2066af4c2ab8d",
     "notion": "environnement/ecoconduite",
     "options": [
@@ -10879,7 +10879,7 @@
         "text": "n'augmente la consommation qu'en agglomération"
       }
     ],
-    "prompt": "Une galerie de toit chargée, sur autoroute :",
+    "prompt": "Des barres de toit chargées, sur autoroute :",
     "role": "application",
     "subject": "code",
     "topic": "Mécanique & environnement"
