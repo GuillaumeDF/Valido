@@ -1487,7 +1487,76 @@ let scenesCirculation: [(String, Scene)] = [
                     liseree: i == 2, contour: i == 2 ? nil : traitSombre, p)
         }
     }),
+
+    // MARK: - Arrêt et stationnement (tâche 8, 2026-09-24)
+
+    // 30. Le côté de stationnement sur une chaussée à double sens. Même géométrie que
+    //     `bus-quittant-arret` et `sas-cycliste-feu` — deux trottoirs, deux bordures —
+    //     mais **aucun véhicule garé** : une file rangée à droite donnerait la réponse
+    //     avant qu'elle ne se pose. Le véhicule d'en face est ce qui fait lire « double
+    //     sens » : sans lui, la voie du candidat se lirait aussi bien comme une chaussée
+    //     à sens unique vue d'une seule voie — même raison que le véhicule d'en face de
+    //     `sceneRoute` (`ScenesPanneaux.swift`, tâche 6B).
+    //
+    //     Le trottoir porte un distracteur de la carte (« Sur le trottoir, si les
+    //     piétons peuvent passer ») : ce n'est donc pas un décor neutre, et sa luminance
+    //     contre la chaussée est mesurée comme le reste (voir le rapport de la tâche 8).
+    ("stationnement-double-sens", { ctx, p in
+        rueBordeeDeDeuxTrottoirs(ctx, gauche: 152, droite: 248, bordure: 12, axe: 200,
+                                 pas: 24, p)
+        voiture(ctx, x: 176, y: 118, cap: .sud, couleur: p.autre, p)
+        voiture(ctx, x: 224, y: 182, cap: .nord, couleur: p.vous, liseree: true, p)
+    }),
+
+    // 31. La voie réservée aux autobus, vide — c'est précisément l'absence de bus que
+    //     l'explication nomme comme piège (« jamais l'absence de bus »), et la scène ne
+    //     doit donc pas la corriger en en dessinant un. Séparée de la voie générale par
+    //     une T3 (IISR, 7e partie, art. 118-3, A, qui renvoie à l'art. 114-3, 2° : trois
+    //     régimes selon le couloir — continue à contresens, continue en couloir
+    //     permanent où le dépassement est interdit, **discontinue T3 dans tous les
+    //     autres cas de couloirs réservés dans le sens normal**, celui d'ici, en
+    //     l'absence de toute mention contraire) et portant le mot « BUS » au sol, que
+    //     l'art. 118-3, E autorise « en répétition le long des couloirs ». Le mot est le
+    //     sujet de la carte, pas du décor : mesuré comme le marquage lui-même.
+    ("stationnement-voie-bus", { ctx, p in
+        fond(ctx, p)
+        ctx.setFillColor(p.chaussee)
+        ctx.fill(CGRect(x: busGeneraleGauche, y: 0,
+                        width: busVoieDroite - busGeneraleGauche, height: H))
+        ctx.setFillColor(p.bordure)
+        ctx.fill(CGRect(x: busGeneraleGauche - busBordure, y: 0, width: busBordure, height: H))
+        ctx.fill(CGRect(x: busVoieDroite, y: 0, width: busBordure, height: H))
+        ligneT3VoieBus(ctx, x: busSeparateurX, p)
+        texte(ctx, "BUS", centre: CGPoint(x: (busSeparateurX + busVoieDroite) / 2, y: 150),
+              taille: 20, couleur: p.marquage)
+        voiture(ctx, x: (busGeneraleGauche + busSeparateurX) / 2, y: 180, cap: .nord,
+                couleur: p.vous, liseree: true, p)
+    }),
 ]
+
+/// Géométrie de la voie de bus : mêmes bornes (152, 200, 248) que l'axe et les deux
+/// trottoirs de `stationnement-double-sens` juste au-dessus — la chaussée de base est la
+/// même largeur, seul son traitement change (axe médian double sens ici, séparateur de
+/// voie réservée là).
+private let busGeneraleGauche = 152.0, busSeparateurX = 200.0, busVoieDroite = 248.0
+private let busBordure = 12.0
+
+/// Ligne discontinue de type T3, largeur 5u : le marquage des « couloirs réservés dans
+/// le sens normal » (IISR, 7e partie, art. 114-3, 2°), modulation « 3 m de trait, 1,33 m
+/// d'intervalle » — rapport plein/vide 2,25, contre 0,3 pour une T1 de délimitation de
+/// voies : les pleins dominent très largement, à l'inverse d'un axe médian. Trait et vide
+/// sont calculés au rapport exact de la norme (27 pour 12, soit 2,25) et non fixés à 15
+/// comme le fait `ligneT3` de `ScenesPanneaux.swift` pour un usage différent (annonce
+/// d'une continue) : aucune autre ligne de ce fichier ne partage ce rapport.
+private let busSeparateurTrait = 27.0, busSeparateurVide = 12.0
+private func ligneT3VoieBus(_ ctx: CGContext, x: Double, _ p: Palette) {
+    ctx.setFillColor(p.marquage)
+    var y = 6.0
+    while y < H {
+        ctx.fill(CGRect(x: x - 2.5, y: y, width: 5, height: min(busSeparateurTrait, H - y)))
+        y += busSeparateurTrait + busSeparateurVide
+    }
+}
 
 /// Le jaune seul, grand caisson, lampe du milieu dans l'état donné — clignotante (scène 5)
 /// ou fixe (scène 28). Extrait pour que les deux scènes ne partagent qu'un paramètre au lieu

@@ -70,6 +70,8 @@ dessine une fois, pas une fois par scène.
 | `route-deux-voies-par-sens` | la **même** voie de candidat, une seconde voie de son sens ajoutée à sa gauche (T1 les délimite), séparée d'une voie inverse unique — un véhicule s'y présente — par une **continue** | maison, aucune source tierce |
 | `route-chaussees-separees` | les deux voies du candidat inchangées, la voie inverse en gagne une seconde — un véhicule dans la plus à gauche —, les deux chaussées séparées par un **terre-plein central** bordé de continues | maison, aucune source tierce |
 | `route-trois-voies-double-sens` | la **même** voie de candidat, un véhicule lent devant lui dans sa voie, une voie centrale vide délimitée des deux côtés par un **T1** (pas une continue), un véhicule d'en face loin devant dans la voie la plus à gauche, restée vide près du candidat | maison, aucune source tierce |
+| `stationnement-double-sens` | vue de dessus : chaussée à double sens, une voie par sens, trottoirs et bordures des **deux** côtés ; le candidat dans sa voie, un véhicule d'en face dans l'autre, **aucun véhicule garé** | maison, aucune source tierce |
+| `stationnement-voie-bus` | vue de dessus : chaussée à deux voies, la voie de droite réservée aux bus — séparée de la voie générale par une **T3** et marquée « BUS » au sol —, **vide** ; le candidat dans la voie générale | maison, aucune source tierce |
 
 ### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
 
@@ -1541,6 +1543,72 @@ Le T1 candidat/voie centrale (`x = 272`) reprend le code déjà mesuré à la t�
 valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le plus serré
 (25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
 véhicule, hors pare-brise.
+
+### Les deux scènes d'« Arrêt & stationnement » (tâche 8, 2026-09-24)
+
+Deux scènes ajoutées à `Tools/Scenes/ScenesCirculation.swift`, aucune scène existante
+touchée : après rendu, `git status --porcelain -- Valido/Assets.xcassets` ne montre que
+les deux imagesets neufs, et un contrôle SHA-256 des 196 PNG déjà livrés (avant/après)
+retombe à l'octet près sur chacun d'eux.
+
+**`stationnement-double-sens`** reprend la géométrie de `bus-quittant-arret` et
+`sas-cycliste-feu` (`rueBordeeDeDeuxTrottoirs`, gauche 152, droite 248, bordure 12,
+axe 200, pas 24) : deux trottoirs, deux bordures, un axe médian discontinu. **Aucun
+véhicule garé** — une file rangée à droite aurait donné la réponse avant qu'elle ne se
+pose. Le véhicule d'en face (`p.autre`, cap sud, sans liseré) est ce qui fait lire
+« double sens » : sans lui, la voie du candidat se lirait aussi bien comme une chaussée à
+sens unique vue d'une seule voie — même raison que le véhicule d'en face de `sceneRoute`
+(tâche 6B). Le trottoir porte un distracteur de la carte (« Sur le trottoir, si les
+piétons peuvent passer ») : ce n'est donc pas un décor neutre, et sa luminance contre la
+chaussée est mesurée ci-dessous comme le reste.
+
+« En agglomération » reste dans l'énoncé plutôt que d'être retiré : les deux trottoirs et
+leurs bordures **suggèrent** l'agglomération, ils ne la **prouvent** pas — à la différence
+de `depassement-cycliste-distance`, où des piétons avaient été ajoutés spécifiquement pour
+faire de ce fait une donnée sûre. Cette scène n'en pose aucun ; le mot reste donc du texte.
+
+**`stationnement-voie-bus`** est une chaussée à deux voies : la voie générale (candidat,
+`p.vous`, liseré) et la voie de bus, **vide** — l'absence de bus est précisément ce que
+l'explication nomme comme piège (« jamais l'absence de bus »), la scène ne devait donc pas
+la corriger en en dessinant un. Les deux voies sont séparées par une ligne discontinue de
+type T3, largeur 5u (IISR, 7e partie, art. 118-3, A, qui renvoie à l'art. 114-3, 2° :
+trois régimes selon le couloir — continue à contresens, continue en couloir permanent où
+le dépassement est interdit, **discontinue T3 dans tous les autres cas de couloirs
+réservés dans le sens normal**, celui d'ici, en l'absence de toute mention contraire —
+modulation « 3 m de trait, 1,33 m d'intervalle », rapport plein/vide 2,25, calculé au
+rapport exact plutôt que fixé comme le fait `ligneT3` de `ScenesPanneaux.swift` pour un
+usage différent). Le mot « BUS » est peint au sol, comme le permet l'art. 118-3, E
+(« en répétition le long des couloirs ») ; taille de police choisie à 20 après un premier
+essai à 26 mesuré puis écarté : le texte tenait alors de x = 201,7 à 249,3 unités de scène,
+débordant sur la bordure qui commence à 248. À 20, le texte tient de x = 204,0 à 243,7
+unités, avec marge des deux côtés. Le mot est le sujet de la carte, pas du décor : mesuré
+ci-dessous comme le marquage lui-même.
+
+**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `luminance.py`), coordonnées
+en unités de scène (le pixel lu est 3× celles-ci) :
+
+| zone | x, y | clair | sombre | écart clair | écart sombre |
+|---|---|---:|---:|---:|---:|
+| `double-sens` — trottoir (`sol`) | 60, 150 | 235,1 | 37,2 | 142,0 | 37,9 |
+| `double-sens` — chaussée témoin | 170, 250 | 93,1 | 75,1 | — | — |
+| `double-sens` — véhicule du candidat, caisse | 224, 182 | 128,6 | 128,6 | 35,5 | 53,5 |
+| `double-sens` — véhicule d'en face (`p.autre`), caisse | 176, 118 | 180,0 | 196,6 | 86,9 | 121,5 |
+| `double-sens` — axe médian, au plein | 200, 12 | 255,0 | 234,3 | 161,9 | 159,2 |
+| `voie-bus` — mot « BUS », zone 40×40 : moyenne / max | 204, 130 | 127,3 / 255,0 | 108,7 / 234,3 | — / 161,9 | — / 159,2 |
+| `voie-bus` — chaussée témoin (voie de bus, sous le mot) | 224, 230 | 93,1 | 75,1 | — | — |
+| `voie-bus` — séparateur T3, au plein | 200, 15 | 255,0 | 234,3 | 161,9 | 159,2 |
+| `voie-bus` — séparateur T3, au vide (= chaussée) | 200, 39 | 93,1 | 75,1 | — | — |
+| `voie-bus` — véhicule du candidat, caisse | 176, 180 | 128,6 | 128,6 | 35,5 | 53,5 |
+| `voie-bus` — chaussée témoin (voie générale) | 170, 250 | 93,1 | 75,1 | — | — |
+
+Toutes les valeurs dépassent le plancher de 25 points, dans les deux modes — la plupart
+très largement, puisque les deux scènes ne réutilisent que des teintes déjà établies
+ailleurs dans le dossier (`sol`, `chaussee`, `marquage`, `vous`, `autre`) : chaque écart
+retombe à la décimale sur une valeur déjà publiée pour ces teintes. Le mot « BUS » mesuré
+en zone plutôt qu'en point (comme les zones hachurées du dossier) : le minimum de la zone
+(93,1 / 75,1) est la chaussée nue entre les lettres, son maximum (255,0 / 234,3) une pleine
+épaisseur de trait blanc — c'est ce maximum qu'il faut lire contre la chaussée témoin, pas
+la moyenne, qui mélange les deux.
 
 ## Ajouter une image
 
