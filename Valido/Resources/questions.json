@@ -273,6 +273,10 @@
     "difficulty": "facile",
     "explanation": "Sur une chaussée à double sens, stationner à gauche placerait le conducteur du mauvais côté au moment de sortir, face au trafic. Les deux côtés ne sont permis qu'en sens unique.",
     "id": "37fe1af42b8d811b96fdf80a7a546c1e",
+    "illustration": {
+      "alt": "Rue à double sens vue de dessus : une voie par sens séparée par un axe discontinu, trottoirs et bordures des deux côtés ; vous roulez dans votre voie et un véhicule arrive en face dans l'autre.",
+      "asset": "stationnement-double-sens"
+    },
     "notion": "stationnement/interdictions",
     "options": [
       {
@@ -292,7 +296,7 @@
         "text": "Sur le trottoir, si les piétons peuvent passer"
       }
     ],
-    "prompt": "En agglomération, sur une chaussée à double sens, on stationne :",
+    "prompt": "En agglomération, on stationne :",
     "role": "fondation",
     "subject": "code",
     "topic": "Arrêt & stationnement"
@@ -2407,8 +2411,12 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. Le code range donc l'infraction parmi les stationnements très gênants, à 135 € ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
+    "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. Le code la range donc parmi les stationnements très gênants ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
     "id": "37fe1af42b8d81d793bcc927205f9d79",
+    "illustration": {
+      "alt": "Chaussée urbaine : la voie de droite, séparée par un trait discontinu et marquée « BUS » au sol, est vide ; vous roulez dans la voie générale, à sa gauche.",
+      "asset": "stationnement-voie-bus"
+    },
     "notion": "stationnement/gradation",
     "options": [
       {
@@ -2428,7 +2436,7 @@
         "text": "Permis la nuit, quand les bus ne circulent plus"
       }
     ],
-    "prompt": "S'arrêter ou stationner sur une voie réservée aux bus est :",
+    "prompt": "S'arrêter ou stationner sur cette voie est :",
     "role": "application",
     "subject": "code",
     "topic": "Arrêt & stationnement"
