@@ -623,7 +623,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Le barème range cette négligence au même niveau que d'autres inattentions du code. Ce qui est visé n'est pas la conversation mais la main occupée et le regard qui quitte la route.",
+    "explanation": "Tenir son téléphone en main est une contravention de quatrième classe qui retire trois points. Ce qui est visé n'est pas la conversation mais la main occupée et le regard qui quitte la route.",
     "id": "37fe1af42b8d8132a22dde248e277c2b",
     "notion": "permis/bareme",
     "options": [
@@ -2055,7 +2055,7 @@
   {
     "correctID": "B",
     "difficulty": "facile",
-    "explanation": "Non attachée, une personne heurte le pare-brise ou le tableau de bord au moindre choc, ou est éjectée du véhicule : c'est ce que la ceinture empêche. Le barème range ce manquement en quatrième classe, comme d'autres négligences au volant, et le conducteur répond en plus des passagers de moins de 18 ans mal attachés. L'obligation connaît des dispenses : certificat médical d'exemption, service public à arrêts fréquents, livraison porte à porte en agglomération, ou intervention d'un véhicule prioritaire.",
+    "explanation": "Non attachée, une personne heurte le pare-brise ou le tableau de bord au moindre choc, ou est éjectée du véhicule : c'est ce que la ceinture empêche. Ce manquement relève de la quatrième classe et retire trois points, et le conducteur répond en plus des passagers de moins de 18 ans mal attachés. L'obligation connaît des dispenses : certificat médical d'exemption, livraison porte à porte en agglomération, ou intervention d'un véhicule prioritaire.",
     "id": "37fe1af42b8d81b7acdacd2079297f09",
     "notion": "permis/bareme",
     "options": [
@@ -2258,7 +2258,7 @@
   {
     "correctID": "A",
     "difficulty": "facile",
-    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses maximales abaissées sur autoroute. L'oublier est une contravention de deuxième classe.",
+    "explanation": "Le disque n'est pas une formalité administrative : il prévient les autres usagers qu'ils ont affaire à un conducteur tenu à des vitesses maximales abaissées, sur route comme sur autoroute. L'oublier est une contravention de deuxième classe.",
     "id": "37fe1af42b8d81d09328df58d56a4dc6",
     "notion": "permis/probatoire",
     "options": [

@@ -116,9 +116,9 @@ chiffrée reprise dans l'explication est normale — le défaut est l'explicatio
 **n'ajoute rien** :
 
 > ❌ « 3 points, plus 135 € d'amende. »
-> ✅ « Le barème range cette négligence au même niveau que d'autres inattentions du
-> code. Ce qui est visé n'est pas la conversation mais la main occupée et le regard
-> qui quitte la route. »
+> ✅ « Tenir son téléphone en main est une contravention de quatrième classe qui
+> retire trois points. Ce qui est visé n'est pas la conversation mais la main
+> occupée et le regard qui quitte la route. »
 
 Elle ne commence jamais par une lettre de réponse (`^[A-D]\s*[—–\-.)]`) et ne finit
 jamais par un motif `[A-D] :`. **Les options sont mélangées à l'exécution** : une
