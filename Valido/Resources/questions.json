@@ -11243,7 +11243,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le II de R412-43-1 ferme aux engins de déplacement personnel motorisé les routes hors agglomération, où les voitures roulent trop vite pour eux : il ne reste que la piste cyclable et la voie verte. L'autorité de police peut rouvrir certaines routes jusqu'à 80 km/h, et le casque devient alors obligatoire.",
+    "explanation": "Le II de R412-43-1 ferme aux engins de déplacement personnel motorisé — trottinettes électriques comme gyroroues — les routes hors agglomération, où les voitures roulent trop vite pour eux : il ne reste que la piste cyclable et la voie verte. L'autorité de police peut rouvrir certaines routes jusqu'à 80 km/h, et le casque devient alors obligatoire.",
     "id": "45d84549ac552870982bf1315f9a8151",
     "notion": "usagers/edpm",
     "options": [
@@ -11264,7 +11264,7 @@
         "text": "sur n'importe quelle route hors agglomération"
       }
     ],
-    "prompt": "Hors agglomération, un engin de déplacement personnel motorisé — trottinette électrique, gyroroue — circule :",
+    "prompt": "Hors agglomération, une trottinette électrique circule :",
     "role": "fondation",
     "subject": "code",
     "topic": "Usagers & partage de la route"
@@ -11384,7 +11384,7 @@
         "text": "50 km/h, quelle que soit l'allure des files"
       }
     ],
-    "prompt": "En inter-files — entre deux files de véhicules —, la vitesse ne peut excéder :",
+    "prompt": "En inter-files, la vitesse d'un deux-roues motorisé ne peut excéder :",
     "role": "fondation",
     "subject": "code",
     "topic": "Usagers & partage de la route"
