@@ -9034,7 +9034,7 @@
   {
     "correctID": "B",
     "difficulty": "costaud",
-    "explanation": "C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90 ; sous la pluie, ces deux valeurs retombent respectivement à 80 et à 100.",
+    "explanation": "C'est le nombre de voies affectées à votre sens, et non la largeur de la chaussée, qui fait passer la limite de 80 à 90 ; sous la pluie, 90 retombe à 80.",
     "id": "f7370daabea929065f6b2586ca3eea91",
     "illustration": {
       "alt": "Vue de dessus : votre voie et une seconde voie dans votre sens, séparées par une ligne discontinue ; une ligne continue interdit tout dépassement vers l'unique voie d'en face, où un véhicule vient vers vous.",
