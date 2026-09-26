@@ -122,22 +122,6 @@ private func cheminPolygone(_ sommets: [CGPoint], arrondi: Double) -> CGPath {
     return path
 }
 
-/// À gamme égale, la norme ne donne pas la même taille à toutes les formes : en gamme
-/// normale, un triangle mesure 1 000 mm de côté, un disque 850 mm de diamètre, un
-/// octogone 800 mm entre côtés opposés et un carré 700 mm de côté (1re partie, art. 5-3).
-/// Ce facteur convertit une **gamme** — exprimée dans l'unité « côté nominal du
-/// triangle » — en rayon du cercle circonscrit de la forme demandée. Deux panneaux
-/// dessinés à la même gamme ont donc, d'une scène à l'autre, la taille relative qu'ils
-/// ont sur la route : le triangle est le plus grand, le carré le plus petit.
-func rayonPourGamme(_ forme: Forme, _ gamme: Double) -> Double {
-    switch forme {
-    case .triangle, .triangleInverse: return gamme / sqrt(3.0)          // côté 1000
-    case .disque:                     return gamme * 0.425             // diamètre 850
-    case .octogone:                   return gamme * 0.400 / cos(.pi / 8)  // 800 entre plats
-    case .carre, .losange:            return gamme * 0.700 * sqrt(2.0) / 2 // côté 700
-    }
-}
-
 /// Panonceau de type M : une plaque rectangulaire à fond blanc, **sans listel**
 /// (1re partie, art. 9-1, C), placée sous le panneau qu'elle complète. Elle ne prescrit
 /// rien par elle-même — « le panonceau est utilisé chaque fois qu'il est nécessaire de
@@ -181,7 +165,7 @@ func panneauRoutePrioritaire(_ ctx: CGContext, at pt: CGPoint, _ p: Palette) {
     panneau(ctx, forme: .losange, at: pt, rayon: 10, fond: p.panneauJaune)
 }
 
-// MARK: - Panneaux de vitesse
+// MARK: - Encre des pictogrammes
 
 /// L'encre d'un panneau : le gris le plus sombre de la palette, celui de la chaussée.
 /// Pas de noir pur, qui vibre sur le fond quasi blanc du panneau en mode sombre — et pas
@@ -440,27 +424,16 @@ func panneauDescenteDangereuse(_ ctx: CGContext, _ pourcentage: Int, at pt: CGPo
               at: CGRect(x: pt.x - l / 2, y: pt.y + rayon * 0.62, width: l, height: h), p)
 }
 
-// MARK: - Les panneaux de la tâche 7
+// MARK: - Danger et pictogrammes partagés
 //
-// Une fonction par panneau, du fond au pictogramme. Trois familles, trois habillages, et
-// c'est l'habillage qui porte le sens — pas la teinte :
-//
-// - **danger (type A)** : triangle pointe en haut, fond blanc, bande rouge bordée d'un
-//   listel blanc (2e partie, art. 23) ;
-// - **prescription (type B)** : disque. Interdiction = fond blanc et couronne rouge, sans
-//   listel ; obligation = fond bleu, listel et symbole blancs ; fin d'interdiction = fond
-//   blanc, listel, symbole et barre noirs (4e partie, art. 47) ;
-// - **indication (type C)** : carré (5e partie, art. 69-1).
-//
-// Ce que la norme **ne** donne pas en texte : le dessin des pictogrammes, qui vit dans les
+// Ce que la norme ne donne pas en texte : le dessin des pictogrammes, qui vit dans les
 // planches jointes aux arrêtés et non dans les articles. Chaque pictogramme ci-dessous est
-// donc une simplification du symbole connu, dessinée pour être lisible à ~90 points de
-// haut ; aucun visuel d'éditeur d'ETG n'a servi de modèle. Le détail est dans
-// `Tools/images.md`.
+// une simplification du symbole connu, dessinée pour rester lisible à ~90 points de haut ;
+// aucun visuel d'éditeur d'ETG n'a servi de modèle. Le détail est dans `Tools/images.md`.
 
-/// L'habillage commun des panneaux de danger : triangle, fond blanc, bande rouge, listel
-/// blanc. Extrait parce que cinq panneaux le partagent et que l'article 23 ne l'écrit
-/// qu'une fois.
+/// L'habillage des panneaux de danger : triangle, fond blanc, bande rouge, listel blanc.
+/// Seul `panneauDescenteDangereuse` l'utilise ; les autres panneaux de danger sont
+/// photographiés (voir `Tools/images.md`).
 func panneauDeDanger(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palette) {
     panneau(ctx, forme: .triangle, at: pt, rayon: rayon, fond: p.panneauFond,
             bord: p.panneauRouge, epaisseurBord: rayon * 0.13,
@@ -471,11 +444,10 @@ func panneauDeDanger(_ ctx: CGContext, at pt: CGPoint, rayon: Double, _ p: Palet
 /// Le pictogramme réglementaire est plus fin ; à 90 points de haut, ces six traits sont ce
 /// qui reste lisible.
 ///
-/// Rendue non privée le 2026-08-26 (tâche 15) : la **figurine peinte au sol** d'une voie
-/// cyclable est le même dessin que celui du panneau C113 — un vélo de profil, vu de dessus
-/// mais dessiné de côté (IISR, 7e partie, art. 118-1, C, « des figurines au sol : la
-/// figurine indiquant l'accès d'une voie conseillée aux cyclistes »). Un pictogramme se
-/// dessine une fois : `sas-cycliste-feu` réutilise celui-ci au lieu d'en redessiner un.
+/// Sert la **figurine peinte au sol** d'une voie cyclable (IISR, 7e partie, art. 118-1, C,
+/// « des figurines au sol : la figurine indiquant l'accès d'une voie conseillée aux
+/// cyclistes ») — vue de dessus sur la route, dessinée de côté ici pour rester
+/// reconnaissable.
 func silhouetteVelo(_ ctx: CGContext, at pt: CGPoint, largeur l: Double,
                             _ encre: CGColor) {
     let r = l * 0.20, e = l * 0.055

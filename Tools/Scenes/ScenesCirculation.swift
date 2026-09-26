@@ -83,7 +83,7 @@ private func chausseeAutoroute(_ ctx: CGContext, _ p: Palette) {
     }
 }
 
-// MARK: - La rue bordée d'un trottoir (tâche 11)
+// MARK: - La rue bordée d'un trottoir
 //
 // Trois scènes de stationnement partagent cette géométrie. Elle diffère de la chaussée des
 // scènes de marquage sur un point qui décide de tout : **la bordure du trottoir y est une
@@ -155,7 +155,7 @@ private func traitJauneSurLaBordure(_ ctx: CGContext, interrompu: Bool, _ p: Pal
     }
 }
 
-// MARK: - Le stationnement en épi (tâche 11)
+// MARK: - Le stationnement en épi
 //
 // Géométrie relevée sur la planche jointe à l'art. 118-2, A, a) de la 7e partie (page 44 du
 // PDF, image extraite avec `pypdf[image]`) : deux figures côte à côte, perpendiculaire à
@@ -195,7 +195,7 @@ private func voitureEnEpi(_ ctx: CGContext, x: Double, y: Double, couleur: CGCol
     ctx.restoreGState()
 }
 
-// MARK: - Une scène de profil : le chargement (tâche 13)
+// MARK: - Une scène de profil : le chargement
 //
 // Vue **de côté**, comme `croisement-en-pente`. Ce n'est pas un écart de style : la
 // question fait travailler un rapport **avant/arrière** — de quel bout le chargement
@@ -248,7 +248,7 @@ private func voitureDeProfilDouble(_ ctx: CGContext, x: Double, y: Double,
 /// chargement et aux sièges, et se lit sur le clair comme sur le sombre.
 private let traitSombre = CGColor(gray: 0.15, alpha: 1)
 
-// MARK: - Usagers & partage de la route (tâche 15)
+// MARK: - Usagers & partage de la route
 //
 // Quatre scènes, et une contrainte que les précédentes n'avaient pas : elles mettent en
 // présence des usagers de **tailles très différentes** — un poids lourd de dix mètres et un
@@ -567,7 +567,7 @@ private func zigzagJauneSurLaBordure(_ ctx: CGContext, de x0: Double, a x1: Doub
     ctx.strokePath()
 }
 
-// MARK: - Croisement & dépassement (tâche 16)
+// MARK: - Croisement & dépassement
 //
 // Quatre scènes, trois vues de dessus et une **de profil**. Le partage n'est pas un choix
 // de style : le brief demandait une paire — même route, visibilité coupée par le relief,
@@ -660,7 +660,7 @@ private let angleMontee = atan2(coteSommetY - coteDepart, coteSommetX)
 /// Demi-épaisseur de la chaussée dessinée de profil.
 private let coteDemiChaussee = 15.0
 
-// MARK: - Tunnels & passages à niveau (tâche 17)
+// MARK: - Tunnels & passages à niveau
 //
 // Trois scènes, et deux registres. Les deux premières sont des **vues de dessus**, à deux
 // échelles différentes : 16 unités par mètre pour le tunnel (celle des deux scènes de
@@ -903,19 +903,8 @@ private func baliseJ10(_ ctx: CGContext, at pt: CGPoint, hauteur: Double, bandes
 
 let scenesCirculation: [(String, Scene)] = [
 
-    // 1. `panneau-b14-limitation` a existé ici, disque à large liseré rouge dessiné.
-    //    Remplacée par une photographie Commons le 2026-09-23 (tâche 6A du chantier
-    //    illustrations). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 2. `panneau-b33-fin-limitation` a existé ici, même disque, liseré réduit à un filet
-    //    et oblique en travers, dessinés. Remplacée par une photographie Commons le
-    //    2026-09-23 (tâche 6A). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 3. `panneau-b30-zone-30` a existé ici, un carré dessiné là où l'art. 45 de la 4e
-    //    partie de l'IISR veut un rectangle 700 × 900 mm — défaut connu, noté dans
-    //    `Tools/images.md` depuis le 2026-08-23. Remplacée par une photographie Commons le
-    //    2026-09-23 (tâche 6A), qui corrige la forme. Voir `Tools/photo-panneau.py` et
-    //    `Tools/images.md`.
+    // Les panneaux enseignés pour eux-mêmes sont photographiés (voir `Tools/images.md`) ;
+    // ce fichier ne dessine plus que ceux qu'une scène plante.
 
     // 4. Voie la plus à gauche d'une autoroute. Le véhicule du candidat longe la
     //    glissière centrale : c'est cette position — et elle seule — qui déclenche la
@@ -928,7 +917,7 @@ let scenesCirculation: [(String, Scene)] = [
         voiture(ctx, x: voieAutoroute(2), y: cy + 62, cap: .nord, couleur: p.tiers, p)
     }),
 
-    // MARK: - Les signaux lumineux (tâche 10)
+    // MARK: - Les signaux lumineux
     //
     // Ces trois scènes ont une contrainte que les panneaux n'ont pas : **la réponse ne
     // doit jamais reposer sur une teinte.** Un feu rouge et un feu vert, pour un
@@ -983,7 +972,7 @@ let scenesCirculation: [(String, Scene)] = [
         signalDArret(ctx, at: CGPoint(x: cx + voie + 30, y: cy + 32), rayon: 15, p)
         voiture(ctx, x: voieVous, y: 248, cap: .nord, couleur: p.vous, liseree: true, p)
     }),
-    // MARK: - Arrêt et stationnement (tâche 11)
+    // MARK: - Arrêt et stationnement
 
     // 8 et 9. La paire de lignes jaunes. Continue, elle interdit l'arrêt — donc aussi le
     //    stationnement ; discontinue, elle n'interdit que le stationnement (7e partie,
@@ -1113,7 +1102,7 @@ let scenesCirculation: [(String, Scene)] = [
     //     (dos à la route) — sont passés dans l'énoncé de la question, qui n'est donc plus
     //     illustrée. Voir `Tools/images.md` pour le détail des trois cadrages essayés.
 
-    // MARK: - Usagers & partage de la route (tâche 15)
+    // MARK: - Usagers & partage de la route
 
     // 17. L'angle mort d'un poids lourd, vu de dessus. Cette scène est la raison d'être du
     //     topic : un angle mort ne se décrit pas, et l'énoncé « À cette place, le mieux est
@@ -1424,7 +1413,7 @@ let scenesCirculation: [(String, Scene)] = [
                         couleur: p.vous, liseree: true, p)
     }),
 
-    // MARK: - Tunnels & passages à niveau (tâche 17)
+    // MARK: - Tunnels & passages à niveau
 
     // 25. Le refuge d'un tunnel. Ce que seule l'image apporte est un fait, et c'est celui
     //     dont dépend la réponse : **il y a un emplacement d'arrêt d'urgence à portée**.
@@ -1523,7 +1512,7 @@ let scenesCirculation: [(String, Scene)] = [
         }
     }),
 
-    // MARK: - Arrêt et stationnement (tâche 8, 2026-09-24)
+    // MARK: - Arrêt et stationnement
 
     // 30. Le côté de stationnement sur une chaussée à double sens. Même géométrie que
     //     `bus-quittant-arret` et `sas-cycliste-feu` — deux trottoirs, deux bordures —
@@ -1568,7 +1557,7 @@ let scenesCirculation: [(String, Scene)] = [
                 couleur: p.vous, liseree: true, p)
     }),
 
-    // MARK: - Usagers & partage de la route (tâche 9, 2026-09-24)
+    // MARK: - Usagers & partage de la route
 
     // 32. L'inter-files, posé sans répondre à la question qu'il illustre : la carte porte
     //     sur le statut juridique de la pratique, que l'image ne peut pas donner. Elle

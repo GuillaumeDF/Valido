@@ -1,53 +1,9 @@
 import CoreGraphics
 
-// MARK: - Les scènes de panneaux et de marquage
+// MARK: - Marquage et configurations de route
 //
-// Un panneau se reconnaît, il ne se récite pas : c'est la raison d'être de ce fichier. Les
-// questions du domaine nommaient toutes leur panneau dans l'énoncé, ce qui les rendait
-// solubles sans regarder ; l'énoncé cède désormais ce que l'image porte.
-//
-// Trois règles de cadrage commandent tout le fichier.
-//
-// - **Le panneau est le sujet**, seul sur le fond neutre. Un décor de route ne survivrait
-//   pas au recadrage et entrerait en concurrence avec le liseré, le listel et le
-//   pictogramme, qui sont précisément ce qu'il faut lire.
-// - **Une seule gamme pour tous les panneaux.** `rayonPourGamme` traduit une gamme en
-//   rayon selon l'article 5-3 de la 1re partie : à gamme égale, le triangle est le plus
-//   grand des panneaux et le carré le plus petit, exactement comme sur la route. D'une
-//   scène à l'autre, la taille ne renseigne donc sur rien — elle ne peut pas devenir un
-//   indice parasite.
-// - **La boîte englobante est centrée, pas le cercle circonscrit.** Le bandeau de
-//   `QuestionCardView` tombe à 18 % de la carte au verdict et recadre en `.fill` : seule
-//   une bande d'environ 110 unités autour du centre vertical survit. Un triangle
-//   équilatéral déborde de son centre de `1 rayon` vers le haut et de `0,5 rayon` vers le
-//   bas ; centrer son cercle circonscrit lui ferait perdre la pointe. D'où `centreCadre`.
-
-/// La gamme commune : 106 unités de « côté nominal du triangle ». C'est le losange AB7 qui
-/// la plafonne — un carré posé sur la pointe a la plus grande hauteur hors tout de toutes
-/// les formes (2 rayons, soit 0,99 gamme), et il doit tenir dans la bande de 110.
-private let gammePanneau = 106.0
-
-/// Le centre à donner au panneau pour que sa boîte englobante, et non son cercle
-/// circonscrit, soit centrée verticalement sur la scène.
-private func centreCadre(_ forme: Forme, rayon r: Double) -> CGPoint {
-    switch forme {
-    case .triangle:        return CGPoint(x: cx, y: cy + r / 4)
-    case .triangleInverse: return CGPoint(x: cx, y: cy - r / 4)
-    default:               return CGPoint(x: cx, y: cy)
-    }
-}
-
-/// Une scène de panneau isolé : le fond, puis le panneau centré à la gamme commune.
-private func scenePanneau(
-    _ forme: Forme,
-    _ dessin: @escaping (CGContext, CGPoint, Double, Palette) -> Void
-) -> Scene {
-    { ctx, p in
-        fond(ctx, p)
-        let r = rayonPourGamme(forme, gammePanneau)
-        dessin(ctx, centreCadre(forme, rayon: r), r, p)
-    }
-}
+// Les panneaux enseignés pour eux-mêmes sont photographiés (voir `Tools/images.md`) : ce
+// fichier ne dessine plus qu'un marquage au sol ou une configuration de chaussée.
 
 // MARK: - La chaussée des scènes de marquage
 //
@@ -190,7 +146,7 @@ private func zoneChevrons(_ ctx: CGContext, _ p: Palette) {
     ctx.restoreGState()
 }
 
-// MARK: - Les trois types de route hors agglomération (tâche 6B)
+// MARK: - Les trois types de route hors agglomération
 //
 // Trois fondations de `Vitesse` décrivent en mots une configuration de chaussée dont la
 // vitesse par défaut hors agglomération dépend entièrement : une voie par sens, deux voies
@@ -211,7 +167,7 @@ private func zoneChevrons(_ ctx: CGContext, _ p: Palette) {
 // deux suivantes (c'est l'IISR, pas un choix de dessin — art. 114 et 114-2, C citées plus
 // bas), si bien que `route-double-sens`, vue seule, se lirait aussi bien comme
 // `route-deux-voies-par-sens`. Ce véhicule n'est pas du décor : à retirer, l'ambiguïté
-// revient. Fix round 1 (revue), 2026-09-23.
+// revient.
 //
 // Échelle et largeur de voie : celles de `depassement-ligne-discontinue`
 // (`ScenesCirculation.swift`) — 16 unités par mètre, voie de 56 unités pour 3,50 m. Le T1,
@@ -364,74 +320,8 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
 
 let scenesPanneaux: [(String, Scene)] = [
 
-    // MARK: Panneaux de danger (type A) — triangle, bande rouge, listel blanc
-
-    // 1. `panneau-a1a-virage` a existé ici, triangle et courbe dessinés. Remplacée par
-    //    une photographie Commons le 2026-09-22 (tâche 3A-2 du chantier illustrations).
-    //    Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 2. `panneau-a13b-passage-pietons` a existé ici, triangle et silhouette de piéton
-    //    dessinés. Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-2) : le
-    //    piéton dessiné était une silhouette à cinq traits, là où le vrai pictogramme est
-    //    une figure pleine. Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 3. `panneau-a14-panonceau` a existé ici, triangle, point d'exclamation et panonceau
-    //    « CARRIÈRE » dessinés. Remplacée par une photographie Commons le 2026-09-22
-    //    (tâche 3A-2), qui porte le même texte de panonceau. Voir `Tools/photo-panneau.py`
-    //    et `Tools/images.md`.
-
-    // MARK: Panneaux de prescription (type B) — disque
-
-    // 4. `panneau-b1-sens-interdit` a existé ici, disque rouge et barre blanche dessinés.
-    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1 du chantier
-    //    illustrations). Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 5. `panneau-b3-interdiction-depasser` a existé ici, disque et deux voitures dessinés.
-    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1) : les voitures
-    //    dessinées étaient des blocs sans roues ni pare-brise. Voir `Tools/photo-panneau.py`
-    //    et `Tools/images.md`.
-
-    // 6. `panneau-b6a1-stationnement-interdit` a existé ici, disque bleu et une oblique
-    //    dessinés. Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-1). Voir
-    //    `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 7. `panneau-b6d-arret-interdit` a existé ici, le même disque à deux obliques
-    //    croisées dessinées. Remplacée par une photographie Commons le 2026-09-22
-    //    (tâche 3A-1) : la paire 6/7 reste distinguée par le même compte d'obliques, choisi
-    //    sans ambiguïté sur les deux photographies. Voir `Tools/photo-panneau.py` et
-    //    `Tools/images.md`.
-
-    // 8. `panneau-b21b-tout-droit` a existé ici, disque et flèche dessinés. Remplacée par
-    //    une photographie Commons le 2026-09-22 (tâche 2 du chantier illustrations) : la
-    //    flèche dessinée était une aiguille fine, là où la vraie est large et trapézoïdale.
-    //    Voir `Tools/photo-panneau.py` et `Tools/images.md` pour le protocole et la source.
-
-    // 9. `panneau-b31-fin-interdictions` a existé ici, disque et oblique dessinés.
-    //    Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-2). Voir
-    //    `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // MARK: Panneaux d'intersection (type AB)
-
-    // 10. `panneau-ab4-stop` a existé ici, octogone et STOP dessinés. Remplacée par une
-    //     photographie Commons le 2026-09-22 (tâche 3A-3 du chantier illustrations). Voir
-    //     `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // 11. `panneau-ab7-fin-priorite` a existé ici, losange barré dessiné. Remplacée par
-    //     une photographie Commons le 2026-09-22 (tâche 3A-3) : le losange jaune et sa
-    //     barre noire y sont ceux du panneau réglementaire, pas la simplification dessinée.
-    //     Voir `Tools/photo-panneau.py` et `Tools/images.md`.
-
-    // MARK: Panneaux d'indication (type C) — carré
-
-    // 12. `panneau-c1a-parking` a existé ici, carré bleu et P dessinés. Remplacée par une
-    //     photographie Commons le 2026-09-22 (tâche 3A-3). Voir `Tools/photo-panneau.py`
-    //     et `Tools/images.md`.
-
-    // 13. `panneau-c113-voie-velo` a existé ici, carré bleu et bicyclette dessinés.
-    //     Remplacée par une photographie Commons le 2026-09-22 (tâche 3A-3) : le vélo
-    //     dessiné était les six traits de `silhouetteVelo`, là où la vraie bicyclette du
-    //     panneau est un pictogramme plein. Voir `Tools/photo-panneau.py` et
-    //     `Tools/images.md`.
+    // Les panneaux enseignés pour eux-mêmes sont photographiés (voir `Tools/images.md`) ;
+    // ce fichier ne dessine plus que ceux qu'une scène plante.
 
     // MARK: Marquage
 
@@ -556,7 +446,7 @@ let scenesPanneaux: [(String, Scene)] = [
         voiture(ctx, x: cx, y: cy, cap: .nord, couleur: p.vous, liseree: true, p)
     }),
 
-    // MARK: Route hors agglomération (tâche 6B)
+    // MARK: Route hors agglomération
 
     // 22. Une voie par sens, séparées par une seule ligne axiale discontinue T1 (art. 114,
     //     en rase campagne) : la route ordinaire, sans terre-plein ni seconde voie. 80 km/h
@@ -575,7 +465,7 @@ let scenesPanneaux: [(String, Scene)] = [
     //     central bordé de continues des deux côtés (art. 114-4, B) : 110 km/h.
     ("route-chaussees-separees", sceneRoute(.chausseesSeparees)),
 
-    // MARK: Croisement & dépassement (tâche 7)
+    // MARK: Croisement & dépassement
 
     // 25. La chaussée à double sens de trois voies de `depassement/manoeuvre` : la voie du
     //     candidat inchangée, un véhicule lent devant lui qui pose la situation, la voie

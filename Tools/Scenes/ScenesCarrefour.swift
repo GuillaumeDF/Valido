@@ -52,7 +52,7 @@ private func giratoireInsertion(_ ctx: CGContext, panneau: Bool, _ p: Palette) {
     }
 }
 
-// MARK: - Le tramway et les accès privés, partagés par plusieurs scènes (tâche 4B)
+// MARK: - Le tramway et les accès privés, partagés par plusieurs scènes
 
 /// La rame de tramway en approche par la gauche du candidat, et sa flèche de mouvement.
 /// Posée à cheval sur l'axe de la chaussée : une plateforme de tramway occupe le milieu de
@@ -78,7 +78,7 @@ private func accesPrive(_ ctx: CGContext, y: Double, largeur: Double, _ p: Palet
     ctx.fill(CGRect(x: 0, y: y - largeur / 2, width: cx - voie, height: largeur))
 }
 
-// MARK: - Le feu et le panneau qui se contredisent, partagé par deux scènes (tâche 5A)
+// MARK: - Le feu et le panneau qui se contredisent, partagé par deux scènes
 
 /// Le croisement nu de la scène 1, un tricolore planté au-delà du candidat et un second
 /// signal sur son approche. `feu` isole l'état des trois lentilles, `panneau` la fonction
