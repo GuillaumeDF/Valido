@@ -80,7 +80,7 @@ try:
 except OSError:
     RECENSES = set()
 
-# Une ligne de la section « Photographies » porte cinq colonnes : asset, source, auteur,
+# Une ligne de la section « Photographies » porte six colonnes : asset, source, auteur,
 # licence, date. Sans auteur ni licence, l'image n'est ni re-sourçable ni diffusable, et le
 # contrôle de provenance seul ne le voit pas — il ne teste que le nom.
 PHOTOS, LICENCES = set(), {}
