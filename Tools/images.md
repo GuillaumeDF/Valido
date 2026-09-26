@@ -256,6 +256,18 @@ lettrage blanc) mesure à part — 255,0 clair / 245,3 sombre — et n'est pas l
 c'est la bande rouge qui distingue la forme du sol, le blanc du lettrage n'ajoutant qu'une
 lisibilité supplémentaire, non un contraste de reconnaissance.
 
+**Un défaut non mesuré jusqu'ici : l'îlot central.** `giratoire-sans-panneau`,
+`rond-point-insertion` et `giratoire-sortie-clignotant` partagent la même géométrie et
+posent l'îlot en `p.ilot` (219,0 clair / 69,2 sombre) sur un anneau en chaussée (93,1 /
+75,1) : seulement **5,9 points d'écart en sombre**. L'îlot s'y confond avec la chaussée ;
+l'anneau ne se lit plus que par ses tirets. C'est le même défaut, sur la même teinte
+`p.ilot`, que celui déjà relevé sur le terre-plein d'`autoroute-voie-de-gauche` (tâche 6B,
+remplacé par `p.bordure`) — resté en observation sur cette famille de scènes. Aucune option
+de `dd4c58febe771b6f297f1ca46c2ec75b`, `02f7d6a65856887348bfe8653bb90c6e` ou
+`2daf8939fc85f5b288010cf545bb681d` ne s'appuie sur l'îlot lui-même : les trois cartes
+interrogent une règle de priorité ou de signalisation, et l'anneau reste lisible par ses
+tirets même sans lui.
+
 **Re-vérifié sur l'arbre rerendu et déterministe** :
 
 - la paire du giratoire ci-dessus, remesurée : boîte identique (`(438, 504)` → `(850, 772)`,
