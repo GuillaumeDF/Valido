@@ -12490,22 +12490,22 @@
     "options": [
       {
         "id": "A",
-        "text": "d'y changer de voie, une fois engagé"
+        "text": "de changer de voie une fois dans le tunnel"
       },
       {
         "id": "B",
-        "text": "d'y dépasser sur ligne discontinue"
+        "text": "de dépasser sur ligne discontinue dans le tunnel"
       },
       {
         "id": "C",
-        "text": "d'y faire demi-tour, en tout point"
+        "text": "de faire demi-tour dans le tunnel"
       },
       {
         "id": "D",
-        "text": "d'y circuler avec une remorque attelée"
+        "text": "de circuler dans le tunnel avec une remorque"
       }
     ],
-    "prompt": "Ce panneau annonce un tunnel ; il interdit notamment :",
+    "prompt": "Ce panneau interdit notamment :",
     "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
