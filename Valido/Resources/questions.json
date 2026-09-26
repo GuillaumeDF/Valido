@@ -710,7 +710,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Elle sépare deux sens qui pourraient se croiser : l'article R412-19 interdit le franchissement et le chevauchement, sauf pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé.",
+    "explanation": "Il sépare deux sens qui pourraient se croiser : l'article R412-19 interdit le franchissement et le chevauchement, sauf pour dépasser un cycle, un cyclomobile léger ou un engin de déplacement personnel motorisé.",
     "id": "37fe1af42b8d8141b1d0e3ca0b855119",
     "illustration": {
       "alt": "Chaussée à double sens bordée de deux lignes continues ; au centre, une troisième continue sépare les deux sens.",
@@ -732,7 +732,7 @@
       },
       {
         "id": "D",
-        "text": "Peut être franchie pour dépasser un véhicule lent"
+        "text": "Peut être franchi pour dépasser un véhicule lent"
       }
     ],
     "prompt": "Ce marquage :",
@@ -2411,7 +2411,7 @@
   {
     "correctID": "B",
     "difficulty": "moyen",
-    "explanation": "Bloquer une voie réservée renvoie tout un bus dans le trafic général, avec ses passagers. Le code la range donc parmi les stationnements très gênants ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
+    "explanation": "Bloquer une voie réservée renvoie tout un bus, avec ses passagers, dans le trafic général : le code range cette infraction parmi les très gênantes ; seule la nécessité absolue l'excuse, jamais l'absence de bus.",
     "id": "37fe1af42b8d81d793bcc927205f9d79",
     "illustration": {
       "alt": "Chaussée urbaine : la voie de droite, séparée par un trait discontinu et marquée « BUS » au sol, est vide ; vous roulez dans la voie générale, à sa gauche.",
@@ -9253,7 +9253,7 @@
         "text": "à droite, donc aux véhicules qui s'y engagent"
       }
     ],
-    "prompt": "À un carrefour qu'aucun panneau ne signale, la priorité est :",
+    "prompt": "À un rond-point qu'aucun panneau n'annonce, la priorité est :",
     "role": "application",
     "subject": "code",
     "topic": "Priorités & intersections"
@@ -12480,7 +12480,7 @@
   {
     "correctID": "C",
     "difficulty": "moyen",
-    "explanation": "Le panneau d'entrée édicte des prescriptions, closes par celui de sortie : l'interdiction de faire demi-tour en fait partie. Sans accotement, un demi-tour y présente de face tout ce qui arrive, sans pouvoir s'écarter.",
+    "explanation": "Le panneau d'entrée édicte des prescriptions, closes par celui de sortie : l'interdiction d'y faire demi-tour en fait partie. Sans accotement où s'écarter, cela revient à se présenter de face à tout ce qui arrive.",
     "id": "5c11020dc34bf45d56cf8438dd8ad79e",
     "illustration": {
       "alt": "Photographie d'un panneau carré bleu à listel blanc montrant un tunnel en arc de pierres claires, dressé devant la roche et la végétation à l'entrée d'un tunnel routier.",
@@ -12505,7 +12505,7 @@
         "text": "d'y circuler avec une remorque attelée"
       }
     ],
-    "prompt": "Ce panneau interdit notamment :",
+    "prompt": "Ce panneau annonce un tunnel ; il interdit notamment :",
     "role": "fondation",
     "subject": "code",
     "topic": "Tunnels & passages à niveau"
@@ -13153,7 +13153,7 @@
       },
       {
         "id": "C",
-        "text": "n'interdit rien, il guide vers la bonne voie"
+        "text": "n'interdit rien, elle guide vers la bonne voie"
       },
       {
         "id": "D",
