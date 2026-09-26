@@ -9392,7 +9392,7 @@
     "explanation": "Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau : un panneau ne parle qu'aux usagers de son côté. S'immobiliser un instant, conducteur au volant, reste possible sous ce disque.",
     "id": "1658abbc16db4667fec7211f8c9b0f93",
     "illustration": {
-      "alt": "Photographie d'un disque bleu cerclé de rouge, barré d'une oblique rouge unique, fixé devant une haie et un toit de tuiles ; un panonceau « 30 m » partiellement visible en bas du cadre.",
+      "alt": "Photographie d'un disque bleu cerclé de rouge, marqué d'une seule barre oblique rouge, fixé devant une haie et un toit de tuiles ; un panonceau « 30 m » partiellement visible en bas du cadre.",
       "asset": "panneau-b6a1-stationnement-interdit"
     },
     "notion": "panneaux/portee",
@@ -9425,7 +9425,7 @@
     "explanation": "Interdire l'arrêt interdit du même coup le stationnement : là où une immobilisation brève gêne déjà, une immobilisation longue gêne plus encore. L'inverse ne vaut pas : viser le seul stationnement laisse l'arrêt libre.",
     "id": "1509ad94aea7c6f82355f3362b10a8e1",
     "illustration": {
-      "alt": "Photographie d'un disque bleu cerclé de rouge, barré de deux obliques rouges qui se croisent, planté au bord d'une route sous un ciel dégagé.",
+      "alt": "Photographie d'un disque bleu cerclé de rouge, marqué de deux barres obliques rouges qui se croisent en X, planté au bord d'une route sous un ciel dégagé.",
       "asset": "panneau-b6d-arret-interdit"
     },
     "notion": "stationnement/arret-vs-stationnement",
