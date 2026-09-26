@@ -123,12 +123,10 @@ file ». La scène pose donc cinq véhicules en file — deux devant, deux derri
 candidat exactement au centre, à égalité de position avec n'importe lequel des trois qui
 l'encadrent : sa place dans la file ne dit rien de plus que « il y a une file ».
 
-**Fix round 1 — les deux véhicules `tiers` frôlaient le seuil.** Le rapport initial de cette
-tâche n'avait mesuré que le véhicule du candidat ; la revue a mesuré les quatre autres et
-trouvé, sur le rendu d'alors (sans contour), 25,46 points d'écart en clair entre `p.tiers`
-(232,89,78) et `p.chaussee` (92,93,98) sur les véhicules 2 et 5 — au-dessus du seuil de 25,
-mais de moins d'un demi-point, sur une caisse posée seule sur la route. `Tools/images.md`
-porte déjà ce constat exact pour `croisement-chaussee-etroite` (25,5 points, section « Les
+**Les deux véhicules `tiers` frôlaient le seuil.** Sur une caisse posée seule sur la route,
+`p.tiers` (232,89,78) ne se sépare de `p.chaussee` (92,93,98) que de 25,46 points d'écart en
+clair sur les véhicules 2 et 5 — au-dessus du seuil de 25, mais de moins d'un demi-point,
+exactement le constat déjà fait sur `croisement-chaussee-etroite` (25,5 points, section « Les
 trois scènes de tunnel… », plus haut : « le constat qui avait déjà valu un contour au bus et
 au poids lourd de la tâche 15 »), et `voiture()` porte depuis cette tâche un paramètre
 `contour` prévu pour ce cas précis. Les quatre véhicules de décor de `file-ralentie` (`autre`
@@ -203,9 +201,9 @@ imagesets (`carrefour-stop`, `croisement-en-pente`, `giratoire-sortie-clignotant
 `panneau-b14-limitation`, `panneau-b30-zone-30`, `panneau-b33-fin-limitation`,
 `rond-point-insertion`).
 
-**Corrigé à la racine au fix round 1 de la tâche 4B** (2026-09-23), plutôt que recontourné
-scène par scène : `render-scenes.sh` défaut désormais sur `Xcode-27.0.0.app`, le seul
-installé ici, et l'intégralité du dépôt a été **rerendue** sous ce compilateur — ces mêmes
+**Corrigé à la racine, plutôt que recontourné scène par scène** : `render-scenes.sh` défaut
+désormais sur `Xcode-27.0.0.app`, le seul installé ici, et l'intégralité du dépôt a été
+**rerendue** sous ce compilateur — ces mêmes
 sept imagesets, 28 PNG, aucun changement de contenu — puis un second passage du script sur
 l'arbre propre confirme `git status --porcelain -- Valido/Assets.xcassets` vide : le rendu
 est désormais déterministe sur ce poste. `rond-point-insertion` et `giratoire-sans-panneau`
@@ -258,7 +256,7 @@ lettrage blanc) mesure à part — 255,0 clair / 245,3 sombre — et n'est pas l
 c'est la bande rouge qui distingue la forme du sol, le blanc du lettrage n'ajoutant qu'une
 lisibilité supplémentaire, non un contraste de reconnaissance.
 
-**Re-vérifié après le rebaseline** (fix round 1, sur l'arbre rerendu et déterministe) :
+**Re-vérifié sur l'arbre rerendu et déterministe** :
 
 - la paire du giratoire ci-dessus, remesurée : boîte identique (`(438, 504)` → `(850, 772)`,
   décomposée dans les deux mêmes composantes, rien d'autre) ;
@@ -385,8 +383,8 @@ déjà livré ; le constat est posé ici pour la tâche 21.
   position correcte de cette voiture donne la réponse, et toute position incorrecte
   contredirait l'explication : la scène se tient mieux sans elle. Un cycliste remontant la
   bande d'accès y avait été ajouté ensuite pour expliquer à quoi sert l'espace réservé, mais à
-  27 unités il était illisible et n'expliquait plus rien — **retiré en revue round 1** : les
-  deux lignes d'arrêt et la figurine au sol suffisent à porter le sens du sas.
+  27 unités il était illisible et n'expliquait plus rien — **retiré** : les deux lignes
+  d'arrêt et la figurine au sol suffisent à porter le sens du sas.
 - Le **cycliste vu de dessus a été redessiné deux fois**, et les deux fois la mesure ne
   suffisait pas à trancher : la première version (guidon et épaules à 0,30 de la longueur) se
   lisait comme un poteau surmonté d'un point, la seconde (tête sombre sur épaules colorées)
@@ -396,8 +394,8 @@ déjà livré ; le constat est posé ici pour la tâche 21.
   silhouette sur le trottoir du mode sombre (37,2). La mesure prouve la visibilité, pas
   l'intelligibilité : elle se relit à l'œil, dans les deux modes.
 
-  **Revue round 1 :** ce même défaut « anneau » avait été corrigé sur le cycliste mais laissé
-  sur le piéton — tête à 0,48 de `taille`, sur des épaules à 0,90, soit un rapport de 0,53
+  **Le même défaut « anneau »** avait été corrigé sur le cycliste mais laissé sur le
+  piéton — tête à 0,48 de `taille`, sur des épaules à 0,90, soit un rapport de 0,53
   qui réduisait les épaules à un anneau autour d'un gros disque central. La mesure de
   contraste passait (+136 en clair, +99 en sombre au centre du piéton) sans que la lecture y
   soit ; tête ramenée à 0,27 de `taille`, soit environ 0,30 de la largeur d'épaules.
@@ -879,8 +877,8 @@ Trois licences prises sur la géométrie, toutes pour la lisibilité :
   jusqu'ici. Elle sert la même lisibilité — la bande doit rester visible sans empiéter sur
   le front des places, dessiné juste en dessous.
 
-**Corrigé en ronde 1 de revue : `marquage-zebra` dessinait une seule pente uniforme sur
-une zone qui sépare deux sens opposés.** L'art. 117-2 A de la 7e partie (relevé mot pour
+**`marquage-zebra` dessinait une seule pente uniforme sur une zone qui sépare deux sens
+opposés.** L'art. 117-2 A de la 7e partie (relevé mot pour
 mot, voir tableau ci-dessus) dit que l'inclinaison des hachures « tend à ramener l'usager
 vers l'axe de la voie de circulation qu'il emprunte » et qu'« aux points de convergence
 ou de divergence, les hachures se présentent donc sous forme de chevrons ». Une zone qui
@@ -1075,6 +1073,248 @@ plutôt qu'en une seule zone moyennée. Aucune des quatre scènes ne repose sur 
 seule : la polarité (marquage clair sur chaussée sombre, véhicule à mi-chemin des deux mais
 à plus de 25 points de chacune) est identique dans les deux modes.
 
+### Les trois types de route hors agglomération (tâche 6B, 2026-09-23)
+
+Trois fondations de `Vitesse` décrivaient en mots, sur 99 à 109 caractères, une
+configuration de chaussée dont la vitesse par défaut dépend entièrement : une voie par sens
+(`37fe1af42b8d817994d5f81863c7e6ae`, 80 km/h), deux voies dans le sens du candidat sans
+terre-plein (`f7370daabea929065f6b2586ca3eea91`, 90 km/h), deux chaussées séparées par un
+terre-plein central (`fed604fe7c4b8b3b96adc066a7902138`, 110 km/h). Aucune carte n'a été
+touchée par cette tâche — une tâche ultérieure les pose.
+
+**Une famille, une fonction.** `sceneRoute(_:)` (`Tools/Scenes/ScenesPanneaux.swift`), sur le
+modèle direct de `sceneLigne` : la configuration en paramètre, `ligneT1` et `ligneContinue`
+réutilisées telles quelles, aucun corps de scène recopié. Échelle et largeur de voie : celles
+de `depassement-ligne-discontinue` (`ScenesCirculation.swift`) — 16 unités par mètre, voie de
+56 unités pour 3,50 m.
+
+**Ce que l'IISR a fourni.** Art. 113-1, B (modulation T1, « 3 m de trait, 10 m
+d'intervalle ») et art. 113-2 (« Ligne axiale ou de délimitation de voie en rase campagne » →
+T1), déjà relevés pour la tâche 3B-1 — le même T1 sert ici deux rôles distincts : axe séparant
+les deux sens dans la première scène, délimitation de voies du même sens dans les deux
+suivantes, posé au **même** `x` (`routeDroite - routeVoie`) dans les trois. Art. 114-4, B
+(« les lignes de délimitation de terre-plein central sont continues et de largeur 3u »),
+déjà relevé pour `autoroute-voie-de-gauche`, pour les deux continues qui bordent le
+terre-plein. **Ce que l'IISR ne fournit pas** : la largeur du terre-plein lui-même — une
+largeur de chaussée est un fait de conception routière, pas de signalisation — retenue à
+40 unités (2,5 m) pour rester lisible à cette échelle, sans prétendre relever une cote
+officielle. Aucune ligne de rive n'est dessinée : elle n'entre dans ce qu'aucune des trois
+cartes ne distingue, et en ajouter poserait une question de plus que l'énoncé ne pose pas —
+même raisonnement que l'axe absent de `croisement-chaussee-etroite`.
+
+**Comment la voie du candidat reste fixe.** Les trois configurations n'ont pas la même
+largeur de chaussée, donc pas le même cadrage possible à voiture et voie identiques partout.
+Le parti pris : la rive droite de la voie du candidat est une constante (`routeDroite = 328`),
+sa voie est toujours la voie la plus à droite, et la chaussée s'étend vers la **gauche** à
+mesure que la configuration se charge — jusqu'à deux voies de plus et un terre-plein pour la
+troisième. Tout ce qui est à droite de cette rive (la voie du candidat, sa voiture, le
+`sol` au-delà) est donc identique dans les trois scènes, pixel pour pixel ; c'est la chaussée,
+à gauche, qui varie et qui porte seule la différence de configuration.
+
+**La boîte de différence, vérifiée par différence pixel à pixel des PNG `@3x`** (identique
+dans les deux modes) :
+
+| paire | boîte des différences (px) | boîte (unités de scène) |
+|---|---|---|
+| `route-double-sens` / `route-deux-voies-par-sens` | `(480, 0)` → `(774, 900)` | `(160, 0)` → `(258, 300)` |
+| `route-deux-voies-par-sens` / `route-chaussees-separees` | `(192, 0)` → `(656, 900)` | `(64, 0)` → `(≈219, 300)` |
+| `route-double-sens` / `route-chaussees-separees` | `(192, 0)` → `(774, 900)` | `(64, 0)` → `(258, 300)` |
+
+Deux des trois boîtes s'étendent maintenant jusqu'à x = 258 unités de scène (774 px) : c'est
+le véhicule d'en face de `route-double-sens`, dont la voie (centre x = 244) est la plus à
+droite des trois positions que prend ce véhicule selon la scène (voir plus bas). Ce nouveau
+bord reste **avant** la ligne T1 commune aux trois (posée à x = 272, large de 5, donc à
+partir de x = 269,5) — vérifié directement, en comparant le recadrage x ≥ 272 des trois PNG
+`@3x` à leur version d'avant ce véhicule (`git show HEAD:…`) : bbox de différence vide dans
+les six cas (trois scènes, deux modes). Tout ce qui est à droite de cette ligne — la voie du
+candidat, la ligne T1 elle-même, sa voiture, et le `sol` au-delà de la rive droite — reste
+donc bit pour bit identique dans les trois scènes ; seule la chaussée à gauche, qui porte le
+véhicule d'en face en plus de la configuration elle-même, diffère.
+
+**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `Y = 0,2126 R + 0,7152 G +
+0,0722 B`), coordonnées en unités de scène (le pixel lu est 3× celles-ci) :
+
+| zone | x, y | clair | sombre |
+|---|---|---:|---:|
+| T1, au plein | 272, 7 | 255,0 | 234,3 |
+| T1, au vide (= chaussée) | 272, 40 | 93,1 | 75,1 |
+| chaussée témoin (voie du candidat) | 300, 250 | 93,1 | 75,1 |
+| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 |
+| terre-plein (`route-chaussees-separees` seule) | 196, 100 | 139,1 | 115,3 |
+| chaussée contre le terre-plein | 244, 100 | 93,1 | 75,1 |
+| véhicule d'en face, caisse (`route-double-sens`) | 244, 100 | 180,0 | 196,6 |
+| véhicule d'en face, caisse (`route-deux-voies-par-sens`) | 188, 100 | 180,0 | 196,6 |
+| véhicule d'en face, caisse (`route-chaussees-separees`) | 92, 100 | 180,0 | 196,6 |
+| chaussée témoin, sous chacun des trois véhicules d'en face | même x, y = 250 | 93,1 | 75,1 |
+
+Le marquage se détache de la chaussée de **161,9 / 159,2** points (clair/sombre) — la même
+paire que sur toutes les scènes de marquage du dossier, puisque c'est la même chaussée et le
+même blanc. Le véhicule du candidat se détache de la chaussée de **35,5 / 53,5** points ; le
+véhicule d'en face, de **86,9 / 121,5** points, identique aux trois positions qu'il occupe
+selon la scène (même teinte `p.autre`, même chaussée sous lui).
+
+**Le terre-plein, et pourquoi `ilot` ne convient pas.** Un premier essai posait le
+terre-plein en `p.ilot` — la couleur déjà réservée au terre-plein de
+`autoroute-voie-de-gauche` — et mesurait 219,0 en clair mais seulement **69,2 en sombre**,
+contre 75,1 pour la chaussée : un écart de 5,9 points, un ressaut invisible. C'est
+exactement le défaut déjà relevé sur `bordure` (`Repere.swift`) quand elle a remplacé `ilot`
+pour les scènes de stationnement (« en mode sombre elle mesure 54 en niveaux de gris contre
+58 pour la chaussée ») — et la solution est la même : `p.bordure`, qui se sépare de la
+chaussée de **46,0 / 40,2** points dans les deux modes (139,1 / 115,3 contre 93,1 / 75,1).
+Aucune couleur n'a été ajoutée à `Palette` ; c'est aussi la couleur la plus indiquée pour ce
+que le brief demande explicitement — que le terre-plein se distingue par sa luminance et non
+par une teinte verte.
+
+Toutes les valeurs dépassent 25 points, dans les deux modes.
+
+**Le sens de circulation n'était pas lisible sur une seule scène.** Rien, dans les trois
+scènes d'origine, ne montrait le sens de circulation. `ligneT1` trace la même modulation
+qu'elle sépare deux sens (`route-double-sens`) ou deux voies du même sens
+(`route-deux-voies-par-sens`, `route-chaussees-separees`) — c'est l'IISR qui le veut ainsi,
+pas un choix de dessin (art. 113-1, B et 113-2 citées plus haut, dans les deux cas). Le bloc
+à gauche de cette ligne, dans `route-double-sens`, est **bit pour bit identique** à la
+seconde voie du candidat dans `route-deux-voies-par-sens` — rien ne distinguait donc « une
+voie inverse » de « une seconde voie du même sens » sur la première scène prise seule. La
+largeur totale de la chaussée aurait pu sembler trancher, mais elle ne le fait qu'en
+comparant les trois scènes côte à côte, ce qu'un candidat ne fait jamais : une carte se lit
+seule.
+
+**La correction : un véhicule d'en face, cap sud, sans liseré, dans la voie la plus à
+gauche de chaque scène** — `p.autre`, la teinte déjà réservée aux véhicules tiers du
+dossier, hauteur `y = 100`, décalée de celle du candidat (`y = 154`) pour ne pas se lire
+comme un face-à-face, exactement comme `marquage-ligne-mixte` et `marquage-zebra` décalent
+déjà leurs deux véhicules opposés. Une seule fonction partagée avec le candidat
+(`voitureRoute`, paramétrée en `cap`/`couleur`/`liseree`) plutôt que deux corps de dessin
+recopiés. Sa position horizontale suit la voie la plus à gauche de chaque configuration —
+x = 244 (`route-double-sens`), 188 (`route-deux-voies-par-sens`), 92
+(`route-chaussees-separees`) — et c'est la seule chose qui varie d'une scène à l'autre ; sa
+hauteur, sa teinte et l'absence de liseré sont constantes. `p.autre` se détache de la
+chaussée de 86,9 points en clair et 121,5 en sombre (relevé ci-dessus, identique aux trois
+positions) — aucun contour n'était nécessaire, à la différence du traitement `tiers` de la
+tâche 5A.
+
+Vérifié par recadrage x ≥ 272 des six PNG `@3x` livrés contre leur version
+d'avant (`git show HEAD:…`) : bbox de différence vide dans les six cas — la voie du
+candidat, la ligne T1, sa voiture et le `sol` au-delà n'ont pas bougé d'un pixel. Seule la
+chaussée à gauche de cette ligne porte maintenant, en plus de la configuration, le véhicule
+d'en face qui la rend lisible sans les deux autres scènes sous les yeux.
+
+### La chaussée à trois voies de `Croisement & dépassement` (tâche 7, 2026-09-24)
+
+Une quatrième configuration ajoutée à `ConfigurationDeRoute` (`ScenesPanneaux.swift`),
+`.troisVoiesDoubleSens`, plutôt qu'une nouvelle fonction : elle réutilise `sceneRoute`, la
+voie du candidat fixe et `voitureRoute` de la tâche 6B. Après rendu,
+`git status --porcelain -- Valido/Assets.xcassets` ne montre que l'imageset neuf — les
+trois scènes de la tâche 6B ressortent bit pour bit identiques.
+
+**Ce que R414-8 impose au marquage.** L'article interdit à qui dépasse d'emprunter la voie
+la plus à gauche d'une chaussée à double sens de plus de deux voies, ce qui la laisse à ceux
+qui viennent en face. L'IISR 7e partie, art. 114-1 (« Routes à trois voies de rase
+campagne »), en tire la marque : « Les lignes discontinues sont de type T1 et de largeur 2u.
+Elles sont comprises dans le tiers central de la chaussée. » — donc **deux T1**, un de
+chaque côté de la voie centrale, jamais une continue : à la différence de
+`route-deux-voies-par-sens`, où la seconde voie est affectée en permanence au candidat, la
+voie centrale d'une route à trois voies ne l'est à aucun sens, elle sert au dépassement des
+deux côtés. C'est cette continue-là, plus qu'un simple T1 de plus, qui aurait fait de la
+scène une redite de `route-deux-voies-par-sens` avec un véhicule en moins.
+
+**Deux véhicules ajoutés au véhicule d'en face déjà partagé par la famille**, tous deux
+`voitureRoute`, aucune géométrie recopiée :
+
+- **Un véhicule lent dans la voie du candidat** (`p.tiers`, sans liseré, cap nord, devant
+  lui) — sans lui, la voie centrale vide ne motiverait aucun dépassement, la scène ne
+  poserait pas de question. `p.tiers` est déjà la teinte du troisième véhicule de
+  `croisement-chaussee-etroite` ; aucune couleur n'a été ajoutée à `Palette`.
+- **Le véhicule d'en face partagé (`p.autre`)**, dans la voie la plus à gauche — **loin
+  devant**, et surtout **absente à hauteur du candidat** : sans ce vide, le distracteur
+  « prenez la voie de gauche, la plus dégagée » ne serait plus défendable, et la carte ne
+  testerait plus la règle mais l'évidence d'un véhicule visible. La voie centrale reste elle
+  aussi vide sur toute sa longueur — aucun véhicule n'y roule ni n'y est arrêté.
+
+Ces deux choix (voie de gauche vide près du candidat, voie centrale vide) sont ceux du
+brief de la tâche 7 ; une tâche future qui ajouterait un véhicule à l'un ou l'autre endroit
+retirerait au distracteur A sa raison d'être tentant.
+
+**Relevés de luminance** (Rec. 709, PNG `@3x`, coordonnées en unités de scène, écart contre
+la chaussée de la même voie) :
+
+| zone | x, y | clair | sombre | écart clair | écart sombre |
+|---|---|---:|---:|---:|---:|
+| T1 entre voie centrale et voie opposée, au plein | 216, 7 | 255,0 | 234,3 | 161,9 | 159,2 |
+| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 | 35,5 | 53,5 |
+| véhicule lent (`p.tiers`), caisse | 300, 90 | 118,6 | 154,1 | 25,5 | 79,0 |
+| véhicule d'en face (`p.autre`), caisse | 188, 30 | 180,0 | 196,6 | 86,8 | 121,4 |
+
+Le T1 candidat/voie centrale (`x = 272`) reprend le code déjà mesuré à la tâche 6B (255,0 /
+93,1 clair, 234,3 / 75,1 sombre) : même position, même code, non re-listé. Toutes les
+valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le plus serré
+(25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
+véhicule, hors pare-brise.
+
+### Les deux scènes d'« Arrêt & stationnement » (tâche 8, 2026-09-24)
+
+Deux scènes ajoutées à `Tools/Scenes/ScenesCirculation.swift`, aucune scène existante
+touchée : après rendu, `git status --porcelain -- Valido/Assets.xcassets` ne montre que
+les deux imagesets neufs, et un contrôle SHA-256 des 196 PNG déjà livrés (avant/après)
+retombe à l'octet près sur chacun d'eux.
+
+**`stationnement-double-sens`** reprend la géométrie de `bus-quittant-arret` et
+`sas-cycliste-feu` (`rueBordeeDeDeuxTrottoirs`, gauche 152, droite 248, bordure 12,
+axe 200, pas 24) : deux trottoirs, deux bordures, un axe médian discontinu. **Aucun
+véhicule garé** — une file rangée à droite aurait donné la réponse avant qu'elle ne se
+pose. Le véhicule d'en face (`p.autre`, cap sud, sans liseré) est ce qui fait lire
+« double sens » : sans lui, la voie du candidat se lirait aussi bien comme une chaussée à
+sens unique vue d'une seule voie — même raison que le véhicule d'en face de `sceneRoute`
+(tâche 6B). Le trottoir porte un distracteur de la carte (« Sur le trottoir, si les
+piétons peuvent passer ») : ce n'est donc pas un décor neutre, et sa luminance contre la
+chaussée est mesurée ci-dessous comme le reste.
+
+« En agglomération » reste dans l'énoncé plutôt que d'être retiré : les deux trottoirs et
+leurs bordures **suggèrent** l'agglomération, ils ne la **prouvent** pas — à la différence
+de `depassement-cycliste-distance`, où des piétons avaient été ajoutés spécifiquement pour
+faire de ce fait une donnée sûre. Cette scène n'en pose aucun ; le mot reste donc du texte.
+
+**`stationnement-voie-bus`** est une chaussée à deux voies : la voie générale (candidat,
+`p.vous`, liseré) et la voie de bus, **vide** — l'absence de bus est précisément ce que
+l'explication nomme comme piège (« jamais l'absence de bus »), la scène ne devait donc pas
+la corriger en en dessinant un. Les deux voies sont séparées par une ligne discontinue de
+type T3, largeur 5u (IISR, 7e partie, art. 118-3, A, qui renvoie à l'art. 114-3, 2° :
+trois régimes selon le couloir — continue à contresens, continue en couloir permanent où
+le dépassement est interdit, **discontinue T3 dans tous les autres cas de couloirs
+réservés dans le sens normal**, celui d'ici, en l'absence de toute mention contraire —
+modulation « 3 m de trait, 1,33 m d'intervalle », rapport plein/vide 2,25, calculé au
+rapport exact plutôt que fixé comme le fait `ligneT3` de `ScenesPanneaux.swift` pour un
+usage différent). Le mot « BUS » est peint au sol, comme le permet l'art. 118-3, E
+(« en répétition le long des couloirs ») ; taille de police 20, qui tient de x = 204,0 à
+243,7 unités de scène, avec marge de part et d'autre de la bordure qui commence à 248. Le mot
+est le sujet de la carte, pas du décor : mesuré ci-dessous comme le marquage lui-même.
+
+**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `luminance.py`), coordonnées
+en unités de scène (le pixel lu est 3× celles-ci) :
+
+| zone | x, y | clair | sombre | écart clair | écart sombre |
+|---|---|---:|---:|---:|---:|
+| `double-sens` — trottoir (`sol`) | 60, 150 | 235,1 | 37,2 | 142,0 | 37,9 |
+| `double-sens` — chaussée témoin | 170, 250 | 93,1 | 75,1 | — | — |
+| `double-sens` — véhicule du candidat, caisse | 224, 182 | 128,6 | 128,6 | 35,5 | 53,5 |
+| `double-sens` — véhicule d'en face (`p.autre`), caisse | 176, 118 | 180,0 | 196,6 | 86,9 | 121,5 |
+| `double-sens` — axe médian, au plein | 200, 12 | 255,0 | 234,3 | 161,9 | 159,2 |
+| `voie-bus` — mot « BUS », zone 40×40 : moyenne / max | 204, 130 | 127,3 / 255,0 | 108,7 / 234,3 | — / 161,9 | — / 159,2 |
+| `voie-bus` — chaussée témoin (voie de bus, sous le mot) | 224, 230 | 93,1 | 75,1 | — | — |
+| `voie-bus` — séparateur T3, au plein | 200, 15 | 255,0 | 234,3 | 161,9 | 159,2 |
+| `voie-bus` — séparateur T3, au vide (= chaussée) | 200, 39 | 93,1 | 75,1 | — | — |
+| `voie-bus` — véhicule du candidat, caisse | 176, 180 | 128,6 | 128,6 | 35,5 | 53,5 |
+| `voie-bus` — chaussée témoin (voie générale) | 170, 250 | 93,1 | 75,1 | — | — |
+
+Toutes les valeurs dépassent le plancher de 25 points, dans les deux modes — la plupart
+très largement, puisque les deux scènes ne réutilisent que des teintes déjà établies
+ailleurs dans le dossier (`sol`, `chaussee`, `marquage`, `vous`, `autre`) : chaque écart
+retombe à la décimale sur une valeur déjà publiée pour ces teintes. Le mot « BUS » mesuré
+en zone plutôt qu'en point (comme les zones hachurées du dossier) : le minimum de la zone
+(93,1 / 75,1) est la chaussée nue entre les lettres, son maximum (255,0 / 234,3) une pleine
+épaisseur de trait blanc — c'est ce maximum qu'il faut lire contre la chaussée témoin, pas
+la moyenne, qui mélange les deux.
+
 ## Photographies
 
 Recadrées en 4:3 puis sorties en @2x/@3x, JPEG qualité 82 — `sips` pour les deux premières,
@@ -1095,6 +1335,17 @@ Le recadrage de `panneau-b6a1-stationnement-interdit` laisse un panonceau M8d (�
 sens de la flèche) partiellement lisible en bas du cadre : aucune option de la banque ne
 s'appuie sur cette distance (vérifié sur `1658abbc16db4667fec7211f8c9b0f93`,
 `7d44f7dd303fce58716234cba54480b1` et `5abe2f7853853a6744f3a71425a0ba6e`).
+
+**`panneau-b6a1-stationnement-interdit` et `panneau-b6d-arret-interdit` sont une exception de
+structure, pas de cliché.** Le pictogramme (une oblique rouge pour le B6a1, deux barres en
+croix pour le B6d) ne se sépare de son champ bleu que de 5,9 / 3,9 points en clair/sombre pour
+le premier, 5,0 / 3,3 pour le second — très sous le plancher, sur la paire pictogramme contre
+champ. Ce n'est pas la photo qui est en cause : le rouge et le bleu réglementaires du B6 ont
+presque la même luminance Rec. 709, et toute photo fidèle la porte, comme un dessin qui
+n'écarterait ces teintes qu'en trahissant les couleurs du panneau. Les deux teintes restent
+distinctes pour la plupart des dyschromatopsies, et c'est l'`alt` qui porte le nombre de barres
+pour qui n'accède pas à l'image (`1658abbc16db4667fec7211f8c9b0f93` pour le B6a1,
+`1509ad94aea7c6f82355f3362b10a8e1` pour le B6d) — les photographies restent.
 
 | asset | source | auteur | licence | relevé le | résolution d'origine |
 |---|---|---|---|---|---|
@@ -1124,6 +1375,18 @@ s'appuie sur cette distance (vérifié sur `1658abbc16db4667fec7211f8c9b0f93`,
 | `panneau-c111-tunnel` | [Commons — Extrémité Ouest Tunnel des Sorderettes en Maurienne](https://commons.wikimedia.org/wiki/File:Extr%C3%A9mit%C3%A9_Ouest_Tunnel_des_Sorderettes_en_Maurienne_%28mai_2025%29.JPG) (mai 2025) | Florian Pépellin | CC BY-SA 4.0 | 2026-09-24 | 3108 × 2360 |
 | `panonceau-tunnel-longueur` | [Commons — Autoroute A43, La Maurienne, IMG 5854](https://commons.wikimedia.org/wiki/File:Autoroute_A43_-_La_Maurienne_-_2012-07-16_-_IMG_5854.jpg) (2012-07-16) | Poudou99 | CC BY 3.0 | 2026-09-24 | 5184 × 3456 |
 
+**Sept photographies ont un bord qui échoue au plancher de luminance, sans que la carte en
+dépende : B1, B31, AB4, A13b, AB6, B33, B30.** Au pire point de leur pourtour, c'est le listel
+qui se confond avec le fond qui le touche — B1 contre la tôle du support et le ciel entre les
+branches (14 points de son pourtour sous 25 en sombre) ; B31 contre la roche ensoleillée et
+l'herbe sèche (16) ; AB4 contre le ciel des deux flancs (18) ; A13b contre le mur blanchi d'une
+ferme (8) ; AB6 contre le ciel sur l'arête de tôle (74) et contre une clôture ou des bâtiments
+sur la bordure noire (3) ; B33 contre le ciel et le feuillage au soleil (33) ; B30 contre le
+ciel, en bas et en haut à droite (3). Dans chaque cas le pictogramme contre son champ passe
+largement (de 47,9 / 29,6 pour l'AB6 à 178,9 / 111,7 pour le B31, clair/sombre) : c'est lui,
+jamais le listel, qui porte la réponse de la carte — ce sont des exceptions de cadrage, la
+carte ne dépend pas du bord.
+
 Le lot des quatre panneaux de danger et de fin (A1a, A13b, A14, B31, tâche 3A-2) vient lui
 aussi de Marc Mongenet, sans qu'aucun repli n'ait été nécessaire. Aucune de ces quatre
 sources n'a le piège d'orientation EXIF du B1 (les quatre sont en orientation 1, pixels
@@ -1132,10 +1395,12 @@ bruts déjà à l'endroit). Pour l'A14, le fichier retenu porte lui-même le pan
 critère de choix : c'était le meilleur candidat de la catégorie Commons de toute façon.
 
 Le dernier lot (AB4, AB7, C1a, C113, tâche 3A-3) referme le domaine : les quatre derniers
-panneaux dessinés en CoreGraphics passent en photographie, et `Panneaux & marquage` est
-désormais entièrement photographique. `panneau-ab7-fin-priorite` vient d'une source en
-orientation EXIF 8 (comme le B1) : le fichier brut, un paysage 4000×3000, a d'abord été
-réécrit bit à bit avec `PIL.ImageOps.exif_transpose` avant tout centre de recadrage.
+panneaux dessinés en CoreGraphics passent en photographie, si bien que tous les panneaux
+isolés de `Panneaux & marquage` le sont désormais — ses marquages au sol, eux, restent
+dessinés (voir « Schémas dessinés » plus haut). `panneau-ab7-fin-priorite` vient d'une
+source en orientation EXIF 8 (comme le B1) : le fichier brut, un paysage 4000×3000, a
+d'abord été réécrit bit à bit avec `PIL.ImageOps.exif_transpose` avant tout centre de
+recadrage.
 `panneau-c1a-parking` est le premier asset de ce fichier à ne pas venir de Marc Mongenet :
 Chabe01, un contributeur différent, mais la même licence CC BY-SA 4.0. Lui seul a demandé un
 recadrage plus large que le plancher de `photo-panneau.py`, la source étant un cliché pris de
@@ -1159,8 +1424,9 @@ deux côtés ; Bellerive (25 %) oppose le listel (195,2) à un mur crépi clair 
 (211,1), un écart négatif. Un panneau plus grand mais illisible en niveaux de gris n'aurait
 rien réglé (rapport de tâche 3A-3, fix round 1).
 
-Ces quinze-là passeraient une diffusion telles quelles : CC BY-SA demande l'attribution
-(ce tableau la porte) et le partage à l'identique des seules œuvres dérivées de l'image.
+Ces vingt-cinq passeraient une diffusion telles quelles : CC BY-SA (ou CC BY) demande
+l'attribution (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées
+de l'image.
 Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution devra
 apparaître dans l'app, pas seulement ici.
 
@@ -1171,12 +1437,13 @@ préparés pour une tâche ultérieure (4C) qui réécrira les cartes correspond
 `panneau-ab3a-cedez-le-passage` vient de Borly (RD183-907, Marc Mongenet) : le triangle
 s'y détache sur des conifères sombres plutôt que sur le ciel, ce qui donne un écart large sur
 presque tout le pourtour (listel contre feuillage ≥ 75 en clair des deux côtés, ≥ 90 en
-sombre) — sauf en un point du sommet haut, où un reflet de soleil flou à travers les branches
-(visible à l'écran, pas un défaut de mesure) fait chuter l'écart à environ 32 en clair, soit
-≈ 20 en sombre : sous le plancher, comme le sommet droit de `panneau-ab7-fin-priorite` plus
-haut. La cause est la même — un flou de mise au point qui éclaircit localement le fond juste
-derrière le listel — et la conclusion est la même : gardé en connaissance de cause, un point
-sur tout le pourtour, pas une arête entière. Un premier candidat (Chemin Romagne, St Cyr
+sombre) — sauf en un point du sommet haut, où une pièce métallique nette (un collier de
+fixation sur le poteau, contre le listel, visible à l'écran et non un défaut de mesure) fait
+chuter l'écart à environ 32 en clair, soit ≈ 20 en sombre : sous le plancher, comme le sommet
+droit de `panneau-ab7-fin-priorite` plus haut. La cause diffère de celle de l'AB7 — ici une
+pièce de fixation claire touche le listel, pas un fond naturel éclairci — mais la conclusion
+est la même : gardé en connaissance de cause, un point sur tout le pourtour, pas une arête
+entière. Un premier candidat (Chemin Romagne, St Cyr
 Menthon) a été écarté : son triangle est propre mais posé devant un ciel clair sans aucun
 relief, listel contre ciel n'y dépasse pas quelques points d'écart (essai non conservé). Le
 pictogramme n'existe pas sur une AB3a ; la paire mesurée à sa place est la bordure rouge
@@ -1204,7 +1471,7 @@ faux positifs de catégorie). 4C laissera cette carte-là en texte.
 
 `panonceau-m12-cyclistes` vient de l'avenue Pépinière à Fontenay-sous-Bois (Chabe01).
 **Elle montre le panonceau monté au-dessus du feu, pas en dessous** — le montage le moins
-courant : l'agencement ordinaire, vu à Massy et avenue Maréchal-Joffre (même photographe),
+courant : l'agencement ordinaire, vu à Massy et avenue Maréchal Joffre (même photographe),
 pose le panonceau sous le feu. Gardée quand même, faute de mieux : les deux candidats à
 l'agencement correct ont chacun un listel qui ne se détache pas de son fond, sur un flanc
 entier et pas un point isolé (chiffres ci-dessous) — pire que celui-ci, pas meilleur.
@@ -1240,7 +1507,7 @@ Deux paires d'écart sont mesurées, sur l'image livrée (`clair@3x.jpg`, 1152 �
   soit un écart négatif) ; le meilleur point du balayage plafonne à 31,2 clair / 19,3 sombre.
   Sur l'ensemble des deux flancs, aucun point ne dépasse 25 en sombre. Net échec, pas gardé —
   généré une fois pour mesure (`eval-m12-massy`), supprimé avant tout commit.
-- `Panonceau M12 Avenue Maréchal-Joffre - Fontenay-sous-Bois (FR94) - 2020-09-08 - 1.jpg`
+- `Panonceau M12 Avenue Maréchal Joffre - Fontenay-sous-Bois (FR94) - 2020-09-08 - 1.jpg`
   (Chabe01, CC BY-SA 4.0, feu bas rouge allumé, panonceau au-dessus — donc pas davantage
   « sous son feu » que le candidat retenu, contrairement à une première lecture) : listel
   contre un mât de béton à la texture inégale (traînées claires et sombres). Balayé de la
@@ -1372,250 +1639,6 @@ en moyenne (écart 169,6 / 104,9). Un arbre touche presque l'angle bas-gauche ar
 panneau mais ne le touche pas (vérifié à l'œil) ; le bas du panneau donne sur son propre
 poteau et sa ferrure de fixation, jamais mesurés comme un fond dans ce dossier — ni ici.
 Aucun défaut de luminance à documenter sur ce candidat.
-
-### Les trois types de route hors agglomération (tâche 6B, 2026-09-23)
-
-Trois fondations de `Vitesse` décrivaient en mots, sur 99 à 109 caractères, une
-configuration de chaussée dont la vitesse par défaut dépend entièrement : une voie par sens
-(`37fe1af42b8d817994d5f81863c7e6ae`, 80 km/h), deux voies dans le sens du candidat sans
-terre-plein (`f7370daabea929065f6b2586ca3eea91`, 90 km/h), deux chaussées séparées par un
-terre-plein central (`fed604fe7c4b8b3b96adc066a7902138`, 110 km/h). Aucune carte n'a été
-touchée par cette tâche — une tâche ultérieure les pose.
-
-**Une famille, une fonction.** `sceneRoute(_:)` (`Tools/Scenes/ScenesPanneaux.swift`), sur le
-modèle direct de `sceneLigne` : la configuration en paramètre, `ligneT1` et `ligneContinue`
-réutilisées telles quelles, aucun corps de scène recopié. Échelle et largeur de voie : celles
-de `depassement-ligne-discontinue` (`ScenesCirculation.swift`) — 16 unités par mètre, voie de
-56 unités pour 3,50 m.
-
-**Ce que l'IISR a fourni.** Art. 113-1, B (modulation T1, « 3 m de trait, 10 m
-d'intervalle ») et art. 113-2 (« Ligne axiale ou de délimitation de voie en rase campagne » →
-T1), déjà relevés pour la tâche 3B-1 — le même T1 sert ici deux rôles distincts : axe séparant
-les deux sens dans la première scène, délimitation de voies du même sens dans les deux
-suivantes, posé au **même** `x` (`routeDroite - routeVoie`) dans les trois. Art. 114-4, B
-(« les lignes de délimitation de terre-plein central sont continues et de largeur 3u »),
-déjà relevé pour `autoroute-voie-de-gauche`, pour les deux continues qui bordent le
-terre-plein. **Ce que l'IISR ne fournit pas** : la largeur du terre-plein lui-même — une
-largeur de chaussée est un fait de conception routière, pas de signalisation — retenue à
-40 unités (2,5 m) pour rester lisible à cette échelle, sans prétendre relever une cote
-officielle. Aucune ligne de rive n'est dessinée : elle n'entre dans ce qu'aucune des trois
-cartes ne distingue, et en ajouter poserait une question de plus que l'énoncé ne pose pas —
-même raisonnement que l'axe absent de `croisement-chaussee-etroite`.
-
-**Comment la voie du candidat reste fixe.** Les trois configurations n'ont pas la même
-largeur de chaussée, donc pas le même cadrage possible à voiture et voie identiques partout.
-Le parti pris : la rive droite de la voie du candidat est une constante (`routeDroite = 328`),
-sa voie est toujours la voie la plus à droite, et la chaussée s'étend vers la **gauche** à
-mesure que la configuration se charge — jusqu'à deux voies de plus et un terre-plein pour la
-troisième. Tout ce qui est à droite de cette rive (la voie du candidat, sa voiture, le
-`sol` au-delà) est donc identique dans les trois scènes, pixel pour pixel ; c'est la chaussée,
-à gauche, qui varie et qui porte seule la différence de configuration.
-
-**La boîte de différence, vérifiée par différence pixel à pixel des PNG `@3x`** (identique
-dans les deux modes) :
-
-| paire | boîte des différences (px) | boîte (unités de scène) |
-|---|---|---|
-| `route-double-sens` / `route-deux-voies-par-sens` | `(480, 0)` → `(774, 900)` | `(160, 0)` → `(258, 300)` |
-| `route-deux-voies-par-sens` / `route-chaussees-separees` | `(192, 0)` → `(656, 900)` | `(64, 0)` → `(≈219, 300)` |
-| `route-double-sens` / `route-chaussees-separees` | `(192, 0)` → `(774, 900)` | `(64, 0)` → `(258, 300)` |
-
-Deux des trois boîtes s'étendent maintenant jusqu'à x = 258 unités de scène (774 px) : c'est
-le véhicule d'en face de `route-double-sens`, dont la voie (centre x = 244) est la plus à
-droite des trois positions que prend ce véhicule selon la scène (voir plus bas). Ce nouveau
-bord reste **avant** la ligne T1 commune aux trois (posée à x = 272, large de 5, donc à
-partir de x = 269,5) — vérifié directement, en comparant le recadrage x ≥ 272 des trois PNG
-`@3x` à leur version d'avant ce véhicule (`git show HEAD:…`) : bbox de différence vide dans
-les six cas (trois scènes, deux modes). Tout ce qui est à droite de cette ligne — la voie du
-candidat, la ligne T1 elle-même, sa voiture, et le `sol` au-delà de la rive droite — reste
-donc bit pour bit identique dans les trois scènes ; seule la chaussée à gauche, qui porte le
-véhicule d'en face en plus de la configuration elle-même, diffère.
-
-**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `Y = 0,2126 R + 0,7152 G +
-0,0722 B`), coordonnées en unités de scène (le pixel lu est 3× celles-ci) :
-
-| zone | x, y | clair | sombre |
-|---|---|---:|---:|
-| T1, au plein | 272, 7 | 255,0 | 234,3 |
-| T1, au vide (= chaussée) | 272, 40 | 93,1 | 75,1 |
-| chaussée témoin (voie du candidat) | 300, 250 | 93,1 | 75,1 |
-| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 |
-| terre-plein (`route-chaussees-separees` seule) | 196, 100 | 139,1 | 115,3 |
-| chaussée contre le terre-plein | 244, 100 | 93,1 | 75,1 |
-| véhicule d'en face, caisse (`route-double-sens`) | 244, 100 | 180,0 | 196,6 |
-| véhicule d'en face, caisse (`route-deux-voies-par-sens`) | 188, 100 | 180,0 | 196,6 |
-| véhicule d'en face, caisse (`route-chaussees-separees`) | 92, 100 | 180,0 | 196,6 |
-| chaussée témoin, sous chacun des trois véhicules d'en face | même x, y = 250 | 93,1 | 75,1 |
-
-Le marquage se détache de la chaussée de **161,9 / 159,2** points (clair/sombre) — la même
-paire que sur toutes les scènes de marquage du dossier, puisque c'est la même chaussée et le
-même blanc. Le véhicule du candidat se détache de la chaussée de **35,5 / 53,5** points ; le
-véhicule d'en face, de **86,9 / 121,5** points, identique aux trois positions qu'il occupe
-selon la scène (même teinte `p.autre`, même chaussée sous lui).
-
-**Le terre-plein, et pourquoi `ilot` ne convient pas.** Un premier essai posait le
-terre-plein en `p.ilot` — la couleur déjà réservée au terre-plein de
-`autoroute-voie-de-gauche` — et mesurait 219,0 en clair mais seulement **69,2 en sombre**,
-contre 75,1 pour la chaussée : un écart de 5,9 points, un ressaut invisible. C'est
-exactement le défaut déjà relevé sur `bordure` (`Repere.swift`) quand elle a remplacé `ilot`
-pour les scènes de stationnement (« en mode sombre elle mesure 54 en niveaux de gris contre
-58 pour la chaussée ») — et la solution est la même : `p.bordure`, qui se sépare de la
-chaussée de **46,0 / 40,2** points dans les deux modes (139,1 / 115,3 contre 93,1 / 75,1).
-Aucune couleur n'a été ajoutée à `Palette` ; c'est aussi la couleur la plus indiquée pour ce
-que le brief demande explicitement — que le terre-plein se distingue par sa luminance et non
-par une teinte verte.
-
-Toutes les valeurs dépassent 25 points, dans les deux modes.
-
-**Fix round 1 (revue) : le sens de circulation n'était pas lisible sur une seule scène.**
-Rien, dans les trois scènes d'origine, ne montrait le sens de circulation. `ligneT1` trace la
-même modulation qu'elle sépare deux sens (`route-double-sens`) ou deux voies du même sens
-(`route-deux-voies-par-sens`, `route-chaussees-separees`) — c'est l'IISR qui le veut ainsi,
-pas un choix de dessin (art. 113-1, B et 113-2 citées plus haut, dans les deux cas). La revue
-a mesuré que le bloc à gauche de cette ligne, dans `route-double-sens`, est **bit pour bit
-identique** à la seconde voie du candidat dans `route-deux-voies-par-sens` — rien ne
-distinguait donc « une voie inverse » de « une seconde voie du même sens » sur la première
-scène prise seule. La largeur totale de la chaussée aurait pu sembler trancher, mais elle ne
-le fait qu'en comparant les trois scènes côte à côte, ce qu'un candidat ne fait jamais : une
-carte se lit seule.
-
-**La correction : un véhicule d'en face, cap sud, sans liseré, dans la voie la plus à
-gauche de chaque scène** — `p.autre`, la teinte déjà réservée aux véhicules tiers du
-dossier, hauteur `y = 100`, décalée de celle du candidat (`y = 154`) pour ne pas se lire
-comme un face-à-face, exactement comme `marquage-ligne-mixte` et `marquage-zebra` décalent
-déjà leurs deux véhicules opposés. Une seule fonction partagée avec le candidat
-(`voitureRoute`, paramétrée en `cap`/`couleur`/`liseree`) plutôt que deux corps de dessin
-recopiés. Sa position horizontale suit la voie la plus à gauche de chaque configuration —
-x = 244 (`route-double-sens`), 188 (`route-deux-voies-par-sens`), 92
-(`route-chaussees-separees`) — et c'est la seule chose qui varie d'une scène à l'autre ; sa
-hauteur, sa teinte et l'absence de liseré sont constantes. `p.autre` se détache de la
-chaussée de 86,9 points en clair et 121,5 en sombre (relevé ci-dessus, identique aux trois
-positions) — aucun contour n'était nécessaire, à la différence du traitement `tiers` de la
-tâche 5A.
-
-Vérifié après ce fix, par recadrage x ≥ 272 des six PNG `@3x` livrés contre leur version
-d'avant (`git show HEAD:…`) : bbox de différence vide dans les six cas — la voie du
-candidat, la ligne T1, sa voiture et le `sol` au-delà n'ont pas bougé d'un pixel. Seule la
-chaussée à gauche de cette ligne porte maintenant, en plus de la configuration, le véhicule
-d'en face qui la rend lisible sans les deux autres scènes sous les yeux.
-
-### La chaussée à trois voies de `Croisement & dépassement` (tâche 7, 2026-09-24)
-
-Une quatrième configuration ajoutée à `ConfigurationDeRoute` (`ScenesPanneaux.swift`),
-`.troisVoiesDoubleSens`, plutôt qu'une nouvelle fonction : elle réutilise `sceneRoute`, la
-voie du candidat fixe et `voitureRoute` de la tâche 6B. Après rendu,
-`git status --porcelain -- Valido/Assets.xcassets` ne montre que l'imageset neuf — les
-trois scènes de la tâche 6B ressortent bit pour bit identiques.
-
-**Ce que R414-8 impose au marquage.** L'article interdit à qui dépasse d'emprunter la voie
-la plus à gauche d'une chaussée à double sens de plus de deux voies, ce qui la laisse à ceux
-qui viennent en face. L'IISR 7e partie, art. 114-1 (« Routes à trois voies de rase
-campagne »), en tire la marque : « Les lignes discontinues sont de type T1 et de largeur 2u.
-Elles sont comprises dans le tiers central de la chaussée. » — donc **deux T1**, un de
-chaque côté de la voie centrale, jamais une continue : à la différence de
-`route-deux-voies-par-sens`, où la seconde voie est affectée en permanence au candidat, la
-voie centrale d'une route à trois voies ne l'est à aucun sens, elle sert au dépassement des
-deux côtés. C'est cette continue-là, plus qu'un simple T1 de plus, qui aurait fait de la
-scène une redite de `route-deux-voies-par-sens` avec un véhicule en moins.
-
-**Deux véhicules ajoutés au véhicule d'en face déjà partagé par la famille**, tous deux
-`voitureRoute`, aucune géométrie recopiée :
-
-- **Un véhicule lent dans la voie du candidat** (`p.tiers`, sans liseré, cap nord, devant
-  lui) — sans lui, la voie centrale vide ne motiverait aucun dépassement, la scène ne
-  poserait pas de question. `p.tiers` est déjà la teinte du troisième véhicule de
-  `croisement-chaussee-etroite` ; aucune couleur n'a été ajoutée à `Palette`.
-- **Le véhicule d'en face partagé (`p.autre`)**, dans la voie la plus à gauche — **loin
-  devant**, et surtout **absente à hauteur du candidat** : sans ce vide, le distracteur
-  « prenez la voie de gauche, la plus dégagée » ne serait plus défendable, et la carte ne
-  testerait plus la règle mais l'évidence d'un véhicule visible. La voie centrale reste elle
-  aussi vide sur toute sa longueur — aucun véhicule n'y roule ni n'y est arrêté.
-
-Ces deux choix (voie de gauche vide près du candidat, voie centrale vide) sont ceux du
-brief de la tâche 7 ; une tâche future qui ajouterait un véhicule à l'un ou l'autre endroit
-retirerait au distracteur A sa raison d'être tentant.
-
-**Relevés de luminance** (Rec. 709, PNG `@3x`, coordonnées en unités de scène, écart contre
-la chaussée de la même voie) :
-
-| zone | x, y | clair | sombre | écart clair | écart sombre |
-|---|---|---:|---:|---:|---:|
-| T1 entre voie centrale et voie opposée, au plein | 216, 7 | 255,0 | 234,3 | 161,9 | 159,2 |
-| véhicule du candidat, caisse | 300, 154 | 128,6 | 128,6 | 35,5 | 53,5 |
-| véhicule lent (`p.tiers`), caisse | 300, 90 | 118,6 | 154,1 | 25,5 | 79,0 |
-| véhicule d'en face (`p.autre`), caisse | 188, 30 | 180,0 | 196,6 | 86,8 | 121,4 |
-
-Le T1 candidat/voie centrale (`x = 272`) reprend le code déjà mesuré à la tâche 6B (255,0 /
-93,1 clair, 234,3 / 75,1 sombre) : même position, même code, non re-listé. Toutes les
-valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le plus serré
-(25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
-véhicule, hors pare-brise.
-
-### Les deux scènes d'« Arrêt & stationnement » (tâche 8, 2026-09-24)
-
-Deux scènes ajoutées à `Tools/Scenes/ScenesCirculation.swift`, aucune scène existante
-touchée : après rendu, `git status --porcelain -- Valido/Assets.xcassets` ne montre que
-les deux imagesets neufs, et un contrôle SHA-256 des 196 PNG déjà livrés (avant/après)
-retombe à l'octet près sur chacun d'eux.
-
-**`stationnement-double-sens`** reprend la géométrie de `bus-quittant-arret` et
-`sas-cycliste-feu` (`rueBordeeDeDeuxTrottoirs`, gauche 152, droite 248, bordure 12,
-axe 200, pas 24) : deux trottoirs, deux bordures, un axe médian discontinu. **Aucun
-véhicule garé** — une file rangée à droite aurait donné la réponse avant qu'elle ne se
-pose. Le véhicule d'en face (`p.autre`, cap sud, sans liseré) est ce qui fait lire
-« double sens » : sans lui, la voie du candidat se lirait aussi bien comme une chaussée à
-sens unique vue d'une seule voie — même raison que le véhicule d'en face de `sceneRoute`
-(tâche 6B). Le trottoir porte un distracteur de la carte (« Sur le trottoir, si les
-piétons peuvent passer ») : ce n'est donc pas un décor neutre, et sa luminance contre la
-chaussée est mesurée ci-dessous comme le reste.
-
-« En agglomération » reste dans l'énoncé plutôt que d'être retiré : les deux trottoirs et
-leurs bordures **suggèrent** l'agglomération, ils ne la **prouvent** pas — à la différence
-de `depassement-cycliste-distance`, où des piétons avaient été ajoutés spécifiquement pour
-faire de ce fait une donnée sûre. Cette scène n'en pose aucun ; le mot reste donc du texte.
-
-**`stationnement-voie-bus`** est une chaussée à deux voies : la voie générale (candidat,
-`p.vous`, liseré) et la voie de bus, **vide** — l'absence de bus est précisément ce que
-l'explication nomme comme piège (« jamais l'absence de bus »), la scène ne devait donc pas
-la corriger en en dessinant un. Les deux voies sont séparées par une ligne discontinue de
-type T3, largeur 5u (IISR, 7e partie, art. 118-3, A, qui renvoie à l'art. 114-3, 2° :
-trois régimes selon le couloir — continue à contresens, continue en couloir permanent où
-le dépassement est interdit, **discontinue T3 dans tous les autres cas de couloirs
-réservés dans le sens normal**, celui d'ici, en l'absence de toute mention contraire —
-modulation « 3 m de trait, 1,33 m d'intervalle », rapport plein/vide 2,25, calculé au
-rapport exact plutôt que fixé comme le fait `ligneT3` de `ScenesPanneaux.swift` pour un
-usage différent). Le mot « BUS » est peint au sol, comme le permet l'art. 118-3, E
-(« en répétition le long des couloirs ») ; taille de police choisie à 20 après un premier
-essai à 26 mesuré puis écarté : le texte tenait alors de x = 201,7 à 249,3 unités de scène,
-débordant sur la bordure qui commence à 248. À 20, le texte tient de x = 204,0 à 243,7
-unités, avec marge des deux côtés. Le mot est le sujet de la carte, pas du décor : mesuré
-ci-dessous comme le marquage lui-même.
-
-**Relevé de luminance** (Rec. 709 sur les PNG `@3x` livrés, `luminance.py`), coordonnées
-en unités de scène (le pixel lu est 3× celles-ci) :
-
-| zone | x, y | clair | sombre | écart clair | écart sombre |
-|---|---|---:|---:|---:|---:|
-| `double-sens` — trottoir (`sol`) | 60, 150 | 235,1 | 37,2 | 142,0 | 37,9 |
-| `double-sens` — chaussée témoin | 170, 250 | 93,1 | 75,1 | — | — |
-| `double-sens` — véhicule du candidat, caisse | 224, 182 | 128,6 | 128,6 | 35,5 | 53,5 |
-| `double-sens` — véhicule d'en face (`p.autre`), caisse | 176, 118 | 180,0 | 196,6 | 86,9 | 121,5 |
-| `double-sens` — axe médian, au plein | 200, 12 | 255,0 | 234,3 | 161,9 | 159,2 |
-| `voie-bus` — mot « BUS », zone 40×40 : moyenne / max | 204, 130 | 127,3 / 255,0 | 108,7 / 234,3 | — / 161,9 | — / 159,2 |
-| `voie-bus` — chaussée témoin (voie de bus, sous le mot) | 224, 230 | 93,1 | 75,1 | — | — |
-| `voie-bus` — séparateur T3, au plein | 200, 15 | 255,0 | 234,3 | 161,9 | 159,2 |
-| `voie-bus` — séparateur T3, au vide (= chaussée) | 200, 39 | 93,1 | 75,1 | — | — |
-| `voie-bus` — véhicule du candidat, caisse | 176, 180 | 128,6 | 128,6 | 35,5 | 53,5 |
-| `voie-bus` — chaussée témoin (voie générale) | 170, 250 | 93,1 | 75,1 | — | — |
-
-Toutes les valeurs dépassent le plancher de 25 points, dans les deux modes — la plupart
-très largement, puisque les deux scènes ne réutilisent que des teintes déjà établies
-ailleurs dans le dossier (`sol`, `chaussee`, `marquage`, `vous`, `autre`) : chaque écart
-retombe à la décimale sur une valeur déjà publiée pour ces teintes. Le mot « BUS » mesuré
-en zone plutôt qu'en point (comme les zones hachurées du dossier) : le minimum de la zone
-(93,1 / 75,1) est la chaussée nue entre les lettres, son maximum (255,0 / 234,3) une pleine
-épaisseur de trait blanc — c'est ce maximum qu'il faut lire contre la chaussée témoin, pas
-la moyenne, qui mélange les deux.
 
 ### Le C111 et son panonceau de longueur (tâche 10, 2026-09-24)
 
