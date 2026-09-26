@@ -9848,7 +9848,7 @@
   {
     "correctID": "A",
     "difficulty": "moyen",
-    "explanation": "Le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place. Un panneau de priorité garde une valeur permanente, que les feux fonctionnent ou non, et c'est lui qui tranche avant la priorité à droite.",
+    "explanation": "Le jaune clignotant n'attribue aucune priorité : il renvoie aux règles en place. Sous un feu qui clignote, le panneau de priorité garde sa valeur permanente, et c'est lui qui tranche avant la priorité à droite.",
     "id": "0ac1e53ac8978390a5725830ebcff433",
     "illustration": {
       "alt": "Carrefour vu de dessus : sur votre approche, une lanterne tricolore plus loin a sa lampe du milieu allumée et cerclée de traits de clignotement — la position du jaune — et un cédez-le-passage est planté juste avant le croisement.",
