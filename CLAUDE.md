@@ -46,7 +46,11 @@ ligne de base au 2026-08-29, sur 448 questions, n'est pas vide — `longueur/plu
 `forme/seule-ponctuee` (14) et deux faux positifs connus (`lettre/reference` 1,
 `forme/markdown` 1) ; reconfirmée au 2026-09-19 sur 464 questions, ces cinq chiffres n'ont
 pas bougé — les seize fondations ajoutées par le chantier des notions n'ont pesé sur aucun
-d'eux ; au 2026-09-24, après le chantier des illustrations, toujours les mêmes. Doivent
+d'eux ; au 2026-09-24, après le chantier des illustrations, toujours les mêmes.
+`longueur/plus-longue` seul bouge ensuite, à **77** : un correctif a raccourci d'un
+caractère le distracteur D de `37fe1af42b8d8141b1d0e3ca0b855119` (« franchie » →
+« franchi »), qui rompt l'égalité 49/49 avec la bonne réponse — elle la dépasse désormais
+d'un caractère. Voulu, informatif, `plus-10` reste vide. Doivent
 rester **vides** : `schema/`, `couverture/`, `source/`, `fuite/`, `image/`,
 `longueur/plus-10`, `forme/backtick-isole` — ce dernier ne mordant que si une option porte
 un backtick, son zéro ne prouve rien sur un lot sans code span — et, depuis le 2026-09-19,

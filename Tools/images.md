@@ -1542,7 +1542,8 @@ demandé un recadrage impossible (les trois postes ne s'alignent pas à la même
 Relevé de luminance sur trois des cinq (`70`, l'interdiction poids lourds, l'arrêt-interdit) :
 écart listel/feuillage ≥ 43 en clair et ≥ 28 en sombre à leur point le plus faible, largement
 au-dessus du plancher de 25. Le disque `110`, plus proche de la roche du tunnel et donc à
-l'ombre, ne passe pas ce plancher sur une partie de son pourtour (jusqu'à 7,5 en sombre) : il
+l'ombre, ne passe pas ce plancher sur une partie de son pourtour — au pire point, le listel
+y est même plus sombre que la roche qui le touche (−0,5 en clair, −0,9 en sombre) : il
 reste dans le cadre à titre de contexte, mais la carte ne s'appuie pas sur lui — c'est un
 défaut connu, comme celui de `panneau-ab7-fin-priorite` plus haut, gardé après comparaison
 plutôt que caché.
@@ -1553,8 +1554,9 @@ une haie de thuyas. Trois photographies du même mât ont été comparées (deux
 le seul B1, un troisième montrant aussi un poteau voisin à deux disques rouges) ; la retenue est
 celle où les trois panonceaux sont les plus nets et où le B1 recadré laisse le moins de ciel
 autour du panonceau du haut, qui reste le point faible : son bord touche un ciel clair sur environ
-la moitié de sa hauteur, sous le plancher de 25 en sombre (7,5 au pire point), quand les deux
-panonceaux du bas, contre la haie, dépassent tous deux 45 dans les deux modes. Le cadre métallique
+la moitié de sa hauteur, sous le plancher de 25 dans les deux modes au pire point (1,2 en clair,
+0,9 en sombre), quand les deux panonceaux du bas, contre la haie, dépassent tous deux 45 dans les
+deux modes. Le cadre métallique
 de chaque panonceau, visible en gris, reste un repère de forme indépendant de la teinte.
 
 **Les quatre familles restées en texte, et ce qui a été cherché** : le disque bleu sans liseré
