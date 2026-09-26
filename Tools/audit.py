@@ -81,8 +81,9 @@ except OSError:
     RECENSES = set()
 
 # Une ligne de la section « Photographies » porte six colonnes : asset, source, auteur,
-# licence, date. Sans auteur ni licence, l'image n'est ni re-sourçable ni diffusable, et le
-# contrôle de provenance seul ne le voit pas — il ne teste que le nom.
+# licence, date, résolution d'origine. Sans auteur ni licence, l'image n'est ni
+# re-sourçable ni diffusable, et le contrôle de provenance seul ne le voit pas — il ne
+# teste que le nom.
 PHOTOS, LICENCES = set(), {}
 for ligne in open(IMAGES_MD, encoding='utf-8'):
     cellules = [c.strip() for c in ligne.split('|')]

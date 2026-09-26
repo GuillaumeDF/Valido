@@ -903,9 +903,6 @@ private func baliseJ10(_ ctx: CGContext, at pt: CGPoint, hauteur: Double, bandes
 
 let scenesCirculation: [(String, Scene)] = [
 
-    // Les panneaux enseignés pour eux-mêmes sont photographiés (voir `Tools/images.md`) ;
-    // ce fichier ne dessine plus que ceux qu'une scène plante.
-
     // 4. Voie la plus à gauche d'une autoroute. Le véhicule du candidat longe la
     //    glissière centrale : c'est cette position — et elle seule — qui déclenche la
     //    vitesse minimale. Sans l'image, « cette voie » ne désigne rien.
@@ -935,9 +932,9 @@ let scenesCirculation: [(String, Scene)] = [
     // lentilles est lui-même une information : le signal d'arrêt R24 du passage à niveau
     // n'en a **qu'une**, un tricolore en a trois.
 
-    // 5. Le jaune clignotant, seul et grand — même traitement que les panneaux ci-dessus,
-    //    parce que la question porte sur la signification du signal et non sur une
-    //    situation. La lampe allumée est celle du **milieu** : l'art. 7 réserve cette
+    // 5. Le jaune clignotant, seul et grand sur fond neutre — la question porte sur la
+    //    signification du signal, pas sur une situation, donc rien d'autre ne doit lui
+    //    faire concurrence. La lampe allumée est celle du **milieu** : l'art. 7 réserve cette
     //    position au cas où « l'ensemble de l'installation est en panne, en cours de mise
     //    en activité ou volontairement géré avec ce seul message », qui est le cas que
     //    rencontre un candidat. Le jaune clignotant *permanent*, lui, est en bas, à la

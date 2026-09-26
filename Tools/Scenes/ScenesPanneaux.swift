@@ -320,9 +320,6 @@ private func sceneRoute(_ configuration: ConfigurationDeRoute) -> Scene {
 
 let scenesPanneaux: [(String, Scene)] = [
 
-    // Les panneaux enseignés pour eux-mêmes sont photographiés (voir `Tools/images.md`) ;
-    // ce fichier ne dessine plus que ceux qu'une scène plante.
-
     // MARK: Marquage
 
     // 14. Ligne mixte : une continue doublée d'une T3 espacée de 2u (7e partie, art. 113,
