@@ -616,10 +616,11 @@ plus — quatre des huit premières violaient déjà le budget qu'elles étaient
 
 ### Les panneaux : un dessin, une norme, un seul endroit
 
-Un panneau se dessine **une fois**, dans `Tools/Scenes/Panneaux.swift`, et les scènes qui
-le contiennent réutilisent la même fonction. Un B14 dans une scène de carrefour et un B14
-seul sont le même dessin : sans quoi deux versions du même panneau divergent, et le
-candidat apprend une forme qui n'existe qu'ici.
+Un panneau planté dans une scène se dessine **une fois**, dans `Tools/Scenes/Panneaux.swift`,
+et les scènes qui le contiennent réutilisent la même fonction : un cédez-le-passage dessiné
+dans une scène de carrefour et dans une autre sont le même dessin, sans quoi deux versions du
+même panneau divergent et le candidat apprend une forme qui n'existe qu'ici. Un panneau
+enseigné pour lui-même, hors configuration, se photographie plutôt.
 
 La géométrie ne s'invente pas. Elle se relève sur l'**Instruction interministérielle sur la
 signalisation routière** (IISR), qui normalise formes, proportions et couleurs, et dont les
