@@ -1406,10 +1406,14 @@ Chabe01, un contributeur différent, mais la même licence CC BY-SA 4.0. Lui seu
 recadrage plus large que le plancher de `photo-panneau.py`, la source étant un cliché pris de
 très près — voir le rapport de tâche 3A-3 pour le recadrage retenu.
 
-`panneau-ab7-fin-priorite` est une exception mesurée, pas un oubli : son sommet droit touche
-un talus broussailleux en plein soleil, presque aussi clair que le listel à contre-jour à cet
-endroit précis (14,7 clair / 9,1 sombre, sous le plancher de 25 en sombre), quand les trois
-autres sommets et le pictogramme passent tous largement (29,8 à 69,5 en sombre). Cinq sources
+`panneau-ab7-fin-priorite` est une exception mesurée, pas un oubli, et un balayage dense
+(méthode v3, 113 points) la montre plus étendue que l'ancien relevé ponctuel ne le disait.
+L'arête de tôle échoue sur 55 des 113 points, contre le ciel et la forêt, avec un pire point
+à **−2,3 clair / 0,5 sombre** — le relevé d'origine, pris à un seul sommet (le droit,
+contre un talus broussailleux en plein soleil), ne disait que 14,7 clair / 9,1 sombre. La
+bordure noire échoue séparément sur 18 points, contre une forêt sombre en bas à gauche et en
+haut à droite (−0,3 clair / −0,1 sombre à son pire) — un défaut jamais publié avant ce
+balayage. Le pictogramme, lui, passe largement (29,8 à 69,5 en sombre). Cinq sources
 Commons de repli ont été essayées (Douvaine, Brugheas, Bernin ×2, Marcigny) et chacune portait
 un défaut au moins aussi grave — panonceau collé, balise de chantier, mât à cinq panneaux,
 prise de vue en contre-plongée — donc celle-ci est restée, en connaissance de cause (rapport
@@ -1450,8 +1454,12 @@ pictogramme n'existe pas sur une AB3a ; la paire mesurée à sa place est la bor
 contre le champ blanc intérieur, large (146 clair / 90 sombre).
 
 `panneau-ab6-route-prioritaire` vient de la Route de Mâcon à St Cyr Menthon (Chabe01, même
-site que `panneau-c1a-parking`) : listel contre ciel bleu franc, 75 clair / 46 sombre ;
-champ contre le losange jaune, 50 clair / 31 sombre. Les deux passent confortablement.
+site que `panneau-c1a-parking`) : champ contre le losange jaune, 50 clair / 31 sombre —
+confortable, et c'est cette paire qui porte la réponse. Le listel contre le ciel est l'une
+des sept exceptions de cadrage relevées plus haut : à son pire point, l'arête de tôle tombe
+à 0,1 clair / 0,1 sombre, et 74 des 113 points balayés autour d'elle échouent sous 25 en
+sombre ; la bordure noire échoue séparément à trois points, contre une clôture ou des
+bâtiments en bas.
 
 Le second AB7 demandé (« un autre exemplaire » que `panneau-ab7-fin-priorite`, pour ne pas
 faire servir un même cliché à deux cartes) n'a pas été créé. Cinq candidats supplémentaires
@@ -1479,13 +1487,17 @@ entier et pas un point isolé (chiffres ci-dessous) — pire que celui-ci, pas m
 Deux paires d'écart sont mesurées, sur l'image livrée (`clair@3x.jpg`, 1152 × 864, et
 `sombre@3x.jpg` qui en dérive) :
 
-- **Listel contre le fond qui le touche**, à son pire endroit. Côté gauche, contre un ciel
-  bleu franc : 219,5 (listel) contre 152,7 (ciel), écart **66,8 clair / 41,4 sombre** —
-  confortable. Côté droit, à contre-jour, contre des feuillages d'automne dépareillés (soleil
-  et ombre mêlés) : le listel lui-même s'assombrit sur ce flanc, à 124–163 selon le point, là
-  où il lit 200–220 ailleurs sur le même panneau ; comparé au fond qui le touche à cet
-  endroit, l'écart tombe à un point mesuré à **16 en sombre** — **sous le plancher de 25**,
-  sur un flanc entier plutôt qu'un point isolé comme le sommet de l'AB3a ci-dessus.
+- **Listel contre le fond qui le touche**, balayé sur tout le pourtour (101 points, méthode
+  v3) : **42 d'entre eux tombent sous 25 en sombre**, sur les deux flancs, pas un seul. Le
+  relevé ponctuel d'origine disait le flanc **gauche** confortable contre un ciel bleu franc
+  (219,5 listel contre 152,7 ciel, écart 66,8 clair / 41,4 sombre) ; le balayage dense y
+  trouve pourtant son pire point de tout le pourtour, là où le listel se confond avec le ciel
+  et tombe même en dessous : écart **−1,3 clair / −1,0 sombre**. Côté droit, à contre-jour,
+  contre des feuillages d'automne dépareillés (soleil et ombre mêlés) et le mât gris du
+  support : le listel lui-même s'assombrit sur ce flanc, à 124–163 selon le point, là où il
+  lit 200–220 ailleurs sur le même panneau ; comparé au fond qui le touche à cet endroit,
+  l'écart tombe à un point mesuré à **16 en sombre** — sous le plancher de 25 lui aussi, mais
+  plus le pire des deux flancs depuis ce balayage.
 - **Pictogramme (vélo + flèche, jaune) contre le champ blanc.** Mesuré directement sur
   `sombre@3x.jpg` : les roues du vélo à 115–116, le champ blanc à 138 (zone propre à
   660,140), soit un écart de **36,6 clair / 22,7 sombre** — **sous le plancher**, mais ce
@@ -1534,14 +1546,26 @@ côte, faute de quoi la carte enseignerait l'exemplaire plutôt que la famille. 
 **`panneaux-ronds-bord-rouge`** vient de l'entrée du tunnel d'Uriol (A51, Isère) : sur un même
 site, un panneau à 200 m, une limitation à 70, une limitation à 110, une interdiction de
 dépasser pour les poids lourds et un arrêt-et-stationnement-interdit (disque **bleu**, pas
-blanc) — cinq discs cerclés de rouge, cinq pictogrammes différents, la dernière démontrant que
+blanc) — cinq disques cerclés de rouge, cinq pictogrammes différents, la dernière démontrant que
 le liseré décide, pas la couleur du centre. Le panneau bleu carré « Tunnel d'Uriol » et son
 panonceau de distance, plantés entre les postes, restent dans le cadre : ils ne sont d'aucune
 famille de ce lot, leur forme carrée les distingue sans ambiguïté, et les exclure aurait
 demandé un recadrage impossible (les trois postes ne s'alignent pas à la même hauteur).
-Relevé de luminance sur trois des cinq (`70`, l'interdiction poids lourds, l'arrêt-interdit) :
-écart listel/feuillage ≥ 43 en clair et ≥ 28 en sombre à leur point le plus faible, largement
-au-dessus du plancher de 25. Le disque `110`, plus proche de la roche du tunnel et donc à
+
+**Trois des cinq (`70`, l'interdiction poids lourds, l'arrêt-interdit) sont en réalité des
+exceptions de cadrage**, et non les valeurs confortables publiées jusqu'ici : au pire point
+de leur pourtour, contre le feuillage qui les touche, l'écart tombe à **7,8 clair / 5,3
+sombre** pour le `70` (17 des 84 points balayés sous 25 en sombre), **10,1 / 7,7** pour
+l'interdiction poids lourds (19 des 99), **13,4 / 6,5** pour l'arrêt-interdit (7 des 90). Ce
+que la famille garde malgré tout, vérifié directement sur l'image livrée : le liseré rouge
+reste net contre son propre listel blanc, indépendamment du décor. Sa médiane (32 à 38 en
+clair, 20 à 23 en sombre selon le disque) se détache de celle du listel blanc qui le borde
+(156 à 164 en clair, 95 à 101 en sombre) par 75 à 126 points selon le disque et le mode,
+largement au-dessus du plancher — c'est ce contraste-là, interne au disque, qui porte encore
+le trait de famille que la carte interroge, pas le disque contre son décor. L'arrêt-interdit
+n'a qu'un listel fin pour cela : son champ bleu ne se sépare de la croix rouge que faiblement
+(17,4 clair / 11,1 sombre), la même exception structurelle que sur B6a1 et B6d plus haut. Le
+disque `110`, plus proche de la roche du tunnel et donc à
 l'ombre, ne passe pas ce plancher sur une partie de son pourtour — au pire point, le listel
 y est même plus sombre que la roche qui le touche (−0,5 en clair, −0,9 en sombre) : il
 reste dans le cadre à titre de contexte, mais la carte ne s'appuie pas sur lui — c'est un
@@ -1594,11 +1618,16 @@ ci-dessus, douze minutes plus tard sur l'appareil, mais ce disque-ci n'a pas de 
 rouge (fond blanc, filet et oblique noirs, 4e partie art. 47) : cadré contre des branches,
 un pan de ciel et des bottes de foin, il n'a pas le défaut du B14 du même site. Champ
 contre pictogramme (zones 20×20) : 220,1 clair / 136,0 sombre contre 55,8 / 33,9. Champ
-contre le fond qui le touche, à son pire endroit relevé : feuillage à gauche (131,9 / 81,6,
+contre le fond qui le touche, aux quatre points relevés : feuillage à gauche (131,9 / 81,6,
 écart 88,2 / 54,4), collines embrumées à droite (113,4 / 69,9, écart 106,7 / 66,1), branche
-en haut (157,6 / 97,1, écart 65,4 / 40,6 — le point le plus faible, une branche sèche qui
-laisse filtrer un peu de ciel), bottes de foin en bas (47,6 / 29,0, écart 154,0 / 95,6).
-Tous passent le plancher de 25, dans les deux modes.
+en haut (157,6 / 97,1, écart 65,4 / 40,6 — une branche sèche qui laisse filtrer un peu de
+ciel), bottes de foin en bas (47,6 / 29,0, écart 154,0 / 95,6) — ces quatre-là passent le
+plancher de 25, dans les deux modes. Un balayage dense (méthode v3) en trouve un
+cinquième, que ces quatre points manquaient : contre le ciel à droite et le feuillage au
+soleil, l'arête claire extérieure du listel (3 à 4 px) est de la teinte même du fond
+(2,4 clair / −1,7 sombre à son pire), et 33 des 113 points balayés tombent sous 25 en
+sombre. Une exception de cadrage de plus : le champ contre le pictogramme reste large
+(220,1 clair / 136,0 sombre contre 55,8 / 33,9) et porte seul la réponse.
 
 **`panneau-b30-zone-30`** vient de [Commons — Zone 30 près gare Moulins](https://commons.wikimedia.org/wiki/File:Zone_30_pr%C3%A8s_gare_Moulins_2015-08-26.JPG)
 (Tabl-trai, CC BY-SA 3.0, 2015-08-26, 2816 × 2112) : le panneau, seul sur son poteau, sans
@@ -1640,7 +1669,11 @@ gauche (écart 72,7 / 40,2), 82,4 / 55,0 contre 152,5 / 93,8 à droite (écart 7
 en moyenne (écart 169,6 / 104,9). Un arbre touche presque l'angle bas-gauche arrondi du
 panneau mais ne le touche pas (vérifié à l'œil) ; le bas du panneau donne sur son propre
 poteau et sa ferrure de fixation, jamais mesurés comme un fond dans ce dossier — ni ici.
-Aucun défaut de luminance à documenter sur ce candidat.
+Un balayage dense (méthode v3) trouve pourtant un point que ces relevés ne portaient pas :
+la bande rouge, en bas du cadre et au coin haut droit, se détache du ciel qui la touche par
+seulement **−28,9 clair / −17,4 sombre** à son pire — plus sombre que ce ciel, pas plus
+claire —, sur 3 des 115 points balayés. Une exception de cadrage de plus : le champ contre
+le pictogramme (242,6 / 149,8 contre 73,0 / 44,9) porte seul la réponse.
 
 ### Le C111 et son panonceau de longueur (tâche 10, 2026-09-24)
 
