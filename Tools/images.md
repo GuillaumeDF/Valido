@@ -74,7 +74,7 @@ dessine une fois, pas une fois par scène.
 | `stationnement-voie-bus` | vue de dessus : chaussée à deux voies, la voie de droite réservée aux bus — séparée de la voie générale par une **T3** et marquée « BUS » au sol —, **vide** ; le candidat dans la voie générale | maison, aucune source tierce |
 | `inter-files` | vue de dessus : chaussée à deux voies du même sens, une file de voitures qui avancent dans chacune, une **moto** — corps étroit, guidon transversal, casque du pilote — roulant entre les deux, **en niveaux de gris** | maison, aucune source tierce |
 
-### Les trois scènes de `Feux` (tâche 5A, 2026-09-23)
+### Les trois scènes de `Feux`
 
 Trois scènes ajoutées, aucune carte touchée (`Valido/Resources/questions.json` reste à
 `git diff --stat` vide tout au long de la tâche). Deux fonctions partagées, pour que rien ne
@@ -174,7 +174,7 @@ clair, 103,1 en sombre) comme contre la chaussée (42,1 / 24,1).
 
 Toutes les valeurs dépassent 25 points, dans les deux modes.
 
-### Les cinq scènes de configuration de « Priorités & intersections » (tâche 4B, 2026-09-23)
+### Les cinq scènes de configuration de « Priorités & intersections »
 
 Cinq scènes ajoutées à `Tools/Scenes/ScenesCarrefour.swift`, sans toucher à aucune carte
 existante. Trois fonctions partagées, pour que rien ne se recopie :
@@ -290,7 +290,7 @@ tirets même sans lui.
   du texte du panneau — l'antialiasing d'un glyphe, jamais une figure mesurée sur un
   remplissage plein.
 
-### Les quatre scènes d'usagers (tâche 15, 2026-08-26)
+### Les quatre scènes d'usagers
 
 Premier lot de scènes qui mettent en présence des usagers de **tailles très différentes** —
 un poids lourd de dix mètres et un cycliste de moins de deux. L'échelle change donc d'une
@@ -431,7 +431,7 @@ que du décor, aucune option n'y renvoie. Même règle pour les trois autres —
 sas sont à y = 152 et 200, le clignotant arrière du bus à y = 162, le cycliste et la voiture de
 la scène de dépassement entre y = 97 et 212.
 
-### Les quatre scènes de croisement et dépassement (tâche 16, 2026-08-26)
+### Les quatre scènes de croisement et dépassement
 
 Trois vues de dessus et **une vue de profil**, et ce partage est le point à comprendre
 avant tout le reste. Le brief demandait une paire — même route, visibilité coupée par le
@@ -568,7 +568,7 @@ interdit. Même raison pour l'absence de véhicule derrière le sommet de côte 
 dessiner un véhicule caché, et le montrer ferait croire que c'est sa présence qui interdit
 le dépassement, alors que R414-11 interdit précisément parce qu'on l'ignore.
 
-### Les trois scènes de tunnel et de passage à niveau (tâche 17, 2026-08-26)
+### Les trois scènes de tunnel et de passage à niveau
 
 Deux vues de dessus et **un objet vu de face**, et ce partage n'est pas un choix de style :
 le seul fait que porte la troisième scène est le **nombre de bandes** d'une balise, qui est
@@ -1015,7 +1015,7 @@ question, qui n'est plus illustrée. Contrairement aux deux orphelins de la sect
 (`giratoire-sortie-clignotant`, `ligne-jaune-continue`), ce n'est pas un dessin correct en
 attente d'emploi : il ne resservira pas.
 
-### Quatre scènes de marquage : trois lignes, un zébra occupé (tâche 3B-1, 2026-09-23)
+### Quatre scènes de marquage : trois lignes, un zébra occupé
 
 Un marquage se dessine, il ne se photographie pas — c'est la ligne de partage de tout le
 chantier des illustrations (les seize panneaux remplacés par une photographie l'ont été
@@ -1085,14 +1085,16 @@ plutôt qu'en une seule zone moyennée. Aucune des quatre scènes ne repose sur 
 seule : la polarité (marquage clair sur chaussée sombre, véhicule à mi-chemin des deux mais
 à plus de 25 points de chacune) est identique dans les deux modes.
 
-### Les trois types de route hors agglomération (tâche 6B, 2026-09-23)
+### Les trois types de route hors agglomération
 
 Trois fondations de `Vitesse` décrivaient en mots, sur 99 à 109 caractères, une
 configuration de chaussée dont la vitesse par défaut dépend entièrement : une voie par sens
 (`37fe1af42b8d817994d5f81863c7e6ae`, 80 km/h), deux voies dans le sens du candidat sans
 terre-plein (`f7370daabea929065f6b2586ca3eea91`, 90 km/h), deux chaussées séparées par un
 terre-plein central (`fed604fe7c4b8b3b96adc066a7902138`, 110 km/h). Aucune carte n'a été
-touchée par cette tâche — une tâche ultérieure les pose.
+touchée par cette tâche elle-même : une tâche ultérieure les a illustrées, et les trois
+portent aujourd'hui ces scènes (`route-double-sens`, `route-deux-voies-par-sens`,
+`route-chaussees-separees`).
 
 **Une famille, une fonction.** `sceneRoute(_:)` (`Tools/Scenes/ScenesPanneaux.swift`), sur le
 modèle direct de `sceneLigne` : la configuration en paramètre, `ligneT1` et `ligneContinue`
@@ -1211,7 +1213,7 @@ candidat, la ligne T1, sa voiture et le `sol` au-delà n'ont pas bougé d'un pix
 chaussée à gauche de cette ligne porte maintenant, en plus de la configuration, le véhicule
 d'en face qui la rend lisible sans les deux autres scènes sous les yeux.
 
-### La chaussée à trois voies de `Croisement & dépassement` (tâche 7, 2026-09-24)
+### La chaussée à trois voies de `Croisement & dépassement`
 
 Une quatrième configuration ajoutée à `ConfigurationDeRoute` (`ScenesPanneaux.swift`),
 `.troisVoiesDoubleSens`, plutôt qu'une nouvelle fonction : elle réutilise `sceneRoute`, la
@@ -1263,7 +1265,7 @@ valeurs dépassent le plancher de 25 points, dans les deux modes ; l'écart le p
 (25,5, véhicule lent en clair) reste au-dessus, mesuré sur un point pur du corps du
 véhicule, hors pare-brise.
 
-### Les deux scènes d'« Arrêt & stationnement » (tâche 8, 2026-09-24)
+### Les deux scènes d'« Arrêt & stationnement »
 
 Deux scènes ajoutées à `Tools/Scenes/ScenesCirculation.swift`, aucune scène existante
 touchée : après rendu, `git status --porcelain -- Valido/Assets.xcassets` ne montre que
@@ -1429,7 +1431,7 @@ balayage. Le pictogramme, lui, passe largement (29,8 à 69,5 en sombre). Cinq so
 Commons de repli ont été essayées (Douvaine, Brugheas, Bernin ×2, Marcigny) et chacune portait
 un défaut au moins aussi grave — panonceau collé, balise de chantier, mât à cinq panneaux,
 prise de vue en contre-plongée — donc celle-ci est restée, en connaissance de cause (rapport
-de tâche 3A-3, fix round 1).
+de tâche 3A-3).
 
 `panneau-c113-voie-velo` reste au plancher de `photo-panneau.py` et n'occupe qu'environ 16 %
 de la largeur du bandeau, là où le reste du dossier avoisine la moitié : c'est la taille du
@@ -1438,7 +1440,7 @@ cadrées plus près ont été essayées et écartées, chiffres à l'appui — A
 oppose le listel à un ciel laiteux qui tombe à 24,5 clair / 15,2 sombre, sous le plancher des
 deux côtés ; Bellerive (25 %) oppose le listel (195,2) à un mur crépi clair qui le dépasse
 (211,1), un écart négatif. Un panneau plus grand mais illisible en niveaux de gris n'aurait
-rien réglé (rapport de tâche 3A-3, fix round 1).
+rien réglé (rapport de tâche 3A-3).
 
 Ces vingt-cinq passeraient une diffusion telles quelles : CC BY-SA (ou CC BY) demande
 l'attribution (ce tableau la porte) et le partage à l'identique des seules œuvres dérivées
@@ -1447,8 +1449,8 @@ Un recadrage en est une — donc si l'app est un jour distribuée, l'attribution
 apparaître dans l'app, pas seulement ici.
 
 Le lot suivant (AB3a, AB6, un second AB7, M12, tâche 4A) ouvre le second domaine,
-`Priorités & intersections`. Il ne pose aucune carte : les quatre imagesets sont neufs,
-préparés pour une tâche ultérieure (4C) qui réécrira les cartes correspondantes.
+`Priorités & intersections`. Il ne pose aucune carte lui-même : les quatre imagesets sont
+neufs, préparés pour la tâche 4C, qui a depuis réécrit les cartes correspondantes.
 
 `panneau-ab3a-cedez-le-passage` vient de Borly (RD183-907, Marc Mongenet) : le triangle
 s'y détache sur des conifères sombres plutôt que sur le ciel, ce qui donne un écart large sur
@@ -1487,7 +1489,7 @@ M1, J13, D42b, SU2), non isolées, et sous le plancher en résolution ; `Loupes 
 2015a.jpg` porte l'AB7 juste au-dessus de deux plaques de lieu-dit collées sans espace, comme
 le mât de Bernin déjà écarté. Aucun candidat restant dans la catégorie Commons `AB7 (road
 sign, France)` (~75 fichiers, majoritairement des panneaux d'agglomération sans rapport,
-faux positifs de catégorie). 4C laissera cette carte-là en texte.
+faux positifs de catégorie). Cette carte reste donc en texte.
 
 `panonceau-m12-cyclistes` vient de l'avenue Pépinière à Fontenay-sous-Bois (Chabe01).
 **Elle montre le panonceau monté au-dessus du feu, pas en dessous** — le montage le moins
@@ -1530,7 +1532,7 @@ Deux paires d'écart sont mesurées, sur l'image livrée (`clair@3x.jpg`, 1152 �
   point mesuré donne un listel **plus sombre que le fond** (listel 134,4 contre fond 149,6,
   soit un écart négatif) ; le meilleur point du balayage plafonne à 31,2 clair / 19,3 sombre.
   Sur l'ensemble des deux flancs, aucun point ne dépasse 25 en sombre. Net échec, pas gardé —
-  généré une fois pour mesure (`eval-m12-massy`), supprimé avant tout commit.
+  généré une fois pour mesure (`eval-m12-massy`), non conservé.
 - `Panonceau M12 Avenue Maréchal Joffre - Fontenay-sous-Bois (FR94) - 2020-09-08 - 1.jpg`
   (Chabe01, CC BY-SA 4.0, feu bas rouge allumé, panonceau au-dessus — donc pas davantage
   « sous son feu » que le candidat retenu, contrairement à une première lecture) : listel
@@ -1540,7 +1542,7 @@ Deux paires d'écart sont mesurées, sur l'image livrée (`clair@3x.jpg`, 1152 �
   le flanc gauche alterne des points proches de zéro et une plage à +60/+70 clair (38-44
   sombre) selon la texture du béton à cet endroit précis — trop instable pour qualifier
   « un point isolé ». Ni meilleur ni pire que Massy dans l'ensemble, pas gardé — généré une
-  fois pour mesure (`eval-m12-joffre`), supprimé avant tout commit.
+  fois pour mesure (`eval-m12-joffre`), non conservé.
 
 Les trois partagent le même trait : le listel d'un panonceau M12 est un cadre métallique mat,
 pas la sheeting rétroréfléchissante très blanche des panneaux de forme, donc son écart au
@@ -1548,7 +1550,7 @@ fond ne bénéficie jamais de la marge large observée sur AB4, AB6 ou C1a — e
 (rue, mât, feuillage) est plus proche en luminance d'un tel listel qu'un ciel ou un champ
 agricole ne le serait.
 
-### Les cartes de famille : un mât qui en porte plusieurs (tâche 3B-2)
+### Les cartes de famille : un mât qui en porte plusieurs
 
 « Un panneau rond à bord rouge indique : » ne s'illustre pas avec un seul panneau : la règle
 du [§7](questions.md#7-les-questions-illustrées) exige trois instances de la famille côte à
@@ -1604,7 +1606,7 @@ a trouvé deux candidats (`C12`+`C24a`, `C62`+`C64d`), mais jamais trois. Le fon
 n'a trouvé que des paires de codes `AK` sur des mâts de chantier différents, jamais trois panneaux
 jaunes groupés sur un seul poste. Aucune des quatre n'a donc été forcée.
 
-### Les trois derniers panneaux dessinés : la vitesse (tâche 6A, 2026-09-23)
+### Les trois derniers panneaux dessinés : la vitesse
 
 `panneau-b14-limitation`, `panneau-b33-fin-limitation` et `panneau-b30-zone-30` referment
 la liste des panneaux **isolés** dessinés en CoreGraphics : les scènes qui restent sous
@@ -1672,7 +1674,7 @@ essayé et abandonné : sur la source, le bord bas du panneau et le haut du pano
 séparés que de 6 à 10 px (montage sans jeu), et le premier pixel net de texte
 (« PRIORITÉ ») commence à peu près là où finit le liseré rouge — couper là aurait rogné le
 panneau lui-même, pas seulement le panonceau. Aucun fichier de ce candidat n'a été commité ;
-il a été retiré avant la clôture de la tâche 6A (fix round 1).
+il a été retiré avant la clôture de la tâche 6A.
 
 Sur le Moulins retenu, listel contre ciel : 81,8 / 55,1 clair/sombre contre 154,5 / 95,3 à
 gauche (écart 72,7 / 40,2), 82,4 / 55,0 contre 152,5 / 93,8 à droite (écart 70,1 / 38,8),
@@ -1687,7 +1689,7 @@ seulement **−28,9 clair / −17,4 sombre** à son pire — plus sombre que ce 
 claire —, sur 3 des 115 points balayés. Une exception de cadrage de plus : le champ contre
 le pictogramme (242,6 / 149,8 contre 73,0 / 44,9) porte seul la réponse.
 
-### Le C111 et son panonceau de longueur (tâche 10, 2026-09-24)
+### Le C111 et son panonceau de longueur
 
 Les deux premières photographies de `Tunnels & passages à niveau` : le C111 seul et le même
 panneau accompagné de son panonceau de longueur. Aucune scène dessinée ne portait de C111
