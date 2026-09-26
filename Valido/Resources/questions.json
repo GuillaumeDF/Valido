@@ -63,7 +63,7 @@
     "explanation": "La couronne rouge marque la défense, et elle joue où on la lit : l'interdiction vaut pour qui passe devant le panneau, sans rien à anticiper. Et elle ne s'arrête pas au panneau : elle commence là et continue au-delà.",
     "id": "37fe1af42b8d81059d80e8954b36ed7f",
     "illustration": {
-      "alt": "Quatre panneaux ronds cerclés de rouge, plantés côte à côte : deux limitations de vitesse, une interdiction de dépasser pour les poids lourds, un arrêt et stationnement interdits à fond bleu.",
+      "alt": "Cinq panneaux ronds cerclés de rouge : un disque d'interdistance, deux limitations de vitesse, une interdiction de dépasser pour poids lourds, un arrêt-stationnement interdit à fond bleu ; à part, un panneau carré bleu de tunnel, sa plaque de nom et un panonceau.",
       "asset": "panneaux-ronds-bord-rouge"
     },
     "notion": "panneaux/formes",
@@ -9392,7 +9392,7 @@
     "explanation": "Il ne vise que le fait de laisser le véhicule là, du bord qui porte le panneau : un panneau ne parle qu'aux usagers de son côté. S'immobiliser un instant, conducteur au volant, reste possible sous ce disque.",
     "id": "1658abbc16db4667fec7211f8c9b0f93",
     "illustration": {
-      "alt": "Photographie d'un disque bleu cerclé de rouge, barré d'une oblique rouge unique, fixé devant une haie et un toit de tuiles.",
+      "alt": "Photographie d'un disque bleu cerclé de rouge, barré d'une oblique rouge unique, fixé devant une haie et un toit de tuiles ; un panonceau « 30 m » partiellement visible en bas du cadre.",
       "asset": "panneau-b6a1-stationnement-interdit"
     },
     "notion": "panneaux/portee",

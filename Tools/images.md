@@ -1091,6 +1091,10 @@ Commons. `panneau-b1-sens-interdit` provient d'un JPEG livré en orientation EXI
 l'EXIF, donc cette source a d'abord été réécrite bit à bit avec `PIL.ImageOps.exif_transpose`
 avant tout centre de recadrage, sans quoi le panneau livré aurait tourné de 90°. Les trois
 autres sources n'ont pas ce piège (orientation EXIF 1, pixels bruts déjà à l'endroit).
+Le recadrage de `panneau-b6a1-stationnement-interdit` laisse un panonceau M8d (« 30 m »,
+sens de la flèche) partiellement lisible en bas du cadre : aucune option de la banque ne
+s'appuie sur cette distance (vérifié sur `1658abbc16db4667fec7211f8c9b0f93`,
+`7d44f7dd303fce58716234cba54480b1` et `5abe2f7853853a6744f3a71425a0ba6e`).
 
 | asset | source | auteur | licence | relevé le | résolution d'origine |
 |---|---|---|---|---|---|
