@@ -10,9 +10,10 @@ Valido dans le bus au lieu d'Instagram.
 Projet perso, iOS 26.2, SwiftUI, Swift 6.
 
 <p align="center">
-  <img src="docs/images/carte-texte.png" width="250" alt="Une carte Swift : « Dans du code Swift concurrent, await marque : », quatre options">
-  <img src="docs/images/carte-schema.png" width="250" alt="Une carte illustrée par un schéma dessiné : un carrefour avec STOP, « À ce panneau, vous devez : »">
-  <img src="docs/images/carte-photo.png" width="250" alt="Une carte illustrée par une photo : un panneau de virage, « Ce panneau indique : »">
+  <img src="docs/images/feed.gif" width="200" alt="Le feed en mouvement : on répond à une carte, l'explication apparaît, on balaie vers la suivante">
+  <img src="docs/images/carte-texte.png" width="200" alt="Une carte Swift : « Dans du code Swift concurrent, await marque : », quatre options">
+  <img src="docs/images/carte-schema.png" width="200" alt="Une carte illustrée par un schéma dessiné : un carrefour avec STOP, « À ce panneau, vous devez : »">
+  <img src="docs/images/carte-photo.png" width="200" alt="Une carte illustrée par une photo : un panneau de virage, « Ce panneau indique : »">
 </p>
 
 ---
