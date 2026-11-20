@@ -4,10 +4,10 @@ Une ligne par imageset de `Valido/Assets.xcassets/Scenes/`. `Tools/audit.py` ref
 `illustration` dont l'asset n'a pas sa ligne ici : sans ce relevé une image est orpheline,
 donc impossible à remplacer et impossible à re-sourcer si les conditions changent.
 
-L'app est compilée en local, pour un seul usage, et n'est ni distribuée ni vendue. C'est
-sur cette base que des images sous licence non permissive sont admissibles. **Le jour où
-une diffusion est envisagée, ce tableau est la liste des choses à re-sourcer** — et la
-colonne « licence » dit lesquelles passent telles quelles.
+Le dépôt est public : une image n'y entre que sous une licence qui en permet la
+diffusion. Toutes les photographies sont aujourd'hui en CC BY-SA ou CC BY, qui l'autorisent
+à condition de citer l'auteur, la source et la licence — ce tableau est cette attribution.
+Elles ne sont pas couvertes par la licence MIT du code et gardent leur licence d'origine.
 
 ## Schémas dessinés
 

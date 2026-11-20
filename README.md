@@ -154,3 +154,10 @@ n'est pas une fonctionnalité, c'est la génération de questions depuis les pag
 qui alimentera le même `questions.json`.
 
 Reportés, assumés : carte boss, duel, notifications, écran de statistiques, onboarding.
+
+## Licence
+
+Le code est sous licence [MIT](LICENSE). Les 25 photographies de
+`Valido/Assets.xcassets/Scenes/` viennent de Wikimedia Commons et gardent leur licence
+d'origine (CC BY-SA ou CC BY) ; auteur, source et licence de chacune sont dans
+[`Tools/images.md`](Tools/images.md).
