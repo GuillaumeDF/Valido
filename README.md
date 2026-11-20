@@ -9,6 +9,12 @@ Valido dans le bus au lieu d'Instagram.
 
 Projet perso, iOS 26.2, SwiftUI, Swift 6.
 
+<p align="center">
+  <img src="docs/images/carte-texte.png" width="250" alt="Une carte Swift : « Dans du code Swift concurrent, await marque : », quatre options">
+  <img src="docs/images/carte-schema.png" width="250" alt="Une carte illustrée par un schéma dessiné : un carrefour avec STOP, « À ce panneau, vous devez : »">
+  <img src="docs/images/carte-photo.png" width="250" alt="Une carte illustrée par une photo : un panneau de virage, « Ce panneau indique : »">
+</p>
+
 ---
 
 ## Ce qui tourne
@@ -20,7 +26,7 @@ terminé ! » est une porte de sortie.
 **464 questions** embarquées dans le bundle : 271 sur le code de la route, 193 sur
 Swift/iOS. Aucun réseau, aucun compte, aucun secret dans l'app.
 
-**Quarante-neuf** de ces questions ont leur énoncé **dans une image** — carrefour, panneau,
+**Soixante-seize** de ces questions ont leur énoncé **dans une image** — carrefour, panneau,
 marquage, vue conducteur. Sans l'image, « qui passe en premier ? » n'a pas de sens : elle
 n'illustre pas, elle énonce.
 
@@ -35,19 +41,19 @@ design sont sous [`docs/superpowers/specs/`](docs/superpowers/specs/).
 
 ```
 Valido/
-  Model/       20 types, tous `nonisolated` — QuestionBank, CardScheduler,
+  Model/       types tous `nonisolated` — QuestionBank, CardScheduler,
                ComboEngine, ProgressStore, SchedulerConfig, Illustration…
   ViewModel/   FeedViewModel, @MainActor
   View/        FeedView, QuestionCardView, ComboBadge, ContentErrorView, NotionBadge,
                SourceFilterView
   Resources/   questions.json
-  Assets.xcassets/Scenes/   51 imagesets : 49 schémas dessinés, 2 photos
-ValidoTests/   82 tests (Swift Testing)
+  Assets.xcassets/Scenes/   77 imagesets : 52 schémas dessinés, 25 photos
+ValidoTests/   84 tests (Swift Testing)
 Tools/         guide de rédaction, rendu des schémas, audit, provenance des images,
                registre de fraîcheur, carte de couverture du référentiel, registre
                des notions
 design/logo/   render-icon.swift, le rendu de l'icône
-docs/          les cinq specs de design
+docs/          les specs de design, les captures du README
 ```
 
 La cible compile avec `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor`, ce qui isolerait aussi
@@ -60,22 +66,29 @@ disque est compilé sans toucher au `.pbxproj`.
 
 ## Lancer et tester
 
+Xcode avec le SDK iOS 26.2 :
+
 ```bash
-DEVELOPER_DIR=/Applications/Xcode-27.0.0.app xcodebuild test \
-  -project Valido.xcodeproj -scheme Valido \
-  -destination 'platform=iOS Simulator,id=66921B37-1805-4988-AB69-B51A94490BC0'
+xcodebuild test -project Valido.xcodeproj -scheme Valido \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2'
 ```
 
-Un échec sur `Application failed preflight checks` / `Busy` sans qu'aucun test n'ait tourné
-est un simulateur coincé, pas une régression : le démarrer d'abord avec le même
-`DEVELOPER_DIR` et cet UDID (`xcrun simctl boot 66921B37-1805-4988-AB69-B51A94490BC0`) —
-viser l'UDID, jamais le nom, trois runtimes déclarant chacun un `iPhone 17 Pro` et un seul
-satisfaisant la cible 26.2. Et ne juger que la ligne `✔ Test run with N test(s)` : un
+Juger la ligne `✔ Test run with N tests` : Swift Testing rapporte à part, et un
 `** TEST SUCCEEDED **` sans elle ne prouve rien.
 
 `CardScheduler` reste la pièce la plus testée, et elle est écrite pour ça — répartition
 70/30 sur 1000 tirages à graine fixe, fenêtre anti-répétition, question jamais vue qui
 passe devant, question maîtrisée qui reste tirable, banque plus petite que la fenêtre.
+
+## Comment ce projet est construit
+
+Le code est écrit par [Claude Code](https://claude.com/claude-code). Mon travail est en
+amont et en aval : j'écris les specs ([`docs/superpowers/specs/`](docs/superpowers/specs/)),
+je tranche l'architecture, je relis et je valide chaque étape. Le déroulé est toujours le
+même : spec, plan découpé en tâches testables, exécution, revue de la branche entière. Les
+décisions ne restent pas dans les specs : chacune vit en commentaire sur le type qu'elle
+contraint, et [`CLAUDE.md`](CLAUDE.md) porte ce qu'il faut savoir pour travailler dans le
+dépôt.
 
 ## Les questions
 
@@ -114,7 +127,7 @@ Deux origines, un seul champ dans le modèle (`Illustration` : un nom d'asset et
 et **aucun réseau** — tout est dans le catalogue d'assets, `URLSession` n'existe nulle
 part dans le projet.
 
-**Quarante-neuf schémas dessinés** par `./Tools/render-scenes.sh`, en CoreGraphics, sur le
+**Cinquante-deux schémas dessinés** par `./Tools/render-scenes.sh`, en CoreGraphics, sur le
 modèle de `design/logo/render-icon.swift`. C'est le choix qui compte : la scène et la bonne
 réponse sortent de la même donnée, donc « qui passe en premier » se vérifie au lieu de
 s'espérer. Une photo trouvée et une réponse rédigée sont deux artefacts indépendants qui
@@ -124,9 +137,9 @@ relèvent PDF en main — la géométrie d'un panneau réglementaire est une nor
 un panneau se dessine une fois pour toutes les scènes qui le contiennent. Aucun visuel
 d'éditeur d'ETG n'a été repris.
 
-**Deux photographies** de Wikimedia Commons, recadrées en 4:3, pour ce que le vectoriel ne
-sait pas faire : la vue conducteur. Une seule sert encore — l'autre a cédé la place à un
-dessin, plus lisible sur la bande qui survit au rétrécissement du bandeau.
+**Vingt-cinq photographies** de Wikimedia Commons, recadrées en 4:3. La règle de partage :
+un panneau se photographie, un marquage et une configuration se dessinent — un pictogramme
+normé ne se redessine pas à la main, une géométrie de voies n'existe sur aucune photo.
 
 Aucune information ne repose sur la couleur seule : le véhicule du candidat porte un
 liseré blanc, et les options désignent les autres par leur provenance, pas par leur teinte.
